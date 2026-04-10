@@ -291,6 +291,239 @@
 3. 第三选择：官方 Sample Data 做本地原型，但不作为长期角色。
 4. 不推荐：使用明日方舟、PRTS 或其他游戏 IP 的提取模型作为公开站点资源。
 
+### 6.8 按技术格式划分的模型来源
+
+如果只从“技术上哪里能拿到可用模型”来划分，当前常见来源可以分成下面四类：
+
+#### A. 现代 Live2D Cubism 模型
+
+典型文件结构：
+
+1. `*.model3.json`
+2. `*.moc3`
+3. `*.motion3.json`
+4. `*.exp3.json`
+5. `*.physics3.json`
+6. `*.pose3.json`
+7. `*.cdi3.json`
+8. 纹理图集文件
+
+这类模型是当前方案最理想的来源，能直接进入 `pixi-live2d-display + Cubism 4 Core` 路线。
+
+主要获取侧：
+
+1. Live2D 官方 Sample Data 下载页
+2. `nizima`
+3. `BOOTH`
+4. 作者个人发布页或 GitHub 仓库
+
+耳熟能详且技术上明确属于这一路的角色示例：
+
+1. `Haru`
+2. `Haru (receptionist version)`
+3. `Hiyori Momose`
+4. `Niziiro Mao`
+5. `Hatsune Miku`
+6. `Unity-chan`
+
+风险备注：
+
+1. 虽然技术格式统一，但不同角色的使用条款可能完全不同。
+2. 对站点来说，优先找能提供完整 runtime folder 的模型，而不是只有预览视频或编辑工程图。
+
+#### B. 旧版 Live2D Cubism 2.1 模型
+
+典型文件结构：
+
+1. `*.model.json`
+2. `*.moc`
+3. `*.motion.json`
+4. `*.physics.json`
+5. 贴图资源
+
+这类模型依然能用，因为 `pixi-live2d-display` 支持 Cubism 2.1 和 Cubism 4 两条 runtime 线。
+
+主要获取侧：
+
+1. 老版 Live2D sample
+2. `pixi-live2d-display` 相关示例
+3. 一些旧项目仓库或二次整理仓库
+
+耳熟能详示例：
+
+1. `Shizuku`
+
+风险备注：
+
+1. 老模型资料多、上手快，但画风和动作系统通常偏旧。
+2. 新站如果后续要统一体验，建议把 Cubism 2.1 只作为验证或兼容测试，不作为最终主角色。
+
+#### C. Spine / 游戏角色小人模型
+
+典型文件结构：
+
+1. `*.json` 或 `*.skel`
+2. `*.atlas`
+3. 对应贴图
+
+这类模型不能直接丢给 Live2D runtime，需要改走 Spine runtime。
+
+常见获取侧：
+
+1. 游戏 Wiki 的模型展示页
+2. 游戏资源查看站
+3. 游戏提取仓库
+
+耳熟能详示例：
+
+1. 明日方舟 PRTS 干员小人
+2. 一些手游的战斗 chibi / 基建小人
+
+风险备注：
+
+1. 技术上虽然可运行，但和当前 Live2D 挂件方案是不同技术栈。
+2. 这类资源最容易出现“看得到、跑得起来，但来源和再部署风险都很高”的情况。
+
+#### D. 模型聚合仓库和资源包
+
+常见表现形式：
+
+1. GitHub 聚合仓库
+2. 网盘整理包
+3. 第三方 demo 站点资源目录
+
+技术上常常能直接拿到模型文件，但来源高度混杂。
+
+风险备注：
+
+1. 很适合做技术摸底。
+2. 不适合作为主站长期资产来源基线。
+
+### 6.9 当前方案可直接使用的模型获取面
+
+如果以“能直接给当前 `pixi-live2d-display` 方案用”为标准，优先级如下：
+
+#### 第一层：官方 Sample Data
+
+这是最干净、最适合作为技术原型来源的一层。
+
+原因：
+
+1. 官方页面直接给出用于嵌入的 runtime folder。
+2. 文件结构完整，通常包含 `moc3 / model3.json / motion3.json / exp3.json / physics3.json / cdi3.json`。
+3. 与当前 Web 运行时路线天然兼容。
+
+当前可作为技术储备关注的知名角色：
+
+1. `Haru`
+2. `Haru (receptionist version)`
+3. `Hiyori Momose`
+4. `Niziiro Mao`
+5. `Hatsune Miku`
+6. `Unity-chan`
+7. `Shizuku`
+
+适用建议：
+
+1. `Haru / Hiyori / Mao` 适合现代 Web 挂件原型。
+2. `Shizuku` 适合验证旧格式兼容链路。
+3. `Hatsune Miku / Unity-chan` 适合做知名角色技术样本，但应单独核对角色使用限制。
+
+#### 第二层：示例仓库和 demo 资源
+
+主要是：
+
+1. `pixi-live2d-display` README 和 demo 对应模型
+2. Live2D 官方 `CubismWebSamples`
+3. 作者公开的演示资源目录
+
+技术价值：
+
+1. 能快速验证你的加载代码是否正确。
+2. 适合照着现成示例调试 hit area、motion、拖拽、自动交互等功能。
+
+已确认的关键点：
+
+1. `pixi-live2d-display` README.zh 直接提到其示例模型使用 `Shizuku (Cubism 2.1)` 和 `Haru (Cubism 4)`。
+2. 这意味着当前工程路线同时兼容 `model.json/moc` 和 `model3.json/moc3` 两类模型。
+
+#### 第三层：商店和委托平台
+
+主要是：
+
+1. `nizima`
+2. `BOOTH`
+3. `VGen`
+
+技术价值：
+
+1. 现代 Live2D 模型数量最多的实际来源。
+2. 真正要做长期角色时，这一层比公共 GitHub 更现实。
+
+限制：
+
+1. 不会像官方 sample 那样集中提供统一格式说明。
+2. 需要逐个商品看是否交付完整 runtime folder。
+
+#### 第四层：公开聚合仓库
+
+这层在技术上常常很有用，但只建议当“勘探层”。
+
+用途：
+
+1. 看看常见模型文件目录长什么样。
+2. 测试 loader 是否兼容一些边缘结构。
+3. 估计不同 IP、不同年代模型的组织方式。
+
+限制：
+
+1. 不同仓库里混有官方 sample、原创角色、游戏提取资源和来源不明资源。
+2. 文档里只应把它记为“技术观察源”，不要把它默认当成部署源。
+
+### 6.10 `pixi-live2d-display` 兼容面总结
+
+根据 README.zh 当前可见说明，`pixi-live2d-display` 使用 Cubism 2.1 和 Cubism 4 runtime，因此覆盖：
+
+1. Cubism 2.1：旧格式 `model.json + moc`
+2. Cubism 3 / 4 兼容模型：现代格式 `model3.json + moc3`
+
+这意味着你后续找模型时，技术判断可以先看入口文件：
+
+1. 如果给的是 `xxx.model3.json`，基本在当前主方案范围内。
+2. 如果给的是 `xxx.model.json`，通常也还能接，但属于旧格式。
+3. 如果给的是 `xxx.atlas + xxx.json/skel`，那大概率是 Spine，不在当前 Live2D 主线里。
+
+### 6.11 明日方舟 / PRTS 的技术获取面
+
+如果你的目标非常明确，就是想尽量接近“明日方舟小人”，那技术上当前已确认的信息是：
+
+1. PRTS 角色页确实提供“干员模型”展示。
+2. 角色页源码里存在 `spine-root` 容器和 `SPINEDATA` 标记。
+3. 以阿米娅为例，其 `/spine` 子页面里直接能看到 `prefix: https://static.prts.wiki/spine/`，并附带诸如：
+   - `char/char_002_amiya/char_002_amiya/char_002_amiya`
+   - `char/char_002_amiya/back_char_002_amiya/char_002_amiya`
+   - `char/char_002_amiya/build_char_002_amiya/build_char_002_amiya`
+4. 这说明从“技术获取”角度，PRTS 已经把明日方舟小人的 Spine 资源路径暴露得相当直接。
+
+这部分信息带来的结论是：
+
+1. 如果只说“哪里能拿到技术上可用的模型数据”，明日方舟小人的可观察来源是 `PRTS / static.prts.wiki/spine/` 这一系。
+2. 但这条线拿到的是 Spine 资源，不是 Live2D 资源。
+3. 所以后续如果你执意追求“明日方舟味的小人”，更现实的技术路线是：
+   - 继续坚持 Live2D，但做原创仿气质角色
+   - 或者另开一条 Spine 挂件路线
+
+### 6.12 技术调研结论
+
+如果单看“模型大多在哪边获取”，当前最清晰的地图如下：
+
+1. 现代、结构完整、最适合当前方案的 Live2D 模型，主要在 `Live2D 官方 Sample Data`、`nizima`、`BOOTH`、作者公开发布页。
+2. `pixi-live2d-display` 对接最顺的，是 `model3.json + moc3` 的现代 Cubism 模型。
+3. `Shizuku` 这类旧 `model.json + moc` 模型仍可用于验证兼容链路。
+4. 耳熟能详且技术上最容易直接拿到的官方样例角色，主要包括 `Haru`、`Hiyori Momose`、`Niziiro Mao`、`Hatsune Miku`、`Unity-chan`、`Shizuku`。
+5. 明日方舟小人技术上主要可从 `PRTS / static.prts.wiki/spine/` 这一路观察到，但它属于 Spine，不属于 Live2D。
+6. 因此“想要明日方舟小人”和“想要 Live2D 看板娘”在技术层面并不是同一个问题。
+
 ## 7. 前端集成架构
 
 ### 7.1 推荐文件落点
@@ -489,6 +722,12 @@ Live2D 官方授权需要在正式落地前再次核对。尤其是：
 
 ## 14. 调研参考
 
+补充：
+
+如果要看“哪些模型能被 `pixi-live2d-display` 直接挂载”，请优先看独立文档：
+
+- `plans/pixi-live2d-display-compatible-models-research.md`
+
 ### 14.1 官方与技术资料
 
 1. Live2D Cubism SDK for Web：<https://docs.live2d.com/en/cubism-sdk-manual/cubism-sdk-for-web/>
@@ -501,7 +740,8 @@ Live2D 官方授权需要在正式落地前再次核对。尤其是：
 8. BOOTH Live2D 搜索：<https://booth.pm/en/search/Live2D>
 9. VGen Live2D 委托分类：<https://vgen.co/category/chibi-vtuber-model-rigging/software/live2d>
 10. PRTS 阿米娅页面：<https://prts.wiki/w/%E9%98%BF%E7%B1%B3%E5%A8%85>
-11. PRTS 版权页：<https://prts.wiki/w/PRTS:%E7%89%88%E6%9D%83>
+11. PRTS 阿米娅 Spine 页面：<https://prts.wiki/w/%E9%98%BF%E7%B1%B3%E5%A8%85/spine>
+12. PRTS 版权页：<https://prts.wiki/w/PRTS:%E7%89%88%E6%9D%83>
 
 ### 14.2 工程参考
 
@@ -517,3 +757,4 @@ Live2D 官方授权需要在正式落地前再次核对。尤其是：
 3. 对当前博客而言，非对话型、低打扰的看板娘是最稳的第一阶段方案。
 4. 模型获取上优先考虑 `nizima`、`BOOTH`、委托和官方 Sample Data，不把随机网盘素材作为可维护来源。
 5. PRTS 角色页的小人模型偏 Spine 展示，不是可直接接入 Live2D runtime 的模型资源；明日方舟游戏资产也不应进入公开站点主线。
+6. 如果只看技术获取面，`Live2D Sample Data` 是最清晰的公开 Live2D 来源，而明日方舟小人最清晰的公开观察面则是 `PRTS / static.prts.wiki/spine/` 这条 Spine 线。
