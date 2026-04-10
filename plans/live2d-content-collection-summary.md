@@ -8,7 +8,7 @@
 - 官方 / 上游 9 条基准样本原表没有 `实测尺寸` 与 `远程直挂补测`，这里分别补为 `未记录` 与 `通过`，把来源与入口格式压进备注。
 - 失败表同时收录“真实加载失败”的条目和“已确认不属于 Live2D 直挂输入”的来源级排除项。
 
-当前显式汇总：成功 `159` 条，失败 / 排除 `22` 条。
+当前显式汇总：成功 `183` 条，失败 / 排除 `22` 条。
 
 ## 1. 已收集成功总表
 
@@ -173,6 +173,30 @@
 | 干物妹！小埋 | Umaru | 轻量半身 / 小挂件 | `978 x 1295` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/umaru/model.json` | 通过 | 未补测 | 轻量条目，适合右下角挂件 |
 | Vocal synth / 结月缘 | 结月缘 `yukari_model` | 轻量半身 / 小挂件 | `881 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/yukari_model/yukari_model.model.json` | 通过 | 未补测 | 更轻量的旧版结月缘模型 |
 | Vocal synth / 结月缘 | 结月缘 `YuzukiYukari` | 竖向角色立绘 | `1240 x 1754` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/YuzukiYukari/YuzukiYukari.model.json` | 通过 | 未补测 | 旧格式里更完整的一版，单纹理 |
+| 为美好的世界献上祝福！Fantastic Days | Aqua `1014100aqua` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/Eikanya/Live2d-model/master/为美好的世界献上祝福！Fantastic%20Days/1014100aqua/1014100.model3.json` | 通过 | 未补测 | `Konosuba` 游戏化路线里最明确可落表的一条，单纹理 |
+| Project SEKAI / Vocaloid | 东云绘名 `19ena_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/19ena/19ena_normal/19ena_normal.model3.json` | 通过 | 未补测 | `25 时，Nightcord 见` 基础角色 |
+| Project SEKAI / Vocaloid | 晓山瑞希 `20mizuki_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/20mizuki/20mizuki_normal/20mizuki_normal.model3.json` | 通过 | 未补测 | `25 时，Nightcord 见` 基础角色 |
+| Project SEKAI / Vocaloid | 镜音铃 `22rin_band` | 全身 / 乐队风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/22rin/22rin_band/22rin_band.model3.json` | 通过 | 未补测 | 对应 `Leo/need` 路线变体 |
+| Project SEKAI / Vocaloid | 镜音铃 `22rin_idol` | 全身 / 偶像风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/22rin/22rin_idol/22rin_idol.model3.json` | 通过 | 未补测 | 对应 `MORE MORE JUMP!` 路线变体 |
+| Project SEKAI / Vocaloid | 镜音铃 `22rin_night` | 全身 / 夜曲风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/22rin/22rin_night/22rin_night.model3.json` | 通过 | 未补测 | 对应 `25 时，Nightcord 见` 路线变体 |
+| Project SEKAI / Vocaloid | 镜音铃 `22rin_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/22rin/22rin_normal/22rin_normal.model3.json` | 通过 | 未补测 | Vocaloid 代表条目 |
+| Project SEKAI / Vocaloid | 镜音铃 `22rin_street` | 全身 / 街头风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/22rin/22rin_street/22rin_street.model3.json` | 通过 | 未补测 | 对应 `Vivid BAD SQUAD` 路线变体 |
+| Project SEKAI / Vocaloid | 镜音铃 `22rin_wonder` | 全身 / 游乐舞台风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/22rin/22rin_wonder/22rin_wonder.model3.json` | 通过 | 未补测 | 对应 `Wonderlands x Showtime` 路线变体 |
+| Project SEKAI / Vocaloid | MEIKO `25meiko_band` | 全身 / 乐队风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_band/25meiko_band.model3.json` | 通过 | 未补测 | 对应 `Leo/need` 路线变体 |
+| Project SEKAI / Vocaloid | MEIKO `25meiko_idol` | 全身 / 偶像风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_idol/25meiko_idol.model3.json` | 通过 | 未补测 | 对应 `MORE MORE JUMP!` 路线变体 |
+| Project SEKAI / Vocaloid | MEIKO `25meiko_night` | 全身 / 夜曲风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_night/25meiko_night.model3.json` | 通过 | 未补测 | 对应 `25 时，Nightcord 见` 路线变体 |
+| Project SEKAI / Vocaloid | MEIKO `25meiko_street` | 全身 / 街头风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_street/25meiko_street.model3.json` | 通过 | 未补测 | 对应 `Vivid BAD SQUAD` 路线变体 |
+| Project SEKAI / Vocaloid | KAITO `26kaito_idol` | 全身 / 偶像风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_idol/26kaito_idol.model3.json` | 通过 | 未补测 | 对应 `MORE MORE JUMP!` 路线变体 |
+| Project SEKAI / Vocaloid | KAITO `26kaito_night` | 全身 / 夜曲风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_night/26kaito_night.model3.json` | 通过 | 未补测 | 对应 `25 时，Nightcord 见` 路线变体 |
+| Project SEKAI / Vocaloid | KAITO `26kaito_street` | 全身 / 街头风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_street/26kaito_street.model3.json` | 通过 | 未补测 | 对应 `Vivid BAD SQUAD` 路线变体 |
+| Project SEKAI / Vocaloid | KAITO `26kaito_wonder` | 全身 / 游乐舞台风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_wonder/26kaito_wonder.model3.json` | 通过 | 未补测 | 对应 `Wonderlands x Showtime` 路线变体 |
+| NEW GAME! | Aoba | 横构图 / 角色立绘 | `3375 x 2900` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/aoba/model.json` | 通过 | 未补测 | 青叶代表条目，单纹理 |
+| 约会大作战 | `date_16` | 竖向角色立绘 | `1800 x 2200` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/date_16/date_16.model.json` | 通过 | 未补测 | 仓内沿用 folder 名；双纹理旧格式条目 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 茵蒂克丝 `index` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/index/index.model.json` | 通过 | 未补测 | Toaru 核心女主条目，双纹理 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 神裂火织 `kanzaki` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kanzaki/kanzaki.model.json` | 通过 | 未补测 | Toaru 补充角色条目，三纹理 |
+| Love Live! | 矢泽妮可 `nico` | 竖向角色立绘 | `2079 x 2300` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/nico/nico.model.json` | 通过 | 未补测 | 经典偶像系条目，三纹理 |
+| 舰队 Collection | `poi` | 轻量小挂件 / Q 版 | `720 x 621` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/poi/poi.model.json` | 通过 | 未补测 | 经典 `poi` 路线条目，尺寸最轻的一类 |
+| Unity-chan! | Unity-chan | 方构图 / 官方 mascot | `1600 x 1600` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/unitychan/unitychan.model.json` | 通过 | 未补测 | 官方看板娘路线条目，单纹理 |
 
 ## 2. 确认失败 / 排除总表
 
@@ -211,3 +235,4 @@
 | 2026-04-10 23:32 | 继续扩著名 IP 方向，补齐 KISGP、`zenghongtu/live2d-model-assets`、`SEKAI-Stories`，并确认 `BanG Dream!` / `Blue Archive` 失败路径。 | 新增有效 61 项：`崩坏学园 2` 10、`崩坏：星穹铁道` 6、`少女前线` 15、`超次元海王星` 10、`Vocaloid / Miku` 2、`Project SEKAI / Vocaloid` 18；新增失败 12 项：`BanG Dream!` 抽测 10、`Blue Archive` 候选源 2。 | 至少 73 项（`16 + 27 + 18 + 10 + 2`） | 61 |
 | 2026-04-10 23:59 | 补到第三轮著名角色增量，顺手把明日方舟 `aklive2d` 这条线正式排除。 | 新增有效 34 项：`碧蓝航线` 8、`少女前线` 11、`Project SEKAI / Vocaloid` 15；新增排除 1 项：`Halyul/aklive2d`。 | 35 项（commit message 明确：34 个 manifest 候选 + 1 个明日方舟来源候选） | 34 |
 | 2026-04-11 00:36 | 继续追明日方舟相关公开资源，但没有找到新的 `model.json / model3.json` 级可测入口；转而补齐 `zenghongtu/live2d-model-assets` 里尚未落表的著名 IP 增量，并全部完成本地直挂验证。 | 新增有效 36 项：`少女前线` 8、`超次元海王星` 9、`魔法禁书目录 / 某科学的超电磁炮` 5、`Vocaloid / 镜音连` 4、`Vocal synth / 结月缘` 2、经典动画角色 8（`Re:Zero`、`埃罗芒阿老师`、`约会大作战`、`魔法少女小圆`、`请问您今天要来点兔子吗？`、`小林家的龙女仆`、`工作细胞`、`干物妹！小埋` 各 1）。 | 36 项 manifest 候选（另行检索若干明日方舟来源，未形成可测 manifest） | 36 |
+| 2026-04-11 01:05 | 继续复查明日方舟方向公开线索仍无新 `model.json / model3.json` 入口后，转向补齐 `SEKAI-Stories` 与经典番剧 / 游戏 IP 增量，并全部完成本地直挂验证。 | 新增有效 24 项：`Project SEKAI / Vocaloid` 16（`东云绘名` 1、`晓山瑞希` 1、`镜音铃` 6、`MEIKO` 4、`KAITO` 4），经典动画 / 游戏 8（`为美好的世界献上祝福！Fantastic Days` 1、`NEW GAME!` 1、`约会大作战` 1、`魔法禁书目录 / 某科学的超电磁炮` 2、`Love Live!` 1、`舰队 Collection` 1、`Unity-chan!` 1）。 | 24 项 manifest 候选；另行复查多轮 `Arknights / 明日方舟` GitHub 代码搜索与仓库目录，未发现新的直挂 manifest | 24 |
