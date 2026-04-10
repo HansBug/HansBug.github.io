@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import vue from "@astrojs/vue";
 import remarkGfm from "remark-gfm";
 
 export default defineConfig({
@@ -7,7 +8,7 @@ export default defineConfig({
   output: "static",
   trailingSlash: "always",
   compressHTML: true,
-  integrations: [sitemap()],
+  integrations: [sitemap(), vue()],
   markdown: {
     remarkPlugins: [remarkGfm],
     shikiConfig: {

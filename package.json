@@ -21,10 +21,12 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/vue": "^6.0.1",
+    "@headlessui/vue": "^1.7.23",
     "astro": "^6.1.5",
     "chart.js": "^4.5.1",
     "remark-gfm": "^4.0.1",
-    "tom-select": "^2.5.2"
+    "vue": "^3.5.32"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",

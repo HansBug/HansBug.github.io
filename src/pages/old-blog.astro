@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import OldBlogExplorer from "../components/OldBlogExplorer.astro";
+import OldBlogExplorer from "../components/OldBlogExplorer.vue";
 import SectionHeading from "../components/SectionHeading.astro";
 import { oldBlogArchive } from "../data/oldBlogArchive";
 import { oldBlogCatalog } from "../data/oldBlogCatalog";
@@ -73,7 +73,7 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
         title="旧站的 315 篇文章，现在可以直接检索、看趋势、随时跳转"
         description="这里维护的是博客园旧站的完整文章索引。你可以按标题、年份、旧站分类和归纳方向查询，也可以直接从年度趋势和检索区定位旧文。"
       />
-      <OldBlogExplorer catalog={oldBlogCatalog} />
+      <OldBlogExplorer client:load catalog={oldBlogCatalog} />
     </section>
 
     <section>
