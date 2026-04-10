@@ -8,7 +8,7 @@
 - 官方 / 上游 9 条基准样本原表没有 `实测尺寸` 与 `远程直挂补测`，这里分别补为 `未记录` 与 `通过`，把来源与入口格式压进备注。
 - 失败表同时收录“真实加载失败”的条目和“已确认不属于 Live2D 直挂输入”的来源级排除项。
 
-当前显式汇总：成功 `123` 条，失败 / 排除 `22` 条。
+当前显式汇总：成功 `159` 条，失败 / 排除 `22` 条。
 
 ## 1. 已收集成功总表
 
@@ -137,6 +137,42 @@
 | Project SEKAI / Vocaloid | 镜音连 `23len_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_normal/23len_normal.model3.json` | 通过 | 未补测 | Vocaloid 代表条目 |
 | Project SEKAI / Vocaloid | 镜音连 `23len_wonder` | 全身 / 游乐舞台风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_wonder/23len_wonder.model3.json` | 通过 | 未补测 | 与 `Wonderlands x Showtime` 路线对应 |
 | Project SEKAI / Vocaloid | 青柳冬弥 `12touya_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/12touya/12touya_normal/12touya_normal.model3.json` | 通过 | 未补测 | `Vivid BAD SQUAD` 基础角色 |
+| 少女前线 | G36 `g36_2407` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/g36_2407/g36_2407.model.json` | 通过 | 未补测 | G36 补充皮肤条目 |
+| 少女前线 | HK416 `hk416_805` | 全身 / 大立绘 | `4000 x 5000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/hk416_805/hk416_805.model.json` | 通过 | 未补测 | HK416 补充皮肤条目，单纹理 |
+| 少女前线 | KP-31 `kp31_1103` | 全身 / 角色立绘 | `2894 x 4093` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/kp31_1103/kp31_1103.model.json` | 通过 | 未补测 | 索米 KP-31 代表条目 |
+| 少女前线 | Lewis `lewis_3502` | 全身 / 大立绘 | `3207 x 4835` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/lewis_3502/lewis_3502.model.json` | 通过 | 未补测 | Lewis 补充皮肤条目 |
+| 少女前线 | M950A `m950a_2303` | 全身 / 大立绘 | `5189 x 6000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/m950a_2303/m950a_2303.model.json` | 通过 | 未补测 | 宽幅感更强的大尺寸条目 |
+| 少女前线 | OTs-14 `ots14_1203` | 全身 / 角色立绘 | `2600 x 4000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ots14_1203/ots14_1203.model.json` | 通过 | 未补测 | OTs-14 补充皮肤条目 |
+| 少女前线 | PKP `pkp_1201` | 全身 / 角色立绘 | `2480 x 3507` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/pkp_1201/pkp_1201.model.json` | 通过 | 未补测 | PKP 代表条目 |
+| 少女前线 | R93 `r93_3501` | 方构图 / 大立绘 | `6000 x 5920` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/r93_3501/r93_3501.model.json` | 通过 | 未补测 | 更接近方图的大尺寸条目 |
+| 超次元海王星 | Blanc `blanc_classic` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_classic/model.json` | 通过 | 未补测 | Blanc 经典服装变体，四纹理 |
+| 超次元海王星 | Histoire | 吉祥物 / 精灵感 | `1536 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/histoire/model.json` | 通过 | 未补测 | 尺寸最小的一条，适合轻量挂件 |
+| 超次元海王星 | Nepgear `nepgear_extra` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepgear_extra/model.json` | 通过 | 未补测 | Nepgear 额外变体，四纹理 |
+| 超次元海王星 | Neptune 女仆 `nepmaid` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepmaid/model.json` | 通过 | 未补测 | Neptune 女仆变体，三纹理 |
+| 超次元海王星 | Neptune 泳装 `nepswim` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepswim/model.json` | 通过 | 未补测 | Neptune 泳装变体，三纹理 |
+| 超次元海王星 | Neptune `neptune_classic` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/neptune_classic/model.json` | 通过 | 未补测 | Neptune 经典服装变体 |
+| 超次元海王星 | Noir `noir_classic` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noir_classic/model.json` | 通过 | 未补测 | Noir 经典服装变体 |
+| 超次元海王星 | Noir 泳装 `noireswim` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noireswim/model.json` | 通过 | 未补测 | Noir 泳装变体，三纹理 |
+| 超次元海王星 | Vert `vert_classic` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/vert_classic/model.json` | 通过 | 未补测 | Vert 经典服装变体，四纹理 |
+| 请问您今天要来点兔子吗？ | Chino | 轻量半身 / 小挂件 | `1031 x 1377` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/chino/model.json` | 通过 | 未补测 | 轻量单纹理，小尺寸也能跑通 |
+| 小林家的龙女仆 | Kanna | 竖向角色立绘 | `1200 x 2133` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kanna/model.json` | 通过 | 未补测 | 康娜代表条目，单纹理 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 白井黑子 `kuroko` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kuroko/kuroko.model.json` | 通过 | 未补测 | 双纹理，Toaru 配套角色 |
+| 约会大作战 | Kurumi | 方构图 / 桌宠感 | `1024 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kurumi/model.json` | 通过 | 未补测 | 时崎狂三代表条目，三纹理 |
+| Vocaloid / 镜音连 | 镜音连 `len_impact` | 全身 / 大立绘 | `4050 x 4500` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/len_impact/len_impact.model.json` | 通过 | 未补测 | 冲击风格变体，单纹理 |
+| Vocaloid / 镜音连 | 镜音连 `len_space` | 全身 / 大立绘 | `4050 x 4500` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/len_space/len_space.model.json` | 通过 | 未补测 | 太空风变体，单纹理 |
+| Vocaloid / 镜音连 | 镜音连 `len_swim` | 全身 / 大立绘 | `4050 x 4500` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/len_swim/len_swim.model.json` | 通过 | 未补测 | 泳装变体，单纹理 |
+| Vocaloid / 镜音连 | 镜音连 `len` | 全身 / 大立绘 | `4050 x 4500` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/len/len.model.json` | 通过 | 未补测 | 基础版镜音连，单纹理 |
+| 魔法少女小圆 | Madoka | 竖向角色立绘 | `2400 x 3100` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/madoka/model.json` | 通过 | 未补测 | 鹿目圆代表条目，单纹理 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 御坂美琴 `mikoto` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/mikoto/mikoto.model.json` | 通过 | 未补测 | 双纹理，超电磁炮核心角色 |
+| 工作细胞 | Platelet | 方构图 / 桌宠感 | `2048 x 2048` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/platelet/model.json` | 通过 | 未补测 | 血小板代表条目，方图很适合桌宠化 |
+| Re:Zero | Rem | 竖向角色立绘 | `2500 x 2900` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/rem/model.json` | 通过 | 未补测 | 著名女主角代表条目，单纹理 |
+| 埃罗芒阿老师 | Sagiri | 竖向角色立绘 | `1200 x 2133` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/sagiri/model.json` | 通过 | 未补测 | 双纹理，适合中型挂件 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 佐天泪子 `saten` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/saten/saten.model.json` | 通过 | 未补测 | 双纹理，Toaru 配套角色 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 上条当麻 `touma` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/touma/touma.model.json` | 通过 | 未补测 | 双纹理，Toaru 系列男主样本 |
+| 魔法禁书目录 / 某科学的超电磁炮 | 初春饰利 `uiharu` | 横构图 / 角色立绘 | `1300 x 1000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/uiharu/uiharu.model.json` | 通过 | 未补测 | 双纹理，Toaru 配套角色 |
+| 干物妹！小埋 | Umaru | 轻量半身 / 小挂件 | `978 x 1295` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/umaru/model.json` | 通过 | 未补测 | 轻量条目，适合右下角挂件 |
+| Vocal synth / 结月缘 | 结月缘 `yukari_model` | 轻量半身 / 小挂件 | `881 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/yukari_model/yukari_model.model.json` | 通过 | 未补测 | 更轻量的旧版结月缘模型 |
+| Vocal synth / 结月缘 | 结月缘 `YuzukiYukari` | 竖向角色立绘 | `1240 x 1754` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/YuzukiYukari/YuzukiYukari.model.json` | 通过 | 未补测 | 旧格式里更完整的一版，单纹理 |
 
 ## 2. 确认失败 / 排除总表
 
@@ -174,3 +210,4 @@
 | 2026-04-10 21:28 | 第二轮补测入库，加入仓库级结论、复验脚本与第二批可用条目。 | 新增有效 19 项：`贤惠幼妻仙狐小姐` 1、`Fox Hime Zero` 5、`BanG Dream!` 2、`碧蓝航线` 8、`CUE!` 3；新增失败 6 项：`GFL-Live2D-Viewer` 抽测 6。另补到仓库级统计：`CUE-live2d-Viewer` 本地 `195 / 195`、`AzurLane-Live2D` 本地 `193 / 193`、`Eikanya/Live2d-model` 抽测 `8 / 8`。 | 至少 402 项本地 manifest / 条目（`195 + 193 + 8 + 6`），另有若干远程补测 | 至少 396 |
 | 2026-04-10 23:32 | 继续扩著名 IP 方向，补齐 KISGP、`zenghongtu/live2d-model-assets`、`SEKAI-Stories`，并确认 `BanG Dream!` / `Blue Archive` 失败路径。 | 新增有效 61 项：`崩坏学园 2` 10、`崩坏：星穹铁道` 6、`少女前线` 15、`超次元海王星` 10、`Vocaloid / Miku` 2、`Project SEKAI / Vocaloid` 18；新增失败 12 项：`BanG Dream!` 抽测 10、`Blue Archive` 候选源 2。 | 至少 73 项（`16 + 27 + 18 + 10 + 2`） | 61 |
 | 2026-04-10 23:59 | 补到第三轮著名角色增量，顺手把明日方舟 `aklive2d` 这条线正式排除。 | 新增有效 34 项：`碧蓝航线` 8、`少女前线` 11、`Project SEKAI / Vocaloid` 15；新增排除 1 项：`Halyul/aklive2d`。 | 35 项（commit message 明确：34 个 manifest 候选 + 1 个明日方舟来源候选） | 34 |
+| 2026-04-11 00:36 | 继续追明日方舟相关公开资源，但没有找到新的 `model.json / model3.json` 级可测入口；转而补齐 `zenghongtu/live2d-model-assets` 里尚未落表的著名 IP 增量，并全部完成本地直挂验证。 | 新增有效 36 项：`少女前线` 8、`超次元海王星` 9、`魔法禁书目录 / 某科学的超电磁炮` 5、`Vocaloid / 镜音连` 4、`Vocal synth / 结月缘` 2、经典动画角色 8（`Re:Zero`、`埃罗芒阿老师`、`约会大作战`、`魔法少女小圆`、`请问您今天要来点兔子吗？`、`小林家的龙女仆`、`工作细胞`、`干物妹！小埋` 各 1）。 | 36 项 manifest 候选（另行检索若干明日方舟来源，未形成可测 manifest） | 36 |
