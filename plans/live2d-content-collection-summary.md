@@ -8,7 +8,7 @@
 - 官方 / 上游 9 条基准样本原表没有 `实测尺寸` 与 `远程直挂补测`，这里分别补为 `未记录` 与 `通过`，把来源与入口格式压进备注。
 - 失败表同时收录“真实加载失败”的条目和“已确认不属于 Live2D 直挂输入”的来源级排除项。
 
-当前显式汇总：成功 `183` 条，失败 / 排除 `22` 条。
+当前显式汇总：成功 `219` 条，失败 / 排除 `24` 条。
 
 ## 1. 已收集成功总表
 
@@ -197,6 +197,42 @@
 | Love Live! | 矢泽妮可 `nico` | 竖向角色立绘 | `2079 x 2300` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/nico/nico.model.json` | 通过 | 未补测 | 经典偶像系条目，三纹理 |
 | 舰队 Collection | `poi` | 轻量小挂件 / Q 版 | `720 x 621` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/poi/poi.model.json` | 通过 | 未补测 | 经典 `poi` 路线条目，尺寸最轻的一类 |
 | Unity-chan! | Unity-chan | 方构图 / 官方 mascot | `1600 x 1600` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/unitychan/unitychan.model.json` | 通过 | 未补测 | 官方看板娘路线条目，单纹理 |
+| 哔哩哔哩 | 22 娘 `22_high` | 细高半身 / 看板娘 | `700 x 1800` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Bili-bili/22_high/model.json` | 通过 | 失败：`Network error` | 22 娘高模版；远程 raw 直挂报 `Network error`，但 essentials 下载后本地直挂通过 |
+| 哔哩哔哩 | 33 娘 `33_high` | 细高半身 / 看板娘 | `700 x 1800` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Bili-bili/33_high/model.json` | 通过 | 失败：`Network error` | 33 娘高模版；远程 raw 直挂报 `Network error`，但 essentials 下载后本地直挂通过 |
+| 偶像梦幻祭！ / Ensemble Stars! | 守泽千秋 `Chiaki Kitty` | 竖向角色立绘 | `1222 x 1807` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Ensemble-Stars/chiaki_kitty/chiaki_kitty.model.json` | 通过 | 通过 | 单纹理小型立绘，本地与远程都通过 |
+| Fate/stay night | 伊莉雅 `Illyasviel` | 横构图 / 大角色立绘 | `7168 x 4096` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Fate-Stay-Night/illyasviel/illyasviel.model.json` | 通过 | 通过 | 超宽大图，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Aqua `1013104` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/aqua_01/1013104.model3.json` | 通过 | 通过 | Aqua 早期立绘变体，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Aqua `1014107` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/aqua_03/1014107.model3.json` | 通过 | 通过 | Aqua 服装变体；与仓内旧的 `1014100` 形成同 IP 增量 |
+| 为美好的世界献上祝福！Fantastic Days | Chris `1044100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/chris_01/1044100.model3.json` | 通过 | 超时：`90s` | Chris 角色条目；远程 raw 补测在 `90s` 内超时，但 essentials 下载后本地直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Darkness `1033104` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/darkness_01/1033104.model3.json` | 通过 | 通过 | 达克妮斯早期立绘变体，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Darkness `1034100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/darkness_03/1034100.model3.json` | 通过 | 通过 | 达克妮斯基础立绘，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Darkness `1039108` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/darkness_05/1039108.model3.json` | 通过 | 通过 | 达克妮斯后段编号变体，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Eris `1339100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/eris_01/1339100.model3.json` | 通过 | 通过 | 厄里斯代表条目，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Iris `1074100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/iris_01/1074100.model3.json` | 通过 | 通过 | 爱丽丝代表条目，本地与远程都通过 |
+| 为美好的世界献上祝福！Fantastic Days | Megumin `1023104` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/megumin_01/1023104.model3.json` | 未补测 | 通过 | 惠惠早期立绘变体，远程直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Megumin `1024107` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/megumin_03/1024107.model3.json` | 未补测 | 通过 | 惠惠服装变体，远程直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Megumin `1024113` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/megumin_04/1024113.model3.json` | 未补测 | 通过 | 惠惠后段编号变体，远程直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Wiz `1054100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/wiz_01/1054100.model3.json` | 未补测 | 通过 | 维兹基础立绘，远程直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Wiz `1054113` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/wiz_02/1054113.model3.json` | 未补测 | 通过 | 维兹后段编号变体，远程直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Yunyun `1063113` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/yunyun_01/1063113.model3.json` | 未补测 | 通过 | 悠悠早期立绘变体，远程直挂通过 |
+| 为美好的世界献上祝福！Fantastic Days | Yunyun `1064100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/yunyun_02/1064100.model3.json` | 未补测 | 通过 | 悠悠基础立绘，远程直挂通过 |
+| 【我推的孩子】 / Oshi no Ko | 星野爱 `Hoshino Ai` | 超高全身 / 大立绘 | `5167 x 9410` | Cubism 4 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Oshi-No-Ko/HoshinoAi/Hoshino_Ai.model3.json` | 未补测 | 通过 | 双纹理超高立绘，适合测试极高纵向角色 |
+| 路人女主的养成方法 / Saekano | 加藤惠 `kato_M01` | 横构图 / 超宽角色立绘 | `8800 x 2716` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Saekano/kato_M01/kato_M01.model.json` | 未补测 | 通过 | 超宽比例变体 01，远程直挂通过 |
+| 路人女主的养成方法 / Saekano | 加藤惠 `kato_M02` | 横构图 / 超宽角色立绘 | `8800 x 2716` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Saekano/kato_M02/kato_M02.model.json` | 未补测 | 通过 | 超宽比例变体 02，远程直挂通过 |
+| 路人女主的养成方法 / Saekano | 加藤惠 `kato_M03` | 横构图 / 超宽角色立绘 | `8800 x 2716` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Saekano/kato_M03/kato_M03.model.json` | 未补测 | 通过 | 超宽比例变体 03，远程直挂通过 |
+| 路人女主的养成方法 / Saekano | 加藤惠 `kato_M04` | 横构图 / 超宽角色立绘 | `8800 x 2716` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Saekano/kato_M04/kato_M04.model.json` | 未补测 | 通过 | 超宽比例变体 04，远程直挂通过 |
+| 路人女主的养成方法 / Saekano | 加藤惠 `kato_M05` | 横构图 / 超宽角色立绘 | `8800 x 2716` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Saekano/kato_M05/kato_M05.model.json` | 未补测 | 通过 | 超宽比例变体 05，远程直挂通过 |
+| 路人女主的养成方法 / Saekano | 加藤惠 `kato_M06` | 横构图 / 超宽角色立绘 | `8800 x 2716` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Saekano/kato_M06/kato_M06.model.json` | 未补测 | 通过 | 超宽比例变体 06，远程直挂通过 |
+| 樱花庄的宠物女孩 / Sakurasou | 椎名真白 `ryoufuku` | 竖向角色立绘 | `1090 x 1780` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/ryoufuku/ryoufuku.model.json` | 未补测 | 通过 | 便服变体，远程直挂通过 |
+| 樱花庄的宠物女孩 / Sakurasou | 椎名真白 `seifuku` | 竖向角色立绘 | `1090 x 1780` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/seifuku/seifuku.model.json` | 未补测 | 通过 | 制服变体，远程直挂通过 |
+| 樱花庄的宠物女孩 / Sakurasou | 椎名真白 `shifuku` | 竖向角色立绘 | `1090 x 1780` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/shifuku/shifuku.model.json` | 未补测 | 通过 | 私服变体，远程直挂通过 |
+| 樱花庄的宠物女孩 / Sakurasou | 椎名真白 `shifuku2` | 竖向角色立绘 | `1090 x 1780` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/shifuku2/shifuku2.model.json` | 未补测 | 通过 | 私服二号变体，远程直挂通过 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_01` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_01/asuna_01.model.json` | 未补测 | 通过 | Asuna 旧格式系列起始条目，远程直挂通过 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_19` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_19/asuna_19.model.json` | 未补测 | 通过 | Asuna 中段编号变体，远程直挂通过 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_35` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_35/asuna_35.model.json` | 未补测 | 通过 | Asuna 后段编号变体，远程直挂通过 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_51` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_51/asuna_51.model.json` | 未补测 | 通过 | Asuna 高编号变体 51，远程直挂通过 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_56` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_56/asuna_56.model.json` | 未补测 | 通过 | Asuna 高编号变体 56，远程直挂通过 |
+| 少女终末旅行 | 尤莉 `Yuri` | 方构图 / 角色立绘 | `2500 x 2500` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Shoujo-Shuumatsu-Ryokou/yuri/model.json` | 未补测 | 通过 | 单纹理方图，适合桌宠化裁切 |
 
 ## 2. 确认失败 / 排除总表
 
@@ -222,6 +258,8 @@
 | 明日方舟 | PRTS 明日方舟小人页 | Spine 展示页 | Spine | 不适用 | 排除 | 页面资源路线仍是 Spine，不属于 `pixi-live2d-display` 直挂输入 |
 | 明日方舟 | PRTS 阿米娅小人元数据 | Spine 元数据 | 不适用 | 不适用 | 失败 | `Unknown settings format`，因为这不是 `model.json` / `model3.json` 体系 |
 | 明日方舟 | `Halyul/aklive2d` | 候选来源 / Spine 展示方案 | Spine | 不适用 | 排除 | 仓内没有可直接交给 `pixi-live2d-display` 的 `.model3.json/.model.json` manifest |
+| 明日方舟 | `SHUAXINDIARY/ArknightsLive2d-Web` | 候选来源 / Spine 壁纸站 | Spine | 不适用 | 排除 | 仓内只有 `spine-webgl.js` 与 `assets/models_data.json`，其中模型索引指向 `.atlas + .skel`，不是 Live2D manifest |
+| 明日方舟 | `xiaochen4097/ArknightsWallpaper` | 候选来源 / Spine 壁纸页 | Spine | 不适用 | 排除 | 仓内直接落的是 `dyn_illust_char_1028_texas2.atlas/.skel` 与 `spine-webgl.js`，不是 `pixi-live2d-display` 直挂输入 |
 | Blue Archive | `respectZ/blue-archive-viewer` | 候选来源 / Spine 资源仓 | Spine | 不适用 | 排除 | 资源实质是 `.atlas + .skel`，不是 Live2D manifest |
 | Blue Archive | `stories2/BlueArchive` | 候选来源 / Cubism 编辑工程 | 不适用 | 不适用 | 排除 | 只有 `arona.cmo3`、`randomPose.can3` 等编辑工程文件，不是 runtime manifest |
 
@@ -236,3 +274,4 @@
 | 2026-04-10 23:59 | 补到第三轮著名角色增量，顺手把明日方舟 `aklive2d` 这条线正式排除。 | 新增有效 34 项：`碧蓝航线` 8、`少女前线` 11、`Project SEKAI / Vocaloid` 15；新增排除 1 项：`Halyul/aklive2d`。 | 35 项（commit message 明确：34 个 manifest 候选 + 1 个明日方舟来源候选） | 34 |
 | 2026-04-11 00:36 | 继续追明日方舟相关公开资源，但没有找到新的 `model.json / model3.json` 级可测入口；转而补齐 `zenghongtu/live2d-model-assets` 里尚未落表的著名 IP 增量，并全部完成本地直挂验证。 | 新增有效 36 项：`少女前线` 8、`超次元海王星` 9、`魔法禁书目录 / 某科学的超电磁炮` 5、`Vocaloid / 镜音连` 4、`Vocal synth / 结月缘` 2、经典动画角色 8（`Re:Zero`、`埃罗芒阿老师`、`约会大作战`、`魔法少女小圆`、`请问您今天要来点兔子吗？`、`小林家的龙女仆`、`工作细胞`、`干物妹！小埋` 各 1）。 | 36 项 manifest 候选（另行检索若干明日方舟来源，未形成可测 manifest） | 36 |
 | 2026-04-11 01:05 | 继续复查明日方舟方向公开线索仍无新 `model.json / model3.json` 入口后，转向补齐 `SEKAI-Stories` 与经典番剧 / 游戏 IP 增量，并全部完成本地直挂验证。 | 新增有效 24 项：`Project SEKAI / Vocaloid` 16（`东云绘名` 1、`晓山瑞希` 1、`镜音铃` 6、`MEIKO` 4、`KAITO` 4），经典动画 / 游戏 8（`为美好的世界献上祝福！Fantastic Days` 1、`NEW GAME!` 1、`约会大作战` 1、`魔法禁书目录 / 某科学的超电磁炮` 2、`Love Live!` 1、`舰队 Collection` 1、`Unity-chan!` 1）。 | 24 项 manifest 候选；另行复查多轮 `Arknights / 明日方舟` GitHub 代码搜索与仓库目录，未发现新的直挂 manifest | 24 |
+| 2026-04-11 01:40 | 继续把明日方舟相关公开壁纸 / 展示仓逐个排除后，转向 `AzharRizkiZ/Live2D-Model` 补著名 IP 大池；这轮兼顾远程 Pixi 实载与一部分 essentials 本地复验。 | 新增有效 36 项：`为美好的世界献上祝福！Fantastic Days` 15（`Aqua` 2、`Darkness` 3、`Chris` 1、`Eris` 1、`Iris` 1、`Megumin` 3、`Wiz` 2、`Yunyun` 2）、`刀剑神域 / SAO` 5、`路人女主的养成方法 / Saekano` 6、`樱花庄的宠物女孩 / Sakurasou` 4、`哔哩哔哩` 2、`偶像梦幻祭！ / Ensemble Stars!` 1、`Fate/stay night` 1、`【我推的孩子】 / Oshi no Ko` 1、`少女终末旅行` 1；新增排除 2 项：`SHUAXINDIARY/ArknightsLive2d-Web`、`xiaochen4097/ArknightsWallpaper`。 | 38 项候选内容（`36` 个 manifest + `2` 个明日方舟来源候选） | 36 |
