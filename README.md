@@ -21,6 +21,8 @@
 - RSS
 - GitHub Pages 自动部署工作流
 
+当前仓库也支持“内容暂时为空”的新站阶段：即使 `src/content/blog/`、`src/content/routes/`、`src/content/projects/` 里没有文章，首页和各索引页仍然应该正常渲染空状态。
+
 ## 本地开发
 
 ```bash
@@ -55,6 +57,11 @@ src/
 - `src/content/blog/`：博客文章
 - `src/content/routes/`：阅读路线与指引
 - `src/content/projects/`：项目档案
+
+## 旧博客说明
+
+- 旧博客园入口：<https://www.cnblogs.com/HansBug/>
+- 当前迁移策略是不直接整批搬运旧文，而是在新站保留旧站入口，并按新的结构逐步重写、整理和归档。
 
 标签元数据集中放在 `src/data/tagMeta.ts`。如果新增标签，优先同步补充描述和分组，而不是只在文章 frontmatter 里随手加。
 

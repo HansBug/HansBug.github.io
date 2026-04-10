@@ -5,17 +5,33 @@ export type BlogEntry = CollectionEntry<"blog">;
 export type RouteEntry = CollectionEntry<"routes">;
 export type ProjectEntry = CollectionEntry<"projects">;
 
+const blogSourceFiles = import.meta.glob("../content/blog/**/*.md");
+const routeSourceFiles = import.meta.glob("../content/routes/**/*.md");
+const projectSourceFiles = import.meta.glob("../content/projects/**/*.md");
+
 export async function getAllBlogPosts(): Promise<BlogEntry[]> {
+  if (Object.keys(blogSourceFiles).length === 0) {
+    return [];
+  }
+
   const posts = await getCollection("blog", ({ data }) => !data.draft);
   return sortBlogPosts(posts);
 }
 
 export async function getAllRoutes(): Promise<RouteEntry[]> {
+  if (Object.keys(routeSourceFiles).length === 0) {
+    return [];
+  }
+
   const routes = await getCollection("routes");
   return [...routes].sort((left, right) => left.data.order - right.data.order);
 }
 
 export async function getAllProjects(): Promise<ProjectEntry[]> {
+  if (Object.keys(projectSourceFiles).length === 0) {
+    return [];
+  }
+
   const projects = await getCollection("projects");
   return [...projects].sort((left, right) => {
     return (

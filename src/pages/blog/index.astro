@@ -21,14 +21,31 @@ const posts = await getAllBlogPosts();
     </div>
   </section>
 
-  <section>
-    <SectionHeading
-      eyebrow="全部文章"
-      title={`当前共 ${posts.length} 篇`}
-      description="优先写那些真的能在未来复用的东西，而不是为了发一篇而发一篇。"
-    />
-    <div class="grid-two">
-      {posts.map((post) => <PostCard post={post} />)}
-    </div>
-  </section>
+  {
+    posts.length > 0 ? (
+      <section>
+        <SectionHeading
+          eyebrow="全部文章"
+          title={`当前共 ${posts.length} 篇`}
+          description="优先写那些真的能在未来复用的东西，而不是为了发一篇而发一篇。"
+        />
+        <div class="grid-two">
+          {posts.map((post) => <PostCard post={post} />)}
+        </div>
+      </section>
+    ) : (
+      <section class="empty-state shell-card">
+        <h2>新站文章暂时还是空的</h2>
+        <p>
+          当前还没有开始往新站迁移旧正文。我不会直接把博客园旧文整体搬过来；后续真正值得保留的主题，会在这里重新整理和重写。
+        </p>
+        <div class="hero-actions">
+          <a class="hero-action is-primary" href="https://www.cnblogs.com/HansBug/" target="_blank" rel="noreferrer">
+            查看旧博客园
+          </a>
+          <a class="hero-action" href="/contact/">联系 HansBug</a>
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>

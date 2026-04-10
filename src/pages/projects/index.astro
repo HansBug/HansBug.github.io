@@ -14,14 +14,25 @@ const projects = await getAllProjects();
     <p>项目页负责承接那些比单篇博客更长、比路线更具体的实践。这里会放正在做、持续维护或正在构思的技术工作。</p>
   </section>
 
-  <section>
-    <SectionHeading
-      eyebrow="Project Board"
-      title="当前公开的项目卡片"
-      description="每张卡片都会链接到详细说明页，后续也可以继续扩展成项目档案。"
-    />
-    <div class="grid-three">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
+  {
+    projects.length > 0 ? (
+      <section>
+        <SectionHeading
+          eyebrow="Project Board"
+          title="当前公开的项目卡片"
+          description="每张卡片都会链接到详细说明页，后续也可以继续扩展成项目档案。"
+        />
+        <div class="grid-three">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+    ) : (
+      <section class="empty-state shell-card">
+        <h2>项目页骨架已经预留，但还没有录入内容</h2>
+        <p>
+          后续如果有值得长期展示的项目、实验或工具，会以更规范的项目档案形式放进来，而不是用占位卡片硬撑页面。
+        </p>
+      </section>
+    )
+  }
 </BaseLayout>

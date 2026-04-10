@@ -46,6 +46,17 @@ const items = [
       <p>可以搜标题、描述、标签和项目技术栈。中文场景下我优先保证简单可用，而不是做一套过重的搜索基础设施。</p>
     </section>
 
-    <SearchPanel items={items} />
+    {
+      items.length > 0 ? (
+        <SearchPanel items={items} />
+      ) : (
+        <section class="empty-state shell-card">
+          <h2>当前还没有可搜索的新站内容</h2>
+          <p>
+            因为旧文章暂不直接迁入，这里的搜索索引还是空的。你可以先去旧博客园，或者等新内容开始发布后再回来搜索。
+          </p>
+        </section>
+      )
+    }
   </div>
 </BaseLayout>

@@ -16,14 +16,25 @@ const routes = await getAllRoutes();
     </p>
   </section>
 
-  <section>
-    <SectionHeading
-      eyebrow="阅读建议"
-      title="按目标选择，而不是按热度选择"
-      description="如果你想补基础，先看工程基础；如果你正在做 AI 应用，先看评测路线；如果你想搭自己的技术博客，直接看写作与沉淀路线。"
-    />
-    <div class="grid-three">
-      {routes.map((route) => <RouteCard route={route} />)}
-    </div>
-  </section>
+  {
+    routes.length > 0 ? (
+      <section>
+        <SectionHeading
+          eyebrow="阅读建议"
+          title="按目标选择，而不是按热度选择"
+          description="如果你想补基础，先看工程基础；如果你正在做 AI 应用，先看评测路线；如果你想搭自己的技术博客，直接看写作与沉淀路线。"
+        />
+        <div class="grid-three">
+          {routes.map((route) => <RouteCard route={route} />)}
+        </div>
+      </section>
+    ) : (
+      <section class="empty-state shell-card">
+        <h2>路线系统还在等第一批新文</h2>
+        <p>
+          我希望路线页承担“阅读指引”而不是“旧文目录”，所以会等新内容的结构稳定后再逐步补齐。
+        </p>
+      </section>
+    )
+  }
 </BaseLayout>

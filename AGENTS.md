@@ -32,6 +32,12 @@ npm run build
 
 ## 内容约定
 
+### 旧博客迁移策略
+
+- 旧博客园地址：`https://www.cnblogs.com/HansBug/`
+- 当前策略是“保留旧站入口 + 在新站做概述和重写”，不要直接批量搬运旧博客正文。
+- 如果要复用旧主题，优先在新站按当前结构重写，而不是简单复制原文。
+
 ### 博客文章
 
 - 目录：`src/content/blog/`
@@ -66,6 +72,7 @@ npm run build
 
 - GitHub Pages 通过 `.github/workflows/deploy.yml` 自动部署
 - 当前站点按用户仓库 `HansBug.github.io` 设计
+- 当前仓库允许内容目录暂时为空，首页和索引页应继续保持可访问，不应因为无文章而报错
 - 如果修改 Pages 域名或仓库名，必须同步更新：
   - `astro.config.mjs`
   - `src/config/site.ts`

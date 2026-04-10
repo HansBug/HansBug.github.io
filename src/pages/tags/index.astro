@@ -19,27 +19,36 @@ const groupedTags = groupTagsByGroup(posts);
 
   <div class="page-grid">
     {
-      groupedTags.map(([group, items]) => (
-        <section class="tag-cluster shell-card">
-          <SectionHeading
-            eyebrow="Tag Group"
-            title={group}
-            description="同一组标签通常对应同一类工程问题。"
-          />
-          <div class="grid-three">
-            {items.map((item) => (
-              <article class="tag-summary-card">
-                <small>{item.meta.group}</small>
-                <h3>{item.tag}</h3>
-                <p>{item.meta.description}</p>
-                <div class="tag-row">
-                  <TagChip tag={item.tag} href={`/tags/${item.slug}/`} count={item.count} />
-                </div>
-              </article>
-            ))}
-          </div>
+      groupedTags.length > 0 ? (
+        groupedTags.map(([group, items]) => (
+          <section class="tag-cluster shell-card">
+            <SectionHeading
+              eyebrow="Tag Group"
+              title={group}
+              description="同一组标签通常对应同一类工程问题。"
+            />
+            <div class="grid-three">
+              {items.map((item) => (
+                <article class="tag-summary-card">
+                  <small>{item.meta.group}</small>
+                  <h3>{item.tag}</h3>
+                  <p>{item.meta.description}</p>
+                  <div class="tag-row">
+                    <TagChip tag={item.tag} href={`/tags/${item.slug}/`} count={item.count} />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))
+      ) : (
+        <section class="empty-state shell-card">
+          <h2>标签体系还没有开始生长</h2>
+          <p>
+            旧博客正文不会直接迁过来，所以新站标签也不会自动出现。等新文章陆续进入后，我会按新的问题域重新组织标签。
+          </p>
         </section>
-      ))
+      )
     }
   </div>
 </BaseLayout>

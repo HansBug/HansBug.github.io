@@ -17,23 +17,32 @@ const archive = groupPostsByYear(posts);
 
   <div class="page-grid">
     {
-      archive.map((entry) => (
-        <section class="archive-year shell-card">
-          <SectionHeading
-            eyebrow="Year"
-            title={entry.year}
-            description={`这一年共整理出 ${entry.posts.length} 篇文章。`}
-          />
-          <ul class="archive-list">
-            {entry.posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-                <span>{formatDate(post.data.pubDate)}</span>
-              </li>
-            ))}
-          </ul>
+      archive.length > 0 ? (
+        archive.map((entry) => (
+          <section class="archive-year shell-card">
+            <SectionHeading
+              eyebrow="Year"
+              title={entry.year}
+              description={`这一年共整理出 ${entry.posts.length} 篇文章。`}
+            />
+            <ul class="archive-list">
+              {entry.posts.map((post) => (
+                <li>
+                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                  <span>{formatDate(post.data.pubDate)}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      ) : (
+        <section class="empty-state shell-card">
+          <h2>新站归档还是空白</h2>
+          <p>
+            当前没有迁移旧文，所以时间线暂时没有条目。历史文章请直接使用旧博客园入口查看。
+          </p>
         </section>
-      ))
+      )
     }
   </div>
 </BaseLayout>
