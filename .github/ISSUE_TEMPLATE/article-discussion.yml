@@ -1,0 +1,32 @@
+name: 文章勘误或延伸讨论
+description: 用于文章勘误、补充材料或围绕某篇文章继续讨论
+title: "[文章讨论] "
+labels:
+  - article
+body:
+  - type: input
+    id: article
+    attributes:
+      label: 相关文章
+      description: 请写清楚文章标题或链接。
+      placeholder: 例如：搭一座能长期写下去的个人技术博客
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 你的问题或补充
+      description: 可以是勘误、不同做法、延伸资料或具体疑问。
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 类型
+      options:
+        - 勘误
+        - 经验补充
+        - 提问讨论
+        - 资料推荐
+    validations:
+      required: true

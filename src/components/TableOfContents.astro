@@ -1,0 +1,27 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth >= 2 && heading.depth <= 3,
+);
+---
+
+{
+  filteredHeadings.length > 0 && (
+    <aside class="toc shell-card">
+      <p class="toc-title">文章目录</p>
+      <ol>
+        {filteredHeadings.map((heading) => (
+          <li class:list={[`depth-${heading.depth}`]}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ol>
+    </aside>
+  )
+}

@@ -1,0 +1,51 @@
+---
+import SearchPanel from "../components/SearchPanel.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getAllBlogPosts, getAllProjects, getAllRoutes } from "../utils/content";
+import { formatDate } from "../utils/date";
+
+const [posts, routes, projects] = await Promise.all([
+  getAllBlogPosts(),
+  getAllRoutes(),
+  getAllProjects(),
+]);
+
+const items = [
+  ...posts.map((post) => ({
+    title: post.data.title,
+    description: post.data.description,
+    url: `/blog/${post.id}/`,
+    type: "博客文章",
+    tags: post.data.tags,
+    meta: formatDate(post.data.pubDate),
+  })),
+  ...routes.map((route) => ({
+    title: route.data.title,
+    description: route.data.summary,
+    url: `/routes/${route.id}/`,
+    type: "阅读路线",
+    tags: route.data.tags,
+    meta: `${route.data.stage} · ${route.data.estimatedTime}`,
+  })),
+  ...projects.map((project) => ({
+    title: project.data.title,
+    description: project.data.summary,
+    url: `/projects/${project.id}/`,
+    type: "项目卡片",
+    tags: project.data.stack,
+    meta: project.data.status,
+  })),
+];
+---
+
+<BaseLayout title="搜索">
+  <div class="page-grid">
+    <section class="page-header shell-card">
+      <p class="eyebrow">Search</p>
+      <h1>站内搜索</h1>
+      <p>可以搜标题、描述、标签和项目技术栈。中文场景下我优先保证简单可用，而不是做一套过重的搜索基础设施。</p>
+    </section>
+
+    <SearchPanel items={items} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { calculateReadingMinutes, tagToSlug } from "../utils/content";
+import { formatDate } from "../utils/date";
+import TagChip from "./TagChip.astro";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  compact?: boolean;
+}
+
+const { post, compact = false } = Astro.props;
+const readingMinutes = calculateReadingMinutes(post.body ?? "");
+---
+
+<article class:list={["post-card shell-card", compact && "is-compact"]}>
+  <div class="post-card__meta">
+    <span>{formatDate(post.data.pubDate)}</span>
+    <span>{post.data.difficulty}</span>
+    <span>{readingMinutes} 分钟</span>
+  </div>
+  <h3>
+    <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+  </h3>
+  <p>{post.data.description}</p>
+  <div class="tag-row">
+    {post.data.tags.map((tag) => <TagChip tag={tag} href={`/tags/${tagToSlug(tag)}/`} />)}
+  </div>
+</article>

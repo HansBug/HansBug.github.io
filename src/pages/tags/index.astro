@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import TagChip from "../../components/TagChip.astro";
+import { groupTagsByGroup, getAllBlogPosts } from "../../utils/content";
+
+const posts = await getAllBlogPosts();
+const groupedTags = groupTagsByGroup(posts);
+---
+
+<BaseLayout title="标签">
+  <section class="page-header shell-card">
+    <p class="eyebrow">Tags</p>
+    <h1>标签体系</h1>
+    <p>
+      标签不是装饰，而是这座博客的索引系统。每个标签都尽量对应一个真实的问题域，方便你从“我现在遇到的具体问题”回到更大的主题。
+    </p>
+  </section>
+
+  <div class="page-grid">
+    {
+      groupedTags.map(([group, items]) => (
+        <section class="tag-cluster shell-card">
+          <SectionHeading
+            eyebrow="Tag Group"
+            title={group}
+            description="同一组标签通常对应同一类工程问题。"
+          />
+          <div class="grid-three">
+            {items.map((item) => (
+              <article class="tag-summary-card">
+                <small>{item.meta.group}</small>
+                <h3>{item.tag}</h3>
+                <p>{item.meta.description}</p>
+                <div class="tag-row">
+                  <TagChip tag={item.tag} href={`/tags/${item.slug}/`} count={item.count} />
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

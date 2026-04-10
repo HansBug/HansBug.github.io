@@ -1,0 +1,34 @@
+{
+  "name": "hansbug-tech-blog",
+  "version": "1.0.0",
+  "description": "HansBug 的个人技术博客，基于 Astro 和 GitHub Pages 构建。",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [
+    "astro",
+    "blog",
+    "github-pages",
+    "zh-cn"
+  ],
+  "author": "HansBug <hansbug@buaa.edu.cn>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.5",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

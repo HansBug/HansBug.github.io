@@ -1,0 +1,31 @@
+export const siteConfig = {
+  title: "HansBug 的个人技术博客",
+  shortTitle: "HansBug 技术博客",
+  description:
+    "一个面向工程实践、AI 应用与知识沉淀的中文个人技术博客。重点关注可维护性、实验方法、工具链与长期写作。",
+  tagline: "慢一点，但把工程和表达都做扎实。",
+  author: "HansBug",
+  email: "hansbug@buaa.edu.cn",
+  siteUrl: "https://hansbug.github.io",
+  repoUrl: "https://github.com/HansBug/HansBug.github.io",
+  repoName: "HansBug/HansBug.github.io",
+  issueUrl: "https://github.com/HansBug/HansBug.github.io/issues/new/choose",
+  discussionsUrl: "https://github.com/HansBug/HansBug.github.io/discussions",
+  rssUrl: "/rss.xml",
+  nav: [
+    { label: "首页", href: "/" },
+    { label: "博客", href: "/blog/" },
+    { label: "标签", href: "/tags/" },
+    { label: "归档", href: "/archive/" },
+    { label: "路线", href: "/routes/" },
+    { label: "项目", href: "/projects/" },
+    { label: "关于", href: "/about/" },
+    { label: "联系", href: "/contact/" },
+    { label: "搜索", href: "/search/" },
+  ],
+  socialLinks: [
+    { label: "GitHub", href: "https://github.com/HansBug" },
+    { label: "邮箱", href: "mailto:hansbug@buaa.edu.cn" },
+    { label: "RSS", href: "/rss.xml" },
+  ],
+} as const;

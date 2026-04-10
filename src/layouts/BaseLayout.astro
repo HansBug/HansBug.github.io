@@ -1,0 +1,45 @@
+---
+import { siteConfig } from "../config/site";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${siteConfig.shortTitle}` : siteConfig.title;
+const pageDescription = description ?? siteConfig.description;
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={siteConfig.author} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+  </head>
+  <body>
+    <div class="site-bg"></div>
+    <SiteHeader />
+    <main class="page-main">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+    <SiteFooter />
+  </body>
+</html>

@@ -1,0 +1,56 @@
+---
+import { render } from "astro:content";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllProjects } from "../../utils/content";
+
+export async function getStaticPaths() {
+  const projects = await getAllProjects();
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={project.data.title} description={project.data.summary}>
+  <div class="page-grid">
+    <Breadcrumbs
+      items={[
+        { label: "首页", href: "/" },
+        { label: "项目", href: "/projects/" },
+        { label: project.data.title },
+      ]}
+    />
+
+    <section class="article-shell shell-card">
+      <header class="article-header">
+        <p class="eyebrow">{project.data.status}</p>
+        <h1>{project.data.title}</h1>
+        <p class="article-intro">{project.data.summary}</p>
+        <div class="article-meta">
+          <span>技术栈：{project.data.stack.join(" / ")}</span>
+        </div>
+        <div class="hero-actions">
+          {project.data.repoUrl && (
+            <a class="hero-action is-primary" href={project.data.repoUrl} target="_blank" rel="noreferrer">
+              查看仓库
+            </a>
+          )}
+          {project.data.demoUrl && (
+            <a class="hero-action" href={project.data.demoUrl} target="_blank" rel="noreferrer">
+              打开演示
+            </a>
+          )}
+        </div>
+      </header>
+      <div class="article-content shell-card">
+        <Content />
+      </div>
+    </section>
+  </div>
+</BaseLayout>

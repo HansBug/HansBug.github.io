@@ -1,0 +1,70 @@
+---
+import { render } from "astro:content";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PostCard from "../../components/PostCard.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import TagChip from "../../components/TagChip.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getAllBlogPosts,
+  getAllRoutes,
+  getRoutePosts,
+  tagToSlug,
+} from "../../utils/content";
+
+const allPosts = await getAllBlogPosts();
+
+export async function getStaticPaths() {
+  const routes = await getAllRoutes();
+
+  return routes.map((route) => ({
+    params: { slug: route.id },
+    props: { route },
+  }));
+}
+
+const { route } = Astro.props;
+const { Content } = await render(route);
+const posts = getRoutePosts(route, allPosts);
+---
+
+<BaseLayout title={route.data.title} description={route.data.summary}>
+  <div class="page-grid">
+    <Breadcrumbs
+      items={[
+        { label: "首页", href: "/" },
+        { label: "路线", href: "/routes/" },
+        { label: route.data.title },
+      ]}
+    />
+
+    <section class="article-shell shell-card">
+      <header class="article-header">
+        <p class="eyebrow">{route.data.stage}</p>
+        <h1>{route.data.title}</h1>
+        <p class="article-intro">{route.data.summary}</p>
+        <div class="article-meta">
+          <span>建议投入：{route.data.estimatedTime}</span>
+          <span>推荐阅读文章：{posts.length} 篇</span>
+        </div>
+        <div class="tag-row">
+          {route.data.tags.map((tag) => <TagChip tag={tag} href={`/tags/${tagToSlug(tag)}/`} />)}
+        </div>
+      </header>
+      <div class="article-content shell-card">
+        <Content />
+      </div>
+    </section>
+
+    <section>
+      <SectionHeading
+        eyebrow="推荐阅读"
+        title="按这个顺序继续看"
+        description="这里的文章被组织成一个更适合长期复用的阅读序列。"
+      />
+      <div class="grid-two">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

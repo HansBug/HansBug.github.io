@@ -1,0 +1,27 @@
+---
+import { fallbackTagMeta, tagMeta } from "../data/tagMeta";
+
+interface Props {
+  tag: string;
+  href?: string;
+  count?: number;
+}
+
+const { tag, href, count } = Astro.props;
+const meta = tagMeta[tag] ?? fallbackTagMeta(tag);
+const className = `tag-chip is-${meta.accent}`;
+---
+
+{
+  href ? (
+    <a class={className} href={href}>
+      <span>{tag}</span>
+      {typeof count === "number" && <small>{count}</small>}
+    </a>
+  ) : (
+    <span class={className}>
+      <span>{tag}</span>
+      {typeof count === "number" && <small>{count}</small>}
+    </span>
+  )
+}

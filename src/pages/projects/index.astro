@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { getAllProjects } from "../../utils/content";
+
+const projects = await getAllProjects();
+---
+
+<BaseLayout title="项目">
+  <section class="page-header shell-card">
+    <p class="eyebrow">Projects</p>
+    <h1>项目与实验</h1>
+    <p>项目页负责承接那些比单篇博客更长、比路线更具体的实践。这里会放正在做、持续维护或正在构思的技术工作。</p>
+  </section>
+
+  <section>
+    <SectionHeading
+      eyebrow="Project Board"
+      title="当前公开的项目卡片"
+      description="每张卡片都会链接到详细说明页，后续也可以继续扩展成项目档案。"
+    />
+    <div class="grid-three">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

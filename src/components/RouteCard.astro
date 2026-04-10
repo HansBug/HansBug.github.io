@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { tagToSlug } from "../utils/content";
+import TagChip from "./TagChip.astro";
+
+interface Props {
+  route: CollectionEntry<"routes">;
+}
+
+const { route } = Astro.props;
+---
+
+<article class="route-card shell-card">
+  <div class="route-card__meta">
+    <span>{route.data.stage}</span>
+    <span>{route.data.estimatedTime}</span>
+  </div>
+  <h3>
+    <a href={`/routes/${route.id}/`}>{route.data.title}</a>
+  </h3>
+  <p>{route.data.summary}</p>
+  <div class="tag-row">
+    {route.data.tags.map((tag) => <TagChip tag={tag} href={`/tags/${tagToSlug(tag)}/`} />)}
+  </div>
+</article>

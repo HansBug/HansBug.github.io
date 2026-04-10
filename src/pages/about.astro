@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout title="关于">
+  <div class="page-grid">
+    <section class="page-header shell-card">
+      <p class="eyebrow">About</p>
+      <h1>关于 HansBug</h1>
+      <p>
+        这里是 HansBug 的个人技术博客。内容会围绕工程实践、AI 应用、工具链、知识沉淀和长期维护展开，尽量只写那些未来还能派上用场的东西。
+      </p>
+    </section>
+
+    <section class="grid-two">
+      <article class="info-panel shell-card">
+        <h2>我希望这座博客是什么</h2>
+        <ul class="info-panel__list">
+          <li>一块能长期维护的工作台，而不是一次性展示页。</li>
+          <li>能让后来者快速定位主题、标签和阅读路线的知识库。</li>
+          <li>项目、文章和实验记录互相印证，而不是彼此割裂。</li>
+        </ul>
+      </article>
+
+      <article class="info-panel shell-card">
+        <h2>内容边界</h2>
+        <ul class="info-panel__list">
+          <li>工程效率、仓库治理、CI/CD、调试排障。</li>
+          <li>LLM 应用、评测方法、可观测性、产品化约束。</li>
+          <li>写作、知识管理、静态站点和公共文档维护。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="cta-panel shell-card">
+      <h2>联系入口</h2>
+      <p>
+        如果你想交流、合作、勘误或只是单纯想打个招呼，可以直接发邮件到
+        <a class="inline-link" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>。
+      </p>
+    </section>
+  </div>
+</BaseLayout>

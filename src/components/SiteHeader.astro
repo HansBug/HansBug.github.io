@@ -1,0 +1,33 @@
+---
+import { siteConfig } from "../config/site";
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container shell-card shell-card--dense header-inner">
+    <a class="brand-block" href="/">
+      <span class="brand-mark">HB</span>
+      <span>
+        <strong>{siteConfig.shortTitle}</strong>
+        <small>{siteConfig.tagline}</small>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      {
+        siteConfig.nav.map((item) => {
+          const active =
+            item.href === "/"
+              ? pathname === item.href
+              : pathname.startsWith(item.href);
+
+          return (
+            <a class:list={["nav-link", active && "is-active"]} href={item.href}>
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>

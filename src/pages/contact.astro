@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../config/site";
+---
+
+<BaseLayout title="联系">
+  <div class="page-grid">
+    <section class="page-header shell-card">
+      <p class="eyebrow">Contact</p>
+      <h1>联系 HansBug</h1>
+      <p>
+        这个页面专门负责“怎么联系我”。如果你在博客里看到问题、想讨论技术、希望合作或约稿，优先使用下面这些入口。
+      </p>
+    </section>
+
+    <section class="grid-three">
+      <article class="contact-card shell-card">
+        <p class="eyebrow">Direct</p>
+        <h2>邮箱</h2>
+        <p>适合私下沟通、合作咨询、进一步交流或不方便公开说的内容。</p>
+        <a class="hero-action is-primary" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      </article>
+
+      <article class="contact-card shell-card">
+        <p class="eyebrow">Public</p>
+        <h2>GitHub Issue</h2>
+        <p>适合站点勘误、文章补充、内容建议和公开可追踪的问题。</p>
+        <a class="hero-action" href={siteConfig.issueUrl} target="_blank" rel="noreferrer">提交反馈</a>
+      </article>
+
+      <article class="contact-card shell-card">
+        <p class="eyebrow">Discussion</p>
+        <h2>GitHub Discussions</h2>
+        <p>适合公开讨论、延伸交流和围绕某个主题继续展开对话。</p>
+        <a class="hero-action" href={siteConfig.discussionsUrl} target="_blank" rel="noreferrer">参与讨论</a>
+      </article>
+    </section>
+
+    <section class="grid-two">
+      <article class="info-panel shell-card">
+        <h2>比较适合联系我的事情</h2>
+        <ul class="info-panel__list">
+          <li>技术文章中的勘误、补充和不同做法。</li>
+          <li>工程实践、仓库治理、AI 应用评测相关讨论。</li>
+          <li>技术合作、经验交流、演讲或写作邀请。</li>
+        </ul>
+      </article>
+
+      <article class="info-panel shell-card">
+        <h2>为了提高沟通效率</h2>
+        <ul class="info-panel__list">
+          <li>如果是文章问题，尽量附上具体标题和段落。</li>
+          <li>如果是工程问题，尽量补上上下文、复现信息和预期目标。</li>
+          <li>如果是合作沟通，直接写清楚时间、需求和期望形式即可。</li>
+        </ul>
+      </article>
+    </section>
+  </div>
+</BaseLayout>

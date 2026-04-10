@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 邮件联系 HansBug
+    url: mailto:hansbug@buaa.edu.cn
+    about: 适合私下沟通、合作咨询或不方便公开的问题。
+  - name: GitHub Discussions
+    url: https://github.com/HansBug/HansBug.github.io/discussions
+    about: 适合公开讨论、延伸交流和主题性问答。

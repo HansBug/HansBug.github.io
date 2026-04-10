@@ -1,0 +1,20 @@
+---
+import { siteConfig } from "../config/site";
+---
+
+<footer class="site-footer">
+  <div class="container shell-card footer-inner">
+    <div>
+      <p class="footer-title">{siteConfig.shortTitle}</p>
+      <p class="footer-copy">
+        以中文写作记录工程实践、AI 应用与长期维护经验。
+      </p>
+    </div>
+    <div class="footer-links">
+      <a href={siteConfig.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+      <a href={siteConfig.issueUrl} target="_blank" rel="noreferrer">Issue 反馈</a>
+      <a href={`mailto:${siteConfig.email}`}>邮箱联系</a>
+      <a href={siteConfig.rssUrl}>RSS</a>
+    </div>
+  </div>
+</footer>

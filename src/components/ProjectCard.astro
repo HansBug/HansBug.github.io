@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card shell-card">
+  <div class="project-card__meta">
+    <span>{project.data.status}</span>
+    <span>{project.data.stack.join(" / ")}</span>
+  </div>
+  <h3>
+    <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+  </h3>
+  <p>{project.data.summary}</p>
+</article>

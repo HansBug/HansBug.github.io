@@ -1,0 +1,25 @@
+name: 站点反馈
+description: 用于反馈博客中的页面问题、结构建议或功能缺陷
+title: "[站点反馈] "
+labels:
+  - feedback
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 请尽量写清楚你看到的现象和期望结果。
+      placeholder: 例如：某篇文章的代码块在手机上显示不完整。
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: 相关页面
+      description: 如果有具体页面链接，请直接贴出。
+      placeholder: https://hansbug.github.io/...
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 补充说明
+      description: 可补充截图、设备信息或你的改进建议。

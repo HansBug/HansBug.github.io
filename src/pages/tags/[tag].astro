@@ -1,0 +1,79 @@
+---
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PostCard from "../../components/PostCard.astro";
+import RouteCard from "../../components/RouteCard.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import TagChip from "../../components/TagChip.astro";
+import { fallbackTagMeta, tagMeta } from "../../data/tagMeta";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getAllBlogPosts,
+  getAllRoutes,
+  getAllTags,
+  getTagPosts,
+  getTagRoutes,
+} from "../../utils/content";
+
+export async function getStaticPaths() {
+  const posts = await getAllBlogPosts();
+  const routes = await getAllRoutes();
+  const allTags = getAllTags(posts);
+
+  return allTags.map((item) => ({
+    params: { tag: item.slug },
+    props: {
+      tag: item.tag,
+      posts: getTagPosts(posts, item.tag),
+      routes: getTagRoutes(routes, item.tag),
+    },
+  }));
+}
+
+const { tag, posts, routes } = Astro.props;
+const meta = tagMeta[tag] ?? fallbackTagMeta(tag);
+---
+
+<BaseLayout title={`标签：${tag}`} description={meta.description}>
+  <div class="page-grid">
+    <Breadcrumbs
+      items={[
+        { label: "首页", href: "/" },
+        { label: "标签", href: "/tags/" },
+        { label: tag },
+      ]}
+    />
+
+    <section class="page-header shell-card">
+      <p class="eyebrow">{meta.group}</p>
+      <h1>{tag}</h1>
+      <p>{meta.description}</p>
+      <div class="tag-row">
+        <TagChip tag={tag} count={posts.length} />
+      </div>
+    </section>
+
+    <section>
+      <SectionHeading
+        eyebrow="相关文章"
+        title={`${posts.length} 篇文章`}
+        description="这些文章都和当前标签有明确关联。"
+      />
+      <div class="grid-two">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+
+    {routes.length > 0 && (
+      <section>
+        <SectionHeading
+          eyebrow="相关路线"
+          title="想系统读下去，可以看这些路线"
+          description="路线会把分散文章串成一套更清晰的阅读顺序。"
+        />
+        <div class="grid-three">
+          {routes.map((route) => <RouteCard route={route} />)}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

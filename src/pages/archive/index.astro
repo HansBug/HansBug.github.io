@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import { getAllBlogPosts, groupPostsByYear } from "../../utils/content";
+import { formatDate } from "../../utils/date";
+
+const posts = await getAllBlogPosts();
+const archive = groupPostsByYear(posts);
+---
+
+<BaseLayout title="归档">
+  <section class="page-header shell-card">
+    <p class="eyebrow">Archive</p>
+    <h1>时间归档</h1>
+    <p>如果你习惯按时间线回看博客演化，可以从这里进入。归档更适合观察关注点如何逐渐收敛。</p>
+  </section>
+
+  <div class="page-grid">
+    {
+      archive.map((entry) => (
+        <section class="archive-year shell-card">
+          <SectionHeading
+            eyebrow="Year"
+            title={entry.year}
+            description={`这一年共整理出 ${entry.posts.length} 篇文章。`}
+          />
+          <ul class="archive-list">
+            {entry.posts.map((post) => (
+              <li>
+                <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                <span>{formatDate(post.data.pubDate)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

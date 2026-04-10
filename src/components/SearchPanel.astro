@@ -1,0 +1,94 @@
+---
+interface SearchItem {
+  title: string;
+  description: string;
+  url: string;
+  type: string;
+  tags: string[];
+  meta: string;
+}
+
+interface Props {
+  items: SearchItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="search-panel shell-card" data-search-root>
+  <label class="search-label" for="search-input">搜索本站内容</label>
+  <input
+    id="search-input"
+    class="search-input"
+    data-search-input
+    type="search"
+    placeholder="输入标题、标签或关键词，例如：CI/CD、评测、博客"
+  />
+  <p class="search-count" data-search-count></p>
+  <div class="search-results" data-search-results></div>
+</section>
+
+<script is:inline define:vars={{ items }}>
+  const root = document.querySelector("[data-search-root]");
+
+  if (root) {
+    const input = root.querySelector("[data-search-input]");
+    const count = root.querySelector("[data-search-count]");
+    const results = root.querySelector("[data-search-results]");
+
+    const render = (keyword = "") => {
+      const query = keyword.trim().toLowerCase();
+
+      const ranked = items
+        .map((item) => {
+          const haystack = [item.title, item.description, item.tags.join(" "), item.meta]
+            .join(" ")
+            .toLowerCase();
+          let score = 0;
+
+          if (!query) {
+            score = 1;
+          } else {
+            if (item.title.toLowerCase().includes(query)) score += 6;
+            if (item.tags.join(" ").toLowerCase().includes(query)) score += 4;
+            if (item.description.toLowerCase().includes(query)) score += 3;
+            if (haystack.includes(query)) score += 1;
+          }
+
+          return { item, score };
+        })
+        .filter((entry) => entry.score > 0)
+        .sort((left, right) => right.score - left.score)
+        .slice(0, 12);
+
+      count.textContent = query
+        ? `找到 ${ranked.length} 条匹配结果`
+        : `展示最新和推荐内容 ${ranked.length} 条`;
+
+      results.innerHTML = ranked
+        .map(
+          ({ item }) => `
+            <article class="search-result">
+              <p class="search-result__meta">${item.type} · ${item.meta}</p>
+              <h3><a href="${item.url}">${item.title}</a></h3>
+              <p>${item.description}</p>
+              <p class="search-result__tags">${item.tags.join(" · ")}</p>
+            </article>
+          `,
+        )
+        .join("");
+
+      if (!ranked.length) {
+        results.innerHTML = `
+          <article class="search-result search-result--empty">
+            <h3>没有找到匹配结果</h3>
+            <p>可以试试更短的关键词，或者直接去标签页按主题浏览。</p>
+          </article>
+        `;
+      }
+    };
+
+    render();
+    input.addEventListener("input", (event) => render(event.target.value));
+  }
+</script>

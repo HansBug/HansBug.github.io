@@ -1,0 +1,131 @@
+---
+import { render } from "astro:content";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import PostCard from "../../components/PostCard.astro";
+import RouteCard from "../../components/RouteCard.astro";
+import SectionHeading from "../../components/SectionHeading.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+import TagChip from "../../components/TagChip.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  getAllBlogPosts,
+  getAllRoutes,
+  getPrevNextPosts,
+  getRelatedPosts,
+  tagToSlug,
+} from "../../utils/content";
+import { formatDate } from "../../utils/date";
+
+const allPosts = await getAllBlogPosts();
+const allRoutes = await getAllRoutes();
+
+export async function getStaticPaths() {
+  const posts = await getAllBlogPosts();
+
+  return posts.map((post) => {
+    const { newer, older } = getPrevNextPosts(post, posts);
+    return {
+      params: { slug: post.id },
+      props: { post, newer, older },
+    };
+  });
+}
+
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+const relatedPosts = getRelatedPosts(post, allPosts);
+const relatedRoutes = allRoutes
+  .filter(
+    (route) =>
+      post.data.routeSlugs.includes(route.id) ||
+      route.data.tags.some((tag) => post.data.tags.includes(tag)),
+  )
+  .slice(0, 3);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <div class="page-grid">
+    <Breadcrumbs
+      items={[
+        { label: "首页", href: "/" },
+        { label: "博客", href: "/blog/" },
+        { label: post.data.title },
+      ]}
+    />
+
+    <div class="article-layout">
+      <article class="article-shell shell-card">
+        <header class="article-header">
+          <p class="eyebrow">{post.data.series ?? "技术文章"}</p>
+          <h1>{post.data.title}</h1>
+          <p class="article-intro">{post.data.description}</p>
+          <div class="article-meta">
+            <span>发布日期：{formatDate(post.data.pubDate)}</span>
+            {post.data.updatedDate && <span>最近更新：{formatDate(post.data.updatedDate)}</span>}
+            <span>难度：{post.data.difficulty}</span>
+          </div>
+          <div class="tag-row">
+            {post.data.tags.map((tag) => <TagChip tag={tag} href={`/tags/${tagToSlug(tag)}/`} />)}
+          </div>
+        </header>
+
+        <div class="article-content shell-card">
+          <Content />
+        </div>
+      </article>
+
+      <aside class="article-aside">
+        <TableOfContents headings={headings} />
+
+        <section class="shell-card info-panel">
+          <p class="toc-title">继续阅读</p>
+          <ul class="panel-list">
+            <li><a href="/routes/">按路线查看体系化内容</a></li>
+            <li><a href="/tags/">按标签查看相近主题</a></li>
+            <li><a href="/contact/">有问题或勘误可直接联系</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    {(newer || older) && (
+      <section>
+        <SectionHeading
+          eyebrow="前后阅读"
+          title="继续往下看"
+          description="如果你是连续阅读本站内容，可以从相邻文章继续推进。"
+        />
+        <div class="grid-two">
+          {newer && <PostCard post={newer} compact />}
+          {older && <PostCard post={older} compact />}
+        </div>
+      </section>
+    )}
+
+    {relatedRoutes.length > 0 && (
+      <section>
+        <SectionHeading
+          eyebrow="相关路线"
+          title="这篇文章属于这些更大的主题"
+          description="如果你不想只停在单篇文章，建议直接进入对应路线继续看。"
+        />
+        <div class="grid-three">
+          {relatedRoutes.map((route) => <RouteCard route={route} />)}
+        </div>
+      </section>
+    )}
+
+    {relatedPosts.length > 0 && (
+      <section>
+        <SectionHeading
+          eyebrow="相关文章"
+          title="继续读这些内容"
+          description="根据共享标签给出关联文章，帮助你把零散问题串成一条线。"
+        />
+        <div class="grid-three">
+          {relatedPosts.map((relatedPost) => <PostCard post={relatedPost} compact />)}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
