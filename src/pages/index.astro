@@ -22,56 +22,56 @@ const [posts, routes, projects] = await Promise.all([
           <p>
             这里优先承接以后要持续更新的新内容。博客、标签、路线和项目都会先在这里生长；旧博客园内容已经转入单独的归档入口，不再占据首页主体。
           </p>
+          <div class="tag-row">
+            <span class="tag-chip is-red"><span>中文技术写作</span></span>
+            <span class="tag-chip is-slate"><span>项目与路线并行</span></span>
+            <span class="tag-chip is-blue"><span>轻工业终端感</span></span>
+          </div>
           <div class="hero-actions">
             <a class="hero-action is-primary" href="/blog/">进入博客</a>
             <a class="hero-action" href="/tags/">浏览标签</a>
             <a class="hero-action" href="/contact/">联系 HansBug</a>
           </div>
         </div>
-        <div class="profile-panel shell-card">
-          <div class="profile-panel__head">
-            <img class="profile-avatar" src={siteConfig.avatarPath} alt="HansBug 的 GitHub 头像" />
-            <div class="profile-info">
-              <p class="eyebrow">站点 / HansBug</p>
-              <h2>技术写作新站</h2>
-              <p>新文章、路线、标签和项目会先在这里稳定落地，逐步形成更长期的内容结构。</p>
-            </div>
+        <div class="hero-visual shell-card">
+          <div class="hero-visual__art">
+            <img src="/operator-echo.svg" alt="带有轻度角色感的终端风站点插画" />
           </div>
-          <div class="profile-badges">
-            <span class="tag-chip is-red"><span>GitHub 头像</span></span>
-            <span class="tag-chip is-orange"><span>新站建设中</span></span>
-            <span class="tag-chip is-slate"><span>旧站已独立归档</span></span>
+          <div class="hero-visual__label">
+            <p class="eyebrow">终端视觉 / 站点形象</p>
+            <strong>灰白工业感、警示橙、轻角色感，但仍然以阅读和可用性为先。</strong>
           </div>
-          <div class="stat-grid profile-stats">
-            <div>
-              <strong>{posts.length}</strong>
-              <span>新站文章</span>
+          <div class="hero-dossier shell-card">
+            <div class="profile-panel__head">
+              <img class="profile-avatar" src={siteConfig.avatarPath} alt="HansBug 的 GitHub 头像" />
+              <div class="profile-info">
+                <p class="eyebrow">站点 / HansBug</p>
+                <h2>技术写作新站</h2>
+                <p>新文章、路线、标签和项目会先在这里稳定落地，逐步形成更长期的内容结构。</p>
+              </div>
             </div>
-            <div>
-              <strong>{routes.length}</strong>
-              <span>路线页</span>
+            <div class="profile-badges">
+              <span class="tag-chip is-red"><span>GitHub 头像</span></span>
+              <span class="tag-chip is-orange"><span>新站建设中</span></span>
+              <span class="tag-chip is-slate"><span>旧站已独立归档</span></span>
             </div>
-            <div>
-              <strong>{projects.length}</strong>
-              <span>项目页</span>
+            <div class="stat-grid profile-stats">
+              <div>
+                <strong>{posts.length}</strong>
+                <span>新站文章</span>
+              </div>
+              <div>
+                <strong>{routes.length}</strong>
+                <span>路线页</span>
+              </div>
+              <div>
+                <strong>{projects.length}</strong>
+                <span>项目页</span>
+              </div>
             </div>
-          </div>
-          <div class="status-panel">
-            <p class="eyebrow">当前状态</p>
-            <ul class="status-list">
-              <li>
-                <strong>内容重心</strong>
-                <span>以后新增文章和整理工作优先进入这里，而不是继续往旧站追加。</span>
-              </li>
-              <li>
-                <strong>旧站处理</strong>
-                <span>博客园历史文章已转为独立归档入口，并标注发布时间与阅读量。</span>
-              </li>
-              <li>
-                <strong>默认联系</strong>
-                <span>邮箱优先，公共反馈走 Issue 与 Discussions。</span>
-              </li>
-            </ul>
+            <p class="hero-dossier__note">
+              新文章优先进入这里；旧站内容改走独立归档页。默认联系入口仍然是邮箱和 GitHub 反馈。
+            </p>
           </div>
         </div>
       </div>
