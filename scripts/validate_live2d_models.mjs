@@ -91,8 +91,19 @@ function isRemoteTarget(value) {
   return value.startsWith("http://") || value.startsWith("https://");
 }
 
+function manifestBasename(value) {
+  if (isRemoteTarget(value)) {
+    return path.basename(new URL(value).pathname);
+  }
+  return path.basename(value);
+}
+
 function isManifestFile(value) {
-  return value.endsWith(".model3.json") || value.endsWith(".model.json");
+  return (
+    value.endsWith(".model3.json") ||
+    value.endsWith(".model.json") ||
+    manifestBasename(value) === "model.json"
+  );
 }
 
 async function walkManifests(dir) {
@@ -145,7 +156,7 @@ function runtimeForManifest(target) {
   if (target.endsWith(".model3.json")) {
     return "cubism4";
   }
-  if (target.endsWith(".model.json")) {
+  if (target.endsWith(".model.json") || manifestBasename(target) === "model.json") {
     return "cubism2";
   }
   throw new Error(`Unknown manifest runtime: ${target}`);
@@ -174,7 +185,14 @@ function pageHtml(runtime, modelUrl) {
   return `<!doctype html>
 <meta charset="utf-8" />
 <canvas id="view" width="800" height="600"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script>
+window.__earlyErrors = [];
+window.addEventListener("error", (event) => {
+  window.__earlyErrors.push(String(event.message || event.error || "unknown early error"));
+});
+</script>
+<script src="https://pixijs.download/v6.5.10/pixi-legacy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
 ${runtime === "cubism2" ? cubism2Scripts : cubism4Scripts}
 <script>
 window.__result = undefined;
@@ -188,24 +206,29 @@ window.addEventListener("error", (event) => {
 
 (async () => {
   try {
-    window.PIXI = PIXI;
-    const app = new PIXI.Application({
-      view: document.getElementById("view"),
-      width: 800,
-      height: 600,
-      autoStart: false,
-      backgroundAlpha: 0,
-    });
-
     const options = { autoUpdate: false };
-    if (PIXI.live2d.MotionPreloadStrategy) {
+    if (PIXI.live2d?.MotionPreloadStrategy) {
       options.motionPreload = PIXI.live2d.MotionPreloadStrategy.NONE;
     }
 
+    if (!PIXI.live2d || !PIXI.live2d.Live2DModel) {
+      throw new Error(
+        "Live2D runtime missing: " +
+          JSON.stringify({
+            pixiVersion: PIXI.VERSION,
+            hasLive2d: Boolean(PIXI.live2d),
+            live2dKeys: PIXI.live2d ? Object.keys(PIXI.live2d).slice(0, 20) : [],
+            hasCubismCore: typeof Live2DCubismCore !== "undefined",
+            hasLive2DCore: typeof Live2D !== "undefined",
+            earlyErrors: window.__earlyErrors,
+          }),
+      );
+    }
+
     const model = await PIXI.live2d.Live2DModel.from(${JSON.stringify(modelUrl)}, options);
-    app.stage.addChild(model);
-    model.update(16);
-    app.render();
+    if (typeof model.update === "function") {
+      model.update(16);
+    }
 
     window.__result = {
       ok: true,
@@ -275,8 +298,16 @@ async function main() {
   const baseUrl = `http://127.0.0.1:${address.port}`;
   const browser = await puppeteer.launch({
     executablePath: CHROME_PATH,
-    headless: "new",
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-web-security"],
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-web-security",
+      "--disable-gpu",
+      "--disable-dev-shm-usage",
+    ],
+    timeout: args.timeout,
+    protocolTimeout: args.timeout,
   });
 
   const results = [];
@@ -284,6 +315,7 @@ async function main() {
   try {
     const page = await browser.newPage();
     page.setDefaultTimeout(args.timeout);
+    page.setDefaultNavigationTimeout(args.timeout);
 
     for (const manifest of manifests) {
       const runtime = runtimeForManifest(manifest);

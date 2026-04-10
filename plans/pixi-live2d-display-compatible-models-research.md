@@ -160,7 +160,8 @@ function testPage(runtime, model) {
   return `<!doctype html>
 <meta charset="utf-8" />
 <canvas id="view" width="800" height="600"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://pixijs.download/v6.5.10/pixi-legacy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
 ${runtime === "cubism2" ? cubism2Scripts : cubism4Scripts}
 <script>
 window.addEventListener("error", (event) => {
@@ -169,7 +170,6 @@ window.addEventListener("error", (event) => {
 
 (async () => {
   try {
-    window.PIXI = PIXI;
     const app = new PIXI.Application({
       view: document.getElementById("view"),
       width: 800,
@@ -306,12 +306,11 @@ try {
 
 ```html
 <canvas id="view" width="800" height="600"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://pixijs.download/v6.5.10/pixi-legacy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
 <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism4.min.js"></script>
 <script>
-  window.PIXI = PIXI;
-
   (async () => {
     const app = new PIXI.Application({
       view: document.getElementById("view"),
@@ -346,12 +345,11 @@ try {
 
 ```html
 <canvas id="view" width="800" height="600"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://pixijs.download/v6.5.10/pixi-legacy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism2.min.js"></script>
 <script>
-  window.PIXI = PIXI;
-
   (async () => {
     const app = new PIXI.Application({
       view: document.getElementById("view"),
@@ -438,20 +436,22 @@ try {
 2. 已经过本轮真实加载测试。
 3. 可以直接作为后续模型名单的初始种子池。
 
-## 9. 本轮已识别但未进入“已实测可用”名单的知名角色
+## 9. 官方样例线尚未补测的知名角色
 
-这些角色在 Live2D 官方 sample 生态里是明确存在的，但本轮文档只把“已经拿到 manifest 直链并真实跑通”的条目列入可用名单，所以它们先单独放在待验证池里。
+这些角色在 Live2D 官方 sample 生态里是明确存在的，但这里说的“待验证”只针对官方样例线本身，不代表全网都还没有可用模型。
+
+例如 `Hatsune Miku` 已经在第 13.5 节和第 13.6 节通过社区仓实测；这里仅表示“官方 sample 生态里可直接拿来复验的 runtime manifest”本轮仍未补齐。
 
 | 角色 | 当前状态 | 说明 |
 | --- | --- | --- |
-| Hatsune Miku | 待验证 | 官方 sample 生态里可见，但本轮没有把其 runtime manifest 直链纳入已测矩阵 |
-| Unity-chan | 待验证 | 官方 sample 生态里可见，但本轮没有把其 runtime manifest 直链纳入已测矩阵 |
-| Chitose | 待验证 | 官方旧样例角色，本轮未纳入已测矩阵 |
-| Epsilon | 待验证 | 官方旧样例角色，本轮未纳入已测矩阵 |
-| Hibiki | 待验证 | 官方旧样例角色，本轮未纳入已测矩阵 |
-| Koharu & Haruto | 待验证 | 官方旧样例组合角色，本轮未纳入已测矩阵 |
+| Hatsune Miku | 官方样例线待验证 | 社区仓已实测可用，但官方 sample 生态里本轮没有把其 runtime manifest 直链纳入已测矩阵 |
+| Unity-chan | 官方样例线待验证 | 官方 sample 生态里可见，但本轮没有把其 runtime manifest 直链纳入已测矩阵 |
+| Chitose | 官方样例线待验证 | 官方旧样例角色，本轮未纳入已测矩阵 |
+| Epsilon | 官方样例线待验证 | 官方旧样例角色，本轮未纳入已测矩阵 |
+| Hibiki | 官方样例线待验证 | 官方旧样例角色，本轮未纳入已测矩阵 |
+| Koharu & Haruto | 官方样例线待验证 | 官方旧样例组合角色，本轮未纳入已测矩阵 |
 
-后续如果你想优先扩“耳熟能详的角色”，推荐先从 `Hatsune Miku` 和 `Unity-chan` 下手，但仍然要先拿到可直接测试的 `model3.json` / `model.json` 入口。
+后续如果要把“官方来源”这一列也补齐，优先级仍然建议先做 `Hatsune Miku` 和 `Unity-chan`，但前提仍然是先拿到可直接测试的 `model3.json` / `model.json`，不能只拿到 `cmo3` / `can3` 这类编辑工程文件。
 
 ## 10. 下一步建议
 
@@ -538,6 +538,11 @@ node scripts/validate_live2d_models.mjs \
 | `Cpk0521/CUE-live2d-Viewer` | `195` | `195 / 195` 通过 | 抽测 `0 / 2` 通过 | 技术上完全可用，但更适合先下载后自托管 |
 | `donjuanplatinum/AzurLane-Live2D` | `193` | `193 / 193` 通过 | 抽测 `1 / 4` 通过 | 技术上完全可用，远程直挂稳定性一般 |
 | `Eikanya/Live2d-model` | 本轮只抽测 8 个代表条目 | `8 / 8` 通过 | 未系统补测 | 可以视为公开 Live2D 聚合仓，但必须逐条复验 |
+| `KISGP/model` | 本轮补齐 `16` 个著名 IP 条目 | `16 / 16` 通过 | 未补测 | `星穹铁道 6 + 崩坏学园 2 10` 这一线已补到整组可用 |
+| `zenghongtu/live2d-model-assets` | 本轮补齐 `27` 个著名 IP 条目 | `27 / 27` 通过 | 未补测 | `少女前线 15 + 海王星 10 + Miku 2` 可以继续当主力资源池 |
+| `lezzthanthree/SEKAI-Stories` | 本轮补齐 `18` 个著名 IP 条目 | `18 / 18` 通过 | 未补测 | `Project SEKAI / Vocaloid` 基础款 + 服装变体都很稳 |
+| `diannaojiang/bandream_l2d` | 本轮抽测 `10` 个著名 IP 条目 | `0 / 10` 通过 | 未补测 | 角色知名度高，但当前 manifest 贴图路径不匹配 |
+| `stories2/BlueArchive` + `respectZ/blue-archive-viewer` | 未发现可直挂 manifest | 不适用 | 不适用 | `Blue Archive` 当前拿到的是 `cmo3/can3` 编辑工程或 Spine 资源，不是 `pixi-live2d-display` 直挂输入 |
 | `namv22/GFL-Live2D-Viewer` | `86` 个 manifest 存在 | 抽测 `0 / 6` 通过 | 此前远程抽测 `0 / 4` 通过 | 下载后不能直接挂，manifest 与实际文件名不匹配 |
 | PRTS 明日方舟小人页 | 不是 Live2D manifest | 不适用 | 不适用 | 这条线仍然是 Spine，不属于 `pixi-live2d-display` 直挂输入 |
 
@@ -545,10 +550,12 @@ node scripts/validate_live2d_models.mjs \
 
 如果只按“技术上能否直接给 `pixi-live2d-display`”这个标准，这一轮真正值得记住的是：
 
-1. `CUE-live2d-Viewer`：整仓 `195` 个 `model3.json` 本地全过。
-2. `AzurLane-Live2D`：整仓 `193` 个 `model3.json` 本地全过。
-3. `Eikanya/Live2d-model`：至少能稳定提供更多公开可下载的 Live2D 模型目录，适合继续向外扩。
-4. `GFL-Live2D-Viewer`：资源虽然很多，但下载后不是“直接可挂”的形态。
+1. `KISGP/model`：`星穹铁道 6` 个 + `崩坏学园 2 10` 个条目，本地 `16 / 16` 全过，`BengHuai2` 这一子目录已经补齐。
+2. `zenghongtu/live2d-model-assets`：`少女前线 15` 个 + `海王星 10` 个 + `Miku 2` 个，本地 `27 / 27` 全过，是当前著名 IP 密度最高的来源之一。
+3. `lezzthanthree/SEKAI-Stories`：基础 `8` 个 + 服装变体 `10` 个，本地 `18 / 18` 全过，说明它不只是“每人一套基础皮”稳定，而是整条 `Project SEKAI / Vocaloid` 服装线也稳定。
+4. `stories2/BlueArchive` + `respectZ/blue-archive-viewer`：`Blue Archive` 方向本轮也追了，但前者只有 `cmo3/can3` 编辑工程，后者是 Spine 资源，仍然不能进入 `pixi-live2d-display` 直挂表。
+5. `diannaojiang/bandream_l2d`：角色本身很有价值，但当前仓库形态不是“下载后即可直挂”。
+6. `CUE-live2d-Viewer`、`AzurLane-Live2D`、`Eikanya/Live2d-model` 仍然是继续扩表时最稳的主力来源。
 
 这意味着后面真要持续攒模型池，可以优先盯住：
 
@@ -556,6 +563,14 @@ node scripts/validate_live2d_models.mjs \
 2. `CUE-live2d-Viewer`
 3. `AzurLane-Live2D`
 4. `Eikanya/Live2d-model`
+5. `KISGP/model`
+6. `zenghongtu/live2d-model-assets`
+7. `lezzthanthree/SEKAI-Stories`
+
+但如果目标是“多找著名 IP”，那也要同步接受一个现实：
+
+1. `Blue Archive` 这类热门 IP 当前更容易搜到的是 Spine 或 Cubism 编辑工程，不一定能直接进 `pixi-live2d-display`。
+2. 所以“著名 IP 优先”并不等于“只搜新 IP”，从已经跑通的大仓里继续补高知名角色，通常比追未知仓更稳。
 
 ## 13. 新增确认可用模型表
 
@@ -626,7 +641,130 @@ jsDelivr: https://cdn.jsdelivr.net/gh/Cpk0521/CUE-live2d-Viewer@master/live2d/<c
 | `016 / 016_013` | 全身 | `3039 x 4298` | Cubism 4 | `https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/016/016_013/016.model3.json` | 通过 | 未补测 | 同仓库内路径规律稳定 |
 | `103 / 103_001` | 全身 | `3039 x 4298` | Cubism 4 | `https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/103/103_001/103.model3.json` | 通过 | 未补测 | 说明后段编号资源也不是“前面几条特例” |
 
-### 13.4 JS 加载写法
+### 13.4 `KISGP/model` 中本轮跑通的著名 IP 条目
+
+先给结论：
+
+1. 本轮补齐后的 `16` 个代表条目全部通过。
+2. 这条线已经不只是“杂项聚合仓”，而是可以稳定产出著名 IP 的可挂模型。
+3. 其中 `星穹铁道` 是现代 `Cubism 4`，`崩坏学园 2` 这一组是老格式 `Cubism 2.1`。
+
+| IP | 模型 | 资源类型 | 实测尺寸 | Runtime | Manifest URL | 下载后本地直挂 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `崩坏学园 2` | 布洛妮娅 `bronya` | 方构图 / 角色立绘 | `2500 x 2500` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/bronya/model.json` | 通过 | 方构图稳定，适合桌宠化裁切 |
+| `崩坏学园 2` | 八重樱 `BYC` | 方构图 / 角色立绘 | `2480 x 2480` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/BYC/model.json` | 通过 | 接近方图，挂件友好 |
+| `崩坏学园 2` | 耀夜姬 `kaguya` | 方构图 / 角色立绘 | `2000 x 2100` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/kaguya/model.json` | 通过 | 老格式但资源完整 |
+| `崩坏学园 2` | 时雨绮罗 `Kiro` | 方构图 / 角色立绘 | `2000 x 2000` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Kiro/model.json` | 通过 | 最接近标准桌宠方图 |
+| `崩坏学园 2` | 丽塔 `Lita` | 竖向角色立绘 | `1800 x 2000` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Lita/model.json` | 通过 | 竖向比例更适合侧栏挂件 |
+| `崩坏学园 2` | 希儿 `xier` | 竖向角色立绘 | `1400 x 2700` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/xier/model.json` | 通过 | 细高构图，适合全身展示 |
+| `崩坏学园 2` | `keluoyi` | 方构图 / 角色立绘 | `2000 x 2000` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/keluoyi/model.json` | 通过 | 轻量方图，适合补齐老格式角色池 |
+| `崩坏学园 2` | `Nindi` | 细高全身 | `2806 x 5332` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Nindi/model.json` | 通过 | 这组里最高的竖向立绘之一 |
+| `崩坏学园 2` | 西琳 `xilin2.1` | 竖向角色立绘 | `3000 x 3500` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/xilin2.1/model.json` | 通过 | 比例稳定，适合全身展示 |
+| `崩坏学园 2` | 伊瑟琳 `yiselin` | 竖向角色立绘 | `2500 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/yiselin/model.json` | 通过 | 补齐后 `BengHuai2` 子目录达到 `10 / 10` 通过 |
+| `崩坏：星穹铁道` | 卡夫卡 | 全身 / 大立绘 | `3326 x 6162` | Cubism 4 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/StarRail/卡夫卡/卡夫卡.model3.json` | 通过 | 这轮首个跑通的星铁条目 |
+| `崩坏：星穹铁道` | 知更鸟 | 全身 / 大立绘 | `6363 x 9000` | Cubism 4 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/StarRail/知更鸟/知更鸟.model3.json` | 通过 | 高分辨率双纹理条目 |
+| `崩坏：星穹铁道` | 符玄 | 全身 / 大立绘 | `6000 x 8487` | Cubism 4 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/StarRail/符玄/符玄.model3.json` | 通过 | 纹理数 `8`，复杂度较高 |
+| `崩坏：星穹铁道` | 花火 | 全身 / 大立绘 | `3836 x 4750` | Cubism 4 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/StarRail/花火/花火.model3.json` | 通过 | 尺寸更紧凑，适合中型挂件 |
+| `崩坏：星穹铁道` | 藿藿 | 全身 / 大立绘 | `6000 x 8487` | Cubism 4 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/StarRail/藿藿/藿藿.model3.json` | 通过 | 纹理数 `4` |
+| `崩坏：星穹铁道` | 镜流 | 全身 / 大立绘 | `3454 x 4160` | Cubism 4 | `https://raw.githubusercontent.com/KISGP/model/main/live2d/StarRail/镜流/镜流.model3.json` | 通过 | 单纹理，轻量于大多数星铁条目 |
+
+### 13.5 `zenghongtu/live2d-model-assets` 中本轮跑通的著名 IP 条目
+
+先给结论：
+
+1. 本轮补齐后的 `27` 个代表条目全部通过。
+2. 这条线的价值在于它能一次性提供多个著名二次元 IP。
+3. 当前抽测到的通过项全部是 `Cubism 2.1`。
+
+#### 13.5.1 `少女前线`
+
+| 模型 | 资源类型 | 实测尺寸 | Runtime | Manifest URL | 下载后本地直挂 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 95 式 `95type_405` | 方构图 / 桌宠感 | `1024 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/95type_405/95type_405.model.json` | 通过 | 这批里最接近小挂件尺寸 |
+| AK-12 `ak12_3302` | 全身 / 大立绘 | `4000 x 5813` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ak12_3302/ak12_3302.model.json` | 通过 | 大竖图 |
+| AN-94 `an94_3303` | 全身 / 大立绘 | `3000 x 4360` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/an94_3303/an94_3303.model.json` | 通过 | 与 AK-12 形成配套代表样本 |
+| G36C `g36c_1202` | 全身 / 大立绘 | `2757 x 4130` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/g36c_1202/g36c_1202.model.json` | 通过 | 比例更适中 |
+| HK416 `hk416_3401` | 全身 / 大立绘 | `3500 x 5000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/hk416_3401/hk416_3401.model.json` | 通过 | 著名角色代表条目 |
+| OTs-14 `ots14_3001` | 全身 / 大立绘 | `4800 x 5328` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ots14_3001/ots14_3001.model.json` | 通过 | 宽一些的全身构图 |
+| UMP45 `ump45_3403` | 全身 / 角色立绘 | `2480 x 3861` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ump45_3403/ump45_3403.model.json` | 通过 | 中等尺寸 |
+| WA2000 `wa2000_6` | 方构图 / 角色立绘 | `1920 x 1920` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/wa2000_6/wa2000_6.model.json` | 通过 | 方图，适合挂件裁切 |
+| G41 `g41_2401` | 全身 / 大立绘 | `5000 x 6000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/g41_2401/g41_2401.model.json` | 通过 | 这组里分辨率最高的少女前线条目之一 |
+| 格琳娜 `gelina` | 全身 / 角色立绘 | `3400 x 3826` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/gelina/gelina.model.json` | 通过 | 辨识度很高的副官角色 |
+| SAT8 `sat8_2601` | 横构图 / 角色立绘 | `5190 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/sat8_2601/sat8_2601.model.json` | 通过 | 宽构图版本，适合横向展示区 |
+| SAT8 `sat8_3602` | 全身 / 大立绘 | `3508 x 4961` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/sat8_3602/sat8_3602.model.json` | 通过 | 同角色的竖向版本 |
+| UMP9 `ump9_3404` | 全身 / 角色立绘 | `2480 x 3861` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ump9_3404/ump9_3404.model.json` | 通过 | 可与 `UMP45` 组成配对条目 |
+| Vector `vector_1901` | 宽构图 / 角色立绘 | `3661 x 3900` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/vector_1901/vector_1901.model.json` | 通过 | 接近方图但横向更宽一点 |
+| Welrod `welrod_1401` | 方构图 / 角色立绘 | `3500 x 3600` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/welrod_1401/welrod_1401.model.json` | 通过 | 接近方图，做挂件裁切也比较友好 |
+
+#### 13.5.2 `超次元海王星`
+
+| 模型 | 资源类型 | 实测尺寸 | Runtime | Manifest URL | 下载后本地直挂 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- |
+| Neptune `nepnep` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepnep/model.json` | 通过 | 本轮最经典的海王星代表条目 |
+| Nepgear `nepgear` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepgear/model.json` | 通过 | 四纹理 |
+| Noir `noir` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noir/model.json` | 通过 | 三纹理 |
+| Blanc `blanc_normal` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_normal/model.json` | 通过 | 四纹理 |
+| Vert `vert_normal` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/vert_normal/model.json` | 通过 | 四纹理 |
+| Neptune 圣诞 `neptune_santa` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/neptune_santa/model.json` | 通过 | 经典角色节日变体 |
+| Nepgear 泳装 `nepgearswim` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepgearswim/model.json` | 通过 | 四纹理，复杂度与基础版一致 |
+| Noir 圣诞 `noir_santa` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noir_santa/model.json` | 通过 | 经典角色节日变体 |
+| Blanc 泳装 `blanc_swimwear` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_swimwear/model.json` | 通过 | 三纹理，略轻于基础版 |
+| Vert 泳装 `vert_swimwear` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/vert_swimwear/model.json` | 通过 | 四纹理，适合作为变体补充 |
+
+#### 13.5.3 `Vocaloid / Miku`
+
+| 模型 | 资源类型 | 实测尺寸 | Runtime | Manifest URL | 下载后本地直挂 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 初音未来 `miku` | 半身 / 轻量挂件 | `900 x 1200` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/miku/miku.model.json` | 通过 | 轻量级老格式代表条目 |
+| Snow Miku | 横构图 / 大立绘 | `4000 x 3200` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/snow_miku/model.json` | 通过 | 著名 Miku 变体 |
+
+### 13.6 `SEKAI-Stories` 中本轮跑通的著名 IP 条目
+
+先给结论：
+
+1. 本轮补齐后的 `18` 个代表条目全部通过。
+2. 这条线现在可以当作 `Project SEKAI / Vocaloid` 的稳定现代模型池。
+3. 当前抽测条目全部是 `Cubism 4`，尺寸一致性也很好。
+
+| 模型 | 资源类型 | 实测尺寸 | Runtime | Manifest URL | 下载后本地直挂 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 草薙宁宁 `15nene_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/15nene/15nene_normal/15nene_normal.model3.json` | 通过 | `Wonderlands x Showtime` 路线 |
+| 神代类 `16rui_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/16rui/16rui_normal/16rui_normal.model3.json` | 通过 | 与宁宁同 IP 路线 |
+| 朝比奈真冬 `18mafuyu_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/18mafuyu/18mafuyu_normal/18mafuyu_normal.model3.json` | 通过 | `25 时，Nightcord 见` 路线 |
+| 初音未来 `21miku_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_normal/21miku_normal.model3.json` | 通过 | 现代 `Miku` 样本，优先级很高 |
+| 镜音连 `23len_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_normal/23len_normal.model3.json` | 通过 | Vocaloid 代表条目 |
+| 巡音流歌 `24luka_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/24luka/24luka_normal/24luka_normal.model3.json` | 通过 | Vocaloid 代表条目 |
+| MEIKO `25meiko_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_normal/25meiko_normal.model3.json` | 通过 | Vocaloid 代表条目 |
+| KAITO `26kaito_normal` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_normal/26kaito_normal.model3.json` | 通过 | Vocaloid 代表条目 |
+
+#### 13.6.1 本轮追加跑通的 `Project SEKAI / Vocaloid` 服装变体
+
+这 10 个条目本轮都是重新逐条跑过的，不是“从目录结构推断会通过”：
+
+| 模型 | 资源类型 | 实测尺寸 | Runtime | Manifest URL | 下载后本地直挂 | 备注 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 初音未来 `21miku_band` | 全身 / 乐队风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_band/21miku_band.model3.json` | 通过 | 适合补齐 `Leo/need` 路线 |
+| 初音未来 `21miku_idol` | 全身 / 偶像风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_idol/21miku_idol.model3.json` | 通过 | 适合补齐 `MORE MORE JUMP!` 路线 |
+| 初音未来 `21miku_night` | 全身 / 夜曲风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_night/21miku_night.model3.json` | 通过 | `25 时，Nightcord 见` 路线变体 |
+| 初音未来 `21miku_street` | 全身 / 街头风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_street/21miku_street.model3.json` | 通过 | `Vivid BAD SQUAD` 路线变体 |
+| 初音未来 `21miku_wonder` | 全身 / 游乐舞台风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_wonder/21miku_wonder.model3.json` | 通过 | `Wonderlands x Showtime` 路线变体 |
+| 镜音连 `23len_band` | 全身 / 乐队风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_band/23len_band.model3.json` | 通过 | 与 `Miku band` 风格对应 |
+| 镜音连 `23len_wonder` | 全身 / 游乐舞台风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_wonder/23len_wonder.model3.json` | 通过 | 与 `Wonderlands x Showtime` 路线对应 |
+| 巡音流歌 `24luka_night` | 全身 / 夜曲风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/24luka/24luka_night/24luka_night.model3.json` | 通过 | 与 `Nightcord` 路线对应 |
+| MEIKO `25meiko_wonder` | 全身 / 游乐舞台风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_wonder/25meiko_wonder.model3.json` | 通过 | `Wonder` 方向代表条目 |
+| KAITO `26kaito_band` | 全身 / 乐队风 | `3000 x 4500` | Cubism 4 | `https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_band/26kaito_band.model3.json` | 通过 | 说明男 Vocaloid 变体也同样稳定 |
+
+### 13.7 JS 加载写法
+
+补充一条这轮复验里非常重要的兼容性结论：
+
+1. 在当前 Chrome 108 验证环境下，`PIXI 7.x` 直连 `pixi-live2d-display 0.4.0` 会踩到 `PIXI.utils.EventEmitter` 兼容问题。
+2. 这一轮真正稳定跑通的脚本组合是：
+   - `https://pixijs.download/v6.5.10/pixi-legacy.min.js`
+   - `https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js`
+   - 对应的 Cubism core
+   - 对应的 `cubism2.min.js` / `cubism4.min.js`
+3. 后面如果继续扩表，建议直接沿用这组组合，不要再回退到旧的 `PIXI 7.3.2` 样例写法。
 
 如果你把这些模型下载到自己站点，例如放到：
 
@@ -637,12 +775,11 @@ jsDelivr: https://cdn.jsdelivr.net/gh/Cpk0521/CUE-live2d-Viewer@master/live2d/<c
 
 ```html
 <canvas id="view" width="420" height="520"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://pixijs.download/v6.5.10/pixi-legacy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
 <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism4.min.js"></script>
 <script>
-  window.PIXI = PIXI;
-
   (async () => {
     const app = new PIXI.Application({
       view: document.getElementById("view"),
@@ -666,9 +803,11 @@ jsDelivr: https://cdn.jsdelivr.net/gh/Cpk0521/CUE-live2d-Viewer@master/live2d/<c
 </script>
 ```
 
-如果是 Cubism 2.1 旧模型，例如 `BanG Dream!` 这一组，则把运行时换成：
+如果是 Cubism 2.1 旧模型，例如 `少女前线`、`海王星`、`Miku` 或 `崩坏学园 2` 这一组，则把运行时换成：
 
 ```html
+<script src="https://pixijs.download/v6.5.10/pixi-legacy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism2.min.js"></script>
 ```
@@ -677,7 +816,55 @@ jsDelivr: https://cdn.jsdelivr.net/gh/Cpk0521/CUE-live2d-Viewer@master/live2d/<c
 
 ## 14. 明确不能直接用的资源
 
-### 14.1 `GFL-Live2D-Viewer`
+### 14.1 `diannaojiang/bandream_l2d`
+
+这条线本轮可以明确写成：
+
+1. 角色 IP 很有价值，都是 `BanG Dream!` 常见角色。
+2. 但当前仓库下载后不能直接给 `pixi-live2d-display`。
+3. 失败集中且一致，不是偶发网络问题，而是 manifest 里的贴图路径与仓库实际文件布局不一致。
+
+本轮抽测结果：
+
+| 条目 | Runtime | 下载后本地直挂 | 失败信息 |
+| --- | --- | --- | --- |
+| `kasumi_event053.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `tae_event053.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `rimi_event053.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `saya_event053.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `arisa_event053.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `kokoro_live_t_shirt_t02.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `kaoru_live_t_shirt_t03.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `kanon_event011.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `misaki_live_t_shirt_t01.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+| `sayo_event010.1024` | Cubism 2.1 | 失败 | `Texture loading error` |
+
+以 `kasumi_event053.1024` 为例，manifest 写的是：
+
+```txt
+"textures": [
+  "kasumi_event053.1024/texture_00.png"
+]
+```
+
+但仓库里真正存在的是：
+
+```txt
+texture_00.png
+```
+
+也就是说：
+
+1. 模型主体 `moc` 和 `model.json` 都在。
+2. 但贴图引用路径多了一层并不存在的目录。
+3. 至少需要批量改 manifest 或补目录结构，才能变成“下载后可直接挂”的资源池。
+
+所以这条线当前应标成：
+
+- `著名 IP，但当前不能直接挂载`
+- `修 manifest / 贴图路径后才值得继续尝试`
+
+### 14.2 `GFL-Live2D-Viewer`
 
 这条线现在可以明确写成：
 
@@ -722,7 +909,7 @@ motions/HK416_costume1_live2d_login.mtn.bytes
 - `下载后不能直接挂载`
 - `需要改名 / 修路径后才可能继续尝试`
 
-### 14.2 明日方舟与 PRTS
+### 14.3 明日方舟与 PRTS
 
 这条线依然没有变化：
 
@@ -730,14 +917,24 @@ motions/HK416_costume1_live2d_login.mtn.bytes
 2. 本轮没有确认到公开可直接给 `pixi-live2d-display` 的明日方舟 Live2D manifest 池。
 3. 所以如果目标是“明日方舟那种小人互动效果”，技术路线仍然应该优先看 Spine，不是把 PRTS 小人硬塞给 Live2D。
 
-### 14.3 对后续搜集模型池的实际建议
+### 14.4 `Blue Archive` 候选仓
+
+这条线本轮也追了两个看起来很像“可用来源”的仓，但结论仍然是否定的：
+
+1. `stories2/BlueArchive` README 明确写着 `Arona live2d model`，但仓里实际只有 `arona.cmo3`、`randomPose.can3`、若干 `psd/gif`。
+2. `cmo3` 和 `can3` 属于 Cubism 编辑工程，不是 `pixi-live2d-display` 直接加载的 runtime manifest。
+3. `respectZ/blue-archive-viewer` 虽然角色很多，但资源实质是 `.atlas + .skel`，也就是 Spine，不是 Live2D manifest。
+4. 所以截至本轮，`Blue Archive` 仍然不能进入“可直接挂载”的 Live2D 模型池。
+
+### 14.5 对后续搜集模型池的实际建议
 
 如果目标是继续“越攒越多”，优先级现在已经很清楚：
 
 1. 先把 `CUE-live2d-Viewer` 和 `AzurLane-Live2D` 这两仓下载后做自己的静态托管。
-2. 再从 `Eikanya/Live2d-model` 里按角色知名度逐条补测。
-3. 对 `GFL-Live2D-Viewer` 这种仓库，不要再当成“直接可挂资源池”，而应当归类为“待修补资源池”。
-4. 对明日方舟，单独走 Spine 调研，不要混到 Live2D 兼容表里。
+2. 优先从 `KISGP/model`、`zenghongtu/live2d-model-assets`、`SEKAI-Stories` 这些已经证明确实能产出著名 IP 直挂条目的仓继续扩。
+3. 再从 `Eikanya/Live2d-model` 里按角色知名度逐条补测。
+4. 对 `GFL-Live2D-Viewer` 和 `bandream_l2d` 这种仓库，不要再当成“直接可挂资源池”，而应当归类为“待修补资源池”。
+5. 对 `Blue Archive`、明日方舟这类目前更像 Spine 或只拿到 `cmo3/can3` 的路线，单独走兼容性调研，不要混到 Live2D 直挂表里。
 
 ## 15. 参考
 
@@ -747,9 +944,16 @@ motions/HK416_costume1_live2d_login.mtn.bytes
 4. `Cpk0521/CUE-live2d-Viewer`：<https://github.com/Cpk0521/CUE-live2d-Viewer>
 5. `donjuanplatinum/AzurLane-Live2D`：<https://github.com/donjuanplatinum/AzurLane-Live2D>
 6. `Eikanya/Live2d-model`：<https://github.com/Eikanya/Live2d-model>
-7. `namv22/GFL-Live2D-Viewer`：<https://github.com/namv22/GFL-Live2D-Viewer>
-8. `guansss/live2d-viewer-web`：<https://github.com/guansss/live2d-viewer-web>
-9. `PIXI` CDN：<https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js>
-10. Cubism 4 Core 直链：<https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js>
-11. Cubism 2 Core 兼容直链参考：<https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js>
-12. PRTS 阿米娅 Spine 页面：<https://prts.wiki/w/%E9%98%BF%E7%B1%B3%E5%A8%85/spine>
+7. `KISGP/model`：<https://github.com/KISGP/model>
+8. `zenghongtu/live2d-model-assets`：<https://github.com/zenghongtu/live2d-model-assets>
+9. `lezzthanthree/SEKAI-Stories`：<https://github.com/lezzthanthree/SEKAI-Stories>
+10. `diannaojiang/bandream_l2d`：<https://github.com/diannaojiang/bandream_l2d>
+11. `namv22/GFL-Live2D-Viewer`：<https://github.com/namv22/GFL-Live2D-Viewer>
+12. `guansss/live2d-viewer-web`：<https://github.com/guansss/live2d-viewer-web>
+13. `PIXI Legacy` 直链：<https://pixijs.download/v6.5.10/pixi-legacy.min.js>
+14. `pixi-live2d-display` `index.min.js`：<https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/index.min.js>
+15. Cubism 4 Core 直链：<https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js>
+16. Cubism 2 Core 兼容直链参考：<https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js>
+17. PRTS 阿米娅 Spine 页面：<https://prts.wiki/w/%E9%98%BF%E7%B1%B3%E5%A8%85/spine>
+18. `stories2/BlueArchive`：<https://github.com/stories2/BlueArchive>
+19. `respectZ/blue-archive-viewer`：<https://github.com/respectZ/blue-archive-viewer>
