@@ -7,8 +7,9 @@
 - 成功表统一沿用当前“新增确认可用模型表”的列结构，并额外补 `IP` 列。
 - 官方 / 上游 9 条基准样本原表没有 `实测尺寸` 与 `远程直挂补测`，这里分别补为 `未记录` 与 `通过`，把来源与入口格式压进备注。
 - 失败表同时收录“真实加载失败”的条目和“已确认不属于 Live2D 直挂输入”的来源级排除项。
+- 2026-04-11 02:09 这轮来自 `AzharRizkiZ/Live2D-Model` 的新增远程验证统一记录 `jsDelivr` 镜像结果；同仓 `raw.githubusercontent.com` 在当前环境里统一报 `Network error`，旧表里的历史 raw 结论暂不回溯改写。
 
-当前显式汇总：成功 `219` 条，失败 / 排除 `24` 条。
+当前显式汇总：成功 `258` 条，失败 / 排除 `25` 条。
 
 ## 1. 已收集成功总表
 
@@ -233,6 +234,45 @@
 | 刀剑神域 / SAO | 亚丝娜 `asuna_51` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_51/asuna_51.model.json` | 未补测 | 通过 | Asuna 高编号变体 51，远程直挂通过 |
 | 刀剑神域 / SAO | 亚丝娜 `asuna_56` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_56/asuna_56.model.json` | 未补测 | 通过 | Asuna 高编号变体 56，远程直挂通过 |
 | 少女终末旅行 | 尤莉 `Yuri` | 方构图 / 角色立绘 | `2500 x 2500` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Shoujo-Shuumatsu-Ryokou/yuri/model.json` | 未补测 | 通过 | 单纹理方图，适合桌宠化裁切 |
+| 碧蓝航线 | 标枪 `biaoqiang_3` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/biaoqiang_3/biaoqiang_3.model3.json` | 未补测 | 通过 | 标枪大型单纹理变体 |
+| 碧蓝航线 | 俾斯麦 `bisimai_2_hx` | 全身 / 大立绘 | `7197 x 7625` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/bisimai_2_hx/bisimai_2_hx.model3.json` | 未补测 | 通过 | 俾斯麦高互动变体 |
+| 碧蓝航线 | 独角兽 `dujiaoshou_6` | 方构图 / 大立绘 | `9000 x 8000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/dujiaoshou_6/dujiaoshou_6.model3.json` | 未补测 | 通过 | 独角兽高分辨率方图变体 |
+| 碧蓝航线 | 拉菲 `lafei_4` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/lafei_4/lafei_4.model3.json` | 未补测 | 通过 | 拉菲大尺寸变体 |
+| 碧蓝航线 | 企业 `qiye_9` | 方构图 / 大立绘 | `8000 x 8000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/qiye_9/qiye_9.model3.json` | 未补测 | 通过 | 企业高编号变体，方图更适合大挂件 |
+| 碧蓝航线 | 雪风 `xuefeng_3` | 方构图 / 角色立绘 | `5000 x 5000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/xuefeng_3/xuefeng_3.model3.json` | 未补测 | 通过 | 雪风大型方图变体 |
+| 碧蓝航线 | Z23 `z23_hx` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/z23_hx/z23_hx.model3.json` | 未补测 | 通过 | Z23 高互动变体，纹理数 `5` |
+| 碧蓝航线 | Z46 `z46_4` | 方构图 / 大立绘 | `6000 x 6000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/z46_4/z46_4.model3.json` | 未补测 | 通过 | Z46 双纹理变体 |
+| 约会大作战 | 时崎狂三 `kurumi` | 方构图 / 角色立绘 | `1024 x 1024` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Date-A-Live/kurumi/model.json` | 未补测 | 通过 | 经典狂三条目，旧格式但远程直挂稳定 |
+| 少女前线 | 95 式 `95type_405 / destroy` | 方构图 / 战损桌宠感 | `1024 x 1024` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/95type_405/destroy/model.json` | 未补测 | 通过 | 95 式战损方图，小挂件友好 |
+| 少女前线 | DSR-50 `dsr50_2101 / destroy` | 全身 / 战损大立绘 | `6000 x 7061` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/dsr50_2101/destroy/model.json` | 未补测 | 通过 | DSR-50 新编号战损版本 |
+| 少女前线 | DSR-50 `dsr50_2101 / normal` | 全身 / 大立绘 | `6000 x 7061` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/dsr50_2101/normal/model.json` | 未补测 | 通过 | DSR-50 新编号常规版本 |
+| 少女前线 | FN-57 `fn57_2203 / destroy` | 全身 / 战损大立绘 | `5000 x 6500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/fn57_2203/destroy/model.json` | 未补测 | 通过 | FN-57 战损版本，细高比例 |
+| 少女前线 | G41 `g41_2401 / destroy` | 全身 / 战损大立绘 | `4159 x 5951` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/g41_2401/destroy/model.json` | 未补测 | 通过 | G41 战损变体，尺寸仍很大 |
+| 少女前线 | HK416 `hk416_805 / destroy` | 全身 / 战损立绘 | `3000 x 5000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/hk416_805/destroy/model.json` | 未补测 | 通过 | HK416 战损变体，适合补齐 `destroy` 路线 |
+| 少女前线 | HK416 `hk416_805 / normal` | 全身 / 大立绘 | `4000 x 5000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/hk416_805/normal/model.json` | 未补测 | 通过 | HK416 常规立绘版本 |
+| 少女前线 | OTs-14 `ots14_3001 / destroy` | 全身 / 战损立绘 | `4000 x 4440` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/ots14_3001/destroy/model.json` | 未补测 | 通过 | OTs-14 战损路线补充 |
+| 少女前线 | Vector `vector_1901 / destroy` | 横构图 / 战损立绘 | `4000 x 3600` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/vector_1901/destroy/model.json` | 未补测 | 通过 | Vector 战损版，横向更宽 |
+| 少女前线 | WA2000 `wa2000_6 / destroy` | 方构图 / 战损立绘 | `1920 x 1920` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/wa2000_6/destroy/model.json` | 未补测 | 通过 | WA2000 战损方图版本 |
+| 少女前线 | Welrod `welrod_1401 / destroy` | 方构图 / 战损立绘 | `3500 x 3800` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/welrod_1401/destroy/model.json` | 未补测 | 通过 | Welrod 战损变体，接近方图 |
+| 工作细胞 | 血小板 `platelet-2` | 轻量半身 / 小挂件 | `1615 x 1800` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-2/model.json` | 未补测 | 通过 | 血小板变体二号，尺寸轻 |
+| 工作细胞 | 血小板 `platelet-3 / kesyoban` | 轻量半身 / 小挂件 | `1615 x 1800` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-3/kesyoban.model.json` | 未补测 | 通过 | 血小板第三版的轻差分变体 |
+| 工作细胞 | 血小板 `platelet-3` | 轻量半身 / 小挂件 | `1700 x 1800` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-3/model.json` | 未补测 | 通过 | 血小板第三版基础条目 |
+| 崩坏 3 | 布洛妮娅 `bronya` | 方构图 / 角色立绘 | `1024 x 1024` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/bronya/model.json` | 未补测 | 通过 | 双纹理方图，适合桌宠化裁切 |
+| 崩坏 3 | 姬子 `himeko` | 细高全身 / 大立绘 | `2086 x 5200` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/himeko/model.json` | 未补测 | 通过 | 超高竖向角色样本 |
+| 崩坏 3 | 琪亚娜 `Kiana` | 全身 / 角色立绘 | `3000 x 3500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/Kiana/model.json` | 未补测 | 通过 | 崩坏 3 主角代表条目，单纹理 |
+| 崩坏 3 | 丽塔 `Lita` | 竖向角色立绘 | `1800 x 2000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/Lita/model.json` | 未补测 | 通过 | 更紧凑的竖向角色条目 |
+| 崩坏 3 | 雷电芽衣 `mei` | 全身 / 大立绘 | `2772 x 4200` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/mei/model.json` | 未补测 | 通过 | 经典主角条目，细高比例 |
+| 崩坏 3 | 八重樱 `sakura` | 全身 / 大立绘 | `4096 x 5060` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/sakura/model.json` | 未补测 | 通过 | 高分辨率老格式代表条目 |
+| 崩坏 3 | 希儿 `seele` | 竖向角色立绘 | `1400 x 2700` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/seele/model.json` | 未补测 | 通过 | 细高比例，适合侧栏挂件 |
+| 崩坏 3 | 德丽莎 `theresa` | 全身 / 角色立绘 | `2480 x 3000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Honkai-Impact/theresa/model.json` | 未补测 | 通过 | 中型竖向立绘 |
+| 为美好的世界献上祝福！Fantastic Days | Chomusuke `1349100` | 全身 / 吉祥物立绘 | `3000 x 4500` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Konosuba/chomusuke_01/1349100.model3.json` | 未补测 | 通过 | 非人形吉祥物条目，适合补多样性 |
+| 为美好的世界献上祝福！Fantastic Days | 和真 `1004100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Konosuba/kazuma_02/1004100.model3.json` | 未补测 | 通过 | Kazuma 基础立绘，补齐男主方向样本 |
+| 为美好的世界献上祝福！Fantastic Days | Vanir `1289100` | 全身 / 标准立绘 | `3000 x 4500` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Konosuba/vanir_01/1289100.model3.json` | 未补测 | 通过 | 著名男角色补充条目 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_20` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/SAO/asuna/asuna_20/asuna_20.model.json` | 未补测 | 通过 | Asuna 中段编号变体 20 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_24` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/SAO/asuna/asuna_24/asuna_24.model.json` | 未补测 | 通过 | Asuna 中段编号变体 24 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_33` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/SAO/asuna/asuna_33/asuna_33.model.json` | 未补测 | 通过 | Asuna 后段编号变体 33 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_36` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/SAO/asuna/asuna_36/asuna_36.model.json` | 未补测 | 通过 | Asuna 高编号变体 36 |
+| 刀剑神域 / SAO | 亚丝娜 `asuna_38` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/SAO/asuna/asuna_38/asuna_38.model.json` | 未补测 | 通过 | Asuna 高编号变体 38 |
 
 ## 2. 确认失败 / 排除总表
 
@@ -260,6 +300,7 @@
 | 明日方舟 | `Halyul/aklive2d` | 候选来源 / Spine 展示方案 | Spine | 不适用 | 排除 | 仓内没有可直接交给 `pixi-live2d-display` 的 `.model3.json/.model.json` manifest |
 | 明日方舟 | `SHUAXINDIARY/ArknightsLive2d-Web` | 候选来源 / Spine 壁纸站 | Spine | 不适用 | 排除 | 仓内只有 `spine-webgl.js` 与 `assets/models_data.json`，其中模型索引指向 `.atlas + .skel`，不是 Live2D manifest |
 | 明日方舟 | `xiaochen4097/ArknightsWallpaper` | 候选来源 / Spine 壁纸页 | Spine | 不适用 | 排除 | 仓内直接落的是 `dyn_illust_char_1028_texas2.atlas/.skel` 与 `spine-webgl.js`，不是 `pixi-live2d-display` 直挂输入 |
+| 碧蓝航线 | 大凤 `dafeng_6` | Live2D 模型 | Cubism 4 | 未补测 | 失败 | `jsDelivr` 远程直挂报 `Texture loading error`；同仓 `raw` 当前统一报 `Network error`，暂不列入稳定可用清单 |
 | Blue Archive | `respectZ/blue-archive-viewer` | 候选来源 / Spine 资源仓 | Spine | 不适用 | 排除 | 资源实质是 `.atlas + .skel`，不是 Live2D manifest |
 | Blue Archive | `stories2/BlueArchive` | 候选来源 / Cubism 编辑工程 | 不适用 | 不适用 | 排除 | 只有 `arona.cmo3`、`randomPose.can3` 等编辑工程文件，不是 runtime manifest |
 
@@ -275,3 +316,4 @@
 | 2026-04-11 00:36 | 继续追明日方舟相关公开资源，但没有找到新的 `model.json / model3.json` 级可测入口；转而补齐 `zenghongtu/live2d-model-assets` 里尚未落表的著名 IP 增量，并全部完成本地直挂验证。 | 新增有效 36 项：`少女前线` 8、`超次元海王星` 9、`魔法禁书目录 / 某科学的超电磁炮` 5、`Vocaloid / 镜音连` 4、`Vocal synth / 结月缘` 2、经典动画角色 8（`Re:Zero`、`埃罗芒阿老师`、`约会大作战`、`魔法少女小圆`、`请问您今天要来点兔子吗？`、`小林家的龙女仆`、`工作细胞`、`干物妹！小埋` 各 1）。 | 36 项 manifest 候选（另行检索若干明日方舟来源，未形成可测 manifest） | 36 |
 | 2026-04-11 01:05 | 继续复查明日方舟方向公开线索仍无新 `model.json / model3.json` 入口后，转向补齐 `SEKAI-Stories` 与经典番剧 / 游戏 IP 增量，并全部完成本地直挂验证。 | 新增有效 24 项：`Project SEKAI / Vocaloid` 16（`东云绘名` 1、`晓山瑞希` 1、`镜音铃` 6、`MEIKO` 4、`KAITO` 4），经典动画 / 游戏 8（`为美好的世界献上祝福！Fantastic Days` 1、`NEW GAME!` 1、`约会大作战` 1、`魔法禁书目录 / 某科学的超电磁炮` 2、`Love Live!` 1、`舰队 Collection` 1、`Unity-chan!` 1）。 | 24 项 manifest 候选；另行复查多轮 `Arknights / 明日方舟` GitHub 代码搜索与仓库目录，未发现新的直挂 manifest | 24 |
 | 2026-04-11 01:40 | 继续把明日方舟相关公开壁纸 / 展示仓逐个排除后，转向 `AzharRizkiZ/Live2D-Model` 补著名 IP 大池；这轮兼顾远程 Pixi 实载与一部分 essentials 本地复验。 | 新增有效 36 项：`为美好的世界献上祝福！Fantastic Days` 15（`Aqua` 2、`Darkness` 3、`Chris` 1、`Eris` 1、`Iris` 1、`Megumin` 3、`Wiz` 2、`Yunyun` 2）、`刀剑神域 / SAO` 5、`路人女主的养成方法 / Saekano` 6、`樱花庄的宠物女孩 / Sakurasou` 4、`哔哩哔哩` 2、`偶像梦幻祭！ / Ensemble Stars!` 1、`Fate/stay night` 1、`【我推的孩子】 / Oshi no Ko` 1、`少女终末旅行` 1；新增排除 2 项：`SHUAXINDIARY/ArknightsLive2d-Web`、`xiaochen4097/ArknightsWallpaper`。 | 38 项候选内容（`36` 个 manifest + `2` 个明日方舟来源候选） | 36 |
+| 2026-04-11 02:09 | 继续优先复查明日方舟方向 GitHub 仓库 / 代码搜索仍未发现新的 `model.json / model3.json` 入口后，转向 `AzharRizkiZ/Live2D-Model` 补一批著名 IP 与经典角色；本轮远程验证统一切到 `jsDelivr`，因为同仓 `raw` 当前统一报 `Network error`。 | 新增有效 39 项：`碧蓝航线` 8（`企业`、`拉菲`、`Z23`、`Z46`、`俾斯麦`、`标枪`、`独角兽`、`雪风` 变体）、`约会大作战` 1（`时崎狂三`）、`少女前线` 10（`95 式`、`DSR-50`、`FN-57`、`G41`、`HK416`、`OTs-14`、`Vector`、`WA2000`、`Welrod`，以 `destroy` 战损版为主）、`工作细胞` 3（`血小板` 3 个小挂件变体）、`崩坏 3` 8（`琪亚娜`、`芽衣`、`布洛妮娅`、`姬子`、`德丽莎`、`希儿`、`丽塔`、`八重樱`）、`Konosuba` 3（`和真`、`Chomusuke`、`Vanir`）、`刀剑神域 / SAO` 5（`亚丝娜` 5 个编号变体）；新增失败 1 项：`碧蓝航线 / dafeng_6`。 | 40 个 manifest 候选；另行复查多轮 `Arknights / 明日方舟` GitHub repo / code search，仍无新的直挂 manifest | 39 |
