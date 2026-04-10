@@ -1,8 +1,10 @@
+import { oldBlogCatalog } from "./oldBlogCatalog";
+
 export const oldBlogArchive = {
   period: "2014 - 2022",
-  totalPosts: 315,
-  totalComments: 160,
-  totalViewsText: "20万+",
+  totalPosts: oldBlogCatalog.stats.totalPosts,
+  totalComments: oldBlogCatalog.stats.totalComments,
+  totalViewsText: oldBlogCatalog.stats.totalViewsText,
   summary: [
     {
       title: "早期阶段",

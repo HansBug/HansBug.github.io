@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import OldBlogExplorer from "../components/OldBlogExplorer.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import { siteConfig } from "../config/site";
 import { oldBlogArchive } from "../data/oldBlogArchive";
+import { oldBlogCatalog } from "../data/oldBlogCatalog";
 
 const numberFormatter = new Intl.NumberFormat("zh-CN");
 ---
@@ -20,14 +21,8 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
         <span class="tag-chip is-blue"><span>{oldBlogArchive.totalPosts} 篇随笔</span></span>
         <span class="tag-chip is-green"><span>{oldBlogArchive.totalComments} 条评论</span></span>
         <span class="tag-chip is-slate"><span>{oldBlogArchive.totalViewsText} 阅读</span></span>
-      </div>
-      <div class="hero-actions">
-        <a class="hero-action is-primary" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">
-          打开博客园原站
-        </a>
-        <a class="hero-action" href="https://www.cnblogs.com/HansBug/p/16096691.html" target="_blank" rel="noreferrer">
-          查看搬家通知
-        </a>
+        <span class="tag-chip is-slate"><span>{oldBlogCatalog.profile.followers} 粉丝</span></span>
+        <span class="tag-chip is-slate"><span>{oldBlogCatalog.archives.length} 个活跃月份</span></span>
       </div>
     </section>
 
@@ -74,6 +69,15 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
     <section>
       <SectionHeading
+        eyebrow="全量名录"
+        title="旧站的 315 篇文章，现在可以直接检索、看趋势、随时跳转"
+        description="这里维护的是博客园旧站的完整文章索引。你可以按标题、年份、旧站分类和归纳方向查询，也可以直接从年度趋势和检索区定位旧文。"
+      />
+      <OldBlogExplorer catalog={oldBlogCatalog} />
+    </section>
+
+    <section>
+      <SectionHeading
         eyebrow="精选旧文"
         title="现在仍值得保留入口的几篇旧文"
         description="我只把更接近当前新站方向、或者仍有检索价值的旧文挂出来；每篇都明确标了发布时间和阅读量。"
@@ -83,14 +87,15 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
           oldBlogArchive.featuredPosts.map((post) => (
             <article class="info-panel shell-card">
               <p class="eyebrow">{post.topic}</p>
-              <h3>{post.title}</h3>
+              <h3 class="oldblog-linked-title">
+                <a href={post.url} target="_blank" rel="noreferrer">{post.title}</a>
+              </h3>
               <p>{post.note}</p>
               <div class="tag-row">
                 <span class="tag-chip is-slate"><span>发布于 {post.date}</span></span>
                 <span class="tag-chip is-blue"><span>阅读 {numberFormatter.format(post.views)}</span></span>
                 <span class="tag-chip is-orange"><span>评论 {post.comments}</span></span>
               </div>
-              <a class="inline-link" href={post.url} target="_blank" rel="noreferrer">去博客园查看原文</a>
             </article>
           ))
         }
@@ -109,14 +114,15 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
             oldBlogArchive.closingPosts.map((post) => (
               <div class="shell-card shell-card--dense">
                 <p class="eyebrow">{post.topic}</p>
-                <h3>{post.title}</h3>
+                <h3 class="oldblog-linked-title">
+                  <a href={post.url} target="_blank" rel="noreferrer">{post.title}</a>
+                </h3>
                 <p>{post.note}</p>
                 <div class="tag-row">
                   <span class="tag-chip is-slate"><span>发布于 {post.date}</span></span>
                   <span class="tag-chip is-blue"><span>阅读 {numberFormatter.format(post.views)}</span></span>
                   <span class="tag-chip is-orange"><span>评论 {post.comments}</span></span>
                 </div>
-                <a class="inline-link" href={post.url} target="_blank" rel="noreferrer">查看原文</a>
               </div>
             ))
           }
@@ -126,16 +132,11 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
       <article class="cta-panel shell-card">
         <h2>如何正确使用旧站归档</h2>
         <ul class="info-panel__list">
-          <li>如果你是来找旧文章，先从这里判断主题，再跳到博客园原站看原文。</li>
+          <li>如果你是来找旧文章，优先先用上面的全量检索，再从标题直接跳到博客园原文。</li>
           <li>如果你发现某个旧主题仍值得延续，更合适的处理方式是在新站里重写，而不是直接搬运。</li>
           <li>如果你只是想知道这段历史结束在什么时候，看发布时间就能立刻分辨出它们并不是近期内容。</li>
+          <li>分类、热度和趋势都基于旧站真实数据整理，避免把旧文误看成今天刚写的内容。</li>
         </ul>
-        <div class="hero-actions">
-          <a class="hero-action is-primary" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">
-            打开博客园原站
-          </a>
-          <a class="hero-action" href="/">返回首页</a>
-        </div>
       </article>
     </section>
   </div>

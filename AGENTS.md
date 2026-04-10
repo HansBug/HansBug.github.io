@@ -38,6 +38,8 @@ npm run build
 - 当前策略是“保留旧站入口 + 在新站做概述和重写”，不要直接批量搬运旧博客正文。
 - 旧站总结、精选旧文、发布时间和阅读量说明统一放在独立的旧站归档页，不要把这类内容重新塞回首页主体。
 - 如果要复用旧主题，优先在新站按当前结构重写，而不是简单复制原文。
+- 旧站全量文章索引数据由 `scripts/fetch_old_blog.py` 生成，输出到 `src/data/oldBlogCatalog.json`。
+- 如果博客园旧站数据需要刷新，使用 `python3 scripts/fetch_old_blog.py` 重新抓取，再执行 `npm run build` 检查归档页是否正常。
 
 ### 博客文章
 

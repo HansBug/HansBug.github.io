@@ -1,0 +1,5704 @@
+{
+  "generatedAt": "2026-04-10T17:14:31",
+  "profile": {
+    "motto": "HansBug's Lab 但将行好事，莫要问前程",
+    "followers": 148,
+    "following": 25,
+    "gardenAge": "11年3"
+  },
+  "stats": {
+    "totalPosts": 315,
+    "totalComments": 160,
+    "totalViews": 207929,
+    "totalViewsText": "207,929"
+  },
+  "archives": [
+    {
+      "month": "2022-04",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2022/04"
+    },
+    {
+      "month": "2022-02",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2022/02"
+    },
+    {
+      "month": "2021-11",
+      "count": 5,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/11"
+    },
+    {
+      "month": "2021-10",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/10"
+    },
+    {
+      "month": "2021-06",
+      "count": 3,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/06"
+    },
+    {
+      "month": "2021-05",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/05"
+    },
+    {
+      "month": "2021-04",
+      "count": 3,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/04"
+    },
+    {
+      "month": "2021-02",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/02"
+    },
+    {
+      "month": "2021-01",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2021/01"
+    },
+    {
+      "month": "2020-12",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2020/12"
+    },
+    {
+      "month": "2020-11",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2020/11"
+    },
+    {
+      "month": "2020-10",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2020/10"
+    },
+    {
+      "month": "2020-04",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2020/04"
+    },
+    {
+      "month": "2019-06",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2019/06"
+    },
+    {
+      "month": "2019-03",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2019/03"
+    },
+    {
+      "month": "2018-10",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2018/10"
+    },
+    {
+      "month": "2018-08",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2018/08"
+    },
+    {
+      "month": "2018-06",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2018/06"
+    },
+    {
+      "month": "2018-05",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2018/05"
+    },
+    {
+      "month": "2018-04",
+      "count": 4,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2018/04"
+    },
+    {
+      "month": "2018-02",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2018/02"
+    },
+    {
+      "month": "2017-08",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2017/08"
+    },
+    {
+      "month": "2017-05",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2017/05"
+    },
+    {
+      "month": "2017-03",
+      "count": 3,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2017/03"
+    },
+    {
+      "month": "2015-07",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2015/07"
+    },
+    {
+      "month": "2015-05",
+      "count": 45,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2015/05"
+    },
+    {
+      "month": "2015-04",
+      "count": 85,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2015/04"
+    },
+    {
+      "month": "2015-03",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2015/03"
+    },
+    {
+      "month": "2015-02",
+      "count": 32,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2015/02"
+    },
+    {
+      "month": "2015-01",
+      "count": 44,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2015/01"
+    },
+    {
+      "month": "2014-12",
+      "count": 60,
+      "url": "https://www.cnblogs.com/HansBug/p/archive/2014/12"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Bzoj",
+      "count": 221,
+      "url": "https://www.cnblogs.com/HansBug/category/640467.html"
+    },
+    {
+      "name": "算法模板",
+      "count": 35,
+      "url": "https://www.cnblogs.com/HansBug/category/649028.html"
+    },
+    {
+      "name": "研究报告",
+      "count": 30,
+      "url": "https://www.cnblogs.com/HansBug/category/659836.html"
+    },
+    {
+      "name": "开发向",
+      "count": 24,
+      "url": "https://www.cnblogs.com/HansBug/category/962393.html"
+    },
+    {
+      "name": "学习笔记",
+      "count": 13,
+      "url": "https://www.cnblogs.com/HansBug/category/1715749.html"
+    },
+    {
+      "name": "Wikioi/Codevs",
+      "count": 8,
+      "url": "https://www.cnblogs.com/HansBug/category/651156.html"
+    },
+    {
+      "name": "助教工作",
+      "count": 8,
+      "url": "https://www.cnblogs.com/HansBug/category/1961798.html"
+    },
+    {
+      "name": "Tyvj",
+      "count": 6,
+      "url": "https://www.cnblogs.com/HansBug/category/642438.html"
+    },
+    {
+      "name": "环境配置",
+      "count": 6,
+      "url": "https://www.cnblogs.com/HansBug/category/1063024.html"
+    },
+    {
+      "name": "Java",
+      "count": 4,
+      "url": "https://www.cnblogs.com/HansBug/category/962396.html"
+    },
+    {
+      "name": "Python",
+      "count": 4,
+      "url": "https://www.cnblogs.com/HansBug/category/962399.html"
+    },
+    {
+      "name": "treevalue",
+      "count": 4,
+      "url": "https://www.cnblogs.com/HansBug/category/2053704.html"
+    },
+    {
+      "name": "开源项目",
+      "count": 4,
+      "url": "https://www.cnblogs.com/HansBug/category/2053705.html"
+    },
+    {
+      "name": "强化学习",
+      "count": 4,
+      "url": "https://www.cnblogs.com/HansBug/category/2054544.html"
+    },
+    {
+      "name": "NOI",
+      "count": 3,
+      "url": "https://www.cnblogs.com/HansBug/category/651159.html"
+    },
+    {
+      "name": "前端设计",
+      "count": 3,
+      "url": "https://www.cnblogs.com/HansBug/category/962397.html"
+    },
+    {
+      "name": "Ruby on Rails",
+      "count": 2,
+      "url": "https://www.cnblogs.com/HansBug/category/962400.html"
+    },
+    {
+      "name": "APIO",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/656594.html"
+    },
+    {
+      "name": "Javascript",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/1203355.html"
+    },
+    {
+      "name": "Latex",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/1008422.html"
+    },
+    {
+      "name": "NOIP",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/651157.html"
+    },
+    {
+      "name": "Nodejs",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/1203356.html"
+    },
+    {
+      "name": "Poj",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/689862.html"
+    },
+    {
+      "name": "深度学习",
+      "count": 1,
+      "url": "https://www.cnblogs.com/HansBug/category/1715748.html"
+    }
+  ],
+  "yearlyTrend": [
+    {
+      "year": 2022,
+      "count": 2
+    },
+    {
+      "year": 2021,
+      "count": 17
+    },
+    {
+      "year": 2020,
+      "count": 7
+    },
+    {
+      "year": 2019,
+      "count": 3
+    },
+    {
+      "year": 2018,
+      "count": 11
+    },
+    {
+      "year": 2017,
+      "count": 6
+    },
+    {
+      "year": 2015,
+      "count": 209
+    },
+    {
+      "year": 2014,
+      "count": 60
+    }
+  ],
+  "trackCounts": [
+    {
+      "name": "算法 / OI",
+      "count": 267
+    },
+    {
+      "name": "工程 / 开发",
+      "count": 1
+    },
+    {
+      "name": "课程 / 软件工程",
+      "count": 20
+    },
+    {
+      "name": "研究 / 总结",
+      "count": 5
+    },
+    {
+      "name": "环境 / 部署",
+      "count": 9
+    },
+    {
+      "name": "Python / 开源 / AI",
+      "count": 9
+    },
+    {
+      "name": "前端 / Web",
+      "count": 3
+    },
+    {
+      "name": "其他归档",
+      "count": 1
+    }
+  ],
+  "topViewed": [
+    {
+      "title": "【前端】ACE Editor（代码编辑器） 简易使用示例",
+      "url": "https://www.cnblogs.com/HansBug/p/6546606.html",
+      "views": 27621
+    },
+    {
+      "title": "【前端】wangEditor（富文本编辑器） 简易使用示例",
+      "url": "https://www.cnblogs.com/HansBug/p/6559289.html",
+      "views": 23885
+    },
+    {
+      "title": "从Hash Killer I、II、III论字符串哈希",
+      "url": "https://www.cnblogs.com/HansBug/p/4288118.html",
+      "views": 6800
+    },
+    {
+      "title": "【作业】2020年高等软件工程课程期望与笃信",
+      "url": "https://www.cnblogs.com/HansBug/p/13770092.html",
+      "views": 3301
+    },
+    {
+      "title": "【vagrant】硬盘扩容",
+      "url": "https://www.cnblogs.com/HansBug/p/9447020.html",
+      "views": 3219
+    },
+    {
+      "title": "【技巧】Java工程中的Debug信息分级输出接口及部署模式",
+      "url": "https://www.cnblogs.com/HansBug/p/8701447.html",
+      "views": 2820
+    },
+    {
+      "title": "【软工作业&思考】关于软工的一些概念性理解暨第一次阅读作业",
+      "url": "https://www.cnblogs.com/HansBug/p/10473959.html",
+      "views": 2466
+    },
+    {
+      "title": "【作业】HansBug的前三次OO作业分析与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/8694939.html",
+      "views": 2336
+    },
+    {
+      "title": "算法模板——左偏树（可并堆）",
+      "url": "https://www.cnblogs.com/HansBug/p/4234971.html",
+      "views": 2193
+    },
+    {
+      "title": "【前端】Ubuntu16下nodejs+npm+vue环境配置",
+      "url": "https://www.cnblogs.com/HansBug/p/8901865.html",
+      "views": 1973
+    },
+    {
+      "title": "【项目管理】关于Issue/Milestone的使用指导",
+      "url": "https://www.cnblogs.com/HansBug/p/14711869.html",
+      "views": 1886
+    },
+    {
+      "title": "【gitlab】gitlab快速部署教程",
+      "url": "https://www.cnblogs.com/HansBug/p/9813627.html",
+      "views": 1813
+    },
+    {
+      "title": "【LATEX】个人版latex论文模板",
+      "url": "https://www.cnblogs.com/HansBug/p/6903269.html",
+      "views": 1792
+    },
+    {
+      "title": "【备忘】Idea的那些事",
+      "url": "https://www.cnblogs.com/HansBug/p/8687273.html",
+      "views": 1722
+    },
+    {
+      "title": "JSOI2015 一轮省选 个人题解与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/4280423.html",
+      "views": 1715
+    },
+    {
+      "title": "再看最短路算法 1 —— 单源最短路",
+      "url": "https://www.cnblogs.com/HansBug/p/4297571.html",
+      "views": 1442
+    },
+    {
+      "title": "姗姗来迟的一个总结",
+      "url": "https://www.cnblogs.com/HansBug/p/15470559.html",
+      "views": 1435
+    },
+    {
+      "title": "【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会",
+      "url": "https://www.cnblogs.com/HansBug/p/8977811.html",
+      "views": 1272
+    },
+    {
+      "title": "【学习笔记】Latex各平台2020实战攻略",
+      "url": "https://www.cnblogs.com/HansBug/p/13982882.html",
+      "views": 1220
+    },
+    {
+      "title": "1740: [Usaco2005 mar]Yogurt factory 奶酪工厂",
+      "url": "https://www.cnblogs.com/HansBug/p/4423292.html",
+      "views": 1205
+    }
+  ],
+  "topCommented": [
+    {
+      "title": "【作业】2020年高等软件工程课程期望与笃信",
+      "url": "https://www.cnblogs.com/HansBug/p/13770092.html",
+      "comments": 16
+    },
+    {
+      "title": "姗姗来迟的一个总结",
+      "url": "https://www.cnblogs.com/HansBug/p/15470559.html",
+      "comments": 11
+    },
+    {
+      "title": "JSOI2015 一轮省选 个人题解与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/4280423.html",
+      "comments": 10
+    },
+    {
+      "title": "再看最短路算法 1 —— 单源最短路",
+      "url": "https://www.cnblogs.com/HansBug/p/4297571.html",
+      "comments": 10
+    },
+    {
+      "title": "2435: [Noi2011]道路修建",
+      "url": "https://www.cnblogs.com/HansBug/p/4198030.html",
+      "comments": 7
+    },
+    {
+      "title": "【软工作业&思考】关于软工的一些概念性理解暨第一次阅读作业",
+      "url": "https://www.cnblogs.com/HansBug/p/10473959.html",
+      "comments": 6
+    },
+    {
+      "title": "【作业3.0】HansBug的第三次博客规格总结",
+      "url": "https://www.cnblogs.com/HansBug/p/9100737.html",
+      "comments": 6
+    },
+    {
+      "title": "【作业4.0】HansBug的第四次面向对象课程思考",
+      "url": "https://www.cnblogs.com/HansBug/p/9222492.html",
+      "comments": 6
+    },
+    {
+      "title": "【调研】北航计算机学院2019及2020年本科敏捷软工结对作业数据调研",
+      "url": "https://www.cnblogs.com/HansBug/p/14374021.html",
+      "comments": 5
+    },
+    {
+      "title": "2208: [Jsoi2010]连通数",
+      "url": "https://www.cnblogs.com/HansBug/p/4297259.html",
+      "comments": 5
+    },
+    {
+      "title": "Bzoj超级经验大放送题集（好评如潮哦～～～）",
+      "url": "https://www.cnblogs.com/HansBug/p/4190848.html",
+      "comments": 5
+    },
+    {
+      "title": "【前端】ACE Editor（代码编辑器） 简易使用示例",
+      "url": "https://www.cnblogs.com/HansBug/p/6546606.html",
+      "comments": 4
+    },
+    {
+      "title": "【作业】HansBug的前三次OO作业分析与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/8694939.html",
+      "comments": 4
+    },
+    {
+      "title": "1854: [Scoi2010]游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4230549.html",
+      "comments": 4
+    },
+    {
+      "title": "4010: [HNOI2015]菜肴制作",
+      "url": "https://www.cnblogs.com/HansBug/p/4491369.html",
+      "comments": 4
+    },
+    {
+      "title": "【作业】2020年高等软件工程中期总结与反思",
+      "url": "https://www.cnblogs.com/HansBug/p/14097245.html",
+      "comments": 4
+    },
+    {
+      "title": "【前端】wangEditor（富文本编辑器） 简易使用示例",
+      "url": "https://www.cnblogs.com/HansBug/p/6559289.html",
+      "comments": 3
+    },
+    {
+      "title": "【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会",
+      "url": "https://www.cnblogs.com/HansBug/p/8977811.html",
+      "comments": 3
+    },
+    {
+      "title": "一个很逗的东西——Jd",
+      "url": "https://www.cnblogs.com/HansBug/p/4631056.html",
+      "comments": 3
+    },
+    {
+      "title": "沉舟侧畔千帆过，病树前头万木春——对【题士】产品的深度测评与解析",
+      "url": "https://www.cnblogs.com/HansBug/p/14849014.html",
+      "comments": 3
+    }
+  ],
+  "topLiked": [
+    {
+      "title": "【备忘】Idea的那些事",
+      "url": "https://www.cnblogs.com/HansBug/p/8687273.html",
+      "likes": 10
+    },
+    {
+      "title": "姗姗来迟的一个总结",
+      "url": "https://www.cnblogs.com/HansBug/p/15470559.html",
+      "likes": 9
+    },
+    {
+      "title": "【作业3.0】HansBug的第三次博客规格总结",
+      "url": "https://www.cnblogs.com/HansBug/p/9100737.html",
+      "likes": 9
+    },
+    {
+      "title": "【作业】HansBug的前三次OO作业分析与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/8694939.html",
+      "likes": 9
+    },
+    {
+      "title": "【软工作业&思考】关于软工的一些概念性理解暨第一次阅读作业",
+      "url": "https://www.cnblogs.com/HansBug/p/10473959.html",
+      "likes": 8
+    }
+  ],
+  "posts": [
+    {
+      "title": "【搬家通知】各位关注者们，说点事",
+      "url": "https://www.cnblogs.com/HansBug/p/16096691.html",
+      "dateTime": "2022-04-03 17:37",
+      "views": 415,
+      "comments": 0,
+      "summary": "很高兴各位关注了我这么久。 近期和CSDN副总裁邹欣老师在线下见了一次面，也在线上做了不少的探讨，很多理念本人颇为认同。 不仅如此，近段时间csdn也一直在锐意进取中。各类新特性和功能都在开发，且目前初见成效。而相比之下博客园却长时间处于维护不足的状态，从我中学那会到现在，没有多少真正实质性的变化。",
+      "id": 16096691,
+      "date": "2022-04-03",
+      "year": 2022,
+      "month": "2022-04",
+      "categories": [],
+      "track": "其他归档"
+    },
+    {
+      "title": "treevalue——Master Nested Data Like Tensor",
+      "url": "https://www.cnblogs.com/HansBug/p/15894649.html",
+      "dateTime": "2022-02-14 23:17",
+      "views": 170,
+      "comments": 0,
+      "summary": "首先，请和我一起高呼——“treevalue——通用树形结构建模工具 + 极简树形结构编程模型”。 咳咳，好久没更新了，这一次是真的好久不见，甚是想念。在之前的三期中，关于 treevalue 的核心特性等内容已经基本完成了讲述。因此本篇作为该系列的终章，将尝试用更高一层的视角来分析 treeval",
+      "id": 15894649,
+      "date": "2022-02-14",
+      "year": 2022,
+      "month": "2022-02",
+      "categories": [
+        "treevalue",
+        "开源项目",
+        "强化学习",
+        "研究报告"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "Treevalue(0x03)——函数树化详细解析（下篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15618673.html",
+      "dateTime": "2021-11-29 11:41",
+      "views": 251,
+      "comments": 0,
+      "summary": "好久不见，再一次回到 treevalue 系列。本文将基于上一篇treevalue讲解，继续对函数的树化机制进行详细解析，并且会更多的讲述其衍生特性及应用。 树化方法与类方法 首先，基于之前的树化函数，我们可以对一般意义上的函数进行树化扩展。而对“函数”这一范畴来说，其中自然也包含方法、类方法这两种",
+      "id": 15618673,
+      "date": "2021-11-29",
+      "year": 2021,
+      "month": "2021-11",
+      "categories": [
+        "treevalue",
+        "开源项目",
+        "强化学习"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "Python科普系列——类与方法（下篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15584738.html",
+      "dateTime": "2021-11-22 11:02",
+      "views": 534,
+      "comments": 0,
+      "summary": "书接上回，继续来讲讲关于类及其方法的一些冷知识和烫知识。本篇将重点讲讲类中的另一个重要元素——方法，也和上篇一样用各种神奇的例子，从原理和机制的角度为你还原一个不一样的Python。在阅读本篇之前，推荐阅读一下上篇的内容：Python科普系列——类与方法（上篇） 对象方法的本质 说到面向对象编程，大",
+      "id": 15584738,
+      "date": "2021-11-22",
+      "year": 2021,
+      "month": "2021-11",
+      "categories": [
+        "Python",
+        "学习笔记",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "Python科普系列——类与方法（上篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15557196.html",
+      "dateTime": "2021-11-15 17:15",
+      "views": 349,
+      "comments": 0,
+      "summary": "欢迎来到新的系列，up又开新坑了~~ 实际上，Python作为一门易用性见长的语言，看上去简单，却仍然有很多值得一说的内容，因此这个系列会把Python中比较有意思的地方也给科普一遍。而另一方面，关于Python的学习资料在中文互联网上已经随处可见，虽然大都是入门向、实用向的，不过资料覆盖面也已经挺",
+      "id": 15557196,
+      "date": "2021-11-15",
+      "year": 2021,
+      "month": "2021-11",
+      "categories": [
+        "Python",
+        "学习笔记",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "Treevalue(0x02)——函数树化详细解析（上篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15515307.html",
+      "dateTime": "2021-11-05 21:26",
+      "views": 262,
+      "comments": 0,
+      "summary": "本文将对 func_treelize 这一treevalue库中的核心功能进行详细的原理解析。 关于treevalue的概述，可以参考之前的文章：Treevalue(0x01)——功能概述 树化函数基本原理 在treevalue库中， func_treelize 是核心特性之一，可以将普通的函数快速",
+      "id": 15515307,
+      "date": "2021-11-05",
+      "year": 2021,
+      "month": "2021-11",
+      "categories": [
+        "treevalue",
+        "开源项目",
+        "强化学习"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "Treevalue(0x01)——功能概述",
+      "url": "https://www.cnblogs.com/HansBug/p/15484957.html",
+      "dateTime": "2021-11-01 15:09",
+      "views": 296,
+      "comments": 0,
+      "summary": "TreeValue——一个通用树状数据结构与函数计算库 Treevalue v1.0.0版本已经于2021年10月24日正式发布，欢迎下载体验：opendilab / treevalue。 这算是treevalue的第一个正式实用化版本，本文将会对其主要功能和特性进行一个概述。 一个直观地展示 设想",
+      "id": 15484957,
+      "date": "2021-11-01",
+      "year": 2021,
+      "month": "2021-11",
+      "categories": [
+        "treevalue",
+        "开发向",
+        "开源项目",
+        "强化学习"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "姗姗来迟的一个总结",
+      "url": "https://www.cnblogs.com/HansBug/p/15470559.html",
+      "dateTime": "2021-10-27 14:28",
+      "views": 1435,
+      "comments": 11,
+      "summary": "（换了首BGM，感觉似乎更应景一些，读到最后就知道为什么更应景了。生命的证明，是那样平常，但又是那么无上珍贵。） 除了善良，我不承认世界上还有其他高人一等的标志。 ——路德维希·凡·贝多芬 天地一声惊雷，本笔者又回来了。都说，没能毁灭一个人的，都只会使之更强大，越大的灾难越是如此。我呢现在就感觉身上",
+      "id": 15470559,
+      "date": "2021-10-27",
+      "year": 2021,
+      "month": "2021-10",
+      "categories": [
+        "助教工作",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "2021北航敏捷软工Beta阶段评分与总结",
+      "url": "https://www.cnblogs.com/HansBug/p/14942400.html",
+      "dateTime": "2021-06-27 22:15",
+      "views": 686,
+      "comments": 2,
+      "summary": "概述 Beta 阶段评分，按照之前的规则，主要组成部分为： 博客部分，基于 Beta 阶段博客的评分（每篇正规博客 10 分，每篇 Scrum5 分，评定方式类比往年） 评审部分，基于 Beta 阶段展示、答辩以及现场工作的评分（150 分） 现场评分。基于现场点评给出的排名进行打分，以此分项评级并",
+      "id": 14942400,
+      "date": "2021-06-27",
+      "year": 2021,
+      "month": "2021-06",
+      "categories": [
+        "助教工作",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "2021北航敏捷软工Alpha阶段评分表",
+      "url": "https://www.cnblogs.com/HansBug/p/14873227.html",
+      "dateTime": "2021-06-10 22:58",
+      "views": 258,
+      "comments": 0,
+      "summary": "概述 Alpha阶段评分，按照之前的规则，主要组成部分为： 博客评分，功能性博客（包括团队介绍，贡献分分配规则）每篇5分，只要完成就可得到所有分数，团队博客每篇正式作业博客总分10分，每日例会博客每篇总分5分，具体计算方式见后文 评审评分，本次评审评分将基于排名进行计算，具体计算方式见后文。 评分",
+      "id": 14873227,
+      "date": "2021-06-10",
+      "year": 2021,
+      "month": "2021-06",
+      "categories": [],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "沉舟侧畔千帆过，病树前头万木春——对【题士】产品的深度测评与解析",
+      "url": "https://www.cnblogs.com/HansBug/p/14849014.html",
+      "dateTime": "2021-06-04 12:02",
+      "views": 832,
+      "comments": 3,
+      "summary": "本文写于 2021 年 5 月22 日，仅代表笔者本人此时此刻对 2021 年北航敏捷软工课程项目“题士”的评测（首页地址：https://buaatishi.com，版本以 Alpha 阶段正式发布的版本为准）。主要内容为：对这一产品进行体验测评，并对产品的设计思路进行思考，希冀能从多个角度探寻它",
+      "id": 14849014,
+      "date": "2021-06-04",
+      "year": 2021,
+      "month": "2021-06",
+      "categories": [
+        "助教工作",
+        "学习笔记",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "问渠那得清如许？为有源头活水来——记对【近取Key】产品进行的深度测评与解析",
+      "url": "https://www.cnblogs.com/HansBug/p/14789352.html",
+      "dateTime": "2021-05-20 12:20",
+      "views": 726,
+      "comments": 2,
+      "summary": "在 Build To Show 的场景中，大家各显身手，用各种办法展现技术，的确很难在单一的维度上确定谁赢谁输。但是，在 Build To Win 的场景中，往往市场就是那么一块， 竞争对手占了 70%， 你就只剩下 30%; 如果对手们占了 99%， 你就只剩 1% (例如 2014 - 2015",
+      "id": 14789352,
+      "date": "2021-05-20",
+      "year": 2021,
+      "month": "2021-05",
+      "categories": [
+        "助教工作",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "2021北航敏捷软工中期调查问卷总结",
+      "url": "https://www.cnblogs.com/HansBug/p/14748624.html",
+      "dateTime": "2021-05-09 19:43",
+      "views": 4,
+      "comments": 0,
+      "summary": "该文被密码保护。",
+      "id": 14748624,
+      "date": "2021-05-09",
+      "year": 2021,
+      "month": "2021-05",
+      "categories": [
+        "助教工作",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【项目管理】关于Issue/Milestone的使用指导",
+      "url": "https://www.cnblogs.com/HansBug/p/14711869.html",
+      "dateTime": "2021-04-28 09:32",
+      "views": 1886,
+      "comments": 0,
+      "summary": "前言 本指导内容主要基于： 和邹欣老师的语音交流结论 邹欣老师《构建之法》的相关章节内容 现有开源项目在类似情况下的做法 笔者本人的项目相关经验 笔者本人基于课程现状的一点私货 仅为一家之言，如有偏颇或不全者，欢迎讨论或补充，感激不尽。 关于Milestone Milestone顾名思义，翻译成中国",
+      "id": 14711869,
+      "date": "2021-04-28",
+      "year": 2021,
+      "month": "2021-04",
+      "categories": [
+        "助教工作",
+        "学习笔记",
+        "开发向"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【助教工作】2021团队项目助教跟班全攻略",
+      "url": "https://www.cnblogs.com/HansBug/p/14691847.html",
+      "dateTime": "2021-04-22 22:28",
+      "views": 529,
+      "comments": 0,
+      "summary": "工作纲领 在最最最最开头的地方，我们需要明确一下助教跟组的意义所在： 【把握细节】详细了解小组在工作过程中的细节情况，实时把握各组状态 【记录情况】对小组具体工作细节进行完整记录，在文本中还原真实沟通现场 【及时引导】对小组工作细节及时进行必要的讨论和引导，及时纠正存在的问题 【参与评分】参与对各组",
+      "id": 14691847,
+      "date": "2021-04-22",
+      "year": 2021,
+      "month": "2021-04",
+      "categories": [
+        "助教工作"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【助教工作】2021敏捷软件工程需求评审答辩问题总结与建议",
+      "url": "https://www.cnblogs.com/HansBug/p/14661665.html",
+      "dateTime": "2021-04-15 11:20",
+      "views": 1071,
+      "comments": 2,
+      "summary": "这次答辩时间比较紧，本文是以提建议为主****，因此会确保足够的建设性****，希望大家在需求部分的后续工作中将相关部分进行必要的优化和完善。以及如有疑问，或者需要进一步沟通的话，欢迎在博客下留言或私聊咨询助教及老师。 团队软件工程的总体目标： 研发出符合用户需求的软件说明：要通过实际的工作收集、推",
+      "id": 14661665,
+      "date": "2021-04-15",
+      "year": 2021,
+      "month": "2021-04",
+      "categories": [
+        "助教工作",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【调研】北航计算机学院2019及2020年本科敏捷软工结对作业数据调研",
+      "url": "https://www.cnblogs.com/HansBug/p/14374021.html",
+      "dateTime": "2021-02-04 17:40",
+      "views": 994,
+      "comments": 5,
+      "summary": "各位同志们大家好，我又回来磨叽了，前阵子忙于肝代码而鸽了一阵，实在不大好意思:smile:。由于接下来会参与北航本科敏捷软工的课程改革，并且在技术开发这一层面而言，重点将会是结对作业部分。上过2019年及以后的OO课程的老哥老姐们应该都知道，新OO课程中，第二到第四单元部分的基本路子，简而言之，不再",
+      "id": 14374021,
+      "date": "2021-02-04",
+      "year": 2021,
+      "month": "2021-02",
+      "categories": [
+        "学习笔记",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【作业】2020年高等软件工程期末总结",
+      "url": "https://www.cnblogs.com/HansBug/p/14316104.html",
+      "dateTime": "2021-01-23 00:21",
+      "views": 499,
+      "comments": 3,
+      "summary": "首先按照国际惯例，这次似乎不久前才见面。不知不觉已经到了学期结束，到现在为止事情基本也都算是结束了，是时候push这个大鸽子博主更博客了:cry:。其实很多感想啥的，说来又复杂，又简单，而且往往就那么些个车轱辘话。不过该说的无论多少遍，还是都得说的，不碍事。 然后说正事，既然都结束了，那不能没啥收获",
+      "id": 14316104,
+      "date": "2021-01-23",
+      "year": 2021,
+      "month": "2021-01",
+      "categories": [
+        "学习笔记",
+        "环境配置",
+        "研究报告"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【作业】2020年高等软件工程系统设计阶段思考",
+      "url": "https://www.cnblogs.com/HansBug/p/14247560.html",
+      "dateTime": "2021-01-07 17:21",
+      "views": 387,
+      "comments": 1,
+      "summary": "首先，按照国际惯例，好久不见。咋说呢，这波我自己感觉仿佛过了一年，但是翻回去一看日期才大半个月。为啥呢，这阵子太忙了，事情一个接一个，而且大都还是自己完全不擅长却又不得不做还得做的像样点的那种。不说别的，代码都基本上没时间肝，只能向后一靠眼皮一合呼噜一响的时候写点，还真有点尴尬。不过放心，之前挖的博",
+      "id": 14247560,
+      "date": "2021-01-07",
+      "year": 2021,
+      "month": "2021-01",
+      "categories": [
+        "学习笔记",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【老文放出】【思考】基于目前OO课程的一些制度问题引发的思考",
+      "url": "https://www.cnblogs.com/HansBug/p/9154683.html",
+      "dateTime": "2020-12-12 22:13",
+      "views": 461,
+      "comments": 2,
+      "summary": "本文写于2018-06-08 11:19，之前为仅在内部传阅的思考文，于近期（2020-12-12）得以放出 在博文中，笔者已经讲述了目前遇到的一些比较明显的问题，也进行了一些初步的思考。 然而，通过进一步的思考，笔者觉得，很多的问题，看似无关，实则背后有着很相似的逻辑共性。 笔者将在这篇文章内对这",
+      "id": 9154683,
+      "date": "2020-12-12",
+      "year": 2020,
+      "month": "2020-12",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "研究 / 总结"
+    },
+    {
+      "title": "【作业】2020年高等软件工程中期总结与反思",
+      "url": "https://www.cnblogs.com/HansBug/p/14097245.html",
+      "dateTime": "2020-12-07 15:08",
+      "views": 467,
+      "comments": 4,
+      "summary": "恩恩，按照国际惯例，开头得先好久不见一下，毕竟这是必须的程序:dog:。 不过这次呢，从某种意义上，真的算是好久不见了，相比于我第一次写博客，相比于我第一次在工程实践类课程上写博客，相比我第一次从课程角度而非学生角度写博客，相比于第一次写软工课程的博客和总结而言，真的挺久了。有些想法呢，该刷新了，也",
+      "id": 14097245,
+      "date": "2020-12-07",
+      "year": 2020,
+      "month": "2020-12",
+      "categories": [
+        "学习笔记",
+        "开发向"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【开源系列】项目开源实战记录-序",
+      "url": "https://www.cnblogs.com/HansBug/p/14059040.html",
+      "dateTime": "2020-11-30 00:02",
+      "views": 829,
+      "comments": 1,
+      "summary": "首先，好久不见甚是想念。 好吧其实也没几天，主要是怎么说呢，人呢，一忙，就特别容易觉得恍如隔世。比如有时候早上五点起来，一口气没停地coding到下午一点，然后再翻看六点左右的commit，就仿佛像是去年提交的一般:smile_cat:，挺有意思的。 然后，说正经的。本人从上周一那会开始，因为一些原",
+      "id": 14059040,
+      "date": "2020-11-30",
+      "year": 2020,
+      "month": "2020-11",
+      "categories": [
+        "学习笔记",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "【学习笔记】Latex各平台2020实战攻略",
+      "url": "https://www.cnblogs.com/HansBug/p/13982882.html",
+      "dateTime": "2020-11-15 22:57",
+      "views": 1220,
+      "comments": 1,
+      "summary": "Latex各平台2020实战攻略 写在前面：按照本意其实比较想写成“全平台记录”的，但是想了一下感觉自己大概还是没资格那样说，更何况还有最致命的一个问题——我手头没有mac且不会玩黑苹果，于是就emmm，起了这个名字。 然后接下来是说正事环节，在本文中，我将尝试去展示从尽可能多的角度，以尽可能详细的",
+      "id": 13982882,
+      "date": "2020-11-15",
+      "year": 2020,
+      "month": "2020-11",
+      "categories": [
+        "学习笔记",
+        "环境配置"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【作业】2020年高等软件工程课程期望与笃信",
+      "url": "https://www.cnblogs.com/HansBug/p/13770092.html",
+      "dateTime": "2020-10-06 02:23",
+      "views": 3301,
+      "comments": 16,
+      "summary": "【作业】期望与笃信 开头一些自己想说的 之前的话，不管怎么说，还算是顺利地本校保研了，而且与自己相性良好的软件工程专业，整体来说还算是顺利。此时选择了高等软件工程课程，在这刚开始当然难免有些想絮叨絮叨的，还望各位看官老爷们海涵:smile:。如果对此没有太多兴趣的话，可以直接跳转到下一节。 其实也没",
+      "id": 13770092,
+      "date": "2020-10-06",
+      "year": 2020,
+      "month": "2020-10",
+      "categories": [
+        "学习笔记",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【学习笔记】深度学习 demo2 二次函数回归",
+      "url": "https://www.cnblogs.com/HansBug/p/12712205.html",
+      "dateTime": "2020-04-16 13:23",
+      "views": 1200,
+      "comments": 0,
+      "summary": "在本demo中，我们使用的二次函数为 $$ \\begin{aligned} f(x) &= \\left(x 4 \\right) \\left(x 8\\right) + rand \\\\ &= x ^ 2 12 x + 32 + rand \\end{aligned} $$ 其中$rand$表示一个满足标准",
+      "id": 12712205,
+      "date": "2020-04-16",
+      "year": 2020,
+      "month": "2020-04",
+      "categories": [
+        "Python",
+        "学习笔记",
+        "研究报告"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "【学习笔记】深度学习 demo1 线性回归",
+      "url": "https://www.cnblogs.com/HansBug/p/12712197.html",
+      "dateTime": "2020-04-16 13:21",
+      "views": 472,
+      "comments": 0,
+      "summary": "本人近期开始尝试基于pytorch框架，从原理上理解深度学习。在这几个demo中将会展示一些基本的操作及其效果，并基于个人的一点粗浅理解进行原理描述，如有不当之处还请指正。 在本demo中，我们所使用的线性函数为 $$ f(x) = 3 x + 10 + rand $$ 其中$rand$表示一个满足",
+      "id": 12712197,
+      "date": "2020-04-16",
+      "year": 2020,
+      "month": "2020-04",
+      "categories": [
+        "Python",
+        "学习笔记",
+        "深度学习"
+      ],
+      "track": "Python / 开源 / AI"
+    },
+    {
+      "title": "【作业】软件工程课程总结博客",
+      "url": "https://www.cnblogs.com/HansBug/p/11102715.html",
+      "dateTime": "2019-06-28 15:01",
+      "views": 660,
+      "comments": 1,
+      "summary": "原博客地址 \"【软工作业&思考】关于软工的一些概念性理解暨第一次阅读作业\" 关于以前的一些疑惑 其实呢，以前本身我这块不存在特别多的直接疑惑，毕竟以前本人有过相当的项目实践经验，对有些事情还是相对了解的。 既然如此，那在这里笔者就简单说下之前的问题在本学期中所面临的一些真实状况。 PM做开发和测试之",
+      "id": 11102715,
+      "date": "2019-06-28",
+      "year": 2019,
+      "month": "2019-06",
+      "categories": [
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【作业】结对编程纪实",
+      "url": "https://www.cnblogs.com/HansBug/p/10534435.html",
+      "dateTime": "2019-03-14 23:40",
+      "views": 546,
+      "comments": 2,
+      "summary": "结对编程纪实 1、Github地址 \"HansBug/pair_program_word_chain\" 2、PSP表格（独立） | PSP2.1 | Personal Software Process Stages | 预估耗时（小时） | 实际耗时（小时） | | | | | | | Planni",
+      "id": 10534435,
+      "date": "2019-03-14",
+      "year": 2019,
+      "month": "2019-03",
+      "categories": [],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【软工作业&思考】关于软工的一些概念性理解暨第一次阅读作业",
+      "url": "https://www.cnblogs.com/HansBug/p/10473959.html",
+      "dateTime": "2019-03-04 23:05",
+      "views": 2466,
+      "comments": 6,
+      "summary": "概述 | 项目 | 内容 | | : : | : : | | 本次作业所属课程 | \"2019BUAA软件工程 周二班\" | | 本次作业要求 | \"第1次个人作业\" 当然，比这个更重要百倍的还是实实在在的思考，这也是标题如此命名的原因 | | 我在本课程的目标 | 在原有实践经验的基础上，系统化学",
+      "id": 10473959,
+      "date": "2019-03-04",
+      "year": 2019,
+      "month": "2019-03",
+      "categories": [
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【gitlab】gitlab快速部署教程",
+      "url": "https://www.cnblogs.com/HansBug/p/9813627.html",
+      "dateTime": "2018-10-18 22:14",
+      "views": 1813,
+      "comments": 0,
+      "summary": "gitlab快速部署教程 部署环境 Ubuntu 16.04（亲测可用） 开始部署 安装依赖 执行完成后，出现邮件配置，选择Internet那一项（不带Smarthost的） 下载软件包 下载页面： \"https://mirrors.tuna.tsinghua.edu.cn/gitlab ce/ub",
+      "id": 9813627,
+      "date": "2018-10-18",
+      "year": 2018,
+      "month": "2018-10",
+      "categories": [
+        "开发向",
+        "环境配置"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【vagrant】硬盘扩容",
+      "url": "https://www.cnblogs.com/HansBug/p/9447020.html",
+      "dateTime": "2018-08-09 10:32",
+      "views": 3219,
+      "comments": 0,
+      "summary": "如题，笔者之前一直在使用vagrant作为虚拟机使用。 vagrant的好处自然不必说，只是有一天遇到了一个麻烦事—— 虚拟硬盘空间不！够！了！ 笔者使用了 命令一看，结果发现，主硬盘（ ）总空间居然只有10G，然而一般的系统镜像初始大小就超过9G。 在网上一查，发现vagrant其实最初设计定位是",
+      "id": 9447020,
+      "date": "2018-08-09",
+      "year": 2018,
+      "month": "2018-08",
+      "categories": [
+        "开发向",
+        "环境配置"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【作业4.0】HansBug的第四次面向对象课程思考",
+      "url": "https://www.cnblogs.com/HansBug/p/9222492.html",
+      "dateTime": "2018-06-25 07:37",
+      "views": 1136,
+      "comments": 6,
+      "summary": "嘛。。不知不觉这门课程要结束了，那么就再说点啥以示庆祝呗。 测试vs正确性论证 说到这个，相比很多人对此其实很有疑惑，请让我慢慢分析。 逻辑概览 首先我们来看看两种方式各自的做法和流程是什么样的： 单元测试 在测试中，我们是这样的一个流程 此外，为了保证测试能覆盖到工程代码的每一个区域， 需要保证测",
+      "id": 9222492,
+      "date": "2018-06-25",
+      "year": 2018,
+      "month": "2018-06",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【调查报告】关于面向对象（OO）课程目前存在的一些问题和个人思考",
+      "url": "https://www.cnblogs.com/HansBug/p/9045174.html",
+      "dateTime": "2018-06-17 02:45",
+      "views": 668,
+      "comments": 0,
+      "summary": "据了解，这门课程从2012年才刚开始开设，从最初的原始机制到现在已经有很很大的改善，这一点也是十分值得肯定的， 老师和前辈们的努力功不可没 。 不仅如此，OO作为北航的一门特色课程，从价值来讲，当然是很有价值的： 可以让学生去通过大量写代码以及踩坑来 提高姿势水平 可以让本科生真正意义上去接触OOP",
+      "id": 9045174,
+      "date": "2018-06-17",
+      "year": 2018,
+      "month": "2018-06",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "研究 / 总结"
+    },
+    {
+      "title": "【作业3.0】HansBug的第三次博客规格总结",
+      "url": "https://www.cnblogs.com/HansBug/p/9100737.html",
+      "dateTime": "2018-05-29 09:35",
+      "views": 1161,
+      "comments": 6,
+      "summary": "转眼间第三次作业了，似乎需要说点啥，那就说点。 规格&工业 说到这个，不得不提一下软件开发的发展史。 历史的进程 早在上世纪50年代，就已经有早期的编程语言出现，也开始有一些程序编写者出现（多为资深电子工程师，和半路出家的数学家）。 然而那个时代，软件开发基本局限于自己或自己部门内部的使用， 需求并",
+      "id": 9100737,
+      "date": "2018-05-29",
+      "year": 2018,
+      "month": "2018-05",
+      "categories": [
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会",
+      "url": "https://www.cnblogs.com/HansBug/p/8977811.html",
+      "dateTime": "2018-05-02 14:16",
+      "views": 1272,
+      "comments": 3,
+      "summary": "不知不觉又做了三次作业，容我在本文胡言乱语几句2333。 第五次作业 第五次作业是前面的电梯作业的多线程版本，难度也有了一些提升。（ \"点击就送指导书\" ） 类图 程序的类图结构如下： UML时序图 程序的逻辑时序图结构如下： 代码分析报告 可以看出，这次的程序依然存在 部分类或方法代码较为集中 的",
+      "id": 8977811,
+      "date": "2018-05-02",
+      "year": 2018,
+      "month": "2018-05",
+      "categories": [
+        "Java",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【前端】Ubuntu16下nodejs+npm+vue环境配置",
+      "url": "https://www.cnblogs.com/HansBug/p/8901865.html",
+      "dateTime": "2018-04-21 17:37",
+      "views": 1973,
+      "comments": 0,
+      "summary": "笔者最近在学习 ，不过一直都是在 \"runoob\" 上面各种尝试。今天笔者在本机（Ubuntu16.04）尝试部署了nodejs+npm+vue开发环境， 接下来将尽可能详细的讲述安装过程，帮助新人少走一些弯路 。 nodejs安装 说到nodejs的安装，笔者在安装之前查阅了一些资料，大概有这么几",
+      "id": 8901865,
+      "date": "2018-04-21",
+      "year": 2018,
+      "month": "2018-04",
+      "categories": [
+        "Javascript",
+        "Nodejs",
+        "开发向",
+        "环境配置"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【技巧】Java工程中的Debug信息分级输出接口及部署模式",
+      "url": "https://www.cnblogs.com/HansBug/p/8701447.html",
+      "dateTime": "2018-04-04 12:24",
+      "views": 2820,
+      "comments": 2,
+      "summary": "UPDATE: 2018.4.6 github仓库-debug_logger已经发布，并且已经发布了一个版本的测试版jar，欢迎大家使用。如果大家喜欢的话，欢迎Star哦(▽) UPDATE: 2018.4.4 笔者将考虑将这一模块封装成一个完整的java第三方包并可能进行开源放送，完成后将会再次发",
+      "id": 8701447,
+      "date": "2018-04-04",
+      "year": 2018,
+      "month": "2018-04",
+      "categories": [
+        "Java",
+        "开发向",
+        "研究报告"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【作业】HansBug的前三次OO作业分析与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/8694939.html",
+      "dateTime": "2018-04-03 03:04",
+      "views": 2336,
+      "comments": 4,
+      "summary": "OO课程目前已经进行了三次的作业，容我在本文中做一点微小的工作。 第一次作业 第一次作业由于难度不大，所以笔者程序实际上写的也比较随意一些。（ \"点击就送指导书~\" ） 类图 程序的大致结构如下： 代码分析 可以看出，整体的功能还是相对零散的，耦合状况也基本还可以。然而类似 、`Polynomial",
+      "id": 8694939,
+      "date": "2018-04-03",
+      "year": 2018,
+      "month": "2018-04",
+      "categories": [
+        "Java",
+        "开发向"
+      ],
+      "track": "课程 / 软件工程"
+    },
+    {
+      "title": "【备忘】Idea的那些事",
+      "url": "https://www.cnblogs.com/HansBug/p/8687273.html",
+      "dateTime": "2018-04-01 20:40",
+      "views": 1722,
+      "comments": 2,
+      "summary": "说到Java的IDE，似乎eclipse和Idea是目前的主流。然而，OO的课程组却一直在推荐使用eclipse，于是很多人就这样错过了Idea这样强大的IDE工具。本文将会对于Idea和Idea的一些常见（实际上，很多是Jetbrain系列IDE的代表性操作）操作进行一些介绍。 Jetbrain",
+      "id": 8687273,
+      "date": "2018-04-01",
+      "year": 2018,
+      "month": "2018-04",
+      "categories": [
+        "Java",
+        "开发向"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "洛谷讲课手稿",
+      "url": "https://www.cnblogs.com/HansBug/p/8439342.html",
+      "dateTime": "2018-02-10 18:16",
+      "views": 785,
+      "comments": 0,
+      "summary": "Hello大家好，我是洛谷的HansBug。首先自我介绍下，我现在在北京航空航天大学，计算机科学与技术专业读大二，我参加过2013 2015年的提高组NOIP和NOI2015。 整体状况 初赛举办于大概每年的十月中旬，大概在一个月后（光棍节前后）会进行NOIP复赛。 近些年初赛的门槛也越来越高，在江",
+      "id": 8439342,
+      "date": "2018-02-10",
+      "year": 2018,
+      "month": "2018-02",
+      "categories": [],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "win10下vagrant+centos7 rails虚拟开发机配置流程",
+      "url": "https://www.cnblogs.com/HansBug/p/7403306.html",
+      "dateTime": "2017-08-21 11:33",
+      "views": 751,
+      "comments": 0,
+      "summary": "此文写于2017.8.21 在写本文前，笔者已经尝试了多种其他的替代方法，例如wmware虚拟机安装kylin。然而发现总是还有各种问题。经大佬指点安装了virtualbox + vagrant。于是发现配置起来如此简单。接下来笔者将详细阐述。 （_注：笔者自己的服务器上的配置是centos7.2",
+      "id": 7403306,
+      "date": "2017-08-21",
+      "year": 2017,
+      "month": "2017-08",
+      "categories": [
+        "Ruby on Rails",
+        "开发向",
+        "环境配置"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "面向对象先导课感想",
+      "url": "https://www.cnblogs.com/HansBug/p/7288868.html",
+      "dateTime": "2017-08-05 10:58",
+      "views": 421,
+      "comments": 0,
+      "summary": ".kkk { border: 1px dashed gray; background color: lightgray; border radius: 5px; padding: 8px 14px; min height: 90px; } .kkk p { margin: 2px 4px; } va",
+      "id": 7288868,
+      "date": "2017-08-05",
+      "year": 2017,
+      "month": "2017-08",
+      "categories": [
+        "开发向"
+      ],
+      "track": "工程 / 开发"
+    },
+    {
+      "title": "【LATEX】个人版latex论文模板",
+      "url": "https://www.cnblogs.com/HansBug/p/6903269.html",
+      "dateTime": "2017-05-25 13:34",
+      "views": 1792,
+      "comments": 0,
+      "summary": "以下是我的个人论文模板，运行环境为Xelatex(在线ide：Sharelatex.com) 鉴于本人常有插入程序的需求，故引用了lstlisting",
+      "id": 6903269,
+      "date": "2017-05-25",
+      "year": 2017,
+      "month": "2017-05",
+      "categories": [
+        "Latex"
+      ],
+      "track": "环境 / 部署"
+    },
+    {
+      "title": "【前端】wangEditor（富文本编辑器） 简易使用示例",
+      "url": "https://www.cnblogs.com/HansBug/p/6559289.html",
+      "dateTime": "2017-03-16 14:24",
+      "views": 23885,
+      "comments": 3,
+      "summary": "转载请说明作者或者注明出处，谢谢 说到前端常用的编辑器，自然也少不了富文本编辑器（RichText Editor） 笔者在此之前也看了一些相关的在线编辑器，其中包括了当百度搜索“富文本编辑器”字样时出现在最上面的百度UEditor，里面的功能相当丰富，但是配置也相对复杂，对于使用者要求较高。况且在轻",
+      "id": 6559289,
+      "date": "2017-03-16",
+      "year": 2017,
+      "month": "2017-03",
+      "categories": [
+        "前端设计",
+        "开发向"
+      ],
+      "track": "前端 / Web"
+    },
+    {
+      "title": "【前端】ACE Editor（代码编辑器） 简易使用示例",
+      "url": "https://www.cnblogs.com/HansBug/p/6546606.html",
+      "dateTime": "2017-03-14 08:38",
+      "views": 27621,
+      "comments": 4,
+      "summary": "身为一个早已退役的Oier，当然忘不了当年一个个OJ页面上的代码显示和代码编辑器。 其中，洛谷使用的ACE Editor就是之一，非常的简洁美观。以及实际上在前端页面上搭建一个ACE Editor也是一件非常容易的事 在一般情况下，我们需要引入的js库是两个：ace.js，ext-language_",
+      "id": 6546606,
+      "date": "2017-03-14",
+      "year": 2017,
+      "month": "2017-03",
+      "categories": [
+        "前端设计",
+        "开发向"
+      ],
+      "track": "前端 / Web"
+    },
+    {
+      "title": "【Ruby on Rails】Model中关于保存之前的原值和修改状态",
+      "url": "https://www.cnblogs.com/HansBug/p/6528558.html",
+      "dateTime": "2017-03-09 23:48",
+      "views": 744,
+      "comments": 0,
+      "summary": "今天在Rails的Model中遇到了一个问题—— 当我从Model类中获取了一个ActiveRecord对象，对其进行了一系列修改（尚未保存），我该如何确定究竟哪些修改了呢？ （设Model为Option,相关的的参数为correct） 我本来采取的方法是——在数据表中新增一个ori_correct",
+      "id": 6528558,
+      "date": "2017-03-09",
+      "year": 2017,
+      "month": "2017-03",
+      "categories": [
+        "Ruby on Rails",
+        "前端设计"
+      ],
+      "track": "前端 / Web"
+    },
+    {
+      "title": "一个很逗的东西——Jd",
+      "url": "https://www.cnblogs.com/HansBug/p/4631056.html",
+      "dateTime": "2015-07-21 11:31",
+      "views": 1189,
+      "comments": 3,
+      "summary": "这个嘛是本人专门为了NOI上面对拍程序写的对拍程序，已经经历了NOI2015的考验；更重要的是——纯Pascal的哦（HansBug：其实是我不会写.sh脚本TT，谁叫用惯了windows的我只会写bat呢）。。。（本人实测复杂度约为 \\( {10}^{5} \\) 的程序在windows下每秒钟约可...",
+      "id": 4631056,
+      "date": "2015-07-21",
+      "year": 2015,
+      "month": "2015-07",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "研究 / 总结"
+    },
+    {
+      "title": "算法模板——平衡树Treap 2",
+      "url": "https://www.cnblogs.com/HansBug/p/4523770.html",
+      "dateTime": "2015-05-23 10:26",
+      "views": 509,
+      "comments": 0,
+      "summary": "实现功能：同平衡树Treap 1（BZOJ3224 / tyvj1728）这次的模板有了不少的改进，显然更加美观了，几乎每个部分都有了不少简化，尤其是删除部分，这个参照了hzwer神犇的写法，在此鸣谢，然后，贴模板走人 1 var 2 i,j,k,l,m,n,head,tot:longin...",
+      "id": 4523770,
+      "date": "2015-05-23",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1901: Zju2112 Dynamic Rankings",
+      "url": "https://www.cnblogs.com/HansBug/p/4506998.html",
+      "dateTime": "2015-05-15 22:52",
+      "views": 357,
+      "comments": 0,
+      "summary": "1901: Zju2112 Dynamic RankingsTime Limit:10 SecMemory Limit:128 MBSubmit:5268Solved:2207[Submit][Status][Discuss]Description给定一个含有n个数的序列a[1],a[2],a[3]...",
+      "id": 4506998,
+      "date": "2015-05-15",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1965: [Ahoi2005]SHUFFLE 洗牌",
+      "url": "https://www.cnblogs.com/HansBug/p/4504773.html",
+      "dateTime": "2015-05-14 23:11",
+      "views": 446,
+      "comments": 0,
+      "summary": "1965: [Ahoi2005]SHUFFLE 洗牌Time Limit:3 SecMemory Limit:64 MBSubmit:408Solved:240[Submit][Status][Discuss]Description为了表彰小联为Samuel星球的探险所做出的贡献，小联被邀请参加Sa...",
+      "id": 4504773,
+      "date": "2015-05-14",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1984: 月下“毛景树”",
+      "url": "https://www.cnblogs.com/HansBug/p/4501789.html",
+      "dateTime": "2015-05-13 21:46",
+      "views": 442,
+      "comments": 0,
+      "summary": "1984: 月下“毛景树”Time Limit:20 SecMemory Limit:64 MBSubmit:1003Solved:324[Submit][Status][Discuss]Description毛毛虫经过及时的变形，最终逃过的一劫，离开了菜妈的菜园。 毛毛虫经过千山万水，历尽千辛万苦...",
+      "id": 4501789,
+      "date": "2015-05-13",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3212: Pku3468 A Simple Problem with Integers",
+      "url": "https://www.cnblogs.com/HansBug/p/4500760.html",
+      "dateTime": "2015-05-13 16:10",
+      "views": 348,
+      "comments": 0,
+      "summary": "3212: Pku3468 A Simple Problem with IntegersTime Limit:1 SecMemory Limit:128 MBSubmit:1053Solved:468[Submit][Status][Discuss]DescriptionYou have N int...",
+      "id": 4500760,
+      "date": "2015-05-13",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj",
+        "Poj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1036: [ZJOI2008]树的统计Count",
+      "url": "https://www.cnblogs.com/HansBug/p/4498802.html",
+      "dateTime": "2015-05-12 22:10",
+      "views": 304,
+      "comments": 0,
+      "summary": "1036: [ZJOI2008]树的统计CountTime Limit:10 SecMemory Limit:162 MBSubmit:7496Solved:3078[Submit][Status][Discuss]Description一棵树上有n个节点，编号分别为1到n，每个节点都有一个权值w。...",
+      "id": 4498802,
+      "date": "2015-05-12",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2243: [SDOI2011]染色",
+      "url": "https://www.cnblogs.com/HansBug/p/4496884.html",
+      "dateTime": "2015-05-12 11:37",
+      "views": 357,
+      "comments": 0,
+      "summary": "2243: [SDOI2011]染色Time Limit:20 SecMemory Limit:512 MBSubmit:3113Solved:1204[Submit][Status][Discuss]Description给定一棵有n个节点的无根树和m个操作，操作有2类：1、将节点a到节点b路径上...",
+      "id": 4496884,
+      "date": "2015-05-12",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3631: [JLOI2014]松鼠的新家",
+      "url": "https://www.cnblogs.com/HansBug/p/4496134.html",
+      "dateTime": "2015-05-12 00:01",
+      "views": 470,
+      "comments": 3,
+      "summary": "3631: [JLOI2014]松鼠的新家Time Limit:10 SecMemory Limit:128 MBSubmit:707Solved:342[Submit][Status][Discuss]Description松鼠的新家是一棵树，前几天刚刚装修了新家，新家有n个房间，并且有n-1根树...",
+      "id": 4496134,
+      "date": "2015-05-12",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1112: [POI2008]砖块Klo",
+      "url": "https://www.cnblogs.com/HansBug/p/4492588.html",
+      "dateTime": "2015-05-10 17:41",
+      "views": 261,
+      "comments": 2,
+      "summary": "1112: [POI2008]砖块KloTime Limit:10 SecMemory Limit:162 MBSubmit:1245Solved:426[Submit][Status][Discuss]DescriptionN柱砖,希望有连续K柱的高度是一样的. 你可以选择以下两个动作 1:从某柱...",
+      "id": 4492588,
+      "date": "2015-05-10",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1935: [Shoi2007]Tree 园丁的烦恼",
+      "url": "https://www.cnblogs.com/HansBug/p/4492284.html",
+      "dateTime": "2015-05-10 15:21",
+      "views": 447,
+      "comments": 0,
+      "summary": "1935: [Shoi2007]Tree 园丁的烦恼Time Limit:15 SecMemory Limit:357 MBSubmit:648Solved:273[Submit][Status][Discuss]Description很久很久以前，在遥远的大陆上有一个美丽的国家。统治着这个美丽国家...",
+      "id": 4492284,
+      "date": "2015-05-10",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "4001: [TJOI2015]概率论",
+      "url": "https://www.cnblogs.com/HansBug/p/4492085.html",
+      "dateTime": "2015-05-10 12:46",
+      "views": 635,
+      "comments": 0,
+      "summary": "4001: [TJOI2015]概率论Time Limit:10 SecMemory Limit:128 MBSubmit:262Solved:108[Submit][Status][Discuss]DescriptionInput输入一个正整数N，代表有根树的结点数Output输出这棵树期望的叶子...",
+      "id": 4492085,
+      "date": "2015-05-10",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1339 / 1163: [Baltic2008]Mafia",
+      "url": "https://www.cnblogs.com/HansBug/p/4491503.html",
+      "dateTime": "2015-05-09 23:59",
+      "views": 301,
+      "comments": 0,
+      "summary": "1163: [Baltic2008]MafiaTime Limit:10 SecMemory Limit:162 MBSubmit:96Solved:60[Submit][Status][Discuss]Description匪徒准备从一个车站转移毒品到另一个车站,警方准备进行布控. 对于每个车站进...",
+      "id": 4491503,
+      "date": "2015-05-09",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "4010: [HNOI2015]菜肴制作",
+      "url": "https://www.cnblogs.com/HansBug/p/4491369.html",
+      "dateTime": "2015-05-09 22:50",
+      "views": 470,
+      "comments": 4,
+      "summary": "4010: [HNOI2015]菜肴制作Time Limit:5 SecMemory Limit:512 MBSubmit:446Solved:251[Submit][Status][Discuss]Description知名美食家小 A被邀请至ATM 大酒店，为其品评菜肴。ATM 酒店为小 A 准...",
+      "id": 4491369,
+      "date": "2015-05-09",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "4052: [Cerc2013]Magical GCD",
+      "url": "https://www.cnblogs.com/HansBug/p/4490109.html",
+      "dateTime": "2015-05-09 15:00",
+      "views": 576,
+      "comments": 0,
+      "summary": "4052: [Cerc2013]Magical GCDTime Limit:10 SecMemory Limit:128 MBSubmit:148Solved:70[Submit][Status][Discuss]Description给出一个长度在 100 000 以内的正整数序列，大小不超过 1...",
+      "id": 4490109,
+      "date": "2015-05-09",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2292: 【POJ Challenge 】永远挑战",
+      "url": "https://www.cnblogs.com/HansBug/p/4489140.html",
+      "dateTime": "2015-05-08 23:16",
+      "views": 368,
+      "comments": 0,
+      "summary": "2292: 【POJ Challenge 】永远挑战Time Limit:10 SecMemory Limit:128 MBSubmit:553Solved:230[Submit][Status][Discuss]Descriptionlqp18_31和1tthinking经常出题来虐ftiasch...",
+      "id": 4489140,
+      "date": "2015-05-08",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "4063: [Cerc2012]Darts",
+      "url": "https://www.cnblogs.com/HansBug/p/4487961.html",
+      "dateTime": "2015-05-08 16:04",
+      "views": 418,
+      "comments": 0,
+      "summary": "4063: [Cerc2012]DartsTime Limit:10 SecMemory Limit:128 MBSubmit:85Solved:53[Submit][Status][Discuss]Description考虑一个扔飞镖的游戏。板子由十个环组成，半径分别为20, 40, 60, 80...",
+      "id": 4487961,
+      "date": "2015-05-08",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3997: [TJOI2015]组合数学",
+      "url": "https://www.cnblogs.com/HansBug/p/4487603.html",
+      "dateTime": "2015-05-08 14:21",
+      "views": 404,
+      "comments": 2,
+      "summary": "3997: [TJOI2015]组合数学Time Limit:20 SecMemory Limit:128 MBSubmit:247Solved:174[Submit][Status][Discuss]Description给出一个网格图，其中某些格子有财宝，每次从左上角出发，只能向下或右走。问至少...",
+      "id": 4487603,
+      "date": "2015-05-08",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1349: [Baltic2006]Squint",
+      "url": "https://www.cnblogs.com/HansBug/p/4487029.html",
+      "dateTime": "2015-05-08 10:44",
+      "views": 271,
+      "comments": 0,
+      "summary": "1349: [Baltic2006]SquintTime Limit:1 SecMemory Limit:64 MBSubmit:427Solved:248[Submit][Status][Discuss]DescriptionWrite a program to calculate integer...",
+      "id": 4487029,
+      "date": "2015-05-08",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线性筛素数",
+      "url": "https://www.cnblogs.com/HansBug/p/4486717.html",
+      "dateTime": "2015-05-08 08:58",
+      "views": 448,
+      "comments": 0,
+      "summary": "实现功能：如题，筛出1——N内的所有素数原理：如phile神犇所言，这次的才算是真正意义上的线性筛素数，其精髓在于if (i mod a[j])=0 then break;因为——如果眼下的a[j]已经是i的因数了，则意味着即使再进行b[i*a[j]]:=1，那么I*b[j]也必然会被其他的数以同样...",
+      "id": 4486717,
+      "date": "2015-05-08",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3856: Monster",
+      "url": "https://www.cnblogs.com/HansBug/p/4486524.html",
+      "dateTime": "2015-05-07 23:56",
+      "views": 261,
+      "comments": 0,
+      "summary": "3856: MonsterTime Limit:1 SecMemory Limit:64 MBSubmit:351Solved:161[Submit][Status][Discuss]DescriptionTeacher Mai has a kingdom. A monster has invade...",
+      "id": 4486524,
+      "date": "2015-05-07",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Poj 2478 Farey Sequence",
+      "url": "https://www.cnblogs.com/HansBug/p/4486427.html",
+      "dateTime": "2015-05-07 23:02",
+      "views": 191,
+      "comments": 0,
+      "summary": "Farey SequenceTime Limit:1000MSMemory Limit:65536KTotal Submissions:12815Accepted:5003DescriptionThe Farey Sequence Fn for any integer n with n >= 2 i...",
+      "id": 4486427,
+      "date": "2015-05-07",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3101: N皇后",
+      "url": "https://www.cnblogs.com/HansBug/p/4483570.html",
+      "dateTime": "2015-05-06 23:17",
+      "views": 241,
+      "comments": 0,
+      "summary": "3101: N皇后Time Limit:10 SecMemory Limit:128 MBSecSpecial JudgeSubmit:88Solved:41[Submit][Status][Discuss]Descriptionn*n的棋盘,在上面摆下n个皇后，使其两两间不能相互攻击…Input一...",
+      "id": 4483570,
+      "date": "2015-05-06",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线性欧拉函数",
+      "url": "https://www.cnblogs.com/HansBug/p/4483434.html",
+      "dateTime": "2015-05-06 22:19",
+      "views": 191,
+      "comments": 0,
+      "summary": "实现功能：求出1-N的欧拉函数，然后应对若干个询问操作其实就是个素数判定+欧拉函数性质的二合一代码如下，我觉得应高不难懂，只要你知道欧拉函数的性质var i,j,k,l,m,n:longint; a,b:array[0..10000005] of longint;procedure phi;...",
+      "id": 4483434,
+      "date": "2015-05-06",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2818: Gcd",
+      "url": "https://www.cnblogs.com/HansBug/p/4483419.html",
+      "dateTime": "2015-05-06 22:13",
+      "views": 180,
+      "comments": 0,
+      "summary": "2818: GcdTime Limit:10 SecMemory Limit:256 MBSubmit:2170Solved:979[Submit][Status][Discuss]Description给定整数N，求1n then break;29 ...",
+      "id": 4483419,
+      "date": "2015-05-06",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1688: [Usaco2005 Open]Disease Manangement 疾病管理",
+      "url": "https://www.cnblogs.com/HansBug/p/4480632.html",
+      "dateTime": "2015-05-05 23:12",
+      "views": 349,
+      "comments": 0,
+      "summary": "1688: [Usaco2005 Open]Disease Manangement 疾病管理Time Limit:5 SecMemory Limit:64 MBSubmit:413Solved:275[Submit][Status][Discuss]DescriptionAlas! A set of...",
+      "id": 4480632,
+      "date": "2015-05-05",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3314: [Usaco2013 Nov]Crowded Cows",
+      "url": "https://www.cnblogs.com/HansBug/p/4480608.html",
+      "dateTime": "2015-05-05 23:00",
+      "views": 368,
+      "comments": 0,
+      "summary": "3314: [Usaco2013 Nov]Crowded CowsTime Limit:1 SecMemory Limit:128 MBSubmit:111Solved:79[Submit][Status][Discuss]DescriptionFarmer John's N cows (1 y t...",
+      "id": 4480608,
+      "date": "2015-05-05",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3450: Tyvj1952 Easy",
+      "url": "https://www.cnblogs.com/HansBug/p/4480340.html",
+      "dateTime": "2015-05-05 21:24",
+      "views": 206,
+      "comments": 0,
+      "summary": "3450: Tyvj1952 EasyTime Limit:10 SecMemory Limit:128 MBSubmit:269Solved:198[Submit][Status][Discuss]Description某一天WJMZBMR在打osu~~~但是他太弱逼了，有些地方完全靠运气:(我们...",
+      "id": 4480340,
+      "date": "2015-05-05",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1664: [Usaco2006 Open]County Fair Events 参加节日庆祝",
+      "url": "https://www.cnblogs.com/HansBug/p/4478053.html",
+      "dateTime": "2015-05-04 23:55",
+      "views": 227,
+      "comments": 0,
+      "summary": "1664: [Usaco2006 Open]County Fair Events 参加节日庆祝Time Limit:5 SecMemory Limit:64 MBSubmit:255Solved:185[Submit][Status][Discuss]DescriptionFarmer John h...",
+      "id": 4478053,
+      "date": "2015-05-04",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1054: [HAOI2008]移动玩具",
+      "url": "https://www.cnblogs.com/HansBug/p/4477938.html",
+      "dateTime": "2015-05-04 22:57",
+      "views": 189,
+      "comments": 0,
+      "summary": "1054: [HAOI2008]移动玩具Time Limit:10 SecMemory Limit:162 MBSubmit:1272Solved:690[Submit][Status][Discuss]Description在一个4*4的方框内摆放了若干个相同的玩具，某人想将这些玩具重新摆放成为他...",
+      "id": 4477938,
+      "date": "2015-05-04",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1432: [ZJOI2009]Function",
+      "url": "https://www.cnblogs.com/HansBug/p/4474913.html",
+      "dateTime": "2015-05-03 22:39",
+      "views": 257,
+      "comments": 0,
+      "summary": "1432: [ZJOI2009]FunctionTime Limit:5 SecMemory Limit:64 MBSubmit:710Solved:528[Submit][Status][Discuss]DescriptionInput一行两个整数n; k。Output一行一个整数，表示n 个函数...",
+      "id": 4474913,
+      "date": "2015-05-03",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1121: [POI2008]激光发射器SZK",
+      "url": "https://www.cnblogs.com/HansBug/p/4474846.html",
+      "dateTime": "2015-05-03 22:11",
+      "views": 332,
+      "comments": 0,
+      "summary": "1121: [POI2008]激光发射器SZKTime Limit:10 SecMemory Limit:162 MBSubmit:574Solved:475[Submit][Status][Discuss]Description多边形相邻边垂直，边长为整数，边平行坐标轴。要在多边形的点上放一些激光...",
+      "id": 4474846,
+      "date": "2015-05-03",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1113: [Poi2008]海报PLA",
+      "url": "https://www.cnblogs.com/HansBug/p/4474468.html",
+      "dateTime": "2015-05-03 18:47",
+      "views": 224,
+      "comments": 0,
+      "summary": "1113: [Poi2008]海报PLATime Limit:10 SecMemory Limit:162 MBSubmit:765Solved:466[Submit][Status][Discuss]DescriptionN个矩形,排成一排. 现在希望用尽量少的矩形海报Cover住它们.Input...",
+      "id": 4474468,
+      "date": "2015-05-03",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1787: [Ahoi2008]Meet 紧急集合",
+      "url": "https://www.cnblogs.com/HansBug/p/4474160.html",
+      "dateTime": "2015-05-03 16:24",
+      "views": 247,
+      "comments": 0,
+      "summary": "1787: [Ahoi2008]Meet 紧急集合Time Limit:20 SecMemory Limit:162 MBSubmit:1482Solved:652[Submit][Status][Discuss]DescriptionInputOutputSample Input6 4 1 2 2...",
+      "id": 4474160,
+      "date": "2015-05-03",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1477: 青蛙的约会",
+      "url": "https://www.cnblogs.com/HansBug/p/4472318.html",
+      "dateTime": "2015-05-02 18:15",
+      "views": 252,
+      "comments": 0,
+      "summary": "1477: 青蛙的约会Time Limit:2 SecMemory Limit:64 MBSubmit:261Solved:164[Submit][Status][Discuss]Description两只青蛙在网上相识了，它们聊得很开心，于是觉得很有必要见一面。它们很高兴地发现它们住在同一条纬度线...",
+      "id": 4472318,
+      "date": "2015-05-02",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2045: 双亲数",
+      "url": "https://www.cnblogs.com/HansBug/p/4472307.html",
+      "dateTime": "2015-05-02 18:02",
+      "views": 321,
+      "comments": 0,
+      "summary": "2045: 双亲数Time Limit:10 SecMemory Limit:259 MBSubmit:659Solved:302[Submit][Status][Discuss]Description小D是一名数学爱好者，他对数字的着迷到了疯狂的程度。 我们以d = gcd(a, b)表示a、b的...",
+      "id": 4472307,
+      "date": "2015-05-02",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2301: [HAOI2011]Problem b",
+      "url": "https://www.cnblogs.com/HansBug/p/4472303.html",
+      "dateTime": "2015-05-02 17:58",
+      "views": 158,
+      "comments": 0,
+      "summary": "2301: [HAOI2011]Problem bTime Limit:50 SecMemory Limit:256 MBSubmit:1737Solved:749[Submit][Status][Discuss]Description对于给出的n个询问，每次求有多少个数对(x,y)，满足a≤x≤b...",
+      "id": 4472303,
+      "date": "2015-05-02",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1968: [Ahoi2005]COMMON 约数研究",
+      "url": "https://www.cnblogs.com/HansBug/p/4472039.html",
+      "dateTime": "2015-05-02 15:39",
+      "views": 208,
+      "comments": 0,
+      "summary": "1968: [Ahoi2005]COMMON 约数研究Time Limit:1 SecMemory Limit:64 MBSubmit:1127Solved:852[Submit][Status][Discuss]DescriptionInput只有一行一个整数 N（0 0 do14 ...",
+      "id": 4472039,
+      "date": "2015-05-02",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1475: 方格取数",
+      "url": "https://www.cnblogs.com/HansBug/p/4471367.html",
+      "dateTime": "2015-05-01 23:23",
+      "views": 247,
+      "comments": 0,
+      "summary": "1475: 方格取数Time Limit:5 SecMemory Limit:64 MBSubmit:578Solved:309[Submit][Status][Discuss]Description在一个n*n的方格里，每个格子里都有一个正整数。从中取出若干数，使得任意两个取出的数所在格子没有公共...",
+      "id": 4471367,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1441: Min",
+      "url": "https://www.cnblogs.com/HansBug/p/4471330.html",
+      "dateTime": "2015-05-01 22:58",
+      "views": 168,
+      "comments": 0,
+      "summary": "1441: MinTime Limit:5 SecMemory Limit:64 MBSubmit:320Solved:213[Submit][Status][Discuss]Description给出n个数(A1...An)现求一组整数序列(X1...Xn)使得S=A1*X1+...An*Xn>0...",
+      "id": 4471330,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1996: [Hnoi2010]chorus 合唱队",
+      "url": "https://www.cnblogs.com/HansBug/p/4471176.html",
+      "dateTime": "2015-05-01 21:21",
+      "views": 352,
+      "comments": 0,
+      "summary": "1996: [Hnoi2010]chorus 合唱队Time Limit:4 SecMemory Limit:64 MBSubmit:1057Solved:681[Submit][Status][Discuss]DescriptionInputOutputSample Input41701 1702...",
+      "id": 4471176,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2429: [HAOI2006]聪明的猴子",
+      "url": "https://www.cnblogs.com/HansBug/p/4470737.html",
+      "dateTime": "2015-05-01 15:03",
+      "views": 248,
+      "comments": 0,
+      "summary": "2429: [HAOI2006]聪明的猴子Time Limit:10 SecMemory Limit:128 MBSubmit:448Solved:309[Submit][Status][Discuss]Description在一个热带雨林中生存着一群猴子，它们以树上的果子为生。昨天下了一场大雨，现...",
+      "id": 4470737,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1789: [Ahoi2008]Necklace Y型项链",
+      "url": "https://www.cnblogs.com/HansBug/p/4470677.html",
+      "dateTime": "2015-05-01 14:10",
+      "views": 310,
+      "comments": 0,
+      "summary": "1789: [Ahoi2008]Necklace Y型项链Time Limit:1 SecMemory Limit:64 MBSubmit:421Solved:258[Submit][Status][Discuss]Description欢乐岛上众多新奇的游乐项目让小可可他们玩的非常开心。现在他们正...",
+      "id": 4470677,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3399: [Usaco2009 Mar]Sand Castle城堡",
+      "url": "https://www.cnblogs.com/HansBug/p/4470489.html",
+      "dateTime": "2015-05-01 11:12",
+      "views": 264,
+      "comments": 0,
+      "summary": "3399: [Usaco2009 Mar]Sand Castle城堡Time Limit:3 SecMemory Limit:128 MBSubmit:37Solved:32[Submit][Status][Discuss]Description约翰用沙子建了一座城堡．正如所有城堡的城墙，这城墙也有...",
+      "id": 4470489,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3713: [PA2014]Iloczyn",
+      "url": "https://www.cnblogs.com/HansBug/p/4470448.html",
+      "dateTime": "2015-05-01 10:45",
+      "views": 166,
+      "comments": 0,
+      "summary": "3713: [PA2014]IloczynTime Limit:1 SecMemory Limit:128 MBSubmit:327Solved:181[Submit][Status][Discuss]Description斐波那契数列的定义为：k=0或1时，F[k]=k；k>1时，F[k]=F[k...",
+      "id": 4470448,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1907: 树的路径覆盖",
+      "url": "https://www.cnblogs.com/HansBug/p/4470403.html",
+      "dateTime": "2015-05-01 10:07",
+      "views": 238,
+      "comments": 0,
+      "summary": "1907: 树的路径覆盖Time Limit:5 SecMemory Limit:259 MBSubmit:506Solved:219[Submit][Status][Discuss]DescriptionInputOutputSample Input171 22 32 44 65 66 7Samp...",
+      "id": 4470403,
+      "date": "2015-05-01",
+      "year": 2015,
+      "month": "2015-05",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2751: [HAOI2012]容易题(easy)",
+      "url": "https://www.cnblogs.com/HansBug/p/4470124.html",
+      "dateTime": "2015-04-30 23:38",
+      "views": 213,
+      "comments": 0,
+      "summary": "2751: [HAOI2012]容易题(easy)Time Limit:10 SecMemory Limit:128 MBSubmit:1087Solved:477[Submit][Status][Discuss]Description为了使得大家高兴，小Q特意出个自认为的简单题（easy）来满足大...",
+      "id": 4470124,
+      "date": "2015-04-30",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——计算几何2（二维凸包——Andrew算法）",
+      "url": "https://www.cnblogs.com/HansBug/p/4442921.html",
+      "dateTime": "2015-04-20 22:42",
+      "views": 560,
+      "comments": 0,
+      "summary": "实现功能：求出二维平面内一对散点的凸包（详见Codevs 1298） 很神奇的算法——先将各个点按坐标排序，然后像我们所知的那样一路左转，求出半边的凸包，然后反过来求另一半的凸包 我以前正是因为总抱着想一步到位的想法，所以每次都跪得很惨（HansBug：事实上这次是我这辈子第一次A掉凸包题） 然后别",
+      "id": 4442921,
+      "date": "2015-04-20",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj",
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——splay区间反转 2",
+      "url": "https://www.cnblogs.com/HansBug/p/4442735.html",
+      "dateTime": "2015-04-20 21:36",
+      "views": 1053,
+      "comments": 0,
+      "summary": "实现功能：同splay区间反转 1（基于BZOJ3223 文艺平衡树）这次改用了一个全新的模板（HansBug：琢磨了我大半天啊有木有），大大简化了程序，同时对于splay的功能也有所完善这里面没有像一般二叉排序树那样子用一个参量进行排序，而是直接以中序遍历来构建了一个普通的二叉树（当然也可以把每个...",
+      "id": 4442735,
+      "date": "2015-04-20",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——Dinic网络最大流 2",
+      "url": "https://www.cnblogs.com/HansBug/p/4440085.html",
+      "dateTime": "2015-04-19 21:53",
+      "views": 185,
+      "comments": 0,
+      "summary": "实现功能：同Dinic网络最大流 1这个新的想法源于Dinic费用流算法。。。在费用流算法里面，每次处理一条最短路，是通过spfa的过程中就记录下来，然后顺藤摸瓜处理一路于是在这个里面我的最大流也采用这种模式，这样子有效避免的递归，防止了爆栈么么哒 1 type 2 point=^node;...",
+      "id": 4440085,
+      "date": "2015-04-19",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——Dinic最小费用最大流",
+      "url": "https://www.cnblogs.com/HansBug/p/4439979.html",
+      "dateTime": "2015-04-19 21:17",
+      "views": 844,
+      "comments": 0,
+      "summary": "实现功能：输入M,N,S,T；接下来M行输入M条弧的信息（包括起点，终点，流量，单位费用）；实现功能是求出以S为源点，T为汇点的网络最大流的最小费用其实相当的像Dinic最大流呐= =还是spfa处理出最短路径（注意，这次是最短路径，所以时空复杂度将有所提高，害得我都开循环队列了TT），然后顺着最短...",
+      "id": 4439979,
+      "date": "2015-04-19",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——Dinic网络最大流 1",
+      "url": "https://www.cnblogs.com/HansBug/p/4439963.html",
+      "dateTime": "2015-04-19 21:12",
+      "views": 160,
+      "comments": 0,
+      "summary": "实现功能：同sap网络最大流今天第一次学Dinic，感觉最大的特点就是——相当的白话，相当的容易懂，而且丝毫不影响复杂度，顶多也就是代码长个几行主要原理就是每次用spfa以O(n)的时间复杂度预处理出层次图，然后像sap一样深搜一下，搞定。。。代码相当好懂 1 type 2 point=^n...",
+      "id": 4439963,
+      "date": "2015-04-19",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2764: [JLOI2011]基因补全",
+      "url": "https://www.cnblogs.com/HansBug/p/4436041.html",
+      "dateTime": "2015-04-17 22:02",
+      "views": 276,
+      "comments": 0,
+      "summary": "2764: [JLOI2011]基因补全Time Limit:10 SecMemory Limit:128 MBSubmit:570Solved:187[Submit][Status][Discuss]Description在生物课中我们学过，碱基组成了DNA（脱氧核糖核酸），他们分别可以用大写字母...",
+      "id": 4436041,
+      "date": "2015-04-17",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1000: A+B Problem（NetWork Flow）",
+      "url": "https://www.cnblogs.com/HansBug/p/4433381.html",
+      "dateTime": "2015-04-16 21:41",
+      "views": 322,
+      "comments": 0,
+      "summary": "1000: A+B ProblemTime Limit:1 SecMemory Limit:5 MBSubmit:11814Solved:7318[Submit][Status][Discuss]DescriptionCalculate a+bInputTwo integer a,b (0> a >...",
+      "id": 4433381,
+      "date": "2015-04-16",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1782: [Usaco2010 Feb]slowdown 慢慢游",
+      "url": "https://www.cnblogs.com/HansBug/p/4431724.html",
+      "dateTime": "2015-04-16 12:29",
+      "views": 218,
+      "comments": 0,
+      "summary": "1782: [Usaco2010 Feb]slowdown 慢慢游Time Limit:1 SecMemory Limit:64 MBSubmit:570Solved:346[Submit][Status][Discuss]Description每天Farmer John的N头奶牛(1 x do d...",
+      "id": 4431724,
+      "date": "2015-04-16",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2929: [Poi1999]洞穴攀行",
+      "url": "https://www.cnblogs.com/HansBug/p/4430320.html",
+      "dateTime": "2015-04-15 21:45",
+      "views": 249,
+      "comments": 0,
+      "summary": "2929: [Poi1999]洞穴攀行Time Limit:1 SecMemory Limit:128 MBSubmit:80Solved:41[Submit][Status][Discuss]Description一队洞穴学者在Byte Mountain的Grate Cave里组织了一次训练。训练...",
+      "id": 4430320,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1081: [SCOI2005]超级格雷码",
+      "url": "https://www.cnblogs.com/HansBug/p/4430070.html",
+      "dateTime": "2015-04-15 20:18",
+      "views": 339,
+      "comments": 0,
+      "summary": "1081: [SCOI2005]超级格雷码Time Limit:10 SecMemory Limit:162 MBSubmit:301Solved:159[Submit][Status][Discuss]Description著名的格雷码是指2n个不同n位二进制数（即0~2n-1，不足n位在前补零）...",
+      "id": 4430070,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1715: [Usaco2006 Dec]Wormholes 虫洞",
+      "url": "https://www.cnblogs.com/HansBug/p/4429150.html",
+      "dateTime": "2015-04-15 17:13",
+      "views": 326,
+      "comments": 0,
+      "summary": "1715: [Usaco2006 Dec]Wormholes 虫洞Time Limit:5 SecMemory Limit:64 MBSubmit:501Solved:278[Submit][Status][Discuss]DescriptionJohn在他的农场中闲逛时发现了许多虫洞。虫洞可以看作...",
+      "id": 4429150,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3018: [Usaco2012 Nov]Distant Pastures",
+      "url": "https://www.cnblogs.com/HansBug/p/4428577.html",
+      "dateTime": "2015-04-15 15:01",
+      "views": 427,
+      "comments": 0,
+      "summary": "3018: [Usaco2012 Nov]Distant PasturesTime Limit:1 SecMemory Limit:128 MBSubmit:43Solved:20[Submit][Status][Discuss]DescriptionFarmer John's farm is ma...",
+      "id": 4428577,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1755: [Usaco2005 qua]Bank Interest",
+      "url": "https://www.cnblogs.com/HansBug/p/4428330.html",
+      "dateTime": "2015-04-15 13:51",
+      "views": 171,
+      "comments": 0,
+      "summary": "1755: [Usaco2005 qua]Bank InterestTime Limit:5 SecMemory Limit:64 MBSubmit:187Solved:162[Submit][Status][Discuss]DescriptionFarmer John made a profit ...",
+      "id": 4428330,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3386/1752: [Usaco2004 Nov]Til the Cows Come Home 带奶牛回家",
+      "url": "https://www.cnblogs.com/HansBug/p/4428321.html",
+      "dateTime": "2015-04-15 13:46",
+      "views": 314,
+      "comments": 0,
+      "summary": "3386/1752: [Usaco2004 Nov]Til the Cows Come Home 带奶牛回家Time Limit:1 SecMemory Limit:128 MBSubmit:39Solved:14[Submit][Status][Discuss]Description贝茜在谷仓外的...",
+      "id": 4428321,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1753: [Usaco2005 qua]Who's in the Middle",
+      "url": "https://www.cnblogs.com/HansBug/p/4428134.html",
+      "dateTime": "2015-04-15 12:05",
+      "views": 279,
+      "comments": 0,
+      "summary": "1753: [Usaco2005 qua]Who's in the MiddleTime Limit:5 SecMemory Limit:64 MBSubmit:290Solved:242[Submit][Status][Discuss]DescriptionFJ is surveying his ...",
+      "id": 4428134,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3384/1750: [Usaco2004 Nov]Apple Catching 接苹果",
+      "url": "https://www.cnblogs.com/HansBug/p/4428102.html",
+      "dateTime": "2015-04-15 11:52",
+      "views": 578,
+      "comments": 0,
+      "summary": "3384/1750: [Usaco2004 Nov]Apple Catching 接苹果Time Limit:1 SecMemory Limit:128 MBSubmit:18Solved:16[Submit][Status][Discuss]Description很少有人知道奶牛爱吃苹果．农夫约翰...",
+      "id": 4428102,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1702: [Usaco2007 Mar]Gold Balanced Lineup 平衡的队列",
+      "url": "https://www.cnblogs.com/HansBug/p/4427891.html",
+      "dateTime": "2015-04-15 10:55",
+      "views": 451,
+      "comments": 0,
+      "summary": "1702: [Usaco2007 Mar]Gold Balanced Lineup 平衡的队列Time Limit:5 SecMemory Limit:64 MBSubmit:510Solved:196[Submit][Status][Discuss]DescriptionFarmer John's...",
+      "id": 4427891,
+      "date": "2015-04-15",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1455: 罗马游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4427246.html",
+      "dateTime": "2015-04-14 23:01",
+      "views": 262,
+      "comments": 0,
+      "summary": "1455: 罗马游戏Time Limit:5 SecMemory Limit:64 MBSubmit:721Solved:272[Submit][Status][Discuss]Description罗马皇帝很喜欢玩杀人游戏。 他的军队里面有n个人，每个人都是一个独立的团。最近举行了一次平面几何测试...",
+      "id": 4427246,
+      "date": "2015-04-14",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1774: [Usaco2009 Dec]Toll 过路费",
+      "url": "https://www.cnblogs.com/HansBug/p/4426284.html",
+      "dateTime": "2015-04-14 22:05",
+      "views": 370,
+      "comments": 0,
+      "summary": "1774: [Usaco2009 Dec]Toll 过路费Time Limit:10 SecMemory Limit:64 MBSubmit:263Solved:154[Submit][Status][Discuss]Description跟所有人一样，农夫约翰以着宁教我负天下牛，休叫天下牛负我的伟...",
+      "id": 4426284,
+      "date": "2015-04-14",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3389: [Usaco2004 Dec]Cleaning Shifts安排值班",
+      "url": "https://www.cnblogs.com/HansBug/p/4426109.html",
+      "dateTime": "2015-04-14 21:20",
+      "views": 337,
+      "comments": 0,
+      "summary": "3389: [Usaco2004 Dec]Cleaning Shifts安排值班Time Limit:1 SecMemory Limit:128 MBSubmit:102Solved:46[Submit][Status][Discuss]Description一天有T(1≤T≤10^6)个时段．约翰...",
+      "id": 4426109,
+      "date": "2015-04-14",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1754: [Usaco2005 qua]Bull Math",
+      "url": "https://www.cnblogs.com/HansBug/p/4425487.html",
+      "dateTime": "2015-04-14 17:23",
+      "views": 225,
+      "comments": 0,
+      "summary": "1754: [Usaco2005 qua]Bull MathTime Limit:5 SecMemory Limit:64 MBSubmit:398Solved:242[Submit][Status][Discuss]DescriptionBulls are so much better at ma...",
+      "id": 4425487,
+      "date": "2015-04-14",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3377: [Usaco2004 Open]The Cow Lineup 奶牛序列",
+      "url": "https://www.cnblogs.com/HansBug/p/4424447.html",
+      "dateTime": "2015-04-14 11:31",
+      "views": 372,
+      "comments": 0,
+      "summary": "3377: [Usaco2004 Open]The Cow Lineup 奶牛序列Time Limit:10 SecMemory Limit:128 MBSubmit:16Solved:11[Submit][Status][Discuss]Description约翰的N(1≤N≤100000)只奶牛...",
+      "id": 4424447,
+      "date": "2015-04-14",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3301: [USACO2011 Feb] Cow Line",
+      "url": "https://www.cnblogs.com/HansBug/p/4423626.html",
+      "dateTime": "2015-04-13 23:18",
+      "views": 259,
+      "comments": 0,
+      "summary": "3301: [USACO2011 Feb] Cow LineTime Limit:10 SecMemory Limit:128 MBSubmit:82Solved:49[Submit][Status][Discuss]DescriptionThe N (1 0 do30 ...",
+      "id": 4423626,
+      "date": "2015-04-13",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3297: [USACO2011 Open]forgot",
+      "url": "https://www.cnblogs.com/HansBug/p/4423541.html",
+      "dateTime": "2015-04-13 22:33",
+      "views": 227,
+      "comments": 0,
+      "summary": "3297: [USACO2011 Open]forgotTime Limit:10 SecMemory Limit:128 MBSubmit:69Solved:51[Submit][Status][Discuss]Description 发生了这么多，贝茜已经忘记了她cowtube密码。然而，她...",
+      "id": 4423541,
+      "date": "2015-04-13",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1740: [Usaco2005 mar]Yogurt factory 奶酪工厂",
+      "url": "https://www.cnblogs.com/HansBug/p/4423292.html",
+      "dateTime": "2015-04-13 21:09",
+      "views": 1205,
+      "comments": 0,
+      "summary": "1740: [Usaco2005 mar]Yogurt factory 奶酪工厂Time Limit:5 SecMemory Limit:64 MBSubmit:119Solved:100[Submit][Status][Discuss]DescriptionThe cows have purcha...",
+      "id": 4423292,
+      "date": "2015-04-13",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1741: [Usaco2005 nov]Asteroids 穿越小行星群",
+      "url": "https://www.cnblogs.com/HansBug/p/4423285.html",
+      "dateTime": "2015-04-13 21:07",
+      "views": 665,
+      "comments": 0,
+      "summary": "1741: [Usaco2005 nov]Asteroids 穿越小行星群Time Limit:5 SecMemory Limit:64 MBSubmit:231Solved:166[Submit][Status][Discuss]DescriptionBessie wants to navigat...",
+      "id": 4423285,
+      "date": "2015-04-13",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3298: [USACO 2011Open]cow checkers",
+      "url": "https://www.cnblogs.com/HansBug/p/4423238.html",
+      "dateTime": "2015-04-13 20:47",
+      "views": 257,
+      "comments": 0,
+      "summary": "3298: [USACO 2011Open]cow checkersTime Limit:10 SecMemory Limit:128 MBSubmit:65Solved:26[Submit][Status][Discuss]Description 一天，Besssie准备和FJ挑战奶牛跳棋游戏...",
+      "id": 4423238,
+      "date": "2015-04-13",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3433: [Usaco2014 Jan]Recording the Moolympics",
+      "url": "https://www.cnblogs.com/HansBug/p/4422286.html",
+      "dateTime": "2015-04-13 15:18",
+      "views": 333,
+      "comments": 0,
+      "summary": "3433: [Usaco2014 Jan]Recording the MoolympicsTime Limit:10 SecMemory Limit:128 MBSubmit:137Solved:89[Submit][Status][Discuss]DescriptionBeing a fan of...",
+      "id": 4422286,
+      "date": "2015-04-13",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3410: [Usaco2009 Dec]Selfish Grazing 自私的食草者",
+      "url": "https://www.cnblogs.com/HansBug/p/4421022.html",
+      "dateTime": "2015-04-12 23:28",
+      "views": 380,
+      "comments": 0,
+      "summary": "3410: [Usaco2009 Dec]Selfish Grazing 自私的食草者Time Limit:3 SecMemory Limit:128 MBSubmit:71Solved:62[Submit][Status][Discuss]Description约翰有N(1≤N≤50000)头牛，...",
+      "id": 4421022,
+      "date": "2015-04-12",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3391: [Usaco2004 Dec]Tree Cutting网络破坏",
+      "url": "https://www.cnblogs.com/HansBug/p/4421002.html",
+      "dateTime": "2015-04-12 23:14",
+      "views": 344,
+      "comments": 0,
+      "summary": "3391: [Usaco2004 Dec]Tree Cutting网络破坏Time Limit:1 SecMemory Limit:128 MBSubmit:76Solved:59[Submit][Status][Discuss]Description约翰意识到贝茜建设网络花费了他巨额的经费，就把她...",
+      "id": 4421002,
+      "date": "2015-04-12",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3404: [Usaco2009 Open]Cow Digit Game又见数字游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4418805.html",
+      "dateTime": "2015-04-12 00:08",
+      "views": 326,
+      "comments": 0,
+      "summary": "3404: [Usaco2009 Open]Cow Digit Game又见数字游戏Time Limit:3 SecMemory Limit:128 MBSubmit:72Solved:48[Submit][Status][Discuss]Description贝茜和约翰在玩一个数字游戏．贝茜需要你...",
+      "id": 4418805,
+      "date": "2015-04-12",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3400: [Usaco2009 Mar]Cow Frisbee Team 奶牛沙盘队",
+      "url": "https://www.cnblogs.com/HansBug/p/4418755.html",
+      "dateTime": "2015-04-11 23:32",
+      "views": 236,
+      "comments": 0,
+      "summary": "3400: [Usaco2009 Mar]Cow Frisbee Team 奶牛沙盘队Time Limit:3 SecMemory Limit:128 MBSubmit:129Solved:84[Submit][Status][Discuss]Description农夫顿因开始玩飞盘之后，约翰也打算...",
+      "id": 4418755,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3406: [Usaco2009 Oct]Invasion of the Milkweed 乳草的入侵",
+      "url": "https://www.cnblogs.com/HansBug/p/4418698.html",
+      "dateTime": "2015-04-11 23:12",
+      "views": 455,
+      "comments": 0,
+      "summary": "3406: [Usaco2009 Oct]Invasion of the Milkweed 乳草的入侵Time Limit:3 SecMemory Limit:128 MBSubmit:87Solved:49[Submit][Status][Discuss]DescriptionInput第1行：4...",
+      "id": 4418698,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3409: [Usaco2009 Oct]Barn Echoes 牛棚回声",
+      "url": "https://www.cnblogs.com/HansBug/p/4418659.html",
+      "dateTime": "2015-04-11 22:51",
+      "views": 555,
+      "comments": 0,
+      "summary": "3409: [Usaco2009 Oct]Barn Echoes 牛棚回声Time Limit:3 SecMemory Limit:128 MBSubmit:57Solved:47[Submit][Status][Discuss]Description奶牛们灰常享受在牛栏中哞叫，因为她们可以听到她们...",
+      "id": 4418659,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3408: [Usaco2009 Oct]Heat Wave 热浪",
+      "url": "https://www.cnblogs.com/HansBug/p/4418567.html",
+      "dateTime": "2015-04-11 22:03",
+      "views": 368,
+      "comments": 0,
+      "summary": "3408: [Usaco2009 Oct]Heat Wave 热浪Time Limit:3 SecMemory Limit:128 MBSubmit:67Solved:55[Submit][Status][Discuss]DescriptionInput第1行：4个由空格隔开的整数T，C，Ts，Te...",
+      "id": 4418567,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3407: [Usaco2009 Oct]Bessie's Weight Problem 贝茜的体重问题",
+      "url": "https://www.cnblogs.com/HansBug/p/4418522.html",
+      "dateTime": "2015-04-11 21:40",
+      "views": 317,
+      "comments": 0,
+      "summary": "3407: [Usaco2009 Oct]Bessie's Weight Problem 贝茜的体重问题Time Limit:3 SecMemory Limit:128 MBSubmit:48Solved:46[Submit][Status][Discuss]Description贝茜像她的诸多姊妹...",
+      "id": 4418522,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3385: [Usaco2004 Nov]Lake Counting 数池塘",
+      "url": "https://www.cnblogs.com/HansBug/p/4418439.html",
+      "dateTime": "2015-04-11 21:17",
+      "views": 513,
+      "comments": 0,
+      "summary": "3385: [Usaco2004 Nov]Lake Counting 数池塘Time Limit:1 SecMemory Limit:128 MBSubmit:22Solved:21[Submit][Status][Discuss]Description农夫约翰的农场可以表示成N×M(1≤N，M≤1...",
+      "id": 4418439,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2761: [JLOI2011]不重复数字（平衡树）",
+      "url": "https://www.cnblogs.com/HansBug/p/4418127.html",
+      "dateTime": "2015-04-11 18:07",
+      "views": 223,
+      "comments": 0,
+      "summary": "2761: [JLOI2011]不重复数字Time Limit:10 SecMemory Limit:128 MBSubmit:2133Solved:825[Submit][Status][Discuss]Description给出N个数，要求把其中重复的去掉，只保留第一次出现的数。例如，给出的数为...",
+      "id": 4418127,
+      "date": "2015-04-11",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3555: [Ctsc2014]企鹅QQ",
+      "url": "https://www.cnblogs.com/HansBug/p/4416000.html",
+      "dateTime": "2015-04-10 23:56",
+      "views": 351,
+      "comments": 0,
+      "summary": "3555: [Ctsc2014]企鹅QQTime Limit:20 SecMemory Limit:256 MBSubmit:696Solved:294[Submit][Status][Discuss]DescriptionPenguinQQ是中国最大、最具影响力的SNS（Social Networ...",
+      "id": 4416000,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3381: [Usaco2004 Open]Cave Cows 2 洞穴里的牛之二",
+      "url": "https://www.cnblogs.com/HansBug/p/4415942.html",
+      "dateTime": "2015-04-10 23:20",
+      "views": 324,
+      "comments": 0,
+      "summary": "3381: [Usaco2004 Open]Cave Cows 2 洞穴里的牛之二Time Limit:10 SecMemory Limit:128 MBSubmit:21Solved:18[Submit][Status][Discuss]Description洞窟里有一道长长的通道．它由N(1≤N...",
+      "id": 4415942,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3097: Hash Killer I",
+      "url": "https://www.cnblogs.com/HansBug/p/4415904.html",
+      "dateTime": "2015-04-10 23:02",
+      "views": 338,
+      "comments": 0,
+      "summary": "3097: Hash Killer ITime Limit:5 SecMemory Limit:128 MBSecSpecial JudgeSubmit:425Solved:157[Submit][Status][Discuss]Description这天天气不错，hzhwcmhf神犇给VFleaK...",
+      "id": 4415904,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3390: [Usaco2004 Dec]Bad Cowtractors牛的报复",
+      "url": "https://www.cnblogs.com/HansBug/p/4415856.html",
+      "dateTime": "2015-04-10 22:39",
+      "views": 374,
+      "comments": 0,
+      "summary": "3390: [Usaco2004 Dec]Bad Cowtractors牛的报复Time Limit:1 SecMemory Limit:128 MBSubmit:69Solved:49[Submit][Status][Discuss]Description奶牛贝茜被雇去建设N(2≤N≤1000)个...",
+      "id": 4415856,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1684: [Usaco2005 Oct]Close Encounter",
+      "url": "https://www.cnblogs.com/HansBug/p/4415801.html",
+      "dateTime": "2015-04-10 22:14",
+      "views": 201,
+      "comments": 0,
+      "summary": "1684: [Usaco2005 Oct]Close EncounterTime Limit:5 SecMemory Limit:64 MBSubmit:387Solved:181[Submit][Status][Discuss]DescriptionLacking even a fifth gra...",
+      "id": 4415801,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1671: [Usaco2005 Dec]Knights of Ni 骑士",
+      "url": "https://www.cnblogs.com/HansBug/p/4415023.html",
+      "dateTime": "2015-04-10 16:31",
+      "views": 343,
+      "comments": 0,
+      "summary": "1671: [Usaco2005 Dec]Knights of Ni 骑士Time Limit:5 SecMemory Limit:64 MBSubmit:254Solved:163[Submit][Status][Discuss]DescriptionBessie is in Camelot an...",
+      "id": 4415023,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1687: [Usaco2005 Open]Navigating the City 城市交通",
+      "url": "https://www.cnblogs.com/HansBug/p/4414550.html",
+      "dateTime": "2015-04-10 14:35",
+      "views": 228,
+      "comments": 0,
+      "summary": "1687: [Usaco2005 Open]Navigating the City 城市交通Time Limit:5 SecMemory Limit:64 MBSubmit:94Solved:73[Submit][Status][Discuss]Description由于牛奶市场的需求，奶牛必须前往...",
+      "id": 4414550,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1592: [Usaco2008 Feb]Making the Grade 路面修整",
+      "url": "https://www.cnblogs.com/HansBug/p/4414364.html",
+      "dateTime": "2015-04-10 13:39",
+      "views": 238,
+      "comments": 0,
+      "summary": "1592: [Usaco2008 Feb]Making the Grade 路面修整Time Limit:10 SecMemory Limit:162 MBSubmit:428Solved:316[Submit][Status][Discuss]DescriptionFJ打算好好修一下农场中某条凹凸...",
+      "id": 4414364,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1675: [Usaco2005 Feb]Rigging the Bovine Election 竞选划区（题解第二弹）",
+      "url": "https://www.cnblogs.com/HansBug/p/4414164.html",
+      "dateTime": "2015-04-10 12:00",
+      "views": 1159,
+      "comments": 0,
+      "summary": "1675: [Usaco2005 Feb]Rigging the Bovine Election 竞选划区Time Limit:5 SecMemory Limit:64 MBSubmit:198Solved:118[Submit][Status][Discuss]DescriptionIt's el...",
+      "id": 4414164,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj",
+        "研究报告"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1675: [Usaco2005 Feb]Rigging the Bovine Election 竞选划区（题解第一弹）",
+      "url": "https://www.cnblogs.com/HansBug/p/4413031.html",
+      "dateTime": "2015-04-10 00:13",
+      "views": 349,
+      "comments": 0,
+      "summary": "1675: [Usaco2005 Feb]Rigging the Bovine Election 竞选划区Time Limit:5 SecMemory Limit:64 MBSubmit:196Solved:116[Submit][Status][Discuss]DescriptionIt's el...",
+      "id": 4413031,
+      "date": "2015-04-10",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1583: [Usaco2009 Mar]Moon Mooing 哞哞叫",
+      "url": "https://www.cnblogs.com/HansBug/p/4412925.html",
+      "dateTime": "2015-04-09 23:04",
+      "views": 461,
+      "comments": 0,
+      "summary": "1583: [Usaco2009 Mar]Moon Mooing 哞哞叫Time Limit:10 SecMemory Limit:64 MBSubmit:244Solved:126[Submit][Status][Discuss]DescriptionInput第一行两个数，C和N第二行3个数，a...",
+      "id": 4412925,
+      "date": "2015-04-09",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1734: [Usaco2005 feb]Aggressive cows 愤怒的牛",
+      "url": "https://www.cnblogs.com/HansBug/p/4409941.html",
+      "dateTime": "2015-04-09 16:10",
+      "views": 403,
+      "comments": 0,
+      "summary": "1734: [Usaco2005 feb]Aggressive cows 愤怒的牛Time Limit:5 SecMemory Limit:64 MBSubmit:217Solved:175[Submit][Status][Discuss]DescriptionFarmer John has bui...",
+      "id": 4409941,
+      "date": "2015-04-09",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1596: [Usaco2008 Jan]电话网络",
+      "url": "https://www.cnblogs.com/HansBug/p/4405297.html",
+      "dateTime": "2015-04-08 23:38",
+      "views": 201,
+      "comments": 0,
+      "summary": "1596: [Usaco2008 Jan]电话网络Time Limit:10 SecMemory Limit:162 MBSubmit:601Solved:265[Submit][Status][Discuss]DescriptionFarmer John决定为他的所有奶牛都配备手机，以此鼓励她们互...",
+      "id": 4405297,
+      "date": "2015-04-08",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1589: [Usaco2008 Dec]Trick or Treat on the Farm 采集糖果",
+      "url": "https://www.cnblogs.com/HansBug/p/4402377.html",
+      "dateTime": "2015-04-08 14:41",
+      "views": 230,
+      "comments": 0,
+      "summary": "1589: [Usaco2008 Dec]Trick or Treat on the Farm 采集糖果Time Limit:5 SecMemory Limit:64 MBSubmit:419Solved:232[Submit][Status][Discuss]Description每年万圣节，威斯...",
+      "id": 4402377,
+      "date": "2015-04-08",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1647: [Usaco2007 Open]Fliptile 翻格子游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4401032.html",
+      "dateTime": "2015-04-07 23:25",
+      "views": 258,
+      "comments": 0,
+      "summary": "1647: [Usaco2007 Open]Fliptile 翻格子游戏Time Limit:5 SecMemory Limit:64 MBSubmit:423Solved:173[Submit][Status][Discuss]DescriptionFarmer John knows that a...",
+      "id": 4401032,
+      "date": "2015-04-07",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1295: [SCOI2009]最长距离",
+      "url": "https://www.cnblogs.com/HansBug/p/4399889.html",
+      "dateTime": "2015-04-07 22:43",
+      "views": 244,
+      "comments": 0,
+      "summary": "1295: [SCOI2009]最长距离Time Limit:10 SecMemory Limit:162 MBSubmit:960Solved:498[Submit][Status][Discuss]Descriptionwindy有一块矩形土地，被分为 N*M 块 1*1 的小格子。 有的格子含...",
+      "id": 4399889,
+      "date": "2015-04-07",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1644: [Usaco2007 Oct]Obstacle Course 障碍训练课",
+      "url": "https://www.cnblogs.com/HansBug/p/4399879.html",
+      "dateTime": "2015-04-07 22:41",
+      "views": 265,
+      "comments": 0,
+      "summary": "1644: [Usaco2007 Oct]Obstacle Course 障碍训练课Time Limit:5 SecMemory Limit:64 MBSubmit:383Solved:196[Submit][Status][Discuss]Description考虑一个 N x N (1 y th...",
+      "id": 4399879,
+      "date": "2015-04-07",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1578: [Usaco2009 Feb]Stock Market 股票市场",
+      "url": "https://www.cnblogs.com/HansBug/p/4398706.html",
+      "dateTime": "2015-04-07 16:43",
+      "views": 279,
+      "comments": 0,
+      "summary": "1578: [Usaco2009 Feb]Stock Market 股票市场Time Limit:10 SecMemory Limit:64 MBSubmit:414Solved:199[Submit][Status][Discuss]Description尽管奶牛们天生谨慎，她们仍然在住房抵押信贷...",
+      "id": 4398706,
+      "date": "2015-04-07",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3522: [Poi2014]Hotel",
+      "url": "https://www.cnblogs.com/HansBug/p/4397807.html",
+      "dateTime": "2015-04-07 11:16",
+      "views": 307,
+      "comments": 0,
+      "summary": "3522: [Poi2014]HotelTime Limit:20 SecMemory Limit:128 MBSubmit:253Solved:117[Submit][Status][Discuss]Description有一个树形结构的宾馆，n个房间，n-1条无向边，每条边的长度相同，任意两个房...",
+      "id": 4397807,
+      "date": "2015-04-07",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3299: [USACO2011 Open]Corn Maze玉米迷宫",
+      "url": "https://www.cnblogs.com/HansBug/p/4397180.html",
+      "dateTime": "2015-04-06 23:44",
+      "views": 342,
+      "comments": 0,
+      "summary": "3299: [USACO2011 Open]Corn Maze玉米迷宫Time Limit:10 SecMemory Limit:128 MBSubmit:137Solved:59[Submit][Status][Discuss]Description今年秋天，约翰带着奶牛们去玩玉米迷宫。迷宫可分成...",
+      "id": 4397180,
+      "date": "2015-04-06",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2272: [Usaco2011 Feb]Cowlphabet 奶牛文字",
+      "url": "https://www.cnblogs.com/HansBug/p/4396691.html",
+      "dateTime": "2015-04-06 21:37",
+      "views": 403,
+      "comments": 0,
+      "summary": "2272: [Usaco2011 Feb]Cowlphabet 奶牛文字Time Limit:10 SecMemory Limit:128 MBSubmit:138Solved:97[Submit][Status][Discuss]DescriptionLike all bovines, Farme...",
+      "id": 4396691,
+      "date": "2015-04-06",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1632: [Usaco2007 Feb]Lilypad Pond",
+      "url": "https://www.cnblogs.com/HansBug/p/4396499.html",
+      "dateTime": "2015-04-06 20:12",
+      "views": 337,
+      "comments": 0,
+      "summary": "1632: [Usaco2007 Feb]Lilypad PondTime Limit:5 SecMemory Limit:64 MBSubmit:404Solved:118[Submit][Status][Discuss]DescriptionFarmer John 建造了一个美丽的池塘，用于让他...",
+      "id": 4396499,
+      "date": "2015-04-06",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1630/2023: [Usaco2005 Nov]Ant Counting 数蚂蚁",
+      "url": "https://www.cnblogs.com/HansBug/p/4395631.html",
+      "dateTime": "2015-04-06 11:16",
+      "views": 601,
+      "comments": 0,
+      "summary": "2023: [Usaco2005 Nov]Ant Counting 数蚂蚁Time Limit:4 SecMemory Limit:64 MBSubmit:85Solved:40[Submit][Status][Discuss]Description有一天，贝茜无聊地坐在蚂蚁洞前看蚂蚁们进进出出地搬...",
+      "id": 4395631,
+      "date": "2015-04-06",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1623: [Usaco2008 Open]Cow Cars 奶牛飞车",
+      "url": "https://www.cnblogs.com/HansBug/p/4395550.html",
+      "dateTime": "2015-04-06 10:27",
+      "views": 220,
+      "comments": 0,
+      "summary": "1623: [Usaco2008 Open]Cow Cars 奶牛飞车Time Limit:5 SecMemory Limit:64 MBSubmit:291Solved:201[Submit][Status][Discuss]Description编号为1到N的N只奶牛正各自驾着车打算在牛德比亚的...",
+      "id": 4395550,
+      "date": "2015-04-06",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1622: [Usaco2008 Open]Word Power 名字的能量",
+      "url": "https://www.cnblogs.com/HansBug/p/4395172.html",
+      "dateTime": "2015-04-06 00:12",
+      "views": 183,
+      "comments": 0,
+      "summary": "1622: [Usaco2008 Open]Word Power 名字的能量Time Limit:5 SecMemory Limit:64 MBSubmit:370Solved:184[Submit][Status][Discuss]Description约翰想要计算他那N(1≤N≤1000)只奶牛...",
+      "id": 4395172,
+      "date": "2015-04-06",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3401: [Usaco2009 Mar]Look Up 仰望",
+      "url": "https://www.cnblogs.com/HansBug/p/4395050.html",
+      "dateTime": "2015-04-05 23:28",
+      "views": 260,
+      "comments": 0,
+      "summary": "3401: [Usaco2009 Mar]Look Up 仰望Time Limit:3 SecMemory Limit:128 MBSubmit:136Solved:81[Submit][Status][Discuss]Description约翰的N(1≤N≤105)头奶牛站成一排，奶牛i的身高是H...",
+      "id": 4395050,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1611: [Usaco2008 Feb]Meteor Shower流星雨",
+      "url": "https://www.cnblogs.com/HansBug/p/4394956.html",
+      "dateTime": "2015-04-05 22:42",
+      "views": 325,
+      "comments": 0,
+      "summary": "1611: [Usaco2008 Feb]Meteor Shower流星雨Time Limit:5 SecMemory Limit:64 MBSubmit:1010Solved:446[Submit][Status][Discuss]Description去年偶们湖南遭受N年不遇到冰冻灾害，现在芙蓉...",
+      "id": 4394956,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3893: [Usaco2014 Dec]Cow Jog",
+      "url": "https://www.cnblogs.com/HansBug/p/4394875.html",
+      "dateTime": "2015-04-05 22:04",
+      "views": 503,
+      "comments": 0,
+      "summary": "3893: [Usaco2014 Dec]Cow JogTime Limit:10 SecMemory Limit:128 MBSubmit:174Solved:87[Submit][Status][Discuss]DescriptionThe cows are out exercising the...",
+      "id": 4394875,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3892: [Usaco2014 Dec]Marathon",
+      "url": "https://www.cnblogs.com/HansBug/p/4394847.html",
+      "dateTime": "2015-04-05 21:53",
+      "views": 470,
+      "comments": 0,
+      "summary": "3892: [Usaco2014 Dec]MarathonTime Limit:10 SecMemory Limit:128 MBSubmit:169Solved:100[Submit][Status][Discuss]DescriptionUnhappy with the poor health ...",
+      "id": 4394847,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3891: [Usaco2014 Dec]Piggy Back",
+      "url": "https://www.cnblogs.com/HansBug/p/4394832.html",
+      "dateTime": "2015-04-05 21:47",
+      "views": 364,
+      "comments": 0,
+      "summary": "3891: [Usaco2014 Dec]Piggy BackTime Limit:10 SecMemory Limit:128 MBSubmit:116Solved:92[Submit][Status][Discuss]DescriptionBessie and her sister Elsie ...",
+      "id": 4394832,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2016: [Usaco2010]Chocolate Eating",
+      "url": "https://www.cnblogs.com/HansBug/p/4394634.html",
+      "dateTime": "2015-04-05 19:49",
+      "views": 375,
+      "comments": 0,
+      "summary": "2016: [Usaco2010]Chocolate EatingTime Limit:10 SecMemory Limit:162 MBSubmit:224Solved:87[Submit][Status][Discuss]Description贝西从大牛那里收到了N块巧克力。她不想把它们马上吃完...",
+      "id": 4394634,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3016: [Usaco2012 Nov]Clumsy Cows",
+      "url": "https://www.cnblogs.com/HansBug/p/4394536.html",
+      "dateTime": "2015-04-05 19:06",
+      "views": 279,
+      "comments": 0,
+      "summary": "3016: [Usaco2012 Nov]Clumsy CowsTime Limit:1 SecMemory Limit:128 MBSubmit:91Solved:69[Submit][Status][Discuss]DescriptionBessie the cow is trying to t...",
+      "id": 4394536,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3359: [Usaco2004 Jan]矩形",
+      "url": "https://www.cnblogs.com/HansBug/p/4394330.html",
+      "dateTime": "2015-04-05 16:43",
+      "views": 250,
+      "comments": 0,
+      "summary": "3359: [Usaco2004 Jan]矩形Time Limit:10 SecMemory Limit:128 MBSubmit:8Solved:5[Submit][Status][Discuss]Description给出N个矩形(1≤N≤100)和它的长和宽(不超过1000)，写一个程序找出最...",
+      "id": 4394330,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1593: [Usaco2008 Feb]Hotel 旅馆",
+      "url": "https://www.cnblogs.com/HansBug/p/4394256.html",
+      "dateTime": "2015-04-05 16:02",
+      "views": 348,
+      "comments": 0,
+      "summary": "1593: [Usaco2008 Feb]Hotel 旅馆Time Limit:10 SecMemory Limit:64 MBSubmit:391Solved:228[Submit][Status][Discuss]Description奶牛们最近的旅游计划，是到苏必利尔湖畔，享受那里的湖光山色，...",
+      "id": 4394256,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3360: [Usaco2004 Jan]算二十四",
+      "url": "https://www.cnblogs.com/HansBug/p/4394069.html",
+      "dateTime": "2015-04-05 14:09",
+      "views": 361,
+      "comments": 0,
+      "summary": "3360: [Usaco2004 Jan]算二十四Time Limit:10 SecMemory Limit:128 MBSubmit:6Solved:6[Submit][Status][Discuss]Description写一个程序，给出D(2≤D≤10)个数字，按原顺序在数字间加+，一，×算出...",
+      "id": 4394069,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3361: [Usaco2004 Jan]培根距离",
+      "url": "https://www.cnblogs.com/HansBug/p/4394016.html",
+      "dateTime": "2015-04-05 13:16",
+      "views": 258,
+      "comments": 0,
+      "summary": "3361: [Usaco2004 Jan]培根距离Time Limit:10 SecMemory Limit:128 MBSubmit:16Solved:13[Submit][Status][Discuss]Description贝茜和其他奶牛联系是通过一连串的中间奶牛传递的，所以当第一头牛和贝茜联...",
+      "id": 4394016,
+      "date": "2015-04-05",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1342: [Baltic2007]Sound静音问题",
+      "url": "https://www.cnblogs.com/HansBug/p/4392906.html",
+      "dateTime": "2015-04-04 21:05",
+      "views": 398,
+      "comments": 0,
+      "summary": "1342: [Baltic2007]Sound静音问题Time Limit:5 SecMemory Limit:162 MBSubmit:710Solved:307[Submit][Status][Discuss]Description静音问题 数字录音中，声音是用表示空气压力的数字序列描述的，序列...",
+      "id": 4392906,
+      "date": "2015-04-04",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "USACO全部月赛及GateWay数据",
+      "url": "https://www.cnblogs.com/HansBug/p/4392576.html",
+      "dateTime": "2015-04-04 18:00",
+      "views": 547,
+      "comments": 0,
+      "summary": "月赛：以07年open为例，网站如下http://contest.usaco.org/OPEN07其他的格式是http://contest.usaco.org/月份（月份的英文前三位，比如1月是JAN，公开赛是OPEN，注意要大写）+年份（年份四位数字的最后两位）比如08年三月的是：http://c...",
+      "id": 4392576,
+      "date": "2015-04-04",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1711: [Usaco2007 Open]Dingin吃饭",
+      "url": "https://www.cnblogs.com/HansBug/p/4392376.html",
+      "dateTime": "2015-04-04 16:24",
+      "views": 270,
+      "comments": 0,
+      "summary": "1711: [Usaco2007 Open]Dingin吃饭Time Limit:5 SecMemory Limit:64 MBSubmit:560Solved:290[Submit][Status][Discuss]Description农夫JOHN为牛们做了很好的食品,但是牛吃饭很挑食. 每一头...",
+      "id": 4392376,
+      "date": "2015-04-04",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1574: [Usaco2009 Jan]地震损坏Damage",
+      "url": "https://www.cnblogs.com/HansBug/p/4392069.html",
+      "dateTime": "2015-04-04 13:42",
+      "views": 296,
+      "comments": 0,
+      "summary": "1574: [Usaco2009 Jan]地震损坏DamageTime Limit:10 SecMemory Limit:64 MBSubmit:425Solved:232[Submit][Status][Discuss]Description农夫John的农场遭受了一场地震.有一些牛棚遭到了损坏,...",
+      "id": 4392069,
+      "date": "2015-04-04",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1590: [Usaco2008 Dec]Secret Message 秘密信息",
+      "url": "https://www.cnblogs.com/HansBug/p/4391855.html",
+      "dateTime": "2015-04-04 11:29",
+      "views": 468,
+      "comments": 0,
+      "summary": "1590: [Usaco2008 Dec]Secret Message 秘密信息Time Limit:5 SecMemory Limit:32 MBSubmit:209Solved:143[Submit][Status][Discuss]Description贝茜正在领导奶牛们逃跑．为了联络，奶牛们...",
+      "id": 4391855,
+      "date": "2015-04-04",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1751: [Usaco2005 qua]Lake Counting",
+      "url": "https://www.cnblogs.com/HansBug/p/4391198.html",
+      "dateTime": "2015-04-03 22:46",
+      "views": 202,
+      "comments": 0,
+      "summary": "1751: [Usaco2005 qua]Lake CountingTime Limit:5 SecMemory Limit:64 MBSubmit:190Solved:150[Submit][Status][Discuss]DescriptionDue to recent rains, water...",
+      "id": 4391198,
+      "date": "2015-04-03",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——单个值欧拉函数",
+      "url": "https://www.cnblogs.com/HansBug/p/4391159.html",
+      "dateTime": "2015-04-03 22:23",
+      "views": 220,
+      "comments": 0,
+      "summary": "输入N，输出phi(N)这样的单个值欧拉函数程序一般见于部分数论题，以及有时候求逆元且取模的数不是质数的情况(逆元：A/B=A*Bphi(p)-1(mod p)，一般常见题中p是质数，phi(p)-1=p-2)（Tip:我是来水经验的不解释，不过话说真的好久没写这个了TT） 1 var i:int6...",
+      "id": 4391159,
+      "date": "2015-04-03",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2620: [Usaco2012 Mar]Haybale Restacking",
+      "url": "https://www.cnblogs.com/HansBug/p/4391133.html",
+      "dateTime": "2015-04-03 22:08",
+      "views": 418,
+      "comments": 0,
+      "summary": "2620: [Usaco2012 Mar]Haybale RestackingTime Limit:5 SecMemory Limit:128 MBSubmit:201Solved:111[Submit][Status][Discuss]DescriptionFarmer John has just...",
+      "id": 4391133,
+      "date": "2015-04-03",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1712: [Usaco2007 China]Summing Sums 加密",
+      "url": "https://www.cnblogs.com/HansBug/p/4388838.html",
+      "dateTime": "2015-04-02 23:37",
+      "views": 263,
+      "comments": 0,
+      "summary": "1712: [Usaco2007 China]Summing Sums 加密Time Limit:5 SecMemory Limit:64 MBSubmit:338Solved:127[Submit][Status][Discuss]Description那N只可爱的奶牛刚刚学习了有关密码的许多算法...",
+      "id": 4388838,
+      "date": "2015-04-02",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树9（区间加+区间求和+区间方和）",
+      "url": "https://www.cnblogs.com/HansBug/p/4388378.html",
+      "dateTime": "2015-04-02 21:05",
+      "views": 550,
+      "comments": 0,
+      "summary": "如题，实现一个程序，输入N个数，进行如下维护：1.1 x y 求[x,y]区间的和2.2 x y 求[x,y]区间的平方和3.3 x y z 将[x,y]区间全部加上z4.4 x y 求[x,y]区间内两两数相乘的积之和（其实4是1、2的简单组合）如下： 1 var 2 i,j,k,l,m...",
+      "id": 4388378,
+      "date": "2015-04-02",
+      "year": 2015,
+      "month": "2015-04",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1709: [Usaco2007 Oct]Super Paintball超级弹珠",
+      "url": "https://www.cnblogs.com/HansBug/p/4312006.html",
+      "dateTime": "2015-03-03 21:58",
+      "views": 245,
+      "comments": 0,
+      "summary": "1709: [Usaco2007 Oct]Super Paintball超级弹珠Time Limit:5 SecMemory Limit:64 MBSubmit:339Solved:264[Submit][Status]Description奶牛们最近从著名的奶牛玩具制造商Tycow那里，买了一套仿...",
+      "id": 4312006,
+      "date": "2015-03-03",
+      "year": 2015,
+      "month": "2015-03",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1011: [HNOI2008]遥远的行星",
+      "url": "https://www.cnblogs.com/HansBug/p/4311857.html",
+      "dateTime": "2015-03-03 20:10",
+      "views": 183,
+      "comments": 0,
+      "summary": "1011: [HNOI2008]遥远的行星Time Limit:10 SecMemory Limit:162 MBSecSpecial JudgeSubmit:2241Solved:793[Submit][Status]Description直线上N颗行星，X=i处有行星i,行星J受到行星I的作用力...",
+      "id": 4311857,
+      "date": "2015-03-03",
+      "year": 2015,
+      "month": "2015-03",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2015: [Usaco2010 Feb]Chocolate Giving",
+      "url": "https://www.cnblogs.com/HansBug/p/4298400.html",
+      "dateTime": "2015-02-23 23:57",
+      "views": 288,
+      "comments": 0,
+      "summary": "2015: [Usaco2010 Feb]Chocolate GivingTime Limit:10 SecMemory Limit:162 MBSubmit:269Solved:183[Submit][Status]DescriptionFarmer John有B头奶牛(1nil do36 ...",
+      "id": 4298400,
+      "date": "2015-02-23",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2060: [Usaco2010 Nov]Visiting Cows 拜访奶牛",
+      "url": "https://www.cnblogs.com/HansBug/p/4298398.html",
+      "dateTime": "2015-02-23 23:46",
+      "views": 197,
+      "comments": 0,
+      "summary": "2060: [Usaco2010 Nov]Visiting Cows 拜访奶牛Time Limit:3 SecMemory Limit:64 MBSubmit:252Solved:185[Submit][Status]Description经过了几周的辛苦工作,贝茜终于迎来了一个假期.作为奶牛群中最...",
+      "id": 4298398,
+      "date": "2015-02-23",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2020: [Usaco2010 Jan]Buying Feed, II",
+      "url": "https://www.cnblogs.com/HansBug/p/4298397.html",
+      "dateTime": "2015-02-23 23:44",
+      "views": 216,
+      "comments": 0,
+      "summary": "2020: [Usaco2010 Jan]Buying Feed, IITime Limit:3 SecMemory Limit:64 MBSubmit:220Solved:162[Submit][Status]Description(buying.pas/buying.in/buying.out ...",
+      "id": 4298397,
+      "date": "2015-02-23",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3396: [Usaco2009 Jan]Total flow 水流",
+      "url": "https://www.cnblogs.com/HansBug/p/4297728.html",
+      "dateTime": "2015-02-22 21:09",
+      "views": 178,
+      "comments": 0,
+      "summary": "3396: [Usaco2009 Jan]Total flow 水流Time Limit:1 SecMemory Limit:128 MBSubmit:179Solved:73[Submit][Status]DescriptionInput第1行输入N，之后N行每行描述一条水管，前两个英文字母表示水...",
+      "id": 4297728,
+      "date": "2015-02-22",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3403: [Usaco2009 Open]Cow Line 直线上的牛",
+      "url": "https://www.cnblogs.com/HansBug/p/4297697.html",
+      "dateTime": "2015-02-22 20:36",
+      "views": 206,
+      "comments": 0,
+      "summary": "3403: [Usaco2009 Open]Cow Line 直线上的牛Time Limit:3 SecMemory Limit:128 MBSubmit:71Solved:62[Submit][Status]Description题目描述约翰的N只奶牛（编为1到N号）正在直线上排队．直线上开始的时...",
+      "id": 4297697,
+      "date": "2015-02-22",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2102: [Usaco2010 Dec]The Trough Game",
+      "url": "https://www.cnblogs.com/HansBug/p/4297672.html",
+      "dateTime": "2015-02-22 20:13",
+      "views": 317,
+      "comments": 0,
+      "summary": "2102: [Usaco2010 Dec]The Trough GameTime Limit:10 SecMemory Limit:64 MBSubmit:117Solved:84[Submit][Status]DescriptionFarmer John and Bessie are playin...",
+      "id": 4297672,
+      "date": "2015-02-22",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "再看最短路算法 1 —— 单源最短路",
+      "url": "https://www.cnblogs.com/HansBug/p/4297571.html",
+      "dateTime": "2015-02-22 16:43",
+      "views": 1442,
+      "comments": 10,
+      "summary": "学了多年的算法，最短路问题相当之常见————好久没写过最短路的问题了，直到昨天闲的无聊来了一题——BZOJ3402（HansBug:额才发现我弱到只能刷水的地步了TT）一看这不是明显的单源最短路么呵呵。。。于是直接上来来了个dijkstra，而且用的是邻接表存储图——Submit之后，结果却是——我...",
+      "id": 4297571,
+      "date": "2015-02-22",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3402: [Usaco2009 Open]Hide and Seek 捉迷藏",
+      "url": "https://www.cnblogs.com/HansBug/p/4297277.html",
+      "dateTime": "2015-02-22 00:13",
+      "views": 321,
+      "comments": 0,
+      "summary": "3402: [Usaco2009 Open]Hide and Seek 捉迷藏Time Limit:3 SecMemory Limit:128 MBSubmit:78Solved:64[Submit][Status]Description贝茜在和约翰玩一个“捉迷藏”的游戏．她正要找出所有适合她躲藏的...",
+      "id": 4297277,
+      "date": "2015-02-22",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2208: [Jsoi2010]连通数",
+      "url": "https://www.cnblogs.com/HansBug/p/4297259.html",
+      "dateTime": "2015-02-21 23:30",
+      "views": 699,
+      "comments": 5,
+      "summary": "2208: [Jsoi2010]连通数Time Limit:20 SecMemory Limit:512 MBSubmit:1371Solved:557[Submit][Status]DescriptionInput输入数据第一行是图顶点的数量，一个正整数N。 接下来N行，每行N个字符。第i行第j列...",
+      "id": 4297259,
+      "date": "2015-02-21",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1084: [SCOI2005]最大子矩阵",
+      "url": "https://www.cnblogs.com/HansBug/p/4296727.html",
+      "dateTime": "2015-02-20 22:02",
+      "views": 187,
+      "comments": 0,
+      "summary": "1084: [SCOI2005]最大子矩阵Time Limit:10 SecMemory Limit:162 MBSubmit:1325Solved:670[Submit][Status]Description这里有一个n*m的矩阵，请你选出其中k个子矩阵，使得这个k个子矩阵分值之和最大。注意：选出...",
+      "id": 4296727,
+      "date": "2015-02-20",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "关于一般的并查集求根操作的一组对照研究",
+      "url": "https://www.cnblogs.com/HansBug/p/4296675.html",
+      "dateTime": "2015-02-20 20:15",
+      "views": 675,
+      "comments": 0,
+      "summary": "说道并查集，大家一定对于以多叉树状结构为基础的并查集并不陌生，最常见的两种写法如下1 function getfat(x:longint):longint;2 begin3 while xc[x] do x:=c[x];4 exit(x);5 end;...",
+      "id": 4296675,
+      "date": "2015-02-20",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "研究 / 总结"
+    },
+    {
+      "title": "1934: [Shoi2007]Vote 善意的投票",
+      "url": "https://www.cnblogs.com/HansBug/p/4294398.html",
+      "dateTime": "2015-02-16 17:50",
+      "views": 300,
+      "comments": 0,
+      "summary": "1934: [Shoi2007]Vote 善意的投票Time Limit:1 SecMemory Limit:64 MBSubmit:1174Solved:723[Submit][Status]Description幼儿园里有n个小朋友打算通过投票来决定睡不睡午觉。对他们来说，这个问题并不是很重要，...",
+      "id": 4294398,
+      "date": "2015-02-16",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树8 （字符串回文变换）",
+      "url": "https://www.cnblogs.com/HansBug/p/4293609.html",
+      "dateTime": "2015-02-16 00:04",
+      "views": 321,
+      "comments": 0,
+      "summary": "实现功能：输入一个长度为N的由26个大写字母组成的字符串，输入M条指令：\"1 x y\"，将x到y的字串重组构成一个字典序最小的回文串，如果不能构成回文串输出False，否则True并完成变换；\"2 x y\"输出从x到y的子串；\"3 x y t\"将x到y的所有字全部变成chr(t+64)（即对应大写字...",
+      "id": 4293609,
+      "date": "2015-02-16",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——哈希单模板字符串匹配",
+      "url": "https://www.cnblogs.com/HansBug/p/4293577.html",
+      "dateTime": "2015-02-15 23:18",
+      "views": 322,
+      "comments": 0,
+      "summary": "实现功能：第一行输入模板串；第二行输入N；接下来N行每行一个字符串，将每个字符串中出现的模板串的起始位置找出原理：字符串双值哈希啦啦啦，和KMP其实差不太多，但是字符串双值哈希绝对是个字符串题乱搞神器！！！ 1 const pa=314159;pb=951413; 2 var 3 i,j,k,...",
+      "id": 4293577,
+      "date": "2015-02-15",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——并查集 2（支持快速即时查询本连通块内容，纯原创！）",
+      "url": "https://www.cnblogs.com/HansBug/p/4293503.html",
+      "dateTime": "2015-02-15 21:48",
+      "views": 899,
+      "comments": 1,
+      "summary": "实现功能：输入N，现在有N个数；接下来输入任意行，如果是\"1 x y\"则表示把x和y所在的块合并；如果是\"2 x\"则表示输出x所在的块的全部内容原理：其实主要是自己创造了一个可并链line，he表示链头，ta表示链尾，然后对于不同块之间的合并就是直接把两条链对接，也就是一个的尾巴接到另一个的头上，构...",
+      "id": 4293503,
+      "date": "2015-02-15",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1707: [Usaco2007 Nov]tanning分配防晒霜",
+      "url": "https://www.cnblogs.com/HansBug/p/4292881.html",
+      "dateTime": "2015-02-15 14:27",
+      "views": 233,
+      "comments": 0,
+      "summary": "1707: [Usaco2007 Nov]tanning分配防晒霜Time Limit:5 SecMemory Limit:64 MBSubmit:548Solved:262[Submit][Status]Description奶牛们计划着去海滩上享受日光浴。为了避免皮肤被阳光灼伤，所有C(1 ni...",
+      "id": 4292881,
+      "date": "2015-02-15",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——sap网络最大流 3（递归+邻接表）",
+      "url": "https://www.cnblogs.com/HansBug/p/4292319.html",
+      "dateTime": "2015-02-14 23:57",
+      "views": 231,
+      "comments": 0,
+      "summary": "实现功能：同前程序还是一如既往的优美，虽然比起邻接矩阵的稍稍长了那么些，不过没关系这是必然，但更重要的一个必然是——速度将是一个质的飞跃^_^(这里面的point指针稍作了些创新——anti指针，这个指向当前弧的反向弧，便于路径增广时的操作，相比非递归里面非要用一个op函数来挨个找已经强多了！！！)...",
+      "id": 4292319,
+      "date": "2015-02-14",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——sap网络最大流 3（递归+邻接矩阵）",
+      "url": "https://www.cnblogs.com/HansBug/p/4292307.html",
+      "dateTime": "2015-02-14 23:41",
+      "views": 245,
+      "comments": 0,
+      "summary": "实现功能：同之前可以看见的是这次的程序优美了许多，代码简短了一倍还多，可是速度却是和原来的邻接表一个级别的（在Codevs上面草地排水那题的运行时间比较，但是显然数据很大时应该比那个慢些），原理差不多，感觉dfs里面的来回倒变量很神奇 1 var 2 s,t,i,j,k,l,m,n,ans:l...",
+      "id": 4292307,
+      "date": "2015-02-14",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "从Hash Killer I、II、III论字符串哈希",
+      "url": "https://www.cnblogs.com/HansBug/p/4288118.html",
+      "dateTime": "2015-02-12 14:58",
+      "views": 6800,
+      "comments": 2,
+      "summary": "首先，Hash Killer I、II、III是BZOJ上面三道很经典的字符串哈希破解题。当时关于II，本人还琢磨了好久，但一直不明白为啥别人AC的代码都才0.3kb左右，直到CYG神犇说可以直接随机水过去，遂恍然大悟。。。于是，本人今天也做了下实验——假设现在有一个字符串题：输入N，接下来N行输入...",
+      "id": 4288118,
+      "date": "2015-02-12",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树7（骰子翻转问题）",
+      "url": "https://www.cnblogs.com/HansBug/p/4287142.html",
+      "dateTime": "2015-02-11 23:36",
+      "views": 1164,
+      "comments": 2,
+      "summary": "实现功能：首先输入一个长度为N的序列，由1-4组成（1表示向前滚一下，2表示向后滚一下，3表示向左滚一下，4表示向右滚一下，骰子原始状态：上1前2左4右5后3下6），然后输入任意多个操作，输入“1 x y”表示将序列第x个数改成y，输入“2 x y”表示输出对于原始状态的骰子，按照从x到y的序列操作...",
+      "id": 4287142,
+      "date": "2015-02-11",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2729: [HNOI2012]排队",
+      "url": "https://www.cnblogs.com/HansBug/p/4282021.html",
+      "dateTime": "2015-02-09 17:25",
+      "views": 321,
+      "comments": 0,
+      "summary": "2729: [HNOI2012]排队Time Limit:10 SecMemory Limit:128 MBSubmit:957Solved:449[Submit][Status]Description某中学有 n名男同学，m名女同学和两名老师要排队参加体检。他们排成一条直线，并且任意两名女同学不能...",
+      "id": 4282021,
+      "date": "2015-02-09",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——sap网络最大流 2（非递归+邻接表）",
+      "url": "https://www.cnblogs.com/HansBug/p/4281843.html",
+      "dateTime": "2015-02-09 16:31",
+      "views": 306,
+      "comments": 0,
+      "summary": "实现功能：同最大流 1这里面主要是把前面的邻接矩阵改成了邻接表，相比之下速度大大提高——本人实测，当M=1000000 N=10000 时，暂且不考虑邻接矩阵会不会MLE，新的程序速度快了很多倍（我们家这个很弱的电脑上耗时0.3s）；而当M=300000 N=10000时，优势更加明显（几乎是秒出）...",
+      "id": 4281843,
+      "date": "2015-02-09",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "JSOI2015 一轮省选 个人题解与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/4280423.html",
+      "dateTime": "2015-02-08 20:29",
+      "views": 1715,
+      "comments": 10,
+      "summary": "T1：题目大意：现有一个以1为根节点的树，要求从1开始出发，经过下面的点然后最终要回到根节点。同时除了根节点之外各点均有一个权值（即受益，每个点上的收益只能拿一次，且经过的话必须拿），同时除了根节点外各点均有一个经过次数的限制，要求求出来从根节点出发回到根节点的最终受益总和的最大值，以及这个最大值是...",
+      "id": 4280423,
+      "date": "2015-02-08",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——sap网络最大流 1（非递归+邻接矩阵）",
+      "url": "https://www.cnblogs.com/HansBug/p/4276164.html",
+      "dateTime": "2015-02-05 23:32",
+      "views": 384,
+      "comments": 0,
+      "summary": "实现功能：首行输入N，M，S，T，代表这张图N个点，M条边，源点为S，汇点为T；接下来T行输入个边的出发点、终点和权值；输出最大流原理：sap网络流算法（详见百度百科，个人觉得这个模板已经不错了，虽然本人暂时还未考虑引入邻接表进行优化）（推荐模板题：Codevs1993） 1 var 2 i,...",
+      "id": 4276164,
+      "date": "2015-02-05",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Codevs2822 爱在心中",
+      "url": "https://www.cnblogs.com/HansBug/p/4276065.html",
+      "dateTime": "2015-02-05 22:19",
+      "views": 216,
+      "comments": 0,
+      "summary": "2822 爱在心中时间限制: 1 s空间限制: 128000 KB题目等级 : 钻石 Diamond题目描述Description“每个人都拥有一个梦，即使彼此不相同，能够与你分享，无论失败成功都会感动。爱因为在心中，平凡而不平庸，世界就像迷宫，却又让我们此刻相逢Our Home。”在爱的国度里有N...",
+      "id": 4276065,
+      "date": "2015-02-05",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3098: Hash Killer II",
+      "url": "https://www.cnblogs.com/HansBug/p/4273485.html",
+      "dateTime": "2015-02-04 22:47",
+      "views": 355,
+      "comments": 0,
+      "summary": "3098: Hash Killer IITime Limit:5 SecMemory Limit:128 MBSecSpecial JudgeSubmit:573Solved:281[Submit][Status]Description这天天气不错，hzhwcmhf神犇给VFleaKing出了一道题...",
+      "id": 4273485,
+      "date": "2015-02-04",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1380 没有上司的舞会",
+      "url": "https://www.cnblogs.com/HansBug/p/4273471.html",
+      "dateTime": "2015-02-04 22:40",
+      "views": 211,
+      "comments": 0,
+      "summary": "1380 没有上司的舞会时间限制: 1 s空间限制: 128000 KB题目等级 : 钻石 Diamond题解题目描述Description Ural大学有N个职员，编号为1~N。他们有从属关系，也就是说他们的关系就像一棵以校长为根的树，父结点就是子结点的直接上司。每个职员有一个快乐指数。现在有...",
+      "id": 4273471,
+      "date": "2015-02-04",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——KMP字符串匹配",
+      "url": "https://www.cnblogs.com/HansBug/p/4271316.html",
+      "dateTime": "2015-02-03 23:15",
+      "views": 210,
+      "comments": 0,
+      "summary": "功能：输入一个原串，再输入N个待匹配串，在待匹配串中找出全部原串的起始位置原理：KMP算法，其实这个东西已经包含了AC自动机的思想（fail指针/数组），只不过适用于单模板匹配，不过值得一提的是在单模板大量匹配待匹配串时，这个会有相当大的优势，AC自动机虽然好想一些，但是在这一类问题上的性价比就略低...",
+      "id": 4271316,
+      "date": "2015-02-03",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——Tarjan强连通分量",
+      "url": "https://www.cnblogs.com/HansBug/p/4271270.html",
+      "dateTime": "2015-02-03 22:53",
+      "views": 279,
+      "comments": 0,
+      "summary": "功能：输入一个N个点，M条单向边的有向图，求出此图全部的强连通分量原理：tarjan算法（百度百科传送门），大致思想是时间戳与最近可追溯点这个玩意不仅仅是求强连通分量那么简单，而且对于一个有环的有向图可以有效的进行缩点（每个强连通分量缩成一个点），构成一个新的拓扑图（如BZOJ上Apio2009的那...",
+      "id": 4271270,
+      "date": "2015-02-03",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3211: 花神游历各国",
+      "url": "https://www.cnblogs.com/HansBug/p/4266586.html",
+      "dateTime": "2015-02-01 23:35",
+      "views": 347,
+      "comments": 1,
+      "summary": "3211: 花神游历各国Time Limit:5 SecMemory Limit:128 MBSubmit:1042Solved:381[Submit][Status]DescriptionInputOutput每次x=1时，每行一个整数，表示这次旅行的开心度Sample Input41 100 5...",
+      "id": 4266586,
+      "date": "2015-02-01",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1131: [POI2008]Sta",
+      "url": "https://www.cnblogs.com/HansBug/p/4266487.html",
+      "dateTime": "2015-02-01 22:38",
+      "views": 202,
+      "comments": 0,
+      "summary": "1131: [POI2008]StaTime Limit:10 SecMemory Limit:162 MBSubmit:783Solved:235[Submit][Status]Description给出一个N个点的树,找出一个点来,以这个点为根的树时,所有点的深度之和最大Input给出一个数字N...",
+      "id": 4266487,
+      "date": "2015-02-01",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1179: [Apio2009]Atm",
+      "url": "https://www.cnblogs.com/HansBug/p/4266183.html",
+      "dateTime": "2015-02-01 21:56",
+      "views": 214,
+      "comments": 0,
+      "summary": "1179: [Apio2009]AtmTime Limit:15 SecMemory Limit:162 MBSubmit:1629Solved:615[Submit][Status]DescriptionInput第一行包含两个整数N、M。N表示路口的个数，M表示道路条数。接下来M行，每行两个整数...",
+      "id": 4266183,
+      "date": "2015-02-01",
+      "year": 2015,
+      "month": "2015-02",
+      "categories": [
+        "APIO",
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3172: [Tjoi2013]单词",
+      "url": "https://www.cnblogs.com/HansBug/p/4264874.html",
+      "dateTime": "2015-01-31 22:58",
+      "views": 357,
+      "comments": 0,
+      "summary": "3172: [Tjoi2013]单词Time Limit:10 SecMemory Limit:512 MBSubmit:1424Solved:653[Submit][Status]Description某人读论文，一篇论文是由许多单词组成。但他发现一个单词会在论文中出现很多次，现在想知道每个单词分...",
+      "id": 4264874,
+      "date": "2015-01-31",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1051: [HAOI2006]受欢迎的牛",
+      "url": "https://www.cnblogs.com/HansBug/p/4264668.html",
+      "dateTime": "2015-01-31 20:30",
+      "views": 234,
+      "comments": 0,
+      "summary": "1051: [HAOI2006]受欢迎的牛Time Limit:10 SecMemory Limit:162 MBSubmit:2410Solved:1276[Submit][Status]Description每一头牛的愿望就是变成一头最受欢迎的牛。现在有N头牛，给你M对整数(A,B)，表示牛A认...",
+      "id": 4264668,
+      "date": "2015-01-31",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1572: [Usaco2009 Open]工作安排Job",
+      "url": "https://www.cnblogs.com/HansBug/p/4263192.html",
+      "dateTime": "2015-01-30 21:15",
+      "views": 276,
+      "comments": 0,
+      "summary": "1572: [Usaco2009 Open]工作安排JobTime Limit:10 SecMemory Limit:64 MBSubmit:814Solved:365[Submit][Status]DescriptionFarmer John 有太多的工作要做啊！！！！！！！！为了让农场高效运转，...",
+      "id": 4263192,
+      "date": "2015-01-30",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1726: [Usaco2006 Nov]Roadblocks第二短路",
+      "url": "https://www.cnblogs.com/HansBug/p/4263082.html",
+      "dateTime": "2015-01-30 19:49",
+      "views": 657,
+      "comments": 0,
+      "summary": "1726: [Usaco2006 Nov]Roadblocks第二短路Time Limit:5 SecMemory Limit:64 MBSubmit:835Solved:398[Submit][Status]Description贝茜把家搬到了一个小农场，但她常常回到FJ的农场去拜访她的朋友。贝茜...",
+      "id": 4263082,
+      "date": "2015-01-30",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1232: [Usaco2008Nov]安慰奶牛cheer",
+      "url": "https://www.cnblogs.com/HansBug/p/4262761.html",
+      "dateTime": "2015-01-30 16:53",
+      "views": 251,
+      "comments": 0,
+      "summary": "1232: [Usaco2008Nov]安慰奶牛cheerTime Limit:10 SecMemory Limit:162 MBSubmit:612Solved:431[Submit][Status]DescriptionFarmer John变得非常懒, 他不想再继续维护供奶牛之间供通行的道路....",
+      "id": 4262761,
+      "date": "2015-01-30",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1724: [Usaco2006 Nov]Fence Repair 切割木板",
+      "url": "https://www.cnblogs.com/HansBug/p/4262751.html",
+      "dateTime": "2015-01-30 16:50",
+      "views": 300,
+      "comments": 0,
+      "summary": "1724: [Usaco2006 Nov]Fence Repair 切割木板Time Limit:5 SecMemory Limit:64 MBSubmit:854Solved:426[Submit][Status]DescriptionFarmer John想修理牧场栅栏的某些小段。为此，他需要N...",
+      "id": 4262751,
+      "date": "2015-01-30",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1197: [HNOI2006]花仙子的魔法",
+      "url": "https://www.cnblogs.com/HansBug/p/4245024.html",
+      "dateTime": "2015-01-23 20:31",
+      "views": 284,
+      "comments": 0,
+      "summary": "1197: [HNOI2006]花仙子的魔法Time Limit:10 SecMemory Limit:162 MBSubmit:762Solved:443[Submit][Status]DescriptionInput包含两个整数，并用一个空格隔开，第一个整数表示实施魔法的次数m，第二个整数表示空...",
+      "id": 4245024,
+      "date": "2015-01-23",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——Trie树",
+      "url": "https://www.cnblogs.com/HansBug/p/4240481.html",
+      "dateTime": "2015-01-21 23:57",
+      "views": 252,
+      "comments": 0,
+      "summary": "实现功能——实现对于不同字符串以及之前出现过的字符串的识别，对于单个长度为L的字符串，复杂度为O(L);代码不难懂，直接上（在识别字符串方面，个人觉得其好处远远大于hash识别——1.理论上都是O(L) 2.哈希弄不好撞车撞一大串，尤其是哈希策略不太好的时候，而这个绝对不可能撞，严格的O(L) 3....",
+      "id": 4240481,
+      "date": "2015-01-21",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——计算几何1（图形面积）",
+      "url": "https://www.cnblogs.com/HansBug/p/4237759.html",
+      "dateTime": "2015-01-20 23:50",
+      "views": 350,
+      "comments": 0,
+      "summary": "实现功能——输入N个点，求出按此顺序围成的图形的面积原理：其实就是个向量的叉积运算（详见UASCO-nocow：计算几何），注意二维的叉积是个很逗的东西，叉积这玩意本身就来自于三维向量（HansBug：临睡觉了，水一发呵呵哒，额。。。phile犇不在好寂寞TT） 1 var 2 i,j,k,l...",
+      "id": 4237759,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树6（二维线段树：区域加法+区域求和）（求助phile）",
+      "url": "https://www.cnblogs.com/HansBug/p/4237745.html",
+      "dateTime": "2015-01-20 23:42",
+      "views": 447,
+      "comments": 0,
+      "summary": "实现功能——对于一个N×M的方格，1：输入一个区域，将此区域全部值作加法；2：输入一个区域，求此区域全部值的和其实和一维线段树同理，只是不知道为什么速度比想象的慢那么多，求解释。。。@acphile（还有代码略恶心，求原谅。。。^_^) 1 const tvp=8000000; 2 var 3 ...",
+      "id": 4237745,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树5（区间开根+区间求和）",
+      "url": "https://www.cnblogs.com/HansBug/p/4237737.html",
+      "dateTime": "2015-01-20 23:38",
+      "views": 1041,
+      "comments": 0,
+      "summary": "实现功能——1：区间开根；2：区间求和（此模板以BZOJ3038为例）作为一个非常规的线段树操作，其tag也比较特殊呵呵哒 1 var 2 i,j,k,l,m,n:longint; 3 a,b:array[0..500000] of int64; 4 function max(x,y:l...",
+      "id": 4237737,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树1（区间加法+区间求和）",
+      "url": "https://www.cnblogs.com/HansBug/p/4237718.html",
+      "dateTime": "2015-01-20 23:22",
+      "views": 584,
+      "comments": 0,
+      "summary": "实现功能——1：区间加法；2：区间求和最基础最经典的线段树模板。由于这里面操作无顺序之分，所以不需要向下pushup，直接累积即可 1 var 2 i,j,k,l,m,n,a1,a2,a3,a4:longint; 3 a,b:array[0..100000] of longint; 4 ...",
+      "id": 4237718,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树3（区间覆盖值+区间求和）",
+      "url": "https://www.cnblogs.com/HansBug/p/4237715.html",
+      "dateTime": "2015-01-20 23:20",
+      "views": 541,
+      "comments": 0,
+      "summary": "实现功能——1：区间覆盖值；2：区间求和相比直接的区间加，这个要注重顺序，因为操作有顺序之分。所以这里面的tag应该有个pushup操作（本程序中的ext） 1 var 2 i,j,k,l,m,n,a1,a2,a3,a4:longint; 3 a,b,d:array[0..100000]...",
+      "id": 4237715,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树4（区间加+区间乘+区间覆盖值+区间求和）",
+      "url": "https://www.cnblogs.com/HansBug/p/4237659.html",
+      "dateTime": "2015-01-20 22:50",
+      "views": 592,
+      "comments": 0,
+      "summary": "实现功能——1：区间加法 2：区间乘法 3：区间覆盖值 4：区间求和这是个四种常见线段树功能的集合版哦。。。么么哒（其实只要协调好三种tag的关系并不算太难——前提是想明白了线段树的工作模式）代码长度几经修改后也大为缩水还有！！！——通过BZOJ1798反复的尝试，我的出来一个重要结论——尽量减少p...",
+      "id": 4237659,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——并查集 1",
+      "url": "https://www.cnblogs.com/HansBug/p/4237543.html",
+      "dateTime": "2015-01-20 21:56",
+      "views": 199,
+      "comments": 0,
+      "summary": "实现功能——操作1：将两个数字合并到一个集合内；操作2：判断两个数字是否在一起第6行是亮点，这个优化能快出不少，真的 1 var 2 i,j,k,l,m,n:longint; 3 c:array[0..100000] of longint; 4 function getfat(x:lon...",
+      "id": 4237543,
+      "date": "2015-01-20",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——LCA（最近公共祖先）",
+      "url": "https://www.cnblogs.com/HansBug/p/4235072.html",
+      "dateTime": "2015-01-19 23:57",
+      "views": 291,
+      "comments": 0,
+      "summary": "实现的功能如下——在一个N个点的无环图中，共有N-1条边，M个访问中每次询问两个点的距离原理——既然N个点，N-1条边，则说明这是一棵树，而且联通。所以以1为根节点DFS建树，然后通过求两点的LCA的方式，先求得最近公共祖先，然后再通过深度来求出两点距离 1 type 2 point=^...",
+      "id": 4235072,
+      "date": "2015-01-19",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——AC自动机",
+      "url": "https://www.cnblogs.com/HansBug/p/4235041.html",
+      "dateTime": "2015-01-19 23:33",
+      "views": 414,
+      "comments": 0,
+      "summary": "实现功能——输入N，M，提供一个共计N个单词的词典，然后在最后输入的M个字符串中进行多串匹配（关于AC自动机算法，此处不再赘述，详见：Aho-Corasick 多模式匹配算法、AC自动机详解。考虑到有时候字典会相当稀疏，所以引入了chi和bro指针进行优化——其原理比较类似于邻接表，这个东西和nex...",
+      "id": 4235041,
+      "date": "2015-01-19",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——左偏树（可并堆）",
+      "url": "https://www.cnblogs.com/HansBug/p/4234971.html",
+      "dateTime": "2015-01-19 22:49",
+      "views": 2193,
+      "comments": 0,
+      "summary": "实现的功能——输入1 x，将x加入小根堆中；输入2，输出最小值并去在堆中除掉 实现原理——左偏树，这里面维护的是一个小根堆，个人认为其还是没有发挥出左偏树的真正威力——其真正威力在于堆与堆之间可以直接合并，而且复杂度仅为O(logN)，在零散插入元素时可以采用本程序中一个个加入的方法，但是当有些题目",
+      "id": 4234971,
+      "date": "2015-01-19",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——二分图匹配",
+      "url": "https://www.cnblogs.com/HansBug/p/4234898.html",
+      "dateTime": "2015-01-19 22:15",
+      "views": 257,
+      "comments": 0,
+      "summary": "实现功能为二分图匹配原理：匈牙利算法，核心思想——匹配上了就配，没直接匹配上也要通过前面的腾出位置让这个匹配上（详见：趣写算法系列之——匈牙利算法）本程序以Codevs2776为例详见Codevs2776 1 type 2 point=^node; 3 node=record 4 ...",
+      "id": 4234898,
+      "date": "2015-01-19",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Codevs2776 寻找代表元",
+      "url": "https://www.cnblogs.com/HansBug/p/4234893.html",
+      "dateTime": "2015-01-19 22:12",
+      "views": 219,
+      "comments": 0,
+      "summary": "2776 寻找代表元时间限制: 1 s空间限制: 256000 KB题目等级 : 黄金 Gold题目描述Description广州二中苏元实验学校一共有n个社团，分别用1到n编号。广州二中苏元实验学校一共有m个人，分别用1到m编号。每个人可以参加一个或多个社团，也可以不参加任何社团。每个社团都需要选...",
+      "id": 4234893,
+      "date": "2015-01-19",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Codevs2018 反病毒软件",
+      "url": "https://www.cnblogs.com/HansBug/p/4232587.html",
+      "dateTime": "2015-01-18 23:17",
+      "views": 378,
+      "comments": 0,
+      "summary": "2018 反病毒软件时间限制: 1 s空间限制: 128000 KB题目等级 : 钻石 Diamond查看运行结果题目描述Description其实这个“反病毒软件”（Anti-VirusSOFTware），是相关部门应对H9N7人流感研发的。相关部门的监控范围里只有N个城市，从1到N编号。初始时，...",
+      "id": 4232587,
+      "date": "2015-01-18",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2953: [Poi2002]商务旅行",
+      "url": "https://www.cnblogs.com/HansBug/p/4232401.html",
+      "dateTime": "2015-01-18 21:43",
+      "views": 436,
+      "comments": 3,
+      "summary": "2953: [Poi2002]商务旅行Time Limit:3 SecMemory Limit:128 MBSubmit:8Solved:8[Submit][Status]Description某首都城市的商人要经常到各城镇去做生意，他们按自己的路线去做，目的是为了更好的节约时间。假设有N个城镇，首...",
+      "id": 4232401,
+      "date": "2015-01-18",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1230: [Usaco2008 Nov]lites 开关灯",
+      "url": "https://www.cnblogs.com/HansBug/p/4232285.html",
+      "dateTime": "2015-01-18 20:59",
+      "views": 283,
+      "comments": 0,
+      "summary": "1230: [Usaco2008 Nov]lites 开关灯Time Limit:10 SecMemory Limit:162 MBSubmit:1162Solved:589[Submit][Status]DescriptionFarmer John尝试通过和奶牛们玩益智玩具来保持他的奶牛们思维敏捷...",
+      "id": 4232285,
+      "date": "2015-01-18",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1821: [JSOI2010]Group 部落划分 Group",
+      "url": "https://www.cnblogs.com/HansBug/p/4231196.html",
+      "dateTime": "2015-01-17 22:14",
+      "views": 241,
+      "comments": 0,
+      "summary": "1821: [JSOI2010]Group 部落划分 GroupTime Limit:10 SecMemory Limit:64 MBSubmit:1308Solved:627[Submit][Status]Description聪聪研究发现，荒岛野人总是过着群居的生活，但是，并不是整个荒岛上的所有...",
+      "id": 4231196,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Tyvj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1819: [JSOI]Word Query电子字典",
+      "url": "https://www.cnblogs.com/HansBug/p/4231174.html",
+      "dateTime": "2015-01-17 22:02",
+      "views": 753,
+      "comments": 0,
+      "summary": "1819: [JSOI]Word Query电子字典Time Limit:10 SecMemory Limit:64 MBSubmit:729Solved:238[Submit][Status]Description人们在英文字典中查找某个单词的时候可能不知道该单词的完整拼法，而只知道该单词的一个错...",
+      "id": 4231174,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Tyvj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1820: [JSOI2010]Express Service 快递服务",
+      "url": "https://www.cnblogs.com/HansBug/p/4231105.html",
+      "dateTime": "2015-01-17 21:53",
+      "views": 213,
+      "comments": 0,
+      "summary": "1820: [JSOI2010]Express Service 快递服务Time Limit:10 SecMemory Limit:64 MBSubmit:847Solved:325[Submit][Status]Description「飞奔」快递公司成立之后，已经分别与市内许多中小企业公司签订邮件...",
+      "id": 4231105,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Tyvj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3038: 上帝造题的七分钟2",
+      "url": "https://www.cnblogs.com/HansBug/p/4230866.html",
+      "dateTime": "2015-01-17 18:08",
+      "views": 376,
+      "comments": 0,
+      "summary": "3038: 上帝造题的七分钟2Time Limit:3 SecMemory Limit:128 MBSubmit:662Solved:302[Submit][Status]DescriptionXLk觉得《上帝造题的七分钟》不太过瘾，于是有了第二部。\"第一分钟，X说，要有数列，于是便给定了一个正整数...",
+      "id": 4230866,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Tyvj",
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1854: [Scoi2010]游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4230549.html",
+      "dateTime": "2015-01-17 16:02",
+      "views": 625,
+      "comments": 4,
+      "summary": "1854: [Scoi2010]游戏Time Limit:5 SecMemory Limit:162 MBSubmit:2538Solved:905[Submit][Status]Descriptionlxhgww最近迷上了一款游戏，在游戏里，他拥有很多的装备，每种装备都有2个属性，这些属性的值用[...",
+      "id": 4230549,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Codevs3278[NOIP2013]货车运输",
+      "url": "https://www.cnblogs.com/HansBug/p/4230541.html",
+      "dateTime": "2015-01-17 15:58",
+      "views": 795,
+      "comments": 0,
+      "summary": "3287 货车运输2013年NOIP全国联赛提高组时间限制: 1 s空间限制: 128000 KB题目等级 : 钻石 Diamond题目描述DescriptionA 国有 n 座城市，编号从 1 到 n，城市之间有 m 条双向道路。每一条道路对车辆都有重量限制，简称限重。现在有 q 辆货车在运输货物...",
+      "id": 4230541,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "NOIP",
+        "Wikioi/Codevs"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "关于使用lazytag的线段树两种查询方式的比较研究",
+      "url": "https://www.cnblogs.com/HansBug/p/4230021.html",
+      "dateTime": "2015-01-17 00:28",
+      "views": 895,
+      "comments": 0,
+      "summary": "说到线段树，想来大家并不陌生——最基本的思路就是将其规划成块，然后只要每次修改时维护一下即可。但是尤其是涉及到区间修改时，lazytag的使用往往能够对于程序的质量起到决定性作用（Ex：一般JSOI2008左右的线段树题目，如果有区间修改的话，那么假如普普通通的一个个修改的话，那么一般30分左右，甚...",
+      "id": 4230021,
+      "date": "2015-01-17",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "研究 / 总结"
+    },
+    {
+      "title": "算法模板——splay区间反转 1",
+      "url": "https://www.cnblogs.com/HansBug/p/4225101.html",
+      "dateTime": "2015-01-14 23:05",
+      "views": 428,
+      "comments": 0,
+      "summary": "实现的功能：将序列区间反转，并维护详见BZOJ3223 1 var 2 i,j,k,l,m,n,head,a1,a2:longint; 3 s1:ansistring; 4 a,b,c,d,fat,lef,rig:array[0..200000] of longint; ...",
+      "id": 4225101,
+      "date": "2015-01-14",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3223: Tyvj 1729 文艺平衡树",
+      "url": "https://www.cnblogs.com/HansBug/p/4225094.html",
+      "dateTime": "2015-01-14 23:02",
+      "views": 240,
+      "comments": 0,
+      "summary": "3223: Tyvj 1729 文艺平衡树Time Limit:10 SecMemory Limit:128 MBSubmit:1347Solved:724[Submit][Status]Description您需要写一种数据结构（可参考题目标题），来维护一个有序数列，其中需要提供以下操作：翻转一个...",
+      "id": 4225094,
+      "date": "2015-01-14",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1212: [HNOI2004]L语言",
+      "url": "https://www.cnblogs.com/HansBug/p/4222659.html",
+      "dateTime": "2015-01-13 22:13",
+      "views": 531,
+      "comments": 0,
+      "summary": "1212: [HNOI2004]L语言Time Limit:10 SecMemory Limit:162 MBSubmit:643Solved:252[Submit][Status]Description标点符号的出现晚于文字的出现，所以以前的语言都是没有标点的。现在你要处理的就是一段没有标点的文章...",
+      "id": 4222659,
+      "date": "2015-01-13",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——平衡树Treap",
+      "url": "https://www.cnblogs.com/HansBug/p/4222596.html",
+      "dateTime": "2015-01-13 21:46",
+      "views": 278,
+      "comments": 0,
+      "summary": "实现功能如下——1. 插入x数2. 删除x数(若有多个相同的数，因只删除一个)3. 查询x数的排名(若有多个相同的数，因输出最小的排名)4. 查询排名为x的数5. 求x的前驱(前驱定义为小于x，且最大的数)6. 求x的后继(后继定义为大于x，且最小的数)本程序的实现原理为Treap平衡树详见BZOJ...",
+      "id": 4222596,
+      "date": "2015-01-13",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "算法模板——线段树2（区间加+区间乘+区间求和）",
+      "url": "https://www.cnblogs.com/HansBug/p/4222591.html",
+      "dateTime": "2015-01-13 21:44",
+      "views": 652,
+      "comments": 0,
+      "summary": "该模板实现的功能——进行区间的乘法和加法，以及区间的求和（1：乘法 2：加法 3：求和）详见BZOJ1798 1 type 2 vet=record 3 a0,a1:int64; 4 end; 5 var 6 i,j,k,l,m,n,a2...",
+      "id": 4222591,
+      "date": "2015-01-13",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "算法模板"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1798: [Ahoi2009]Seq 维护序列seq",
+      "url": "https://www.cnblogs.com/HansBug/p/4222586.html",
+      "dateTime": "2015-01-13 21:42",
+      "views": 344,
+      "comments": 0,
+      "summary": "1798: [Ahoi2009]Seq 维护序列seqTime Limit:30 SecMemory Limit:64 MBSubmit:2930Solved:1087[Submit][Status]Description老师交给小可可一个维护数列的任务，现在小可可希望你来帮他完成。 有长为N的数列...",
+      "id": 4222586,
+      "date": "2015-01-13",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1708: [Usaco2007 Oct]Money奶牛的硬币",
+      "url": "https://www.cnblogs.com/HansBug/p/4217093.html",
+      "dateTime": "2015-01-11 20:55",
+      "views": 299,
+      "comments": 0,
+      "summary": "1708: [Usaco2007 Oct]Money奶牛的硬币Time Limit:5 SecMemory Limit:64 MBSubmit:544Solved:352[Submit][Status]Description在创立了她们自己的政权之后，奶牛们决定推广新的货币系统。在强烈的叛逆心理的驱...",
+      "id": 4217093,
+      "date": "2015-01-11",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1856: [Scoi2010]字符串",
+      "url": "https://www.cnblogs.com/HansBug/p/4209633.html",
+      "dateTime": "2015-01-07 23:06",
+      "views": 376,
+      "comments": 0,
+      "summary": "1856: [Scoi2010]字符串Time Limit:5 SecMemory Limit:64 MBSubmit:847Solved:434[Submit][Status]Descriptionlxhgww最近接到了一个生成字符串的任务，任务需要他把n个1和m个0组成字符串，但是任务还要求在组...",
+      "id": 4209633,
+      "date": "2015-01-07",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3224: Tyvj 1728 普通平衡树",
+      "url": "https://www.cnblogs.com/HansBug/p/4207085.html",
+      "dateTime": "2015-01-06 22:05",
+      "views": 737,
+      "comments": 0,
+      "summary": "3224: Tyvj 1728 普通平衡树Time Limit:10 SecMemory Limit:128 MBSubmit:2566Solved:1031[Submit][Status]Description您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：1. 插入x...",
+      "id": 4207085,
+      "date": "2015-01-06",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "Tyvj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2659: [Beijing wc2012]算不出的算式",
+      "url": "https://www.cnblogs.com/HansBug/p/4198921.html",
+      "dateTime": "2015-01-02 22:15",
+      "views": 289,
+      "comments": 0,
+      "summary": "2659: [Beijing wc2012]算不出的算式Time Limit:3 SecMemory Limit:128 MBSubmit:757Solved:425[Submit][Status]Description算不出的算式背景： 曾经有一个老掉牙的游戏放在我面前，我没有珍惜。直到这个游戏停...",
+      "id": 4198921,
+      "date": "2015-01-02",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "道路修建 2（自创题+题解）（From NOI2011）",
+      "url": "https://www.cnblogs.com/HansBug/p/4198829.html",
+      "dateTime": "2015-01-02 21:17",
+      "views": 784,
+      "comments": 0,
+      "summary": "道路修建这道题想来各位不陌生（传送门在此——Bzoj2435），看了此题，一开始以为是最初各个点处于分散状态，然后做了一下，直到发现标程都有点问题，才发现原题是说本来各点已经处于连接完毕的状态（phile：汗。。。 HansBug：论HansBug同学的逗比本性^_^）既然说道这里了，那么就提出一个...",
+      "id": 4198829,
+      "date": "2015-01-02",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "研究报告"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2435: [Noi2011]道路修建",
+      "url": "https://www.cnblogs.com/HansBug/p/4198030.html",
+      "dateTime": "2015-01-02 00:35",
+      "views": 1068,
+      "comments": 7,
+      "summary": "2435: [Noi2011]道路修建Time Limit:10 SecMemory Limit:128 MBSubmit:2188Solved:639[Submit][Status]Description在 W 星球上有 n 个国家。为了各自国家的经济发展，他们决定在各个国家之间建设双向道路使得国...",
+      "id": 4198030,
+      "date": "2015-01-02",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj",
+        "NOI"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1599: [Usaco2008 Oct]笨重的石子",
+      "url": "https://www.cnblogs.com/HansBug/p/4197915.html",
+      "dateTime": "2015-01-01 22:31",
+      "views": 206,
+      "comments": 0,
+      "summary": "1599: [Usaco2008 Oct]笨重的石子Time Limit:10 SecMemory Limit:162 MBSubmit:795Solved:543[Submit][Status]Description贝西喜欢棋盘游戏和角色扮演类游戏所以她说服Farmer John把她带到玩具店，在...",
+      "id": 4197915,
+      "date": "2015-01-01",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1218: [HNOI2003]激光炸弹",
+      "url": "https://www.cnblogs.com/HansBug/p/4197875.html",
+      "dateTime": "2015-01-01 21:50",
+      "views": 525,
+      "comments": 0,
+      "summary": "1218: [HNOI2003]激光炸弹Time Limit:10 SecMemory Limit:162 MBSubmit:1139Solved:542[Submit][Status]Description一种新型的激光炸弹，可以摧毁一个边长为R的正方形内的所有的目标。现在地图上有n(Nlthen...",
+      "id": 4197875,
+      "date": "2015-01-01",
+      "year": 2015,
+      "month": "2015-01",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1257: [CQOI2007]余数之和sum",
+      "url": "https://www.cnblogs.com/HansBug/p/4194765.html",
+      "dateTime": "2014-12-30 23:04",
+      "views": 706,
+      "comments": 0,
+      "summary": "1257: [CQOI2007]余数之和sumTime Limit:5 SecMemory Limit:162 MBSubmit:2001Solved:928[Submit][Status]Description给出正整数n和k，计算j(n, k)=k mod 1 + k mod 2 + k mod...",
+      "id": 4194765,
+      "date": "2014-12-30",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2463: [中山市选2009]谁能赢呢？",
+      "url": "https://www.cnblogs.com/HansBug/p/4192678.html",
+      "dateTime": "2014-12-29 23:49",
+      "views": 213,
+      "comments": 0,
+      "summary": "2463: [中山市选2009]谁能赢呢？Time Limit:10 SecMemory Limit:128 MBSubmit:830Solved:586[Submit][Status]Description小明和小红经常玩一个博弈游戏。给定一个n×n的棋盘，一个石头被放在棋盘的左上角。他们轮流移动...",
+      "id": 4192678,
+      "date": "2014-12-29",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2748: [HAOI2012]音量调节",
+      "url": "https://www.cnblogs.com/HansBug/p/4192659.html",
+      "dateTime": "2014-12-29 23:31",
+      "views": 385,
+      "comments": 0,
+      "summary": "2748: [HAOI2012]音量调节Time Limit:3 SecMemory Limit:128 MBSubmit:719Solved:475[Submit][Status]Description一个吉他手准备参加一场演出。他不喜欢在演出时始终使用同一个音量，所以他决定每一首歌之前他都要改变...",
+      "id": 4192659,
+      "date": "2014-12-29",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2697: 特技飞行",
+      "url": "https://www.cnblogs.com/HansBug/p/4192604.html",
+      "dateTime": "2014-12-29 23:07",
+      "views": 236,
+      "comments": 0,
+      "summary": "2697: 特技飞行Time Limit:10 SecMemory Limit:256 MBSubmit:646Solved:393[Submit][Status]Description神犇航空开展了一项载客特技飞行业务。每次飞行长N个单位时间，每个单位时间可以进行一项特技动作，可选的动作有K种，每...",
+      "id": 4192604,
+      "date": "2014-12-29",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1296: [SCOI2009]粉刷匠",
+      "url": "https://www.cnblogs.com/HansBug/p/4192575.html",
+      "dateTime": "2014-12-29 22:49",
+      "views": 227,
+      "comments": 0,
+      "summary": "1296: [SCOI2009]粉刷匠Time Limit:10 SecMemory Limit:162 MBSubmit:916Solved:532[Submit][Status]Descriptionwindy有 N 条木板需要被粉刷。 每条木板被分为 M 个格子。 每个格子要被刷成红色或蓝色。...",
+      "id": 4192575,
+      "date": "2014-12-29",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1293: [SCOI2009]生日礼物",
+      "url": "https://www.cnblogs.com/HansBug/p/4192480.html",
+      "dateTime": "2014-12-29 21:50",
+      "views": 311,
+      "comments": 0,
+      "summary": "1293: [SCOI2009]生日礼物Time Limit:10 SecMemory Limit:162 MBSubmit:1096Solved:584[Submit][Status]Description小西有一条很长的彩带，彩带上挂着各式各样的彩珠。已知彩珠有N个，分为K种。简单的说，可以将彩...",
+      "id": 4192480,
+      "date": "2014-12-29",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Bzoj超级经验大放送题集（好评如潮哦～～～）",
+      "url": "https://www.cnblogs.com/HansBug/p/4190848.html",
+      "dateTime": "2014-12-28 23:36",
+      "views": 543,
+      "comments": 5,
+      "summary": "其实这些是因为没有数据才形成的。。。唯一可惜的是这些都是需要300软妹币才能打开的萌萌哒权限题*^_^*好啦，吾来教你如何快速AC么么哒pascal:1beginend.//Pascalc++:1#include2usingnamespacestd;3intmain(){return0;}http:...",
+      "id": 4190848,
+      "date": "2014-12-28",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1088: [SCOI2005]扫雷Mine",
+      "url": "https://www.cnblogs.com/HansBug/p/4190840.html",
+      "dateTime": "2014-12-28 23:30",
+      "views": 281,
+      "comments": 0,
+      "summary": "1088: [SCOI2005]扫雷MineTime Limit:10 SecMemory Limit:162 MBSubmit:1635Solved:979[Submit][Status]Description相信大家都玩过扫雷的游戏。那是在一个n*m的矩阵里面有一些雷，要你根据一些信息找出雷来。...",
+      "id": 4190840,
+      "date": "2014-12-28",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1029: [JSOI2007]建筑抢修",
+      "url": "https://www.cnblogs.com/HansBug/p/4190727.html",
+      "dateTime": "2014-12-28 22:14",
+      "views": 462,
+      "comments": 0,
+      "summary": "1029: [JSOI2007]建筑抢修Time Limit:4 SecMemory Limit:162 MBSubmit:2382Solved:1033[Submit][Status]Description小刚在玩JSOI提供的一个称之为“建筑抢修”的电脑游戏：经过了一场激烈的战斗，T部落消灭了所...",
+      "id": 4190727,
+      "date": "2014-12-28",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1191: [HNOI2006]超级英雄Hero",
+      "url": "https://www.cnblogs.com/HansBug/p/4190417.html",
+      "dateTime": "2014-12-28 20:46",
+      "views": 359,
+      "comments": 0,
+      "summary": "1191: [HNOI2006]超级英雄HeroTime Limit:10 SecMemory Limit:162 MBSubmit:1996Solved:946[Submit][Status]Description现在电视台有一种节目叫做超级英雄,大概的流程就是每位选手到台上回答主持人的几个问题,...",
+      "id": 4190417,
+      "date": "2014-12-28",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2005: [Noi2010]能量采集",
+      "url": "https://www.cnblogs.com/HansBug/p/4190360.html",
+      "dateTime": "2014-12-28 19:56",
+      "views": 278,
+      "comments": 0,
+      "summary": "2005: [Noi2010]能量采集Time Limit:10 SecMemory Limit:552 MBSubmit:1831Solved:1086[Submit][Status]Description栋栋有一块长方形的地，他在地上种了一种能量植物，这种植物可以采集太阳光的能量。在这些植物采集...",
+      "id": 4190360,
+      "date": "2014-12-28",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj",
+        "NOI"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1067: [SCOI2007]降雨量",
+      "url": "https://www.cnblogs.com/HansBug/p/4189430.html",
+      "dateTime": "2014-12-27 23:47",
+      "views": 646,
+      "comments": 0,
+      "summary": "1067: [SCOI2007]降雨量Time Limit:1 SecMemory Limit:162 MBSubmit:2148Solved:554[Submit][Status]Description我们常常会说这样的话：“X年是自Y年以来降雨量最多的”。它的含义是X年的降雨量不超过Y年，且对于...",
+      "id": 4189430,
+      "date": "2014-12-27",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2761: [JLOI2011]不重复数字（哈希表）",
+      "url": "https://www.cnblogs.com/HansBug/p/4189201.html",
+      "dateTime": "2014-12-27 21:27",
+      "views": 496,
+      "comments": 0,
+      "summary": "2761: [JLOI2011]不重复数字Time Limit:10 SecMemory Limit:128 MBSubmit:1770Solved:675[Submit][Status]Description给出N个数，要求把其中重复的去掉，只保留第一次出现的数。例如，给出的数为1 2 18 3 ...",
+      "id": 4189201,
+      "date": "2014-12-27",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1297: [SCOI2009]迷路",
+      "url": "https://www.cnblogs.com/HansBug/p/4179262.html",
+      "dateTime": "2014-12-22 23:48",
+      "views": 232,
+      "comments": 0,
+      "summary": "1297: [SCOI2009]迷路Time Limit:10 SecMemory Limit:162 MBSubmit:652Solved:442[Submit][Status]Descriptionwindy在有向图中迷路了。 该有向图有 N 个节点，windy从节点 0 出发，他必须恰好在 T...",
+      "id": 4179262,
+      "date": "2014-12-22",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "2431: [HAOI2009]逆序对数列",
+      "url": "https://www.cnblogs.com/HansBug/p/4177328.html",
+      "dateTime": "2014-12-21 23:58",
+      "views": 224,
+      "comments": 0,
+      "summary": "2431: [HAOI2009]逆序对数列Time Limit:5 SecMemory Limit:128 MBSubmit:954Solved:548[Submit][Status]Description对于一个数列{ai}，如果有iaj，那么我们称ai与aj为一对逆序对数。若对于任意一个由1~n...",
+      "id": 4177328,
+      "date": "2014-12-21",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1022: [SHOI2008]小约翰的游戏John",
+      "url": "https://www.cnblogs.com/HansBug/p/4177320.html",
+      "dateTime": "2014-12-21 23:44",
+      "views": 496,
+      "comments": 0,
+      "summary": "1022: [SHOI2008]小约翰的游戏JohnTime Limit:1 SecMemory Limit:162 MBSubmit:1322Solved:829[Submit][Status]Description小约翰经常和他的哥哥玩一个非常有趣的游戏：桌子上有n堆石子，小约翰和他的哥哥轮流取...",
+      "id": 4177320,
+      "date": "2014-12-21",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1491: [NOI2007]社交网络",
+      "url": "https://www.cnblogs.com/HansBug/p/4176833.html",
+      "dateTime": "2014-12-21 18:05",
+      "views": 219,
+      "comments": 0,
+      "summary": "1491: [NOI2007]社交网络Time Limit:10 SecMemory Limit:64 MBSubmit:881Solved:518[Submit][Status]DescriptionInputOutput输出文件包括n 行，每行一个实数，精确到小数点后3 位。第i 行的实数表 示...",
+      "id": 4176833,
+      "date": "2014-12-21",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj",
+        "NOI"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1588: [HNOI2002]营业额统计",
+      "url": "https://www.cnblogs.com/HansBug/p/4176075.html",
+      "dateTime": "2014-12-21 00:16",
+      "views": 295,
+      "comments": 0,
+      "summary": "1588: [HNOI2002]营业额统计Time Limit:5 SecMemory Limit:162 MBSubmit:9203Solved:3097[Submit][Status]Description营业额统计 Tiger最近被公司升任为营业部经理，他上任后接受公司交给的第一项任务便是统计...",
+      "id": 4176075,
+      "date": "2014-12-21",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1083: [SCOI2005]繁忙的都市",
+      "url": "https://www.cnblogs.com/HansBug/p/4176060.html",
+      "dateTime": "2014-12-20 23:53",
+      "views": 285,
+      "comments": 0,
+      "summary": "1083: [SCOI2005]繁忙的都市Time Limit:10 SecMemory Limit:162 MBSubmit:1319Solved:878[Submit][Status]Description城市C是一个非常繁忙的大都市，城市中的道路十分的拥挤，于是市长决定对其中的道路进行改造。城...",
+      "id": 4176060,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1015: [JSOI2008]星球大战starwar",
+      "url": "https://www.cnblogs.com/HansBug/p/4175836.html",
+      "dateTime": "2014-12-20 20:50",
+      "views": 367,
+      "comments": 0,
+      "summary": "1015: [JSOI2008]星球大战starwarTime Limit:3 SecMemory Limit:162 MBSubmit:3001Solved:1321[Submit][Status]Description很久以前，在一个遥远的星系，一个黑暗的帝国靠着它的超级武器统治者整个星系。某一...",
+      "id": 4175836,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "Tyvj P1813 [JSOI2008]海战训练",
+      "url": "https://www.cnblogs.com/HansBug/p/4175784.html",
+      "dateTime": "2014-12-20 19:49",
+      "views": 841,
+      "comments": 0,
+      "summary": "P1813[JSOI2008]海战训练时间: 1000ms / 空间: 131072KiB / Java类名: Main描述为了准备高层峰会，元首命令武装部队必须处于高度戒备。警察将监视每一条大街，军队将保卫建筑物，领空将布满了JS-2008飞机。此外，巡洋船只和舰队将被派去保护海岸线。但不幸的是因...",
+      "id": 4175784,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Tyvj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1012: [JSOI2008]最大数maxnumber",
+      "url": "https://www.cnblogs.com/HansBug/p/4175702.html",
+      "dateTime": "2014-12-20 18:10",
+      "views": 900,
+      "comments": 0,
+      "summary": "1012: [JSOI2008]最大数maxnumberTime Limit:3 SecMemory Limit:162 MBSubmit:4435Solved:2000[Submit][Status]Description现在请求你维护一个数列，要求提供以下两种操作： 1、 查询操作。语法：Q L...",
+      "id": 4175702,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1430: 小猴打架",
+      "url": "https://www.cnblogs.com/HansBug/p/4175632.html",
+      "dateTime": "2014-12-20 17:08",
+      "views": 208,
+      "comments": 0,
+      "summary": "1430: 小猴打架Time Limit:5 SecMemory Limit:162 MBSubmit:335Solved:241[Submit][Status]Description一开始森林里面有N只互不相识的小猴子，它们经常打架，但打架的双方都必须不是好朋友。每次打完架后，打架的双方以及它们的...",
+      "id": 4175632,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1270: [BeijingWc2008]雷涛的小猫",
+      "url": "https://www.cnblogs.com/HansBug/p/4175611.html",
+      "dateTime": "2014-12-20 16:56",
+      "views": 658,
+      "comments": 2,
+      "summary": "1270: [BeijingWc2008]雷涛的小猫Time Limit:50 SecMemory Limit:162 MBSubmit:905Solved:430[Submit][Status]DescriptionInputOutputSample InputSample Output8HINT...",
+      "id": 4175611,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1202: [HNOI2005]狡猾的商人",
+      "url": "https://www.cnblogs.com/HansBug/p/4174918.html",
+      "dateTime": "2014-12-20 00:01",
+      "views": 583,
+      "comments": 0,
+      "summary": "1202: [HNOI2005]狡猾的商人Time Limit:10 SecMemory Limit:162 MBSubmit:1554Solved:745[Submit][Status]Description刁姹接到一个任务，为税务部门调查一位商人的账本，看看账本是不是伪造的。账本上记录了n个月以...",
+      "id": 4174918,
+      "date": "2014-12-20",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1059: [ZJOI2007]矩阵游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4174856.html",
+      "dateTime": "2014-12-19 23:11",
+      "views": 638,
+      "comments": 2,
+      "summary": "1059: [ZJOI2007]矩阵游戏Time Limit:10 SecMemory Limit:162 MBSubmit:2154Solved:1053[Submit][Status]Description小Q是一个非常聪明的孩子，除了国际象棋，他还很喜欢玩一个电脑益智游戏——矩阵游戏。矩阵游戏...",
+      "id": 4174856,
+      "date": "2014-12-19",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3039: 玉蟾宫",
+      "url": "https://www.cnblogs.com/HansBug/p/4174790.html",
+      "dateTime": "2014-12-19 22:16",
+      "views": 420,
+      "comments": 0,
+      "summary": "3039: 玉蟾宫Time Limit:2 SecMemory Limit:128 MBSubmit:512Solved:311[Submit][Status]Description有一天，小猫rainbow和freda来到了湘西张家界的天门山玉蟾宫，玉蟾宫宫主蓝兔盛情地款待了它们，并赐予它们一片土...",
+      "id": 4174790,
+      "date": "2014-12-19",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1303: [CQOI2009]中位数图",
+      "url": "https://www.cnblogs.com/HansBug/p/4172994.html",
+      "dateTime": "2014-12-19 00:24",
+      "views": 622,
+      "comments": 0,
+      "summary": "1303: [CQOI2009]中位数图Time Limit:1 SecMemory Limit:162 MBSubmit:1383Solved:902[Submit][Status]Description给出1~n的一个排列，统计该排列有多少个长度为奇数的连续子序列的中位数是b。中位数是指把所有元...",
+      "id": 4172994,
+      "date": "2014-12-19",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1002: [FJOI2007]轮状病毒",
+      "url": "https://www.cnblogs.com/HansBug/p/4172938.html",
+      "dateTime": "2014-12-18 23:28",
+      "views": 294,
+      "comments": 0,
+      "summary": "1002: [FJOI2007]轮状病毒Time Limit:1 SecMemory Limit:162 MBSubmit:2609Solved:1450[Submit][Status]Description给定n(N0 do195 ...",
+      "id": 4172938,
+      "date": "2014-12-18",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1050: [HAOI2006]旅行comf",
+      "url": "https://www.cnblogs.com/HansBug/p/4172906.html",
+      "dateTime": "2014-12-18 23:08",
+      "views": 332,
+      "comments": 0,
+      "summary": "1050: [HAOI2006]旅行comfTime Limit:10 SecMemory Limit:162 MBSubmit:1495Solved:737[Submit][Status]Description给你一个无向图，N(Ny then max:=x else max:=y; 9 ...",
+      "id": 4172906,
+      "date": "2014-12-18",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "3732: Network",
+      "url": "https://www.cnblogs.com/HansBug/p/4172766.html",
+      "dateTime": "2014-12-18 21:43",
+      "views": 285,
+      "comments": 0,
+      "summary": "3732: NetworkTime Limit:10 SecMemory Limit:128 MBSubmit:395Solved:179[Submit][Status]Description给你N个点的无向图 (1 c[x] do x:=c[x]; 18 getfat:...",
+      "id": 4172766,
+      "date": "2014-12-18",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1635: [Usaco2007 Jan]Tallest Cow 最高的牛",
+      "url": "https://www.cnblogs.com/HansBug/p/4170500.html",
+      "dateTime": "2014-12-17 21:39",
+      "views": 204,
+      "comments": 0,
+      "summary": "1635: [Usaco2007 Jan]Tallest Cow 最高的牛Time Limit:5 SecMemory Limit:64 MBSubmit:383Solved:211[Submit][Status]DescriptionFJ's N (1 = h[a]Input* Line 1: F...",
+      "id": 4170500,
+      "date": "2014-12-17",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1653: [Usaco2006 Feb]Backward Digit Sums",
+      "url": "https://www.cnblogs.com/HansBug/p/4170437.html",
+      "dateTime": "2014-12-17 21:13",
+      "views": 227,
+      "comments": 0,
+      "summary": "1653: [Usaco2006 Feb]Backward Digit SumsTime Limit:5 SecMemory Limit:64 MBSubmit:285Solved:215[Submit][Status]DescriptionFJ and his cows enjoy playing...",
+      "id": 4170437,
+      "date": "2014-12-17",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1643: [Usaco2007 Oct]Bessie's Secret Pasture 贝茜的秘密草坪",
+      "url": "https://www.cnblogs.com/HansBug/p/4170352.html",
+      "dateTime": "2014-12-17 20:47",
+      "views": 371,
+      "comments": 0,
+      "summary": "1643: [Usaco2007 Oct]Bessie's Secret Pasture 贝茜的秘密草坪Time Limit:5 SecMemory Limit:64 MBSubmit:268Solved:223[Submit][Status]Description农夫约翰已经从他的牧场中取得了数不...",
+      "id": 4170352,
+      "date": "2014-12-17",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1619: [Usaco2008 Nov]Guarding the Farm 保卫牧场",
+      "url": "https://www.cnblogs.com/HansBug/p/4170320.html",
+      "dateTime": "2014-12-17 20:33",
+      "views": 250,
+      "comments": 0,
+      "summary": "1619: [Usaco2008 Nov]Guarding the Farm 保卫牧场Time Limit:5 SecMemory Limit:64 MBSubmit:498Solved:223[Submit][Status]DescriptionThe farm has many hills up...",
+      "id": 4170320,
+      "date": "2014-12-17",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1682: [Usaco2005 Mar]Out of Hay 干草危机",
+      "url": "https://www.cnblogs.com/HansBug/p/4168408.html",
+      "dateTime": "2014-12-16 23:54",
+      "views": 281,
+      "comments": 0,
+      "summary": "1682: [Usaco2005 Mar]Out of Hay 干草危机Time Limit:5 SecMemory Limit:64 MBSubmit:391Solved:258[Submit][Status]DescriptionThe cows have run out of hay, a h...",
+      "id": 4168408,
+      "date": "2014-12-16",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1637: [Usaco2007 Mar]Balanced Lineup",
+      "url": "https://www.cnblogs.com/HansBug/p/4168358.html",
+      "dateTime": "2014-12-16 23:20",
+      "views": 253,
+      "comments": 0,
+      "summary": "1637: [Usaco2007 Mar]Balanced LineupTime Limit:5 SecMemory Limit:64 MBSubmit:393Solved:263[Submit][Status]DescriptionFarmer John 决定给他的奶牛们照一张合影，他让 N (1...",
+      "id": 4168358,
+      "date": "2014-12-16",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1624: [Usaco2008 Open] Clear And Present Danger 寻宝之路",
+      "url": "https://www.cnblogs.com/HansBug/p/4168114.html",
+      "dateTime": "2014-12-16 21:35",
+      "views": 447,
+      "comments": 0,
+      "summary": "1624: [Usaco2008 Open] Clear And Present Danger 寻宝之路Time Limit:5 SecMemory Limit:64 MBSubmit:377Solved:269[Submit][Status]Description农夫约翰正驾驶一条小艇在牛勒比海上...",
+      "id": 4168114,
+      "date": "2014-12-16",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1648: [Usaco2006 Dec]Cow Picnic 奶牛野餐",
+      "url": "https://www.cnblogs.com/HansBug/p/4168059.html",
+      "dateTime": "2014-12-16 21:17",
+      "views": 167,
+      "comments": 0,
+      "summary": "1648: [Usaco2006 Dec]Cow Picnic 奶牛野餐Time Limit:5 SecMemory Limit:64 MBSubmit:432Solved:270[Submit][Status]DescriptionThe cows are having a picnic! Eac...",
+      "id": 4168059,
+      "date": "2014-12-16",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1641: [Usaco2007 Nov]Cow Hurdles 奶牛跨栏",
+      "url": "https://www.cnblogs.com/HansBug/p/4167990.html",
+      "dateTime": "2014-12-16 20:32",
+      "views": 285,
+      "comments": 0,
+      "summary": "1641: [Usaco2007 Nov]Cow Hurdles 奶牛跨栏Time Limit:5 SecMemory Limit:64 MBSubmit:424Solved:272[Submit][Status]DescriptionFarmer John 想让她的奶牛准备郡级跳跃比赛，贝茜和她的...",
+      "id": 4167990,
+      "date": "2014-12-16",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1668: [Usaco2006 Oct]Cow Pie Treasures 馅饼里的财富",
+      "url": "https://www.cnblogs.com/HansBug/p/4166133.html",
+      "dateTime": "2014-12-15 23:31",
+      "views": 338,
+      "comments": 0,
+      "summary": "1668: [Usaco2006 Oct]Cow Pie Treasures 馅饼里的财富Time Limit:3 SecMemory Limit:64 MBSubmit:498Solved:289[Submit][Status]Description最近，奶牛们热衷于把金币包在面粉里，然后把它们烤...",
+      "id": 4166133,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1692: [Usaco2007 Dec]队列变换（BZOJ1640强化版）",
+      "url": "https://www.cnblogs.com/HansBug/p/4166083.html",
+      "dateTime": "2014-12-15 22:56",
+      "views": 370,
+      "comments": 0,
+      "summary": "1692: [Usaco2007 Dec]队列变换Time Limit:5 SecMemory Limit:64 MBSubmit:682Solved:280[Submit][Status]DescriptionFJ打算带他的N(1 s1[i] then 50 ...",
+      "id": 4166083,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1640: [Usaco2007 Nov]Best Cow Line 队列变换",
+      "url": "https://www.cnblogs.com/HansBug/p/4166003.html",
+      "dateTime": "2014-12-15 22:12",
+      "views": 344,
+      "comments": 0,
+      "summary": "1640: [Usaco2007 Nov]Best Cow Line 队列变换Time Limit:5 SecMemory Limit:64 MBSubmit:543Solved:278[Submit][Status]DescriptionFJ打算带着他可爱的N (1 ≤ N ≤ 2,000)头奶牛...",
+      "id": 4166003,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1620: [Usaco2008 Nov]Time Management 时间管理",
+      "url": "https://www.cnblogs.com/HansBug/p/4165944.html",
+      "dateTime": "2014-12-15 21:37",
+      "views": 228,
+      "comments": 0,
+      "summary": "1620: [Usaco2008 Nov]Time Management 时间管理Time Limit:5 SecMemory Limit:64 MBSubmit:506Solved:306[Submit][Status]DescriptionEver the maturing businessma...",
+      "id": 4165944,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1634: [Usaco2007 Jan]Protecting the Flowers 护花",
+      "url": "https://www.cnblogs.com/HansBug/p/4165898.html",
+      "dateTime": "2014-12-15 21:20",
+      "views": 333,
+      "comments": 0,
+      "summary": "1634: [Usaco2007 Jan]Protecting the Flowers 护花Time Limit:5 SecMemory Limit:64 MBSubmit:493Solved:310[Submit][Status]DescriptionFarmer John went to cut...",
+      "id": 4165898,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1627: [Usaco2007 Dec]穿越泥地",
+      "url": "https://www.cnblogs.com/HansBug/p/4165854.html",
+      "dateTime": "2014-12-15 20:54",
+      "views": 246,
+      "comments": 0,
+      "summary": "1627: [Usaco2007 Dec]穿越泥地Time Limit:5 SecMemory Limit:64 MBSubmit:504Solved:325[Submit][Status]Description清早6：00，Farmer John就离开了他的屋子，开始了他的例行工作：为贝茜挤奶。前...",
+      "id": 4165854,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1651: [Usaco2006 Feb]Stall Reservations 专用牛棚",
+      "url": "https://www.cnblogs.com/HansBug/p/4165828.html",
+      "dateTime": "2014-12-15 20:40",
+      "views": 382,
+      "comments": 0,
+      "summary": "1651: [Usaco2006 Feb]Stall Reservations 专用牛棚Time Limit:10 SecMemory Limit:64 MBSubmit:566Solved:314[Submit][Status]DescriptionOh those picky N (1 >>>>...",
+      "id": 4165828,
+      "date": "2014-12-15",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1615: [Usaco2008 Mar]The Loathesome Hay Baler麻烦的干草打包机",
+      "url": "https://www.cnblogs.com/HansBug/p/4163951.html",
+      "dateTime": "2014-12-14 23:42",
+      "views": 485,
+      "comments": 0,
+      "summary": "1615: [Usaco2008 Mar]The Loathesome Hay Baler麻烦的干草打包机Time Limit:5 SecMemory Limit:64 MBSubmit:574Solved:226[Submit][Status]DescriptionFarmer John新买的干草...",
+      "id": 4163951,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1639: [Usaco2007 Mar]Monthly Expense 月度开支",
+      "url": "https://www.cnblogs.com/HansBug/p/4163882.html",
+      "dateTime": "2014-12-14 23:17",
+      "views": 310,
+      "comments": 0,
+      "summary": "1639: [Usaco2007 Mar]Monthly Expense 月度开支Time Limit:5 SecMemory Limit:64 MBSubmit:593Solved:295[Submit][Status]DescriptionFarmer John是一个令人惊讶的会计学天才，他已经...",
+      "id": 4163882,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1638: [Usaco2007 Mar]Cow Traffic 奶牛交通",
+      "url": "https://www.cnblogs.com/HansBug/p/4163827.html",
+      "dateTime": "2014-12-14 22:45",
+      "views": 468,
+      "comments": 0,
+      "summary": "1638: [Usaco2007 Mar]Cow Traffic 奶牛交通Time Limit:5 SecMemory Limit:64 MBSubmit:618Solved:217[Submit][Status]Description农场中,由于奶牛数量的迅速增长,通往奶牛宿舍的道路也出现了严重的...",
+      "id": 4163827,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1642: [Usaco2007 Nov]Milking Time 挤奶时间",
+      "url": "https://www.cnblogs.com/HansBug/p/4163123.html",
+      "dateTime": "2014-12-14 22:06",
+      "views": 241,
+      "comments": 0,
+      "summary": "1642: [Usaco2007 Nov]Milking Time 挤奶时间Time Limit:5 SecMemory Limit:64 MBSubmit:582Solved:331[Submit][Status]Description贝茜是一只非常努力工作的奶牛，她总是专注于提高自己的产量。为了...",
+      "id": 4163123,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1625: [Usaco2007 Dec]宝石手镯",
+      "url": "https://www.cnblogs.com/HansBug/p/4163047.html",
+      "dateTime": "2014-12-14 21:17",
+      "views": 188,
+      "comments": 0,
+      "summary": "1625: [Usaco2007 Dec]宝石手镯Time Limit:5 SecMemory Limit:64 MBSubmit:919Solved:618[Submit][Status]Description贝茜在珠宝店闲逛时，买到了一个中意的手镯。很自然地，她想从她收集的 N(1 y then...",
+      "id": 4163047,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1613: [Usaco2007 Jan]Running贝茜的晨练计划",
+      "url": "https://www.cnblogs.com/HansBug/p/4163046.html",
+      "dateTime": "2014-12-14 21:16",
+      "views": 279,
+      "comments": 0,
+      "summary": "1613: [Usaco2007 Jan]Running贝茜的晨练计划Time Limit:5 SecMemory Limit:64 MBSubmit:1252Solved:609[Submit][Status]Description奶牛们打算通过锻炼来培养自己的运动细胞，作为其中的一员，贝茜选择的...",
+      "id": 4163046,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1677: [Usaco2005 Jan]Sumsets 求和",
+      "url": "https://www.cnblogs.com/HansBug/p/4163044.html",
+      "dateTime": "2014-12-14 21:14",
+      "views": 266,
+      "comments": 0,
+      "summary": "1677: [Usaco2005 Jan]Sumsets 求和Time Limit:5 SecMemory Limit:64 MBSubmit:626Solved:348[Submit][Status]DescriptionFarmer John commanded his cows to sear...",
+      "id": 4163044,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1609: [Usaco2008 Feb]Eating Together麻烦的聚餐",
+      "url": "https://www.cnblogs.com/HansBug/p/4163025.html",
+      "dateTime": "2014-12-14 20:55",
+      "views": 313,
+      "comments": 0,
+      "summary": "1609: [Usaco2008 Feb]Eating Together麻烦的聚餐Time Limit:10 SecMemory Limit:64 MBSubmit:1010Solved:606[Submit][Status]Description为了避免餐厅过分拥挤，FJ要求奶牛们分3批就餐。每天...",
+      "id": 4163025,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1602: [Usaco2008 Oct]牧场行走",
+      "url": "https://www.cnblogs.com/HansBug/p/4163022.html",
+      "dateTime": "2014-12-14 20:54",
+      "views": 323,
+      "comments": 0,
+      "summary": "1602: [Usaco2008 Oct]牧场行走Time Limit:5 SecMemory Limit:64 MBSubmit:1211Solved:616[Submit][Status]DescriptionN头牛（2nil do 34 begin 3...",
+      "id": 4163022,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1601: [Usaco2008 Oct]灌水",
+      "url": "https://www.cnblogs.com/HansBug/p/4163018.html",
+      "dateTime": "2014-12-14 20:53",
+      "views": 384,
+      "comments": 0,
+      "summary": "1601: [Usaco2008 Oct]灌水Time Limit:5 SecMemory Limit:162 MBSubmit:1342Solved:881[Submit][Status]DescriptionFarmer John已经决定把水灌到他的n(1x do dec(j);22 ...",
+      "id": 4163018,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1657: [Usaco2006 Mar]Mooo 奶牛的歌声",
+      "url": "https://www.cnblogs.com/HansBug/p/4163016.html",
+      "dateTime": "2014-12-14 20:51",
+      "views": 384,
+      "comments": 0,
+      "summary": "1657: [Usaco2006 Mar]Mooo 奶牛的歌声Time Limit:5 SecMemory Limit:64 MBSubmit:526Solved:365[Submit][Status]DescriptionFarmer John's N (1 y then max:=x else ...",
+      "id": 4163016,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1610: [Usaco2008 Feb]Line连线游戏",
+      "url": "https://www.cnblogs.com/HansBug/p/4163005.html",
+      "dateTime": "2014-12-14 20:42",
+      "views": 245,
+      "comments": 0,
+      "summary": "1610: [Usaco2008 Feb]Line连线游戏Time Limit:5 SecMemory Limit:64 MBSubmit:1396Solved:615[Submit][Status]DescriptionFarmer John最近发明了一个游戏，来考验自命不凡的贝茜。游戏开始的时 ...",
+      "id": 4163005,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    },
+    {
+      "title": "1660: [Usaco2006 Nov]Bad Hair Day 乱发节",
+      "url": "https://www.cnblogs.com/HansBug/p/4163001.html",
+      "dateTime": "2014-12-14 20:40",
+      "views": 356,
+      "comments": 0,
+      "summary": "1660: [Usaco2006 Nov]Bad Hair Day 乱发节Time Limit:2 SecMemory Limit:64 MBSubmit:665Solved:318[Submit][Status]DescriptionInput* Line 1: 牛的数量 N。* Lines 2....",
+      "id": 4163001,
+      "date": "2014-12-14",
+      "year": 2014,
+      "month": "2014-12",
+      "categories": [
+        "Bzoj"
+      ],
+      "track": "算法 / OI"
+    }
+  ],
+  "integrity": {
+    "missingStatsFilledFromPostPage": 1,
+    "postsWithoutExactCategory": 6
+  }
+}
