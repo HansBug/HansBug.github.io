@@ -10,6 +10,7 @@ export const siteConfig = {
   repoUrl: "https://github.com/HansBug/HansBug.github.io",
   repoName: "HansBug/HansBug.github.io",
   avatarPath: "/avatar.png",
+  oldBlogArchivePath: "/old-blog/",
   oldBlogUrl: "https://www.cnblogs.com/HansBug/",
   issueUrl: "https://github.com/HansBug/HansBug.github.io/issues/new/choose",
   discussionsUrl: "https://github.com/HansBug/HansBug.github.io/discussions",
@@ -24,7 +25,7 @@ export const siteConfig = {
     { label: "关于", href: "/about/" },
     { label: "联系", href: "/contact/" },
     { label: "搜索", href: "/search/" },
-    { label: "旧博客", href: "https://www.cnblogs.com/HansBug/", external: true },
+    { label: "旧站归档", href: "/old-blog/" },
   ],
   socialLinks: [
     { label: "GitHub", href: "https://github.com/HansBug" },

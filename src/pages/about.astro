@@ -6,10 +6,10 @@ import { siteConfig } from "../config/site";
 <BaseLayout title="关于">
   <div class="page-grid">
     <section class="page-header shell-card">
-      <p class="eyebrow">About</p>
+      <p class="eyebrow">关于</p>
       <h1>关于 HansBug</h1>
       <p>
-        这里是 HansBug 的个人技术博客新站。它会承接后续的新写作、项目记录和知识索引，而旧博客园则继续保留历史文章。
+        这里是 HansBug 的个人技术博客新站。它会承接后续的新写作、项目记录和知识索引；历史内容则由单独的旧站归档页统一说明。
       </p>
     </section>
 
@@ -17,27 +17,28 @@ import { siteConfig } from "../config/site";
       <article class="info-panel shell-card">
         <h2>这座新站想成为什么</h2>
         <ul class="info-panel__list">
-          <li>一块能长期维护的工作台，而不是单纯的发文页。</li>
-          <li>新内容会按标签、路线和项目重新组织，而不是沿用旧站的散点结构。</li>
-          <li>视觉上保留轻工业感和轻度二次元气质，但不做高浓度角色化表达。</li>
+          <li>一块能长期维护的中文技术写作工作台，而不是单纯的临时展示页。</li>
+          <li>新内容会按标签、路线和项目重新组织，优先服务长期检索和复用。</li>
+          <li>首页会尽量面向未来更新，不把大段旧站回顾放在主入口上。</li>
         </ul>
       </article>
 
       <article class="info-panel shell-card">
-        <h2>旧博客园大致包含什么</h2>
+        <h2>旧内容怎么处理</h2>
         <ul class="info-panel__list">
-          <li>开发环境、脚本工具、GitHub 和一些杂项技术折腾。</li>
-          <li>课程作业、软件工程、项目过程和阶段性总结。</li>
-          <li>开源、算法题、产品体验和更零散的技术记录。</li>
+          <li>旧博客正文不会整批搬运到新站。</li>
+          <li>旧站归档页会给出主题梳理、精选链接、发布时间和阅读量。</li>
+          <li>后续如果某个旧主题值得保留，会在新站里重写和重组。</li>
         </ul>
+        <a class="inline-link" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
       </article>
     </section>
 
     <section class="grid-two">
       <article class="cta-panel shell-card">
-        <h2>旧博客入口</h2>
+        <h2>旧博客原站</h2>
         <p>
-          旧内容仍保留在博客园，当前地址是
+          如果你需要直接访问博客园旧站，可以打开
           <a class="inline-link" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">
             {siteConfig.oldBlogUrl}
           </a>
@@ -52,14 +53,6 @@ import { siteConfig } from "../config/site";
           <a class="inline-link" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>。
         </p>
       </article>
-    </section>
-
-    <section class="cta-panel shell-card">
-      <h2>新站内容策略</h2>
-      <p>
-        旧博客正文不会直接整体迁移到这里。后续如果某个主题值得保留，我更倾向于在新站里重写、重组和重新命名，
-        让整套内容结构更统一，也更适合长期维护。
-      </p>
     </section>
   </div>
 </BaseLayout>

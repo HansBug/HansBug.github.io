@@ -1,0 +1,142 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { siteConfig } from "../config/site";
+import { oldBlogArchive } from "../data/oldBlogArchive";
+
+const numberFormatter = new Intl.NumberFormat("zh-CN");
+---
+
+<BaseLayout title="旧站归档">
+  <div class="page-grid">
+    <section class="page-header shell-card">
+      <p class="eyebrow">旧站归档</p>
+      <h1>博客园旧站归档说明</h1>
+      <p>
+        这里不搬旧博客正文，只负责把博客园旧站当成历史档案来处理：说明内容范围、列出仍有参考价值的旧文入口，并明确标注发布时间和阅读量。
+      </p>
+      <div class="tag-row">
+        <span class="tag-chip is-red"><span>写作期 {oldBlogArchive.period}</span></span>
+        <span class="tag-chip is-blue"><span>{oldBlogArchive.totalPosts} 篇随笔</span></span>
+        <span class="tag-chip is-green"><span>{oldBlogArchive.totalComments} 条评论</span></span>
+        <span class="tag-chip is-slate"><span>{oldBlogArchive.totalViewsText} 阅读</span></span>
+      </div>
+      <div class="hero-actions">
+        <a class="hero-action is-primary" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">
+          打开博客园原站
+        </a>
+        <a class="hero-action" href="https://www.cnblogs.com/HansBug/p/16096691.html" target="_blank" rel="noreferrer">
+          查看搬家通知
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <SectionHeading
+        eyebrow="写作阶段"
+        title="旧站大致经历了三个阶段"
+        description="这部分是对旧博客结构的梳理，不是正文迁移。目的是帮助读者判断哪些入口现在还值得点开。"
+      />
+      <div class="grid-three">
+        {
+          oldBlogArchive.summary.map((item) => (
+            <article class="info-panel shell-card">
+              <p class="eyebrow">{item.title}</p>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <SectionHeading
+        eyebrow="主要脉络"
+        title="旧站里比较成体系的内容方向"
+        description="分类数量来自博客园旧站公开侧栏数据。这里展示的是更能代表旧站结构的几条主线。"
+      />
+      <div class="grid-three">
+        {
+          oldBlogArchive.categoryHighlights.map((item) => (
+            <article class="info-panel shell-card">
+              <p class="eyebrow">{item.name}</p>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+              <div class="tag-row">
+                <span class="tag-chip is-blue"><span>{item.count} 篇</span></span>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <SectionHeading
+        eyebrow="精选旧文"
+        title="现在仍值得保留入口的几篇旧文"
+        description="我只把更接近当前新站方向、或者仍有检索价值的旧文挂出来；每篇都明确标了发布时间和阅读量。"
+      />
+      <div class="grid-two">
+        {
+          oldBlogArchive.featuredPosts.map((post) => (
+            <article class="info-panel shell-card">
+              <p class="eyebrow">{post.topic}</p>
+              <h3>{post.title}</h3>
+              <p>{post.note}</p>
+              <div class="tag-row">
+                <span class="tag-chip is-slate"><span>发布于 {post.date}</span></span>
+                <span class="tag-chip is-blue"><span>阅读 {numberFormatter.format(post.views)}</span></span>
+                <span class="tag-chip is-orange"><span>评论 {post.comments}</span></span>
+              </div>
+              <a class="inline-link" href={post.url} target="_blank" rel="noreferrer">去博客园查看原文</a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <article class="info-panel shell-card">
+        <SectionHeading
+          eyebrow="旧站结语"
+          title="这部分历史内容到这里为止"
+          description="旧站不是消失了，而是被明确地放回历史档案位置。以下两篇更能说明旧站为什么不适合继续作为当前主站。"
+        />
+        <div class="panel-list">
+          {
+            oldBlogArchive.closingPosts.map((post) => (
+              <div class="shell-card shell-card--dense">
+                <p class="eyebrow">{post.topic}</p>
+                <h3>{post.title}</h3>
+                <p>{post.note}</p>
+                <div class="tag-row">
+                  <span class="tag-chip is-slate"><span>发布于 {post.date}</span></span>
+                  <span class="tag-chip is-blue"><span>阅读 {numberFormatter.format(post.views)}</span></span>
+                  <span class="tag-chip is-orange"><span>评论 {post.comments}</span></span>
+                </div>
+                <a class="inline-link" href={post.url} target="_blank" rel="noreferrer">查看原文</a>
+              </div>
+            ))
+          }
+        </div>
+      </article>
+
+      <article class="cta-panel shell-card">
+        <h2>如何正确使用旧站归档</h2>
+        <ul class="info-panel__list">
+          <li>如果你是来找旧文章，先从这里判断主题，再跳到博客园原站看原文。</li>
+          <li>如果你发现某个旧主题仍值得延续，更合适的处理方式是在新站里重写，而不是直接搬运。</li>
+          <li>如果你只是想知道这段历史结束在什么时候，看发布时间就能立刻分辨出它们并不是近期内容。</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="hero-action is-primary" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">
+            打开博客园原站
+          </a>
+          <a class="hero-action" href="/">返回首页</a>
+        </div>
+      </article>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import SectionHeading from "../components/SectionHeading.astro";
 import { siteConfig } from "../config/site";
+import { oldBlogArchive } from "../data/oldBlogArchive";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getAllBlogPosts, getAllProjects, getAllRoutes } from "../utils/content";
 
@@ -17,18 +18,13 @@ const [posts, routes, projects] = await Promise.all([
       <p class="eyebrow">HansBug / 技术博客新站</p>
       <div class="hero-grid">
         <div>
-          <h1>把旧积累收进档案柜，再把新的技术写作慢慢搭起来。</h1>
+          <h1>把新的技术写作、项目记录和知识索引，慢慢搭成一块长期工作台。</h1>
           <p>
-            这是 HansBug 的个人技术博客新站。旧内容不会直接从博客园搬运过来，而是保留原站入口；
-            新站会逐步用新的结构整理文章、标签、路线和项目，让它更像一块可长期维护的个人工作台。
+            这里优先承接以后要持续更新的新内容。博客、标签、路线和项目都会先在这里生长；旧博客园内容已经转入单独的归档入口，不再占据首页主体。
           </p>
           <div class="hero-actions">
-            <a class="hero-action is-primary" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">
-              查看旧博客园
-            </a>
-            <a class="hero-action" href={siteConfig.repoUrl} target="_blank" rel="noreferrer">
-              前往 GitHub
-            </a>
+            <a class="hero-action is-primary" href="/blog/">进入博客</a>
+            <a class="hero-action" href="/tags/">浏览标签</a>
             <a class="hero-action" href="/contact/">联系 HansBug</a>
           </div>
         </div>
@@ -36,15 +32,15 @@ const [posts, routes, projects] = await Promise.all([
           <div class="profile-panel__head">
             <img class="profile-avatar" src={siteConfig.avatarPath} alt="HansBug 的 GitHub 头像" />
             <div class="profile-info">
-              <p class="eyebrow">Operator / HansBug</p>
+              <p class="eyebrow">站点 / HansBug</p>
               <h2>技术写作新站</h2>
-              <p>轻工业感、轻二次元感、中文优先，先立住结构，再逐步填满内容。</p>
+              <p>新文章、路线、标签和项目会先在这里稳定落地，逐步形成更长期的内容结构。</p>
             </div>
           </div>
           <div class="profile-badges">
-            <span class="tag-chip is-red"><span>GitHub Avatar</span></span>
-            <span class="tag-chip is-orange"><span>新站迁移中</span></span>
-            <span class="tag-chip is-slate"><span>不直接搬旧文</span></span>
+            <span class="tag-chip is-red"><span>GitHub 头像</span></span>
+            <span class="tag-chip is-orange"><span>新站建设中</span></span>
+            <span class="tag-chip is-slate"><span>旧站已独立归档</span></span>
           </div>
           <div class="stat-grid profile-stats">
             <div>
@@ -61,19 +57,19 @@ const [posts, routes, projects] = await Promise.all([
             </div>
           </div>
           <div class="status-panel">
-            <p class="eyebrow">Archive Status</p>
+            <p class="eyebrow">当前状态</p>
             <ul class="status-list">
               <li>
-                <strong>旧博客入口</strong>
-                <span>博客园地址已保留，历史内容仍以原站为准</span>
+                <strong>内容重心</strong>
+                <span>以后新增文章和整理工作优先进入这里，而不是继续往旧站追加。</span>
               </li>
               <li>
-                <strong>新站策略</strong>
-                <span>以后会在这里重写、重组，而不是简单把旧文整批搬运</span>
+                <strong>旧站处理</strong>
+                <span>博客园历史文章已转为独立归档入口，并标注发布时间与阅读量。</span>
               </li>
               <li>
-                <strong>默认沟通</strong>
-                <span>邮箱优先，公共反馈走 Issue 与 Discussions</span>
+                <strong>默认联系</strong>
+                <span>邮箱优先，公共反馈走 Issue 与 Discussions。</span>
               </li>
             </ul>
           </div>
@@ -83,66 +79,67 @@ const [posts, routes, projects] = await Promise.all([
 
     <section>
       <SectionHeading
-        eyebrow="旧内容归档"
-        title="旧博客园大致写过什么"
-        description="这里只做概述，不搬运旧正文。真正的历史文章仍保留在原博客园链接里。"
+        eyebrow="新内容入口"
+        title="先把几个长期入口固定下来"
+        description="即使新内容还在起步，首页也应该服务于以后要持续更新的文章、索引、路线和项目。"
       />
       <div class="grid-three">
         <article class="info-panel shell-card">
-          <p class="eyebrow">Archive 01</p>
-          <h3>开发环境和工具折腾</h3>
-          <p>旧博客里能看到不少围绕 Python、C++、GitHub、脚本工具和环境配置的记录。</p>
-          <a class="inline-link" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">去旧站查看</a>
+          <p class="eyebrow">博客</p>
+          <h3>技术写作会先发布在这里</h3>
+          <p>以后新的中文技术文章优先进入博客区，再通过标签和路线把它们组织起来。</p>
+          <a class="inline-link" href="/blog/">查看博客入口</a>
         </article>
         <article class="info-panel shell-card">
-          <p class="eyebrow">Archive 02</p>
-          <h3>课程、工程与项目总结</h3>
-          <p>包括面向对象、软件工程、课程设计、实验复盘这类偏工程过程和交付经验的内容。</p>
-          <a class="inline-link" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">去旧站查看</a>
+          <p class="eyebrow">标签</p>
+          <h3>按问题域进入，而不是只看时间线</h3>
+          <p>标签页会承担长期检索和主题聚合，让读者能按问题而不是按月份找内容。</p>
+          <a class="inline-link" href="/tags/">查看标签入口</a>
         </article>
         <article class="info-panel shell-card">
-          <p class="eyebrow">Archive 03</p>
-          <h3>开源、算法和技术体验</h3>
-          <p>还能搜到一些开源项目、算法题、产品体验和零散技术心得，范围比新站计划更杂一些。</p>
-          <a class="inline-link" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">去旧站查看</a>
+          <p class="eyebrow">路线 / 项目</p>
+          <h3>把专题导航和长期实践分开整理</h3>
+          <p>路线页负责阅读顺序和专题导引，项目页负责承接持续演化的工程实践。</p>
+          <div class="hero-actions">
+            <a class="inline-link" href="/routes/">路线页</a>
+            <a class="inline-link" href="/projects/">项目页</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section>
-      <SectionHeading
-        eyebrow="新站状态"
-        title="这一版先把结构和入口立住"
-        description="博客、标签、路线、项目这些壳子已经搭好，但旧文不会直接导入。后续内容会按新结构逐步补进来。"
-      />
-      <div class="grid-three">
-        <article class="info-panel shell-card">
-          <p class="eyebrow">Now</p>
-          <h3>首页和品牌形象</h3>
-          <p>头像、旧博客入口、联系信息和整体视觉基调已经就位，新站不会显得像临时占位页。</p>
-        </article>
-        <article class="info-panel shell-card">
-          <p class="eyebrow">Next</p>
-          <h3>标签与路线体系</h3>
-          <p>等新文开始进入后，再按问题域重建标签和指引系统，而不是把旧标签原样照搬。</p>
-        </article>
-        <article class="info-panel shell-card">
-          <p class="eyebrow">Style</p>
-          <h3>轻二次元但不过度</h3>
-          <p>用低饱和红、档案卡和少量任务面板感去借气质，不上角色图，不做高浓度二次元表达。</p>
-        </article>
-      </div>
+    <section class="grid-two">
+      <article class="info-panel shell-card">
+        <p class="eyebrow">旧站入口</p>
+        <h2>历史内容放到独立归档页处理</h2>
+        <p>
+          旧博客园的主写作期覆盖 <strong>{oldBlogArchive.period}</strong>，共保留 <strong>{oldBlogArchive.totalPosts}</strong> 篇随笔、
+          约 <strong>{oldBlogArchive.totalViewsText}</strong> 阅读。首页只保留一个入口，不再展开怀旧内容。
+        </p>
+        <div class="hero-actions">
+          <a class="hero-action" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
+          <a class="hero-action" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">直达博客园</a>
+        </div>
+      </article>
+
+      <article class="info-panel shell-card">
+        <p class="eyebrow">更新策略</p>
+        <h2>旧文不整批搬运，新文按新结构生长</h2>
+        <p>
+          旧站会保留历史链接、阅读量和发布时间作为参考；如果某个主题值得长期保留，更合适的方式是在新站里重写、重组，而不是直接复制。
+        </p>
+      </article>
     </section>
 
     <section class="cta-panel shell-card">
       <SectionHeading
         eyebrow="联系与反馈"
         title="如果你想交流、勘误或合作"
-        description="邮件是最稳的联系入口；如果你对旧博客里的内容感兴趣，也可以先从博客园入口继续追。"
+        description="邮件是最稳的联系入口；如果你是来找旧文，则先从旧站归档页进入会更合适。"
       />
       <div class="cta-actions">
         <a class="hero-action is-primary" href={`mailto:${siteConfig.email}`}>发送邮件</a>
-        <a class="hero-action" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">打开旧博客园</a>
+        <a class="hero-action" href={siteConfig.oldBlogArchivePath}>打开旧站归档</a>
         <a class="hero-action" href={siteConfig.issueUrl} target="_blank" rel="noreferrer">提交反馈</a>
         <a class="hero-action" href={siteConfig.discussionsUrl} target="_blank" rel="noreferrer">公开讨论</a>
       </div>

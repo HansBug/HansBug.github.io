@@ -6,7 +6,7 @@ import { siteConfig } from "../config/site";
 <BaseLayout title="联系">
   <div class="page-grid">
     <section class="page-header shell-card">
-      <p class="eyebrow">Contact</p>
+      <p class="eyebrow">联系</p>
       <h1>联系 HansBug</h1>
       <p>
         这个页面专门负责“怎么联系我”。如果你在博客里看到问题、想讨论技术、希望合作或约稿，优先使用下面这些入口。
@@ -15,31 +15,31 @@ import { siteConfig } from "../config/site";
 
     <section class="grid-three">
       <article class="contact-card shell-card">
-        <p class="eyebrow">Direct</p>
+        <p class="eyebrow">直接联系</p>
         <h2>邮箱</h2>
         <p>适合私下沟通、合作咨询、进一步交流或不方便公开说的内容。</p>
         <a class="hero-action is-primary" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
       </article>
 
       <article class="contact-card shell-card">
-        <p class="eyebrow">Public</p>
+        <p class="eyebrow">公开反馈</p>
         <h2>GitHub Issue</h2>
         <p>适合站点勘误、文章补充、内容建议和公开可追踪的问题。</p>
         <a class="hero-action" href={siteConfig.issueUrl} target="_blank" rel="noreferrer">提交反馈</a>
       </article>
 
       <article class="contact-card shell-card">
-        <p class="eyebrow">Discussion</p>
+        <p class="eyebrow">公开讨论</p>
         <h2>GitHub Discussions</h2>
         <p>适合公开讨论、延伸交流和围绕某个主题继续展开对话。</p>
         <a class="hero-action" href={siteConfig.discussionsUrl} target="_blank" rel="noreferrer">参与讨论</a>
       </article>
 
       <article class="contact-card shell-card">
-        <p class="eyebrow">Archive</p>
-        <h2>旧博客园</h2>
-        <p>如果你是来找以前的历史文章，可以直接从这里跳到博客园旧站。</p>
-        <a class="hero-action" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">打开旧博客园</a>
+        <p class="eyebrow">旧站入口</p>
+        <h2>旧站归档</h2>
+        <p>如果你是来找以前的历史文章，先走旧站归档页会更容易分清哪些内容已经很旧。</p>
+        <a class="hero-action" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
       </article>
     </section>
 
@@ -57,6 +57,7 @@ import { siteConfig } from "../config/site";
         <h2>如果你是来找旧内容</h2>
         <ul class="info-panel__list">
           <li>旧博客内容仍在博客园，新站暂不直接搬运旧正文。</li>
+          <li>旧站归档页会额外标出发布时间和阅读量，避免把旧文误判成近期内容。</li>
           <li>如果你想讨论旧文章，也可以直接在邮件里附上旧博客链接。</li>
           <li>后续新内容会优先发布在这里，并逐步建立新的标签和路线结构。</li>
         </ul>

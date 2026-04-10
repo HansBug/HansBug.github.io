@@ -7,11 +7,12 @@ import { siteConfig } from "../config/site";
     <div>
       <p class="footer-title">{siteConfig.shortTitle}</p>
       <p class="footer-copy">
-        新站承接后续写作，旧博客园继续保留历史归档入口。
+        新站承接后续写作，旧博客园内容改由独立归档页统一说明。
       </p>
     </div>
     <div class="footer-links">
       <a href={siteConfig.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+      <a href={siteConfig.oldBlogArchivePath}>旧站归档</a>
       <a href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">旧博客园</a>
       <a href={siteConfig.issueUrl} target="_blank" rel="noreferrer">Issue 反馈</a>
       <a href={`mailto:${siteConfig.email}`}>邮箱联系</a>

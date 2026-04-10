@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import { siteConfig } from "../../config/site";
 import { getAllBlogPosts, groupPostsByYear } from "../../utils/content";
 import { formatDate } from "../../utils/date";
 
@@ -39,8 +40,9 @@ const archive = groupPostsByYear(posts);
         <section class="empty-state shell-card">
           <h2>新站归档还是空白</h2>
           <p>
-            当前没有迁移旧文，所以时间线暂时没有条目。历史文章请直接使用旧博客园入口查看。
+            当前没有迁移旧文，所以时间线暂时没有条目。历史文章请先进入旧站归档页，那里会标出发布时间和阅读量。
           </p>
+          <a class="hero-action" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
         </section>
       )
     }
