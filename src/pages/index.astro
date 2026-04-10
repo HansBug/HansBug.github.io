@@ -1,174 +1,61 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { siteConfig } from "../config/site";
-import { oldBlogArchive } from "../data/oldBlogArchive";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { getAllBlogPosts, getAllProjects, getAllRoutes } from "../utils/content";
+import { getAllBlogPosts } from "../utils/content";
 
-const [posts, routes, projects] = await Promise.all([
-  getAllBlogPosts(),
-  getAllRoutes(),
-  getAllProjects(),
-]);
+const posts = await getAllBlogPosts();
+const recentPosts = posts.slice(0, 6);
 ---
 
 <BaseLayout>
-  <div class="page-grid">
-    <section class="hero hero-home shell-card">
-      <div class="hero-home__copy">
+  <div class="page-grid home-page">
+    <section class="home-intro shell-card">
+      <div class="home-intro__copy">
         <p class="eyebrow">HansBug / 技术博客新站</p>
-        <div class="hero-kicker">
-          <span>中文技术写作</span>
-          <span>路线与索引</span>
-          <span>长期项目记录</span>
-        </div>
-        <h1>把新的技术写作、项目记录和知识索引，搭成一块长期工作台。</h1>
-        <p class="hero-home__lead">
-          这里优先承接以后会持续更新的新内容。博客、标签、路线和项目会先在这里生长；旧博客园内容已经转入独立归档页，不再占据首页主体。
+        <h1>新的技术文章，会从这里开始。</h1>
+        <p class="home-intro__lead">
+          这里专门承接新的中文技术写作。首页只展示新站本身，不再把说明、归档和历史内容混进来；后续更新会直接从这里出现。
         </p>
         <div class="hero-actions">
           <a class="hero-action is-primary" href="/blog/">进入博客</a>
-          <a class="hero-action" href="/tags/">浏览标签</a>
+          <a class="hero-action" href={siteConfig.rssUrl}>订阅 RSS</a>
           <a class="hero-action" href="/contact/">联系 HansBug</a>
         </div>
       </div>
+    </section>
 
-      <div class="hero-home__stage">
-        <div class="hero-stage">
-          <div class="hero-stage__grid"></div>
-          <img class="hero-stage__operator" src="/operator-echo.svg" alt="站点主视觉插画" />
-          <div class="hero-stage__badge">内容持续整理中</div>
-          <div class="hero-stage__panel shell-card">
-            <div class="hero-stage__panel-head">
-              <img class="profile-avatar" src={siteConfig.avatarPath} alt="HansBug 的 GitHub 头像" />
-              <div>
-                <p class="eyebrow">站点 / HansBug</p>
-                <h2>技术写作新站</h2>
-              </div>
-            </div>
+    <section class="home-feed shell-card">
+      <SectionHeading
+        eyebrow="最新文章"
+        title={posts.length > 0 ? "最近更新" : "还没有新文章"}
+        description={
+          posts.length > 0
+            ? "首页只展示新博客更新。更多文章可以直接进入博客页查看。"
+            : "新站正文会从零开始整理。等第一批文章上线后，首页会直接展示它们。"
+        }
+      />
+
+      {
+        recentPosts.length > 0 ? (
+          <div class="grid-two">
+            {recentPosts.map((post) => <PostCard post={post} compact />)}
+          </div>
+        ) : (
+          <section class="home-empty">
+            <span class="home-empty__count">0 篇</span>
+            <h2>第一批文章还在整理中</h2>
             <p>
-              新文章优先进入这里；旧内容已经转入独立归档页。以后会逐步把标签、路线和项目体系补完整。
+              现在这里先留给未来的新写作。等第一批文章发布以后，首页会直接切成最新更新列表，不再额外塞别的说明模块。
             </p>
-            <div class="tag-row">
-              <span class="tag-chip is-red"><span>GitHub 头像</span></span>
-              <span class="tag-chip is-orange"><span>新站建设中</span></span>
-              <span class="tag-chip is-slate"><span>旧站已独立归档</span></span>
+            <div class="hero-actions">
+              <a class="hero-action is-primary" href="/blog/">打开博客页</a>
+              <a class="hero-action" href={siteConfig.rssUrl}>查看 RSS</a>
             </div>
-            <a class="inline-link" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-metrics">
-        <article class="metric-card shell-card">
-          <p class="eyebrow">文章</p>
-          <strong>{posts.length}</strong>
-          <span>新站文章</span>
-        </article>
-        <article class="metric-card shell-card">
-          <p class="eyebrow">路线</p>
-          <strong>{routes.length}</strong>
-          <span>路线页</span>
-        </article>
-        <article class="metric-card shell-card">
-          <p class="eyebrow">项目</p>
-          <strong>{projects.length}</strong>
-          <span>项目页</span>
-        </article>
-        <article class="metric-card shell-card">
-          <p class="eyebrow">归档</p>
-          <strong>{oldBlogArchive.totalPosts}</strong>
-          <span>旧站随笔</span>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <SectionHeading
-        eyebrow="内容地图"
-        title="把入口、路径和归档关系先固定下来"
-        description="首页首先应该回答三件事：新内容从哪里进入、旧内容放在哪里、如果要联系该走什么入口。"
-      />
-      <div class="dashboard-grid">
-        <article class="dashboard-card shell-card">
-          <p class="eyebrow">博客区</p>
-          <h3>新文章会先落在这里</h3>
-          <p>新的中文技术写作优先进入博客区，再通过标签和路线把它们重新组织起来。</p>
-          <a class="inline-link" href="/blog/">查看博客入口</a>
-        </article>
-        <article class="dashboard-card shell-card">
-          <p class="eyebrow">标签地图</p>
-          <h3>按问题域进入，而不是只看时间线</h3>
-          <p>标签页会承担检索和聚合作用，让读者能按主题、问题和方向找到内容。</p>
-          <a class="inline-link" href="/tags/">查看标签入口</a>
-        </article>
-        <article class="dashboard-card shell-card">
-          <p class="eyebrow">路线 / 项目</p>
-          <h3>把阅读顺序和长期实践拆开整理</h3>
-          <p>路线页负责专题导引，项目页负责承接持续演化的工程实践和归档记录。</p>
-          <div class="hero-actions">
-            <a class="inline-link" href="/routes/">路线页</a>
-            <a class="inline-link" href="/projects/">项目页</a>
-          </div>
-        </article>
-        <article class="dashboard-card shell-card">
-          <p class="eyebrow">旧站归档</p>
-          <h3>历史内容已经独立整理</h3>
-          <p>旧博客园主写作期覆盖 {oldBlogArchive.period}，共保留 {oldBlogArchive.totalPosts} 篇随笔，约 {oldBlogArchive.totalViewsText} 阅读。</p>
-          <div class="hero-actions">
-            <a class="inline-link" href={siteConfig.oldBlogArchivePath}>查看归档页</a>
-            <a class="inline-link" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">直达博客园</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="archive-bridge shell-card">
-      <div>
-        <p class="eyebrow">迁移策略</p>
-        <h2>旧文不整批搬运，新文按新结构生长</h2>
-        <p>
-          旧站会保留历史链接、阅读量和发布时间作为参考；如果某个主题值得长期保留，更合适的方式是在新站里重写、重组，而不是直接复制。
-        </p>
-        <div class="hero-actions">
-          <a class="hero-action" href={siteConfig.oldBlogArchivePath}>打开旧站归档</a>
-          <a class="hero-action" href="/about/">了解这座新站</a>
-        </div>
-      </div>
-      <div class="archive-bridge__stats">
-        <span class="tag-chip is-red"><span>写作期 {oldBlogArchive.period}</span></span>
-        <span class="tag-chip is-blue"><span>{oldBlogArchive.totalPosts} 篇随笔</span></span>
-        <span class="tag-chip is-green"><span>{oldBlogArchive.totalComments} 条评论</span></span>
-        <span class="tag-chip is-slate"><span>{oldBlogArchive.totalViewsText} 阅读</span></span>
-      </div>
-    </section>
-
-    <section class="contact-strip shell-card">
-      <SectionHeading
-        eyebrow="联系与反馈"
-        title="如果你想交流、勘误或合作"
-        description="邮件是最稳的联系入口；公开反馈和讨论则继续放在 GitHub 里，方便追踪和沉淀。"
-      />
-      <div class="contact-strip__grid">
-        <article class="contact-mini shell-card">
-          <p class="eyebrow">邮箱</p>
-          <h3>{siteConfig.email}</h3>
-          <p>适合私下交流、合作沟通、约稿和不方便公开说的内容。</p>
-          <a class="inline-link" href={`mailto:${siteConfig.email}`}>发送邮件</a>
-        </article>
-        <article class="contact-mini shell-card">
-          <p class="eyebrow">Issue</p>
-          <h3>公开反馈</h3>
-          <p>适合站点勘误、内容补充、功能建议和可追踪的问题。</p>
-          <a class="inline-link" href={siteConfig.issueUrl} target="_blank" rel="noreferrer">提交反馈</a>
-        </article>
-        <article class="contact-mini shell-card">
-          <p class="eyebrow">Discussions</p>
-          <h3>公开讨论</h3>
-          <p>适合继续展开某个话题，或者围绕内容方向做长期讨论。</p>
-          <a class="inline-link" href={siteConfig.discussionsUrl} target="_blank" rel="noreferrer">参与讨论</a>
-        </article>
-      </div>
+          </section>
+        )
+      }
     </section>
   </div>
 </BaseLayout>

@@ -10,7 +10,7 @@ const groupedTags = groupTagsByGroup(posts);
 
 <BaseLayout title="标签">
   <section class="page-header shell-card">
-    <p class="eyebrow">Tags</p>
+    <p class="eyebrow">标签</p>
     <h1>标签体系</h1>
     <p>
       标签不是装饰，而是这座博客的索引系统。每个标签都尽量对应一个真实的问题域，方便你从“我现在遇到的具体问题”回到更大的主题。
@@ -23,7 +23,7 @@ const groupedTags = groupTagsByGroup(posts);
         groupedTags.map(([group, items]) => (
           <section class="tag-cluster shell-card">
             <SectionHeading
-              eyebrow="Tag Group"
+              eyebrow="标签分组"
               title={group}
               description="同一组标签通常对应同一类工程问题。"
             />

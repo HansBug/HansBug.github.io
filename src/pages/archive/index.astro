@@ -11,7 +11,7 @@ const archive = groupPostsByYear(posts);
 
 <BaseLayout title="归档">
   <section class="page-header shell-card">
-    <p class="eyebrow">Archive</p>
+    <p class="eyebrow">归档</p>
     <h1>时间归档</h1>
     <p>如果你习惯按时间线回看博客演化，可以从这里进入。归档更适合观察关注点如何逐渐收敛。</p>
   </section>
@@ -22,7 +22,7 @@ const archive = groupPostsByYear(posts);
         archive.map((entry) => (
           <section class="archive-year shell-card">
             <SectionHeading
-              eyebrow="Year"
+              eyebrow="年份"
               title={entry.year}
               description={`这一年共整理出 ${entry.posts.length} 篇文章。`}
             />
