@@ -23,7 +23,8 @@
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.1.5",
     "chart.js": "^4.5.1",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "tom-select": "^2.5.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",

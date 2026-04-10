@@ -1,4 +1,5 @@
 ---
+import "tom-select/dist/css/tom-select.default.css";
 import type { OldBlogCatalog } from "../data/oldBlogCatalog";
 
 interface Props {
@@ -62,7 +63,7 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
       <label class="oldblog-field">
         <span>年份</span>
-        <select class="oldblog-select" data-oldblog-year>
+        <select class="oldblog-select" data-oldblog-select data-oldblog-year>
           <option value="all">全部年份</option>
           {years.map((year) => <option value={String(year)}>{year} 年</option>)}
         </select>
@@ -70,7 +71,7 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
       <label class="oldblog-field">
         <span>旧站分类</span>
-        <select class="oldblog-select" data-oldblog-category>
+        <select class="oldblog-select" data-oldblog-select data-oldblog-category>
           <option value="all">全部分类</option>
           {categories.map((category) => <option value={category.name}>{category.name}</option>)}
         </select>
@@ -78,7 +79,7 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
       <label class="oldblog-field">
         <span>归纳方向</span>
-        <select class="oldblog-select" data-oldblog-track>
+        <select class="oldblog-select" data-oldblog-select data-oldblog-track>
           <option value="all">全部归纳</option>
           {tracks.map((track) => <option value={track}>{track}</option>)}
         </select>
@@ -86,7 +87,7 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
       <label class="oldblog-field">
         <span>排序</span>
-        <select class="oldblog-select" data-oldblog-sort>
+        <select class="oldblog-select" data-oldblog-select data-oldblog-sort>
           <option value="views-desc">按热度</option>
           <option value="comments-desc">按评论数</option>
           <option value="date-desc">按时间倒序</option>
@@ -159,10 +160,36 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
 <script>
   import Chart from "chart.js/auto";
+  import TomSelect from "tom-select";
 
-  const root = document.querySelector("[data-oldblog-root]");
+  type EnhancedSelect = HTMLSelectElement & { tomselect?: TomSelect };
 
-  if (root) {
+  const initOldBlogEnhancements = () => {
+    const root = document.querySelector("[data-oldblog-root]");
+
+    if (!root) return;
+
+    root.querySelectorAll("[data-oldblog-select]").forEach((node) => {
+      if (!(node instanceof HTMLSelectElement)) return;
+
+      const selectNode = node as EnhancedSelect;
+      if (selectNode.tomselect) return;
+
+      const placeholder = selectNode.options[0]?.textContent?.trim() || "请选择";
+
+      new TomSelect(selectNode, {
+        create: false,
+        maxOptions: 500,
+        allowEmptyOption: true,
+        hideSelected: false,
+        closeAfterSelect: true,
+        sortField: [{ field: "$order" }],
+        placeholder,
+        searchField: [],
+        controlInput: null,
+      });
+    });
+
     const canvas = root.querySelector("[data-oldblog-yearchart]");
     const dataNode = root.querySelector("[data-oldblog-chart-data]");
 
@@ -260,7 +287,9 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
         ],
       });
     }
-  }
+  };
+
+  initOldBlogEnhancements();
 </script>
 
 <script
@@ -285,6 +314,13 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
     const loadMore = root.querySelector("[data-oldblog-more]");
     const reset = root.querySelector("[data-oldblog-reset]");
     const shortcutButtons = root.querySelectorAll("[data-oldblog-shortcut]");
+    const setSelectValue = (select, value) => {
+      if (select.tomselect) {
+        select.tomselect.setValue(value, true);
+        return;
+      }
+      select.value = value;
+    };
 
     const numberFormatter = new Intl.NumberFormat("zh-CN");
     const state = {
@@ -431,17 +467,17 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
     reset.addEventListener("click", () => {
       input.value = "";
-      yearSelect.value = "all";
-      categorySelect.value = "all";
-      trackSelect.value = "all";
-      sortSelect.value = defaultSortKey;
+      setSelectValue(yearSelect, "all");
+      setSelectValue(categorySelect, "all");
+      setSelectValue(trackSelect, "all");
+      setSelectValue(sortSelect, defaultSortKey);
       state.limit = initialLimit;
       render();
     });
 
     shortcutButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        categorySelect.value = button.dataset.oldblogShortcut;
+        setSelectValue(categorySelect, button.dataset.oldblogShortcut);
         state.limit = initialLimit;
         render();
       });

@@ -77,32 +77,6 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
     </section>
 
     <section>
-      <SectionHeading
-        eyebrow="精选旧文"
-        title="现在仍值得保留入口的几篇旧文"
-        description="我只把更接近当前新站方向、或者仍有检索价值的旧文挂出来；每篇都明确标了发布时间和阅读量。"
-      />
-      <div class="grid-two">
-        {
-          oldBlogArchive.featuredPosts.map((post) => (
-            <article class="info-panel shell-card">
-              <p class="eyebrow">{post.topic}</p>
-              <h3 class="oldblog-linked-title">
-                <a href={post.url} target="_blank" rel="noreferrer">{post.title}</a>
-              </h3>
-              <p>{post.note}</p>
-              <div class="tag-row">
-                <span class="tag-chip is-slate"><span>发布于 {post.date}</span></span>
-                <span class="tag-chip is-blue"><span>阅读 {numberFormatter.format(post.views)}</span></span>
-                <span class="tag-chip is-orange"><span>评论 {post.comments}</span></span>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-    </section>
-
-    <section class="grid-two">
       <article class="info-panel shell-card">
         <SectionHeading
           eyebrow="旧站结语"
@@ -127,16 +101,6 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
             ))
           }
         </div>
-      </article>
-
-      <article class="cta-panel shell-card">
-        <h2>如何正确使用旧站归档</h2>
-        <ul class="info-panel__list">
-          <li>如果你是来找旧文章，优先先用上面的全量检索，再从标题直接跳到博客园原文。</li>
-          <li>如果你发现某个旧主题仍值得延续，更合适的处理方式是在新站里重写，而不是直接搬运。</li>
-          <li>如果你只是想知道这段历史结束在什么时候，看发布时间就能立刻分辨出它们并不是近期内容。</li>
-          <li>分类、热度和趋势都基于旧站真实数据整理，避免把旧文误看成今天刚写的内容。</li>
-        </ul>
       </article>
     </section>
   </div>
