@@ -269,17 +269,120 @@ try {
 
 以下模型都已经经过本轮真实加载测试，`Live2DModel.from(...)` 成功。
 
-| 模型 | 入口格式 | 来源 | 实测状态 | 备注 |
-| --- | --- | --- | --- | --- |
-| Shizuku | `model.json + moc` | `pixi-live2d-display` 上游测试资源 | 通过 | Cubism 2.1，经典旧格式样例 |
-| Haru greeter | `model3.json + moc3` | `pixi-live2d-display` 上游测试资源 | 通过 | 与 README 示例体系高度一致 |
-| Hiyori | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 官方标准样例 |
-| Haru | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 官方标准样例 |
-| Mao | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 官方现代样例 |
-| Mark | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 结构简单，适合调试 |
-| Natori | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 即 Jin Natori 路线资源 |
-| Rice | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 官方进阶样例 |
-| Wanko | `model3.json + moc3` | `Live2D/CubismWebSamples` | 通过 | 动物系样例，也可直接挂载 |
+### 4.1 已实测通过模型总表
+
+说明：
+
+1. “资源类型”主要按实测尺寸比例和官方样例定位做归类，属于工程视角上的使用分类。
+2. “Manifest URL” 是直接传给 `Live2DModel.from(...)` 的入口。
+3. “资源根目录 URL” 用于你手工检查贴图、动作和相关文件结构。
+
+| 模型 | 资源类型 | Runtime | 入口格式 | Manifest URL | 资源根目录 URL | 来源 | 实测状态 | 风险提示 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Shizuku | 半身 / 桌宠感 | Cubism 2.1 | `model.json + moc` | `https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/shizuku/shizuku.model.json` | `https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/shizuku/` | `pixi-live2d-display` 上游测试资源 | 通过 | 旧格式样例，适合兼容验证，不建议当长期现代主角色 |
+| Haru greeter | 全身 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/haru/haru_greeter_t03.model3.json` | `https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/haru/` | `pixi-live2d-display` 上游测试资源 | 通过 | 与上游 README 体系一致，适合做挂件基准样本 |
+| Hiyori | 全身 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Hiyori/Hiyori.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Hiyori/` | `Live2D/CubismWebSamples` | 通过 | 官方标准样例 |
+| Haru | 全身 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Haru/Haru.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Haru/` | `Live2D/CubismWebSamples` | 通过 | 官方标准样例 |
+| Mao | 全身 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Mao/Mao.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Mao/` | `Live2D/CubismWebSamples` | 通过 | 官方现代样例，适合测试现代效果 |
+| Mark | 简化人形 / 半身 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Mark/Mark.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Mark/` | `Live2D/CubismWebSamples` | 通过 | 结构简单，适合最小挂件原型 |
+| Natori | 全身 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Natori/Natori.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Natori/` | `Live2D/CubismWebSamples` | 通过 | Jin Natori 路线样例，资源完整 |
+| Rice | 半身 / 横构图 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Rice/Rice.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Rice/` | `Live2D/CubismWebSamples` | 通过 | 构图更特别，适合测试非标准挂件布局 |
+| Wanko | 吉祥物 / 非人形 | Cubism 4 | `model3.json + moc3` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Wanko/Wanko.model3.json` | `https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Wanko/` | `Live2D/CubismWebSamples` | 通过 | 非人形角色，适合测试宠物式挂件 |
+
+### 4.2 最小 JS 加载方式
+
+#### Cubism 4 / `model3.json` 路线
+
+适用于：
+
+1. Haru greeter
+2. Hiyori
+3. Haru
+4. Mao
+5. Mark
+6. Natori
+7. Rice
+8. Wanko
+
+```html
+<canvas id="view" width="800" height="600"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism4.min.js"></script>
+<script>
+  window.PIXI = PIXI;
+
+  (async () => {
+    const app = new PIXI.Application({
+      view: document.getElementById("view"),
+      width: 800,
+      height: 600,
+      backgroundAlpha: 0,
+    });
+
+    const modelUrl =
+      "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Hiyori/Hiyori.model3.json";
+
+    const model = await PIXI.live2d.Live2DModel.from(modelUrl, {
+      autoUpdate: true,
+      motionPreload: PIXI.live2d.MotionPreloadStrategy.NONE,
+    });
+
+    model.anchor.set(0.5, 0.5);
+    model.scale.set(0.18);
+    model.x = app.screen.width * 0.5;
+    model.y = app.screen.height * 0.9;
+
+    app.stage.addChild(model);
+  })();
+</script>
+```
+
+#### Cubism 2.1 / `model.json` 路线
+
+适用于：
+
+1. Shizuku
+
+```html
+<canvas id="view" width="800" height="600"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism2.min.js"></script>
+<script>
+  window.PIXI = PIXI;
+
+  (async () => {
+    const app = new PIXI.Application({
+      view: document.getElementById("view"),
+      width: 800,
+      height: 600,
+      backgroundAlpha: 0,
+    });
+
+    const modelUrl =
+      "https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/shizuku/shizuku.model.json";
+
+    const model = await PIXI.live2d.Live2DModel.from(modelUrl, {
+      autoUpdate: true,
+    });
+
+    model.anchor.set(0.5, 0.5);
+    model.scale.set(0.2);
+    model.x = app.screen.width * 0.5;
+    model.y = app.screen.height * 0.9;
+
+    app.stage.addChild(model);
+  })();
+</script>
+```
+
+### 4.3 如果你后续要批量加新模型
+
+实践上只看这两个条件就够了：
+
+1. 能拿到 `model3.json` 或 `model.json` 的直接 URL。
+2. 这个 URL 打开后，里面的纹理、动作、物理等引用路径是完整的相对路径。
 
 ## 5. 已实测当前不能直接用或当前实测失败的条目
 
