@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T18:45:29.246Z",
+  "generatedAt": "2026-04-11T19:24:00.000Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 61
+    "reviewed": 73
   },
   "results": [
     {
@@ -5087,7 +5087,7 @@
       "status": "ok",
       "durationMs": 21021,
       "dependencyCount": 37,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_024_casual_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -5254,7 +5254,7 @@
       "status": "ok",
       "durationMs": 20248,
       "dependencyCount": 32,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_025_casual_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -5409,7 +5409,7 @@
       "status": "ok",
       "durationMs": 34067,
       "dependencyCount": 21,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Z23_z23_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -5544,7 +5544,7 @@
       "status": "ok",
       "durationMs": 17471,
       "dependencyCount": 20,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_lingbo_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -5675,7 +5675,7 @@
       "status": "ok",
       "durationMs": 19062,
       "dependencyCount": 22,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_lafei_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -5814,7 +5814,7 @@
       "status": "ok",
       "durationMs": 20864,
       "dependencyCount": 18,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_tierbici_2_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -5937,7 +5937,7 @@
       "status": "ok",
       "durationMs": 19858,
       "dependencyCount": 20,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_mingshi_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -6068,7 +6068,7 @@
       "status": "ok",
       "durationMs": 22551,
       "dependencyCount": 23,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_biaoqiang_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -6211,7 +6211,7 @@
       "status": "ok",
       "durationMs": 22769,
       "dependencyCount": 17,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_dujiaoshou_4_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 490.19999999999993,
@@ -6330,7 +6330,7 @@
       "status": "ok",
       "durationMs": 23348,
       "dependencyCount": 22,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_xuefeng_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -6581,6 +6581,132 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kanna/model.json",
+      "ip": "小林家的龙女仆",
+      "model": "Kanna",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 28757,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 275.78059071729956,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06440401988934799,
+          "coverageWidth": 0.4636363636363636,
+          "coverageHeight": 0.823076923076923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。Q 版康娜缩到右下角很像小摆件，头身比讨巧、画面干净；但没有动作组、命中区和表情，实测主要只有视线 / 躯干轻跟随，更适合低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kuroko/kuroko.model.json",
+      "ip": "魔法禁书目录 / 某科学的超电磁炮",
+      "model": "白井黑子 `kuroko`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 20449,
+      "dependencyCount": 13,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 586.95,
+        "height": 451.5,
+        "visibleBounds": {
+          "count": 228941,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 693,
+          "width": 440,
+          "height": 694
+        },
+        "targetDeskpetWidth": 216,
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 17
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.11789937145378067,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6253602305475504
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.0336331194499893,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5951008645533141
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.20104306349670875,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6268011527377522
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。虽然原表记成横构图，但实际是胸像位，放右下角并不显宽；`tap` 和 8 个表情变化明显，不过命中区为 0，需要工程侧手动绑定点击。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kurumi/model.json",
       "ip": "约会大作战",
       "model": "Kurumi",
@@ -6680,6 +6806,75 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/madoka/model.json",
+      "ip": "魔法少女小圆",
+      "model": "Madoka",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 200713,
+      "dependencyCount": 13,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 379.5096774193548,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 554,
+          "width": 440,
+          "height": 555
+        },
+        "targetDeskpetWidth": 270,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap_body",
+            "count": 7
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1141361439876742,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8810810810810811
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.007353456124378458,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6072072072072072
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06234242594019189,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8774774774774775
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。粉白魔法少女立绘裁到腰部以上后很干净，右下角约 `270x340` 摆位自然；`tap_body` 和 8 个表情够用，但命中区为 0，默认点击仍要工程侧接动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/platelet/model.json",
       "ip": "工作细胞",
       "model": "Platelet",
@@ -6745,6 +6940,311 @@
         }
       },
       "assessment": "人工复核：适合但偏安静。方图小体型天然适合桌角，帽子和蓝色工作服辨识度高；有 4 个表情和 `tap_body`，但动幅仍偏轻、命中区为 0，更适合作轻陪伴位而不是高互动角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/rem/model.json",
+      "ip": "Re:Zero",
+      "model": "Rem",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 22412,
+      "dependencyCount": 7,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 422.5862068965517,
+        "height": 490.2,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 578,
+          "width": 440,
+          "height": 579
+        },
+        "targetDeskpetWidth": 258,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 10
+          },
+          {
+            "name": "tap_body",
+            "count": 15
+          },
+          {
+            "name": "sleepy",
+            "count": 1
+          },
+          {
+            "name": "rest",
+            "count": 1
+          },
+          {
+            "name": "talk",
+            "count": 26
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1006679389312977,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9032815198618307
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.10531199663842006,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9032815198618307
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。女仆黑白裙和蓝发辨识度高，裁到腰部以上像成品看板位；`tap_body` / `flick_head` / `talk` 等动作组丰富，但命中区和表情都为 0，需要自行映射交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/sagiri/model.json",
+      "ip": "埃罗芒阿老师",
+      "model": "Sagiri",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 15508,
+      "dependencyCount": 6,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 275.78059071729956,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 2,
+        "texturePixels": 8388608,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08662196232229148,
+          "coverageWidth": 0.5477272727272727,
+          "coverageHeight": 0.948076923076923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.042474963232719376,
+          "coverageWidth": 0.5386363636363637,
+          "coverageHeight": 0.9461538461538461
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。粉色卫衣和画板让右下角辨识度不错，`tap` 会带出脸红和头肩变化；但动作组只有 `tap` + `idle`，命中区和表情为 0，更适合轻互动陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/saten/saten.model.json",
+      "ip": "魔法禁书目录 / 某科学的超电磁炮",
+      "model": "佐天泪子 `saten`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 19068,
+      "dependencyCount": 13,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 586.95,
+        "height": 451.5,
+        "visibleBounds": {
+          "count": 228941,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 693,
+          "width": 440,
+          "height": 694
+        },
+        "targetDeskpetWidth": 216,
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 9
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.09027216619128946,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6282420749279539
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.030619242512262983,
+          "coverageWidth": 1,
+          "coverageHeight": 0.622478386167147
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.1514407642143609,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6253602305475504
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。水手服胸像位很适合桌角，实际没有自动分级说的那么宽；`tap` 和 8 个表情都有明显变化，但命中区为 0，接入时需要自己绑点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/uiharu/uiharu.model.json",
+      "ip": "魔法禁书目录 / 某科学的超电磁炮",
+      "model": "初春饰利 `uiharu`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 43057,
+      "dependencyCount": 13,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 586.95,
+        "height": 451.5,
+        "visibleBounds": {
+          "count": 228941,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 693,
+          "width": 440,
+          "height": 694
+        },
+        "targetDeskpetWidth": 216,
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 7
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.10078142403501339,
+          "coverageWidth": 1,
+          "coverageHeight": 0.654178674351585
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.029894164872172307,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6354466858789626
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.15783979278504068,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6455331412103746
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。花环和制服在桌角辨识度高，肩胸裁切也自然；`tap` 和 8 个表情可用，但动幅比 `kuroko`、`saten` 更轻，命中区为 0，更适合作安静陪伴位。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -6838,6 +7338,369 @@
         }
       },
       "assessment": "人工复核：强适合。Q 版半身桌角感很强，缩到右下角几乎就是成品小挂件；`tap_head` / `tap_body` / `random` 等 7 组动作都能用，命中区 2 个，适合优先接入。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/yukari_model/yukari_model.model.json",
+      "ip": "Vocal synth / 结月缘",
+      "model": "结月缘 `yukari_model`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 小挂件",
+      "status": "ok",
+      "durationMs": 11251,
+      "dependencyCount": 2,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 355.153125,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 540,
+          "width": 440,
+          "height": 541
+        },
+        "targetDeskpetWidth": 277,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.060254569647734436,
+          "coverageWidth": 1,
+          "coverageHeight": 0.634011090573013
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。半身小挂件构图天然贴桌角，紫发和黑外套都很干净；但完全没有动作组、命中区和表情，实测主要是视线 / 躯干轻跟随，只适合低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/aoba/model.json",
+      "ip": "NEW GAME!",
+      "model": "Aoba",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 17125,
+      "dependencyCount": 12,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 525.4525862068965,
+        "height": 451.5,
+        "visibleBounds": {
+          "count": 228940,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 620,
+          "width": 440,
+          "height": 621
+        },
+        "targetDeskpetWidth": 241,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "tap_head",
+            "count": 18
+          },
+          {
+            "name": "tap_body",
+            "count": 15
+          },
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "new_msg",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0833056696077575,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6119162640901772
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.0784965493142308,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6086956521739131
+        }
+      },
+      "assessment": "人工复核：适合。虽然资源类型写成横构图，但主体集中，右下角裁腰后并不显宽；`tap_head` / `tap_body` 动作丰富且命中区有 2 个，是这批里交互完成度最高的一档，只是没有表情配置。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/index/index.model.json",
+      "ip": "魔法禁书目录 / 某科学的超电磁炮",
+      "model": "茵蒂克丝 `index`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 158235,
+      "dependencyCount": 13,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 586.95,
+        "height": 451.5,
+        "visibleBounds": {
+          "count": 228941,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 693,
+          "width": 440,
+          "height": 694
+        },
+        "targetDeskpetWidth": 216,
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 7
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.11278888447241865,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6282420749279539
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.03907120175066939,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6210374639769453
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.12629017956591437,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6253602305475504
+        }
+      },
+      "assessment": "人工复核：可用但不优先。修女头纱和袖摆横向外扩明显，右下角容易贴边；`tap` 和 8 个表情都能用，但命中区为 0，需要自行绑定交互，不建议优先当主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kanzaki/kanzaki.model.json",
+      "ip": "魔法禁书目录 / 某科学的超电磁炮",
+      "model": "神裂火织 `kanzaki`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 288537,
+      "dependencyCount": 14,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 586.95,
+        "height": 451.5,
+        "visibleBounds": {
+          "count": 230280,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 693,
+          "width": 440,
+          "height": 694
+        },
+        "targetDeskpetWidth": 216,
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 7
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.20857651554629147,
+          "coverageWidth": 1,
+          "coverageHeight": 0.659942363112392
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.07267674135834636,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6498559077809798
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.21454316484280006,
+          "coverageWidth": 1,
+          "coverageHeight": 0.654178674351585
+        }
+      },
+      "assessment": "人工复核：可用但需预留边距。长发和飘带反馈明显，`tap` 与 8 个表情都有变化；但发丝横向占位大、容易顶边，命中区为 0，接入时要留边距并手动绑定点击。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/nico/nico.model.json",
+      "ip": "Love Live!",
+      "model": "矢泽妮可 `nico`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 17026,
+      "dependencyCount": 8,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 443.09817391304347,
+        "height": 490.2,
+        "visibleBounds": {
+          "count": 228836,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 591,
+          "width": 440,
+          "height": 592
+        },
+        "targetDeskpetWidth": 253,
+        "textureCount": 3,
+        "texturePixels": 12582912,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "",
+            "count": 20
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.15317082976454754,
+          "coverageWidth": 1,
+          "coverageHeight": 0.643581081081081
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.13327448478386267,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6402027027027027
+        }
+      },
+      "assessment": "人工复核：可用但不优先。Q 版狐耳吉祥物非常轻，放右下角像小摆件；但动作组实际只有 `idle` 和一组未命名动作，没有命中区和表情，更像装饰挂件，不建议当主互动角色。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
