@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T23:14:36.649Z",
+  "generatedAt": "2026-04-11T23:24:59.109Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 133
+    "reviewed": 143
   },
   "results": [
     {
@@ -36747,6 +36747,636 @@
         }
       },
       "assessment": "人工复核：适合但偏安静。方图小桌宠构图很干净，但角色整体偏小，静态更像桌角摆件；只有 `tap_body` 1 组动作和 4 个表情，命中区为 `0`，适合作低干扰陪伴位，不建议当主互动角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Alice/object_live2d_014_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "爱丽丝 `Alice`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 12613,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Alice_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 310289,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1573694201212418,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7280966767371602
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。金发胸像裁到右下角后观感正常，但右侧小人偶会一起缩进桌角，纯净度略低于灵梦和辉夜；默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Aya/object_live2d_032_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "射命丸文 `Aya`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14792,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Aya_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 326387,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.17572697441993707,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7522658610271903
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。记者帽和两侧绒球线在桌角摆位下仍能完整落框，胸像辨识度高；但默认仍只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，不适合作强交互主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Cirno/object_live2d_005_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "琪露诺 `Cirno`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14478,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Cirno_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 304646,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1297571607702054,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7270896273917422
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。蓝发胸像很干净，冰晶翅膀缩小后也没有变成脏背景，右下角辨识度不错；不过默认只有轻微跟随，命中区、表情和触发动作都为 `0`，更适合作小陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Flandre/object_live2d_011_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "芙兰朵露 `Flandre`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 16834,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Flandre_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 323875,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.2237715167888846,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7079556898288016
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。帽子和两侧翼骨 / 水晶会占到左右边缘，但整体仍是干净人物位，不像大场景立绘；默认交互依旧只有轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Kaguya/object_live2d_030_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "蓬莱山辉夜 `Kaguya`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14427,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Kaguya_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 359691,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1692424886916826,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7351460221550856
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。长直发胸像裁到右下角后非常干净，是这批里最像安静陪伴位的一条；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，不建议承担主互动角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Koishi/object_live2d_054_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "古明地恋 `Koishi`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 15277,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Koishi_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 322042,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1898230665565361,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7532729103726082
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。帽檐和心形连线会向左右外扩，但主体仍然清楚，没有大面积脏背景；默认交互仍只有轻跟随，命中区、表情和触发动作都为 `0`，需要把它当安静陪伴位看待。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Marisa/object_live2d_002_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "雾雨魔理沙 `Marisa`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 16271,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Marisa_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 309127,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.2082639174190543,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8257804632426989
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但不优先。魔女帽横向占位明显，缩到右下角后更像带大帽檐的看板胸像，需要额外留边；同时默认只有轻微跟随，命中区、表情和触发动作都为 `0`，不建议优先当主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Mokou/object_live2d_031_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "藤原妹红 `Mokou`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 16811,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Mokou_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 358530,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 993,
+          "width": 440,
+          "height": 994
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.21838897721250664,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7736418511066399
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。白发和红纹蝴蝶结在桌角辨识度高，胸像裁切后比全身预期更自然；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Nitori/object_live2d_040_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "河城荷取 `Nitori`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 15571,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Nitori_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 319613,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.13955314708725866,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7150050352467271
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。河童帽和蓝绿配色缩到右下角后很清爽，主体集中，是这批里较干净的一条；不过默认仍只有轻跟随，命中区、表情和触发动作都为 `0`，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Patchouli/object_live2d_008_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "帕秋莉 `Patchouli`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 18488,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Patchouli_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 348144,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.24843742819063377,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7502517623363545
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。粉帽和紫发胸像在桌角观感稳定，主体干净，没有明显出框压力；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，不建议当高互动主角色。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
