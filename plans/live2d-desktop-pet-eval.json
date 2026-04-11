@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T18:08:17.000Z",
+  "generatedAt": "2026-04-11T18:45:29.246Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 50
+    "reviewed": 61
   },
   "results": [
     {
@@ -6457,6 +6457,865 @@
         }
       },
       "assessment": "人工复核：适合但需自己绑定交互。猫耳和蓝白袖饰缩到桌角后很像成品挂件，`touch_body` 会切出招手 / 猫爪姿态，是这批里最有桌宠感的一条；但命中区、表情都为 0，仍需工程侧手动绑定点击 / 闲置动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/miku/miku.model.json",
+      "ip": "Vocaloid / Miku",
+      "model": "初音未来 `miku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 轻量挂件",
+      "status": "ok",
+      "durationMs": 11341,
+      "dependencyCount": 5,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 309.6,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "null",
+            "count": 7
+          },
+          {
+            "name": "idle",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.18212935079487358,
+          "coverageWidth": 0.48863636363636365,
+          "coverageHeight": 0.7711538461538462
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "null",
+          "touchLike": false,
+          "changedRatio": 0.13127670004902303,
+          "coverageWidth": 0.5022727272727273,
+          "coverageHeight": 0.7653846153846153
+        }
+      },
+      "assessment": "人工复核：可用但不优先。画面干净、经典 Miku 辨识度高，但缩到右下角后仍更像细高全身挂件；动作组只有 `null` / `idle`，命中区和表情都为 0，适合作安静陪伴位，不建议当主互动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/chino/model.json",
+      "ip": "请问您今天要来点兔子吗？",
+      "model": "Chino",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 小挂件",
+      "status": "ok",
+      "durationMs": 28319,
+      "dependencyCount": 2,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 309.0753812636166,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1250962952587716,
+          "coverageWidth": 0.44545454545454544,
+          "coverageHeight": 0.7423076923076923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。半身小体型放右下角很干净，头肩跟随自然；但没有动作组、命中区和表情，基本只有视线 / 躯干轻跟随，更适合低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/kurumi/model.json",
+      "ip": "约会大作战",
+      "model": "Kurumi",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 桌宠感",
+      "status": "ok",
+      "durationMs": 111279,
+      "dependencyCount": 12,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228918,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 3,
+        "texturePixels": 2359296,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "body",
+          "tui"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "id4_5",
+            "count": 1
+          },
+          {
+            "name": "id4_4",
+            "count": 1
+          },
+          {
+            "name": "id4_2",
+            "count": 1
+          },
+          {
+            "name": "id4_1",
+            "count": 1
+          },
+          {
+            "name": "id4",
+            "count": 1
+          },
+          {
+            "name": "id4_3",
+            "count": 1
+          },
+          {
+            "name": "id4_6",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.14997946863068873,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7073170731707317
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "id4_5",
+          "touchLike": false,
+          "changedRatio": 0.17544710332957653,
+          "coverageWidth": 1,
+          "coverageHeight": 0.705574912891986
+        }
+      },
+      "assessment": "人工复核：强适合。方图裁到右下角后像成品角色桌宠，黑红裙摆和长发依然完整；3 个命中区、7 组动作里 `id4_5` 的闭眼抱臂反馈明显，虽无表情配置，仍是这轮最适合直接做主桌宠的一档。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/platelet/model.json",
+      "ip": "工作细胞",
+      "model": "Platelet",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 桌宠感",
+      "status": "ok",
+      "durationMs": 82255,
+      "dependencyCount": 8,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 4,
+        "motionGroups": [
+          {
+            "name": "tap_body",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.028201379648434763,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4651567944250871
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.009791476994187268,
+          "coverageWidth": 1,
+          "coverageHeight": 0.3885017421602787
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.019644232789411024,
+          "coverageWidth": 1,
+          "coverageHeight": 0.46689895470383275
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。方图小体型天然适合桌角，帽子和蓝色工作服辨识度高；有 4 个表情和 `tap_body`，但动幅仍偏轻、命中区为 0，更适合作轻陪伴位而不是高互动角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/umaru/model.json",
+      "ip": "干物妹！小埋",
+      "model": "Umaru",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 小挂件",
+      "status": "ok",
+      "durationMs": 164341,
+      "dependencyCount": 14,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 311.62517448648646,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "start",
+            "count": 12
+          },
+          {
+            "name": "tap_head",
+            "count": 15
+          },
+          {
+            "name": "tap_body",
+            "count": 10
+          },
+          {
+            "name": "shake",
+            "count": 6
+          },
+          {
+            "name": "random",
+            "count": 15
+          },
+          {
+            "name": "new_msg",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0835755304993347,
+          "coverageWidth": 0.5863636363636363,
+          "coverageHeight": 0.6307692307692307
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.08635496183206107,
+          "coverageWidth": 0.5795454545454546,
+          "coverageHeight": 0.6384615384615384
+        }
+      },
+      "assessment": "人工复核：强适合。Q 版半身桌角感很强，缩到右下角几乎就是成品小挂件；`tap_head` / `tap_body` / `random` 等 7 组动作都能用，命中区 2 个，适合优先接入。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Bili-bili/22_high/model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22_high`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "细高半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 74132,
+      "dependencyCount": 2,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 160.53333333333333,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.030796974578051684,
+          "coverageWidth": 0.21363636363636362,
+          "coverageHeight": 0.7903846153846154
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但不优先。画面干净、角色本体清楚，但细高全身缩到右下角后太瘦，更像竖向看板而不是桌宠；无动作组、命中区和表情，只有轻微跟随，不建议优先使用。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Bili-bili/33_high/model.json",
+      "ip": "哔哩哔哩",
+      "model": "33 娘 `33_high`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "细高半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 63648,
+      "dependencyCount": 2,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 160.53333333333333,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.02389873240422999,
+          "coverageWidth": 0.19545454545454546,
+          "coverageHeight": 0.7519230769230769
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但不优先。浅色角色线条清楚，右下角摆位能放下；但和 `22_high` 一样偏细高静态看板，没有动作组、命中区和表情，只建议作为低优先级装饰挂件。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/fghrsh/live2d_api/master/model/Potion-Maker/Pio/index.json",
+      "ip": "Potion Maker",
+      "model": "Pio",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量小挂件 / 炼金 mascot",
+      "status": "ok",
+      "durationMs": 65103,
+      "dependencyCount": 6,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 478.60869565217394,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 230526,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 611,
+          "width": 440,
+          "height": 612
+        },
+        "targetDeskpetWidth": 244,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 6
+          },
+          {
+            "name": "sleepy",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 6
+          },
+          {
+            "name": "tap_body",
+            "count": 9
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.18184933586667013,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7777777777777778
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.1751038928363829,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7745098039215687
+        }
+      },
+      "assessment": "人工复核：适合但需预留边距。半身炼金少女构图很像桌角看板，`tap_body`、`flick_head` 都有明显反馈；但大帽檐和小翅膀横向外扩，接入时别裁太窄，且命中区 / 表情仍为 0。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/fghrsh/live2d_api/master/model/Potion-Maker/Tia/index.json",
+      "ip": "Potion Maker",
+      "model": "Tia",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 炼金 mascot",
+      "status": "ok",
+      "durationMs": 14856,
+      "dependencyCount": 6,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 490.19999999999993,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 231353,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 619,
+          "width": 440,
+          "height": 620
+        },
+        "targetDeskpetWidth": 241,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 7
+          },
+          {
+            "name": "sleepy",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 6
+          },
+          {
+            "name": "tap_body",
+            "count": 9
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1824441437975734,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8112903225806452
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.1382432905559902,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8080645161290323
+        }
+      },
+      "assessment": "人工复核：适合但需预留边距。脸部表情和 `tap_body` 反馈比 Pio 更醒目，右下角观感很稳；但帽子和翅膀仍会占左右边缘，没有命中区和表情配置，需工程侧自行绑定交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/fghrsh/live2d_api/master/model/ShizukuTalk/shizuku-48/index.json",
+      "ip": "Shizuku Talk",
+      "model": "Shizuku `shizuku-48`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 对话挂件",
+      "status": "ok",
+      "durationMs": 19728,
+      "dependencyCount": 18,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 344.59826086956525,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228823,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 532,
+          "width": 440,
+          "height": 533
+        },
+        "targetDeskpetWidth": 281,
+        "textureCount": 8,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 4,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 30
+          },
+          {
+            "name": "flick_head",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08982488648431321,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6679174484052532
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.06760247003142167,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6566604127579737
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06416313045454347,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6585365853658537
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。坐桌半身构图天然就是桌宠位，闭眼和低头反馈明显，4 个表情可用；但命中区为 0，需把 `tap_body` / `flick_head` 手动映射到点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/fghrsh/live2d_api/master/model/ShizukuTalk/shizuku-pajama/index.json",
+      "ip": "Shizuku Talk",
+      "model": "Shizuku `shizuku-pajama`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 对话挂件",
+      "status": "ok",
+      "durationMs": 18350,
+      "dependencyCount": 19,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 344.59826086956525,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228823,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 532,
+          "width": 440,
+          "height": 533
+        },
+        "targetDeskpetWidth": 281,
+        "textureCount": 9,
+        "texturePixels": 2359296,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 4,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 30
+          },
+          {
+            "name": "flick_head",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08054260279779568,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6641651031894934
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.0231314159852812,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5084427767354597
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06813126302862911,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6566604127579737
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。睡衣版半身坐姿很干净，右下角像成品对话挂件；`tap_body` 和 4 个表情都有可见变化，但同样无命中区，建议工程侧显式绑定点击 / 闲置动作。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     }
