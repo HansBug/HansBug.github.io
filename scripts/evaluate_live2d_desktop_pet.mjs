@@ -198,6 +198,30 @@ function parseSuccessRows(summaryText) {
   };
 }
 
+function parseSizeMetadata(text) {
+  if (!text || text === "未记录") {
+    return null;
+  }
+
+  const match = String(text).match(/([0-9.]+)\s*x\s*([0-9.]+)/i);
+  if (!match) {
+    return null;
+  }
+
+  const width = Number(match[1]);
+  const height = Number(match[2]);
+  if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
+    return null;
+  }
+
+  return {
+    width,
+    height,
+    ratio: width / height,
+    label: `${width} x ${height}`,
+  };
+}
+
 async function loadExistingResults(outputPath) {
   try {
     const raw = await fs.readFile(outputPath, "utf8");
@@ -429,7 +453,7 @@ function localModelUrl(filePath) {
   return `/__fs__${encodeURI(path.resolve(filePath))}`;
 }
 
-function pageHtml(runtime, modelUrl, resourceType, titleText) {
+function pageHtml(runtime, modelUrl, resourceType, titleText, sizeLabel, sizeRatio) {
   const cubism2Scripts = `
     <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display/dist/cubism2.min.js"></script>
@@ -560,6 +584,9 @@ ${runtime === "Cubism 2.1" ? cubism2Scripts : cubism4Scripts}
 window.__result = undefined;
 window.__reportReady = false;
 const RESOURCE_TYPE = ${JSON.stringify(resourceType)};
+const RESOURCE_SIZE = ${JSON.stringify(
+    sizeLabel && Number.isFinite(sizeRatio) && sizeRatio > 0 ? { label: sizeLabel, ratio: sizeRatio } : null,
+  )};
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -605,39 +632,82 @@ function getExtractor(app) {
   return app.renderer.plugins?.extract || app.renderer.extract;
 }
 
+function fitAspectBox(box, ratio) {
+  const safeRatio = Number.isFinite(ratio) && ratio > 0 ? ratio : box.width / box.height;
+  let width = box.width;
+  let height = width / safeRatio;
+  if (height > box.height) {
+    height = box.height;
+    width = height * safeRatio;
+  }
+
+  return {
+    x: box.x + (box.width - width) / 2,
+    y: box.y + (box.height - height) / 2,
+    width,
+    height,
+  };
+}
+
+function defaultResourceRatio() {
+  if (/横构图|超宽/.test(RESOURCE_TYPE)) return 1.28;
+  if (/半身|小挂件|桌宠|精灵|吉祥物/.test(RESOURCE_TYPE)) return 0.82;
+  if (/全身/.test(RESOURCE_TYPE)) return 0.62;
+  return 0.78;
+}
+
 function buildBackdrop() {
+  const profile = deskpetLayoutProfile();
+  const slot = profile.slot;
   const graphics = new PIXI.Graphics();
   graphics.beginFill(0xf6f4ed, 1);
   graphics.drawRoundedRect(0, 0, 440, 520, 24);
   graphics.endFill();
 
   graphics.lineStyle(2, 0xb8b9af, 0.9);
-  graphics.drawRoundedRect(52, 34, 344, 430, 20);
+  graphics.drawRoundedRect(slot.x, slot.y, slot.width, slot.height, 20);
 
   graphics.lineStyle(1.5, 0xc8c6b8, 0.6);
-  graphics.moveTo(52, 410);
-  graphics.lineTo(396, 410);
-  graphics.moveTo(312, 34);
-  graphics.lineTo(312, 464);
+  graphics.moveTo(slot.x, slot.y + slot.height * 0.88);
+  graphics.lineTo(slot.x + slot.width, slot.y + slot.height * 0.88);
+  graphics.moveTo(slot.x + slot.width * 0.75, slot.y);
+  graphics.lineTo(slot.x + slot.width * 0.75, slot.y + slot.height);
 
   return graphics;
+}
+
+function deskpetLayoutProfile() {
+  const halfLike = /半身|小挂件|桌宠|精灵|吉祥物/.test(RESOURCE_TYPE);
+  const fullBody = /全身/.test(RESOURCE_TYPE);
+  const wide = /横构图|超宽/.test(RESOURCE_TYPE);
+  const maxSlot = { x: 52, y: 34, width: 344, height: 430 };
+  const sourceRatio = RESOURCE_SIZE?.ratio || defaultResourceRatio();
+  const slot = fitAspectBox(maxSlot, sourceRatio);
+
+  return {
+    sourceSize: RESOURCE_SIZE,
+    sourceRatio,
+    halfLike,
+    fullBody,
+    wide,
+    slot,
+  };
 }
 
 function layoutDeskpet(model, app) {
   const bounds = model.getLocalBounds();
   const width = Math.max(bounds.width, 1);
   const height = Math.max(bounds.height, 1);
-  const halfLike = /半身|小挂件|桌宠|精灵|吉祥物/.test(RESOURCE_TYPE);
-  const fullBody = /全身/.test(RESOURCE_TYPE);
-  const wide = /横构图|超宽/.test(RESOURCE_TYPE);
-
-  const slot = { x: 52, y: 34, width: 344, height: 430 };
-  const targetHeight = slot.height * (fullBody ? 1.42 : halfLike ? 0.96 : wide ? 1.05 : 1.14);
+  const profile = deskpetLayoutProfile();
+  const targetHeight = profile.slot.height * (profile.fullBody ? 1.95 : profile.halfLike ? 0.96 : profile.wide ? 1.05 : 1.14);
   const scale = targetHeight / height;
-  const overflow = slot.height * (fullBody ? 0.18 : halfLike ? 0.04 : 0.10);
+  const overflow = profile.slot.height * (profile.fullBody ? 1.02 : profile.halfLike ? 0.04 : 0.10);
 
   model.pivot.set(bounds.x + width / 2, bounds.y + height);
-  model.position.set(slot.x + slot.width * (wide ? 0.48 : 0.66), slot.y + slot.height + overflow);
+  model.position.set(
+    profile.slot.x + profile.slot.width * (profile.fullBody ? 0.56 : profile.wide ? 0.48 : 0.66),
+    profile.slot.y + profile.slot.height + overflow,
+  );
   model.scale.set(scale);
 }
 
@@ -928,8 +998,12 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
     document.getElementById("shot-neutral").src = neutralShot;
     document.getElementById("shot-focus").src = focusShot;
     document.getElementById("shot-motion").src = motionShot;
+    const profile = deskpetLayoutProfile();
+
     document.getElementById("stats").textContent =
-      "命中区 " + hitAreas.length +
+      "资源比例 " + (profile.sourceSize?.label || "未记录") +
+      "\\n预览框 " + Math.round(profile.slot.width) + " x " + Math.round(profile.slot.height) +
+      "\\n命中区 " + hitAreas.length +
       " 个\\n表情 " + expressions.length +
       " 个\\n动作组 " + motionEntries.length +
       " 组\\n触发动作 " + (motionProbe.group || "无") +
@@ -943,6 +1017,11 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
       height: model.height,
       visibleBounds: baseline.bounds,
       targetDeskpetWidth,
+      previewFrame: {
+        width: Math.round(profile.slot.width),
+        height: Math.round(profile.slot.height),
+        ratio: profile.sourceRatio,
+      },
       textureCount: textures.length,
       texturePixels,
       textures,
@@ -979,6 +1058,8 @@ async function startServer() {
           url.searchParams.get("model"),
           url.searchParams.get("resourceType") || "",
           url.searchParams.get("title") || "Live2D Review",
+          url.searchParams.get("sizeLabel") || "",
+          Number(url.searchParams.get("sizeRatio")),
         ),
       );
       return;
@@ -1041,8 +1122,8 @@ function buildAssessment(row, item) {
     !focusBody &&
     !motionBody;
   const wide =
-    /横构图|超宽/.test(row.resourceType) ||
-    (Number.isFinite(result.targetDeskpetWidth) && result.targetDeskpetWidth >= 410);
+    /超宽/.test(row.resourceType) ||
+    (Number.isFinite(result.targetDeskpetWidth) && result.targetDeskpetWidth >= 320);
   const halfLike = /半身|小挂件|桌宠|精灵|吉祥物/.test(row.resourceType);
   const fullBody = /全身/.test(row.resourceType);
   const heavy =
@@ -1104,15 +1185,12 @@ async function writeOutput(outputPath, rows, resultsMap) {
     .map((row) => resultsMap.get(row.manifestUrl))
     .filter(Boolean);
 
-  const stats = {
-    total: ordered.length,
-    ok: ordered.filter((item) => item.status === "ok" && item.result?.ok).length,
-    failed: ordered.filter((item) => item.status !== "ok" || !item.result?.ok).length,
-  };
-
   const payload = {
     generatedAt: new Date().toISOString(),
-    stats,
+    note: "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
+    stats: {
+      reviewed: ordered.length,
+    },
     results: ordered,
   };
 
@@ -1199,9 +1277,10 @@ async function evaluateRow({ row, page, baseUrl, runTempRoot, timeout, reviewDir
   try {
     const mirrored = await mirrorRemoteManifest(row, perModelRoot);
     const localUrl = `${baseUrl}${localModelUrl(mirrored.manifestPath)}`;
+    const sizeMeta = parseSizeMetadata(row.sizeText);
 
     await page.goto(
-      `${baseUrl}/test.html?runtime=${encodeURIComponent(row.runtime)}&model=${encodeURIComponent(localUrl)}&resourceType=${encodeURIComponent(row.resourceType)}&title=${encodeURIComponent(`${row.ip} / ${row.model}`)}`,
+      `${baseUrl}/test.html?runtime=${encodeURIComponent(row.runtime)}&model=${encodeURIComponent(localUrl)}&resourceType=${encodeURIComponent(row.resourceType)}&title=${encodeURIComponent(`${row.ip} / ${row.model}`)}&sizeLabel=${encodeURIComponent(sizeMeta?.label || "")}&sizeRatio=${encodeURIComponent(sizeMeta?.ratio || "")}`,
       { waitUntil: "networkidle2", timeout },
     );
     await page.waitForFunction("window.__result !== undefined", { timeout });

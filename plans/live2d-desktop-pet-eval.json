@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T19:24:00.000Z",
+  "generatedAt": "2026-04-11T20:08:16.484Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
     "reviewed": 73
@@ -12,23 +12,28 @@
       "runtime": "Cubism 4",
       "resourceType": "全身",
       "status": "ok",
-      "durationMs": 60116,
+      "durationMs": 31614,
       "dependencyCount": 17,
       "reviewImagePath": null,
       "result": {
         "ok": true,
-        "width": 325.6533333333333,
-        "height": 610.6,
+        "width": 447.2,
+        "height": 838.5,
         "visibleBounds": {
-          "count": 230978,
+          "count": 255093,
           "minX": 0,
-          "minY": 31,
+          "minY": 0,
           "maxX": 439,
-          "maxY": 592,
+          "maxY": 895,
           "width": 440,
-          "height": 562
+          "height": 896
         },
-        "targetDeskpetWidth": 266,
+        "targetDeskpetWidth": 167,
+        "previewFrame": {
+          "width": 267,
+          "height": 430,
+          "ratio": 0.62
+        },
         "textureCount": 2,
         "texturePixels": 8388608,
         "textures": [
@@ -61,24 +66,24 @@
         ],
         "focusProbe": {
           "supported": true,
-          "changedRatio": 0.06528327373169739,
+          "changedRatio": 0.1104342337892455,
           "coverageWidth": 1,
-          "coverageHeight": 0.9697508896797153
+          "coverageHeight": 0.8738839285714286
         },
         "expressionProbe": {
           "supported": true,
           "chosen": 0,
-          "changedRatio": 0.011325753967910364,
+          "changedRatio": 0.01775822935164822,
           "coverageWidth": 1,
-          "coverageHeight": 0.9590747330960854
+          "coverageHeight": 0.8716517857142857
         },
         "motionProbe": {
           "supported": true,
           "group": "Tap",
           "touchLike": true,
-          "changedRatio": 0.08169609226852774,
+          "changedRatio": 0.13367673750357711,
           "coverageWidth": 1,
-          "coverageHeight": 0.9679715302491103
+          "coverageHeight": 0.8716517857142857
         }
       },
       "assessment": "人工复核：适合，建议裁腰。浏览器按 340px 高右下角摆位后比例正常；`Tap` 有全身 / 手部礼仪动作，表情 8 个，交互感强；全身模型但裁到腰部以上可当看板娘。",
@@ -724,23 +729,28 @@
       "runtime": "Cubism 4",
       "resourceType": "半身 / 桌宠风",
       "status": "ok",
-      "durationMs": 196466,
+      "durationMs": 155518,
       "dependencyCount": 7,
       "reviewImagePath": null,
       "result": {
         "ok": true,
-        "width": 481.80619380619385,
-        "height": 412.80000000000007,
+        "width": 330.23999999999995,
+        "height": 282.9417175463623,
         "visibleBounds": {
           "count": 228464,
           "minX": 0,
           "minY": 0,
           "maxX": 439,
-          "maxY": 614,
+          "maxY": 524,
           "width": 440,
-          "height": 615
+          "height": 525
         },
-        "targetDeskpetWidth": 243,
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 295,
+          "ratio": 1.167166167166167
+        },
         "textureCount": 1,
         "texturePixels": 16777216,
         "textures": [
@@ -777,9 +787,9 @@
         ],
         "focusProbe": {
           "supported": true,
-          "changedRatio": 0.08915190139365502,
+          "changedRatio": 0.04046589397016598,
           "coverageWidth": 1,
-          "coverageHeight": 0.5024390243902439
+          "coverageHeight": 0.34285714285714286
         },
         "expressionProbe": {
           "supported": false
@@ -788,9 +798,9 @@
           "supported": true,
           "group": "Taphead",
           "touchLike": true,
-          "changedRatio": 0.1295652706772183,
+          "changedRatio": 0.06041652076475944,
           "coverageWidth": 1,
-          "coverageHeight": 0.5252032520325203
+          "coverageHeight": 0.36
         }
       },
       "assessment": "人工复核：适合。半身 / 桌宠风明显，右下角比例舒服；`Taphead` 有头肩动作和睡 / 唱等动效线索，但命中区 1 个、无表情，属于轻互动桌宠。",
@@ -6640,23 +6650,28 @@
       "runtime": "Cubism 2.1",
       "resourceType": "横构图 / 角色立绘",
       "status": "ok",
-      "durationMs": 20449,
+      "durationMs": 118742,
       "dependencyCount": 13,
       "reviewImagePath": null,
       "result": {
         "ok": true,
-        "width": 586.95,
-        "height": 451.5,
+        "width": 361.19999999999993,
+        "height": 277.8461538461538,
         "visibleBounds": {
-          "count": 228941,
+          "count": 228464,
           "minX": 0,
           "minY": 0,
           "maxX": 439,
-          "maxY": 693,
+          "maxY": 519,
           "width": 440,
-          "height": 694
+          "height": 520
         },
-        "targetDeskpetWidth": 216,
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 265,
+          "ratio": 1.3
+        },
         "textureCount": 2,
         "texturePixels": 2097152,
         "textures": [
@@ -6682,27 +6697,27 @@
         ],
         "focusProbe": {
           "supported": true,
-          "changedRatio": 0.11789937145378067,
-          "coverageWidth": 1,
-          "coverageHeight": 0.6253602305475504
+          "changedRatio": 0.05352265564815463,
+          "coverageWidth": 0.39545454545454545,
+          "coverageHeight": 0.5865384615384616
         },
         "expressionProbe": {
           "supported": true,
           "chosen": 0,
-          "changedRatio": 0.0336331194499893,
-          "coverageWidth": 1,
-          "coverageHeight": 0.5951008645533141
+          "changedRatio": 0.01094702009944674,
+          "coverageWidth": 0.39090909090909093,
+          "coverageHeight": 0.225
         },
         "motionProbe": {
           "supported": true,
           "group": "tap",
           "touchLike": true,
-          "changedRatio": 0.20104306349670875,
-          "coverageWidth": 1,
-          "coverageHeight": 0.6268011527377522
+          "changedRatio": 0.08489302472161916,
+          "coverageWidth": 0.40454545454545454,
+          "coverageHeight": 0.5865384615384616
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。虽然原表记成横构图，但实际是胸像位，放右下角并不显宽；`tap` 和 8 个表情变化明显，不过命中区为 0，需要工程侧手动绑定点击。",
+      "assessment": "人工复核：适合但需自己绑定交互。按保留原始 `1300 x 1000` 比例的横向预览框重新复核后，头肩与双马尾比例自然、胸像视角稳定，没有再出现被压窄或拉高的感觉；`tap` 和 8 个表情变化明显，不过命中区为 0，需要工程侧手动绑定点击。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -7171,7 +7186,7 @@
           "coverageHeight": 0.6253602305475504
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。水手服胸像位很适合桌角，实际没有自动分级说的那么宽；`tap` 和 8 个表情都有明显变化，但命中区为 0，接入时需要自己绑点击 / 悬停。",
+      "assessment": "人工复核：适合但需自己绑定交互。按保留原始 `1300 x 1000` 比例的横向预览框重新复核后，水手服胸像位依旧很适合桌角，头肩比例和站姿都自然，视觉上不再像被竖向硬塞进桌宠框；`tap` 和 8 个表情都有明显变化，但命中区为 0，接入时需要自己绑点击 / 悬停。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -7182,23 +7197,28 @@
       "runtime": "Cubism 2.1",
       "resourceType": "横构图 / 角色立绘",
       "status": "ok",
-      "durationMs": 43057,
+      "durationMs": 126702,
       "dependencyCount": 13,
       "reviewImagePath": null,
       "result": {
         "ok": true,
-        "width": 586.95,
-        "height": 451.5,
+        "width": 361.19999999999993,
+        "height": 277.8461538461538,
         "visibleBounds": {
-          "count": 228941,
+          "count": 228464,
           "minX": 0,
           "minY": 0,
           "maxX": 439,
-          "maxY": 693,
+          "maxY": 519,
           "width": 440,
-          "height": 694
+          "height": 520
         },
-        "targetDeskpetWidth": 216,
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 265,
+          "ratio": 1.3
+        },
         "textureCount": 2,
         "texturePixels": 2097152,
         "textures": [
@@ -7224,27 +7244,27 @@
         ],
         "focusProbe": {
           "supported": true,
-          "changedRatio": 0.10078142403501339,
-          "coverageWidth": 1,
-          "coverageHeight": 0.654178674351585
+          "changedRatio": 0.04799005532600322,
+          "coverageWidth": 0.375,
+          "coverageHeight": 0.6019230769230769
         },
         "expressionProbe": {
           "supported": true,
           "chosen": 0,
-          "changedRatio": 0.029894164872172307,
-          "coverageWidth": 1,
-          "coverageHeight": 0.6354466858789626
+          "changedRatio": 0.009069262553400098,
+          "coverageWidth": 0.325,
+          "coverageHeight": 0.5057692307692307
         },
         "motionProbe": {
           "supported": true,
           "group": "tap",
           "touchLike": true,
-          "changedRatio": 0.15783979278504068,
-          "coverageWidth": 1,
-          "coverageHeight": 0.6455331412103746
+          "changedRatio": 0.08408764619371105,
+          "coverageWidth": 0.37272727272727274,
+          "coverageHeight": 0.5980769230769231
         }
       },
-      "assessment": "人工复核：适合但偏安静。花环和制服在桌角辨识度高，肩胸裁切也自然；`tap` 和 8 个表情可用，但动幅比 `kuroko`、`saten` 更轻，命中区为 0，更适合作安静陪伴位。",
+      "assessment": "人工复核：适合但偏安静。按保留原始 `1300 x 1000` 比例的横向预览框重新复核后，花环、脸部和肩胸裁切关系自然，安静胸像位的感觉是成立的；`tap` 和 8 个表情可用，但动幅比 `kuroko`、`saten` 更轻，命中区为 0，更适合作安静陪伴位。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -7548,7 +7568,7 @@
           "coverageHeight": 0.6253602305475504
         }
       },
-      "assessment": "人工复核：可用但不优先。修女头纱和袖摆横向外扩明显，右下角容易贴边；`tap` 和 8 个表情都能用，但命中区为 0，需要自行绑定交互，不建议优先当主桌宠。",
+      "assessment": "人工复核：可用但不优先。按保留原始 `1300 x 1000` 比例的横向预览框重新复核后，头纱和袖摆的横向展开被更真实地表现出来，比例本身正常，但也更能看出这条目在桌角需要额外边距；`tap` 和 8 个表情都能用，但命中区为 0，需要自行绑定交互，不建议优先当主桌宠。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -7625,7 +7645,7 @@
           "coverageHeight": 0.654178674351585
         }
       },
-      "assessment": "人工复核：可用但需预留边距。长发和飘带反馈明显，`tap` 与 8 个表情都有变化；但发丝横向占位大、容易顶边，命中区为 0，接入时要留边距并手动绑定点击。",
+      "assessment": "人工复核：可用但需预留边距。按保留原始 `1300 x 1000` 比例的横向预览框重新复核后，长发和飘带比例正常，胸腹主体摆位也更像真实视野；但发丝横向占位依旧大、容易贴边，命中区为 0，接入时仍要留边距并手动绑定点击。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
