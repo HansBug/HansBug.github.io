@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T23:24:59.109Z",
+  "generatedAt": "2026-04-11T23:42:53.229Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 143
+    "reviewed": 153
   },
   "results": [
     {
@@ -30978,23 +30978,28 @@
       "runtime": "Cubism 2.1",
       "resourceType": "轻量半身 / 小挂件",
       "status": "ok",
-      "durationMs": 11251,
+      "durationMs": 12491,
       "dependencyCount": 2,
-      "reviewImagePath": null,
+      "reviewImagePath": "/tmp/live2d-manual-review/Vocal_synth_-_yukari_model_.png",
       "result": {
         "ok": true,
-        "width": 355.153125,
-        "height": 412.8,
+        "width": 330.24,
+        "height": 383.84308740068104,
         "visibleBounds": {
           "count": 228464,
           "minX": 0,
           "minY": 0,
           "maxX": 439,
-          "maxY": 540,
+          "maxY": 524,
           "width": 440,
-          "height": 541
+          "height": 525
         },
-        "targetDeskpetWidth": 277,
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 400,
+          "ratio": 0.8603515625
+        },
         "textureCount": 1,
         "texturePixels": 4194304,
         "textures": [
@@ -31009,9 +31014,9 @@
         "touchLikeMotionGroups": [],
         "focusProbe": {
           "supported": true,
-          "changedRatio": 0.060254569647734436,
+          "changedRatio": 0.05217889908256881,
           "coverageWidth": 1,
-          "coverageHeight": 0.634011090573013
+          "coverageHeight": 0.5885714285714285
         },
         "expressionProbe": {
           "supported": false
@@ -37440,6 +37445,671 @@
         }
       },
       "assessment": "人工复核：可用但偏安静。红白胸像裁到右下角后很干净，头肩辨识度也高；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Reisen/object_live2d_028_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "铃仙 `Reisen`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 15636,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Reisen_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 318567,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.2042741401337866,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7663645518630413
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。兔耳和长发缩到右下角后仍然清楚，胸像位干净，没有明显场景杂质；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Remilia/object_live2d_010_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "蕾米莉亚 `Remilia`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14318,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Remilia_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 349317,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.22687988274260915,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7139979859013091
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。帽檐和蝠翼会把左右边缘撑开，但主体仍是干净的胸像位，不像大面积立绘缩略图；默认交互仍只有轻跟随，命中区、表情和触发动作都为 `0`，不建议当强互动主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Sakuya/object_live2d_009_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "十六夜咲夜 `Sakuya`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 18383,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Sakuya_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 314134,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.15108202232168438,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7895266868076536
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。银发和女仆头饰缩到桌角后很规整，胸像裁切稳定，是这批里更清爽的一条；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Sanae/object_live2d_042_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "东风谷早苗 `Sanae`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14669,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Sanae_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 342061,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.14748831348794514,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7341389728096677
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。绿发和蛇形发饰在右下角辨识度不错，主体集中，裁到胸腰位后观感自然；不过默认仍只有轻跟随，命中区、表情和触发动作都为 `0`，不适合作高互动主角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Satori/object_live2d_051_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "古明地觉 `Satori`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 15246,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Satori_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 326132,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.18069983932886072,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7502517623363545
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。头饰和胸前心线缩小后仍然清楚，没有变成脏背景，但左右外扩会稍占边；默认交互仍只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Suika/object_live2d_023_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "伊吹萃香 `Suika`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14721,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Suika_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 338141,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 993,
+          "width": 440,
+          "height": 994
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.2486891562987038,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7676056338028169
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。双角和发量让上半身轮廓很醒目，右下角辨识度高，但也会把顶部和两侧压得更满；默认仍只有轻跟随，命中区、表情和触发动作都为 `0`，不建议当强互动主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Youmu/object_live2d_019_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "魂魄妖梦 `Youmu`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 13928,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Youmu_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 298722,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.15174643983369152,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7804632426988922
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。白发、发髻和身侧半灵一起入镜后仍保持纯角色观感，不像大场景立绘；但半灵会拉宽右侧占位，默认交互也仍只有轻跟随，命中区、表情和触发动作都为 `0`，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Yukari/object_live2d_022_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "八云紫 `Yukari`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14717,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Yukari_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 358369,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 992,
+          "width": 440,
+          "height": 993
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.2226559774980537,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8207452165156093
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。帽饰和长袖外扩后胸像位依然成立，缩到右下角辨识度高；但默认只有视线 / 躯干轻跟随，命中区、表情和触发动作都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/n0099/TouhouCannonBall-Live2d-Models@main/Yuyuko/object_live2d_020_101.asset.model3.json",
+      "ip": "东方 Project / Touhou Cannon Ball",
+      "model": "西行寺幽幽子 `Yuyuko`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 14441,
+      "dependencyCount": 3,
+      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Yuyuko_.png",
+      "result": {
+        "ok": true,
+        "width": 483.75,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 343165,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 993,
+          "width": 440,
+          "height": 994
+        },
+        "targetDeskpetWidth": 151,
+        "previewFrame": {
+          "width": 248,
+          "height": 430,
+          "ratio": 0.5769230769230769
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 38
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.18318593096615332,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7977867203219315
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。粉发和头饰缩到桌角后很柔和，主体集中、胸像裁切稳定，没有明显脏边；不过默认仍只有轻跟随，命中区、表情和触发动作都为 `0`，不建议承担主互动。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/xiaomai/xiaomai.model.json",
+      "ip": "食物语",
+      "model": "`xiaomai`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 食魂挂件",
+      "status": "ok",
+      "durationMs": 20969,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_xiaomai_.png",
+      "result": {
+        "ok": true,
+        "width": 311.62517448648646,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 325,
+          "height": 430,
+          "ratio": 0.7552123552123552
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "start",
+            "count": 12
+          },
+          {
+            "name": "tap_head",
+            "count": 15
+          },
+          {
+            "name": "tap_body",
+            "count": 10
+          },
+          {
+            "name": "shake",
+            "count": 6
+          },
+          {
+            "name": "random",
+            "count": 15
+          },
+          {
+            "name": "new_msg",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08269574199873941,
+          "coverageWidth": 0.5886363636363636,
+          "coverageHeight": 0.6365384615384615
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06201852370614189,
+          "coverageWidth": 0.5795454545454546,
+          "coverageHeight": 0.6326923076923077
+        }
+      },
+      "assessment": "人工复核：强适合。半身食魂挂件构图天然贴右下角，头肩比例和桌角体积都很像成品桌宠；`head/body` 两个命中区可直接用，`tap_head` / `tap_body` / `shake` / `random` / `new_msg` 共 7 组动作足够做互动轮播，即使没有表情配置也已是这轮最接近即挂即用的一条。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
