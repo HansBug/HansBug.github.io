@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T16:15:38.714Z",
+  "generatedAt": "2026-04-11T17:27:29.368Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 20
+    "reviewed": 30
   },
   "results": [
     {
@@ -441,7 +441,7 @@
       "status": "ok",
       "durationMs": 17486,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Mark.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -504,7 +504,7 @@
       "status": "ok",
       "durationMs": 67823,
       "dependencyCount": 18,
-      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Natori.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 348.9142857142857,
@@ -580,7 +580,7 @@
       "status": "ok",
       "durationMs": 35736,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Rice.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 619.2,
@@ -655,7 +655,7 @@
       "status": "ok",
       "durationMs": 33933,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Wanko.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 412.8,
@@ -726,7 +726,7 @@
       "status": "ok",
       "durationMs": 196466,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Senko.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 481.80619380619385,
@@ -806,7 +806,7 @@
       "status": "ok",
       "durationMs": 62171,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_miko_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 343.46250000000003,
@@ -864,7 +864,7 @@
       "status": "ok",
       "durationMs": 168426,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_mikoc_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 343.46250000000003,
@@ -922,7 +922,7 @@
       "status": "ok",
       "durationMs": 75618,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_mikocfs_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 343.46250000000003,
@@ -980,7 +980,7 @@
       "status": "ok",
       "durationMs": 55658,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_suit_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 343.46250000000003,
@@ -1038,7 +1038,7 @@
       "status": "ok",
       "durationMs": 295366,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_ruri_miko_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 343.46250000000003,
@@ -1100,7 +1100,7 @@
       "status": "ok",
       "durationMs": 17221,
       "dependencyCount": 2,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-BanG_Dream_001_2018_dog_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -1153,7 +1153,7 @@
       "status": "ok",
       "durationMs": 19176,
       "dependencyCount": 2,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-BanG_Dream_001_miku_romecin_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -1206,7 +1206,7 @@
       "status": "ok",
       "durationMs": 44101,
       "dependencyCount": 66,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_001_casual_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -1425,7 +1425,7 @@
       "status": "ok",
       "durationMs": 32513,
       "dependencyCount": 34,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_002_casual_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -1572,6 +1572,1688 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/003_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "牛込里美 `003_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 24053,
+      "dependencyCount": 37,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 9,
+        "motionGroups": [
+          {
+            "name": "ando01",
+            "count": 1
+          },
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "awate01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "cry03",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "odoodo02",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08227116744870089,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7257142857142858
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.018344246795994116,
+          "coverageWidth": 1,
+          "coverageHeight": 0.700952380952381
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "ando01",
+          "touchLike": false,
+          "changedRatio": 0.09367777855592128,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7314285714285714
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。半身日常服右下角约 `285x340`，构图稳定不挤；`ando01` 可触发，25 组动作和 9 个表情足够做桌宠表演，但命中区为 0，默认点击不会自动形成反馈。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/004_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "山吹沙绫 `004_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 33828,
+      "dependencyCount": 36,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "angry02",
+            "count": 1
+          },
+          {
+            "name": "angry03",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "cry03",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "serious02",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "smile04",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "surprised02",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06549390713635408,
+          "coverageWidth": 1,
+          "coverageHeight": 0.820952380952381
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.014063484837873801,
+          "coverageWidth": 1,
+          "coverageHeight": 0.820952380952381
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.06940699628825547,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8247619047619048
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。蝴蝶结和上半身摆位自然，`angry01` 有抱臂和表情变化；27 组动作、6 个表情可用，但命中区为 0，建议作为安静看板娘再补点击 / 随机动作映射。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/005_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "市谷有咲 `005_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 22400,
+      "dependencyCount": 35,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "angry02",
+            "count": 1
+          },
+          {
+            "name": "angry03",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "cry02",
+            "count": 1
+          },
+          {
+            "name": "cry03",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "pui01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0669514671895791,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7314285714285714
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.010329855031864977,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6571428571428571
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.06325285384130541,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7333333333333333
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。双马尾和短裙在右下角裁切后仍清楚，`angry01` 动作能带出手部和表情变化；26 组动作、6 个表情充足，但没有命中区，不适合直接依赖默认点击。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/006_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "美竹兰 `006_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 31652,
+      "dependencyCount": 37,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "angry02",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "pui01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "sleep01",
+            "count": 1
+          },
+          {
+            "name": "sleep02",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "sneeze01",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0614144898102108,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7542857142857143
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.012422088381539324,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5638095238095238
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.04313589887247006,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7561904761904762
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。黑色外套轮廓清晰，半身位不占角落；`angry01` 覆盖半身变化，26 组动作和 8 个表情可做轮播，但命中区为 0，需要工程侧把点击 / 悬停映射到动作组。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/007_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "青叶摩卡 `007_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 26104,
+      "dependencyCount": 33,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "eeto01",
+            "count": 1
+          },
+          {
+            "name": "gattsu01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "niyaniya01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05884078016667834,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7561904761904762
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.011975628545416346,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5638095238095238
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.06359426430422299,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7561904761904762
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。灰外套半身构图规整，右下角大小舒服；24 组动作和 6 个表情可用，`angry01` 有表情 / 上身变化，但无命中区，建议做低干扰看板娘并自行补触发逻辑。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/008_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "上原绯玛丽 `008_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 25125,
+      "dependencyCount": 38,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "awate01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "gattsu01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "sneeze01",
+            "count": 1
+          },
+          {
+            "name": "strange01",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          },
+          {
+            "name": "gacha01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07480390783668324,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7447619047619047
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.012426465438756215,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6666666666666666
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.09734137544645984,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7504761904761905
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。粉发和黑白裙装缩到桌角辨识度高，`angry01` 动作变化覆盖到半身；27 组动作、8 个表情资源量足够，但命中区为 0，建议接入时显式绑定点击和随机表情。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/009_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "宇田川巴 `009_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 22176,
+      "dependencyCount": 37,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 5,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "angry02",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "fighting01",
+            "count": 1
+          },
+          {
+            "name": "fighting02",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "kime02",
+            "count": 1
+          },
+          {
+            "name": "kime03",
+            "count": 1
+          },
+          {
+            "name": "kime04",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "simizimi01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "sneeze01",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04777995657959241,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8095238095238095
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.010557462007143357,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5866666666666667
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.04152514181665383,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8114285714285714
+        }
+      },
+      "assessment": "人工复核：适合但不即挂即用。红发轮廓明显，`285x340` 摆位不挤，`angry01` 有完整上身反馈；29 组动作最多但只有 5 个表情，且命中区为 0，需要自己把动作组转成点击 / 闲置事件。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/010_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "羽泽鸫 `010_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 23544,
+      "dependencyCount": 36,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "ando01",
+            "count": 1
+          },
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "awate01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "sleep01",
+            "count": 1
+          },
+          {
+            "name": "sleep02",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "sneeze01",
+            "count": 1
+          },
+          {
+            "name": "sneeze02",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06526192310385881,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7504761904761905
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.008898557321941312,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6514285714285715
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "ando01",
+          "touchLike": false,
+          "changedRatio": 0.08239810210799076,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7561904761904762
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。短发和温和服装适合低调桌宠，`ando01` 可触发半身动作；27 组动作、6 个表情够用，但命中区为 0，默认点击反馈缺失，建议用于安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/011_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "丸山彩 `011_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 26107,
+      "dependencyCount": 35,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 7,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "gattsu01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "jaan01",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "oowarai01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "sleep01",
+            "count": 1
+          },
+          {
+            "name": "sleep02",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          },
+          {
+            "name": "jaan",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.068413404300021,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7409523809523809
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.010487429091673087,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4228571428571429
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.09110406891238883,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7466666666666667
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量边距。长发和手部装饰在右下角有辨识度，`angry01` 动作正常；25 组动作、7 个表情可用，但命中区为 0，建议自己绑定点击，同时避免裁得太窄。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/012_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "冰川日菜 `012_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 37408,
+      "dependencyCount": 36,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "kime02",
+            "count": 1
+          },
+          {
+            "name": "kime03",
+            "count": 1
+          },
+          {
+            "name": "kime04",
+            "count": 1
+          },
+          {
+            "name": "kime05",
+            "count": 1
+          },
+          {
+            "name": "natural01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "serious02",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          },
+          {
+            "name": "worry01",
+            "count": 1
+          },
+          {
+            "name": "worry02",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06513061138735206,
+          "coverageWidth": 1,
+          "coverageHeight": 0.820952380952381
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.015210273828699489,
+          "coverageWidth": 1,
+          "coverageHeight": 0.780952380952381
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.057431367742839134,
+          "coverageWidth": 1,
+          "coverageHeight": 0.819047619047619
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。西装风半身摆位稳，`angry01` 有手叉腰和表情变化，右侧手臂外扩时要留边；27 组动作、6 个表情可用，但命中区为 0，不建议直接当即点即动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/014_casual/model.json",
       "ip": "BanG Dream!",
       "model": "大和麻弥 `014_casual`",
@@ -1580,7 +3262,7 @@
       "status": "ok",
       "durationMs": 32038,
       "dependencyCount": 32,
-      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_014_casual_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
