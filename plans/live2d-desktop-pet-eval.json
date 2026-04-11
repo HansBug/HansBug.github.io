@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T20:52:43.225Z",
+  "generatedAt": "2026-04-11T21:17:14.358Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 83
+    "reviewed": 93
   },
   "results": [
     {
@@ -7831,6 +7831,350 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/ryoufuku/ryoufuku.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `ryoufuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 13342,
+      "dependencyCount": 16,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 786432,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "tap",
+            "count": 13
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.050817634288115414,
+          "coverageWidth": 0.3613636363636364,
+          "coverageHeight": 0.6923076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.024034421177953638,
+          "coverageWidth": 0.35909090909090907,
+          "coverageHeight": 0.6903846153846154
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.07690051824357448,
+          "coverageWidth": 0.3568181818181818,
+          "coverageHeight": 0.6884615384615385
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。白色居家服上半身构图非常干净，右下角约 `288x340` 摆位自然；`tap` 会带出明显抱手 / 收手变化，8 个表情够做轻轮播，但命中区为 `0`，需要工程侧手动绑点击。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/seifuku/seifuku.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `seifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 13307,
+      "dependencyCount": 16,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 786432,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "tap",
+            "count": 13
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06390065830940542,
+          "coverageWidth": 0.3613636363636364,
+          "coverageHeight": 0.6923076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.030665662861544925,
+          "coverageWidth": 0.35909090909090907,
+          "coverageHeight": 0.6903846153846154
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.10140766160095245,
+          "coverageWidth": 0.35909090909090907,
+          "coverageHeight": 0.6884615384615385
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。制服版轮廓利落，桌角观感最像标准看板娘；`tap` 反馈覆盖头肩到上身，8 个表情可用，但命中区为 `0`，默认点击不会直接形成成品互动。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/shifuku/shifuku.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `shifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 12923,
+      "dependencyCount": 16,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 786432,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 10
+          },
+          {
+            "name": "idle",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06568212059668044,
+          "coverageWidth": 0.3795454545454545,
+          "coverageHeight": 0.698076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.009375656558582534,
+          "coverageWidth": 0.37272727272727274,
+          "coverageHeight": 0.6961538461538461
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.025745850549758385,
+          "coverageWidth": 0.37272727272727274,
+          "coverageHeight": 0.6692307692307692
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。深色长发私服版画面很干净，裁腰后不会显宽；`tap` 动作和 8 个表情都在，但整体动幅比前两条更收敛，且命中区为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/shifuku2/shifuku2.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `shifuku2`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 13278,
+      "dependencyCount": 16,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 786432,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "tap",
+            "count": 13
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05602633237621682,
+          "coverageWidth": 0.36363636363636365,
+          "coverageHeight": 0.6923076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.026236080958050283,
+          "coverageWidth": 0.3613636363636364,
+          "coverageHeight": 0.6903846153846154
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.09458382939981791,
+          "coverageWidth": 0.3613636363636364,
+          "coverageHeight": 0.6903846153846154
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。粉色居家服的上半身构图很纯净，触发栏里抱手反馈清楚，右下角不会像全身缩略图；`tap` 加 8 个表情够做轻互动，但命中区为 `0`，接入时仍要手动绑点击。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-2/model.json",
       "ip": "工作细胞",
       "model": "血小板 `platelet-2`",
@@ -7914,6 +8258,89 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-3/kesyoban.model.json",
+      "ip": "工作细胞",
+      "model": "血小板 `platelet-3 / kesyoban`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 小挂件",
+      "status": "ok",
+      "durationMs": 16070,
+      "dependencyCount": 6,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 368.0693498452012,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 383,
+          "ratio": 0.8972222222222223
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "sleepy",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.057750892919672246,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5733333333333334
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.07876076756075355,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5695238095238095
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。举旗版比 `platelet_2` 更有桌宠辨识度，帽子和小旗都在框内，右下角很像小挂件；4 组动作够做轻轮播，但仍是 `0` 命中区、`0` 表情，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-3/model.json",
       "ip": "工作细胞",
       "model": "血小板 `platelet-3`",
@@ -7993,6 +8420,348 @@
         }
       },
       "assessment": "人工复核：适合但偏安静。基础版和 `platelet-2` 一样是干净的小桌宠构图，头肩跟随更明显一点；`tap_body` 反馈存在，但仍是 `0` 命中区、`0` 表情，适合轻陪伴位，不建议承担主互动。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/nuke777/magireco-live2d-viewer/master/assets/live2d/100104/model.json",
+      "ip": "魔法纪录 / Magia Record",
+      "model": "环彩羽 `100104`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "全身 / 居家服立绘",
+      "status": "ok",
+      "durationMs": 16908,
+      "dependencyCount": 12,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 649.1612903225807,
+        "height": 838.5000000000001,
+        "visibleBounds": {
+          "count": 273692,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1331,
+          "width": 440,
+          "height": 1332
+        },
+        "targetDeskpetWidth": 112,
+        "previewFrame": {
+          "width": 333,
+          "height": 430,
+          "ratio": 0.7741935483870968
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 7,
+        "motionGroups": [
+          {
+            "name": "motion",
+            "count": 8
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.14172500474986482,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8536036036036037
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.03224427458603101,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8536036036036037
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "motion",
+          "touchLike": false,
+          "changedRatio": 0.12860807038568903,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8536036036036037
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。居家服胸像裁切非常干净，脸部占比舒服，右下角更像安静陪伴位；`motion` 加 7 个表情足够做轻轮播，但命中区为 `0`、动作组只有 1 组，不建议当高互动主角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/guangzan/live2d-models/master/misaki/ryoufuku.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "上井草美咲 `ryoufuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 13774,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 19
+          },
+          {
+            "name": "idle",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05315498284193571,
+          "coverageWidth": 0.4727272727272727,
+          "coverageHeight": 0.7173076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.03740633097555851,
+          "coverageWidth": 0.4636363636363636,
+          "coverageHeight": 0.7134615384615385
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.09505217452202536,
+          "coverageWidth": 0.4590909090909091,
+          "coverageHeight": 0.7134615384615385
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。便服版头肩比例自然、站姿有活力，右下角裁腰后很干净；`tap` 和 8 个表情有明显变化，但命中区为 `0`，接入时要自己绑点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/guangzan/live2d-models/master/misaki/seifuku.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "上井草美咲 `seifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 12329,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 19
+          },
+          {
+            "name": "idle",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05927410883115064,
+          "coverageWidth": 0.49772727272727274,
+          "coverageHeight": 0.7153846153846154
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.04296081658379439,
+          "coverageWidth": 0.48863636363636365,
+          "coverageHeight": 0.7115384615384616
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.10630996568387142,
+          "coverageWidth": 0.4863636363636364,
+          "coverageHeight": 0.7134615384615385
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。制服版构图最规整，右下角像轻量看板娘；`tap` 会带出闭眼和抱手等上身变化，8 个表情可用，但命中区为 `0`，默认点击仍要工程侧接动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/guangzan/live2d-models/master/misaki/shifuku.model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "上井草美咲 `shifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 12117,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 19
+          },
+          {
+            "name": "idle",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05133850409692556,
+          "coverageWidth": 0.4818181818181818,
+          "coverageHeight": 0.7173076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.03548917991455984,
+          "coverageWidth": 0.47045454545454546,
+          "coverageHeight": 0.7134615384615385
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.09851004972336998,
+          "coverageWidth": 0.4681818181818182,
+          "coverageHeight": 0.7134615384615385
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。围巾私服版色块集中、画面干净，裁到腰部以上很稳定；`tap` 和 8 个表情够做轻互动，但动作节奏比制服版更缓，命中区为 `0`，更适合作陪伴位。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -8729,6 +9498,80 @@
         }
       },
       "assessment": "人工复核：适合，建议留少量横向边距。虽然原始资源偏横构图，但裁到头肩到腰部后右下角约 `288x340` 仍然自然；命中区 2 个，`tap_head` / `pinch_in` / `tap_body` 5 组动作都能用，是本轮最接近成品互动桌宠的一条。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/platelet_2/model.json",
+      "ip": "工作细胞",
+      "model": "血小板 `platelet_2`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 桌宠感",
+      "status": "ok",
+      "durationMs": 19176,
+      "dependencyCount": 8,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 330.24,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 344,
+          "ratio": 1
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 4,
+        "motionGroups": [
+          {
+            "name": "tap_body",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.017753344071713705,
+          "coverageWidth": 1,
+          "coverageHeight": 0.37523809523809526
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.005090517543245326,
+          "coverageWidth": 1,
+          "coverageHeight": 0.31238095238095237
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.011003921843266335,
+          "coverageWidth": 1,
+          "coverageHeight": 0.3676190476190476
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。方图小桌宠构图很干净，但角色整体偏小，静态更像桌角摆件；只有 `tap_body` 1 组动作和 4 个表情，命中区为 `0`，适合作低干扰陪伴位，不建议当主互动角色。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
