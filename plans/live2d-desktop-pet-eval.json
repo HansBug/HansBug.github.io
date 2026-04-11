@@ -1,0 +1,1730 @@
+{
+  "generatedAt": "2026-04-11T16:15:38.714Z",
+  "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
+  "stats": {
+    "reviewed": 20
+  },
+  "results": [
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/haru/haru_greeter_t03.model3.json",
+      "ip": "pixi-live2d-display 上游样例",
+      "model": "Haru greeter",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 60116,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 325.6533333333333,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 230978,
+          "minX": 0,
+          "minY": 31,
+          "maxX": 439,
+          "maxY": 592,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "textureCount": 2,
+        "texturePixels": 8388608,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "Head",
+          "Body"
+        ],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 3
+          },
+          {
+            "name": "Tap",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "Tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06528327373169739,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9697508896797153
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.011325753967910364,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9590747330960854
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "Tap",
+          "touchLike": true,
+          "changedRatio": 0.08169609226852774,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9679715302491103
+        }
+      },
+      "assessment": "人工复核：适合，建议裁腰。浏览器按 340px 高右下角摆位后比例正常；`Tap` 有全身 / 手部礼仪动作，表情 8 个，交互感强；全身模型但裁到腰部以上可当看板娘。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/shizuku/shizuku.model.json",
+      "ip": "pixi-live2d-display 上游样例",
+      "model": "Shizuku",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 桌宠感",
+      "status": "ok",
+      "durationMs": 53740,
+      "dependencyCount": 24,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 382.88695652173914,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228612,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 555,
+          "width": 440,
+          "height": 556
+        },
+        "targetDeskpetWidth": 269,
+        "textureCount": 6,
+        "texturePixels": 6291456,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "mouth",
+          "body"
+        ],
+        "expressionsCount": 4,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          },
+          {
+            "name": "pinch_in",
+            "count": 3
+          },
+          {
+            "name": "pinch_out",
+            "count": 3
+          },
+          {
+            "name": "shake",
+            "count": 3
+          },
+          {
+            "name": "flick_head",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body",
+          "pinch_in",
+          "pinch_out",
+          "flick_head"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.11175266390215736,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6996402877697842
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.015349150525781674,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4172661870503597
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.12177838433678022,
+          "coverageWidth": 1,
+          "coverageHeight": 0.697841726618705
+        }
+      },
+      "assessment": "人工复核：强适合。半身坐桌构图天然就是桌宠位；`tap_body`、`flick_head`、`pinch` 等动作和 4 个表情都有明显视觉变化，单人可交互感是本批最好的基准。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Haru/Haru.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Haru",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 40675,
+      "dependencyCount": 18,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 325.6533333333333,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 230978,
+          "minX": 0,
+          "minY": 31,
+          "maxX": 439,
+          "maxY": 592,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "textureCount": 2,
+        "texturePixels": 8388608,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "Head",
+          "Body"
+        ],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 2
+          },
+          {
+            "name": "TapBody",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "TapBody"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.03808587830875668,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9697508896797153
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.010087540804751967,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9572953736654805
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "TapBody",
+          "touchLike": true,
+          "changedRatio": 0.058260959918260614,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9679715302491103
+        }
+      },
+      "assessment": "人工复核：适合，建议裁腰。340px 高摆位稳定，`TapBody` 反馈覆盖半身到全身，命中区 2 个、表情 8 个；视觉和 `Haru greeter` 接近，是可靠官方基准。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Hiyori/Hiyori.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Hiyori",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 42487,
+      "dependencyCount": 9,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 435.24445508982035,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 230323,
+          "minX": 0,
+          "minY": 51,
+          "maxX": 439,
+          "maxY": 672,
+          "width": 440,
+          "height": 622
+        },
+        "targetDeskpetWidth": 241,
+        "textureCount": 2,
+        "texturePixels": 8388608,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "Body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 9
+          },
+          {
+            "name": "TapBody",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "TapBody"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05793168723922491,
+          "coverageWidth": 1,
+          "coverageHeight": 1.0016077170418007
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "TapBody",
+          "touchLike": true,
+          "changedRatio": 0.03359195564489868,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9967845659163987
+        }
+      },
+      "assessment": "人工复核：适合，建议裁腰。构图窄、跑得稳，`TapBody` 变化明显；但无表情配置，互动丰富度低于 Haru / Mao，更偏标准看板娘。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Mao/Mao.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Mao",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 54327,
+      "dependencyCount": 15,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 421.6047619047619,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 229953,
+          "minX": 0,
+          "minY": 57,
+          "maxX": 439,
+          "maxY": 664,
+          "width": 440,
+          "height": 608
+        },
+        "targetDeskpetWidth": 246,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "Head",
+          "Body"
+        ],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 2
+          },
+          {
+            "name": "TapBody",
+            "count": 6
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "TapBody"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.10750457702226107,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9967105263157895
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.026605436763164646,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6332236842105263
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "TapBody",
+          "touchLike": true,
+          "changedRatio": 0.12552999960861566,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9851973684210527
+        }
+      },
+      "assessment": "人工复核：适合，建议裁腰。`TapBody` 和 8 个表情可用，视觉比 Hiyori 更丰富；但画笔 / 手部会向左外扩，右下角需要多留边距。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Mark/Mark.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Mark",
+      "runtime": "Cubism 4",
+      "resourceType": "简化人形 / 半身",
+      "status": "ok",
+      "durationMs": 17486,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Mark.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 6
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04301334127039708,
+          "coverageWidth": 1,
+          "coverageHeight": 0.46095238095238095
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "Idle",
+          "touchLike": false,
+          "changedRatio": 0.014790076335877863,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4552380952380952
+        }
+      },
+      "assessment": "人工复核：不建议作正式桌宠。半身位能放下，但实测主要只有视线 / 躯干轻跟随，命中区和表情为 0，缺少点击反馈，更像最小技术样例。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Natori/Natori.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Natori",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 67823,
+      "dependencyCount": 18,
+      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Natori.png",
+      "result": {
+        "ok": true,
+        "width": 348.9142857142857,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 230134,
+          "minX": 0,
+          "minY": 40,
+          "maxX": 439,
+          "maxY": 607,
+          "width": 440,
+          "height": 568
+        },
+        "targetDeskpetWidth": 263,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "Head",
+          "Body"
+        ],
+        "expressionsCount": 11,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 3
+          },
+          {
+            "name": "TapBody",
+            "count": 5
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "TapBody"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.033067690997418894,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7024647887323944
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.000882094779563211,
+          "coverageWidth": 0.975,
+          "coverageHeight": 0.4753521126760563
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "TapBody",
+          "touchLike": true,
+          "changedRatio": 0.041002198719007184,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7007042253521126
+        }
+      },
+      "assessment": "人工复核：适合，建议裁腰。比例稳定，`TapBody` 反馈明显且表情 11 个；全身模型裁腰后可用，观感偏标准官方样例。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Rice/Rice.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Rice",
+      "runtime": "Cubism 4",
+      "resourceType": "半身 / 横构图",
+      "status": "ok",
+      "durationMs": 35736,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Rice.png",
+      "result": {
+        "ok": true,
+        "width": 619.2,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228939,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 731,
+          "width": 440,
+          "height": 732
+        },
+        "targetDeskpetWidth": 204,
+        "textureCount": 2,
+        "texturePixels": 8388608,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "Body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 1
+          },
+          {
+            "name": "TapBody",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "TapBody"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.027321688309986502,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6461748633879781
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "TapBody",
+          "touchLike": true,
+          "changedRatio": 0.04207234241435492,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6475409836065574
+        }
+      },
+      "assessment": "人工复核：可用但不优先。实际右下角摆位并不算特别宽，但侧站 / 阅读构图更像立绘；`TapBody` 能动，不过命中区 1 个、无表情，桌宠互动感一般。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@master/Samples/Resources/Wanko/Wanko.model3.json",
+      "ip": "Live2D 官方样例",
+      "model": "Wanko",
+      "runtime": "Cubism 4",
+      "resourceType": "吉祥物 / 非人形",
+      "status": "ok",
+      "durationMs": 33933,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/Live2D_-Wanko.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "Body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 3
+          },
+          {
+            "name": "TapBody",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "TapBody"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "TapBody",
+          "touchLike": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        }
+      },
+      "assessment": "人工复核：可用但互动弱。吉祥物形态适合小挂件，体积轻；实测点击变化很轻、无表情，适合安静宠物，不适合作为强交互角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/Live2D/Senko_Normals/senko.model3.json",
+      "ip": "贤惠幼妻仙狐小姐",
+      "model": "Senko",
+      "runtime": "Cubism 4",
+      "resourceType": "半身 / 桌宠风",
+      "status": "ok",
+      "durationMs": 196466,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Senko.png",
+      "result": {
+        "ok": true,
+        "width": 481.80619380619385,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 614,
+          "width": 440,
+          "height": 615
+        },
+        "targetDeskpetWidth": 243,
+        "textureCount": 1,
+        "texturePixels": 16777216,
+        "textures": [
+          {
+            "width": 4096,
+            "height": 4096
+          }
+        ],
+        "hitAreas": [
+          "head"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "Idle",
+            "count": 1
+          },
+          {
+            "name": "Tap",
+            "count": 1
+          },
+          {
+            "name": "Taphead",
+            "count": 2
+          },
+          {
+            "name": "Tick_5",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "Tap",
+          "Taphead"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08915190139365502,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5024390243902439
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "Taphead",
+          "touchLike": true,
+          "changedRatio": 0.1295652706772183,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5252032520325203
+        }
+      },
+      "assessment": "人工复核：适合。半身 / 桌宠风明显，右下角比例舒服；`Taphead` 有头肩动作和睡 / 唱等动效线索，但命中区 1 个、无表情，属于轻互动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/galgame%20live2d/Fox%20Hime%20Zero/mori_miko/mori_miko.model3.json",
+      "ip": "Fox Hime Zero",
+      "model": "Fox Hime Zero `mori_miko`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 62171,
+      "dependencyCount": 4,
+      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_miko_.png",
+      "result": {
+        "ok": true,
+        "width": 343.46250000000003,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 231010,
+          "minX": 0,
+          "minY": 20,
+          "maxX": 439,
+          "maxY": 609,
+          "width": 440,
+          "height": 590
+        },
+        "targetDeskpetWidth": 254,
+        "textureCount": 1,
+        "texturePixels": 16777216,
+        "textures": [
+          {
+            "width": 4096,
+            "height": 4096
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 85
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1286913986407515,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9983050847457627
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：不建议。虽然能加载，但浏览器截图呈现异常纹理 / 构图问题，像纹理图被裁出而不是稳定角色；同时命中区、表情、可触发动作都缺失，不适合作桌宠候选。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/galgame%20live2d/Fox%20Hime%20Zero/mori_mikoc/mori_mikoc.model3.json",
+      "ip": "Fox Hime Zero",
+      "model": "Fox Hime Zero `mori_mikoc`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 168426,
+      "dependencyCount": 4,
+      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_mikoc_.png",
+      "result": {
+        "ok": true,
+        "width": 343.46250000000003,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 231652,
+          "minX": 0,
+          "minY": 4,
+          "maxX": 439,
+          "maxY": 610,
+          "width": 440,
+          "height": 607
+        },
+        "targetDeskpetWidth": 246,
+        "textureCount": 1,
+        "texturePixels": 16777216,
+        "textures": [
+          {
+            "width": 4096,
+            "height": 4096
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 85
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.12137602956158375,
+          "coverageWidth": 1,
+          "coverageHeight": 1
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：仅适合二次开发后使用。浏览器里角色显示正常，裁到腰部以上后右下角观感尚可；但默认无命中区、无表情、无可直接识别的点击动作，实测主要只有视线 / 躯干轻跟随，不算即挂即用桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/galgame%20live2d/Fox%20Hime%20Zero/mori_mikocfs/mori_mikocfs.model3.json",
+      "ip": "Fox Hime Zero",
+      "model": "Fox Hime Zero `mori_mikocfs`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 75618,
+      "dependencyCount": 4,
+      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_mikocfs_.png",
+      "result": {
+        "ok": true,
+        "width": 343.46250000000003,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 231652,
+          "minX": 0,
+          "minY": 4,
+          "maxX": 439,
+          "maxY": 610,
+          "width": 440,
+          "height": 607
+        },
+        "targetDeskpetWidth": 246,
+        "textureCount": 1,
+        "texturePixels": 16777216,
+        "textures": [
+          {
+            "width": 4096,
+            "height": 4096
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 85
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.11727505050679468,
+          "coverageWidth": 1,
+          "coverageHeight": 1
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：仅适合二次开发后使用。立绘本身正常，比 `mori_mikoc` 站姿更舒展；但交互层仍然是 0 命中区、0 表情、无点击动作组，浏览器实测还是偏静态看板娘。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/galgame%20live2d/Fox%20Hime%20Zero/mori_suit/mori_suit.model3.json",
+      "ip": "Fox Hime Zero",
+      "model": "Fox Hime Zero `mori_suit`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 55658,
+      "dependencyCount": 4,
+      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_mori_suit_.png",
+      "result": {
+        "ok": true,
+        "width": 343.46250000000003,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 231017,
+          "minX": 0,
+          "minY": 17,
+          "maxX": 439,
+          "maxY": 610,
+          "width": 440,
+          "height": 594
+        },
+        "targetDeskpetWidth": 252,
+        "textureCount": 1,
+        "texturePixels": 16777216,
+        "textures": [
+          {
+            "width": 4096,
+            "height": 4096
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 85
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.12376578347048053,
+          "coverageWidth": 1,
+          "coverageHeight": 1.0016835016835017
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：观感可用，但仍不建议直接当强交互桌宠。蓝裙版本缩到右下角比前两条更顺眼，裁腰后也比较自然；不过默认依旧没有命中区、表情和点击反馈，互动层级偏弱。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/galgame%20live2d/Fox%20Hime%20Zero/ruri_miko/ruri_miko.model3.json",
+      "ip": "Fox Hime Zero",
+      "model": "Fox Hime Zero `ruri_miko`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 295366,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/Fox_Hime_Zero-Fox_Hime_Zero_ruri_miko_.png",
+      "result": {
+        "ok": true,
+        "width": 343.46250000000003,
+        "height": 610.6,
+        "visibleBounds": {
+          "count": 234606,
+          "minX": 0,
+          "minY": 11,
+          "maxX": 439,
+          "maxY": 626,
+          "width": 440,
+          "height": 616
+        },
+        "targetDeskpetWidth": 243,
+        "textureCount": 2,
+        "texturePixels": 20971520,
+        "textures": [
+          {
+            "width": 4096,
+            "height": 4096
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 85
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.13774583770236054,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9983766233766234
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：仅适合做偏静态看板位。黑发和大尾巴视觉辨识度高，但横向占位也更重，右下角会比前几条更挤；默认仍无命中区、无表情、无点击动作，实测只有轻微跟随。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/BanG%20Dream!/asneeded/live2d/chara/001/001_2018_dog/.model.json",
+      "ip": "BanG Dream!",
+      "model": "BanG Dream! `001_2018_dog`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 角色立绘",
+      "status": "ok",
+      "durationMs": 17221,
+      "dependencyCount": 2,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-BanG_Dream_001_2018_dog_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06267070523145879,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7485714285714286
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：只适合安静小挂件，不建议当强交互桌宠。犬耳服装缩到右下角有辨识度，但命中区、表情、动作组都为 0，浏览器实测只有轻微视线跟随，点上去基本没有像样反馈。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/BanG%20Dream!/asneeded/live2d/chara/001/001_miku_romecin/.model.json",
+      "ip": "BanG Dream!",
+      "model": "BanG Dream! `001_miku_romecin`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 角色立绘",
+      "status": "ok",
+      "durationMs": 19176,
+      "dependencyCount": 2,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-BanG_Dream_001_miku_romecin_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08526945164227187,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7733333333333333
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：只适合偏静态展示。舞台服缩到右下角观感正常，但同样是 0 命中区、0 表情、0 动作组，交互几乎只剩跟视线，不符合“单人可充分互动”的桌宠要求。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/001_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "户山香澄 `001_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 44101,
+      "dependencyCount": 66,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_001_casual_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 24,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "cry02",
+            "count": 1
+          },
+          {
+            "name": "cry03",
+            "count": 1
+          },
+          {
+            "name": "eeto01",
+            "count": 1
+          },
+          {
+            "name": "gattsu01",
+            "count": 1
+          },
+          {
+            "name": "hukumi01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "jaan01",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "niyaniya01",
+            "count": 1
+          },
+          {
+            "name": "oowarai01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "sad02",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "serious02",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "sing01",
+            "count": 1
+          },
+          {
+            "name": "sleep01",
+            "count": 1
+          },
+          {
+            "name": "sleep02",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "smile04",
+            "count": 1
+          },
+          {
+            "name": "sneeze01",
+            "count": 1
+          },
+          {
+            "name": "sneeze02",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "surprised02",
+            "count": 1
+          },
+          {
+            "name": "surprised03",
+            "count": 1
+          },
+          {
+            "name": "wink01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08958960711534421,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7504761904761905
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.00916555781217172,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7485714285714286
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.10079487359058757,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7561904761904762
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。半身立绘右下角观感正常，动作组 / 表情很多；但命中区为 0，默认点击不如 Shizuku，需要工程侧把动作组映射到点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/002_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "花园多惠 `002_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 32513,
+      "dependencyCount": 34,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_002_casual_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "cry03",
+            "count": 1
+          },
+          {
+            "name": "eeto01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "sleep01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04875604033895931,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7828571428571428
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.007677358358428461,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5580952380952381
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.040566566286154494,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7847619047619048
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。半身日常便服放右下角自然，23 组动作和 8 个表情足够做桌宠；但命中区为 0，默认点击不会像 `Shizuku` 那样直接响应，需要工程侧自行映射动作 / 表情。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/014_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "大和麻弥 `014_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 32038,
+      "dependencyCount": 32,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_014_casual_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "awate01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "odoodo02",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "sad02",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05888892779606415,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7485714285714286
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.008583409202325093,
+          "coverageWidth": 1,
+          "coverageHeight": 0.699047619047619
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.07413421808249877,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7523809523809524
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。立绘和 `angry01` 表情切换都正常，缩到右下角体积也合适；但同样没有命中区，默认不会自己形成点击反馈，需要工程侧补触发逻辑。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    }
+  ]
+}
