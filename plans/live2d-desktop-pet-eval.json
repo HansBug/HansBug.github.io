@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T17:46:35.359Z",
+  "generatedAt": "2026-04-11T18:08:17.000Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 40
+    "reviewed": 50
   },
   "results": [
     {
@@ -5075,6 +5075,1388 @@
         }
       },
       "assessment": "人工复核：适合但需自己绑定交互。长发和露肩毛衣在桌角观感自然，`angry01` 双手叉腰时横向占位会稍微放大；23 组动作和 8 个表情可用，但命中区为 0，不是即点即动型桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/024_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "松原花音 `024_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 21021,
+      "dependencyCount": 37,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_024_casual_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "chuni01",
+            "count": 1
+          },
+          {
+            "name": "chuni02",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "eeto01",
+            "count": 1
+          },
+          {
+            "name": "gattsu01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "jaan01",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08809265354716717,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7142857142857143
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.01313554870789271,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6190476190476191
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.12525386931857974,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7180952380952381
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。紫发双马尾和红黑裙装在右下角辨识度高，`angry01` 会切出插腰站姿，半身反馈明显；26 组动作、8 个表情够做轮播，但命中区为 0，仍需工程侧自己映射点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/025_casual/model.json",
+      "ip": "BanG Dream!",
+      "model": "奥泽美咲 `025_casual`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "半身 / 日常便服立绘",
+      "status": "ok",
+      "durationMs": 20248,
+      "dependencyCount": 32,
+      "reviewImagePath": "/tmp/live2d-manual-review/BanG_Dream_-_025_casual_.png",
+      "result": {
+        "ok": true,
+        "width": 330.24,
+        "height": 412.80000000000007,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "angry01",
+            "count": 1
+          },
+          {
+            "name": "bye01",
+            "count": 1
+          },
+          {
+            "name": "cry01",
+            "count": 1
+          },
+          {
+            "name": "idle01",
+            "count": 1
+          },
+          {
+            "name": "idle02",
+            "count": 1
+          },
+          {
+            "name": "kime01",
+            "count": 1
+          },
+          {
+            "name": "nf01",
+            "count": 1
+          },
+          {
+            "name": "nf02",
+            "count": 1
+          },
+          {
+            "name": "nf03",
+            "count": 1
+          },
+          {
+            "name": "nf04",
+            "count": 1
+          },
+          {
+            "name": "nf05",
+            "count": 1
+          },
+          {
+            "name": "left01",
+            "count": 1
+          },
+          {
+            "name": "right01",
+            "count": 1
+          },
+          {
+            "name": "odoodo01",
+            "count": 1
+          },
+          {
+            "name": "odoodo02",
+            "count": 1
+          },
+          {
+            "name": "sad01",
+            "count": 1
+          },
+          {
+            "name": "serious01",
+            "count": 1
+          },
+          {
+            "name": "shame01",
+            "count": 1
+          },
+          {
+            "name": "smile01",
+            "count": 1
+          },
+          {
+            "name": "smile02",
+            "count": 1
+          },
+          {
+            "name": "smile03",
+            "count": 1
+          },
+          {
+            "name": "surprised01",
+            "count": 1
+          },
+          {
+            "name": "chuni02",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07302244554940822,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7619047619047619
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.012015022060368374,
+          "coverageWidth": 1,
+          "coverageHeight": 0.76
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "angry01",
+          "touchLike": false,
+          "changedRatio": 0.07127599971986834,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7638095238095238
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。黑白长裙放右下角很稳，`angry01` 只有轻微头肩和手部变化，观感更像安静看板位；23 组动作、6 个表情够用，但命中区为 0，建议作为低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/donjuanplatinum/AzurLane-Live2D@master/live2d/z23/z23.model3.json",
+      "ip": "碧蓝航线",
+      "model": "Z23 `z23`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 34067,
+      "dependencyCount": 21,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Z23_z23_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 5,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07859443938651166,
+          "coverageWidth": 1,
+          "coverageHeight": 0.759581881533101
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.08551894390363471,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7578397212543554
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。方图小挂件感很强，帽子和白色军装缩到右下角仍清楚；`touch_body` 有完整上身反馈，14 组动作足够轮播，但命中区和表情都为 0，需要工程侧把 `touch_*` 动作显式绑定到点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/lingbo/lingbo.model3.json",
+      "ip": "碧蓝航线",
+      "model": "凌波 `lingbo`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 17471,
+      "dependencyCount": 20,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_lingbo_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 4,
+        "texturePixels": 1835008,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0884034246095665,
+          "coverageWidth": 1,
+          "coverageHeight": 0.867595818815331
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.08656068352125498,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8641114982578397
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。猫耳头饰和短运动装在桌角辨识度高，`touch_body` 会带出抬手思考动作，观感自然；14 组动作可用，但命中区、表情都为 0，不是默认即点即动型桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/lafei/lafei.model3.json",
+      "ip": "碧蓝航线",
+      "model": "拉菲 `lafei`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 19062,
+      "dependencyCount": 22,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_lafei_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 6,
+        "texturePixels": 6291456,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.11282302682260663,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7630662020905923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.14017525737096434,
+          "coverageWidth": 1,
+          "coverageHeight": 0.764808362369338
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。兔耳发箍和粉外套缩到右下角很醒目，`touch_body` 会切出明显的呆滞脸和抱手动作，角色感强；但命中区和表情配置仍为 0，需要工程侧自己绑定触发逻辑。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/tierbici_2/tierbici_2.model3.json",
+      "ip": "碧蓝航线",
+      "model": "提尔比茨 `tierbici_2`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 20864,
+      "dependencyCount": 18,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_tierbici_2_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 229539,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 2,
+        "texturePixels": 5242880,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.012133014433277134,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6306620209059234
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.10080639891260308,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6515679442508711
+        }
+      },
+      "assessment": "人工复核：可用但不优先。虽然方图能放进右下角，但舰装和水面底座让画面更像场景卡，横向和下沿占位都偏重；`touch_body` 能动，不过命中区和表情都为 0，适合作静态挂件，不建议优先当主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/mingshi/mingshi.model3.json",
+      "ip": "碧蓝航线",
+      "model": "明石 `mingshi`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 19858,
+      "dependencyCount": 20,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_mingshi_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "diamond",
+            "count": 1
+          },
+          {
+            "name": "gold",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "oil",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.16508508999229637,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8466898954703833
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.3286075705581623,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8397212543554007
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。猫耳、长发和工具腰饰在桌角辨识度很高，`touch_body` 倾身幅度大，是这批碧蓝方图里反馈最明显的一档；17 组动作够丰富，但命中区和表情都为 0，需要工程侧自行把动作映射到交互事件。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/biaoqiang/biaoqiang.model3.json",
+      "ip": "碧蓝航线",
+      "model": "标枪 `biaoqiang`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 22551,
+      "dependencyCount": 23,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_biaoqiang_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 7,
+        "texturePixels": 3407872,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0860616989985293,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7508710801393729
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.05666100567266615,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7508710801393729
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。紫发小体型天然适合角落挂件，`touch_body` 有轻笑和手部变化，但整体动幅比 `mingshi`、`xuefeng` 更轻；14 组动作可用，不过命中区、表情都为 0，更适合低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/dujiaoshou_4/dujiaoshou_4.model3.json",
+      "ip": "碧蓝航线",
+      "model": "独角兽 `dujiaoshou_4`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 22769,
+      "dependencyCount": 17,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_dujiaoshou_4_.png",
+      "result": {
+        "ok": true,
+        "width": 490.19999999999993,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 229277,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 619,
+          "width": 440,
+          "height": 620
+        },
+        "targetDeskpetWidth": 241,
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06046834178744488,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4129032258064516
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.23615539282178324,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8225806451612904
+        }
+      },
+      "assessment": "人工复核：适合但需预留边距。方图裁到右下角后角色本体清楚，`touch_body` 倾身动作明显；但书本、尾巴和道具会把左右边缘撑满，接入时要多留边距，同时命中区、表情都为 0。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/xuefeng/xuefeng.model3.json",
+      "ip": "碧蓝航线",
+      "model": "雪风 `xuefeng`",
+      "runtime": "Cubism 4",
+      "resourceType": "方构图 / 小挂件感",
+      "status": "ok",
+      "durationMs": 23348,
+      "dependencyCount": 22,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_xuefeng_.png",
+      "result": {
+        "ok": true,
+        "width": 412.8,
+        "height": 412.8,
+        "visibleBounds": {
+          "count": 228738,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 573,
+          "width": 440,
+          "height": 574
+        },
+        "targetDeskpetWidth": 261,
+        "textureCount": 6,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "complete",
+            "count": 1
+          },
+          {
+            "name": "home",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "login",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "main_1",
+            "count": 1
+          },
+          {
+            "name": "main_2",
+            "count": 1
+          },
+          {
+            "name": "main_3",
+            "count": 1
+          },
+          {
+            "name": "mission",
+            "count": 1
+          },
+          {
+            "name": "mission_complete",
+            "count": 1
+          },
+          {
+            "name": "touch_body",
+            "count": 1
+          },
+          {
+            "name": "touch_head",
+            "count": 1
+          },
+          {
+            "name": "touch_special",
+            "count": 1
+          },
+          {
+            "name": "wedding",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "touch_body",
+          "touch_head",
+          "touch_special"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1429539473108972,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8257839721254355
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "touch_body",
+          "touchLike": true,
+          "changedRatio": 0.23153127158583184,
+          "coverageWidth": 1,
+          "coverageHeight": 0.8641114982578397
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。猫耳和蓝白袖饰缩到桌角后很像成品挂件，`touch_body` 会切出招手 / 猫爪姿态，是这批里最有桌宠感的一条；但命中区、表情都为 0，仍需工程侧手动绑定点击 / 闲置动作。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     }
