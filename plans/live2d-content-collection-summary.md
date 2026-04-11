@@ -21,8 +21,9 @@
 - 2026-04-11 07:11 这轮继续优先复查明日方舟 / Arknights GitHub code search 仍无新的直挂 manifest；随后改用 `jsDelivr` 远程 Pixi 实载验证 46 个候选，新增 38 个成功条目：`少女咖啡枪` 20、`哔哩哔哩` 5、`战舰少女` 3、`方舟指令` 3、`Live2D 示例角色` 2、`NEW GAME!` 1、`崩坏 3` 1、`请问您今天要来点兔子吗？` 1、`舰队 Collection` 1、`碧蓝航线` 1；新增 8 个失败条目：`方舟指令` 7、`战舰少女` 1。
 - 2026-04-11 07:36 这轮继续优先复查明日方舟 / Arknights GitHub repo / code search，结果仍只有已排除的 `Halyul/aklive2d`，没有新的 `model.json / model3.json` 直挂入口；随后从 `andatoshiki/toshiki-live2d` 里按最小依赖下载并逐个做本地 Pixi 实载，新增 76 个成功条目：`天命之子 / Destiny Child` 60、`VenusScramble` 16；新增 2 个失败条目：`天命之子 / Destiny Child` 1、`VenusScramble` 1。
 - 2026-04-11 08:35 这轮继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest；随后翻阅 49 项候选内容，其中 44 个最终 manifest 按最小依赖下载后本地 Pixi 实载全部通过，新增 44 个成功条目：`少女咖啡枪` 19、`诺亚幻想` 12、`少女次元` 12、`食物语` 1；`方舟指令`、`宝石研物语`、`魂器学院` 抽样仍未形成稳定可入表条目，远程直挂不补测。
+- 2026-04-11 09:05 这轮继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest；随后按最小依赖下载到本地后逐个做 Pixi 实载验证，翻阅 `131` 个 manifest 候选，其中 `94` 个通过、`37` 个失败，新增 `94` 个成功条目：`诺亚幻想` 48、`少女次元` 36、`三色绘恋S` 4、`舰队 Collection` 2、`方舟指令` 2、`紫罗兰永恒花园 / Violet Evergarden` 1、`宝石研物语` 1；新增 `37` 个失败条目：`凍京Nerco` 11、`宝石研物语` 15、`三色绘恋S` 2、`方舟指令` 9。
 
-当前显式汇总：成功 `983` 条，失败 / 排除 `36` 条。
+当前显式汇总：成功 `1077` 条，失败 / 排除 `73` 条。
 
 ## 1. 已收集成功总表
 
@@ -1011,6 +1012,100 @@
 | 少女次元 | `010` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/010/c_3113.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
 | 少女次元 | `011` | 方构图 / 角色立绘 | `1300 x 1205` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/011/c_3121.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
 | 少女次元 | `012` | 方构图 / 角色立绘 | `1100 x 1100` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/012/c_3124.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 舰队 Collection | 村云 `murakumo_1` | 竖向角色立绘 | `921.6 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Kantai-Collection/murakumo_1/index.json` | 通过 | 未补测 | 旧格式 settings JSON（原文件名 `index.json`）；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 舰队 Collection | 村云 `murakumo` | 竖向角色立绘 | `921.6 x 1024` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Kantai-Collection/murakumo/index.json` | 通过 | 未补测 | 旧格式 settings JSON（原文件名 `index.json`）；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 紫罗兰永恒花园 / Violet Evergarden | 薇尔莉特 `Violet` | 竖向角色立绘 / 大立绘 | `2934.6 x 4000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Violet-Evergarden/Violet/14.json` | 通过 | 未补测 | 旧格式 settings JSON（原文件名 `14.json`）；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 三色绘恋S | 迟菓 `chiguo_A` | 全身 / 角色立绘 | `2662 x 5000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/galgame%20live2d/%E4%B8%89%E8%89%B2%E7%BB%98%E6%81%8BS/chiguo_A/chiguo_A.model3.json` | 通过 | 未补测 | 三色绘恋S 角色条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 三色绘恋S | 迟菓 `chiguo_B` | 全身 / 角色立绘 | `2695 x 4801` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/galgame%20live2d/%E4%B8%89%E8%89%B2%E7%BB%98%E6%81%8BS/chiguo_B/chiguo_B.model3.json` | 通过 | 未补测 | 三色绘恋S 角色条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 三色绘恋S | `EV02s` | 横构图 / 剧情立绘 | `4560 x 2580` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/galgame%20live2d/%E4%B8%89%E8%89%B2%E7%BB%98%E6%81%8BS/EV02s/EV02s.model3.json` | 通过 | 未补测 | 三色绘恋S 剧情条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `4` |
+| 三色绘恋S | 叶心 `yexin_B` | 全身 / 角色立绘 | `2265 x 5329` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/galgame%20live2d/%E4%B8%89%E8%89%B2%E7%BB%98%E6%81%8BS/yexin_B/yexin_B.model3.json` | 通过 | 未补测 | 三色绘恋S 角色条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 宝石研物语 | `magelite / 1` | 竖向角色立绘 | `1265 x 2163` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%AE%9D%E7%9F%B3%E7%A0%94%E7%89%A9%E8%AF%AD/%E5%AE%9D%E7%9F%B3%E7%A0%94%E7%89%A9%E8%AF%AD/magelite/1.model.json` | 通过 | 未补测 | 宝石研物语角色条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `013` | 方构图 / 角色立绘 | `1100 x 1151` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/013/c_3132.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `014` | 方构图 / 角色立绘 | `1000 x 1103` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/014/c_3133.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `015` | 方构图 / 角色立绘 | `1100 x 1100` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/015/c_3211.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `016` | 方构图 / 角色立绘 | `1100 x 1042` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/016/c_3221.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `017` | 方构图 / 角色立绘 | `1000 x 955` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/017/c_3223.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `018` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/018/c_3232.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `019` | 方构图 / 角色立绘 | `1300 x 1225` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/019/.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `020` | 方构图 / 角色立绘 | `900 x 900` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/020/c_3311.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `021` | 方构图 / 角色立绘 | `1100 x 1166` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/021/c_3312.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `022` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/022/c_3321.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `023` | 方构图 / 角色立绘 | `1190 x 1250` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/023/.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `024` | 方构图 / 角色立绘 | `1000 x 1000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/024/.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 方舟指令 | `l_153400301` | 全身 / 编号角色立绘 | `4211 x 4170` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E6%96%B9%E8%88%9F%E6%8C%87%E4%BB%A4/l_153400301/model.json` | 通过 | 未补测 | 方舟指令编号角色条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `4` |
+| 方舟指令 | `model / model` | 方构图 / 编号角色立绘 | `1000 x 1000` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E6%96%B9%E8%88%9F%E6%8C%87%E4%BB%A4/model/model.json` | 通过 | 未补测 | 方舟指令默认编号条目；本轮按最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `1013` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1013/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `101303` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/101303/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1014` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1014/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `101403` | 竖向角色立绘 | `1200 x 1700` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/101403/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1015` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1015/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `1016` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1016/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `101603` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/101603/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1017` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1017/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `101703` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/101703/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1018` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1018/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `101803` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/101803/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `5` |
+| 诺亚幻想 | `1019` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1019/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `1020` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1020/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `102003` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/102003/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `1021` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1021/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `102103` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/102103/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `4` |
+| 诺亚幻想 | `1022` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1022/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `102203` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/102203/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1023` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1023/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `102303` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/102303/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1024` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1024/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `1025` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1025/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1026` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1026/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `1027` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/1027/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 少女次元 | `025` | 方构图 / 角色立绘 | `1200 x 1175` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/025/c_3411.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `026` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/026/c_3413.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `027` | 方构图 / 角色立绘 | `1202 x 1084` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/027/c_3414.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `028` | 方构图 / 角色立绘 | `1500 x 1500` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/028/c_3422.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `029` | 方构图 / 角色立绘 | `1250 x 1250` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/029/c_3424.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `030` | 方构图 / 角色立绘 | `1100 x 1040` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/030/c_4013.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `031` | 方构图 / 角色立绘 | `900 x 900` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/031/c_4023.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `032` | 方构图 / 角色立绘 | `1800 x 1800` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/032/c_4024.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `033` | 方构图 / 角色立绘 | `1000 x 1000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/033/c_4032.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `034` | 方构图 / 角色立绘 | `1050 x 1050` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/034/c_4111.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `035` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/035/c_4121.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `036` | 方构图 / 角色立绘 | `1100 x 1117` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/036/c_4131.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `037` | 方构图 / 角色立绘 | `1200 x 1140` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/037/c_4133.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `038` | 方构图 / 角色立绘 | `1000 x 1000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/038/c_4134.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `039` | 方构图 / 角色立绘 | `984 x 900` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/039/c_4212.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `040` | 方构图 / 角色立绘 | `1100 x 1100` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/040/c_4214.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `041` | 方构图 / 角色立绘 | `1100 x 1149` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/041/c_4224.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `042` | 方构图 / 角色立绘 | `1000 x 1000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/042/c_4233.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `043` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/043/c_4242.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `044` | 方构图 / 角色立绘 | `1125 x 1000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/044/c_4311.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `045` | 方构图 / 角色立绘 | `1100 x 1100` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/045/c_4321.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `046` | 方构图 / 角色立绘 | `1400 x 1177` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/046/.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `047` | 方构图 / 角色立绘 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/047/.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 少女次元 | `048` | 方构图 / 角色立绘 | `1000 x 1066` | Cubism 4 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E5%B0%91%E5%A5%B3%E6%AC%A1%E5%85%83/048/c_4424.model3.json` | 通过 | 未补测 | 少女次元角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `1` |
+| 诺亚幻想 | `2001` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2001/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2002` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2002/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `200203` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/200203/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `4` |
+| 诺亚幻想 | `2003` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2003/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2004` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2004/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `200403` | 竖向角色立绘 | `1500 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/200403/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `5` |
+| 诺亚幻想 | `2005` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2005/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `2006` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2006/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `200603` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/200603/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `200613` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/200613/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `4` |
+| 诺亚幻想 | `2007` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2007/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2008` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2008/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `200803` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/200803/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `2009` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2009/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2010` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2010/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2011` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2011/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2012` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2012/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `201203` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/201203/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2013` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2013/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `201303` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/201303/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `5` |
+| 诺亚幻想 | `2014` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2014/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2015` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2015/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `2` |
+| 诺亚幻想 | `2016` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/2016/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
+| 诺亚幻想 | `201603` | 竖向角色立绘 | `1000 x 1500` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/L01den/live2d-models@master/%E8%AF%BA%E4%BA%9A%E5%B9%BB%E6%83%B3/201603/model.model.json` | 通过 | 未补测 | 诺亚幻想角色条目；本轮按 manifest 最小依赖下载后本地 Pixi 实载通过，纹理数 `3` |
 
 ## 2. 确认失败 / 排除总表
 
@@ -1052,6 +1147,43 @@
 | 方舟指令 | `l_143200360` | Live2D 模型 | Cubism 2.1 | 未补测 | 失败 | `jsDelivr` 远程直挂报 `Network error.` |
 | 天命之子 / Destiny Child | `c052_00` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | 本地 Pixi 实载报 `Network error`；manifest 引用 `model.moc`，目录实际只有 `00000001.med`，缺少可直挂的 moc 文件 |
 | VenusScramble | `player_unit_00005` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | 本地 Pixi 实载报 `Texture loading error`；manifest 引用 `model.2048/texture_00.png`，目录实际文件名是 `texture_0.png` |
+| 三色绘恋S | `EV01s` | Live2D 模型 | Cubism 4 | 失败 | 失败 | `Texture loading error` |
+| 三色绘恋S | `yexin_A` | Live2D 模型 | Cubism 4 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00000` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00001` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00001a` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00002` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00003` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00004` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00005` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00006` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00007` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00008` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 凍京Nerco | `l2d00009` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `aite` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `lili` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `magelite` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `safeiya` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `west` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_1` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_2` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_3` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_4` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_5` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_6` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_7` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_8` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_9_1` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 宝石研物语 | `elizabeth_9` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_144402311` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_153400360` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_154500211` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_234100511` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_234200211` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_234400411` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_234400412` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_234500311` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
+| 方舟指令 | `l_234600111` | Live2D 模型 | Cubism 2.1 | 失败 | 失败 | `Network error` |
 
 ## 3. 更新日志
 
@@ -1079,3 +1211,4 @@
 | 2026-04-11 07:11 | 继续优先复查明日方舟 / Arknights GitHub code search 仍无新的直挂 manifest 后，转向 `jsDelivr` 远程直挂稳定的著名 IP 与游戏角色池；本轮直接用远程 Pixi 实载逐条验证。 | 新增有效 38 项：`少女咖啡枪` 20（`girl01` 到 `girl15` 的基础 Cubism 4 立绘 + `girl101` 到 `girl106` 的基础 Cubism 4 立绘）、`哔哩哔哩` 5（`22` 基础版与 `33` 的 `school / lover / default / xmas.2` 变体）、`战舰少女` 3（`209_2`、`248_1`、`325_1/model.model.json`）、`方舟指令` 3（`l_103300401`、`l_103501211`、`l_143200301`）、`Live2D 示例角色` 2（`haru01`、`haru02`）、`NEW GAME!` 1（`aoba`）、`崩坏 3` 1（`Bronya`）、`请问您今天要来点兔子吗？` 1（`chino`）、`舰队 Collection` 1（`hibiki`）、`碧蓝航线` 1（`z16`）；新增失败 8 项：`战舰少女` 1、`方舟指令` 7。 | 46 个 manifest 候选；全部用 `jsDelivr` 远程 Pixi 实载验证，另复查 `Arknights / 明日方舟` GitHub code search 仍无新的直挂 manifest | 38 |
 | 2026-04-11 07:36 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `andatoshiki/toshiki-live2d` 里还没落表的著名 / 成体系 IP 候选池；本轮按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 76 项：`天命之子 / Destiny Child` 60（按角色编号去重选取的首批 `c000_01` 到 `c067_00` 代表条目，含少量 `2` 纹理变体）、`VenusScramble` 16（`other_unit` 5、`player_unit` 5、`summon_unit` 6）；新增失败 2 项：`天命之子 / Destiny Child / c052_00` 1、`VenusScramble / player_unit_00005` 1。 | 999 项候选内容（`979` 个 `Destiny Child` manifest + `18` 个 `VenusScramble` manifest + `Arknights / 明日方舟` repo / code search 2 轮） | 76 |
 | 2026-04-11 08:35 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向还没落表但可稳定本地实载的著名 / 成体系游戏角色池；本轮统一按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 44 项：`少女咖啡枪` 19（`girl107` 到 `girl119` 的 `l2d01 / l2d02` 新立绘变体 + `girl16` 的 `l2d00 / l2d01 / l2d14 / l2d22` 4 个变体）、`诺亚幻想` 12（`1001` 到 `1012`）、`少女次元` 12（`001` 到 `012`）、`食物语` 1（`100001_hugeng`）；`方舟指令`、`宝石研物语`、`魂器学院` 抽样仍未形成稳定可入表条目。 | 49 项候选内容（`44` 个最终 manifest + `3` 个未入表失败样本 + `Arknights / 明日方舟` repo / code search `2` 轮）；全部新增 manifest 均经最小依赖下载后的本地 Pixi 实载验证 | 44 |
+| 2026-04-11 09:05 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `L01den/live2d-models` 与 `AzharRizkiZ/Live2D-Model` 的高通过率增量池；本轮按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 94 项：`诺亚幻想` 48（`1013` 到 `1027`、`2001` 到 `201603` 的后续编号与皮肤变体）、`少女次元` 36（`013` 到 `048` 的后续角色编号）、`三色绘恋S` 4（`迟菓` 2、`叶心` 1、剧情条目 `EV02s` 1）、`舰队 Collection` 2（`村云` 2 个旧格式 settings 变体）、`方舟指令` 2（`l_153400301`、`model/model`）、`紫罗兰永恒花园 / Violet Evergarden` 1（`薇尔莉特`）、`宝石研物语` 1（`magelite / 1`）；新增失败 37 项：`凍京Nerco` 11、`宝石研物语` 15、`三色绘恋S` 2、`方舟指令` 9。 | 131 个 manifest 候选；其中 94 个本地 Pixi 实载通过、37 个失败；另复查 `Arknights / 明日方舟` GitHub repo / code search，仍无新的直挂 manifest | 94 |
