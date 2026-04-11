@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-11T20:08:16.484Z",
+  "generatedAt": "2026-04-11T20:52:43.225Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 73
+    "reviewed": 83
   },
   "results": [
     {
@@ -7827,6 +7827,908 @@
         }
       },
       "assessment": "人工复核：可用但不优先。浅色角色线条清楚，右下角摆位能放下；但和 `22_high` 一样偏细高静态看板，没有动作组、命中区和表情，只建议作为低优先级装饰挂件。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-2/model.json",
+      "ip": "工作细胞",
+      "model": "血小板 `platelet-2`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 小挂件",
+      "status": "ok",
+      "durationMs": 32357,
+      "dependencyCount": 6,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 368.0693498452012,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 383,
+          "ratio": 0.8972222222222223
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "sleepy",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.07050563764969536,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5714285714285714
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。半身小挂件构图天然贴右下角，缩到约 `285x340` 后就是桌角陪伴位；`tap_body`、`flick_head`、`sleepy` 都能看出动作，但没有命中区和表情，更适合低干扰陪伴，不建议当主互动角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Hataraku-Saibou/platelet-3/model.json",
+      "ip": "工作细胞",
+      "model": "血小板 `platelet-3`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 小挂件",
+      "status": "ok",
+      "durationMs": 19071,
+      "dependencyCount": 6,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 330.24000000000007,
+        "height": 349.6658823529412,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 364,
+          "ratio": 0.9444444444444444
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "sleepy",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.055943168289095874,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5352380952380953
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.07887019399117585,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5485714285714286
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。基础版和 `platelet-2` 一样是干净的小桌宠构图，头肩跟随更明显一点；`tap_body` 反馈存在，但仍是 `0` 命中区、`0` 表情，适合轻陪伴位，不建议承担主互动。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/mashiro_ryoufuku/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `mashiro_ryoufuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 14354,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 786432,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 10
+          },
+          {
+            "name": "tap_body",
+            "count": 10
+          },
+          {
+            "name": "talk",
+            "count": 3
+          },
+          {
+            "name": "idle",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.055102773303452625,
+          "coverageWidth": 0.35,
+          "coverageHeight": 0.6615384615384615
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.008277015197142657,
+          "coverageWidth": 0.30454545454545456,
+          "coverageHeight": 0.6519230769230769
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.035563589887247005,
+          "coverageWidth": 0.3522727272727273,
+          "coverageHeight": 0.6538461538461539
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。单角色竖向立绘很干净，裁到腰部以上后右下角约 `288x340` 观感自然；`tap_body`、`flick_head`、`talk` 和 8 个表情足够用，但命中区为 `0`，需要工程侧补点击 / 悬停映射。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/mashiro_seifuku/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `mashiro_seifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 14427,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 10
+          },
+          {
+            "name": "tap_body",
+            "count": 10
+          },
+          {
+            "name": "talk",
+            "count": 3
+          },
+          {
+            "name": "idle",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06310841095314798,
+          "coverageWidth": 0.35,
+          "coverageHeight": 0.6615384615384615
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.01155543105259472,
+          "coverageWidth": 0.3340909090909091,
+          "coverageHeight": 0.6480769230769231
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.04095612437845787,
+          "coverageWidth": 0.3522727272727273,
+          "coverageHeight": 0.6596153846153846
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。制服版轮廓更利落，裁腰后会比便服版更像标准看板娘；`tap_body`、`flick_head`、`talk` 与 8 个表情都可用，但命中区为 `0`，默认点击不会直接形成成品级反馈。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/mashiro_shifuku/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "椎名真白 `mashiro_shifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 101529,
+      "dependencyCount": 18,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 851968,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 256,
+            "height": 256
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 10
+          },
+          {
+            "name": "tap_body",
+            "count": 10
+          },
+          {
+            "name": "talk",
+            "count": 3
+          },
+          {
+            "name": "idle",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06753361579942573,
+          "coverageWidth": 0.36818181818181817,
+          "coverageHeight": 0.6615384615384615
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.010312346802997408,
+          "coverageWidth": 0.36363636363636365,
+          "coverageHeight": 0.6480769230769231
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.0378484137544646,
+          "coverageWidth": 0.3659090909090909,
+          "coverageHeight": 0.6596153846153846
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。私服版发梢和上身动幅自然，右下角不会显得像整张立绘缩略图；4 组动作和 8 个表情够做常规桌宠轮播，但命中区为 `0`，需要工程侧手动绑交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/nanami_ryoufuku/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "青山七海 `nanami_ryoufuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 14389,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 851968,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 256,
+            "height": 256
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "tap",
+            "count": 11
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.047307234400168076,
+          "coverageWidth": 0.39545454545454545,
+          "coverageHeight": 0.7115384615384616
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.004665942993206807,
+          "coverageWidth": 0.32954545454545453,
+          "coverageHeight": 0.5288461538461539
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.07138104909307375,
+          "coverageWidth": 0.3977272727272727,
+          "coverageHeight": 0.7096153846153846
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。单角色立绘干净，裁到胸腰之间后桌角观感稳定；`tap` + `idle` 两组动作配 8 个表情够做轻互动，但命中区为 `0`，整体不如真白那组活跃。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/nanami_seifuku/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "青山七海 `nanami_seifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 40906,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 851968,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 256,
+            "height": 256
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "tap",
+            "count": 11
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05193378387842286,
+          "coverageWidth": 0.39545454545454545,
+          "coverageHeight": 0.7115384615384616
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.026174802157013795,
+          "coverageWidth": 0.4,
+          "coverageHeight": 0.7057692307692308
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.07867322641641572,
+          "coverageWidth": 0.3977272727272727,
+          "coverageHeight": 0.7096153846153846
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。制服版轮廓规整、构图很稳，右下角像轻量角色卡片；`tap` 的上身反馈和 8 个表情可用，但命中区为 `0`，需要手动映射点击，更适合作陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/nanami_shifuku/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "青山七海 `nanami_shifuku`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 14308,
+      "dependencyCount": 17,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 4,
+        "texturePixels": 851968,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 256,
+            "height": 256
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "tap",
+            "count": 11
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04592408431963023,
+          "coverageWidth": 0.3977272727272727,
+          "coverageHeight": 0.7115384615384616
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.006062224245395336,
+          "coverageWidth": 0.375,
+          "coverageHeight": 0.6846153846153846
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.07044873590587576,
+          "coverageWidth": 0.3977272727272727,
+          "coverageHeight": 0.7096153846153846
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。私服版缩到右下角依然干净，不会被长发或衣摆拖出框；`tap` 动作和 8 个表情足够做轻轮播，但命中区为 `0`，互动层级仍偏轻。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/ryunosuke/model.json",
+      "ip": "樱花庄的宠物女孩 / Sakurasou",
+      "model": "赤坂龙之介 `ryunosuke`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 13506,
+      "dependencyCount": 16,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 300.1786516853932,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 263,
+          "height": 430,
+          "ratio": 0.6123595505617978
+        },
+        "textureCount": 3,
+        "texturePixels": 786432,
+        "textures": [
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          },
+          {
+            "width": 512,
+            "height": 512
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "tap",
+            "count": 10
+          },
+          {
+            "name": "idle",
+            "count": 2
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06553330065130611,
+          "coverageWidth": 0.3795454545454545,
+          "coverageHeight": 0.698076923076923
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.009239967784858884,
+          "coverageWidth": 0.37272727272727274,
+          "coverageHeight": 0.6923076923076923
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap",
+          "touchLike": true,
+          "changedRatio": 0.025938441067301633,
+          "coverageWidth": 0.375,
+          "coverageHeight": 0.698076923076923
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。竖向单角色构图很干净，裁到腰部以上后不会显得压缩；`tap` + 8 个表情可以做轻交互，但命中区为 `0`、动作层级比 `rem_2` 和真白组弱，更适合低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://cdn.jsdelivr.net/gh/evrstr/live2d-widget-models@master/live2d_evrstr/rem_2/model.json",
+      "ip": "Re:Zero",
+      "model": "蕾姆 `rem_2`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 大角色立绘",
+      "status": "ok",
+      "durationMs": 19128,
+      "dependencyCount": 11,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 299.28,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 285,
+          "ratio": 1.206896551724138
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "body"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "start",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "tap_head",
+            "count": 10
+          },
+          {
+            "name": "pinch_in",
+            "count": 15
+          },
+          {
+            "name": "tap_body",
+            "count": 10
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_head",
+          "pinch_in",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0466462987604174,
+          "coverageWidth": 0.3659090909090909,
+          "coverageHeight": 0.46923076923076923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.050091042790111354,
+          "coverageWidth": 0.36818181818181817,
+          "coverageHeight": 0.475
+        }
+      },
+      "assessment": "人工复核：适合，建议留少量横向边距。虽然原始资源偏横构图，但裁到头肩到腰部后右下角约 `288x340` 仍然自然；命中区 2 个，`tap_head` / `pinch_in` / `tap_body` 5 组动作都能用，是本轮最接近成品互动桌宠的一条。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
