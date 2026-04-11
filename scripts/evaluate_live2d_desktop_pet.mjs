@@ -247,7 +247,16 @@ async function atomicWriteFile(filePath, content) {
 }
 
 function candidateUrlsForFetch(url) {
-  const candidates = [url];
+  const candidates = [];
+
+  const rawMatch = url.match(/^https:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)$/);
+  if (rawMatch) {
+    const [, owner, repo, ref, filePath] = rawMatch;
+    candidates.push(`https://cdn.jsdelivr.net/gh/${owner}/${repo}@${ref}/${filePath}`);
+  }
+
+  candidates.push(url);
+
   const match = url.match(/^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^@/]+)@([^/]+)\/(.+)$/);
   if (match) {
     const [, owner, repo, ref, filePath] = match;
@@ -321,6 +330,25 @@ function resolveRelative(manifestUrl, relativePath) {
   return new URL(relativePath, manifestUrl).toString();
 }
 
+function chooseRepresentativeMotionGroup(entries) {
+  const groups = entries.map((item) => item.name);
+  const patterns = [
+    /tap[_-]?body|touch[_-]?body|body/i,
+    /tap[_-]?head|touch[_-]?head|flick[_-]?head|head/i,
+    /tap|touch|flick|pinch/i,
+  ];
+
+  for (const pattern of patterns) {
+    const hit = groups.find((name) => pattern.test(name));
+    if (hit) {
+      return hit;
+    }
+  }
+
+  const nonIdle = groups.find((name) => !/idle/i.test(name));
+  return nonIdle || groups[0] || null;
+}
+
 function collectRequiredFiles(runtime, manifestJson) {
   const files = new Map();
 
@@ -352,16 +380,24 @@ function collectRequiredFiles(runtime, manifestJson) {
       addFile(texture, false);
     }
 
-    for (const expression of refs.Expressions || []) {
-      addFile(expression.File, true);
+    const expressions = refs.Expressions || [];
+    if (expressions[0]?.File) {
+      addFile(expressions[0].File, true);
     }
 
-    for (const motions of Object.values(refs.Motions || {})) {
-      if (!Array.isArray(motions) || motions.length === 0) {
-        continue;
-      }
-      addFile(motions[0].File, true);
-      addFile(motions[0].Sound, true);
+    const motionGroups = Object.entries(refs.Motions || {})
+      .map(([name, items]) => ({
+        name,
+        items: Array.isArray(items) ? items : [],
+      }))
+      .filter((item) => item.items.length > 0);
+    const chosenMotionGroup = chooseRepresentativeMotionGroup(
+      motionGroups.map((item) => ({ name: item.name, count: item.items.length })),
+    );
+    const chosenMotion = motionGroups.find((item) => item.name === chosenMotionGroup)?.items[0];
+    if (chosenMotion) {
+      addFile(chosenMotion.File, true);
+      addFile(chosenMotion.Sound, true);
     }
   } else {
     addFile(manifestJson.model, false);
@@ -372,16 +408,24 @@ function collectRequiredFiles(runtime, manifestJson) {
       addFile(texture, false);
     }
 
-    for (const expression of manifestJson.expressions || []) {
-      addFile(expression.file, true);
+    const expressions = manifestJson.expressions || [];
+    if (expressions[0]?.file) {
+      addFile(expressions[0].file, true);
     }
 
-    for (const motions of Object.values(manifestJson.motions || {})) {
-      if (!Array.isArray(motions) || motions.length === 0) {
-        continue;
-      }
-      addFile(motions[0].file, true);
-      addFile(motions[0].sound, true);
+    const motionGroups = Object.entries(manifestJson.motions || {})
+      .map(([name, items]) => ({
+        name,
+        items: Array.isArray(items) ? items : [],
+      }))
+      .filter((item) => item.items.length > 0);
+    const chosenMotionGroup = chooseRepresentativeMotionGroup(
+      motionGroups.map((item) => ({ name: item.name, count: item.items.length })),
+    );
+    const chosenMotion = motionGroups.find((item) => item.name === chosenMotionGroup)?.items[0];
+    if (chosenMotion) {
+      addFile(chosenMotion.file, true);
+      addFile(chosenMotion.sound, true);
     }
   }
 
