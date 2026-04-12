@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T02:12:57.822Z",
+  "generatedAt": "2026-04-12T02:32:46.566Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 226
+    "reviewed": 235
   },
   "results": [
     {
@@ -52959,67 +52959,6 @@
       "source": "summary-md-human-review"
     },
     {
-      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/为美好的世界献上祝福！Fantastic%20Days/1014100aqua/1014100.model3.json",
-      "ip": "为美好的世界献上祝福！Fantastic Days",
-      "model": "Aqua `1014100aqua`",
-      "runtime": "Cubism 4",
-      "resourceType": "全身 / 标准立绘",
-      "status": "ok",
-      "durationMs": 23103,
-      "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Fantastic_Days-Aqua_1014100aqua_.png",
-      "result": {
-        "ok": true,
-        "width": 559,
-        "height": 838.5,
-        "visibleBounds": {
-          "count": 243220,
-          "minX": 0,
-          "minY": 0,
-          "maxX": 439,
-          "maxY": 829,
-          "width": 440,
-          "height": 830
-        },
-        "targetDeskpetWidth": 180,
-        "previewFrame": {
-          "width": 287,
-          "height": 430,
-          "ratio": 0.6666666666666666
-        },
-        "textureCount": 1,
-        "texturePixels": 4194304,
-        "textures": [
-          {
-            "width": 2048,
-            "height": 2048
-          }
-        ],
-        "hitAreas": [],
-        "expressionsCount": 0,
-        "motionGroups": [
-          {
-            "name": "",
-            "count": 32
-          }
-        ],
-        "touchLikeMotionGroups": [],
-        "focusProbe": {
-          "supported": true,
-          "changedRatio": 0,
-          "coverageWidth": 0,
-          "coverageHeight": 0
-        },
-        "expressionProbe": {
-          "supported": false
-        },
-        "motionProbe": {
-          "supported": false
-        }
-      },
-      "assessment": "人工复核：不建议。标准全身立绘等比缩到右下角后角色只剩偏细高的一小条，缺少半身桌宠感；同时命中区、表情和可见触发动效都为 `0`，实测几乎就是静态轻跟随，不值得优先接入。"
-    },
-    {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/19ena/19ena_normal/19ena_normal.model3.json",
       "ip": "Project SEKAI / Vocaloid",
       "model": "东云绘名 `19ena_normal`",
@@ -74932,6 +74871,886 @@
       "assessment": "人工复核：适合但需自己绑定点击。横构图胸像位很干净，`tap` 和 8 个表情都有明确变化；但命中区为 0，接入时要手动把点击 / 悬停映射到动作。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.cba-normal/22.2017.cba-normal.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.cba-normal`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 20706,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.cba-normal_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05674854681700399,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4533333333333333
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.08117690314447791,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5885714285714285
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。Q 版天使看板娘非常轻，缩到右下角就像桌边吉祥物，`tap_body` 的眨眼和上身摆动也够明显；但命中区和表情都为 `0`，接入时仍要工程侧手动把点击 / 悬停绑到动作。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.school/22.2017.school.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.school`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 20834,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.school_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.050432453253028926,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4533333333333333
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06889488059387912,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。校园制服版是这批里最接近日常常驻桌宠的一条，头肩比例自然、画面也很干净；`tap_body` 的反馈能带出明显眨眼和上身轻摆，但命中区和表情都为 `0`，默认点击仍需要工程侧接动作。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.summer.normal.1/22.2017.summer.normal.1.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.summer.normal.1`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 22243,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.summer.normal.1_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04623923243924644,
+          "coverageWidth": 1,
+          "coverageHeight": 0.46285714285714286
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06325285384130541,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5866666666666667
+        }
+      },
+      "assessment": "人工复核：可用但偏夏日主题。短袖短裤的小体量构图很轻，右下角像夏日小摆件，`tap_body` 的眨眼反馈也清楚；但服装主题明显，且命中区和表情都为 `0`，更适合作季节性陪伴位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.summer.normal.2/22.2017.summer.normal.2.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.summer.normal.2`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 19494,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.summer.normal.2_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07286487148960011,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4361904761904762
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.09576125779116185,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5695238095238095
+        }
+      },
+      "assessment": "人工复核：可用但偏夏日主题。大草帽和花饰让桌角辨识度很高，主体仍然干净，没有被拖成脏场景；不过帽檐会把顶部和横向占位撑开，加上命中区和表情都为 `0`，更适合作夏季专题位，不建议长期常驻。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.tomo-bukatsu.high/22.2017.tomo-bukatsu.high.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.tomo-bukatsu.high`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 21131,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.tomo-bukatsu.high_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.054516247636389105,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4533333333333333
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.09154177463407802,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5923809523809523
+        }
+      },
+      "assessment": "人工复核：可用但偏主题化。舞台感服装和裙摆爱心让桌角辨识度不错，`tap_body` 触发时也能看到清楚的眨眼与上身变化；但整体装饰量比同批其他 22 娘更满，命中区和表情又都为 `0`，更适合作活动主题位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.tomo-bukatsu.low/22.2017.tomo-bukatsu.low.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.tomo-bukatsu.low`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 19566,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.tomo-bukatsu.low_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05358393444919112,
+          "coverageWidth": 1,
+          "coverageHeight": 0.46285714285714286
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.07380593879123187,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。低模社团版比 `high` 更利落，缩到右下角更像可常驻的小看板娘，红蓝披带也没有把画面撑脏；`tap_body` 的反馈够用，但命中区和表情都为 `0`，接入时仍要自己补点击 / 闲置映射。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.valley/22.2017.valley.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.valley`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 22740,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.valley_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.051119651236080955,
+          "coverageWidth": 1,
+          "coverageHeight": 0.44952380952380955
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.07516282652846838,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。浅色毛衣和蓝白短裙让它看起来很像日常陪伴位，右下角观感是这批里最轻的一档；`tap_body` 有明确眨眼和上身轻摆，但命中区和表情都为 `0`，更适合作低干扰常驻陪伴位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.vdays/22.2017.vdays.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.vdays`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 18301,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.vdays_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.047885005952797814,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4514285714285714
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06442590517543245,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：可用但偏主题化。浅蓝礼服和头纱装饰保持了纯人物桌宠观感，缩到右下角也不脏；但恋人节 / 礼装氛围明显，命中区和表情都为 `0`，更适合作专题陪伴位而不是默认常驻角色。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2018.lover/22.2018.lover.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2018.lover`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 24372,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2018.lover_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05194691505007353,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5085714285714286
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.0731975278380839,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：适合但偏主题化。红黑心形礼服缩到右下角后辨识度很高，`tap_body` 触发时的眨眼反馈也比不少安静款更醒目；但主题属性仍然明显，而且命中区和表情都为 `0`，更适合作活动 / 恋人节相关桌宠位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.xmas.2/22.xmas.2.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.xmas.2`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 20137,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.xmas.2_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.06302524686602703,
+          "coverageWidth": 1,
+          "coverageHeight": 0.47619047619047616
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.0856327473912739,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：可用但偏节庆。鹿角和红色圣诞裙能稳定落在右下角视野里，画面仍然很干净，`tap_body` 触发反馈也清楚；但节庆属性非常强，且命中区和表情都为 `0`，更适合作冬季主题位。"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc3/aierdeliqi_4/aierdeliqi_4.model3.json",
