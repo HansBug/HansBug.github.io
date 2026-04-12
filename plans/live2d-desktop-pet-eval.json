@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T01:22:38.521Z",
+  "generatedAt": "2026-04-12T01:48:15.118Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 205
+    "reviewed": 215
   },
   "results": [
     {
@@ -51016,6 +51016,591 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepgear_extra/model.json",
+      "ip": "超次元海王星",
+      "model": "Nepgear `nepgear_extra`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 18790,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Nepgear_nepgear_extra_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.028717872400028013,
+          "coverageWidth": 0.3522727272727273,
+          "coverageHeight": 0.325
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.026354261502906366,
+          "coverageWidth": 0.35,
+          "coverageHeight": 0.325
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。紫白系横构图胸像位依旧很干净，缩到右下角后不会像大立绘缩略图；但整条只有 `idle` 轻跟随，没有命中区和表情，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepmaid/model.json",
+      "ip": "超次元海王星",
+      "model": "Neptune 女仆 `nepmaid`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 17225,
+      "dependencyCount": 9,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Neptune_nepmaid_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "flick_head",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 5
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.027330345262273268,
+          "coverageWidth": 0.4727272727272727,
+          "coverageHeight": 0.41346153846153844
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.0038561874080817985,
+          "coverageWidth": 0.3068181818181818,
+          "coverageHeight": 0.38269230769230766
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.044234540233909936,
+          "coverageWidth": 0.5022727272727273,
+          "coverageHeight": 0.4115384615384615
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。女仆版是这批剩余条目里最像常驻桌宠的一条，右下角胸像位干净，`tap_body` / `flick_head` 与 6 个表情够做轻互动；但命中区为 `0`，接入时仍要工程侧手动绑点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepswim/model.json",
+      "ip": "超次元海王星",
+      "model": "Neptune 泳装 `nepswim`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 16717,
+      "dependencyCount": 9,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Neptune_nepswim_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "flick_head",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 5
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.026144162756495552,
+          "coverageWidth": 0.49772727272727274,
+          "coverageHeight": 0.38653846153846155
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.004486483647314238,
+          "coverageWidth": 0.4590909090909091,
+          "coverageHeight": 0.275
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.03083199103578682,
+          "coverageWidth": 0.5022727272727273,
+          "coverageHeight": 0.38653846153846155
+        }
+      },
+      "assessment": "人工复核：不建议优先。透明背景本身足够干净，也有 `tap_body` / `flick_head` 和 6 个表情，但动幅仍主要集中在头肩，且泳装季节感偏重，更像夏日装饰位，不适合常驻主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/neptune_classic/model.json",
+      "ip": "超次元海王星",
+      "model": "Neptune `neptune_classic`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 89285,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Neptune_neptune_classic_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "flick_head",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 5
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.03074882694866587,
+          "coverageWidth": 0.5159090909090909,
+          "coverageHeight": 0.3730769230769231
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.0026393655017858393,
+          "coverageWidth": 0.375,
+          "coverageHeight": 0.35
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.03495955599131592,
+          "coverageWidth": 0.5159090909090909,
+          "coverageHeight": 0.375
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。经典紫白服装在桌角辨识度很高，胸腰位也比泳装版更适合作常驻看板娘；`tap_body` / `flick_head` 和 6 个表情够做轻互动，但命中区为 `0`，需要工程侧自己绑定交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noir_classic/model.json",
+      "ip": "超次元海王星",
+      "model": "Noir `noir_classic`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 19074,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Noir_noir_classic_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.041879683451222074,
+          "coverageWidth": 0.3931818181818182,
+          "coverageHeight": 0.2903846153846154
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.06209731073604594,
+          "coverageWidth": 0.41818181818181815,
+          "coverageHeight": 0.2846153846153846
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。黑紫经典服装胸像位很稳，右下角存在感也够，画面没有多余杂质；不过整条只有 `idle` 轻跟随，没有命中区和表情，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noireswim/model.json",
+      "ip": "超次元海王星",
+      "model": "Noir 泳装 `noireswim`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 20084,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Noir_noireswim_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.05088766720358569,
+          "coverageWidth": 0.4022727272727273,
+          "coverageHeight": 0.3230769230769231
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.04839274458995728,
+          "coverageWidth": 0.41818181818181815,
+          "coverageHeight": 0.3230769230769231
+        }
+      },
+      "assessment": "人工复核：不建议优先。透明背景很干净，但泳装版缩到右下角后更像季节活动立绘的裁腰缩略图，而且只有 `idle` 轻跟随，没有命中区和表情，不适合当主互动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/vert_classic/model.json",
+      "ip": "超次元海王星",
+      "model": "Vert `vert_classic`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 21301,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Vert_vert_classic_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.03238584634778346,
+          "coverageWidth": 0.47954545454545455,
+          "coverageHeight": 0.3153846153846154
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.04850217102037958,
+          "coverageWidth": 0.4772727272727273,
+          "coverageHeight": 0.3173076923076923
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。绿色长发和经典服装的胸像位足够干净，桌角辨识度也稳定；但整条只有 `idle` 轻跟随，没有命中区和表情，更适合作低干扰陪伴位，不建议当即点即动主角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/chino/model.json",
       "ip": "请问您今天要来点兔子吗？",
       "model": "Chino",
@@ -73097,6 +73682,276 @@
         }
       },
       "assessment": "人工复核：适合但偏安静。基础版和 `platelet-2` 一样是干净的小桌宠构图，头肩跟随更明显一点；`tap_body` 反馈存在，但仍是 `0` 命中区、`0` 表情，适合轻陪伴位，不建议承担主互动。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.default/22.default.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.default`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 16070,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-22_22.default_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.047906891238882275,
+          "coverageWidth": 1,
+          "coverageHeight": 0.46095238095238095
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06551141536522165,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。默认版半身看板娘构图天然贴桌角，`tap_body` 和 `thanking` 的反馈能覆盖到上身，完成度明显好于高模细长版；但命中区和表情都为 `0`，接入时仍要工程侧手动把点击绑到动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.newyear/22.2017.newyear.model.json",
+      "ip": "哔哩哔哩",
+      "model": "22 娘 `22.2017.newyear`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 22609,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-22_22.2017.newyear_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.079229112682961,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4742857142857143
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.09310438406050844,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5904761904761905
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。新年版红金配色缩到右下角辨识度很高，这组三个里动作反馈也最明显；不过命中区和表情都为 `0`，仍要工程侧自己绑定点击 / 闲置。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/33.default/33.default.model.json",
+      "ip": "哔哩哔哩",
+      "model": "33 娘 `33.default`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "轻量半身 / 看板娘",
+      "status": "ok",
+      "durationMs": 19422,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-33_33.default_.png",
+      "result": {
+        "ok": true,
+        "width": 330.23999999999995,
+        "height": 396.28799999999995,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 524,
+          "width": 440,
+          "height": 525
+        },
+        "targetDeskpetWidth": 285,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 1
+          },
+          {
+            "name": "thanking",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.040715386231528816,
+          "coverageWidth": 1,
+          "coverageHeight": 0.41904761904761906
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.056573464528328316,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5085714285714286
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。默认版半身构图也很干净，右下角能成立为轻量陪伴位；但 `tap_body` 的变化主要还是集中在头肩，命中区和表情都为 `0`，更适合作低干扰看板娘，不建议当主互动角色。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
