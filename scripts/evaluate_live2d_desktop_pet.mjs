@@ -2174,7 +2174,12 @@ function countByGrade(results) {
 }
 
 function hasStableAssessment(assessment) {
-  return Boolean(assessment) && !String(assessment).startsWith("本轮复测失败");
+  if (!assessment) {
+    return false;
+  }
+
+  const normalized = String(assessment).replace(/^人工复核：/, "");
+  return !normalized.startsWith("本轮复测失败");
 }
 
 async function evaluateRow({ row, page, baseUrl, runTempRoot, timeout, reviewDir }) {
