@@ -50,6 +50,7 @@
 - 2026-04-12 12:07 这轮继续按右下角桌宠人工复核流程，专门补齐 `Konosuba / Fantastic Days` 里 `10` 个干净单角色标准立绘（`Aqua` `1013104 / 1014107`、`Chris 1044100`、`Darkness 1033104 / 1034100 / 1039108`、`Eris 1339100`、`Iris 1074100`、`Megumin 1023104 / 1024107`）。10 个都能在浏览器复核页稳定加载，缩到右下角后主体仍是纯角色胸腰位，没有大面积背景或脏杂场景；这批条目在画面上鼠标跟随都很轻，肉眼几乎看不出，但数值探针统一显示头部跟随明确、上身也会被带动。同时它们也统一落在 `0` 命中区、`0` 表情、仅 `1` 组未命名动作的弱交互档。最终这批都不算“即挂即用”桌宠，其中 `Iris 1074100`、`Chris 1044100`、`Darkness 1033104` 更适合作安静常驻陪伴位，`Aqua 1013104`、`Darkness 1039108`、`Megumin 1023104 / 1024107` 更偏主题 / 小挂件位，`Darkness 1034100` 与 `Eris 1339100` 则要额外留横向边距。
 - 2026-04-12 12:18 这轮不新增条目，而是专门校准“鼠标跟随 = 视觉 + 数值”探针：复跑一批已入表模型，覆盖官方基准、`Fox Hime Zero`、`BanG Dream!`、`碧蓝航线` 等不同来源与新旧 runtime。校准后确认鼠标跟随结论可以稳定落成“上身也明显跟随”“上身会被轻带动”“头部跟随明显”“头部轻微跟随”“视觉上上半身在动”“视觉上头肩在动”“视觉上脸部轻动”几档；同时确认没有再出现“画面明显跟随，但标准参数和 `focusController` 都完全不给数值”的残留漏检。脚本也同步修正为：本地镜像会补抓 `idle` 与代表动作，浏览器页预载这两类 motion，且在标准参数不外露时回退记录 `focusController` 响应，避免再大面积写出“图上明显在跟、数值却全 0”的结论。
 - 2026-04-12 16:01 这轮继续按右下角桌宠人工复核流程，专门补齐 `Konosuba / Fantastic Days` 余下的 `5` 个干净单角色标准立绘（`Megumin 1024113`、`Wiz 1054100 / 1054113`、`Yunyun 1063113 / 1064100`）以及 `刀剑神域 / SAO` 的 `5` 个 `Asuna` 旧格式标准立绘（`asuna_01 / 19 / 35 / 51 / 56`），共 `10` 个条目。10 个都能在浏览器复核页稳定加载，没有大面积背景或脏杂场景；其中 `Konosuba` 这 `5` 条继续属于“可裁腰但弱交互”的一档，缩到右下角后主体仍然干净，但统一还是 `0` 命中区、`0` 表情、仅 `1` 组动作，`Wiz 1054100 / 1054113` 与 `Yunyun 1064100` 更适合作裁腰陪伴位，`Megumin 1024113` 和 `Yunyun 1063113` 更偏安静 / 主题位。`Asuna` 这 `5` 条则统一有 `4` 个命中区、`10` 个表情和 `2` 组动作，是这轮互动底子更好的一组；虽然全身比例仍偏细高、接入时建议裁腰，但 `5` 条都可优先于本轮 `Konosuba` 组作为轻互动桌宠候选，其中 `asuna_35` 的头肩到上半身跟随最直观。
+- 2026-04-12 16:37 这轮继续按右下角桌宠人工复核流程，专门补齐 `少女前线 / Girls' Frontline` 的 `10` 个常规旧格式条目（`Carcano M1891 / M1938`、`Contender`、`G36C`、`K2`、`UMP45`、`UMP9`、`Vector`、`WA2000`、`Welrod`）。10 个都能在浏览器复核页稳定加载，透明背景整体干净，没有大面积脏场景；但这批互动底子普遍只有 `1-3` 个命中区、`0` 表情、`2` 组未命名动作，不能直接按高互动成品桌宠看。最终 `Carcano M1891 / M1938`、`Contender` 与 `UMP9` 属于“可裁腰接入，但交互偏弱”的一档，`G36C`、`UMP45`、`WA2000`、`Welrod` 更适合作低干扰 / 次优先陪伴位，`Vector` 因人物本体偏小、拖尾和烛台占位偏重不建议优先，`K2` 则因默认视野几乎只剩椅腿与下半身而明确不建议右下角直挂。
 当前显式汇总：成功 `1198` 条，失败 / 排除 `77` 条。
 
 ## 0. 右下角桌宠人工复核流程
@@ -160,27 +161,27 @@ node scripts/evaluate_live2d_desktop_pet.mjs --reviewed-only --offset 0 --limit 
 | 少女前线 | AA-12 `aa12_2403` | 全身 / 大立绘 | `6000 x 7000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/aa12_2403/aa12_2403.model.json` | 通过 | 未补测 | 大型竖向立绘 |  |
 | 少女前线 | AK-12 `ak12_3302` | 全身 / 大立绘 | `4000 x 5813` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ak12_3302/ak12_3302.model.json` | 通过 | 未补测 | 大竖图 |  |
 | 少女前线 | AN-94 `an94_3303` | 全身 / 大立绘 | `3000 x 4360` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/an94_3303/an94_3303.model.json` | 通过 | 未补测 | 与 AK-12 形成配套代表样本 |  |
-| 少女前线 | Carcano M1891 `carcano1891_2201` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/carcano1891_2201/carcano1891_2201.model.json` | 通过 | 未补测 | Carcano 姐妹之一 |  |
-| 少女前线 | Carcano M1938 `carcano1938_2202` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/carcano1938_2202/carcano1938_2202.model.json` | 通过 | 未补测 | 与 `M1891` 构成配套条目 |  |
-| 少女前线 | Contender `contender_2302` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/contender_2302/contender_2302.model.json` | 通过 | 未补测 | 中等尺寸，适合常规侧栏挂件 |  |
+| 少女前线 | Carcano M1891 `carcano1891_2201` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/carcano1891_2201/carcano1891_2201.model.json` | 通过 | 未补测 | Carcano 姐妹之一 | 人工复核：适合但偏安静，建议裁腰。红发、披肩和抬手姿态裁到胸腰位后仍是干净纯角色小人，虽然左上枪身会略占视野，但整体不像大场景立绘。鼠标跟随：视觉上能看到头肩到上半身都在动，数值上 focusController 也有明确响应，但标准跟随参数没有直接暴露。默认交互方面，命中区 1 个、表情 0 个、动作组 2 组；代表动作只有未命名组，反馈更像轻动作轮播，接入时建议工程侧自己绑定点击 / 闲置。 |
+| 少女前线 | Carcano M1938 `carcano1938_2202` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/carcano1938_2202/carcano1938_2202.model.json` | 通过 | 未补测 | 与 `M1891` 构成配套条目 | 人工复核：适合但偏安静，建议裁腰。紫发和深色裙装裁到胸腰位后很稳，脸和上半身都能完整落进桌角视野里，比 `M1891` 更像常驻陪伴位。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 1 个、表情 0 个、动作组 2 组；未命名动作组能跑出可见变化，但反馈层级仍偏弱，建议工程侧自行绑定点击 / 悬停。 |
+| 少女前线 | Contender `contender_2302` | 全身 / 角色立绘 | `2480 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/contender_2302/contender_2302.model.json` | 通过 | 未补测 | 中等尺寸，适合常规侧栏挂件 | 人工复核：适合但偏安静，建议裁腰。女仆装胸腰位很干净，右下角观感稳定，没有大面积背景或多余道具，是这轮更纯净的一条。鼠标跟随：视觉上能看到头肩到上半身都在动，数值上 focusController 也有明确响应，但标准跟随参数没有直接暴露。默认交互方面，命中区 1 个、表情 0 个、动作组 2 组；代表动作只有未命名组，适合低干扰陪伴位，接入时最好自己补点击 / 闲置映射。 |
 | 少女前线 | DSR-50 `dsr50_1801` | 全身 / 大立绘 | `5000 x 6036` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/dsr50_1801/dsr50_1801.model.json` | 通过 | 未补测 | 高分辨率代表条目 |  |
 | 少女前线 | FN-57 `fn57_2203` | 全身 / 大立绘 | `5000 x 6500` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/fn57_2203/fn57_2203.model.json` | 通过 | 未补测 | 细高比例，更适合全身展示 |  |
-| 少女前线 | G36C `g36c_1202` | 全身 / 大立绘 | `2757 x 4130` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/g36c_1202/g36c_1202.model.json` | 通过 | 未补测 | 比例更适中 |  |
+| 少女前线 | G36C `g36c_1202` | 全身 / 大立绘 | `2757 x 4130` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/g36c_1202/g36c_1202.model.json` | 通过 | 未补测 | 比例更适中 | 人工复核：可用但不优先。银发和和服主体是干净的，但背枪、圆扇和长发把横向撑得很满，右下角更像完整角色立绘裁成胸腰位，不是最纯粹的小桌宠。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 2 个、表情 0 个、动作组 2 组；虽然会动，但交互层级仍偏弱，更适合作低干扰陪伴位。 |
 | 少女前线 | G41 `g41_2401` | 全身 / 大立绘 | `5000 x 6000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/g41_2401/g41_2401.model.json` | 通过 | 未补测 | 这组里分辨率最高的少女前线条目之一 |  |
 | 少女前线 | Grizzly `grizzly_2102` | 全身 / 大立绘 | `4500 x 6000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/grizzly_2102/grizzly_2102.model.json` | 通过 | 未补测 | 高辨识度角色之一 |  |
 | 少女前线 | HK416 `hk416_3401` | 全身 / 大立绘 | `3500 x 5000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/hk416_3401/hk416_3401.model.json` | 通过 | 未补测 | 著名角色代表条目 |  |
-| 少女前线 | K2 `k2_3301` | 横构图 / 角色立绘 | `4522 x 4300` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/k2_3301/k2_3301.model.json` | 通过 | 未补测 | 比大多数 GFL 条目更接近横构图 |  |
+| 少女前线 | K2 `k2_3301` | 横构图 / 角色立绘 | `4522 x 4300` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/k2_3301/k2_3301.model.json` | 通过 | 未补测 | 比大多数 GFL 条目更接近横构图 | 人工复核：不建议。保持原始横构图比例后，默认视野里几乎只剩椅腿、裙摆和下半身，人物头肩根本没有进入桌宠视野，明显不符合右下角互动小人的构图要求。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 3 个、表情 0 个、动作组 2 组；虽然数值上会动，但视觉构图已经先天不成立，不建议右下角直挂。 |
 | 少女前线 | NTW-20 `ntw20_2301` | 全身 / 角色立绘 | `2480 x 3507` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ntw20_2301/ntw20_2301.model.json` | 通过 | 未补测 | 细高比例稳定 |  |
 | 少女前线 | OTs-14 `ots14_3001` | 全身 / 大立绘 | `4800 x 5328` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ots14_3001/ots14_3001.model.json` | 通过 | 未补测 | 宽一些的全身构图 |  |
 | 少女前线 | Px4 Storm `px4storm_2801` | 全身 / 大立绘 | `3480 x 4923` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/px4storm_2801/px4storm_2801.model.json` | 通过 | 未补测 | 中大型竖向立绘 |  |
 | 少女前线 | RFB `rfb_1601` | 全身 / 大立绘 | `4213 x 5797` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/rfb_1601/rfb_1601.model.json` | 通过 | 未补测 | 著名 AR 角色补充条目 |  |
 | 少女前线 | SAT8 `sat8_2601` | 横构图 / 角色立绘 | `5190 x 3508` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/sat8_2601/sat8_2601.model.json` | 通过 | 未补测 | 宽构图版本，适合横向展示区 |  |
 | 少女前线 | SAT8 `sat8_3602` | 全身 / 大立绘 | `3508 x 4961` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/sat8_3602/sat8_3602.model.json` | 通过 | 未补测 | 同角色的竖向版本 |  |
-| 少女前线 | UMP45 `ump45_3403` | 全身 / 角色立绘 | `2480 x 3861` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ump45_3403/ump45_3403.model.json` | 通过 | 未补测 | 中等尺寸 |  |
-| 少女前线 | UMP9 `ump9_3404` | 全身 / 角色立绘 | `2480 x 3861` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ump9_3404/ump9_3404.model.json` | 通过 | 未补测 | 可与 `UMP45` 组成配对条目 |  |
-| 少女前线 | Vector `vector_1901` | 宽构图 / 角色立绘 | `3661 x 3900` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/vector_1901/vector_1901.model.json` | 通过 | 未补测 | 接近方图但横向更宽一点 |  |
-| 少女前线 | WA2000 `wa2000_6` | 方构图 / 角色立绘 | `1920 x 1920` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/wa2000_6/wa2000_6.model.json` | 通过 | 未补测 | 方图，适合挂件裁切 |  |
-| 少女前线 | Welrod `welrod_1401` | 方构图 / 角色立绘 | `3500 x 3600` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/welrod_1401/welrod_1401.model.json` | 通过 | 未补测 | 接近方图，做挂件裁切也比较友好 |  |
+| 少女前线 | UMP45 `ump45_3403` | 全身 / 角色立绘 | `2480 x 3861` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ump45_3403/ump45_3403.model.json` | 通过 | 未补测 | 中等尺寸 | 人工复核：可用但不优先。头肩和上半身裁出来是干净的，但枪托、挂带和外套会把横向挤得很满，右下角更像冷淡风胸像看板，不是最轻巧的桌宠位。鼠标跟随：视觉上能看到头肩到上半身都在动，数值上 focusController 也有明确响应，但标准跟随参数没有直接暴露。默认交互方面，命中区 1 个、表情 0 个、动作组 2 组；互动底子偏弱，适合低干扰陪伴位，不建议优先当主互动桌宠。 |
+| 少女前线 | UMP9 `ump9_3404` | 全身 / 角色立绘 | `2480 x 3861` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/ump9_3404/ump9_3404.model.json` | 通过 | 未补测 | 可与 `UMP45` 组成配对条目 | 人工复核：适合但需自己绑定交互，建议裁腰。举手和双马尾让桌角观感在这批里最活泼之一，裁到胸腰位后主体也足够干净，确实像能常驻的右下角小人。鼠标跟随：视觉上能看到头肩到上半身都在动，数值上 focusController 也有明确响应，但标准跟随参数没有直接暴露。默认交互方面，命中区 1 个、表情 0 个、动作组 2 组；未命名动作组能给出可见反馈，但默认交互仍薄，接入时建议工程侧自己绑点击 / 闲置。 |
+| 少女前线 | Vector `vector_1901` | 宽构图 / 角色立绘 | `3661 x 3900` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/vector_1901/vector_1901.model.json` | 通过 | 未补测 | 接近方图但横向更宽一点 | 人工复核：不建议优先。虽然透明背景干净，但默认摆位下仍是一整套礼服全身像，人物本体偏小，烛台、拖尾和裙摆把下沿与左侧都占得很重，更像完整立绘缩略图。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 2 个、表情 0 个、动作组 2 组；动起来也很难改变它的全身缩略图观感，不建议优先接入桌宠位。 |
+| 少女前线 | WA2000 `wa2000_6` | 方构图 / 角色立绘 | `1920 x 1920` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/wa2000_6/wa2000_6.model.json` | 通过 | 未补测 | 方图，适合挂件裁切 | 人工复核：可用但不优先。方图本身干净，命中区也有 3 个，但保持原比例后仍是完整小全身挂件，人物本体偏小、枪身横向占位明显，桌宠感弱于同批胸腰位条目。鼠标跟随：头部跟随明显，眼睛也会同步偏转；画面上能直接看出跟随。默认交互方面，命中区 3 个、表情 0 个、动作组 2 组；互动底子不算差，但更适合作次优先挂件位。 |
+| 少女前线 | Welrod `welrod_1401` | 方构图 / 角色立绘 | `3500 x 3600` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/welrod_1401/welrod_1401.model.json` | 通过 | 未补测 | 接近方图，做挂件裁切也比较友好 | 人工复核：可用但不优先。画面本身不脏，但蝠翼披风和悬空全身构图会把横向与下沿一起撑开，缩到桌角后仍更像完整立绘缩略图，而不是胸腰互动小人。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 2 个、表情 0 个、动作组 2 组；可以当低干扰装饰 / 陪伴位，不建议优先当主桌宠。 |
 | 少女前线 | 格琳娜 `gelina` | 全身 / 角色立绘 | `3400 x 3826` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/gelina/gelina.model.json` | 通过 | 未补测 | 辨识度很高的副官角色 |  |
 | 超次元海王星 | Blanc `blanc_normal` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_normal/model.json` | 通过 | 未补测 | 四纹理 | 人工复核：可用但不优先。红白制服本体干净，没有背景杂质；但保持原始横构图比例后人物被压在右下角下沿，更像缩小立绘而不是桌宠，且只有 `idle` 轻微头肩跟随，没有命中区和表情。 |
 | 超次元海王星 | Blanc 泳装 `blanc_swimwear` | 横构图 / 角色立绘 | `3750 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_swimwear/model.json` | 通过 | 未补测 | 三纹理，略轻于基础版 | 人工复核：可用但偏装饰。单角色泳装画面很干净，缩到右下角也没有脏边；但主体仍偏小、下沿裁切感明显，且只有 `idle` 轻动，无命中区和表情，更适合作季节装饰位。 |
@@ -1390,44 +1391,3 @@ node scripts/evaluate_live2d_desktop_pet.mjs --reviewed-only --offset 0 --limit 
 | 2026-04-11 09:40 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `nova1751/live2d-api` 的 `少女前线` 旧格式池与 `guangzan/live2d-models` 的经典角色增量；本轮按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 28 项：`少女前线` 24（`AK-12` 4、`AN-94` 2、`RO635` 2、`Carcano M1891` 2、`Carcano M1938` 2、`G36C` 2、`Saiga-12` 4、`UMP45` 2、`WA2000` 2、`Zastava M21` 2 的常规 / 战损旧格式条目）、`樱花庄的宠物女孩 / Sakurasou` 3（`上井草美咲` 的 `ryoufuku / seifuku / shifuku`）、`超次元海王星` 1（`Uni`）；新增失败 1 项：`Re:Zero` 1（`蕾姆 / 11`）。 | 29 个 manifest 候选；其中 28 个本地 Pixi 实载通过、1 个失败；另复查 `Arknights / 明日方舟` GitHub repo / code search，仍无新的直挂 manifest | 28 |
 | 2026-04-11 10:06 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `Touhou Cannon Ball`、`evrstr/live2d-widget-models` 与 `NecoArc` 社区模型；本轮以 `jsDelivr` 远程 Pixi 实载为主，并对 `Neco-Arc` 补做本地最小依赖验证。 | 新增有效 30 项：`东方 Project / Touhou Cannon Ball` 20（`博丽灵梦`、`雾雨魔理沙`、`琪露诺`、`十六夜咲夜`、`蕾米莉亚`、`芙兰朵露`、`帕秋莉`、`爱丽丝`、`魂魄妖梦`、`八云紫`、`西行寺幽幽子`、`东风谷早苗`、`射命丸文`、`铃仙`、`蓬莱山辉夜`、`藤原妹红`、`古明地恋`、`古明地觉`、`伊吹萃香`、`河城荷取`），`樱花庄的宠物女孩 / Sakurasou` 7（`椎名真白` 3、`青山七海` 3、`赤坂龙之介` 1），`Re:Zero` 1（`蕾姆 / rem_2`），`工作细胞` 1（`血小板 / platelet_2`），`月姬 / Melty Blood` 1（`Neco-Arc`）；新增失败 1 项：`原神 / Genshin Impact` 1（`派蒙 / paimeng`）。 | 33 项候选内容（`31` 个 manifest + `Arknights / 明日方舟` repo / code search `2` 轮）；其中 `30` 个通过、`1` 个失败 | 30 |
 | 2026-04-11 10:25 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `xiarimangguo/aLive2D` 的 `食物语` 成体系角色池与 `fghrsh/live2d_api` 的旧格式经典增量；本轮统一按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 63 项：`食物语` 58（`100003_sixiwangzi` 到 `150051_slyx_xydz` 的后续食魂 / 皮肤条目共 57 个编号变体 + `xiaomai` 1）、`Potion Maker` 2（`Pio`、`Tia`）、`Shizuku Talk` 2（`shizuku-48`、`shizuku-pajama`）、`超次元海王星` 1（`Histoire / histoirenohover`）；新增排除 2 项：`新世纪福音战士 / Evangelion` 2（`明日香`、`绫波丽` `.waifu` 包）。 | 80 项候选内容（`69` 个 `aLive2D` manifest + `7` 个 `live2d_api` manifest + `Arknights / 明日方舟` repo / code search `2` 轮 + EVA `.waifu` 包 `2` 个）；其中 `76` 个可实载 manifest 全部本地 Pixi 通过，但 `13` 个为已入表或低优先重复项不重复落表 | 63 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
