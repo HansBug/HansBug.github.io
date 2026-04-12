@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T01:06:16.815Z",
+  "generatedAt": "2026-04-12T01:22:38.521Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 195
+    "reviewed": 205
   },
   "results": [
     {
@@ -8060,6 +8060,322 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_normal/model.json",
+      "ip": "超次元海王星",
+      "model": "Blanc `blanc_normal`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 18651,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Blanc_blanc_normal_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0406190909727572,
+          "coverageWidth": 0.4409090909090909,
+          "coverageHeight": 0.3576923076923077
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.04257563554870789,
+          "coverageWidth": 0.4318181818181818,
+          "coverageHeight": 0.3557692307692308
+        }
+      },
+      "assessment": "人工复核：可用但不优先。红白制服本体干净，没有背景杂质；但保持原始横构图比例后人物被压在右下角下沿，更像缩小立绘而不是桌宠，且只有 `idle` 轻微头肩跟随，没有命中区和表情。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_swimwear/model.json",
+      "ip": "超次元海王星",
+      "model": "Blanc 泳装 `blanc_swimwear`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 14864,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Blanc_blanc_swimwear_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.023307829679949578,
+          "coverageWidth": 0.32272727272727275,
+          "coverageHeight": 0.4269230769230769
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.025150570768261084,
+          "coverageWidth": 0.32045454545454544,
+          "coverageHeight": 0.425
+        }
+      },
+      "assessment": "人工复核：可用但偏装饰。单角色泳装画面很干净，缩到右下角也没有脏边；但主体仍偏小、下沿裁切感明显，且只有 `idle` 轻动，无命中区和表情，更适合作季节装饰位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepgear/model.json",
+      "ip": "超次元海王星",
+      "model": "Nepgear `nepgear`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 15595,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Nepgear_nepgear_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.030713810490930738,
+          "coverageWidth": 0.3659090909090909,
+          "coverageHeight": 0.325
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.03400535751803348,
+          "coverageWidth": 0.36363636363636365,
+          "coverageHeight": 0.3211538461538462
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。紫发制服胸像位比较集中，右下角比 `blanc_normal` 更像低干扰陪伴位；但仍只有 `idle` 轻微头肩 / 视线变化，没有命中区和表情，不建议承担主互动。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepgearswim/model.json",
+      "ip": "超次元海王星",
+      "model": "Nepgear 泳装 `nepgearswim`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 15284,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Nepgear_nepgearswim_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.029820890818684782,
+          "coverageWidth": 0.3704545454545455,
+          "coverageHeight": 0.325
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.03634270607185377,
+          "coverageWidth": 0.36818181818181817,
+          "coverageHeight": 0.3211538461538462
+        }
+      },
+      "assessment": "人工复核：可用但偏装饰。夏日泳装版依旧是纯角色透明背景，桌角观感也不脏；但默认摆位更像节日换装缩略图，只有 `idle` 轻动、无命中区和表情，适合低优先级季节陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/nepnep/model.json",
       "ip": "超次元海王星",
       "model": "Neptune `nepnep`",
@@ -8147,6 +8463,409 @@
         }
       },
       "assessment": "人工复核：可用但更像缩小立绘。角色本体干净，`tap_body` 和 6 个表情能带来一点反馈；但默认摆位下整个人偏小、互动变化主要集中在头肩，桌宠感弱于前几轮半身条目。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/neptune_santa/model.json",
+      "ip": "超次元海王星",
+      "model": "Neptune 圣诞 `neptune_santa`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 21084,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Neptune_neptune_santa_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "flick_head",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 5
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.028280166678338818,
+          "coverageWidth": 0.5045454545454545,
+          "coverageHeight": 0.36923076923076925
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.0009673296449331186,
+          "coverageWidth": 0.46136363636363636,
+          "coverageHeight": 0.35384615384615387
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.04618233069542685,
+          "coverageWidth": 0.5,
+          "coverageHeight": 0.36923076923076925
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。圣诞装胸腰位在这批里最接近成品桌宠，`tap_body` / `flick_head` 和 6 个表情都能用，右下角辨识度也高；但命中区为 `0`，动幅仍主要落在头肩，接入时需要工程侧手动绑定点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noir/model.json",
+      "ip": "超次元海王星",
+      "model": "Noir `noir`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 13405,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Noir_noir_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04580152671755725,
+          "coverageWidth": 0.3977272727272727,
+          "coverageHeight": 0.2826923076923077
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.04909307374465999,
+          "coverageWidth": 0.40454545454545454,
+          "coverageHeight": 0.28076923076923077
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。黑蓝胸像位主体集中，缩到右下角后角色感很强，也没有明显背景杂质；但只有 `idle` 轻微头肩变化，没有命中区和表情，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/noir_santa/model.json",
+      "ip": "超次元海王星",
+      "model": "Noir 圣诞 `noir_santa`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 24196,
+      "dependencyCount": 7,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Noir_noir_santa_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 3,
+        "texturePixels": 3145728,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.036780411793542966,
+          "coverageWidth": 0.3886363636363636,
+          "coverageHeight": 0.2519230769230769
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.03787029904054906,
+          "coverageWidth": 0.38636363636363635,
+          "coverageHeight": 0.25
+        }
+      },
+      "assessment": "人工复核：不建议优先。鹿角和长发把画面重心进一步压到下沿，右下角更像节庆立绘被裁剩头肩；再加上只有 `idle` 轻动、没有命中区和表情，不适合作主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/vert_normal/model.json",
+      "ip": "超次元海王星",
+      "model": "Vert `vert_normal`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 19675,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Vert_vert_normal_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.037914069612717975,
+          "coverageWidth": 0.4113636363636364,
+          "coverageHeight": 0.3173076923076923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.041310666013026125,
+          "coverageWidth": 0.40454545454545454,
+          "coverageHeight": 0.3153846153846154
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。金发和墨绿服装缩到桌角后很规整，主体清楚、胸像位也成立；但只有 `idle` 轻微跟随，没有命中区和表情，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/vert_swimwear/model.json",
+      "ip": "超次元海王星",
+      "model": "Vert 泳装 `vert_swimwear`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 18041,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Vert_vert_swimwear_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.030621892289376007,
+          "coverageWidth": 0.3931818181818182,
+          "coverageHeight": 0.3173076923076923
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.03872820225505988,
+          "coverageWidth": 0.3931818181818182,
+          "coverageHeight": 0.3153846153846154
+        }
+      },
+      "assessment": "人工复核：可用但偏装饰。泳装版仍然是干净纯角色，没有大面积脏背景，桌角辨识度也还行；但交互只有 `idle` 轻动，无命中区和表情，更适合作季节装饰 / 陪伴位。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -50133,6 +50852,86 @@
         }
       },
       "assessment": "人工复核：适合但偏安静。蓝发制服胸像构图很规整，右下角观感稳定，不会像整张立绘缩略图；但默认反馈还是轻微点头和视线跟随，命中区和表情都为 `0`，不建议当即点即动主角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/HyperdimensionNeptunia/blanc_classic/model.json",
+      "ip": "超次元海王星",
+      "model": "Blanc `blanc_classic`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "横构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 22508,
+      "dependencyCount": 8,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-Blanc_blanc_classic_.png",
+      "result": {
+        "ok": true,
+        "width": 361.19999999999993,
+        "height": 288.96,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 344,
+          "height": 275,
+          "ratio": 1.25
+        },
+        "textureCount": 4,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04971461586945865,
+          "coverageWidth": 0.47045454545454546,
+          "coverageHeight": 0.3576923076923077
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "idle",
+          "touchLike": false,
+          "changedRatio": 0.0500122557602073,
+          "coverageWidth": 0.45681818181818185,
+          "coverageHeight": 0.35384615384615387
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。白蓝经典服装是这批里观感较稳的一条，右下角能成立为清爽胸腰位；不过依旧只有 `idle` 轻动、没有命中区和表情，适合作低干扰陪伴位，不建议当即点即动主角色。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
