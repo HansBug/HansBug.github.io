@@ -25,8 +25,10 @@ function usage() {
       `  --summary <path>     Summary markdown path. Default: ${DEFAULT_SUMMARY_PATH}`,
       `  --output <path>      JSON output path. Default: ${DEFAULT_OUTPUT_PATH}`,
       `  --timeout <ms>       Per-model timeout. Default: ${DEFAULT_TIMEOUT}`,
+      "  --offset <n>         Skip the first n matched rows before evaluation",
       "  --limit <n>          Only evaluate the first n rows from the success table",
       "  --match <text>       Only evaluate rows whose IP / model / manifest contains the text",
+      "  --reviewed-only      Only evaluate rows that already have a manual assessment",
       "  --force              Ignore existing JSON results and rerun matched rows",
       "  --review-dir <path>  Save browser review screenshots for matched rows",
       "  --apply              Write each finished assessment back into the summary table immediately",
@@ -35,6 +37,7 @@ function usage() {
       "",
       "Examples:",
       "  node scripts/evaluate_live2d_desktop_pet.mjs --match Haru --limit 2",
+      "  node scripts/evaluate_live2d_desktop_pet.mjs --reviewed-only --offset 50 --limit 25 --force --apply",
       "  node scripts/evaluate_live2d_desktop_pet.mjs --apply",
     ].join("\n"),
   );
@@ -45,8 +48,10 @@ function parseArgs(argv) {
     summaryPath: DEFAULT_SUMMARY_PATH,
     outputPath: DEFAULT_OUTPUT_PATH,
     timeout: DEFAULT_TIMEOUT,
+    offset: 0,
     limit: null,
     match: null,
+    reviewedOnly: false,
     force: false,
     apply: false,
     keepTemp: false,
@@ -80,9 +85,20 @@ function parseArgs(argv) {
       continue;
     }
 
+    if (item === "--offset") {
+      args.offset = Number(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+
     if (item === "--match") {
       args.match = argv[index + 1];
       index += 1;
+      continue;
+    }
+
+    if (item === "--reviewed-only") {
+      args.reviewedOnly = true;
       continue;
     }
 
@@ -121,6 +137,10 @@ function parseArgs(argv) {
 
   if (args.limit !== null && (!Number.isFinite(args.limit) || args.limit <= 0)) {
     throw new Error(`Invalid --limit value: ${args.limit}`);
+  }
+
+  if (!Number.isFinite(args.offset) || args.offset < 0) {
+    throw new Error(`Invalid --offset value: ${args.offset}`);
   }
 
   return args;
@@ -749,6 +769,9 @@ function deskpetLayoutProfile() {
   const maxSlot = { x: 52, y: 34, width: 344, height: 430 };
   const sourceRatio = RESOURCE_SIZE?.ratio || defaultResourceRatio();
   const slot = fitAspectBox(maxSlot, sourceRatio);
+  if (wide) {
+    slot.y = maxSlot.y;
+  }
 
   return {
     sourceSize: RESOURCE_SIZE,
@@ -775,6 +798,285 @@ function layoutDeskpet(model, app) {
     profile.slot.y + profile.slot.height + overflow,
   );
   model.scale.set(scale);
+}
+
+function deskpetLayoutMargins(profile) {
+  return {
+    left: profile.wide ? 18 : 12,
+    right: profile.wide ? 18 : 12,
+    top: 12,
+    bottom: profile.halfLike ? 10 : profile.fullBody ? 14 : 12,
+  };
+}
+
+function desiredDeskpetVisibleHeight(profile) {
+  if (profile.fullBody) {
+    if (profile.sourceRatio <= 0.68) return 0.82;
+    if (profile.sourceRatio <= 0.82) return 0.92;
+    return 1.00;
+  }
+  if (profile.wide) return 1.28;
+  if (profile.halfLike) return 0.84;
+  return 1.10;
+}
+
+function desiredDeskpetVisibleWidth(profile) {
+  if (profile.wide) {
+    const compactWide =
+      profile.sourceRatio >= 1.28 &&
+      profile.sourceSize?.width <= 1400 &&
+      profile.sourceSize?.height <= 1100;
+    if (compactWide) return 0.72;
+  }
+  return null;
+}
+
+function desiredDeskpetTopRatio(profile) {
+  if (profile.fullBody) {
+    if (profile.sourceRatio <= 0.68) return 0.18;
+    if (profile.sourceRatio <= 0.82) return 0.12;
+    return 0.08;
+  }
+  if (profile.wide) return 0.09;
+  if (profile.halfLike) return 0.16;
+  return 0.14;
+}
+
+function snapshotModelBounds(model) {
+  try {
+    const rect = typeof model.getBounds === "function" ? model.getBounds() : null;
+    if (!rect || !Number.isFinite(rect.width) || !Number.isFinite(rect.height)) {
+      return { count: 0, width: 0, height: 0, minX: 0, minY: 0, maxX: 0, maxY: 0 };
+    }
+
+    const width = Math.max(rect.width, 0);
+    const height = Math.max(rect.height, 0);
+    return {
+      count: width > 0 && height > 0 ? 1 : 0,
+      minX: rect.x,
+      minY: rect.y,
+      maxX: rect.x + width,
+      maxY: rect.y + height,
+      width,
+      height,
+    };
+  } catch {
+    return { count: 0, width: 0, height: 0, minX: 0, minY: 0, maxX: 0, maxY: 0 };
+  }
+}
+
+function evaluateDeskpetPlacement(bounds, slot, profile) {
+  if (!bounds.count || bounds.width <= 0 || bounds.height <= 0) {
+    return {
+      bounds,
+      issueLevel: "missing",
+      needsAdjustment: true,
+      summaryText: "人物没有正常落进方形预览区内",
+      leftOverflow: 0,
+      rightOverflow: 0,
+      topOverflow: 0,
+      bottomOverflow: 0,
+      centerOffsetX: 0,
+      fillWidth: 0,
+      fillHeight: 0,
+      mostlyOutside: true,
+      headTooLow: true,
+    };
+  }
+
+  const leftOverflow = Math.max(0, slot.x - bounds.minX);
+  const rightOverflow = Math.max(0, bounds.maxX - (slot.x + slot.width));
+  const topOverflow = Math.max(0, slot.y - bounds.minY);
+  const bottomOverflow = Math.max(0, bounds.maxY - (slot.y + slot.height));
+  const centerOffsetX =
+    bounds.minX + bounds.width / 2 - (slot.x + slot.width / 2);
+  const fillWidth = slot.width > 0 ? bounds.width / slot.width : 0;
+  const fillHeight = slot.height > 0 ? bounds.height / slot.height : 0;
+  const overflowSides = [];
+  const intersectWidth =
+    Math.max(0, Math.min(bounds.maxX, slot.x + slot.width) - Math.max(bounds.minX, slot.x));
+  const intersectHeight =
+    Math.max(0, Math.min(bounds.maxY, slot.y + slot.height) - Math.max(bounds.minY, slot.y));
+  const insideRatio =
+    bounds.width > 0 && bounds.height > 0
+      ? (intersectWidth * intersectHeight) / (bounds.width * bounds.height)
+      : 0;
+  const mostlyOutsideThreshold = profile.wide ? 0.42 : 0.72;
+  const mostlyOutside = profile.fullBody ? false : insideRatio < mostlyOutsideThreshold;
+  const headTooLow =
+    bounds.minY > slot.y + slot.height * (profile.fullBody ? 0.18 : 0.24);
+  const sideTooFar = !profile.fullBody && Math.abs(centerOffsetX) > slot.width * 0.24;
+  const desiredWidth = desiredDeskpetVisibleWidth(profile);
+  const widthTooWeak =
+    Number.isFinite(desiredWidth) &&
+    fillWidth < desiredWidth - 0.02;
+  const cropTooWeak = fillHeight < desiredDeskpetVisibleHeight(profile) - 0.04 || widthTooWeak;
+  const severeOverflow = !profile.fullBody && (
+    leftOverflow > slot.width * (profile.wide ? 0.28 : 0.18) ||
+    rightOverflow > slot.width * (profile.wide ? 0.28 : 0.18) ||
+    topOverflow > slot.height * 0.14 ||
+    bottomOverflow > slot.height * (profile.wide ? 0.42 : 0.22)
+  );
+
+  if (topOverflow > 4) overflowSides.push("上边");
+  if (bottomOverflow > 4) overflowSides.push("下边");
+  if (leftOverflow > 4) overflowSides.push("左边");
+  if (rightOverflow > 4) overflowSides.push("右边");
+
+  let issueLevel = "good";
+  let summaryText = profile.fullBody
+    ? "主体主要落在方形预览区内，半身/裁腰结构保持正常"
+    : "主体主要落在方形预览区内，半身结构保持正常";
+  if (mostlyOutside) {
+    issueLevel = "overflow";
+    summaryText = "人物大半不在方形预览区里";
+  } else if (cropTooWeak) {
+    issueLevel = "offset";
+    summaryText = profile.fullBody
+      ? "人物整体过小，还没有形成应有的半身/裁腰结构"
+      : "人物整体过小，还没有形成应有的半身结构";
+  } else if (headTooLow) {
+    issueLevel = "offset";
+    summaryText = "人物整体偏下，头顶已经掉到预览框下半区";
+  } else if (severeOverflow && overflowSides.length > 0) {
+    issueLevel = "overflow";
+    summaryText = "人物有一部分从" + overflowSides.join("、") + "出框";
+  } else if (sideTooFar) {
+    issueLevel = "offset";
+    summaryText = "人物整体偏" + (centerOffsetX > 0 ? "右" : "左") + "，主体没有落在方形区中央";
+  } else if (fillHeight < 0.4 || fillWidth < 0.18) {
+    issueLevel = "offset";
+    summaryText = "人物整体偏小，虽然在方形预览区内但存在感偏弱";
+  }
+
+  return {
+    bounds,
+    issueLevel,
+    needsAdjustment: mostlyOutside || cropTooWeak || headTooLow || severeOverflow || sideTooFar,
+    summaryText,
+    leftOverflow,
+    rightOverflow,
+    topOverflow,
+    bottomOverflow,
+    centerOffsetX,
+    fillWidth,
+    fillHeight,
+    mostlyOutside,
+    headTooLow,
+    cropTooWeak,
+  };
+}
+
+async function refineDeskpetLayout(app, model, backdrop) {
+  const profile = deskpetLayoutProfile();
+  const slot = profile.slot;
+  const margins = deskpetLayoutMargins(profile);
+
+  await advance(app, model, 2);
+  const before = evaluateDeskpetPlacement(captureModelBounds(app, backdrop), slot, profile);
+  let adjusted = false;
+
+  for (let index = 0; index < 3; index += 1) {
+    const current = evaluateDeskpetPlacement(captureModelBounds(app, backdrop), slot, profile);
+    if (!current.needsAdjustment) {
+      return {
+        adjusted,
+        before,
+        after: current,
+      };
+    }
+
+    const availableWidth = Math.max(slot.width - margins.left - margins.right, 1);
+    const availableHeight = Math.max(slot.height - margins.top - margins.bottom, 1);
+    let changed = false;
+
+    let scaleChanged = false;
+    if (current.cropTooWeak) {
+      const heightGrow =
+        (slot.height * desiredDeskpetVisibleHeight(profile)) / Math.max(current.bounds.height, 1);
+      const desiredWidth = desiredDeskpetVisibleWidth(profile);
+      const widthGrow =
+        Number.isFinite(desiredWidth)
+          ? (slot.width * desiredWidth) / Math.max(current.bounds.width, 1)
+          : 1;
+      const grow = Math.max(heightGrow, widthGrow);
+      if (Number.isFinite(grow) && grow > 1.02 && grow < 2.6) {
+        model.scale.set(model.scale.x * grow, model.scale.y * grow);
+        adjusted = true;
+        changed = true;
+        scaleChanged = true;
+      }
+    }
+
+    const heightNeedsShrink =
+      !profile.fullBody &&
+      !profile.wide &&
+      current.bounds.height > availableHeight;
+    if (!scaleChanged && (!profile.fullBody && (current.mostlyOutside || current.bounds.width > availableWidth || heightNeedsShrink))) {
+      const widthFit = availableWidth / Math.max(current.bounds.width, 1);
+      const heightFit = profile.fullBody
+        ? 1
+        : profile.wide
+          ? 1
+        : availableHeight / Math.max(current.bounds.height, 1);
+      const shrink = Math.min(
+        widthFit,
+        heightFit,
+      ) * 0.98;
+
+      if (Number.isFinite(shrink) && shrink < 0.995) {
+        model.scale.set(model.scale.x * shrink, model.scale.y * shrink);
+        adjusted = true;
+        changed = true;
+        scaleChanged = true;
+      }
+    }
+
+    if (scaleChanged) {
+      await advance(app, model, 2);
+      continue;
+    }
+
+    let shiftX = 0;
+    let shiftY = 0;
+    if (current.headTooLow || current.cropTooWeak) {
+      const targetTop = slot.y + slot.height * desiredDeskpetTopRatio(profile);
+      shiftY += targetTop - current.bounds.minY;
+    }
+    if (Math.abs(current.centerOffsetX) > slot.width * 0.24) {
+      const keepOffset = slot.width * 0.12 * Math.sign(current.centerOffsetX);
+      shiftX += -(current.centerOffsetX - keepOffset);
+    }
+    if (current.mostlyOutside && !current.headTooLow) {
+      const targetCenterX = slot.x + margins.left + availableWidth / 2;
+      const currentCenterX = current.bounds.minX + current.bounds.width / 2;
+      shiftX += targetCenterX - currentCenterX;
+      if (!profile.fullBody) {
+        const targetBottom = slot.y + margins.top + availableHeight;
+        shiftY += targetBottom - current.bounds.maxY;
+      }
+    }
+
+    if (Math.abs(shiftX) > 1 || Math.abs(shiftY) > 1) {
+      model.position.x += shiftX;
+      model.position.y += shiftY;
+      adjusted = true;
+      changed = true;
+    }
+
+    if (!changed) {
+      break;
+    }
+
+    await advance(app, model, 2);
+  }
+
+  const after = evaluateDeskpetPlacement(captureModelBounds(app, backdrop), slot, profile);
+  return {
+    adjusted,
+    before,
+    after,
+  };
 }
 
 function alphaBounds(pixels, width, height, alphaThreshold = 8) {
@@ -814,6 +1116,108 @@ function alphaBounds(pixels, width, height, alphaThreshold = 8) {
   };
 }
 
+function trimmedAlphaBounds(pixels, width, height, alphaThreshold = 8) {
+  const base = alphaBounds(pixels, width, height, alphaThreshold);
+  if (!base.count) {
+    return base;
+  }
+
+  const columnCounts = new Array(width).fill(0);
+  const rowCounts = new Array(height).fill(0);
+  for (let offset = 3, index = 0; offset < pixels.length; offset += 4, index += 1) {
+    if (pixels[offset] <= alphaThreshold) {
+      continue;
+    }
+
+    const x = index % width;
+    const y = Math.floor(index / width);
+    columnCounts[x] += 1;
+    rowCounts[y] += 1;
+  }
+
+  const columnThreshold = Math.max(3, Math.floor(height * 0.006));
+  const rowThreshold = Math.max(3, Math.floor(width * 0.006));
+  let minX = base.minX;
+  let maxX = base.maxX;
+  let minY = base.minY;
+  let maxY = base.maxY;
+
+  while (minX < maxX && columnCounts[minX] < columnThreshold) {
+    minX += 1;
+  }
+  while (maxX > minX && columnCounts[maxX] < columnThreshold) {
+    maxX -= 1;
+  }
+  while (minY < maxY && rowCounts[minY] < rowThreshold) {
+    minY += 1;
+  }
+  while (maxY > minY && rowCounts[maxY] < rowThreshold) {
+    maxY -= 1;
+  }
+
+  return {
+    count: base.count,
+    minX,
+    minY,
+    maxX,
+    maxY,
+    width: maxX - minX + 1,
+    height: maxY - minY + 1,
+  };
+}
+
+function backdropFilteredBounds(pixels, width, height, alphaThreshold = 8) {
+  const palette = [
+    [246, 244, 237],
+    [184, 185, 175],
+    [200, 198, 184],
+  ];
+  let minX = width;
+  let minY = height;
+  let maxX = -1;
+  let maxY = -1;
+  let count = 0;
+
+  for (let offset = 0, index = 0; offset < pixels.length; offset += 4, index += 1) {
+    const alpha = pixels[offset + 3];
+    if (alpha <= alphaThreshold) {
+      continue;
+    }
+
+    const r = pixels[offset];
+    const g = pixels[offset + 1];
+    const b = pixels[offset + 2];
+    const isBackdrop = palette.some(([pr, pg, pb]) =>
+      Math.abs(r - pr) + Math.abs(g - pg) + Math.abs(b - pb) <= 22,
+    );
+    if (isBackdrop) {
+      continue;
+    }
+
+    count += 1;
+    const x = index % width;
+    const y = Math.floor(index / width);
+    if (x < minX) minX = x;
+    if (x > maxX) maxX = x;
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
+  }
+
+  if (count === 0) {
+    return { count: 0, width: 0, height: 0, minX: 0, minY: 0, maxX: 0, maxY: 0 };
+  }
+
+  return {
+    count,
+    minX,
+    minY,
+    maxX,
+    maxY,
+    width: maxX - minX + 1,
+    height: maxY - minY + 1,
+  };
+}
+
 function capture(app) {
   app.renderer.render(app.stage);
   const extractor = getExtractor(app);
@@ -827,6 +1231,38 @@ function capture(app) {
   const bounds = alphaBounds(pixels, width, height);
 
   return { pixels, width, height, bounds };
+}
+
+function captureModelBounds(app, backdrop) {
+  const previousVisible = backdrop?.visible ?? true;
+  if (backdrop) {
+    backdrop.visible = false;
+  }
+
+  try {
+    const extractor = getExtractor(app);
+    if (!extractor || typeof extractor.pixels !== "function") {
+      throw new Error("Pixi extract plugin is unavailable.");
+    }
+
+    const renderTexture = PIXI.RenderTexture.create({
+      width: app.renderer.width,
+      height: app.renderer.height,
+    });
+
+    try {
+      app.renderer.render(app.stage, { renderTexture, clear: true });
+      const pixels = extractor.pixels(renderTexture);
+      return trimmedAlphaBounds(pixels, app.renderer.width, app.renderer.height);
+    } finally {
+      renderTexture.destroy(true);
+    }
+  } finally {
+    if (backdrop) {
+      backdrop.visible = previousVisible;
+      app.renderer.render(app.stage);
+    }
+  }
 }
 
 function captureShot(app) {
@@ -1375,6 +1811,8 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
     app.stage.addChild(model);
     layoutDeskpet(model, app);
     await advance(app, model, 10);
+    const placementProbe = await refineDeskpetLayout(app, model, backdrop);
+    await advance(app, model, 4);
 
     const baseline = capture(app);
     const settings = model.internalModel?.settings || {};
@@ -1398,9 +1836,13 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
         }))
       : [];
     const texturePixels = textures.reduce((sum, texture) => sum + texture.width * texture.height, 0);
+    const deskpetBounds =
+      placementProbe.after?.bounds?.count
+        ? placementProbe.after.bounds
+        : baseline.bounds;
     const targetDeskpetWidth =
-      baseline.bounds.height > 0
-        ? Math.round((baseline.bounds.width / baseline.bounds.height) * 340)
+      deskpetBounds.height > 0
+        ? Math.round((deskpetBounds.width / deskpetBounds.height) * 340)
         : null;
 
     document.getElementById("shot-neutral").src = neutralShot;
@@ -1411,6 +1853,12 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
     document.getElementById("stats").textContent =
       "资源比例 " + (profile.sourceSize?.label || "未记录") +
       "\\n预览框 " + Math.round(profile.slot.width) + " x " + Math.round(profile.slot.height) +
+      "\\n位置结论 " + (placementProbe.after?.summaryText || "未测") +
+      "\\n位置修正 " + (placementProbe.adjusted
+        ? placementProbe.after?.issueLevel === "good"
+          ? "已自动纠偏"
+          : "已自动纠偏，但仍需人工看"
+        : "未触发") +
       "\\n鼠标跟随 " + (focusProbe.followLabel || "未测") +
       "\\n跟随可见度 " + (focusProbe.visual?.visibilityText || (focusProbe.supported ? "已测" : "无")) +
       "\\n跟随参数 " + (focusProbe.parameterSummary || "眼睛Δ0 / 头部Δ0 / 上身Δ0") +
@@ -1427,6 +1875,7 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
       width: model.width,
       height: model.height,
       visibleBounds: baseline.bounds,
+      placementProbe,
       targetDeskpetWidth,
       previewFrame: {
         width: Math.round(profile.slot.width),
@@ -1555,6 +2004,9 @@ function buildAssessment(row, item) {
     result.texturePixels >= 45_000_000;
   const dense =
     result.texturePixels >= 28_000_000;
+  const placementProbe = result.placementProbe?.after || result.placementProbe?.before || null;
+  const placementIssue = placementProbe?.issueLevel || "good";
+  const placementAdjusted = Boolean(result.placementProbe?.adjusted);
 
   let grade = "可用";
   if (motionBody && hitAreaCount >= 2 && motionGroupCount >= 3 && !wide && !heavy) {
@@ -1571,12 +2023,24 @@ function buildAssessment(row, item) {
     grade = "可用但偏安静";
   }
 
+  if (placementIssue === "missing") {
+    grade = "不建议";
+  } else if (placementIssue === "overflow") {
+    if (grade.startsWith("适合") || grade === "强适合") {
+      grade = "适合但需预留边距";
+    } else if (grade.startsWith("可用")) {
+      grade = "可用但需预留边距";
+    }
+  }
+
   const widthText = Number.isFinite(result.targetDeskpetWidth)
     ? `右下角约 ${result.targetDeskpetWidth}x340`
     : "右下角默认摆位";
 
   let placement = `${widthText} 摆位下主体基本能落进桌宠框`;
-  if (wide) {
+  if (placementProbe?.summaryText) {
+    placement = `${widthText} 摆位下${placementProbe.summaryText}`;
+  } else if (wide) {
     placement = `${widthText} 摆位下横向占位偏大，需要额外留边`;
   } else if (fullBody && Number.isFinite(result.targetDeskpetWidth) && result.targetDeskpetWidth < 210) {
     placement = `${widthText} 摆位下会偏细高，更像立绘缩略位`;
@@ -1584,6 +2048,17 @@ function buildAssessment(row, item) {
     placement = `${widthText} 摆位下主体集中，半身/小挂件构图天然贴桌角`;
   } else if (fullBody) {
     placement = `${widthText} 摆位下更适合裁到腰部以上使用`;
+  }
+
+  if (placementAdjusted) {
+    placement += placementIssue === "good" ? "，脚本已自动纠偏" : "，脚本已尝试自动纠偏";
+  }
+  if (fullBody && Number.isFinite(result.targetDeskpetWidth) && result.targetDeskpetWidth < 210) {
+    placement += "，整体会偏细高，更像立绘缩略位";
+  } else if (halfLike) {
+    placement += "，半身/小挂件构图比较贴桌角";
+  } else if (wide) {
+    placement += "，横向仍建议留少量边距";
   }
 
   if (heavy) {
@@ -1776,6 +2251,10 @@ async function main() {
   const runTempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "live2d-deskpet-eval-"));
 
   const matchedRows = parsed.rows.filter((row) => {
+    if (args.reviewedOnly && !row.existingAssessment?.trim()) {
+      return false;
+    }
+
     if (!args.match) {
       return true;
     }
@@ -1783,7 +2262,8 @@ async function main() {
     const haystack = `${row.ip} ${row.model} ${row.resourceType} ${row.manifestUrl}`.toLowerCase();
     return haystack.includes(args.match.toLowerCase());
   });
-  const rows = args.limit === null ? matchedRows : matchedRows.slice(0, args.limit);
+  const offsetRows = matchedRows.slice(args.offset);
+  const rows = args.limit === null ? offsetRows : offsetRows.slice(0, args.limit);
 
   if (rows.length === 0) {
     throw new Error("No rows matched the current filters.");
