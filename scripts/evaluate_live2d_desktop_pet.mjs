@@ -346,7 +346,7 @@ function chooseRepresentativeMotionGroup(entries) {
   }
 
   const nonIdle = groups.find((name) => !/idle/i.test(name));
-  return nonIdle || groups[0] || null;
+  return nonIdle ?? groups[0] ?? null;
 }
 
 function collectRequiredFiles(runtime, manifestJson) {
@@ -391,6 +391,11 @@ function collectRequiredFiles(runtime, manifestJson) {
         items: Array.isArray(items) ? items : [],
       }))
       .filter((item) => item.items.length > 0);
+    const idleMotion = motionGroups.find((item) => /idle/i.test(item.name))?.items[0];
+    if (idleMotion) {
+      addFile(idleMotion.File, true);
+      addFile(idleMotion.Sound, true);
+    }
     const chosenMotionGroup = chooseRepresentativeMotionGroup(
       motionGroups.map((item) => ({ name: item.name, count: item.items.length })),
     );
@@ -419,6 +424,11 @@ function collectRequiredFiles(runtime, manifestJson) {
         items: Array.isArray(items) ? items : [],
       }))
       .filter((item) => item.items.length > 0);
+    const idleMotion = motionGroups.find((item) => /idle/i.test(item.name))?.items[0];
+    if (idleMotion) {
+      addFile(idleMotion.file, true);
+      addFile(idleMotion.sound, true);
+    }
     const chosenMotionGroup = chooseRepresentativeMotionGroup(
       motionGroups.map((item) => ({ name: item.name, count: item.items.length })),
     );
@@ -631,6 +641,14 @@ const RESOURCE_TYPE = ${JSON.stringify(resourceType)};
 const RESOURCE_SIZE = ${JSON.stringify(
     sizeLabel && Number.isFinite(sizeRatio) && sizeRatio > 0 ? { label: sizeLabel, ratio: sizeRatio } : null,
   )};
+const FOLLOW_PARAMETER_SPECS = [
+  { key: "eyeBallX", label: "眼球水平", ids: ["ParamEyeBallX", "PARAM_EYE_BALL_X"], indexProp: "eyeballXParamIndex", axis: "eye" },
+  { key: "eyeBallY", label: "眼球垂直", ids: ["ParamEyeBallY", "PARAM_EYE_BALL_Y"], indexProp: "eyeballYParamIndex", axis: "eye" },
+  { key: "angleX", label: "头部水平", ids: ["ParamAngleX", "PARAM_ANGLE_X"], indexProp: "angleXParamIndex", axis: "head" },
+  { key: "angleY", label: "头部垂直", ids: ["ParamAngleY", "PARAM_ANGLE_Y"], indexProp: "angleYParamIndex", axis: "head" },
+  { key: "angleZ", label: "头部倾斜", ids: ["ParamAngleZ", "PARAM_ANGLE_Z"], indexProp: "angleZParamIndex", axis: "head" },
+  { key: "bodyAngleX", label: "身体水平", ids: ["ParamBodyAngleX", "PARAM_BODY_ANGLE_X"], indexProp: "bodyAngleXParamIndex", axis: "body" },
+];
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -669,7 +687,11 @@ function chooseMotionGroup(entries) {
   }
 
   const nonIdle = groups.find((name) => !/idle/i.test(name));
-  return nonIdle || groups[0] || null;
+  return nonIdle ?? groups[0] ?? null;
+}
+
+function displayMotionGroupName(name) {
+  return name === "" ? "未命名动作组" : name || "无";
 }
 
 function getExtractor(app) {
@@ -859,6 +881,323 @@ function diffMetrics(before, after, referenceBounds) {
   };
 }
 
+function readParameterValue(core, index) {
+  if (!core || !Number.isFinite(index) || index < 0) {
+    return null;
+  }
+
+  try {
+    if (typeof core.getParamFloat === "function") {
+      const value = core.getParamFloat(index);
+      return Number.isFinite(value) ? value : null;
+    }
+
+    if (typeof core.getParameterValueByIndex === "function") {
+      const value = core.getParameterValueByIndex(index);
+      return Number.isFinite(value) ? value : null;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function resolveParameterIndex(core, internalModel, spec) {
+  const internalIndex = internalModel?.[spec.indexProp];
+  if (Number.isFinite(internalIndex) && internalIndex >= 0) {
+    return internalIndex;
+  }
+
+  if (typeof core?.getParameterIndex === "function") {
+    for (const id of spec.ids) {
+      const index = core.getParameterIndex(id);
+      if (Number.isFinite(index) && index >= 0) {
+        return index;
+      }
+    }
+  }
+
+  const rawIds = Array.isArray(core?._parameterIds) ? core._parameterIds : [];
+  for (let index = 0; index < rawIds.length; index += 1) {
+    const value = String(rawIds[index]);
+    if (spec.ids.includes(value)) {
+      return index;
+    }
+  }
+
+  return null;
+}
+
+function snapshotFollowParameters(model) {
+  const internalModel = model.internalModel;
+  const core = internalModel?.coreModel;
+  const parameters = {};
+  const focusController = internalModel?.focusController;
+  const controller = focusController
+    ? {
+        x: Number.isFinite(focusController.x) ? focusController.x : null,
+        y: Number.isFinite(focusController.y) ? focusController.y : null,
+        targetX: Number.isFinite(focusController.targetX) ? focusController.targetX : null,
+        targetY: Number.isFinite(focusController.targetY) ? focusController.targetY : null,
+      }
+    : null;
+
+  if (!internalModel || !core) {
+    return {
+      available: false,
+      parameters,
+      controller,
+    };
+  }
+
+  for (const spec of FOLLOW_PARAMETER_SPECS) {
+    const index = resolveParameterIndex(core, internalModel, spec);
+    const value = readParameterValue(core, index);
+    if (!Number.isFinite(value)) {
+      continue;
+    }
+
+    parameters[spec.key] = {
+      label: spec.label,
+      axis: spec.axis,
+      index,
+      value,
+    };
+  }
+
+  return {
+    available: Object.keys(parameters).length > 0,
+    parameters,
+    controller,
+  };
+}
+
+function buildNumericFollowProbe(neutral, focusRight, focusLeft) {
+  const parameters = {};
+  let eyeMaxDelta = 0;
+  let headMaxDelta = 0;
+  let bodyMaxDelta = 0;
+  let controllerMaxDelta = 0;
+
+  for (const spec of FOLLOW_PARAMETER_SPECS) {
+    const neutralValue = neutral.parameters[spec.key]?.value;
+    const rightValue = focusRight.parameters[spec.key]?.value;
+    const leftValue = focusLeft.parameters[spec.key]?.value;
+    const values = [neutralValue, rightValue, leftValue].filter((value) => Number.isFinite(value));
+    if (values.length === 0) {
+      continue;
+    }
+
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min;
+    parameters[spec.key] = {
+      label: spec.label,
+      axis: spec.axis,
+      index:
+        neutral.parameters[spec.key]?.index ??
+        focusRight.parameters[spec.key]?.index ??
+        focusLeft.parameters[spec.key]?.index ??
+        null,
+      neutral: Number.isFinite(neutralValue) ? neutralValue : null,
+      focusRight: Number.isFinite(rightValue) ? rightValue : null,
+      focusLeft: Number.isFinite(leftValue) ? leftValue : null,
+      range,
+    };
+
+    if (spec.axis === "eye") {
+      eyeMaxDelta = Math.max(eyeMaxDelta, range);
+    } else if (spec.axis === "head") {
+      headMaxDelta = Math.max(headMaxDelta, range);
+    } else if (spec.axis === "body") {
+      bodyMaxDelta = Math.max(bodyMaxDelta, range);
+    }
+  }
+
+  for (const key of ["x", "y", "targetX", "targetY"]) {
+    const values = [
+      neutral.controller?.[key],
+      focusRight.controller?.[key],
+      focusLeft.controller?.[key],
+    ].filter((value) => Number.isFinite(value));
+    if (values.length === 0) {
+      continue;
+    }
+
+    controllerMaxDelta = Math.max(controllerMaxDelta, Math.max(...values) - Math.min(...values));
+  }
+
+  return {
+    available: Object.keys(parameters).length > 0,
+    parameters,
+    eyeMaxDelta,
+    headMaxDelta,
+    bodyMaxDelta,
+    controller: {
+      neutral: neutral.controller || null,
+      focusRight: focusRight.controller || null,
+      focusLeft: focusLeft.controller || null,
+      maxDelta: controllerMaxDelta,
+    },
+  };
+}
+
+function buildVisualFollowProbe(diffA, diffB) {
+  const changedRatio = Math.max(diffA.changedRatio, diffB.changedRatio);
+  const coverageWidth = Math.max(diffA.coverageWidth, diffB.coverageWidth);
+  const coverageHeight = Math.max(diffA.coverageHeight, diffB.coverageHeight);
+
+  let visibilityLevel = "none";
+  let visibilityText = "画面上几乎看不出跟随";
+  if (changedRatio >= 0.035 || coverageHeight >= 0.5) {
+    visibilityLevel = "clear";
+    visibilityText = "画面上能直接看出跟随";
+  } else if (changedRatio >= 0.012 || coverageHeight >= 0.22) {
+    visibilityLevel = "light";
+    visibilityText = "画面上能看出轻微跟随";
+  } else if (changedRatio >= 0.003) {
+    visibilityLevel = "tiny";
+    visibilityText = "画面上幅度很小";
+  }
+
+  let motionAreaLevel = "face";
+  let motionAreaText = "视觉上主要是脸部到头部在动";
+  if (coverageHeight >= 0.68 || changedRatio >= 0.08) {
+    motionAreaLevel = "body";
+    motionAreaText = "视觉上能看到头肩到上半身都在动";
+  } else if (coverageHeight >= 0.32 || changedRatio >= 0.02) {
+    motionAreaLevel = "head";
+    motionAreaText = "视觉上主要是头部到头肩在动";
+  }
+
+  return {
+    neutralToRight: diffA,
+    rightToLeft: diffB,
+    changedRatio,
+    coverageWidth,
+    coverageHeight,
+    visibilityLevel,
+    visibilityText,
+    motionAreaLevel,
+    motionAreaText,
+  };
+}
+
+function formatDelta(value) {
+  if (!Number.isFinite(value)) {
+    return "0";
+  }
+
+  if (value >= 10) {
+    return value.toFixed(1);
+  }
+  if (value >= 1) {
+    return value.toFixed(2);
+  }
+  return value.toFixed(3);
+}
+
+function summarizeFollowProbe(visual, numeric) {
+  const eyeDelta = numeric.eyeMaxDelta || 0;
+  const headDelta = numeric.headMaxDelta || 0;
+  const bodyDelta = numeric.bodyMaxDelta || 0;
+  const controllerDelta = numeric.controller?.maxDelta || 0;
+  const eyeLight = eyeDelta >= 0.05;
+  const eyeClear = eyeDelta >= 0.18;
+  const headLight = headDelta >= 1.2;
+  const headClear = headDelta >= 5;
+  const bodyLight = bodyDelta >= 0.5;
+  const bodyClear = bodyDelta >= 1.8;
+
+  let followLevel = "none";
+  let followLabel = "几乎无默认跟随";
+  let movementText = "眼睛、头部和上身参数都基本不变";
+
+  if (bodyClear || (bodyLight && headClear)) {
+    followLevel = "upper-body-clear";
+    followLabel = "上身也明显跟随";
+    movementText = "头部跟随明显，上身也被明显带动";
+  } else if (bodyLight) {
+    followLevel = "upper-body-light";
+    followLabel = "上身会被轻带动";
+    movementText = "头部跟随明确，上身也有轻微带动";
+  } else if (headClear) {
+    followLevel = "head-clear";
+    followLabel = "头部跟随明显";
+    movementText = eyeLight
+      ? "头部跟随明显，眼睛也会同步偏转"
+      : "头部跟随明显，身体基本不动";
+  } else if (headLight) {
+    followLevel = "head-light";
+    followLabel = "头部轻微跟随";
+    movementText = eyeLight
+      ? "眼睛会跟，头部也有轻微带动，身体基本不动"
+      : "头部会轻微带动，身体基本不动";
+  } else if (eyeClear) {
+    followLevel = "eyes-clear";
+    followLabel = "眼睛跟随明确";
+    movementText = "主要是眼睛在跟，头部和上身基本不动";
+  } else if (eyeLight) {
+    followLevel = "eyes-light";
+    followLabel = "眼睛小幅跟随";
+    movementText = "主要是眼睛小幅跟随，头部和上身基本不动";
+  }
+
+  if (followLevel === "none" && visual.visibilityLevel !== "none") {
+    if (visual.motionAreaLevel === "body") {
+      followLevel = "visual-body";
+      followLabel = "视觉上上半身在动";
+      movementText = visual.motionAreaText;
+    } else if (visual.motionAreaLevel === "head") {
+      followLevel = "visual-head";
+      followLabel = "视觉上头肩在动";
+      movementText = visual.motionAreaText;
+    } else {
+      followLevel = "visual-face";
+      followLabel = "视觉上脸部轻动";
+      movementText = visual.motionAreaText;
+    }
+  }
+
+  let followSummary = "";
+  if (!numeric.available) {
+    followSummary =
+      visual.visibilityLevel === "none"
+        ? "鼠标跟随：当前脚本拿不到标准跟随参数，画面上也几乎看不出变化，可先按默认无明显跟随处理。"
+        : "鼠标跟随：" + visual.visibilityText + "，但当前脚本拿不到标准跟随参数，暂时只能按画面做保守判断。";
+  } else if (followLevel === "none") {
+    followSummary =
+      visual.visibilityLevel === "none"
+        ? "鼠标跟随：画面上几乎看不出，数值上眼睛、头部和上身参数都基本不变，可按默认几乎不跟随处理。"
+        : controllerDelta >= 0.12
+          ? "鼠标跟随：" + visual.visibilityText + "，数值上 focusController 已有响应，但眼睛、头部和上身标准参数没有明显变化。"
+          : "鼠标跟随：" + visual.visibilityText + "，但当前抓到的眼睛、头部和上身标准参数没有明显变化。";
+  } else if (followLevel.startsWith("visual-")) {
+    followSummary =
+      "鼠标跟随：" + movementText +
+      (controllerDelta >= 0.12
+        ? "，数值上 focusController 也有明确响应，但标准跟随参数没有直接暴露。"
+        : "，但当前抓到的标准跟随参数没有明显变化。");
+  } else if (visual.visibilityLevel === "none" || visual.visibilityLevel === "tiny") {
+    followSummary = "鼠标跟随：" + visual.visibilityText + "，但数值上" + movementText + "。";
+  } else {
+    followSummary = "鼠标跟随：" + movementText + "；" + visual.visibilityText + "。";
+  }
+
+  return {
+    followLevel,
+    followLabel,
+    movementText,
+    followSummary,
+    parameterSummary:
+      "眼睛Δ" + formatDelta(eyeDelta) +
+      " / 头部Δ" + formatDelta(headDelta) +
+      " / 上身Δ" + formatDelta(bodyDelta) +
+      " / 焦点Δ" + formatDelta(controllerDelta),
+  };
+}
+
 async function advance(app, model, frames = 1) {
   for (let index = 0; index < frames; index += 1) {
     if (typeof model.update === "function") {
@@ -871,35 +1210,58 @@ async function advance(app, model, frames = 1) {
 
 async function runFocusProbe(app, model, baseline) {
   if (typeof model.focus !== "function") {
-    return { supported: false };
+    return {
+      supported: false,
+      followLevel: "unsupported",
+      followLabel: "无 focus 接口",
+      followSummary: "鼠标跟随：当前 runtime 没有可调用的 focus 接口，脚本侧无法确认默认跟随。",
+      parameterSummary: "眼睛Δ0 / 头部Δ0 / 上身Δ0",
+    };
   }
 
   try {
     model.focus(0, 0);
     await advance(app, model, 8);
     const neutral = capture(app);
+    const neutralParameters = snapshotFollowParameters(model);
 
     model.focus(0.82, -0.42);
     await advance(app, model, 18);
-    const right = capture(app);
+    const focusRight = capture(app);
+    const focusRightParameters = snapshotFollowParameters(model);
 
     model.focus(-0.82, 0.42);
     await advance(app, model, 18);
-    const left = capture(app);
+    const focusLeft = capture(app);
+    const focusLeftParameters = snapshotFollowParameters(model);
 
-    const diffA = diffMetrics(neutral, right, baseline.bounds);
-    const diffB = diffMetrics(right, left, baseline.bounds);
+    const diffA = diffMetrics(neutral, focusRight, baseline.bounds);
+    const diffB = diffMetrics(focusRight, focusLeft, baseline.bounds);
+    const visual = buildVisualFollowProbe(diffA, diffB);
+    const numeric = buildNumericFollowProbe(
+      neutralParameters,
+      focusRightParameters,
+      focusLeftParameters,
+    );
+    const follow = summarizeFollowProbe(visual, numeric);
 
     return {
       supported: true,
-      changedRatio: Math.max(diffA.changedRatio, diffB.changedRatio),
-      coverageWidth: Math.max(diffA.coverageWidth, diffB.coverageWidth),
-      coverageHeight: Math.max(diffA.coverageHeight, diffB.coverageHeight),
+      changedRatio: visual.changedRatio,
+      coverageWidth: visual.coverageWidth,
+      coverageHeight: visual.coverageHeight,
+      visual,
+      numeric,
+      ...follow,
     };
   } catch (error) {
     return {
       supported: true,
       error: String(error && (error.stack || error.message || error)),
+      followLevel: "probe-error",
+      followLabel: "检测失败",
+      followSummary: ("鼠标跟随：检测失败，" + String(error && (error.message || error))).slice(0, 160),
+      parameterSummary: "眼睛Δ0 / 头部Δ0 / 上身Δ0",
     };
   }
 }
@@ -954,7 +1316,7 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
   }
 
   const group = chooseMotionGroup(motionEntries);
-  if (!group) {
+  if (group === null || group === undefined) {
     return { supported: false };
   }
 
@@ -970,6 +1332,7 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
     return {
       supported: true,
       group,
+      groupLabel: displayMotionGroupName(group),
       touchLike: /tap|touch|flick|pinch|body|head/i.test(group),
       changedRatio: diff.changedRatio,
       coverageWidth: diff.coverageWidth,
@@ -979,6 +1342,7 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
     return {
       supported: true,
       group,
+      groupLabel: displayMotionGroupName(group),
       error: String(error && (error.stack || error.message || error)),
     };
   }
@@ -1000,7 +1364,7 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
 
     const options = { autoUpdate: false };
     if (PIXI.live2d?.MotionPreloadStrategy) {
-      options.motionPreload = PIXI.live2d.MotionPreloadStrategy.NONE;
+      options.motionPreload = PIXI.live2d.MotionPreloadStrategy.ALL;
     }
 
     if (!PIXI.live2d || !PIXI.live2d.Live2DModel) {
@@ -1047,10 +1411,13 @@ async function runMotionProbe(app, model, baseline, motionEntries) {
     document.getElementById("stats").textContent =
       "资源比例 " + (profile.sourceSize?.label || "未记录") +
       "\\n预览框 " + Math.round(profile.slot.width) + " x " + Math.round(profile.slot.height) +
+      "\\n鼠标跟随 " + (focusProbe.followLabel || "未测") +
+      "\\n跟随可见度 " + (focusProbe.visual?.visibilityText || (focusProbe.supported ? "已测" : "无")) +
+      "\\n跟随参数 " + (focusProbe.parameterSummary || "眼睛Δ0 / 头部Δ0 / 上身Δ0") +
       "\\n命中区 " + hitAreas.length +
       " 个\\n表情 " + expressions.length +
       " 个\\n动作组 " + motionEntries.length +
-      " 组\\n触发动作 " + (motionProbe.group || "无") +
+      " 组\\n触发动作 " + (motionProbe.groupLabel || "无") +
       "\\n焦点反应 " + (focusProbe.supported ? (focusProbe.error ? "失败" : "已测") : "无") +
       "\\n建议位宽 " + (targetDeskpetWidth ?? "未知") + " px";
     window.__reportReady = true;
@@ -1137,9 +1504,25 @@ function shortError(errorText) {
   return String(errorText).split("\n")[0].replace(/\s+/g, " ").slice(0, 120);
 }
 
+function formatMotionGroupLabel(name, fallback = "无") {
+  if (name === "") {
+    return "未命名动作组";
+  }
+  return name || fallback;
+}
+
+function extractAssessmentGrade(assessment) {
+  if (!assessment) {
+    return "未分级";
+  }
+
+  const normalized = String(assessment).replace(/^人工复核：/, "");
+  return normalized.split(/[：。]/)[0] || "未分级";
+}
+
 function buildAssessment(row, item) {
   if (item.status !== "ok" || !item.result?.ok) {
-    return `本轮复测失败：${shortError(item.result?.error || item.error)}`;
+    return `人工复核：本轮复测失败。${shortError(item.result?.error || item.error)}`;
   }
 
   const result = item.result;
@@ -1147,13 +1530,11 @@ function buildAssessment(row, item) {
   const hitAreaCount = result.hitAreas.length;
   const expressionCount = result.expressionsCount;
   const touchLikeCount = result.touchLikeMotionGroups.length;
-  const focusStrong =
-    result.focusProbe?.supported &&
-    !result.focusProbe.error &&
-    result.focusProbe.changedRatio >= 0.018;
-  const focusBody =
-    focusStrong &&
-    result.focusProbe.coverageHeight >= 0.45;
+  const followLevel = result.focusProbe?.followLevel || "none";
+  const followAny =
+    !["none", "unsupported", "probe-error"].includes(followLevel);
+  const followBody =
+    ["upper-body-light", "upper-body-clear", "visual-body"].includes(followLevel);
   const motionStrong =
     result.motionProbe?.supported &&
     !result.motionProbe.error &&
@@ -1162,8 +1543,8 @@ function buildAssessment(row, item) {
     motionStrong &&
     result.motionProbe.coverageHeight >= 0.55;
   const headOnly =
-    (focusStrong || motionStrong) &&
-    !focusBody &&
+    (followAny || motionStrong) &&
+    !followBody &&
     !motionBody;
   const wide =
     /超宽/.test(row.resourceType) ||
@@ -1178,50 +1559,58 @@ function buildAssessment(row, item) {
   let grade = "可用";
   if (motionBody && hitAreaCount >= 2 && motionGroupCount >= 3 && !wide && !heavy) {
     grade = "强适合";
-  } else if ((motionBody || (focusBody && motionStrong)) && !wide) {
+  } else if ((motionBody || (followBody && motionStrong)) && !wide) {
     grade = heavy ? "适合但偏重" : fullBody ? "适合，建议裁腰" : "适合";
   } else if (headOnly || wide) {
     grade = "不建议";
-  } else if (!motionStrong && !focusStrong && touchLikeCount === 0) {
-    grade = "不建议";
+  } else if (!motionStrong && !followAny && touchLikeCount === 0) {
+    grade = halfLike ? "可用但偏静态" : "不建议";
   } else if (heavy) {
     grade = "可用但偏重";
+  } else if (!motionStrong) {
+    grade = "可用但偏安静";
   }
 
-  const interactionParts = [];
-  if (motionStrong) {
-    const coverage = motionBody ? "变化覆盖到半身/全身" : "变化主要集中在头肩";
-    interactionParts.push(
-      `动作组 ${motionGroupCount} 组，实测 \`${result.motionProbe.group}\` 可触发，${coverage}`,
-    );
-  } else if (focusStrong) {
-    const coverage = focusBody ? "视线和躯干跟随都比较明显" : "主要是视线/头部轻动";
-    interactionParts.push(`动作反馈偏轻，${coverage}`);
-  } else {
-    interactionParts.push("实测动作反馈偏弱，更像轻微动态立绘");
-  }
+  const widthText = Number.isFinite(result.targetDeskpetWidth)
+    ? `右下角约 ${result.targetDeskpetWidth}x340`
+    : "右下角默认摆位";
 
-  interactionParts.push(`命中区 ${hitAreaCount} 个，表情 ${expressionCount} 个`);
-
-  if (Number.isFinite(result.targetDeskpetWidth)) {
-    interactionParts.push(`按 340px 高度摆右下角约 ${result.targetDeskpetWidth}x340`);
-  }
-
+  let placement = `${widthText} 摆位下主体基本能落进桌宠框`;
   if (wide) {
-    interactionParts.push("横向占位偏大");
-  } else if (fullBody && grade !== "不建议") {
-    interactionParts.push("更适合运行时裁到腰部以上");
+    placement = `${widthText} 摆位下横向占位偏大，需要额外留边`;
+  } else if (fullBody && Number.isFinite(result.targetDeskpetWidth) && result.targetDeskpetWidth < 210) {
+    placement = `${widthText} 摆位下会偏细高，更像立绘缩略位`;
   } else if (halfLike) {
-    interactionParts.push("半身/小挂件构图天然更贴桌宠位");
+    placement = `${widthText} 摆位下主体集中，半身/小挂件构图天然贴桌角`;
+  } else if (fullBody) {
+    placement = `${widthText} 摆位下更适合裁到腰部以上使用`;
   }
 
   if (heavy) {
-    interactionParts.push("纹理开销偏高");
+    placement += "，纹理开销偏高";
   } else if (dense) {
-    interactionParts.push("细节够用但更适合桌面端");
+    placement += "，细节量够用但更适合桌面端";
   }
 
-  return `${grade}：${interactionParts.join("；")}`;
+  let interaction = "";
+  if (motionStrong) {
+    const coverage = motionBody ? "变化能带到上半身甚至全身" : "变化主要集中在头肩";
+    interaction = `默认交互方面，命中区 ${hitAreaCount} 个、表情 ${expressionCount} 个、动作组 ${motionGroupCount} 组；代表动作 ${formatMotionGroupLabel(result.motionProbe.group)} 可触发，${coverage}`;
+  } else if (result.motionProbe?.supported && !result.motionProbe.error) {
+    interaction = `默认交互方面，命中区 ${hitAreaCount} 个、表情 ${expressionCount} 个、动作组 ${motionGroupCount} 组；代表动作 ${formatMotionGroupLabel(result.motionProbe.group)} 能跑，但反馈偏轻`;
+  } else if (touchLikeCount > 0) {
+    interaction = `默认交互方面，命中区 ${hitAreaCount} 个、表情 ${expressionCount} 个、动作组 ${motionGroupCount} 组；虽然有 ${touchLikeCount} 组触摸类动作名，但本轮代表动作没有测到强反馈`;
+  } else {
+    interaction = `默认交互方面，命中区 ${hitAreaCount} 个、表情 ${expressionCount} 个、动作组 ${motionGroupCount} 组，基本没有可直接依赖的默认互动`;
+  }
+
+  if (hitAreaCount === 0 && (touchLikeCount > 0 || motionGroupCount > 0)) {
+    interaction += "，接入时仍建议工程侧显式绑定点击 / 悬停 / 闲置逻辑";
+  }
+
+  const followSentence = (result.focusProbe?.followSummary || "鼠标跟随：未测。").replace(/[。]+$/u, "");
+  const interactionSentence = interaction.replace(/[。]+$/u, "");
+  return `人工复核：${grade}。${placement}。${followSentence}。${interactionSentence}。`;
 }
 
 async function writeOutput(outputPath, rows, resultsMap) {
@@ -1231,7 +1620,7 @@ async function writeOutput(outputPath, rows, resultsMap) {
 
   const payload = {
     generatedAt: new Date().toISOString(),
-    note: "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
+    note: "Reviewed deskpet assessments are kept in this file, including summary-imported manual conclusions and visual+numeric browser probe reruns.",
     stats: {
       reviewed: ordered.length,
     },
@@ -1303,8 +1692,7 @@ async function updateSummaryAssessment(summaryPath, row, assessment) {
 function countByGrade(results) {
   const counts = {};
   for (const item of results) {
-    const assessment = item.assessment || "";
-    const grade = assessment.split("：")[0] || "未分级";
+    const grade = extractAssessmentGrade(item.assessment);
     counts[grade] = (counts[grade] || 0) + 1;
   }
   return counts;
@@ -1454,6 +1842,8 @@ async function main() {
         reviewDir,
       });
       record.assessment = buildAssessment(row, record);
+      record.reviewMethod = "visual+numeric-browser-probe";
+      record.source = "evaluate-live2d-desktop-pet.mjs";
       existingResults.set(row.manifestUrl, record);
       await writeOutput(outputPath, parsed.rows, existingResults);
       if (args.apply) {
