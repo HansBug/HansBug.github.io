@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T00:50:30.440Z",
+  "generatedAt": "2026-04-12T01:06:16.815Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 185
+    "reviewed": 195
   },
   "results": [
     {
@@ -6682,6 +6682,1306 @@
       "assessment": "人工复核：可用但不优先。黑色披肩和白衬衣的胸像位很干净，但披肩会把左右占位撑宽，右下角要留边；虽然有 `15` 个表情可轮播，动作组仍只有 `1` 组且未命名、命中区为 `0`，整体更像安静陪伴位，不建议当主互动桌宠。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Nindi/model.json",
+      "ip": "崩坏学园 2",
+      "model": "`Nindi`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "细高全身",
+      "status": "ok",
+      "durationMs": 34126,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_Nindi_.png",
+      "result": {
+        "ok": true,
+        "width": 441.26612903225805,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 263112,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 908,
+          "width": 440,
+          "height": 909
+        },
+        "targetDeskpetWidth": 165,
+        "previewFrame": {
+          "width": 226,
+          "height": 430,
+          "ratio": 0.5262565641410353
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_leg",
+          "tap_belly"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1531401076347715,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6017601760176018
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.17076758186627747,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6160616061606161
+        }
+      },
+      "assessment": "人工复核：强适合，建议保留偏窄摆位。虽然原始资源是 `2806 x 5332` 细高全身，但浏览器按原比例摆位后会自然落成窄幅头肩到大腿视角，不像整张立绘缩略图；命中区 `5` 个，`flick_head / tap_face / tap_breast / tap_belly / tap_leg / shake / mail` 这组动作都能用，互动完成度是这批里最高的一档。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/keluoyi/model.json",
+      "ip": "崩坏学园 2",
+      "model": "`keluoyi`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 26543,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_keluoyi_.png",
+      "result": {
+        "ok": true,
+        "width": 392.15999999999997,
+        "height": 392.15999999999997,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 344,
+          "ratio": 1
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_belly",
+          "tap_leg"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.09811173751663282,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6619217081850534
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.06851407661600953,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6565836298932385
+        }
+      },
+      "assessment": "人工复核：强适合。方图单角色构图很干净，长发和裙摆完整落在右下角视野内，缩小后就是成品桌宠感；命中区 `5` 个、动作组 `14` 组，`flick_head` 和各类 `tap_*` 反馈都清楚，即使没有表情也足以直接做主互动位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Lita/model.json",
+      "ip": "崩坏学园 2",
+      "model": "丽塔 `Lita`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 35436,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_Lita_.png",
+      "result": {
+        "ok": true,
+        "width": 392.15999999999997,
+        "height": 435.7333333333333,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 382,
+          "ratio": 0.9
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "shake",
+            "count": 2
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_leg",
+          "tap_belly"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04391063799985993,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6281138790035588
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.058013516352685764,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6298932384341637
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。女仆装构图干净、主体集中，缩到右下角更像礼仪陪伴位；命中区 `5` 个、动作组 `14` 组都在，但实测动幅主要落在头肩和裙摆，视觉反馈不如 `Nindi`、`keluoyi` 那样活跃，更适合作轻互动看板位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/yiselin/model.json",
+      "ip": "崩坏学园 2",
+      "model": "伊瑟琳 `yiselin`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 27747,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_yiselin_.png",
+      "result": {
+        "ok": true,
+        "width": 392.1599999999999,
+        "height": 470.5919999999999,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 413,
+          "ratio": 0.8333333333333334
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          },
+          {
+            "name": "shake",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_belly",
+          "tap_leg",
+          "tap_breast"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.04727221794243294,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5409252669039146
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.06617672806218923,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6832740213523132
+        }
+      },
+      "assessment": "人工复核：适合。绿发和白袖的竖向人物位很干净，保持原比例后不会显得过瘦，右下角辨识度也够；命中区 `5` 个、动作组 `14` 组可用，不过默认观感仍偏标准立绘陪伴位，建议作为轻互动桌宠而不是高活跃主角。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/BYC/model.json",
+      "ip": "崩坏学园 2",
+      "model": "八重樱 `BYC`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 26576,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_BYC_.png",
+      "result": {
+        "ok": true,
+        "width": 392.16,
+        "height": 392.16,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 344,
+          "ratio": 1
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 2
+          },
+          {
+            "name": "idle",
+            "count": 4
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_belly",
+          "tap_leg"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08890678618950906,
+          "coverageWidth": 1,
+          "coverageHeight": 0.599644128113879
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.11393917641291407,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6565836298932385
+        }
+      },
+      "assessment": "人工复核：强适合。Q 版方图天然就是桌角挂件位，上下两只小灵兽一起入镜但并不脏，人物本体始终是视觉中心；命中区 `5` 个、动作组 `14` 组完整，`flick_head` 和 `tap_*` 反馈明显，是这批里最像成品小桌宠的一条。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/bronya/model.json",
+      "ip": "崩坏学园 2",
+      "model": "布洛妮娅 `bronya`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 29933,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_bronya_.png",
+      "result": {
+        "ok": true,
+        "width": 392.1599999999999,
+        "height": 392.1599999999999,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 344,
+          "ratio": 1
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 2
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_belly",
+          "tap_leg"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07556989284963933,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7544483985765125
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.06261380348763919,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7526690391459074
+        }
+      },
+      "assessment": "人工复核：适合。双钻头胸腰位和左下角小挂件一起缩到右下角后仍很干净，角色感也很强；命中区 `5` 个、动作组 `14` 组齐全，`tap_face` 还有 `2` 条变化，已经能做不错的互动桌宠，只是下沿挂件会占一点边。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/xier/model.json",
+      "ip": "崩坏学园 2",
+      "model": "希儿 `xier`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 26858,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_xier_.png",
+      "result": {
+        "ok": true,
+        "width": 254.17777777777775,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "targetDeskpetWidth": 288,
+        "previewFrame": {
+          "width": 223,
+          "height": 430,
+          "ratio": 0.5185185185185185
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 2
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_leg",
+          "tap_belly"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07305746200714336,
+          "coverageWidth": 0.36363636363636365,
+          "coverageHeight": 0.6807692307692308
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.06115624343441418,
+          "coverageWidth": 0.36818181818181817,
+          "coverageHeight": 0.8096153846153846
+        }
+      },
+      "assessment": "人工复核：可用但不优先。画面本身很干净，校服人物也完整落框，但保持原比例后更像完整制服立绘缩略图，桌宠感弱于同批的方图条目；命中区 `5` 个、动作组 `14` 组都在，可做轻互动陪伴位，不建议优先当主桌宠。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Kiro/model.json",
+      "ip": "崩坏学园 2",
+      "model": "时雨绮罗 `Kiro`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 28097,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_Kiro_.png",
+      "result": {
+        "ok": true,
+        "width": 392.15999999999997,
+        "height": 392.15999999999997,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 344,
+          "ratio": 1
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_leg",
+          "tap_belly"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.056433398697387775,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6156583629893239
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.07617830380278731,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6512455516014235
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量横向边距。浅蓝长发和裙摆轮廓很轻，右下角观感干净，但两侧发卷会把横向占位稍微撑开；命中区 `5` 个、动作组 `14` 组完整，互动底子够用，不过整体气质仍偏轻柔陪伴位。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/kaguya/model.json",
+      "ip": "崩坏学园 2",
+      "model": "耀夜姬 `kaguya`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "方构图 / 角色立绘",
+      "status": "ok",
+      "durationMs": 71549,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_kaguya_.png",
+      "result": {
+        "ok": true,
+        "width": 392.16,
+        "height": 411.76800000000003,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 361,
+          "ratio": 0.9523809523809523
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_belly",
+          "tap_leg"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.09418551719308074,
+          "coverageWidth": 1,
+          "coverageHeight": 0.5658362989323843
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.10135513691434975,
+          "coverageWidth": 1,
+          "coverageHeight": 0.693950177935943
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量横向边距。披肩、长发和彩色下摆让桌角辨识度很高，但左右外扩会比 `yiselin`、`Lita` 更明显；命中区 `5` 个、动作组 `14` 组都能用，适合作轻互动看板位，不建议裁得太窄。"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/xilin2.1/model.json",
+      "ip": "崩坏学园 2",
+      "model": "西琳 `xilin2.1`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向角色立绘",
+      "status": "ok",
+      "durationMs": 51766,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_2-_xilin2.1_.png",
+      "result": {
+        "ok": true,
+        "width": 392.16,
+        "height": 457.52,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 561,
+          "width": 440,
+          "height": 562
+        },
+        "targetDeskpetWidth": 266,
+        "previewFrame": {
+          "width": 344,
+          "height": 401,
+          "ratio": 0.8571428571428571
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [
+          "head",
+          "face",
+          "breast",
+          "belly",
+          "leg"
+        ],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "flick_head",
+            "count": 1
+          },
+          {
+            "name": "tap_face",
+            "count": 1
+          },
+          {
+            "name": "tap_breast",
+            "count": 1
+          },
+          {
+            "name": "tap_leg",
+            "count": 1
+          },
+          {
+            "name": "tap_belly",
+            "count": 1
+          },
+          {
+            "name": "mail",
+            "count": 1
+          },
+          {
+            "name": "idle",
+            "count": 4
+          },
+          {
+            "name": "shake",
+            "count": 1
+          },
+          {
+            "name": "activity",
+            "count": 1
+          },
+          {
+            "name": "born",
+            "count": 1
+          },
+          {
+            "name": "friend",
+            "count": 1
+          },
+          {
+            "name": "morning",
+            "count": 1
+          },
+          {
+            "name": "afternoon",
+            "count": 1
+          },
+          {
+            "name": "evening",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "flick_head",
+          "tap_face",
+          "tap_breast",
+          "tap_leg",
+          "tap_belly"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08386879333286645,
+          "coverageWidth": 1,
+          "coverageHeight": 0.4928825622775801
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "flick_head",
+          "touchLike": true,
+          "changedRatio": 0.08497618880874011,
+          "coverageWidth": 1,
+          "coverageHeight": 0.49466192170818507
+        }
+      },
+      "assessment": "人工复核：不建议优先。保持原始 `3000 x 3500` 比例后，人物本体明显偏小，主要视面积被大裙摆和飘带吃掉，右下角更像悬浮插画而不是人物桌宠；虽然命中区 `5` 个、动作组 `14` 组完整，但视觉焦点不足，不建议优先接入。"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/95type_405/95type_405.model.json",
