@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T02:32:46.566Z",
+  "generatedAt": "2026-04-12T03:00:43.143Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 235
+    "reviewed": 246
   },
   "results": [
     {
@@ -6692,7 +6692,7 @@
       "status": "ok",
       "durationMs": 34126,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_Nindi_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 441.26612903225805,
@@ -6811,7 +6811,9 @@
           "coverageHeight": 0.6160616061606161
         }
       },
-      "assessment": "人工复核：强适合，建议保留偏窄摆位。虽然原始资源是 `2806 x 5332` 细高全身，但浏览器按原比例摆位后会自然落成窄幅头肩到大腿视角，不像整张立绘缩略图；命中区 `5` 个，`flick_head / tap_face / tap_breast / tap_belly / tap_leg / shake / mail` 这组动作都能用，互动完成度是这批里最高的一档。"
+      "assessment": "人工复核：强适合，建议保留偏窄摆位。虽然原始资源是 `2806 x 5332` 细高全身，但浏览器按原比例摆位后会自然落成窄幅头肩到大腿视角，不像整张立绘缩略图；命中区 `5` 个，`flick_head / tap_face / tap_breast / tap_belly / tap_leg / shake / mail` 这组动作都能用，互动完成度是这批里最高的一档。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/keluoyi/model.json",
@@ -6822,7 +6824,7 @@
       "status": "ok",
       "durationMs": 26543,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_keluoyi_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.15999999999997,
@@ -6941,7 +6943,9 @@
           "coverageHeight": 0.6565836298932385
         }
       },
-      "assessment": "人工复核：强适合。方图单角色构图很干净，长发和裙摆完整落在右下角视野内，缩小后就是成品桌宠感；命中区 `5` 个、动作组 `14` 组，`flick_head` 和各类 `tap_*` 反馈都清楚，即使没有表情也足以直接做主互动位。"
+      "assessment": "人工复核：强适合。方图单角色构图很干净，长发和裙摆完整落在右下角视野内，缩小后就是成品桌宠感；命中区 `5` 个、动作组 `14` 组，`flick_head` 和各类 `tap_*` 反馈都清楚，即使没有表情也足以直接做主互动位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Lita/model.json",
@@ -6952,7 +6956,7 @@
       "status": "ok",
       "durationMs": 35436,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_Lita_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.15999999999997,
@@ -7071,7 +7075,9 @@
           "coverageHeight": 0.6298932384341637
         }
       },
-      "assessment": "人工复核：适合但偏安静。女仆装构图干净、主体集中，缩到右下角更像礼仪陪伴位；命中区 `5` 个、动作组 `14` 组都在，但实测动幅主要落在头肩和裙摆，视觉反馈不如 `Nindi`、`keluoyi` 那样活跃，更适合作轻互动看板位。"
+      "assessment": "人工复核：适合但偏安静。女仆装构图干净、主体集中，缩到右下角更像礼仪陪伴位；命中区 `5` 个、动作组 `14` 组都在，但实测动幅主要落在头肩和裙摆，视觉反馈不如 `Nindi`、`keluoyi` 那样活跃，更适合作轻互动看板位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/yiselin/model.json",
@@ -7082,7 +7088,7 @@
       "status": "ok",
       "durationMs": 27747,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_yiselin_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -7201,7 +7207,9 @@
           "coverageHeight": 0.6832740213523132
         }
       },
-      "assessment": "人工复核：适合。绿发和白袖的竖向人物位很干净，保持原比例后不会显得过瘦，右下角辨识度也够；命中区 `5` 个、动作组 `14` 组可用，不过默认观感仍偏标准立绘陪伴位，建议作为轻互动桌宠而不是高活跃主角。"
+      "assessment": "人工复核：适合。绿发和白袖的竖向人物位很干净，保持原比例后不会显得过瘦，右下角辨识度也够；命中区 `5` 个、动作组 `14` 组可用，不过默认观感仍偏标准立绘陪伴位，建议作为轻互动桌宠而不是高活跃主角。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/BYC/model.json",
@@ -7212,7 +7220,7 @@
       "status": "ok",
       "durationMs": 26576,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_BYC_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.16,
@@ -7331,7 +7339,9 @@
           "coverageHeight": 0.6565836298932385
         }
       },
-      "assessment": "人工复核：强适合。Q 版方图天然就是桌角挂件位，上下两只小灵兽一起入镜但并不脏，人物本体始终是视觉中心；命中区 `5` 个、动作组 `14` 组完整，`flick_head` 和 `tap_*` 反馈明显，是这批里最像成品小桌宠的一条。"
+      "assessment": "人工复核：强适合。Q 版方图天然就是桌角挂件位，上下两只小灵兽一起入镜但并不脏，人物本体始终是视觉中心；命中区 `5` 个、动作组 `14` 组完整，`flick_head` 和 `tap_*` 反馈明显，是这批里最像成品小桌宠的一条。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/bronya/model.json",
@@ -7342,7 +7352,7 @@
       "status": "ok",
       "durationMs": 29933,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_bronya_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -7461,7 +7471,9 @@
           "coverageHeight": 0.7526690391459074
         }
       },
-      "assessment": "人工复核：适合。双钻头胸腰位和左下角小挂件一起缩到右下角后仍很干净，角色感也很强；命中区 `5` 个、动作组 `14` 组齐全，`tap_face` 还有 `2` 条变化，已经能做不错的互动桌宠，只是下沿挂件会占一点边。"
+      "assessment": "人工复核：适合。双钻头胸腰位和左下角小挂件一起缩到右下角后仍很干净，角色感也很强；命中区 `5` 个、动作组 `14` 组齐全，`tap_face` 还有 `2` 条变化，已经能做不错的互动桌宠，只是下沿挂件会占一点边。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/xier/model.json",
@@ -7472,7 +7484,7 @@
       "status": "ok",
       "durationMs": 26858,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_xier_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 254.17777777777775,
@@ -7591,7 +7603,9 @@
           "coverageHeight": 0.8096153846153846
         }
       },
-      "assessment": "人工复核：可用但不优先。画面本身很干净，校服人物也完整落框，但保持原比例后更像完整制服立绘缩略图，桌宠感弱于同批的方图条目；命中区 `5` 个、动作组 `14` 组都在，可做轻互动陪伴位，不建议优先当主桌宠。"
+      "assessment": "人工复核：可用但不优先。画面本身很干净，校服人物也完整落框，但保持原比例后更像完整制服立绘缩略图，桌宠感弱于同批的方图条目；命中区 `5` 个、动作组 `14` 组都在，可做轻互动陪伴位，不建议优先当主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/Kiro/model.json",
@@ -7602,7 +7616,7 @@
       "status": "ok",
       "durationMs": 28097,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_Kiro_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.15999999999997,
@@ -7721,7 +7735,9 @@
           "coverageHeight": 0.6512455516014235
         }
       },
-      "assessment": "人工复核：适合但需预留少量横向边距。浅蓝长发和裙摆轮廓很轻，右下角观感干净，但两侧发卷会把横向占位稍微撑开；命中区 `5` 个、动作组 `14` 组完整，互动底子够用，不过整体气质仍偏轻柔陪伴位。"
+      "assessment": "人工复核：适合但需预留少量横向边距。浅蓝长发和裙摆轮廓很轻，右下角观感干净，但两侧发卷会把横向占位稍微撑开；命中区 `5` 个、动作组 `14` 组完整，互动底子够用，不过整体气质仍偏轻柔陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/kaguya/model.json",
@@ -7732,7 +7748,7 @@
       "status": "ok",
       "durationMs": 71549,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_kaguya_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.16,
@@ -7851,7 +7867,9 @@
           "coverageHeight": 0.693950177935943
         }
       },
-      "assessment": "人工复核：适合但需预留少量横向边距。披肩、长发和彩色下摆让桌角辨识度很高，但左右外扩会比 `yiselin`、`Lita` 更明显；命中区 `5` 个、动作组 `14` 组都能用，适合作轻互动看板位，不建议裁得太窄。"
+      "assessment": "人工复核：适合但需预留少量横向边距。披肩、长发和彩色下摆让桌角辨识度很高，但左右外扩会比 `yiselin`、`Lita` 更明显；命中区 `5` 个、动作组 `14` 组都能用，适合作轻互动看板位，不建议裁得太窄。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/KISGP/model/main/live2d/BengHuai2/xilin2.1/model.json",
@@ -7862,7 +7880,7 @@
       "status": "ok",
       "durationMs": 51766,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_2-_xilin2.1_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.16,
@@ -7981,7 +7999,9 @@
           "coverageHeight": 0.49466192170818507
         }
       },
-      "assessment": "人工复核：不建议优先。保持原始 `3000 x 3500` 比例后，人物本体明显偏小，主要视面积被大裙摆和飘带吃掉，右下角更像悬浮插画而不是人物桌宠；虽然命中区 `5` 个、动作组 `14` 组完整，但视觉焦点不足，不建议优先接入。"
+      "assessment": "人工复核：不建议优先。保持原始 `3000 x 3500` 比例后，人物本体明显偏小，主要视面积被大裙摆和飘带吃掉，右下角更像悬浮插画而不是人物桌宠；虽然命中区 `5` 个、动作组 `14` 组完整，但视觉焦点不足，不建议优先接入。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/Girls%27%20Frontline/95type_405/95type_405.model.json",
@@ -7992,7 +8012,7 @@
       "status": "ok",
       "durationMs": 46665,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-95_95type_405_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -8068,7 +8088,7 @@
       "status": "ok",
       "durationMs": 18651,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Blanc_blanc_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8148,7 +8168,7 @@
       "status": "ok",
       "durationMs": 14864,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Blanc_blanc_swimwear_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8224,7 +8244,7 @@
       "status": "ok",
       "durationMs": 15595,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Nepgear_nepgear_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8304,7 +8324,7 @@
       "status": "ok",
       "durationMs": 15284,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Nepgear_nepgearswim_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8384,7 +8404,7 @@
       "status": "ok",
       "durationMs": 33742,
       "dependencyCount": 16,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Neptune_nepnep_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8475,7 +8495,7 @@
       "status": "ok",
       "durationMs": 21084,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Neptune_neptune_santa_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8566,7 +8586,7 @@
       "status": "ok",
       "durationMs": 13405,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Noir_noir_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8642,7 +8662,7 @@
       "status": "ok",
       "durationMs": 24196,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Noir_noir_santa_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8718,7 +8738,7 @@
       "status": "ok",
       "durationMs": 19675,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Vert_vert_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8798,7 +8818,7 @@
       "status": "ok",
       "durationMs": 18041,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Vert_vert_swimwear_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -8878,7 +8898,7 @@
       "status": "ok",
       "durationMs": 34762,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/Vocaloid_Miku-Snow_Miku.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.2,
@@ -9013,7 +9033,7 @@
       "status": "ok",
       "durationMs": 32856,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-KAITO_26kaito_band_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -9737,7 +9757,9 @@
           "coverageHeight": 0.776937618147448
         }
       },
-      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。黑紫乐队服和蓝发头肩位缩到桌角后很醒目，是干净的男角色胸腰位；但双臂外展明显，左右边缘压力比标准服大，且命中区和表情都为 `0`，接入时要工程侧手动绑定点击 / 悬停 / 闲置。"
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。黑紫乐队服和蓝发头肩位缩到桌角后很醒目，是干净的男角色胸腰位；但双臂外展明显，左右边缘压力比标准服大，且命中区和表情都为 `0`，接入时要工程侧手动绑定点击 / 悬停 / 闲置。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_normal/26kaito_normal.model3.json",
@@ -9748,7 +9770,7 @@
       "status": "ok",
       "durationMs": 27760,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-KAITO_26kaito_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -10472,7 +10494,9 @@
           "coverageHeight": 0.7986050566695728
         }
       },
-      "assessment": "人工复核：适合但偏安静。围巾和白蓝标准服裁到胸腰位后很规整，是这批男 Vocaloid 里最稳的一条；不过默认仍是 `0` 命中区、`0` 表情，更像轻微跟随加动作轮播，适合作低干扰陪伴位。"
+      "assessment": "人工复核：适合但偏安静。围巾和白蓝标准服裁到胸腰位后很规整，是这批男 Vocaloid 里最稳的一条；不过默认仍是 `0` 命中区、`0` 表情，更像轻微跟随加动作轮播，适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_normal/25meiko_normal.model3.json",
@@ -10483,7 +10507,7 @@
       "status": "ok",
       "durationMs": 23958,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-MEIKO_25meiko_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -11797,7 +11821,9 @@
           "coverageHeight": 0.7218543046357616
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。经典红黑配色和短发在右下角辨识度高，裁到胸腰位后画面很干净；但双臂和手套会把横向稍微撑开，命中区和表情都为 `0`，需要工程侧自行绑定点击 / 悬停。"
+      "assessment": "人工复核：适合但需自己绑定交互。经典红黑配色和短发在右下角辨识度高，裁到胸腰位后画面很干净；但双臂和手套会把横向稍微撑开，命中区和表情都为 `0`，需要工程侧自行绑定点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/25meiko/25meiko_wonder/25meiko_wonder.model3.json",
@@ -11808,7 +11834,7 @@
       "status": "ok",
       "durationMs": 29972,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-MEIKO_25meiko_wonder_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -13122,7 +13148,9 @@
           "coverageHeight": 0.736231884057971
         }
       },
-      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。红金舞台服色块集中，桌角观感比标准服更轻快，也更像看板娘 / 桌宠位；但袖口和手臂外展更明显，且命中区和表情都为 `0`，接入时要留边并手动绑交互。"
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。红金舞台服色块集中，桌角观感比标准服更轻快，也更像看板娘 / 桌宠位；但袖口和手臂外展更明显，且命中区和表情都为 `0`，接入时要留边并手动绑交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/11akito/11akito_normal/11akito_normal.model3.json",
@@ -15410,7 +15438,7 @@
       "status": "ok",
       "durationMs": 27656,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_21miku_band_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -17019,7 +17047,9 @@
           "coverageHeight": 0.6441351888667992
         }
       },
-      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。黑粉乐队服和双马尾缩到桌角后很醒目，胸腰位也足够干净；但双马尾和手臂都会吃到左右边，命中区和表情都为 `0`，需要工程侧自己绑点击 / 闲置动作。"
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。黑粉乐队服和双马尾缩到桌角后很醒目，胸腰位也足够干净；但双马尾和手臂都会吃到左右边，命中区和表情都为 `0`，需要工程侧自己绑点击 / 闲置动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_idol/21miku_idol.model3.json",
@@ -17030,7 +17060,7 @@
       "status": "ok",
       "durationMs": 27767,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_21miku_idol_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -18639,7 +18669,9 @@
           "coverageHeight": 0.7372549019607844
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。偶像服胸像位最轻盈干净，是这批里最接近轻量看板娘 / 桌宠的一条；不过默认仍是 `0` 命中区、`0` 表情，只能依赖现成动作组，接入时要自己补点击 / 悬停映射。"
+      "assessment": "人工复核：适合但需自己绑定交互。偶像服胸像位最轻盈干净，是这批里最接近轻量看板娘 / 桌宠的一条；不过默认仍是 `0` 命中区、`0` 表情，只能依赖现成动作组，接入时要自己补点击 / 悬停映射。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_night/21miku_night.model3.json",
@@ -18650,7 +18682,7 @@
       "status": "ok",
       "durationMs": 28294,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_21miku_night_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -20259,7 +20291,9 @@
           "coverageHeight": 0.7358490566037735
         }
       },
-      "assessment": "人工复核：适合但偏安静。灰白夜曲服和浅紫渐变双马尾裁到胸腰位后很干净，整体气质也最收敛；但默认仍是 `0` 命中区、`0` 表情，更适合作安静陪伴位，不建议直接当高互动主桌宠。"
+      "assessment": "人工复核：适合但偏安静。灰白夜曲服和浅紫渐变双马尾裁到胸腰位后很干净，整体气质也最收敛；但默认仍是 `0` 命中区、`0` 表情，更适合作安静陪伴位，不建议直接当高互动主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_normal/21miku_normal.model3.json",
@@ -20270,7 +20304,7 @@
       "status": "ok",
       "durationMs": 29011,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_21miku_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -21879,7 +21913,9 @@
           "coverageHeight": 0.7651515151515151
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。标准 Miku 头肩比例最经典，裁到胸腰位后观感稳定，做右下角轻量挂件没有问题；但默认依旧是 `0` 命中区、`0` 表情，需要工程侧手动把常用上身动作绑到点击 / 悬停。"
+      "assessment": "人工复核：适合但需自己绑定交互。标准 Miku 头肩比例最经典，裁到胸腰位后观感稳定，做右下角轻量挂件没有问题；但默认依旧是 `0` 命中区、`0` 表情，需要工程侧手动把常用上身动作绑到点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_street/21miku_street.model3.json",
@@ -21890,7 +21926,7 @@
       "status": "ok",
       "durationMs": 34122,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_21miku_street_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -23499,7 +23535,9 @@
           "coverageHeight": 0.6906338694418165
         }
       },
-      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。街头外套和双丸子长发辨识度高，缩到桌角后角色感很强；但宽袖和发梢会把左右边缘撑得更满，且命中区和表情都为 `0`，接入时别裁太窄。"
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。街头外套和双丸子长发辨识度高，缩到桌角后角色感很强；但宽袖和发梢会把左右边缘撑得更满，且命中区和表情都为 `0`，接入时别裁太窄。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/21miku/21miku_wonder/21miku_wonder.model3.json",
@@ -23510,7 +23548,7 @@
       "status": "ok",
       "durationMs": 34255,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_21miku_wonder_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -25119,7 +25157,9 @@
           "coverageHeight": 0.7852283770651117
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。猫耳和彩球饰件让桌宠感最强之一，缩到右下角后非常像轻快的小看板娘；不过默认仍是 `0` 命中区、`0` 表情，需要工程侧自己绑定点击 / 悬停 / 闲置。"
+      "assessment": "人工复核：适合但需自己绑定交互。猫耳和彩球饰件让桌宠感最强之一，缩到右下角后非常像轻快的小看板娘；不过默认仍是 `0` 命中区、`0` 表情，需要工程侧自己绑定点击 / 悬停 / 闲置。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/13tsukasa/13tsukasa_normal/13tsukasa_normal.model3.json",
@@ -30347,7 +30387,7 @@
       "status": "ok",
       "durationMs": 33202,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_24luka_night_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -31668,7 +31708,9 @@
           "coverageHeight": 0.7534626038781164
         }
       },
-      "assessment": "人工复核：适合但偏安静。深灰礼裙和长直发裁到胸腰位后很干净，右下角观感成熟而稳定；但默认仍是 `0` 命中区、`0` 表情，互动层级偏轻，更适合作低干扰陪伴位。"
+      "assessment": "人工复核：适合但偏安静。深灰礼裙和长直发裁到胸腰位后很干净，右下角观感成熟而稳定；但默认仍是 `0` 命中区、`0` 表情，互动层级偏轻，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/24luka/24luka_normal/24luka_normal.model3.json",
@@ -31679,7 +31721,7 @@
       "status": "ok",
       "durationMs": 90236,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_24luka_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -33000,7 +33042,9 @@
           "coverageHeight": 0.7654751525719268
         }
       },
-      "assessment": "人工复核：适合但偏安静。标准 Luka 构图规整、头肩比例稳定，缩到桌角后不会显得像整张立绘缩略图；不过默认依旧是 `0` 命中区、`0` 表情，反馈更像轻微跟随，不建议当即点即动主角色。"
+      "assessment": "人工复核：适合但偏安静。标准 Luka 构图规整、头肩比例稳定，缩到桌角后不会显得像整张立绘缩略图；不过默认依旧是 `0` 命中区、`0` 表情，反馈更像轻微跟随，不建议当即点即动主角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/04shiho/04shiho_normal/04shiho_normal.model3.json",
@@ -50864,7 +50908,7 @@
       "status": "ok",
       "durationMs": 22508,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Blanc_blanc_classic_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -50944,7 +50988,7 @@
       "status": "ok",
       "durationMs": 51415,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Histoire.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -51024,7 +51068,7 @@
       "status": "ok",
       "durationMs": 18790,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Nepgear_nepgear_extra_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51104,7 +51148,7 @@
       "status": "ok",
       "durationMs": 17225,
       "dependencyCount": 9,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Neptune_nepmaid_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51195,7 +51239,7 @@
       "status": "ok",
       "durationMs": 16717,
       "dependencyCount": 9,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Neptune_nepswim_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51286,7 +51330,7 @@
       "status": "ok",
       "durationMs": 89285,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Neptune_neptune_classic_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51377,7 +51421,7 @@
       "status": "ok",
       "durationMs": 19074,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Noir_noir_classic_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51453,7 +51497,7 @@
       "status": "ok",
       "durationMs": 20084,
       "dependencyCount": 7,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Noir_noireswim_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51529,7 +51573,7 @@
       "status": "ok",
       "durationMs": 21301,
       "dependencyCount": 8,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-Vert_vert_classic_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -51892,7 +51936,7 @@
       "status": "ok",
       "durationMs": 16964,
       "dependencyCount": 17,
-      "reviewImagePath": "/tmp/live2d-manual-review/Vocaloid_-_len_impact_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 670.8000000000001,
@@ -51998,7 +52042,7 @@
       "status": "ok",
       "durationMs": 22472,
       "dependencyCount": 35,
-      "reviewImagePath": "/tmp/live2d-manual-review/Vocaloid_-_len_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 670.8000000000001,
@@ -52223,7 +52267,7 @@
       "status": "ok",
       "durationMs": 12744,
       "dependencyCount": 13,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_mikoto_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -52602,7 +52646,7 @@
       "status": "ok",
       "durationMs": 116652,
       "dependencyCount": 13,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_touma_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -52851,7 +52895,7 @@
       "status": "ok",
       "durationMs": 12491,
       "dependencyCount": 2,
-      "reviewImagePath": "/tmp/live2d-manual-review/Vocal_synth_-_yukari_model_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -52909,7 +52953,7 @@
       "status": "ok",
       "durationMs": 40459,
       "dependencyCount": 2,
-      "reviewImagePath": "/tmp/live2d-manual-review/Vocal_synth_-_YuzukiYukari_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 346.5496009122006,
@@ -52955,6 +52999,69 @@
         }
       },
       "assessment": "人工复核：适合但偏安静。紫发立绘很干净，裁到腰部以上后桌角观感自然；主要是视线 / 头肩跟随，没有命中区、表情和触发动效，更适合低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Eikanya/Live2d-model/master/%E4%B8%BA%E7%BE%8E%E5%A5%BD%E7%9A%84%E4%B8%96%E7%95%8C%E7%8C%AE%E4%B8%8A%E7%A5%9D%E7%A6%8F%EF%BC%81Fantastic%20Days/1014100aqua/1014100.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Aqua `1014100aqua`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 18547,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 243220,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 829,
+          "width": 440,
+          "height": 830
+        },
+        "targetDeskpetWidth": 180,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 32
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：不建议。标准全身立绘等比缩到右下角后角色只剩偏细高的一小条，缺少半身桌宠感；同时命中区、表情和可见触发动效都为 `0`，实测几乎就是静态轻跟随，不值得优先接入。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -55750,7 +55857,7 @@
       "status": "ok",
       "durationMs": 31134,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_22rin_band_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -57141,7 +57248,7 @@
       "status": "ok",
       "durationMs": 31274,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_22rin_idol_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -58532,7 +58639,7 @@
       "status": "ok",
       "durationMs": 29646,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_22rin_night_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -59923,7 +60030,7 @@
       "status": "ok",
       "durationMs": 29381,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_22rin_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -61314,7 +61421,7 @@
       "status": "ok",
       "durationMs": 29254,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_22rin_street_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -62705,7 +62812,7 @@
       "status": "ok",
       "durationMs": 34164,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-_22rin_wonder_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -64096,7 +64203,7 @@
       "status": "ok",
       "durationMs": 30250,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-MEIKO_25meiko_band_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -65423,7 +65530,7 @@
       "status": "ok",
       "durationMs": 28829,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-MEIKO_25meiko_idol_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -66750,7 +66857,7 @@
       "status": "ok",
       "durationMs": 29871,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-MEIKO_25meiko_night_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -68077,7 +68184,7 @@
       "status": "ok",
       "durationMs": 90199,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/Project_SEKAI_Vocaloid-MEIKO_25meiko_street_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 559,
@@ -72437,7 +72544,7 @@
       "status": "ok",
       "durationMs": 22323,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_date_16_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -72509,7 +72616,9 @@
           "coverageHeight": 0.7758007117437722
         }
       },
-      "assessment": "人工复核：适合。旧格式竖向单角色立绘很干净，等比缩到右下角后就是标准裁腰看板位；虽然只有 `body` `1` 个命中区，但 `tap / tap_body` 两组动作配 `11` 个表情，互动底子已经明显好于大量 `0` 命中区条目。"
+      "assessment": "人工复核：适合。旧格式竖向单角色立绘很干净，等比缩到右下角后就是标准裁腰看板位；虽然只有 `body` `1` 个命中区，但 `tap / tap_body` 两组动作配 `11` 个表情，互动底子已经明显好于大量 `0` 命中区条目。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/xiaoski/live2d_models_collection/master/hallo_16/hallo_16.model.json",
@@ -72520,7 +72629,7 @@
       "status": "ok",
       "durationMs": 33018,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_hallo_16_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -72592,7 +72701,9 @@
           "coverageHeight": 0.7953736654804271
         }
       },
-      "assessment": "人工复核：适合但偏节庆。万圣节变体的人物主体仍然干净，没有被主题装饰拖成脏场景，而且同样保有 `body` `1` 个命中区和 `11` 个表情，动作反馈还是这组三个里最明显的一条；不过节庆属性偏强，更适合作主题桌宠位而不是默认常驻角色。"
+      "assessment": "人工复核：适合但偏节庆。万圣节变体的人物主体仍然干净，没有被主题装饰拖成脏场景，而且同样保有 `body` `1` 个命中区和 `11` 个表情，动作反馈还是这组三个里最明显的一条；不过节庆属性偏强，更适合作主题桌宠位而不是默认常驻角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/xiaoski/live2d_models_collection/master/wed_16/wed_16.model.json",
@@ -72603,7 +72714,7 @@
       "status": "ok",
       "durationMs": 30244,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_wed_16_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -72675,7 +72786,9 @@
           "coverageHeight": 0.7348754448398577
         }
       },
-      "assessment": "人工复核：适合但偏主题化。婚纱版等比缩到右下角后仍能保持干净胸腰位，`body` `1` 个命中区配 `tap / tap_body` 和 `11` 个表情也足够用；但头纱与婚纱气质会让它更像活动看板娘，适合专题位，不建议长期当默认常驻桌宠。"
+      "assessment": "人工复核：适合但偏主题化。婚纱版等比缩到右下角后仍能保持干净胸腰位，`body` `1` 个命中区配 `tap / tap_body` 和 `11` 个表情也足够用；但头纱与婚纱气质会让它更像活动看板娘，适合专题位，不建议长期当默认常驻桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/index/index.model.json",
@@ -72911,7 +73024,7 @@
       "status": "ok",
       "durationMs": 16291,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Collection-_poi_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -72978,7 +73091,9 @@
           "coverageHeight": 0.5333333333333333
         }
       },
-      "assessment": "人工复核：可用但偏安静。Q 版小挂件构图天然贴桌角，体积也非常友好；但动作组基本是 `idle` 轮播和未命名轻动，没有命中区和表情，实测更像会轻轻晃动的装饰陪伴位，不建议当主互动角色。"
+      "assessment": "人工复核：可用但偏安静。Q 版小挂件构图天然贴桌角，体积也非常友好；但动作组基本是 `idle` 轮播和未命名轻动，没有命中区和表情，实测更像会轻轻晃动的装饰陪伴位，不建议当主互动角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/unitychan/unitychan.model.json",
@@ -72989,7 +73104,7 @@
       "status": "ok",
       "durationMs": 153832,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/Unity-chan_-Unity-chan.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.15999999999997,
@@ -73162,7 +73277,7 @@
       "status": "ok",
       "durationMs": 24944,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Ensemble_Stars_-_Chiaki_Kitty_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 331.50215827338127,
@@ -73223,7 +73338,639 @@
           "coverageHeight": 0.8961538461538462
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。猫咪主题单角色立绘很干净，缩到右下角后像轻量吉祥物看板；`tap` 的上身反馈明显，观感比很多同尺寸条目更活，但命中区和表情都为 `0`，接入时仍要工程侧手动绑定点击。"
+      "assessment": "人工复核：适合但需自己绑定交互。猫咪主题单角色立绘很干净，缩到右下角后像轻量吉祥物看板；`tap` 的上身反馈明显，观感比很多同尺寸条目更活，但命中区和表情都为 `0`，接入时仍要工程侧手动绑定点击。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/aqua_01/1013104.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Aqua `1013104`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 21714,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 242313,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 830,
+          "width": 440,
+          "height": 831
+        },
+        "targetDeskpetWidth": 180,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 32
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏主题化。高帽和白蓝服装缩到右下角后仍是干净的胸腰位，没有被压成细高立绘缩略图；但帽顶会把上沿压满，三栏画面几乎没有可见差异，命中区、表情都为 `0`，动作也只有 `1` 组未命名轻动，更适合作专题陪伴位，不建议当常驻主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/aqua_03/1014107.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Aqua `1014107`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 21714,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 241892,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 830,
+          "width": 440,
+          "height": 831
+        },
+        "targetDeskpetWidth": 180,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 32
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。淡蓝礼服胸腰位是这组里最轻的一档，右下角观感很干净，主体也足够集中；但三栏画面几乎没有可见差异，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，只适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/chris_01/1044100.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Chris `1044100`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 27967,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 243693,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 854,
+          "width": 440,
+          "height": 855
+        },
+        "targetDeskpetWidth": 175,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 25
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。盗贼装胸像位集中，围巾让桌角辨识度不错，画面本身也很干净；但人物略小、三栏画面几乎没有可见差异，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，更适合作安静常驻陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/darkness_01/1033104.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Darkness `1033104`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 20143,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 247599,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 870,
+          "width": 440,
+          "height": 871
+        },
+        "targetDeskpetWidth": 172,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 26
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。冬装毛领把上半身重心收得很稳，右下角胸腰位自然，也没有多余场景杂质；不过默认几乎没有可见反馈，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，不建议当主互动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/darkness_03/1034100.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Darkness `1034100`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 19692,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 288821,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1019,
+          "width": 440,
+          "height": 1020
+        },
+        "targetDeskpetWidth": 147,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 26
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。标准甲胄版仍是干净单角色胸像位，没有大面积脏背景；但左侧翅饰会把横向占位撑开，三栏画面又几乎没有可见差异，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/darkness_05/1039108.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Darkness `1039108`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 19972,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 288841,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1019,
+          "width": 440,
+          "height": 1020
+        },
+        "targetDeskpetWidth": 147,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 41
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏主题化。面具版主体仍然干净，缩到右下角后更像专题角色挂件，不算脏；但 mask 主题过强、左侧翅饰也会占边，而且默认几乎没有可见反馈，命中区、表情都为 `0`，不建议当常驻主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/eris_01/1339100.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Eris `1339100`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 19730,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 304604,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 962,
+          "width": 440,
+          "height": 963
+        },
+        "targetDeskpetWidth": 155,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 24
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但需预留少量边距。长发和袖翼一起入镜后仍是纯角色胸像位，观感很清爽，不像整张立绘缩略图；但左右外扩会稍占边，三栏画面几乎没有可见差异，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/iris_01/1074100.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Iris `1074100`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 19024,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 255529,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 805,
+          "width": 440,
+          "height": 806
+        },
+        "targetDeskpetWidth": 186,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 26
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。金发礼裙胸腰位是这批里最规整的一条之一，右下角观感很轻，不像全身立绘缩略图；但默认几乎没有可见反馈，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，更适合作安静常驻陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/megumin_01/1023104.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Megumin `1023104`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 18237,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 236979,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 789,
+          "width": 440,
+          "height": 790
+        },
+        "targetDeskpetWidth": 189,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 29
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏主题化。Q 版斗篷和护耳帽造型天然有桌宠感，缩到右下角后很像干净的小挂件；但默认三栏几乎没有可见差异，命中区、表情都为 `0`，动作也只有 `1` 组未命名轻动，更适合作轻主题陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Konosuba/megumin_03/1024107.model3.json",
+      "ip": "为美好的世界献上祝福！Fantastic Days",
+      "model": "Megumin `1024107`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 17696,
+      "dependencyCount": 3,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 237185,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 793,
+          "width": 440,
+          "height": 794
+        },
+        "targetDeskpetWidth": 188,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 29
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0,
+          "coverageWidth": 0,
+          "coverageHeight": 0
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏主题化。粉色居家装胸腰构图很干净，角色本体集中，没有多余场景；但题材明显偏居家专题，且默认几乎没有可见反馈，命中区、表情都为 `0`，动作只有 `1` 组未命名轻动，不建议当常驻主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Sakurasou/ryoufuku/ryoufuku.model.json",
@@ -73578,7 +74325,7 @@
       "status": "ok",
       "durationMs": 16523,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_lafei_4_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.15999999999997,
@@ -73641,7 +74388,7 @@
       "status": "ok",
       "durationMs": 17842,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_xuefeng_3_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -73704,7 +74451,7 @@
       "status": "ok",
       "durationMs": 34492,
       "dependencyCount": 21,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-Z23_z23_hx_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -74093,7 +74840,7 @@
       "status": "ok",
       "durationMs": 16070,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-22_22.default_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74183,7 +74930,7 @@
       "status": "ok",
       "durationMs": 22609,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-22_22.2017.newyear_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74273,7 +75020,7 @@
       "status": "ok",
       "durationMs": 23176,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2018.spring_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74350,7 +75097,9 @@
           "coverageHeight": 0.5885714285714285
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。春日版半身构图和默认版一样很贴桌角，`tap_body` / `thanking` 的变化能覆盖到上身，常驻观感比新年版更轻；但命中区和表情都为 `0`，接入时仍要工程侧手动把点击绑到动作。"
+      "assessment": "人工复核：适合但需自己绑定交互。春日版半身构图和默认版一样很贴桌角，`tap_body` / `thanking` 的变化能覆盖到上身，常驻观感比新年版更轻；但命中区和表情都为 `0`，接入时仍要工程侧手动把点击绑到动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.xmas.1/22.xmas.1.model.json",
@@ -74361,7 +75110,7 @@
       "status": "ok",
       "durationMs": 20955,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.xmas.1_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74438,7 +75187,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：可用但偏节庆。圣诞版一号的半身构图依旧干净，`tap_body` / `thanking` 的反馈也足够做轻互动；但帽饰和节日属性更强，且命中区和表情都为 `0`，更适合作冬季主题桌宠，不建议长期当默认常驻角色。"
+      "assessment": "人工复核：可用但偏节庆。圣诞版一号的半身构图依旧干净，`tap_body` / `thanking` 的反馈也足够做轻互动；但帽饰和节日属性更强，且命中区和表情都为 `0`，更适合作冬季主题桌宠，不建议长期当默认常驻角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/33.default/33.default.model.json",
@@ -74449,7 +75200,7 @@
       "status": "ok",
       "durationMs": 19422,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review-20260412-0940/_-33_33.default_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74539,7 +75290,7 @@
       "status": "ok",
       "durationMs": 18634,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-33_33.2017.school_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74616,7 +75367,9 @@
           "coverageHeight": 0.5314285714285715
         }
       },
-      "assessment": "人工复核：可用但偏安静。校园版半身位很干净，缩到右下角不会显得脏；但 `tap_body` 的变化主要还是头肩轻动，完成度弱于 `22.default` 和 `33.default`，再加上命中区和表情都为 `0`，更适合作低干扰陪伴位。"
+      "assessment": "人工复核：可用但偏安静。校园版半身位很干净，缩到右下角不会显得脏；但 `tap_body` 的变化主要还是头肩轻动，完成度弱于 `22.default` 和 `33.default`，再加上命中区和表情都为 `0`，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/33.2018.lover/33.2018.lover.model.json",
@@ -74627,7 +75380,7 @@
       "status": "ok",
       "durationMs": 19263,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-33_33.2018.lover_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74704,7 +75457,9 @@
           "coverageHeight": 0.4780952380952381
         }
       },
-      "assessment": "人工复核：适合但偏安静。恋人节版粉白配色和心形装饰让桌角辨识度不错，半身构图也很规整；不过 `tap_body` 的变化仍主要集中在头肩，命中区和表情都为 `0`，更适合作轻陪伴位，不建议当主互动桌宠。"
+      "assessment": "人工复核：适合但偏安静。恋人节版粉白配色和心形装饰让桌角辨识度不错，半身构图也很规整；不过 `tap_body` 的变化仍主要集中在头肩，命中区和表情都为 `0`，更适合作轻陪伴位，不建议当主互动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/33.xmas.2/33.xmas.2.model.json",
@@ -74715,7 +75470,7 @@
       "status": "ok",
       "durationMs": 22467,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-33_33.xmas.2_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74792,7 +75547,9 @@
           "coverageHeight": 0.5238095238095238
         }
       },
-      "assessment": "人工复核：可用但偏节庆。圣诞版二号的红白配色和动作反馈比校园 / 恋人节版更醒目，缩到右下角仍然干净；但命中区和表情都为 `0`，节庆属性也明显，更适合作主题位而不是长期常驻主桌宠。"
+      "assessment": "人工复核：可用但偏节庆。圣诞版二号的红白配色和动作反馈比校园 / 恋人节版更醒目，缩到右下角仍然干净；但命中区和表情都为 `0`，节庆属性也明显，更适合作主题位而不是长期常驻主桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/mikoto/mikoto.model.json",
@@ -74803,7 +75560,7 @@
       "status": "ok",
       "durationMs": 12744,
       "dependencyCount": 13,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_mikoto_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 361.19999999999993,
@@ -74881,7 +75638,7 @@
       "status": "ok",
       "durationMs": 20706,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.cba-normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -74958,7 +75715,9 @@
           "coverageHeight": 0.5885714285714285
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。Q 版天使看板娘非常轻，缩到右下角就像桌边吉祥物，`tap_body` 的眨眼和上身摆动也够明显；但命中区和表情都为 `0`，接入时仍要工程侧手动把点击 / 悬停绑到动作。"
+      "assessment": "人工复核：适合但需自己绑定交互。Q 版天使看板娘非常轻，缩到右下角就像桌边吉祥物，`tap_body` 的眨眼和上身摆动也够明显；但命中区和表情都为 `0`，接入时仍要工程侧手动把点击 / 悬停绑到动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.school/22.2017.school.model.json",
@@ -74969,7 +75728,7 @@
       "status": "ok",
       "durationMs": 20834,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.school_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75046,7 +75805,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。校园制服版是这批里最接近日常常驻桌宠的一条，头肩比例自然、画面也很干净；`tap_body` 的反馈能带出明显眨眼和上身轻摆，但命中区和表情都为 `0`，默认点击仍需要工程侧接动作。"
+      "assessment": "人工复核：适合但需自己绑定交互。校园制服版是这批里最接近日常常驻桌宠的一条，头肩比例自然、画面也很干净；`tap_body` 的反馈能带出明显眨眼和上身轻摆，但命中区和表情都为 `0`，默认点击仍需要工程侧接动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.summer.normal.1/22.2017.summer.normal.1.model.json",
@@ -75057,7 +75818,7 @@
       "status": "ok",
       "durationMs": 22243,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.summer.normal.1_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75134,7 +75895,9 @@
           "coverageHeight": 0.5866666666666667
         }
       },
-      "assessment": "人工复核：可用但偏夏日主题。短袖短裤的小体量构图很轻，右下角像夏日小摆件，`tap_body` 的眨眼反馈也清楚；但服装主题明显，且命中区和表情都为 `0`，更适合作季节性陪伴位。"
+      "assessment": "人工复核：可用但偏夏日主题。短袖短裤的小体量构图很轻，右下角像夏日小摆件，`tap_body` 的眨眼反馈也清楚；但服装主题明显，且命中区和表情都为 `0`，更适合作季节性陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.summer.normal.2/22.2017.summer.normal.2.model.json",
@@ -75145,7 +75908,7 @@
       "status": "ok",
       "durationMs": 19494,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.summer.normal.2_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75222,7 +75985,9 @@
           "coverageHeight": 0.5695238095238095
         }
       },
-      "assessment": "人工复核：可用但偏夏日主题。大草帽和花饰让桌角辨识度很高，主体仍然干净，没有被拖成脏场景；不过帽檐会把顶部和横向占位撑开，加上命中区和表情都为 `0`，更适合作夏季专题位，不建议长期常驻。"
+      "assessment": "人工复核：可用但偏夏日主题。大草帽和花饰让桌角辨识度很高，主体仍然干净，没有被拖成脏场景；不过帽檐会把顶部和横向占位撑开，加上命中区和表情都为 `0`，更适合作夏季专题位，不建议长期常驻。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.tomo-bukatsu.high/22.2017.tomo-bukatsu.high.model.json",
@@ -75233,7 +75998,7 @@
       "status": "ok",
       "durationMs": 21131,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.tomo-bukatsu.high_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75310,7 +76075,9 @@
           "coverageHeight": 0.5923809523809523
         }
       },
-      "assessment": "人工复核：可用但偏主题化。舞台感服装和裙摆爱心让桌角辨识度不错，`tap_body` 触发时也能看到清楚的眨眼与上身变化；但整体装饰量比同批其他 22 娘更满，命中区和表情又都为 `0`，更适合作活动主题位。"
+      "assessment": "人工复核：可用但偏主题化。舞台感服装和裙摆爱心让桌角辨识度不错，`tap_body` 触发时也能看到清楚的眨眼与上身变化；但整体装饰量比同批其他 22 娘更满，命中区和表情又都为 `0`，更适合作活动主题位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.tomo-bukatsu.low/22.2017.tomo-bukatsu.low.model.json",
@@ -75321,7 +76088,7 @@
       "status": "ok",
       "durationMs": 19566,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.tomo-bukatsu.low_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75398,7 +76165,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：适合但需自己绑定交互。低模社团版比 `high` 更利落，缩到右下角更像可常驻的小看板娘，红蓝披带也没有把画面撑脏；`tap_body` 的反馈够用，但命中区和表情都为 `0`，接入时仍要自己补点击 / 闲置映射。"
+      "assessment": "人工复核：适合但需自己绑定交互。低模社团版比 `high` 更利落，缩到右下角更像可常驻的小看板娘，红蓝披带也没有把画面撑脏；`tap_body` 的反馈够用，但命中区和表情都为 `0`，接入时仍要自己补点击 / 闲置映射。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.valley/22.2017.valley.model.json",
@@ -75409,7 +76178,7 @@
       "status": "ok",
       "durationMs": 22740,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.valley_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75486,7 +76255,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：适合但偏安静。浅色毛衣和蓝白短裙让它看起来很像日常陪伴位，右下角观感是这批里最轻的一档；`tap_body` 有明确眨眼和上身轻摆，但命中区和表情都为 `0`，更适合作低干扰常驻陪伴位。"
+      "assessment": "人工复核：适合但偏安静。浅色毛衣和蓝白短裙让它看起来很像日常陪伴位，右下角观感是这批里最轻的一档；`tap_body` 有明确眨眼和上身轻摆，但命中区和表情都为 `0`，更适合作低干扰常驻陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2017.vdays/22.2017.vdays.model.json",
@@ -75497,7 +76268,7 @@
       "status": "ok",
       "durationMs": 18301,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2017.vdays_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75574,7 +76345,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：可用但偏主题化。浅蓝礼服和头纱装饰保持了纯人物桌宠观感，缩到右下角也不脏；但恋人节 / 礼装氛围明显，命中区和表情都为 `0`，更适合作专题陪伴位而不是默认常驻角色。"
+      "assessment": "人工复核：可用但偏主题化。浅蓝礼服和头纱装饰保持了纯人物桌宠观感，缩到右下角也不脏；但恋人节 / 礼装氛围明显，命中区和表情都为 `0`，更适合作专题陪伴位而不是默认常驻角色。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.2018.lover/22.2018.lover.model.json",
@@ -75585,7 +76358,7 @@
       "status": "ok",
       "durationMs": 24372,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.2018.lover_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75662,7 +76435,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：适合但偏主题化。红黑心形礼服缩到右下角后辨识度很高，`tap_body` 触发时的眨眼反馈也比不少安静款更醒目；但主题属性仍然明显，而且命中区和表情都为 `0`，更适合作活动 / 恋人节相关桌宠位。"
+      "assessment": "人工复核：适合但偏主题化。红黑心形礼服缩到右下角后辨识度很高，`tap_body` 触发时的眨眼反馈也比不少安静款更醒目；但主题属性仍然明显，而且命中区和表情都为 `0`，更适合作活动 / 恋人节相关桌宠位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc/22.xmas.2/22.xmas.2.model.json",
@@ -75673,7 +76448,7 @@
       "status": "ok",
       "durationMs": 20137,
       "dependencyCount": 6,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-22_22.xmas.2_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.23999999999995,
@@ -75750,7 +76525,9 @@
           "coverageHeight": 0.5904761904761905
         }
       },
-      "assessment": "人工复核：可用但偏节庆。鹿角和红色圣诞裙能稳定落在右下角视野里，画面仍然很干净，`tap_body` 触发反馈也清楚；但节庆属性非常强，且命中区和表情都为 `0`，更适合作冬季主题位。"
+      "assessment": "人工复核：可用但偏节庆。鹿角和红色圣诞裙能稳定落在右下角视野里，画面仍然很干净，`tap_body` 触发反馈也清楚；但节庆属性非常强，且命中区和表情都为 `0`，更适合作冬季主题位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
     },
     {
       "manifestUrl": "https://raw.githubusercontent.com/zenghongtu/live2d-model-assets/master/assets/moc3/aierdeliqi_4/aierdeliqi_4.model3.json",
@@ -75761,7 +76538,7 @@
       "status": "ok",
       "durationMs": 74421,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_aierdeliqi_4_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.1599999999999,
@@ -75824,7 +76601,7 @@
       "status": "ok",
       "durationMs": 122452,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_aimierbeierding_2_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 392.16,
@@ -75963,7 +76740,7 @@
       "status": "ok",
       "durationMs": 16080,
       "dependencyCount": 4,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-95_95type_405_normal_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 330.24,
@@ -77244,7 +78021,7 @@
       "status": "ok",
       "durationMs": 12613,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Alice_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77307,7 +78084,7 @@
       "status": "ok",
       "durationMs": 14792,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Aya_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77370,7 +78147,7 @@
       "status": "ok",
       "durationMs": 14478,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Cirno_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77433,7 +78210,7 @@
       "status": "ok",
       "durationMs": 16834,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Flandre_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77496,7 +78273,7 @@
       "status": "ok",
       "durationMs": 14427,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Kaguya_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77559,7 +78336,7 @@
       "status": "ok",
       "durationMs": 15277,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Koishi_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77622,7 +78399,7 @@
       "status": "ok",
       "durationMs": 16271,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Marisa_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77685,7 +78462,7 @@
       "status": "ok",
       "durationMs": 16811,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Mokou_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77748,7 +78525,7 @@
       "status": "ok",
       "durationMs": 15571,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Nitori_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77811,7 +78588,7 @@
       "status": "ok",
       "durationMs": 18488,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Patchouli_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -77937,7 +78714,7 @@
       "status": "ok",
       "durationMs": 15636,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Reisen_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78000,7 +78777,7 @@
       "status": "ok",
       "durationMs": 14318,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Remilia_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78063,7 +78840,7 @@
       "status": "ok",
       "durationMs": 18383,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Sakuya_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78126,7 +78903,7 @@
       "status": "ok",
       "durationMs": 14669,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Sanae_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78189,7 +78966,7 @@
       "status": "ok",
       "durationMs": 15246,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Satori_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78252,7 +79029,7 @@
       "status": "ok",
       "durationMs": 14721,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Suika_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78315,7 +79092,7 @@
       "status": "ok",
       "durationMs": 13928,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Youmu_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78378,7 +79155,7 @@
       "status": "ok",
       "durationMs": 14717,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Yukari_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78441,7 +79218,7 @@
       "status": "ok",
       "durationMs": 14441,
       "dependencyCount": 3,
-      "reviewImagePath": "/tmp/live2d-manual-review/_Project_Touhou_Cannon_Ball-_Yuyuko_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 483.75,
@@ -78504,7 +79281,7 @@
       "status": "ok",
       "durationMs": 20969,
       "dependencyCount": 5,
-      "reviewImagePath": "/tmp/live2d-manual-review/_-_xiaomai_.png",
+      "reviewImagePath": null,
       "result": {
         "ok": true,
         "width": 311.62517448648646,
