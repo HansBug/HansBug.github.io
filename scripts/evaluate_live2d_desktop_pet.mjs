@@ -2090,7 +2090,17 @@ function buildAssessment(row, item) {
 
 async function writeOutput(outputPath, rows, resultsMap) {
   const ordered = rows
-    .map((row) => resultsMap.get(row.manifestUrl))
+    .map((row) => {
+      const item = resultsMap.get(row.manifestUrl);
+      if (!item) {
+        return null;
+      }
+
+      return {
+        ...item,
+        manualReviewed: hasStableAssessment(item.assessment),
+      };
+    })
     .filter(Boolean);
 
   const payload = {

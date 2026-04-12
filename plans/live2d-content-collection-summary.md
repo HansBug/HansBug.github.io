@@ -66,6 +66,7 @@
 - 2026-04-12 22:04 这轮继续按右下角桌宠人工复核流程，转向 `AzharRizkiZ/Live2D-Model` 里 `Honkai-Impact` 的 `10` 个旧格式角色（`Alice`、`bronya_1`、`bronya_3`、`BYC`、`delisha`、`fox`、`himeko_1`、`houraiji`、`kaguya`、`keluoyi`）。10 个都能在浏览器复核页稳定加载，也都没有大面积背景或脏杂场景；这组的互动底子明显强于前面大量弱交互条目，普遍有 `13-14` 组动作，其中 `bronya_3`、`BYC`、`delisha`、`houraiji`、`kaguya`、`keluoyi` 还带 `5` 个命中区。最终 `kaguya`、`keluoyi` 进入这轮最接近成品桌宠的“强适合”档，`Alice` 可直接作为干净轻互动桌角位，`bronya_1`、`bronya_3`、`BYC`、`fox` 更适合在预留边距或单独调摆位后接入，`himeko_1` 适合保留偏窄裁腰视角，`delisha` 与 `houraiji` 则因为右下角占位过满、压缩后桌宠感不足而不建议优先当常驻主桌宠。
 - 2026-04-12 22:19 这轮继续按右下角桌宠人工复核流程，专门补齐 `nova1751/live2d-api` 里 `少女前线` 的 `10` 个常规旧格式条目（`AK-12 ak12_0 / ak12_2402`、`AN-94 an94_2404`、`Carcano M1891 / M1938`、`G36C g36c_3103`、`RO635 ro635_4504`、`Saiga-12 saiga12_3901`、`UMP45 ump45_2107`、`WA2000 wa2000_1108` 的 `normal` 版）。10 个都能在浏览器复核页稳定加载，也都不是大面积脏场景立绘；整体上这批比同仓战损版干净得多，适合继续作为纯人物桌角位候选，但交互底子普遍只有 `1-3` 个命中区、`0` 个表情和 `2` 组动作，仍不属于即挂即用高互动桌宠。其中 `AK-12 ak12_0`、`AN-94`、`G36C`、`RO635`、`Saiga-12`、`WA2000` 更接近可裁腰接入的常驻陪伴位，`Saiga-12 saiga12_3901` 也是这轮互动底子最好的一条；`AK-12 ak12_2402` 与 `Carcano` 姐妹需要额外留横向边距并手动绑定交互，`UMP45` 则因当前自动纠偏后头顶仍偏低，需重调摆位后再考虑接入。
 - 2026-04-12 22:37 这轮继续按右下角桌宠人工复核流程，专门补齐 `AzharRizkiZ/Live2D-Model` 里 `刀剑神域 / SAO` 的 `10` 个 `asuna-original` 旧格式标准立绘（`asuna_21` 到 `asuna_30`）。10 个都能在浏览器复核页稳定加载，也都不是大面积背景或脏杂场景立绘；透明背景和单角色结构足够干净，缩到右下角后统一可作为裁腰轻互动桌宠候选。交互底子也稳定：10 条都是 `3` 个命中区、`10` 个表情、`2` 组未命名动作，并且鼠标跟随都能带到头肩和上身。最终这批统一结论是“适合，建议裁腰”：其中 `asuna_22 / 27 / 28 / 29` 的主体落框更稳，适合偏紧凑摆位；`asuna_21 / 23 / 24 / 25 / 26 / 30` 当前仍偏细高且头顶偏低，需要沿自动纠偏结果保留裁腰视角，不建议原样全身缩成右下角小人。
+- 2026-04-12 23:18 这轮继续按右下角桌宠人工复核流程，专门补齐 `碧蓝航线` 的 `11` 个未写结论大图条目（`Z46 z46_3 / z46_4`、`企业 qiye_7`、`俾斯麦 bisimai_2`、`大凤 dafeng_4`、`宁海 ninghai_4`、`平海 pinghai_4`、`翔鹤 xianghe_2`、`贝尔法斯特 beierfasite_2`、`标枪 biaoqiang_3`、`独角兽 dujiaoshou_6`）。11 个都能在浏览器复核页稳定加载，但真正符合“干净纯人物右下角桌宠”标准的只有 `贝尔法斯特 beierfasite_2`；`标枪 biaoqiang_3` 只能算夏日专题挂件；其余 `9` 条则分别因为“人物主体被裁坏”“背景 / 道具 / 场景占位过重”“人物本体过小”或“触发动作时人物直接退场”等问题，不建议当常驻右下角桌宠。顺手也确认了这批 `碧蓝航线` 大图的两类高风险模式：一类虽然有 `15` 组 `touch_body` 系动作，但视觉内容本身还是主题插画；另一类只有 `1` 组未命名动作，默认交互甚至会破坏构图，不能按可用桌宠计。
 当前显式汇总：成功 `1208` 条，失败 / 排除 `77` 条。
 
 ## 0. 右下角桌宠人工复核流程
@@ -138,20 +139,20 @@ node scripts/evaluate_live2d_desktop_pet.mjs --reviewed-only --offset 0 --limit 
 | BanG Dream! | 松原花音 `024_casual` | 半身 / 日常便服立绘 | `2000 x 2500` | Cubism 2.1 | `https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/024_casual/model.json` | 通过 | 未补测 | Hello, Happy World! 鼓手的日常便服立绘；本轮最小依赖下载后本地 Pixi 实载通过，纹理数 `1` | 人工复核：适合但需自己绑定交互。紫发双马尾和红黑裙装在右下角辨识度高，`angry01` 会切出插腰站姿，半身反馈明显；26 组动作、8 个表情够做轮播，但命中区为 0，仍需工程侧自己映射点击 / 悬停。 |
 | BanG Dream! | 奥泽美咲 `025_casual` | 半身 / 日常便服立绘 | `2000 x 2500` | Cubism 2.1 | `https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/025_casual/model.json` | 通过 | 未补测 | Hello, Happy World! DJ / 乐队成员的日常便服立绘；本轮最小依赖下载后本地 Pixi 实载通过，纹理数 `1` | 人工复核：适合但偏安静。黑白长裙放右下角很稳，`angry01` 只有轻微头肩和手部变化，观感更像安静看板位；23 组动作、6 个表情够用，但命中区为 0，建议作为低干扰陪伴位。 |
 | 碧蓝航线 | Z23 `z23` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/donjuanplatinum/AzurLane-Live2D@master/live2d/z23/z23.model3.json` | 通过 | `jsDelivr` 通过，`raw` 超时 | 本轮唯一补测到远程直挂成功的碧蓝航线条目 | 人工复核：适合但需自己绑定交互。方图小挂件感很强，帽子和白色军装缩到右下角仍清楚；`touch_body` 有完整上身反馈，14 组动作足够轮播，但命中区和表情都为 0，需要工程侧把 `touch_*` 动作显式绑定到点击 / 悬停。 |
-| 碧蓝航线 | Z46 `z46_3` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/z46_3/z46_3.model3.json` | 通过 | 未补测 | 著名驱逐舰角色代表条目 |  |
-| 碧蓝航线 | 企业 `qiye_7` | 全身 | `10500 x 10000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/qiye_7/qiye_7.model3.json` | 通过 | 未补测 | 大尺寸现代立绘 |  |
-| 碧蓝航线 | 俾斯麦 `bisimai_2` | 全身 / 大立绘 | `7197 x 7625` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/bisimai_2/bisimai_2.model3.json` | 通过 | 未补测 | 大尺寸单纹理条目 |  |
+| 碧蓝航线 | Z46 `z46_3` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/z46_3/z46_3.model3.json` | 通过 | 未补测 | 著名驱逐舰角色代表条目 | 人工复核：不建议。虽然能加载且 `touch_body` 能跑，但这条方图大立绘在右下角主要只剩下半身、腿和大件道具，头肩长期被裁到预览框上缘，桌宠构图不成立。默认仍是 `0` 命中区、`0` 表情、`15` 组动作，更适合留作单独展示，不适合作干净纯人物右下角小人。 |
+| 碧蓝航线 | 企业 `qiye_7` | 全身 | `10500 x 10000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/qiye_7/qiye_7.model3.json` | 通过 | 未补测 | 大尺寸现代立绘 | 人工复核：不建议。人物本体并不坏，但赛道雨伞、看台、地面和飘散纸片会长期一起入镜，明显更像整张主题插画的裁切，不是干净纯人物桌宠位。默认仍是 `0` 命中区、`0` 表情、`15` 组 `touch_body` 系动作；能手动绑定交互，但视觉内容本身就不适合常驻右下角。 |
+| 碧蓝航线 | 俾斯麦 `bisimai_2` | 全身 / 大立绘 | `7197 x 7625` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/bisimai_2/bisimai_2.model3.json` | 通过 | 未补测 | 大尺寸单纹理条目 | 人工复核：不建议。人物胸腰位能成立，但王座、舰装、花束和桌边道具一起占住大半画面，主题感和场景感都太重，不符合干净纯人物桌宠位。默认仍是 `0` 命中区、`0` 表情、`15` 组 `touch_body` 系动作，适合专题展示，不建议常驻右下角。 |
 | 碧蓝航线 | 凌波 `lingbo` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/lingbo/lingbo.model3.json` | 通过 | 未补测 | 纹理数 `4` | 人工复核：适合但需自己绑定交互。猫耳头饰和短运动装在桌角辨识度高，`touch_body` 会带出抬手思考动作，观感自然；14 组动作可用，但命中区、表情都为 0，不是默认即点即动型桌宠。 |
-| 碧蓝航线 | 大凤 `dafeng_4` | 全身 | `7000 x 7300` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/dafeng_4/dafeng_4.model3.json` | 通过 | 未补测 | 适合测试复杂互动角色 |  |
-| 碧蓝航线 | 宁海 `ninghai_4` | 横构图 / 角色立绘 | `6000 x 5000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/ninghai_4/ninghai_4.model3.json` | 通过 | 未补测 | 与平海形成成对条目 |  |
-| 碧蓝航线 | 平海 `pinghai_4` | 横构图 / 角色立绘 | `6000 x 5000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/pinghai_4/pinghai_4.model3.json` | 通过 | 未补测 | 与宁海同组，比例一致 |  |
+| 碧蓝航线 | 大凤 `dafeng_4` | 全身 | `7000 x 7300` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/dafeng_4/dafeng_4.model3.json` | 通过 | 未补测 | 适合测试复杂互动角色 | 人工复核：不建议。琵琶、孔雀、灯笼与圆窗背景长期占住桌角主体，虽然人物能落框，但整体更像国风主题场景插画，不是干净纯人物桌宠。默认仍是 `0` 命中区、`0` 表情、`15` 组 `touch_body` 系动作，不建议常驻右下角。 |
+| 碧蓝航线 | 宁海 `ninghai_4` | 横构图 / 角色立绘 | `6000 x 5000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/ninghai_4/ninghai_4.model3.json` | 通过 | 未补测 | 与平海形成成对条目 | 人工复核：不建议。自动纠偏后人物仍只是很小的全身纸片，周围还留着大面积空白和彩纸，桌角长期只会像缩小立绘而不是人物桌宠。默认 `0` 命中区、`0` 表情、`15` 组动作，鼠标跟随也几乎看不出，不建议优先接入。 |
+| 碧蓝航线 | 平海 `pinghai_4` | 横构图 / 角色立绘 | `6000 x 5000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/pinghai_4/pinghai_4.model3.json` | 通过 | 未补测 | 与宁海同组，比例一致 | 人工复核：不建议。和 `ninghai_4` 一样，人物本体过小、画面空白过多，右下角几乎只是一个远景全身小摆件；即使 `touch_body` 能跑，也不足以弥补构图问题。默认仍是 `0` 命中区、`0` 表情、`15` 组动作，不建议优先接入。 |
 | 碧蓝航线 | 拉菲 `lafei` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/lafei/lafei.model3.json` | 通过 | `raw` 超时，`jsDelivr` 超时 | 适合做右下角悬浮挂件 | 人工复核：适合但需自己绑定交互。兔耳发箍和粉外套缩到右下角很醒目，`touch_body` 会切出明显的呆滞脸和抱手动作，角色感强；但命中区和表情配置仍为 0，需要工程侧自己绑定触发逻辑。 |
 | 碧蓝航线 | 提尔比茨 `tierbici_2` | 方构图 / 小挂件感 | `1700 x 1700` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/tierbici_2/tierbici_2.model3.json` | 通过 | 未补测 | 双纹理，小尺寸里结构最紧凑的一类 | 人工复核：可用但不优先。虽然方图能放进右下角，但舰装和水面底座让画面更像场景卡，横向和下沿占位都偏重；`touch_body` 能动，不过命中区和表情都为 0，适合作静态挂件，不建议优先当主桌宠。 |
 | 碧蓝航线 | 明石 `mingshi` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/mingshi/mingshi.model3.json` | 通过 | 未补测 | 单纹理，轻量 | 人工复核：适合但需自己绑定交互。猫耳、长发和工具腰饰在桌角辨识度很高，`touch_body` 倾身幅度大，是这批碧蓝方图里反馈最明显的一档；17 组动作够丰富，但命中区和表情都为 0，需要工程侧自行把动作映射到交互事件。 |
 | 碧蓝航线 | 标枪 `biaoqiang` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/biaoqiang/biaoqiang.model3.json` | 通过 | 未补测 | 纹理数 `7`，资源较完整 | 人工复核：适合但偏安静。紫发小体型天然适合角落挂件，`touch_body` 有轻笑和手部变化，但整体动幅比 `mingshi`、`xuefeng` 更轻；14 组动作可用，不过命中区、表情都为 0，更适合低干扰陪伴位。 |
 | 碧蓝航线 | 独角兽 `dujiaoshou_4` | 方构图 / 角色立绘 | `5000 x 5000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/dujiaoshou_4/dujiaoshou_4.model3.json` | 通过 | 未补测 | 大方图，做挂件裁切也友好 | 人工复核：适合但需预留边距。方图裁到右下角后角色本体清楚，`touch_body` 倾身动作明显；但书本、尾巴和道具会把左右边缘撑满，接入时要多留边距，同时命中区、表情都为 0。 |
-| 碧蓝航线 | 翔鹤 `xianghe_2` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/xianghe_2/xianghe_2.model3.json` | 通过 | 未补测 | 高分辨率单纹理条目 |  |
-| 碧蓝航线 | 贝尔法斯特 `beierfasite_2` | 全身 / 大立绘 | `3508 x 4961` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/beierfasite_2/beierfasite_2.model3.json` | 通过 | 未补测 | 经典女仆角色代表条目 |  |
+| 碧蓝航线 | 翔鹤 `xianghe_2` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/xianghe_2/xianghe_2.model3.json` | 通过 | 未补测 | 高分辨率单纹理条目 | 人工复核：不建议。人物本体在右下角只剩很小的全身远景，鹤与大面积留白反而更显眼，桌宠视线焦点不在角色本身。默认仍是 `0` 命中区、`0` 表情、`15` 组动作，跟随也几乎不可见，不适合作常驻右下角小人。 |
+| 碧蓝航线 | 贝尔法斯特 `beierfasite_2` | 全身 / 大立绘 | `3508 x 4961` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/beierfasite_2/beierfasite_2.model3.json` | 通过 | 未补测 | 经典女仆角色代表条目 | 人工复核：适合但需自己绑定交互，建议裁腰。人物主体干净，右下角裁到胸腰位后是成立的纯人物位，左下角舰装只占很小一角，没有把画面弄脏；但默认仍是 `0` 命中区、`0` 表情，需要工程侧把 `touch_body` 这组动作手动映射到点击 / 悬停 / 闲置。 |
 | 碧蓝航线 | 雪风 `xuefeng` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://raw.githubusercontent.com/donjuanplatinum/AzurLane-Live2D/master/live2d/xuefeng/xuefeng.model3.json` | 通过 | 未补测 | 纹理数 `6` | 人工复核：适合但需自己绑定交互。猫耳和蓝白袖饰缩到桌角后很像成品挂件，`touch_body` 会切出招手 / 猫爪姿态，是这批里最有桌宠感的一条；但命中区、表情都为 0，仍需工程侧手动绑定点击 / 闲置动作。 |
 | CUE! | `001 / 001_001` | 全身 | `3039 x 4298` | Cubism 4 | `https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/001/001_001/001.model3.json` | 通过 | `raw` 超时，`jsDelivr` 超时 | 这是本轮重试过的首个 CUE 条目 | 人工复核：可用但偏安静。红色制服胸像位很干净，裁到头肩到腰部之后自然，右下角不会显得像整张立绘缩略图；有 `14` 个表情可轮播，但动作组只有 `1` 组且未命名、命中区为 `0`，浏览器里主要还是视线 / 躯干轻跟随，更适合作低干扰陪伴位。 |
 | CUE! | `016 / 016_013` | 全身 | `3039 x 4298` | Cubism 4 | `https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/016/016_013/016.model3.json` | 通过 | 未补测 | 同仓库内路径规律稳定 | 人工复核：可用但偏安静。双团子和红格裙裁到胸腰位后很自然，角色主体纯净、桌角辨识度也不错；有 `13` 个表情，但动作组仍只有 `1` 组且未命名、命中区为 `0`，默认几乎没有像样点击反馈，更适合作安静陪伴位。 |
@@ -351,14 +352,14 @@ node scripts/evaluate_live2d_desktop_pet.mjs --reviewed-only --offset 0 --limit 
 | 刀剑神域 / SAO | 亚丝娜 `asuna_51` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_51/asuna_51.model.json` | 未补测 | 通过 | Asuna 高编号变体 51，远程直挂通过 | 人工复核：适合，建议裁腰。右下角约 184x340 摆位下人物整体偏下，头顶已经掉到预览框下半区，脚本已尝试自动纠偏，整体会偏细高，更像立绘缩略位。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 4 个、表情 10 个、动作组 2 组；代表动作 未命名动作组 可触发，变化能带到上半身甚至全身。 |
 | 刀剑神域 / SAO | 亚丝娜 `asuna_56` | 全身 / 标准立绘 | `2000 x 3000` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/SAO/asuna/asuna_56/asuna_56.model.json` | 未补测 | 通过 | Asuna 高编号变体 56，远程直挂通过 | 人工复核：适合，建议裁腰。右下角约 185x340 摆位下主体主要落在方形预览区内，半身/裁腰结构保持正常，脚本已自动纠偏，整体会偏细高，更像立绘缩略位。鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。默认交互方面，命中区 4 个、表情 10 个、动作组 2 组；代表动作 未命名动作组 可触发，变化能带到上半身甚至全身。 |
 | 少女终末旅行 | 尤莉 `Yuri` | 方构图 / 角色立绘 | `2500 x 2500` | Cubism 2.1 | `https://raw.githubusercontent.com/AzharRizkiZ/Live2D-Model/main/assets/models/Shoujo-Shuumatsu-Ryokou/yuri/model.json` | 未补测 | 通过 | 单纹理方图，适合桌宠化裁切 |  |
-| 碧蓝航线 | 标枪 `biaoqiang_3` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/biaoqiang_3/biaoqiang_3.model3.json` | 未补测 | 通过 | 标枪大型单纹理变体 |  |
+| 碧蓝航线 | 标枪 `biaoqiang_3` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/biaoqiang_3/biaoqiang_3.model3.json` | 未补测 | 通过 | 标枪大型单纹理变体 | 人工复核：可用但偏夏日主题。人物能稳定落进右下角，但泳圈、沙滩篮和舰装一起入镜，桌角观感更像活动主题挂件而不是干净纯人物桌宠；而且默认只有 `1` 组未命名动作、`0` 命中区、`0` 表情，交互底子也偏弱。更适合作夏日专题位，不建议常驻主桌宠。 |
 | 碧蓝航线 | 俾斯麦 `bisimai_2_hx` | 全身 / 大立绘 | `7197 x 7625` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/bisimai_2_hx/bisimai_2_hx.model3.json` | 未补测 | 通过 | 俾斯麦高互动变体 |  |
-| 碧蓝航线 | 独角兽 `dujiaoshou_6` | 方构图 / 大立绘 | `9000 x 8000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/dujiaoshou_6/dujiaoshou_6.model3.json` | 未补测 | 通过 | 独角兽高分辨率方图变体 |  |
+| 碧蓝航线 | 独角兽 `dujiaoshou_6` | 方构图 / 大立绘 | `9000 x 8000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/dujiaoshou_6/dujiaoshou_6.model3.json` | 未补测 | 通过 | 独角兽高分辨率方图变体 | 人工复核：不建议。心形舞台、船体底座和大件装饰占画面远多于人物本体，右下角首先看到的是主题场景而不是角色，和干净纯人物桌宠目标不符。默认只有 `1` 组未命名动作、`0` 命中区、`0` 表情，不建议常驻右下角。 |
 | 碧蓝航线 | 拉菲 `lafei_4` | 方构图 / 大立绘 | `7000 x 7000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/lafei_4/lafei_4.model3.json` | 未补测 | 通过 | 拉菲大尺寸变体 | 人工复核：不建议优先。人物本体还算干净，但树干和枝条占位太重，右下角更像带场景的小立绘；交互也几乎只有轻微头部跟随，不符合“干净纯粹桌宠”优先级。 |
 | 碧蓝航线 | 企业 `qiye_9` | 方构图 / 大立绘 | `8000 x 8000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/qiye_9/qiye_9.model3.json` | 未补测 | 通过 | 企业高编号变体，方图更适合大挂件 |  |
 | 碧蓝航线 | 雪风 `xuefeng_3` | 方构图 / 角色立绘 | `5000 x 5000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/xuefeng_3/xuefeng_3.model3.json` | 未补测 | 通过 | 雪风大型方图变体 | 人工复核：可用但偏装饰。人物和伞的主体关系还算完整，缩小后没有明显脏背景；但交互基本只有轻跟随，没有命中区和表情，更适合作静态陪伴位。 |
 | 碧蓝航线 | Z23 `z23_hx` | 方构图 / 小挂件感 | `1200 x 1200` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/z23_hx/z23_hx.model3.json` | 未补测 | 通过 | Z23 高互动变体，纹理数 `5` | 人工复核：适合但需工程侧绑定点击。半身方图很干净，军装胸像位天然适合右下角；`touch_body` 等动作组很多，但命中区和表情为 0，接入时要显式把点击绑到 `touch_*`。 |
-| 碧蓝航线 | Z46 `z46_4` | 方构图 / 大立绘 | `6000 x 6000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/z46_4/z46_4.model3.json` | 未补测 | 通过 | Z46 双纹理变体 |  |
+| 碧蓝航线 | Z46 `z46_4` | 方构图 / 大立绘 | `6000 x 6000` | Cubism 4 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Azur-Lane/z46_4/z46_4.model3.json` | 未补测 | 通过 | Z46 双纹理变体 | 人工复核：不建议。静态摆位里人物还能落框，但爱心气球、车体和舞台布景本身就偏主题化；更关键的是触发动作时人物几乎直接退场，只剩舞台背景，默认互动观感很差。默认也只有 `1` 组未命名动作、`0` 命中区、`0` 表情，不适合作右下角互动小人。 |
 | 约会大作战 | 时崎狂三 `kurumi` | 方构图 / 角色立绘 | `1024 x 1024` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Date-A-Live/kurumi/model.json` | 未补测 | 通过 | 经典狂三条目，旧格式但远程直挂稳定 |  |
 | 少女前线 | 95 式 `95type_405 / destroy` | 方构图 / 战损桌宠感 | `1024 x 1024` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/95type_405/destroy/model.json` | 未补测 | 通过 | 95 式战损方图，小挂件友好 |  |
 | 少女前线 | DSR-50 `dsr50_2101 / destroy` | 全身 / 战损大立绘 | `6000 x 7061` | Cubism 2.1 | `https://cdn.jsdelivr.net/gh/AzharRizkiZ/Live2D-Model@main/assets/models/Dolls-Frontline/dsr50_2101/destroy/model.json` | 未补测 | 通过 | DSR-50 新编号战损版本 |  |
@@ -1406,36 +1407,3 @@ node scripts/evaluate_live2d_desktop_pet.mjs --reviewed-only --offset 0 --limit 
 | 2026-04-11 09:40 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `nova1751/live2d-api` 的 `少女前线` 旧格式池与 `guangzan/live2d-models` 的经典角色增量；本轮按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 28 项：`少女前线` 24（`AK-12` 4、`AN-94` 2、`RO635` 2、`Carcano M1891` 2、`Carcano M1938` 2、`G36C` 2、`Saiga-12` 4、`UMP45` 2、`WA2000` 2、`Zastava M21` 2 的常规 / 战损旧格式条目）、`樱花庄的宠物女孩 / Sakurasou` 3（`上井草美咲` 的 `ryoufuku / seifuku / shifuku`）、`超次元海王星` 1（`Uni`）；新增失败 1 项：`Re:Zero` 1（`蕾姆 / 11`）。 | 29 个 manifest 候选；其中 28 个本地 Pixi 实载通过、1 个失败；另复查 `Arknights / 明日方舟` GitHub repo / code search，仍无新的直挂 manifest | 28 |
 | 2026-04-11 10:06 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `Touhou Cannon Ball`、`evrstr/live2d-widget-models` 与 `NecoArc` 社区模型；本轮以 `jsDelivr` 远程 Pixi 实载为主，并对 `Neco-Arc` 补做本地最小依赖验证。 | 新增有效 30 项：`东方 Project / Touhou Cannon Ball` 20（`博丽灵梦`、`雾雨魔理沙`、`琪露诺`、`十六夜咲夜`、`蕾米莉亚`、`芙兰朵露`、`帕秋莉`、`爱丽丝`、`魂魄妖梦`、`八云紫`、`西行寺幽幽子`、`东风谷早苗`、`射命丸文`、`铃仙`、`蓬莱山辉夜`、`藤原妹红`、`古明地恋`、`古明地觉`、`伊吹萃香`、`河城荷取`），`樱花庄的宠物女孩 / Sakurasou` 7（`椎名真白` 3、`青山七海` 3、`赤坂龙之介` 1），`Re:Zero` 1（`蕾姆 / rem_2`），`工作细胞` 1（`血小板 / platelet_2`），`月姬 / Melty Blood` 1（`Neco-Arc`）；新增失败 1 项：`原神 / Genshin Impact` 1（`派蒙 / paimeng`）。 | 33 项候选内容（`31` 个 manifest + `Arknights / 明日方舟` repo / code search `2` 轮）；其中 `30` 个通过、`1` 个失败 | 30 |
 | 2026-04-11 10:25 | 继续优先复查明日方舟 / Arknights GitHub repo / code search 仍无新的直挂 manifest 后，转向 `xiarimangguo/aLive2D` 的 `食物语` 成体系角色池与 `fghrsh/live2d_api` 的旧格式经典增量；本轮统一按最小依赖下载到本地后逐个做 Pixi 实载验证。 | 新增有效 63 项：`食物语` 58（`100003_sixiwangzi` 到 `150051_slyx_xydz` 的后续食魂 / 皮肤条目共 57 个编号变体 + `xiaomai` 1）、`Potion Maker` 2（`Pio`、`Tia`）、`Shizuku Talk` 2（`shizuku-48`、`shizuku-pajama`）、`超次元海王星` 1（`Histoire / histoirenohover`）；新增排除 2 项：`新世纪福音战士 / Evangelion` 2（`明日香`、`绫波丽` `.waifu` 包）。 | 80 项候选内容（`69` 个 `aLive2D` manifest + `7` 个 `live2d_api` manifest + `Arknights / 明日方舟` repo / code search `2` 轮 + EVA `.waifu` 包 `2` 个）；其中 `76` 个可实载 manifest 全部本地 Pixi 通过，但 `13` 个为已入表或低优先重复项不重复落表 | 63 |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
