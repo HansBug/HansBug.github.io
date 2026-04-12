@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T11:24:31.466Z",
+  "generatedAt": "2026-04-12T11:52:16.892Z",
   "note": "Reviewed deskpet assessments are kept in this file, including summary-imported manual conclusions and visual+numeric browser probe reruns.",
   "stats": {
-    "reviewed": 334
+    "reviewed": 344
   },
   "results": [
     {
@@ -103664,6 +103664,2396 @@
         }
       },
       "assessment": "人工复核：可用但偏安静。人物本体干净，但原比例太细高，缩到右下角后更像竖向立绘缩略图而不是标准半身桌宠；鼠标跟随只剩轻微头部带动，命中区仍为 `0`，更适合作低干扰陪伴位，不建议优先当主桌宠。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100019_zongzi/model.json",
+      "ip": "食物语",
+      "model": "`100019_zongzi`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 26492,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100019_zongzi_.png",
+      "result": {
+        "ok": true,
+        "width": 352.94399999999996,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 531,
+          "width": 440,
+          "height": 532
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 66613,
+              "minX": 142,
+              "minY": 33,
+              "maxX": 388,
+              "maxY": 519,
+              "width": 247,
+              "height": 487
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 9.200000000000045,
+            "topOverflow": 1,
+            "bottomOverflow": 55,
+            "centerOffsetX": 41.5,
+            "fillWidth": 0.7978036175710596,
+            "fillHeight": 1.1325581395348838,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 66613,
+              "minX": 142,
+              "minY": 33,
+              "maxX": 388,
+              "maxY": 519,
+              "width": 247,
+              "height": 487
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 9.200000000000045,
+            "topOverflow": 1,
+            "bottomOverflow": 55,
+            "centerOffsetX": 41.5,
+            "fillWidth": 0.7978036175710596,
+            "fillHeight": 1.1325581395348838,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 172,
+        "previewFrame": {
+          "width": 310,
+          "height": 430,
+          "ratio": 0.72
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.14941522515582323,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9342105263157895,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 34136,
+              "changedRatio": 0.14941522515582323,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9342105263157895
+            },
+            "rightToLeft": {
+              "changedPixels": 20005,
+              "changedRatio": 0.08756302962392325,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9266917293233082
+            },
+            "changedRatio": 0.14941522515582323,
+            "coverageWidth": 1,
+            "coverageHeight": 0.9342105263157895,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 9,
+                "neutral": 0.07000000029802322,
+                "focusRight": 0.17652055621147156,
+                "focusLeft": 0.1552838683128357,
+                "range": 0.10652055591344833
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 10,
+                "neutral": -0.3083951473236084,
+                "focusRight": -0.48936542868614197,
+                "focusLeft": -0.4318959414958954,
+                "range": 0.18097028136253357
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": 6.558258533477783,
+                "focusRight": 8.651065826416016,
+                "focusLeft": 7.691732406616211,
+                "range": 2.0928072929382324
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -19.92725944519043,
+                "focusRight": -26.7037296295166,
+                "focusLeft": -23.755573272705078,
+                "range": 6.776470184326172
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": 5.5244364738464355,
+                "focusRight": 8.578853607177734,
+                "focusLeft": 7.631769180297852,
+                "range": 3.054417133331299
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 22,
+                "neutral": 1.3894436359405518,
+                "focusRight": 2.318208694458008,
+                "focusLeft": 2.049260377883911,
+                "range": 0.928765058517456
+              }
+            },
+            "eyeMaxDelta": 0.18097028136253357,
+            "headMaxDelta": 6.776470184326172,
+            "bodyMaxDelta": 0.928765058517456,
+            "controller": {
+              "neutral": {
+                "x": -0.2928537523086843,
+                "y": 0.20188511335014045,
+                "targetX": -0.8233218167086185,
+                "targetY": 0.5675748286628117
+              },
+              "focusRight": {
+                "x": -0.8207884399822446,
+                "y": 0.5684375408594451,
+                "targetX": -0.8220976364817811,
+                "targetY": 0.5693465342751014
+              },
+              "focusLeft": {
+                "x": -0.8207884399822446,
+                "y": 0.5684375408594451,
+                "targetX": -0.8245384912798246,
+                "targetY": 0.5658058645843029
+              },
+              "maxDelta": 0.5279346876735602
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.181 / 头部Δ6.78 / 上身Δ0.929 / 焦点Δ0.528"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.10687898312206737,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9285714285714286
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.09001418166538273,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9304511278195489
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。人物主体干净，裁到胸腰位后桌角辨识度高，环状饰件虽然向两侧外扩，但没有把画面拖脏；头部跟随明显，上身也被明显带动，6 个表情和 `tap_body` 足够做轻量轮播。不过命中区为 `0`，默认点击不会直接命中角色，接入时要手动绑定点击 / 悬停 / 闲置。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100022_beijingkaoya/model.json",
+      "ip": "食物语",
+      "model": "`100022_beijingkaoya`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 29725,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100022_beijingkaoya_.png",
+      "result": {
+        "ok": true,
+        "width": 272.56893381568926,
+        "height": 439.13883781416604,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "placementProbe": {
+          "adjusted": true,
+          "before": {
+            "bounds": {
+              "count": 79702,
+              "minX": 122,
+              "minY": 0,
+              "maxX": 392,
+              "maxY": 519,
+              "width": 271,
+              "height": 520
+            },
+            "issueLevel": "overflow",
+            "needsAdjustment": true,
+            "summaryText": "人物大半不在方形预览区里",
+            "leftOverflow": 0,
+            "rightOverflow": 34.551724137931046,
+            "topOverflow": 34,
+            "bottomOverflow": 55,
+            "centerOffsetX": 33.5,
+            "fillWidth": 1.0153746770025838,
+            "fillHeight": 1.2093023255813953,
+            "mostlyOutside": true,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 64828,
+              "minX": 139,
+              "minY": 49,
+              "maxX": 382,
+              "maxY": 519,
+              "width": 244,
+              "height": 471
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 24.551724137931046,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 37,
+            "fillWidth": 0.9142118863049095,
+            "fillHeight": 1.0953488372093023,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 176,
+        "previewFrame": {
+          "width": 267,
+          "height": 430,
+          "ratio": 0.6206896551724138
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 8,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.09923226416415716,
+          "coverageWidth": 0.5568181818181818,
+          "coverageHeight": 0.9019230769230769,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 22671,
+              "changedRatio": 0.09923226416415716,
+              "coverageWidth": 0.5545454545454546,
+              "coverageHeight": 0.9019230769230769
+            },
+            "rightToLeft": {
+              "changedPixels": 11067,
+              "changedRatio": 0.04844089221934309,
+              "coverageWidth": 0.5568181818181818,
+              "coverageHeight": 0.8865384615384615
+            },
+            "changedRatio": 0.09923226416415716,
+            "coverageWidth": 0.5568181818181818,
+            "coverageHeight": 0.9019230769230769,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 6,
+                "neutral": 0.7300000190734863,
+                "focusRight": 0.7300000190734863,
+                "focusLeft": 0.7300000190734863,
+                "range": 0
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 7,
+                "neutral": 0.07999999821186066,
+                "focusRight": 0.07999999821186066,
+                "focusLeft": 0.07999999821186066,
+                "range": 0
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": -2.622999906539917,
+                "focusRight": 12.902600288391113,
+                "focusLeft": 15.364999771118164,
+                "range": 17.98799967765808
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": 5.385000228881836,
+                "focusRight": 3.5736000537872314,
+                "focusLeft": 8.192649841308594,
+                "range": 4.619049787521362
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": 12.586000442504883,
+                "focusRight": 9.112799644470215,
+                "focusLeft": 4.947500228881836,
+                "range": 7.638500213623047
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 19,
+                "neutral": -1.0780000686645508,
+                "focusRight": 0.6115000247955322,
+                "focusLeft": 0.7170000076293945,
+                "range": 1.7950000762939453
+              }
+            },
+            "eyeMaxDelta": 0,
+            "headMaxDelta": 17.98799967765808,
+            "bodyMaxDelta": 1.7950000762939453,
+            "controller": {
+              "neutral": {
+                "x": -0.2956496341155073,
+                "y": 0.19776807902450275,
+                "targetX": -0.8311820898666339,
+                "targetY": 0.5560002998964433
+              },
+              "focusRight": {
+                "x": -0.8286909850945539,
+                "y": 0.5568538076401671,
+                "targetX": -0.8300128409200136,
+                "targetY": 0.557744281824465
+              },
+              "focusLeft": {
+                "x": -0.8286909850945539,
+                "y": 0.5568538076401671,
+                "targetX": -0.8323437884367135,
+                "targetY": 0.5542597025319624
+              },
+              "maxDelta": 0.5330413509790466
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.000 / 头部Δ18.0 / 上身Δ1.80 / 焦点Δ0.533"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.06891676587996358,
+          "coverageWidth": 0.5545454545454546,
+          "coverageHeight": 0.8942307692307693
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06166398207157364,
+          "coverageWidth": 0.5568181818181818,
+          "coverageHeight": 0.8980769230769231
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量边距并自己绑定交互。羽饰、披肩和右侧挂饰一起入镜后仍保持纯人物观感，不像脏场景立绘；但顶部和右侧会略撑边，接入时别裁得太窄。头部跟随明显，上身也被明显带动，8 个表情加 `tap_body` 够做轻互动；不过命中区为 `0`，仍要工程侧自己绑定点击 / 悬停。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100023_fulijishaoji/model.json",
+      "ip": "食物语",
+      "model": "`100023_fulijishaoji`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 24137,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100023_fulijishaoji_.png",
+      "result": {
+        "ok": true,
+        "width": 352.94399999999996,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 531,
+          "width": 440,
+          "height": 532
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 93153,
+              "minX": 129,
+              "minY": 24,
+              "maxX": 393,
+              "maxY": 519,
+              "width": 265,
+              "height": 496
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 14.200000000000045,
+            "topOverflow": 10,
+            "bottomOverflow": 55,
+            "centerOffsetX": 37.5,
+            "fillWidth": 0.8559431524547805,
+            "fillHeight": 1.1534883720930234,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 93153,
+              "minX": 129,
+              "minY": 24,
+              "maxX": 393,
+              "maxY": 519,
+              "width": 265,
+              "height": 496
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 14.200000000000045,
+            "topOverflow": 10,
+            "bottomOverflow": 55,
+            "centerOffsetX": 37.5,
+            "fillWidth": 0.8559431524547805,
+            "fillHeight": 1.1534883720930234,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 182,
+        "previewFrame": {
+          "width": 310,
+          "height": 430,
+          "ratio": 0.72
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07930352265564815,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9511278195488722,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 18118,
+              "changedRatio": 0.07930352265564815,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9511278195488722
+            },
+            "rightToLeft": {
+              "changedPixels": 17750,
+              "changedRatio": 0.07769276559983192,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9511278195488722
+            },
+            "changedRatio": 0.07930352265564815,
+            "coverageWidth": 1,
+            "coverageHeight": 0.9511278195488722,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 9,
+                "neutral": -0.016064345836639404,
+                "focusRight": 0.09759999811649323,
+                "focusLeft": 0.17000000178813934,
+                "range": 0.18606434762477875
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 10,
+                "neutral": -0.4111873209476471,
+                "focusRight": -0.4334000051021576,
+                "focusLeft": -0.49998000264167786,
+                "range": 0.08879268169403076
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": 1.9830368757247925,
+                "focusRight": 6.98199987411499,
+                "focusLeft": 4.532800197601318,
+                "range": 4.998962998390198
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -1.9088033437728882,
+                "focusRight": -0.1899999976158142,
+                "focusLeft": -2.6475000381469727,
+                "range": 2.4575000405311584
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": -2.348053216934204,
+                "focusRight": -3.0695998668670654,
+                "focusLeft": -0.20280000567436218,
+                "range": 2.8667998611927032
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 23,
+                "neutral": 2.5462212562561035,
+                "focusRight": 3.7272000312805176,
+                "focusLeft": -0.07739999890327454,
+                "range": 3.804600030183792
+              }
+            },
+            "eyeMaxDelta": 0.18606434762477875,
+            "headMaxDelta": 4.998962998390198,
+            "bodyMaxDelta": 3.804600030183792,
+            "controller": {
+              "neutral": {
+                "x": -0.2928537523086843,
+                "y": 0.20188511335014045,
+                "targetX": -0.8233218167086185,
+                "targetY": 0.5675748286628117
+              },
+              "focusRight": {
+                "x": -0.8207884399822446,
+                "y": 0.5684375408594451,
+                "targetX": -0.8220976364817811,
+                "targetY": 0.5693465342751014
+              },
+              "focusLeft": {
+                "x": -0.8207884399822446,
+                "y": 0.5684375408594451,
+                "targetX": -0.8245384912798246,
+                "targetY": 0.5658058645843029
+              },
+              "maxDelta": 0.5279346876735602
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.186 / 头部Δ5.00 / 上身Δ3.80 / 焦点Δ0.528"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.11633342671055397,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9492481203007519
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.14038097906015828,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9492481203007519
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。海军帽、披风和人物比例都很适合右下角裁腰位，画面干净，是这批里更接近可接入桌宠的一条；头部跟随明显，上身也被明显带动，6 个表情加 `tap_body` 够做轻量轮播。但命中区为 `0`，默认点击不会直接命中角色。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100024_yuxiangrousi/model.json",
+      "ip": "食物语",
+      "model": "`100024_yuxiangrousi`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 21954,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100024_yuxiangrousi_.png",
+      "result": {
+        "ok": true,
+        "width": 350.1428571428571,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 529,
+          "width": 440,
+          "height": 530
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 66354,
+              "minX": 167,
+              "minY": 43,
+              "maxX": 404,
+              "maxY": 519,
+              "width": 238,
+              "height": 477
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 26.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 62,
+            "fillWidth": 0.7748837209302325,
+            "fillHeight": 1.1093023255813954,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 66354,
+              "minX": 167,
+              "minY": 43,
+              "maxX": 404,
+              "maxY": 519,
+              "width": 238,
+              "height": 477
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 26.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 62,
+            "fillWidth": 0.7748837209302325,
+            "fillHeight": 1.1093023255813954,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 170,
+        "previewFrame": {
+          "width": 307,
+          "height": 430,
+          "ratio": 0.7142857142857143
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.14913947055115903,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9113207547169812,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 34073,
+              "changedRatio": 0.14913947055115903,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9113207547169812
+            },
+            "rightToLeft": {
+              "changedPixels": 19884,
+              "changedRatio": 0.08703340570067931,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9113207547169812
+            },
+            "changedRatio": 0.14913947055115903,
+            "coverageWidth": 1,
+            "coverageHeight": 0.9113207547169812,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 9,
+                "neutral": 0.2199999988079071,
+                "focusRight": -0.3245599865913391,
+                "focusLeft": -0.3400000035762787,
+                "range": 0.5600000023841858
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 10,
+                "neutral": 0.07999999821186066,
+                "focusRight": -0.28543999791145325,
+                "focusLeft": -0.131740003824234,
+                "range": 0.3654399961233139
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": 2.8310000896453857,
+                "focusRight": -6.646399974822998,
+                "focusLeft": -12.774740219116211,
+                "range": 15.605740308761597
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -8.300299644470215,
+                "focusRight": -8.086400032043457,
+                "focusLeft": 1.3289999961853027,
+                "range": 9.629299640655518
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": -6.230499744415283,
+                "focusRight": -0.07079999893903732,
+                "focusLeft": 4.547860145568848,
+                "range": 10.77835988998413
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 23,
+                "neutral": 5.995500087738037,
+                "focusRight": 2.7848000526428223,
+                "focusLeft": 0.16147999465465546,
+                "range": 5.834020093083382
+              }
+            },
+            "eyeMaxDelta": 0.5600000023841858,
+            "headMaxDelta": 15.605740308761597,
+            "bodyMaxDelta": 5.834020093083382,
+            "controller": {
+              "neutral": {
+                "x": -0.2934677024203553,
+                "y": 0.20099160895369006,
+                "targetX": -0.8250478609109704,
+                "targetY": 0.5650628524387636
+              },
+              "focusRight": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8238307794253572,
+                "targetY": 0.5668358200320516
+              },
+              "focusLeft": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8262574220991727,
+                "targetY": 0.5632927058164605
+              },
+              "maxDelta": 0.5290511121908885
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.560 / 头部Δ15.6 / 上身Δ5.83 / 焦点Δ0.529"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.07479077666503256,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9113207547169812
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.09607640591077807,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9132075471698113
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。帽子和长外套缩到桌角后仍是干净的胸腰位，没有大面积脏杂道具；头部跟随明显，上身也被明显带动，`tap_body` 反馈够直观，适合做常驻轻量看板位。不过命中区为 `0`，动作组也只有 `idle / tap_body` 两档，接入时需要工程侧补点击 / 悬停 / 闲置映射。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100025_guobaorou/model.json",
+      "ip": "食物语",
+      "model": "`100025_guobaorou`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 23393,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100025_guobaorou_.png",
+      "result": {
+        "ok": true,
+        "width": 284.9000767268359,
+        "height": 395.69455100949426,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "placementProbe": {
+          "adjusted": true,
+          "before": {
+            "bounds": {
+              "count": 71833,
+              "minX": 169,
+              "minY": 26,
+              "maxX": 429,
+              "maxY": 519,
+              "width": 261,
+              "height": 494
+            },
+            "issueLevel": "overflow",
+            "needsAdjustment": true,
+            "summaryText": "人物大半不在方形预览区里",
+            "leftOverflow": 0,
+            "rightOverflow": 50.200000000000045,
+            "topOverflow": 8,
+            "bottomOverflow": 55,
+            "centerOffsetX": 75.5,
+            "fillWidth": 0.8430232558139535,
+            "fillHeight": 1.1488372093023256,
+            "mostlyOutside": true,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 46739,
+              "minX": 188,
+              "minY": 119,
+              "maxX": 400,
+              "maxY": 519,
+              "width": 213,
+              "height": 401
+            },
+            "issueLevel": "offset",
+            "needsAdjustment": true,
+            "summaryText": "人物整体过小，还没有形成应有的半身结构",
+            "leftOverflow": 0,
+            "rightOverflow": 21.200000000000045,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 70.5,
+            "fillWidth": 0.6879844961240311,
+            "fillHeight": 0.9325581395348838,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": true
+          }
+        },
+        "targetDeskpetWidth": 181,
+        "previewFrame": {
+          "width": 310,
+          "height": 430,
+          "ratio": 0.72
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 7,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.10796887036907346,
+          "coverageWidth": 0.5,
+          "coverageHeight": 0.7730769230769231,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 24667,
+              "changedRatio": 0.10796887036907346,
+              "coverageWidth": 0.49772727272727274,
+              "coverageHeight": 0.7730769230769231
+            },
+            "rightToLeft": {
+              "changedPixels": 21046,
+              "changedRatio": 0.09211954618670776,
+              "coverageWidth": 0.5,
+              "coverageHeight": 0.7692307692307693
+            },
+            "changedRatio": 0.10796887036907346,
+            "coverageWidth": 0.5,
+            "coverageHeight": 0.7730769230769231,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 7,
+                "neutral": -0.049869999289512634,
+                "focusRight": 0.05664999783039093,
+                "focusLeft": 0.019293857738375664,
+                "range": 0.10651999711990356
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 8,
+                "neutral": -0.0819299966096878,
+                "focusRight": 0.3419699966907501,
+                "focusLeft": 0.22046928107738495,
+                "range": 0.4238999933004379
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": -0.9258000254631042,
+                "focusRight": -2.7662999629974365,
+                "focusLeft": -0.1873464286327362,
+                "range": 2.5789535343647003
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": 9.104499816894531,
+                "focusRight": -7.1774001121521,
+                "focusLeft": -1.0349335670471191,
+                "range": 16.28189992904663
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": 3.511199951171875,
+                "focusRight": 5.496099948883057,
+                "focusLeft": -3.5064914226531982,
+                "range": 9.002591371536255
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 22,
+                "neutral": 0.7185199856758118,
+                "focusRight": -2.65939998626709,
+                "focusLeft": 1.5641229152679443,
+                "range": 4.223522901535034
+              }
+            },
+            "eyeMaxDelta": 0.4238999933004379,
+            "headMaxDelta": 16.28189992904663,
+            "bodyMaxDelta": 4.223522901535034,
+            "controller": {
+              "neutral": {
+                "x": -0.27589315575738727,
+                "y": 0.22450809749295306,
+                "targetX": -0.7756392138565406,
+                "targetY": 0.6311765283405331
+              },
+              "focusRight": {
+                "x": -0.7730567447782941,
+                "y": 0.6318213149929327,
+                "targetX": -0.7742896323101554,
+                "targetY": 0.6328313877305742
+              },
+              "focusLeft": {
+                "x": -0.7730567447782941,
+                "y": 0.6318213149929327,
+                "targetX": -0.7769818691021144,
+                "targetY": 0.6295229742325412
+              },
+              "maxDelta": 0.49716358902090685
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.424 / 头部Δ16.3 / 上身Δ4.22 / 焦点Δ0.497"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.01886949366202115,
+          "coverageWidth": 0.4863636363636364,
+          "coverageHeight": 0.7653846153846153
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.03958172841235381,
+          "coverageWidth": 0.4909090909090909,
+          "coverageHeight": 0.7653846153846153
+        }
+      },
+      "assessment": "人工复核：可用但更像全身小摆件。人物本体干净，也没有被提篮之类的小道具拖成脏背景；但保留原比例后整体仍偏小，更像桌角摆放的竖向小人，不是标准半身桌宠位。头部跟随明显，上身也被明显带动，且有 7 个表情和 `tap_body`；不过命中区为 `0`，不建议优先当主互动桌宠。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100026_yipinguo/model.json",
+      "ip": "食物语",
+      "model": "`100026_yipinguo`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 27099,
+      "dependencyCount": 6,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100026_yipinguo_.png",
+      "result": {
+        "ok": true,
+        "width": 350.1428571428571,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 529,
+          "width": 440,
+          "height": 530
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 81495,
+              "minX": 130,
+              "minY": 38,
+              "maxX": 411,
+              "maxY": 519,
+              "width": 282,
+              "height": 482
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 33.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 47,
+            "fillWidth": 0.9181395348837209,
+            "fillHeight": 1.1209302325581396,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 81495,
+              "minX": 130,
+              "minY": 38,
+              "maxX": 411,
+              "maxY": 519,
+              "width": 282,
+              "height": 482
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 33.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 47,
+            "fillWidth": 0.9181395348837209,
+            "fillHeight": 1.1209302325581396,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 199,
+        "previewFrame": {
+          "width": 307,
+          "height": 430,
+          "ratio": 0.7142857142857143
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 1
+          },
+          {
+            "name": "tap_body",
+            "count": 6
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.12875989214931016,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9283018867924528,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 18094,
+              "changedRatio": 0.07919847328244274,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9245283018867925
+            },
+            "rightToLeft": {
+              "changedPixels": 29417,
+              "changedRatio": 0.12875989214931016,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9283018867924528
+            },
+            "changedRatio": 0.12875989214931016,
+            "coverageWidth": 1,
+            "coverageHeight": 0.9283018867924528,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 9,
+                "neutral": -0.2280000001192093,
+                "focusRight": -0.22100000083446503,
+                "focusLeft": 0.2160000056028366,
+                "range": 0.4440000057220459
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 10,
+                "neutral": -0.07999999821186066,
+                "focusRight": -0.07999999821186066,
+                "focusLeft": 0.16599999368190765,
+                "range": 0.2459999918937683
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": -12.41688060760498,
+                "focusRight": -7.6508002281188965,
+                "focusLeft": 3.5360400676727295,
+                "range": 15.95292067527771
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -5.458559513092041,
+                "focusRight": -3.9825000762939453,
+                "focusLeft": 4.351920127868652,
+                "range": 9.810479640960693
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": 7.4625630378723145,
+                "focusRight": 2.0952000617980957,
+                "focusLeft": -4.1357598304748535,
+                "range": 11.598322868347168
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 22,
+                "neutral": -5.4039998054504395,
+                "focusRight": -1.0780999660491943,
+                "focusLeft": 5.193399906158447,
+                "range": 10.597399711608887
+              }
+            },
+            "eyeMaxDelta": 0.4440000057220459,
+            "headMaxDelta": 15.95292067527771,
+            "bodyMaxDelta": 10.597399711608887,
+            "controller": {
+              "neutral": {
+                "x": -0.2934677024203553,
+                "y": 0.20099160895369006,
+                "targetX": -0.8250478609109704,
+                "targetY": 0.5650628524387636
+              },
+              "focusRight": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8238307794253572,
+                "targetY": 0.5668358200320516
+              },
+              "focusLeft": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8262574220991727,
+                "targetY": 0.5632927058164605
+              },
+              "maxDelta": 0.5290511121908885
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.444 / 头部Δ16.0 / 上身Δ10.6 / 焦点Δ0.529"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.025041144337838783,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9264150943396227
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.10146456334477204,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9264150943396227
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量边距并自己绑定交互。人物主体很稳，放到右下角后存在感是这批里较好的一条；但长发和两侧薄纱会把横向占位撑开，接入时别裁太窄。头部跟随明显，上身也被明显带动，`tap_body` 反馈也足够清楚；不过命中区为 `0`，仍要工程侧自己绑定点击 / 悬停。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100027_gonbaojiding/model.json",
+      "ip": "食物语",
+      "model": "`100027_gonbaojiding`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 22333,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100027_gonbaojiding_.png",
+      "result": {
+        "ok": true,
+        "width": 350.1428571428571,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 529,
+          "width": 440,
+          "height": 530
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 78590,
+              "minX": 127,
+              "minY": 34,
+              "maxX": 401,
+              "maxY": 519,
+              "width": 275,
+              "height": 486
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 23.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 40.5,
+            "fillWidth": 0.8953488372093023,
+            "fillHeight": 1.130232558139535,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 78590,
+              "minX": 127,
+              "minY": 34,
+              "maxX": 401,
+              "maxY": 519,
+              "width": 275,
+              "height": 486
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 23.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 40.5,
+            "fillWidth": 0.8953488372093023,
+            "fillHeight": 1.130232558139535,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 192,
+        "previewFrame": {
+          "width": 307,
+          "height": 430,
+          "ratio": 0.7142857142857143
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.16462987604173962,
+          "coverageWidth": 1,
+          "coverageHeight": 0.939622641509434,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 37612,
+              "changedRatio": 0.16462987604173962,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9377358490566038
+            },
+            "rightToLeft": {
+              "changedPixels": 17046,
+              "changedRatio": 0.07461131731914,
+              "coverageWidth": 1,
+              "coverageHeight": 0.939622641509434
+            },
+            "changedRatio": 0.16462987604173962,
+            "coverageWidth": 1,
+            "coverageHeight": 0.939622641509434,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 9,
+                "neutral": 0.14842981100082397,
+                "focusRight": 0.12963777780532837,
+                "focusLeft": 0.14999961853027344,
+                "range": 0.02036184072494507
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 10,
+                "neutral": -0.2869642674922943,
+                "focusRight": -0.2513246238231659,
+                "focusLeft": -0.28999924659729004,
+                "range": 0.038674622774124146
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": -1.981354832649231,
+                "focusRight": -1.715166687965393,
+                "focusLeft": -2.1746623516082764,
+                "range": 0.4594956636428833
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": 1.0455539226531982,
+                "focusRight": 1.4924365282058716,
+                "focusLeft": -12.94579029083252,
+                "range": 14.438226819038391
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": 2.3333606719970703,
+                "focusRight": 2.0119667053222656,
+                "focusLeft": 2.435832977294922,
+                "range": 0.42386627197265625
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 22,
+                "neutral": -1.9896714687347412,
+                "focusRight": -1.7449390888214111,
+                "focusLeft": -2.128308057785034,
+                "range": 0.38336896896362305
+              }
+            },
+            "eyeMaxDelta": 0.038674622774124146,
+            "headMaxDelta": 14.438226819038391,
+            "bodyMaxDelta": 0.38336896896362305,
+            "controller": {
+              "neutral": {
+                "x": -0.2934677024203553,
+                "y": 0.20099160895369006,
+                "targetX": -0.8250478609109704,
+                "targetY": 0.5650628524387636
+              },
+              "focusRight": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8238307794253572,
+                "targetY": 0.5668358200320516
+              },
+              "focusLeft": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8262574220991727,
+                "targetY": 0.5632927058164605
+              },
+              "maxDelta": 0.5290511121908885
+            }
+          },
+          "followLevel": "head-clear",
+          "followLabel": "头部跟随明显",
+          "movementText": "头部跟随明显，身体基本不动",
+          "followSummary": "鼠标跟随：头部跟随明显，身体基本不动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.039 / 头部Δ14.4 / 上身Δ0.383 / 焦点Δ0.529"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.02334284613768471,
+          "coverageWidth": 1,
+          "coverageHeight": 0.939622641509434
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.04596347783458225,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9377358490566038
+        }
+      },
+      "assessment": "人工复核：适合但偏安静，建议留少量横向边距。红发、黑金服和侧边绳链缩到桌角后辨识度很高，画面也足够干净；但鼠标跟随主要落在头部，身体带动有限，整体更像常驻陪伴位。命中区为 `0`，动作组也仍只有 `idle / tap_body` 两档，接入时需要工程侧自行补交互。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100028_baxianguihainaoluohan/model.json",
+      "ip": "食物语",
+      "model": "`100028_baxianguihainaoluohan`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 24813,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100028_baxianguihainaoluohan_.png",
+      "result": {
+        "ok": true,
+        "width": 326.79999999999995,
+        "height": 490.2,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 77082,
+              "minX": 171,
+              "minY": 39,
+              "maxX": 384,
+              "maxY": 507,
+              "width": 214,
+              "height": 469
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 16.666666666666686,
+            "topOverflow": 0,
+            "bottomOverflow": 43,
+            "centerOffsetX": 54,
+            "fillWidth": 0.7465116279069769,
+            "fillHeight": 1.0906976744186045,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 77082,
+              "minX": 171,
+              "minY": 39,
+              "maxX": 384,
+              "maxY": 507,
+              "width": 214,
+              "height": 469
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 16.666666666666686,
+            "topOverflow": 0,
+            "bottomOverflow": 43,
+            "centerOffsetX": 54,
+            "fillWidth": 0.7465116279069769,
+            "fillHeight": 1.0906976744186045,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 155,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 4
+          },
+          {
+            "name": "tap_body",
+            "count": 4
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.17762535891869177,
+          "coverageWidth": 0.4909090909090909,
+          "coverageHeight": 0.9,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 40581,
+              "changedRatio": 0.17762535891869177,
+              "coverageWidth": 0.4909090909090909,
+              "coverageHeight": 0.9
+            },
+            "rightToLeft": {
+              "changedPixels": 15013,
+              "changedRatio": 0.06571275999719868,
+              "coverageWidth": 0.4863636363636364,
+              "coverageHeight": 0.8980769230769231
+            },
+            "changedRatio": 0.17762535891869177,
+            "coverageWidth": 0.4909090909090909,
+            "coverageHeight": 0.9,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 9,
+                "neutral": 0.03212833032011986,
+                "focusRight": 0.03085099533200264,
+                "focusLeft": 0.049849528819322586,
+                "range": 0.018998533487319946
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 10,
+                "neutral": 0.18643897771835327,
+                "focusRight": 0.17915236949920654,
+                "focusLeft": 0.2891289293766022,
+                "range": 0.10997655987739563
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": 0.20657044649124146,
+                "focusRight": 0.19822238385677338,
+                "focusLeft": 0.32127130031585693,
+                "range": 0.12304891645908356
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -12.863785743713379,
+                "focusRight": -12.3687744140625,
+                "focusLeft": -18.445724487304688,
+                "range": 6.0769500732421875
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": -1.637839913368225,
+                "focusRight": -1.5703272819519043,
+                "focusLeft": -2.5390748977661133,
+                "range": 0.968747615814209
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 22,
+                "neutral": 0.18423788249492645,
+                "focusRight": 0.17654749751091003,
+                "focusLeft": 0.2841184139251709,
+                "range": 0.10757091641426086
+              }
+            },
+            "eyeMaxDelta": 0.10997655987739563,
+            "headMaxDelta": 6.0769500732421875,
+            "bodyMaxDelta": 0.10757091641426086,
+            "controller": {
+              "neutral": {
+                "x": -0.2986431474473158,
+                "y": 0.19321798497147227,
+                "targetX": -0.8395979794198885,
+                "targetY": 0.5432082776928574
+              },
+              "focusRight": {
+                "x": -0.8371087820678705,
+                "y": 0.5441174456437163,
+                "targetX": -0.8384440909643461,
+                "targetY": 0.5449876203428581
+              },
+              "focusLeft": {
+                "x": -0.8371087820678705,
+                "y": 0.5441174456437163,
+                "targetX": -0.8407442659761831,
+                "targetY": 0.5414324327450001
+              },
+              "maxDelta": 0.5384656346205547
+            }
+          },
+          "followLevel": "head-clear",
+          "followLabel": "头部跟随明显",
+          "movementText": "头部跟随明显，眼睛也会同步偏转",
+          "followSummary": "鼠标跟随：头部跟随明显，眼睛也会同步偏转；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.110 / 头部Δ6.08 / 上身Δ0.108 / 焦点Δ0.538"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.030249842425940192,
+          "coverageWidth": 0.48409090909090907,
+          "coverageHeight": 0.8980769230769231
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.06718782827929126,
+          "coverageWidth": 0.48409090909090907,
+          "coverageHeight": 0.8980769230769231
+        }
+      },
+      "assessment": "人工复核：可用但需预留边距。人物本体很干净，裁到胸腰位后仍有角色感，不像大场景立绘；但披肩、宽袖和长下摆把左右与下缘都撑得更满，不适合太窄的右下角位。鼠标跟随主要集中在头部，默认交互也只有 `idle / tap_body` 与 6 个表情，命中区为 `0`，更适合作安静陪伴位。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100029_mapodoufu/model.json",
+      "ip": "食物语",
+      "model": "`100029_mapodoufu`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 23298,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100029_mapodoufu_.png",
+      "result": {
+        "ok": true,
+        "width": 350.1428571428571,
+        "height": 490.19999999999993,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 529,
+          "width": 440,
+          "height": 530
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 55571,
+              "minX": 146,
+              "minY": 46,
+              "maxX": 394,
+              "maxY": 519,
+              "width": 249,
+              "height": 474
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 16.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 46.5,
+            "fillWidth": 0.8106976744186046,
+            "fillHeight": 1.1023255813953488,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 55571,
+              "minX": 146,
+              "minY": 46,
+              "maxX": 394,
+              "maxY": 519,
+              "width": 249,
+              "height": 474
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 16.428571428571445,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 46.5,
+            "fillWidth": 0.8106976744186046,
+            "fillHeight": 1.1023255813953488,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 179,
+        "previewFrame": {
+          "width": 307,
+          "height": 430,
+          "ratio": 0.7142857142857143
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 6,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.15665925484977938,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9169811320754717,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 35791,
+              "changedRatio": 0.15665925484977938,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9113207547169812
+            },
+            "rightToLeft": {
+              "changedPixels": 26682,
+              "changedRatio": 0.11678864066111072,
+              "coverageWidth": 1,
+              "coverageHeight": 0.9169811320754717
+            },
+            "changedRatio": 0.15665925484977938,
+            "coverageWidth": 1,
+            "coverageHeight": 0.9169811320754717,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 7,
+                "neutral": 0.46817055344581604,
+                "focusRight": 0.47699999809265137,
+                "focusLeft": -0.21899999678134918,
+                "range": 0.6959999948740005
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 8,
+                "neutral": -0.04914018511772156,
+                "focusRight": -0.07145000249147415,
+                "focusLeft": 0.03889999911189079,
+                "range": 0.11035000160336494
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": 17.20932388305664,
+                "focusRight": 17.766450881958008,
+                "focusLeft": -0.2759999930858612,
+                "range": 18.04245087504387
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -12.375910758972168,
+                "focusRight": -12.724100112915039,
+                "focusLeft": 1.784000039100647,
+                "range": 14.508100152015686
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": -12.385910987854004,
+                "focusRight": -12.366000175476074,
+                "focusLeft": 2.309999942779541,
+                "range": 14.695910930633545
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 21,
+                "neutral": 7.035611152648926,
+                "focusRight": 7.127049922943115,
+                "focusLeft": 1.9580000638961792,
+                "range": 5.169049859046936
+              }
+            },
+            "eyeMaxDelta": 0.6959999948740005,
+            "headMaxDelta": 18.04245087504387,
+            "bodyMaxDelta": 5.169049859046936,
+            "controller": {
+              "neutral": {
+                "x": -0.2934677024203553,
+                "y": 0.20099160895369006,
+                "targetX": -0.8250478609109704,
+                "targetY": 0.5650628524387636
+              },
+              "focusRight": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8238307794253572,
+                "targetY": 0.5668358200320516
+              },
+              "focusLeft": {
+                "x": -0.8225188146112438,
+                "y": 0.5659308272955808,
+                "targetX": -0.8262574220991727,
+                "targetY": 0.5632927058164605
+              },
+              "maxDelta": 0.5290511121908885
+            }
+          },
+          "followLevel": "upper-body-clear",
+          "followLabel": "上身也明显跟随",
+          "movementText": "头部跟随明显，上身也被明显带动",
+          "followSummary": "鼠标跟随：头部跟随明显，上身也被明显带动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.696 / 头部Δ18.0 / 上身Δ5.17 / 焦点Δ0.529"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.03268348623853211,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9169811320754717
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.09724508018768821,
+          "coverageWidth": 1,
+          "coverageHeight": 0.9169811320754717
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。红白配色、角饰和长侧带在右下角辨识度高，人物主体也很纯净；头部跟随明显，上身也被明显带动，`tap_body` 反馈够直观，是这批里更接近可接入桌宠的一条。不过命中区为 `0`，默认点击仍要工程侧自己接动作。",
+      "reviewMethod": "visual+numeric-browser-probe",
+      "source": "evaluate-live2d-desktop-pet.mjs"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/xiarimangguo/aLive2D/main/model/100034_baozaifan/model.json",
+      "ip": "食物语",
+      "model": "`100034_baozaifan`",
+      "runtime": "Cubism 2.1",
+      "resourceType": "竖向食魂立绘",
+      "status": "ok",
+      "durationMs": 31138,
+      "dependencyCount": 5,
+      "reviewImagePath": "/tmp/live2d-manual-review/_-_100034_baozaifan_.png",
+      "result": {
+        "ok": true,
+        "width": 304.26206896551724,
+        "height": 490.2,
+        "visibleBounds": {
+          "count": 228464,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 519,
+          "width": 440,
+          "height": 520
+        },
+        "placementProbe": {
+          "adjusted": false,
+          "before": {
+            "bounds": {
+              "count": 50566,
+              "minX": 180,
+              "minY": 50,
+              "maxX": 350,
+              "maxY": 519,
+              "width": 171,
+              "height": 470
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 0,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 41.5,
+            "fillWidth": 0.6406976744186046,
+            "fillHeight": 1.0930232558139534,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          },
+          "after": {
+            "bounds": {
+              "count": 50566,
+              "minX": 180,
+              "minY": 50,
+              "maxX": 350,
+              "maxY": 519,
+              "width": 171,
+              "height": 470
+            },
+            "issueLevel": "good",
+            "needsAdjustment": false,
+            "summaryText": "主体主要落在方形预览区内，半身结构保持正常",
+            "leftOverflow": 0,
+            "rightOverflow": 0,
+            "topOverflow": 0,
+            "bottomOverflow": 55,
+            "centerOffsetX": 41.5,
+            "fillWidth": 0.6406976744186046,
+            "fillHeight": 1.0930232558139534,
+            "mostlyOutside": false,
+            "headTooLow": false,
+            "cropTooWeak": false
+          }
+        },
+        "targetDeskpetWidth": 124,
+        "previewFrame": {
+          "width": 267,
+          "height": 430,
+          "ratio": 0.6206896551724138
+        },
+        "textureCount": 1,
+        "texturePixels": 1048576,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 7,
+        "motionGroups": [
+          {
+            "name": "idle",
+            "count": 3
+          },
+          {
+            "name": "tap_body",
+            "count": 3
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "tap_body"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0930693676027733,
+          "coverageWidth": 0.39545454545454545,
+          "coverageHeight": 0.9038461538461539,
+          "visual": {
+            "neutralToRight": {
+              "changedPixels": 21263,
+              "changedRatio": 0.0930693676027733,
+              "coverageWidth": 0.39545454545454545,
+              "coverageHeight": 0.9038461538461539
+            },
+            "rightToLeft": {
+              "changedPixels": 13240,
+              "changedRatio": 0.05795223755164928,
+              "coverageWidth": 0.39545454545454545,
+              "coverageHeight": 0.9019230769230769
+            },
+            "changedRatio": 0.0930693676027733,
+            "coverageWidth": 0.39545454545454545,
+            "coverageHeight": 0.9038461538461539,
+            "visibilityLevel": "clear",
+            "visibilityText": "画面上能直接看出跟随",
+            "motionAreaLevel": "body",
+            "motionAreaText": "视觉上能看到头肩到上半身都在动"
+          },
+          "numeric": {
+            "available": true,
+            "parameters": {
+              "eyeBallX": {
+                "label": "眼球水平",
+                "axis": "eye",
+                "index": 7,
+                "neutral": 0.5329999923706055,
+                "focusRight": 0.5256900191307068,
+                "focusLeft": 0.5000399947166443,
+                "range": 0.03295999765396118
+              },
+              "eyeBallY": {
+                "label": "眼球垂直",
+                "axis": "eye",
+                "index": 8,
+                "neutral": 0.335999995470047,
+                "focusRight": 0.31668999791145325,
+                "focusLeft": 0.2500799894332886,
+                "range": 0.08592000603675842
+              },
+              "angleX": {
+                "label": "头部水平",
+                "axis": "head",
+                "index": 0,
+                "neutral": -1.6495000123977661,
+                "focusRight": -2.4361701011657715,
+                "focusLeft": -2.3574399948120117,
+                "range": 0.7866700887680054
+              },
+              "angleY": {
+                "label": "头部垂直",
+                "axis": "head",
+                "index": 1,
+                "neutral": -9.266499519348145,
+                "focusRight": -8.360549926757812,
+                "focusLeft": -8.221600532531738,
+                "range": 1.0448989868164062
+              },
+              "angleZ": {
+                "label": "头部倾斜",
+                "axis": "head",
+                "index": 2,
+                "neutral": 7.314000129699707,
+                "focusRight": 7.759759902954102,
+                "focusLeft": 5.428400039672852,
+                "range": 2.33135986328125
+              },
+              "bodyAngleX": {
+                "label": "身体水平",
+                "axis": "body",
+                "index": 23,
+                "neutral": -2.659299850463867,
+                "focusRight": -2.7156200408935547,
+                "focusLeft": -2.472399950027466,
+                "range": 0.24322009086608887
+              }
+            },
+            "eyeMaxDelta": 0.08592000603675842,
+            "headMaxDelta": 2.33135986328125,
+            "bodyMaxDelta": 0.24322009086608887,
+            "controller": {
+              "neutral": {
+                "x": -0.3037265316787222,
+                "y": 0.18512458828607675,
+                "targetX": -0.8538892804786435,
+                "targetY": 0.5204547018556605
+              },
+              "focusRight": {
+                "x": -0.8514451629518393,
+                "y": 0.5213981680717649,
+                "targetX": -0.8528034146494907,
+                "targetY": 0.5222320709820193
+              },
+              "focusLeft": {
+                "x": -0.8514451629518393,
+                "y": 0.5213981680717649,
+                "targetX": -0.8549675440202865,
+                "targetY": 0.5186815002213974
+              },
+              "maxDelta": 0.547718631273117
+            }
+          },
+          "followLevel": "head-light",
+          "followLabel": "头部轻微跟随",
+          "movementText": "眼睛会跟，头部也有轻微带动，身体基本不动",
+          "followSummary": "鼠标跟随：眼睛会跟，头部也有轻微带动，身体基本不动；画面上能直接看出跟随。",
+          "parameterSummary": "眼睛Δ0.086 / 头部Δ2.33 / 上身Δ0.243 / 焦点Δ0.548"
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.03340132362210239,
+          "coverageWidth": 0.38636363636363635,
+          "coverageHeight": 0.9019230769230769
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "tap_body",
+          "groupLabel": "tap_body",
+          "touchLike": true,
+          "changedRatio": 0.059943798585335106,
+          "coverageWidth": 0.3886363636363636,
+          "coverageHeight": 0.9019230769230769
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。斗笠和白青配色让桌角辨识度不错，画面也很干净；但角色体积偏小，更像低干扰陪伴 / 装饰位，眼睛会跟、头部也有轻微带动，身体基本不动。虽然有 7 个表情和 `tap_body`，命中区仍为 `0`，不建议优先当主互动桌宠。",
       "reviewMethod": "visual+numeric-browser-probe",
       "source": "evaluate-live2d-desktop-pet.mjs"
     },
