@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-12T00:28:41.644Z",
+  "generatedAt": "2026-04-12T00:50:30.440Z",
   "note": "Only human-reviewed deskpet assessments are kept in this file. Unreviewed auto-run records are intentionally omitted.",
   "stats": {
-    "reviewed": 175
+    "reviewed": 185
   },
   "results": [
     {
@@ -6467,6 +6467,219 @@
         }
       },
       "assessment": "人工复核：适合但需自己绑定交互。猫耳和蓝白袖饰缩到桌角后很像成品挂件，`touch_body` 会切出招手 / 猫爪姿态，是这批里最有桌宠感的一条；但命中区、表情都为 0，仍需工程侧手动绑定点击 / 闲置动作。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/001/001_001/001.model3.json",
+      "ip": "CUE!",
+      "model": "`001 / 001_001`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 20303,
+      "dependencyCount": 5,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 592.880758492322,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 262898,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1193,
+          "width": 440,
+          "height": 1194
+        },
+        "targetDeskpetWidth": 125,
+        "previewFrame": {
+          "width": 304,
+          "height": 430,
+          "ratio": 0.7070730572359237
+        },
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 14,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 99
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.1097231625953792,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7629815745393634
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.00823893677395796,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7010050251256281
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。红色制服胸像位很干净，裁到头肩到腰部之后自然，右下角不会显得像整张立绘缩略图；有 `14` 个表情可轮播，但动作组只有 `1` 组且未命名、命中区为 `0`，浏览器里主要还是视线 / 躯干轻跟随，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/016/016_013/016.model3.json",
+      "ip": "CUE!",
+      "model": "`016 / 016_013`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 21611,
+      "dependencyCount": 5,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 592.880758492322,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 263003,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1201,
+          "width": 440,
+          "height": 1202
+        },
+        "targetDeskpetWidth": 124,
+        "previewFrame": {
+          "width": 304,
+          "height": 430,
+          "ratio": 0.7070730572359237
+        },
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 13,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 93
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.12218872028075725,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7512479201331115
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.01188579597951354,
+          "coverageWidth": 1,
+          "coverageHeight": 0.6955074875207987
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但偏安静。双团子和红格裙裁到胸腰位后很自然，角色主体纯净、桌角辨识度也不错；有 `13` 个表情，但动作组仍只有 `1` 组且未命名、命中区为 `0`，默认几乎没有像样点击反馈，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/Cpk0521/CUE-live2d-Viewer/master/live2d/103/103_001/103.model3.json",
+      "ip": "CUE!",
+      "model": "`103 / 103_001`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身",
+      "status": "ok",
+      "durationMs": 21357,
+      "dependencyCount": 5,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 592.880758492322,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 265922,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1175,
+          "width": 440,
+          "height": 1176
+        },
+        "targetDeskpetWidth": 127,
+        "previewFrame": {
+          "width": 304,
+          "height": 430,
+          "ratio": 0.7070730572359237
+        },
+        "textureCount": 2,
+        "texturePixels": 2097152,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024
+          },
+          {
+            "width": 1024,
+            "height": 1024
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 15,
+        "motionGroups": [
+          {
+            "name": "",
+            "count": 75
+          }
+        ],
+        "touchLikeMotionGroups": [],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.12148675175427381,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7950680272108843
+        },
+        "expressionProbe": {
+          "supported": true,
+          "chosen": 0,
+          "changedRatio": 0.009122975910229316,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7925170068027211
+        },
+        "motionProbe": {
+          "supported": false
+        }
+      },
+      "assessment": "人工复核：可用但不优先。黑色披肩和白衬衣的胸像位很干净，但披肩会把左右占位撑宽，右下角要留边；虽然有 `15` 个表情可轮播，动作组仍只有 `1` 组且未命名、命中区为 `0`，整体更像安静陪伴位，不建议当主互动桌宠。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
@@ -45441,6 +45654,2460 @@
       "source": "summary-md-human-review"
     },
     {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_band/23len_band.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "镜音连 `23len_band`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 乐队风",
+      "status": "ok",
+      "durationMs": 32093,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 263025,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1010,
+          "width": 440,
+          "height": 1011
+        },
+        "targetDeskpetWidth": 148,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "l-adult05-pose",
+            "count": 1
+          },
+          {
+            "name": "l-adult16-nod",
+            "count": 1
+          },
+          {
+            "name": "l-adult16-tilthead",
+            "count": 1
+          },
+          {
+            "name": "l-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-angry",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-forward",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-sigh",
+            "count": 1
+          },
+          {
+            "name": "l-normal14-angry",
+            "count": 1
+          },
+          {
+            "name": "l-normal14-sigh",
+            "count": 1
+          },
+          {
+            "name": "l-normal16-angryB",
+            "count": 1
+          },
+          {
+            "name": "l-normal16-pose",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-angry",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-nod",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-tilthead",
+            "count": 1
+          },
+          {
+            "name": "l-special15-forward",
+            "count": 1
+          },
+          {
+            "name": "l-special15-tilthead",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "n-adult-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-posetrouble01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "n-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry01",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry02",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry03",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry04",
+            "count": 1
+          },
+          {
+            "name": "n-len-glad01",
+            "count": 1
+          },
+          {
+            "name": "n-len-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-len-lookside01",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-len-plan01",
+            "count": 1
+          },
+          {
+            "name": "n-len-plan02",
+            "count": 1
+          },
+          {
+            "name": "n-len-poseangry02",
+            "count": 1
+          },
+          {
+            "name": "n-len-regret01",
+            "count": 1
+          },
+          {
+            "name": "n-len-regret02",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-len-smug01",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-len-tiltheadshakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-wandahoi",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-blushed01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-fidget01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-forward01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-forward05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-lookaway01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-pose03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-pose05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-posenod01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shy01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-sigh01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead05",
+            "count": 1
+          },
+          {
+            "name": "n-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-angry02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-posenod04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-poseshakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "w-happy-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_disgust_01",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_guruguru_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_kirakira_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_lookaway_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_lookaway_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_sad_03",
+            "count": 1
+          },
+          {
+            "name": "face_sad_04",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_sneeze_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          },
+          {
+            "name": "face_twinkle_01",
+            "count": 1
+          },
+          {
+            "name": "face_wink_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "l-adult16-tilthead",
+          "l-proud16-tilthead",
+          "l-special15-tilthead",
+          "n-adult-shakehead01",
+          "n-adult-shakehead02",
+          "n-adult-shakehead03",
+          "n-adult-tilthead01",
+          "n-adult-tilthead02",
+          "n-adult-tilthead03",
+          "n-cool-shakehead01",
+          "n-cool-tilthead01",
+          "n-cool-tilthead02",
+          "n-cool-tilthead03",
+          "n-cool-tilthead04",
+          "n-len-shakehead01",
+          "n-len-shakehead02",
+          "n-len-shakehead03",
+          "n-len-tilthead01",
+          "n-len-tilthead02",
+          "n-len-tilthead03",
+          "n-len-tiltheadshakehead01",
+          "n-lennight-posetilthead02",
+          "n-lennight-shakehead01",
+          "n-lennight-tilthead01",
+          "n-lennight-tilthead02",
+          "n-lennight-tilthead03",
+          "n-lennight-tilthead04",
+          "n-lennight-tilthead05",
+          "n-normal-poseshakehead01",
+          "n-normal-shakehead01",
+          "n-normal-shakehead02",
+          "n-normal-shakehead03",
+          "n-normal-shakehead04",
+          "n-normal-tilthead01",
+          "n-normal-tilthead02",
+          "n-normal-tilthead03",
+          "n-normal-tilthead04"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.0914361752685106,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7606330365974283
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "l-adult16-tilthead",
+          "touchLike": true,
+          "changedRatio": 0.021427620948579033,
+          "coverageWidth": 1,
+          "coverageHeight": 0.751730959446093
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。黑金乐队服缩到桌角后辨识度高，胸腰位也保持得很干净；但双臂外展明显、默认仍是 `0` 命中区、`0` 表情，触发动幅也偏轻，需要工程侧补点击 / 悬停。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_normal/23len_normal.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "镜音连 `23len_normal`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 标准立绘",
+      "status": "ok",
+      "durationMs": 31502,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 261057,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1005,
+          "width": 440,
+          "height": 1006
+        },
+        "targetDeskpetWidth": 149,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "l-adult05-pose",
+            "count": 1
+          },
+          {
+            "name": "l-adult16-nod",
+            "count": 1
+          },
+          {
+            "name": "l-adult16-tilthead",
+            "count": 1
+          },
+          {
+            "name": "l-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-angry",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-forward",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-sigh",
+            "count": 1
+          },
+          {
+            "name": "l-normal14-angry",
+            "count": 1
+          },
+          {
+            "name": "l-normal14-sigh",
+            "count": 1
+          },
+          {
+            "name": "l-normal16-angryB",
+            "count": 1
+          },
+          {
+            "name": "l-normal16-pose",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-angry",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-nod",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-tilthead",
+            "count": 1
+          },
+          {
+            "name": "l-special15-forward",
+            "count": 1
+          },
+          {
+            "name": "l-special15-tilthead",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "n-adult-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-posetrouble01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "n-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry01",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry02",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry03",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry04",
+            "count": 1
+          },
+          {
+            "name": "n-len-glad01",
+            "count": 1
+          },
+          {
+            "name": "n-len-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-len-lookside01",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-len-plan01",
+            "count": 1
+          },
+          {
+            "name": "n-len-plan02",
+            "count": 1
+          },
+          {
+            "name": "n-len-poseangry02",
+            "count": 1
+          },
+          {
+            "name": "n-len-regret01",
+            "count": 1
+          },
+          {
+            "name": "n-len-regret02",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-len-smug01",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-len-tiltheadshakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-wandahoi",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-blushed01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-fidget01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-forward01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-forward05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-lookaway01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-pose03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-pose05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-posenod01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shy01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-sigh01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead05",
+            "count": 1
+          },
+          {
+            "name": "n-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-angry02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-posenod04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-poseshakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "w-happy-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_disgust_01",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_guruguru_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_kirakira_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_lookaway_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_lookaway_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_sad_03",
+            "count": 1
+          },
+          {
+            "name": "face_sad_04",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_sneeze_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          },
+          {
+            "name": "face_twinkle_01",
+            "count": 1
+          },
+          {
+            "name": "face_wink_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "l-adult16-tilthead",
+          "l-proud16-tilthead",
+          "l-special15-tilthead",
+          "n-adult-shakehead01",
+          "n-adult-shakehead02",
+          "n-adult-shakehead03",
+          "n-adult-tilthead01",
+          "n-adult-tilthead02",
+          "n-adult-tilthead03",
+          "n-cool-shakehead01",
+          "n-cool-tilthead01",
+          "n-cool-tilthead02",
+          "n-cool-tilthead03",
+          "n-cool-tilthead04",
+          "n-len-shakehead01",
+          "n-len-shakehead02",
+          "n-len-shakehead03",
+          "n-len-tilthead01",
+          "n-len-tilthead02",
+          "n-len-tilthead03",
+          "n-len-tiltheadshakehead01",
+          "n-lennight-posetilthead02",
+          "n-lennight-shakehead01",
+          "n-lennight-tilthead01",
+          "n-lennight-tilthead02",
+          "n-lennight-tilthead03",
+          "n-lennight-tilthead04",
+          "n-lennight-tilthead05",
+          "n-normal-poseshakehead01",
+          "n-normal-shakehead01",
+          "n-normal-shakehead02",
+          "n-normal-shakehead03",
+          "n-normal-shakehead04",
+          "n-normal-tilthead01",
+          "n-normal-tilthead02",
+          "n-normal-tilthead03",
+          "n-normal-tilthead04"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.07157440712181631,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7594433399602386
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "l-adult16-tilthead",
+          "touchLike": true,
+          "changedRatio": 0.015904572564612324,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7196819085487077
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。标准服胸像位是这组里最干净稳定的一条，裁到胸腰后不会像整张立绘缩略图；但默认仍是 `0` 命中区、`0` 表情，触发动幅比 `band / wonder` 更轻，更适合作低干扰陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/23len/23len_wonder/23len_wonder.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "镜音连 `23len_wonder`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 游乐舞台风",
+      "status": "ok",
+      "durationMs": 30664,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 282655,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1048,
+          "width": 440,
+          "height": 1049
+        },
+        "targetDeskpetWidth": 143,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "l-adult05-pose",
+            "count": 1
+          },
+          {
+            "name": "l-adult16-nod",
+            "count": 1
+          },
+          {
+            "name": "l-adult16-tilthead",
+            "count": 1
+          },
+          {
+            "name": "l-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-angry",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-forward",
+            "count": 1
+          },
+          {
+            "name": "l-normal13-sigh",
+            "count": 1
+          },
+          {
+            "name": "l-normal14-angry",
+            "count": 1
+          },
+          {
+            "name": "l-normal14-sigh",
+            "count": 1
+          },
+          {
+            "name": "l-normal16-angryB",
+            "count": 1
+          },
+          {
+            "name": "l-normal16-pose",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-angry",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-nod",
+            "count": 1
+          },
+          {
+            "name": "l-proud16-tilthead",
+            "count": 1
+          },
+          {
+            "name": "l-special15-forward",
+            "count": 1
+          },
+          {
+            "name": "l-special15-tilthead",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "n-adult-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-posetrouble01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "n-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry01",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry02",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry03",
+            "count": 1
+          },
+          {
+            "name": "n-len-angry04",
+            "count": 1
+          },
+          {
+            "name": "n-len-glad01",
+            "count": 1
+          },
+          {
+            "name": "n-len-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-len-lookside01",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-len-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-len-plan01",
+            "count": 1
+          },
+          {
+            "name": "n-len-plan02",
+            "count": 1
+          },
+          {
+            "name": "n-len-poseangry02",
+            "count": 1
+          },
+          {
+            "name": "n-len-regret01",
+            "count": 1
+          },
+          {
+            "name": "n-len-regret02",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-len-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-len-smug01",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-len-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-len-tiltheadshakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-len-wandahoi",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-blushed01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-fidget01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-forward01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-forward05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-lookaway01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-nod05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-pose03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-pose05",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-posenod01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-shy01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-sigh01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "n-lennight-tilthead05",
+            "count": 1
+          },
+          {
+            "name": "n-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-angry02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-posenod02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-posenod04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-poseshakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "n-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "n-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "w-happy-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_disgust_01",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_guruguru_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_kirakira_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_lookaway_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_lookaway_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_sad_03",
+            "count": 1
+          },
+          {
+            "name": "face_sad_04",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_sneeze_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          },
+          {
+            "name": "face_twinkle_01",
+            "count": 1
+          },
+          {
+            "name": "face_wink_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "l-adult16-tilthead",
+          "l-proud16-tilthead",
+          "l-special15-tilthead",
+          "n-adult-shakehead01",
+          "n-adult-shakehead02",
+          "n-adult-shakehead03",
+          "n-adult-tilthead01",
+          "n-adult-tilthead02",
+          "n-adult-tilthead03",
+          "n-cool-shakehead01",
+          "n-cool-tilthead01",
+          "n-cool-tilthead02",
+          "n-cool-tilthead03",
+          "n-cool-tilthead04",
+          "n-len-shakehead01",
+          "n-len-shakehead02",
+          "n-len-shakehead03",
+          "n-len-tilthead01",
+          "n-len-tilthead02",
+          "n-len-tilthead03",
+          "n-len-tiltheadshakehead01",
+          "n-lennight-posetilthead02",
+          "n-lennight-shakehead01",
+          "n-lennight-tilthead01",
+          "n-lennight-tilthead02",
+          "n-lennight-tilthead03",
+          "n-lennight-tilthead04",
+          "n-lennight-tilthead05",
+          "n-normal-poseshakehead01",
+          "n-normal-shakehead01",
+          "n-normal-shakehead02",
+          "n-normal-shakehead03",
+          "n-normal-shakehead04",
+          "n-normal-tilthead01",
+          "n-normal-tilthead02",
+          "n-normal-tilthead03",
+          "n-normal-tilthead04"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.08968176752578232,
+          "coverageWidth": 1,
+          "coverageHeight": 0.76930409914204
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "l-adult16-tilthead",
+          "touchLike": true,
+          "changedRatio": 0.02925828306592843,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7626310772163966
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。游乐舞台风橙色外套很有桌宠感，触发栏里的摇头反馈也比另外两条更明显；但袖口和手臂仍会把两侧撑开，默认还是 `0` 命中区、`0` 表情，需要工程侧显式绑定交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
       "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/12touya/12touya_normal/12touya_normal.model3.json",
       "ip": "Project SEKAI / Vocaloid",
       "model": "青柳冬弥 `12touya_normal`",
@@ -64041,6 +66708,2954 @@
         }
       },
       "assessment": "人工复核：可用但偏安静。披肩和墨镜增加了角色感，画面仍算干净；不过披肩横向占位明显、默认动作反馈是这批里最轻的一档，仍是 `0` 命中区、`0` 表情，不建议优先当主互动桌宠。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_idol/26kaito_idol.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "KAITO `26kaito_idol`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 偶像风",
+      "status": "ok",
+      "durationMs": 33346,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 290958,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1146,
+          "width": 440,
+          "height": 1147
+        },
+        "targetDeskpetWidth": 130,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "m-adult-angrynod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-forwardnod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-adultnormal-tilthead0304",
+            "count": 1
+          },
+          {
+            "name": "m-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "m-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forwardnod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookside",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nodtilthead0301",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose05",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-normaladult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0103",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0302",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-glad01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01l",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01r",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_mercy_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_shy_01",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_smile_07",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_01",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_03",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "m-adult-shakehead01",
+          "m-adult-shakehead02",
+          "m-adult-shakehead03",
+          "m-adult-tilthead01",
+          "m-adult-tilthead02",
+          "m-adult-tilthead03",
+          "m-adultnormal-tilthead0304",
+          "m-cool-posetilthead02",
+          "m-cool-shakehead01",
+          "m-cool-tilthead01",
+          "m-cool-tilthead01r",
+          "m-cool-tilthead02",
+          "m-cool-tilthead03",
+          "m-cool-tilthead04",
+          "m-normal-nodtilthead0301",
+          "m-normal-shakehead01",
+          "m-normal-shakehead02",
+          "m-normal-shakehead03",
+          "m-normal-shakehead04",
+          "m-normal-tilthead01",
+          "m-normal-tilthead02",
+          "m-normal-tilthead03",
+          "m-normal-tilthead04",
+          "m-normaladult-tilthead03",
+          "m-normalcool-tilthead0103",
+          "m-normalcool-tilthead0302",
+          "m-tsukasa-shakehead01",
+          "m-tsukasa-shakehead02",
+          "m-tsukasa-shakehead03",
+          "m-tsukasa-tilthead01",
+          "m-tsukasa-tilthead02",
+          "m-tsukasa-tilthead03"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.13781714199300243,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7994768962510898
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "m-adult-shakehead01",
+          "touchLike": true,
+          "changedRatio": 0.038978134301170614,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7968613775065388
+        }
+      },
+      "assessment": "人工复核：适合但需自己绑定交互。白蓝偶像服胸像位最规整，头肩比例和桌角体积都很舒服；这组里 `shakehead` 动幅也最明显，但默认仍是 `0` 命中区、`0` 表情，接入时要手动绑定点击 / 闲置。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_night/26kaito_night.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "KAITO `26kaito_night`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 夜曲风",
+      "status": "ok",
+      "durationMs": 33070,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 282534,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1060,
+          "width": 440,
+          "height": 1061
+        },
+        "targetDeskpetWidth": 141,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "m-adult-angrynod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-forwardnod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-adultnormal-tilthead0304",
+            "count": 1
+          },
+          {
+            "name": "m-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "m-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forwardnod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookside",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nodtilthead0301",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose05",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-normaladult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0103",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0302",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-glad01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01l",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01r",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_mercy_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_shy_01",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_smile_07",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_01",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_03",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "m-adult-shakehead01",
+          "m-adult-shakehead02",
+          "m-adult-shakehead03",
+          "m-adult-tilthead01",
+          "m-adult-tilthead02",
+          "m-adult-tilthead03",
+          "m-adultnormal-tilthead0304",
+          "m-cool-posetilthead02",
+          "m-cool-shakehead01",
+          "m-cool-tilthead01",
+          "m-cool-tilthead01r",
+          "m-cool-tilthead02",
+          "m-cool-tilthead03",
+          "m-cool-tilthead04",
+          "m-normal-nodtilthead0301",
+          "m-normal-shakehead01",
+          "m-normal-shakehead02",
+          "m-normal-shakehead03",
+          "m-normal-shakehead04",
+          "m-normal-tilthead01",
+          "m-normal-tilthead02",
+          "m-normal-tilthead03",
+          "m-normal-tilthead04",
+          "m-normaladult-tilthead03",
+          "m-normalcool-tilthead0103",
+          "m-normalcool-tilthead0302",
+          "m-tsukasa-shakehead01",
+          "m-tsukasa-shakehead02",
+          "m-tsukasa-shakehead03",
+          "m-tsukasa-tilthead01",
+          "m-tsukasa-tilthead02",
+          "m-tsukasa-tilthead03"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.10069938485279648,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7813383600377003
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "m-adult-shakehead01",
+          "touchLike": true,
+          "changedRatio": 0.01753063348128013,
+          "coverageWidth": 1,
+          "coverageHeight": 0.706880301602262
+        }
+      },
+      "assessment": "人工复核：适合但偏安静。夜曲风灰黑胸像位很干净，成熟感强，右下角观感也很稳；但默认反馈收敛，仍是 `0` 命中区、`0` 表情，更适合作安静陪伴位。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_street/26kaito_street.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "KAITO `26kaito_street`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 街头风",
+      "status": "ok",
+      "durationMs": 69449,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 282840,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1051,
+          "width": 440,
+          "height": 1052
+        },
+        "targetDeskpetWidth": 142,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "m-adult-angrynod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-forwardnod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-adultnormal-tilthead0304",
+            "count": 1
+          },
+          {
+            "name": "m-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "m-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forwardnod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookside",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nodtilthead0301",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose05",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-normaladult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0103",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0302",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-glad01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01l",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01r",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_mercy_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_shy_01",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_smile_07",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_01",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_03",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "m-adult-shakehead01",
+          "m-adult-shakehead02",
+          "m-adult-shakehead03",
+          "m-adult-tilthead01",
+          "m-adult-tilthead02",
+          "m-adult-tilthead03",
+          "m-adultnormal-tilthead0304",
+          "m-cool-posetilthead02",
+          "m-cool-shakehead01",
+          "m-cool-tilthead01",
+          "m-cool-tilthead01r",
+          "m-cool-tilthead02",
+          "m-cool-tilthead03",
+          "m-cool-tilthead04",
+          "m-normal-nodtilthead0301",
+          "m-normal-shakehead01",
+          "m-normal-shakehead02",
+          "m-normal-shakehead03",
+          "m-normal-shakehead04",
+          "m-normal-tilthead01",
+          "m-normal-tilthead02",
+          "m-normal-tilthead03",
+          "m-normal-tilthead04",
+          "m-normaladult-tilthead03",
+          "m-normalcool-tilthead0103",
+          "m-normalcool-tilthead0302",
+          "m-tsukasa-shakehead01",
+          "m-tsukasa-shakehead02",
+          "m-tsukasa-shakehead03",
+          "m-tsukasa-tilthead01",
+          "m-tsukasa-tilthead02",
+          "m-tsukasa-tilthead03"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.09028779521991231,
+          "coverageWidth": 1,
+          "coverageHeight": 0.779467680608365
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "m-adult-shakehead01",
+          "touchLike": true,
+          "changedRatio": 0.018823363032102955,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7756653992395437
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。街头风蓝外套在桌角角色感很强，胸腰裁切也保持干净；但外套和手臂横向外扩明显，默认仍是 `0` 命中区、`0` 表情，动作也偏轻，需要工程侧显式绑定交互。",
+      "manualReviewed": true,
+      "source": "summary-md-human-review"
+    },
+    {
+      "manifestUrl": "https://raw.githubusercontent.com/lezzthanthree/SEKAI-Stories/master/public/live2d/model/26kaito/26kaito_wonder/26kaito_wonder.model3.json",
+      "ip": "Project SEKAI / Vocaloid",
+      "model": "KAITO `26kaito_wonder`",
+      "runtime": "Cubism 4",
+      "resourceType": "全身 / 游乐舞台风",
+      "status": "ok",
+      "durationMs": 89604,
+      "dependencyCount": 4,
+      "reviewImagePath": null,
+      "result": {
+        "ok": true,
+        "width": 559,
+        "height": 838.5,
+        "visibleBounds": {
+          "count": 289690,
+          "minX": 0,
+          "minY": 0,
+          "maxX": 439,
+          "maxY": 1060,
+          "width": 440,
+          "height": 1061
+        },
+        "targetDeskpetWidth": 141,
+        "previewFrame": {
+          "width": 287,
+          "height": 430,
+          "ratio": 0.6666666666666666
+        },
+        "textureCount": 1,
+        "texturePixels": 4194304,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048
+          }
+        ],
+        "hitAreas": [],
+        "expressionsCount": 0,
+        "motionGroups": [
+          {
+            "name": "m-adult-angrynod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-forwardnod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-nod11",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-posenod03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-adult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-adultnormal-tilthead0304",
+            "count": 1
+          },
+          {
+            "name": "m-cool-blushed01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-disgust01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-posetilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-think02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead01r",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-cool-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-cool-trouble01",
+            "count": 1
+          },
+          {
+            "name": "m-cool01-wink",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-angrynod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape01r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02l",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02n",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape02r",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape03rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ll",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04ln",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04lr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rl",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rn",
+            "count": 1
+          },
+          {
+            "name": "m-normal-armescape04rr",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forward01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-forwardnod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-lookside",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-nodtilthead0301",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pose05",
+            "count": 1
+          },
+          {
+            "name": "m-normal-pride01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehand02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-shakehead04",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-sigh02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normal-tilthead04",
+            "count": 1
+          },
+          {
+            "name": "m-normaladult-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0103",
+            "count": 1
+          },
+          {
+            "name": "m-normalcool-tilthead0302",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-angry04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-glad01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookdown01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-lookup04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-nod04",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-plan02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-posenod02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-regret02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-shakehead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-smug01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead01",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead02",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-tilthead03",
+            "count": 1
+          },
+          {
+            "name": "m-tsukasa-wandahoi01",
+            "count": 1
+          },
+          {
+            "name": "face_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_blushed_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_closeeye_04",
+            "count": 1
+          },
+          {
+            "name": "face_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01l",
+            "count": 1
+          },
+          {
+            "name": "face_lookaway_01r",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_angry_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_closeeye_03",
+            "count": 1
+          },
+          {
+            "name": "face_night_e_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_mercy_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_serious_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_01",
+            "count": 1
+          },
+          {
+            "name": "face_night_stunned_02",
+            "count": 1
+          },
+          {
+            "name": "face_night_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_normal_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_01",
+            "count": 1
+          },
+          {
+            "name": "face_sad_02",
+            "count": 1
+          },
+          {
+            "name": "face_shy_01",
+            "count": 1
+          },
+          {
+            "name": "face_sleepy_01",
+            "count": 1
+          },
+          {
+            "name": "face_smallmouth_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_01",
+            "count": 1
+          },
+          {
+            "name": "face_smile_02",
+            "count": 1
+          },
+          {
+            "name": "face_smile_03",
+            "count": 1
+          },
+          {
+            "name": "face_smile_04",
+            "count": 1
+          },
+          {
+            "name": "face_smile_05",
+            "count": 1
+          },
+          {
+            "name": "face_smile_06",
+            "count": 1
+          },
+          {
+            "name": "face_smile_07",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_01",
+            "count": 1
+          },
+          {
+            "name": "face_sparkling_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_01",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_02",
+            "count": 1
+          },
+          {
+            "name": "face_surprise_03",
+            "count": 1
+          },
+          {
+            "name": "face_trouble_01",
+            "count": 1
+          }
+        ],
+        "touchLikeMotionGroups": [
+          "m-adult-shakehead01",
+          "m-adult-shakehead02",
+          "m-adult-shakehead03",
+          "m-adult-tilthead01",
+          "m-adult-tilthead02",
+          "m-adult-tilthead03",
+          "m-adultnormal-tilthead0304",
+          "m-cool-posetilthead02",
+          "m-cool-shakehead01",
+          "m-cool-tilthead01",
+          "m-cool-tilthead01r",
+          "m-cool-tilthead02",
+          "m-cool-tilthead03",
+          "m-cool-tilthead04",
+          "m-normal-nodtilthead0301",
+          "m-normal-shakehead01",
+          "m-normal-shakehead02",
+          "m-normal-shakehead03",
+          "m-normal-shakehead04",
+          "m-normal-tilthead01",
+          "m-normal-tilthead02",
+          "m-normal-tilthead03",
+          "m-normal-tilthead04",
+          "m-normaladult-tilthead03",
+          "m-normalcool-tilthead0103",
+          "m-normalcool-tilthead0302",
+          "m-tsukasa-shakehead01",
+          "m-tsukasa-shakehead02",
+          "m-tsukasa-shakehead03",
+          "m-tsukasa-tilthead01",
+          "m-tsukasa-tilthead02",
+          "m-tsukasa-tilthead03"
+        ],
+        "focusProbe": {
+          "supported": true,
+          "changedRatio": 0.11802271393558632,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7794533459000943
+        },
+        "expressionProbe": {
+          "supported": false
+        },
+        "motionProbe": {
+          "supported": true,
+          "group": "m-adult-shakehead01",
+          "touchLike": true,
+          "changedRatio": 0.030612033553108497,
+          "coverageWidth": 1,
+          "coverageHeight": 0.7379830348727615
+        }
+      },
+      "assessment": "人工复核：适合但需预留少量横向边距并自己绑定交互。游乐舞台风披肩和肩章让桌角辨识度很高，触发栏动幅仅次于 `idol`；但左披肩和手臂会把两侧撑开，默认仍是 `0` 命中区、`0` 表情，需要工程侧补点击 / 悬停。",
       "manualReviewed": true,
       "source": "summary-md-human-review"
     },
