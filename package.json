@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
     "preview": "astro preview"
   },
   "keywords": [

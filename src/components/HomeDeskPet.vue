@@ -15,6 +15,7 @@ const props = defineProps<{
 
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const isBooting = ref(true);
+const isDeparting = ref(false);
 const isSwitching = ref(false);
 const isMaterializing = ref(false);
 const isMobile = ref(false);
@@ -23,7 +24,7 @@ const isPetHovered = ref(false);
 const isRouterHovered = ref(false);
 const isPanelPinned = ref(false);
 const statusTitle = ref("BOOT LINK");
-const statusLine = ref("正在建立桌宠信道");
+const statusLine = ref("正在建立乐队信道");
 const currentVariant = ref<BangdreamDeskPetVariant | null>(null);
 const switchCount = ref(1);
 
@@ -39,6 +40,16 @@ const variantsByCharacter = new Map(
 let app: any = null;
 let currentModel: any = null;
 let currentMotionGroups: string[] = [];
+let currentModelBounds:
+  | {
+      left: number;
+      top: number;
+      right: number;
+      bottom: number;
+      width: number;
+      height: number;
+    }
+  | null = null;
 let runtime: BangdreamDeskPetRuntime | null = null;
 let pointerHandler: ((event: PointerEvent) => void) | null = null;
 let resizeHandler: (() => void) | null = null;
@@ -46,6 +57,11 @@ let ambientTimer: number | null = null;
 let panelTimer: number | null = null;
 let statusTimer: number | null = null;
 let destroyed = false;
+
+type PreparedVariantModel = {
+  model: any;
+  motionGroups: string[];
+};
 
 const currentBox = computed(() =>
   isMobile.value ? props.pool.pool.mobileSlot : props.pool.pool.desktopSlot,
@@ -58,14 +74,14 @@ const stageStyle = computed(() => ({
 const isPanelOpen = computed(
   () =>
     isBooting.value ||
+    isDeparting.value ||
     isSwitching.value ||
     hasError.value ||
-    isPetHovered.value ||
     isRouterHovered.value ||
     isPanelPinned.value,
 );
 
-const routerTitle = computed(() => currentVariant.value?.characterName ?? "DESKPET");
+const routerTitle = computed(() => currentVariant.value?.characterName ?? "LIVE LINK");
 const routerMeta = computed(() => {
   if (!currentVariant.value) return "signal waiting";
   return `${currentVariant.value.band} // ${variantLabel(currentVariant.value.variant)}`;
@@ -115,7 +131,12 @@ function pinPanel(timeout = isMobile.value ? 4200 : 2800) {
 
   panelTimer = window.setTimeout(() => {
     panelTimer = null;
-    if (!isPetHovered.value && !isRouterHovered.value && !isSwitching.value && !hasError.value) {
+    if (
+      !isRouterHovered.value &&
+      !isDeparting.value &&
+      !isSwitching.value &&
+      !hasError.value
+    ) {
       isPanelPinned.value = false;
     }
   }, timeout);
@@ -125,7 +146,12 @@ function collapsePanel(delay = 140) {
   clearPanelTimer();
   panelTimer = window.setTimeout(() => {
     panelTimer = null;
-    if (!isPetHovered.value && !isRouterHovered.value && !isSwitching.value && !hasError.value) {
+    if (
+      !isRouterHovered.value &&
+      !isDeparting.value &&
+      !isSwitching.value &&
+      !hasError.value
+    ) {
       isPanelPinned.value = false;
     }
   }, delay);
@@ -152,14 +178,14 @@ function handleRouterLeave() {
 }
 
 async function toggleSignalPanel() {
-  if (isBooting.value || isSwitching.value) return;
+  if (isBooting.value || isDeparting.value || isSwitching.value) return;
 
   if (isMobile.value && isPanelOpen.value && currentVariant.value) {
     await handleRandomSwitch();
     return;
   }
 
-  if (isPanelPinned.value || (isPanelOpen.value && !isPetHovered.value && !isRouterHovered.value)) {
+  if (isPanelPinned.value || (isPanelOpen.value && !isRouterHovered.value)) {
     isPanelPinned.value = false;
     return;
   }
@@ -249,6 +275,119 @@ async function triggerAlias(
   return triggerMotion(sample(motionPool));
 }
 
+async function triggerExactMotionNames(names: string[]) {
+  const matches = names.filter((name) => currentMotionGroups.includes(name));
+  if (matches.length === 0) return false;
+  return triggerMotion(sample(matches));
+}
+
+async function triggerArrivalMotion() {
+  return (
+    (await triggerAlias("greet", false)) ||
+    (await triggerExactMotionNames(["wink01", "talk01", "smile01", "smile02", "smile03"])) ||
+    (await triggerAlias("pose", false)) ||
+    triggerAlias("pose")
+  );
+}
+
+async function triggerDepartureMotion() {
+  return (
+    (await triggerAlias("farewell", false)) ||
+    (await triggerExactMotionNames(["bye01", "shame01", "sad01"])) ||
+    (await triggerAlias("pose", false)) ||
+    triggerAlias("pose")
+  );
+}
+
+function stagePointToModelRegion(event: MouseEvent) {
+  if (!currentModelBounds) return null;
+
+  const stage = event.currentTarget as HTMLElement | null;
+  if (!stage) return null;
+
+  const stageRect = stage.getBoundingClientRect();
+  const x = event.clientX - stageRect.left;
+  const y = event.clientY - stageRect.top;
+  const bounds = currentModelBounds;
+  const paddingX = Math.max(10, bounds.width * 0.04);
+  const paddingY = Math.max(10, bounds.height * 0.04);
+
+  if (
+    x < bounds.left - paddingX ||
+    x > bounds.right + paddingX ||
+    y < bounds.top - paddingY ||
+    y > bounds.bottom + paddingY
+  ) {
+    return null;
+  }
+
+  const localX = (x - bounds.left) / Math.max(bounds.width, 1);
+  const localY = (y - bounds.top) / Math.max(bounds.height, 1);
+  const horizontal = localX < 0.34 ? "left" : localX > 0.66 ? "right" : "center";
+  const vertical = localY < 0.3 ? "head" : localY < 0.68 ? "upper" : "lower";
+
+  return {
+    x,
+    y,
+    localX,
+    localY,
+    horizontal,
+    vertical,
+  };
+}
+
+async function triggerRegionInteraction(region: NonNullable<ReturnType<typeof stagePointToModelRegion>>) {
+  if (region.vertical === "head") {
+    setTransientStatus(
+      "FACE LINK",
+      region.horizontal === "center" ? "已触发视线互动" : "已触发表情互动",
+      1700,
+    );
+    return (
+      (await triggerExactMotionNames(
+        region.horizontal === "left"
+          ? ["left01", "wink01", "smile01"]
+          : region.horizontal === "right"
+            ? ["right01", "smile02", "talk01"]
+            : ["wink01", "smile01", "smile02", "talk01"],
+      )) ||
+      (await triggerAlias("greet"))
+    );
+  }
+
+  if (region.vertical === "upper") {
+    setTransientStatus(
+      "LIVE REACT",
+      region.horizontal === "center" ? "已触发舞台互动" : "已触发侧向舞台动作",
+      1700,
+    );
+    return (
+      (await triggerExactMotionNames(
+        region.horizontal === "left"
+          ? ["left01", "talk01", "eeto01", "odoodo01"]
+          : region.horizontal === "right"
+            ? ["right01", "kime01", "wink01", "talk01"]
+            : ["talk01", "kime01", "gattsu01", "wink01"],
+      )) ||
+      (await triggerAlias("pose"))
+    );
+  }
+
+  setTransientStatus(
+    "BAND REACT",
+    region.horizontal === "center" ? "已触发下段反馈" : "已触发边侧反馈",
+    1700,
+  );
+  return (
+    (await triggerExactMotionNames(
+      region.horizontal === "center"
+        ? ["shame01", "surprised01", "odoodo01", "awate01"]
+        : ["surprised01", "shame01", "sad01", "odoodo01"],
+    )) ||
+    (await triggerAlias("react"))
+  );
+}
+
 function stopAmbientLoop() {
   if (ambientTimer !== null) {
     window.clearTimeout(ambientTimer);
@@ -308,6 +447,15 @@ async function layoutModel(model: any, resourceType: string) {
   const fitted = model.getBounds();
   model.position.x += box.width - 2 - fitted.right;
   model.position.y += box.height - 1 - fitted.bottom;
+  const finalBounds = model.getBounds();
+  currentModelBounds = {
+    left: finalBounds.left,
+    top: finalBounds.top,
+    right: finalBounds.right,
+    bottom: finalBounds.bottom,
+    width: finalBounds.width,
+    height: finalBounds.height,
+  };
 }
 
 async function prepareModel(variant: BangdreamDeskPetVariant) {
@@ -337,8 +485,37 @@ async function prepareModel(variant: BangdreamDeskPetVariant) {
   throw lastError instanceof Error ? lastError : new Error("Failed to load variant");
 }
 
+async function activatePreparedVariant(
+  nextVariant: BangdreamDeskPetVariant,
+  prepared: PreparedVariantModel,
+) {
+  if (destroyed) {
+    releaseModel(prepared.model);
+    return;
+  }
+
+  const previousModel = currentModel;
+  currentModel = prepared.model;
+  currentMotionGroups = prepared.motionGroups;
+
+  app.stage.addChild(currentModel);
+  await layoutModel(currentModel, nextVariant.resourceType);
+
+  if (previousModel) {
+    releaseModel(previousModel);
+  }
+
+  currentVariant.value = nextVariant;
+  switchCount.value += 1;
+  setLockedStatus(nextVariant);
+  startAmbientLoop();
+}
+
 function releaseModel(model: any) {
   if (!model) return;
+  if (model === currentModel) {
+    currentModelBounds = null;
+  }
   try {
     model.parent?.removeChild(model);
   } catch {}
@@ -364,38 +541,26 @@ function pickRandomSwitchTarget() {
 
 async function swapVariant(nextVariant: BangdreamDeskPetVariant) {
   const prepared = await prepareModel(nextVariant);
-  if (destroyed) {
-    releaseModel(prepared.model);
-    return;
-  }
-
-  const previousModel = currentModel;
-  currentModel = prepared.model;
-  currentMotionGroups = prepared.motionGroups;
-
-  app.stage.addChild(currentModel);
-  await layoutModel(currentModel, nextVariant.resourceType);
-
-  if (previousModel) {
-    releaseModel(previousModel);
-  }
-
-  currentVariant.value = nextVariant;
-  switchCount.value += 1;
-  setLockedStatus(nextVariant);
-  startAmbientLoop();
+  await activatePreparedVariant(nextVariant, prepared);
 }
 
-async function handlePetInteract() {
-  if (!currentModel || isBooting.value || isSwitching.value) return;
-  pinPanel();
-  setTransientStatus("PET REACT", "已触发随机互动");
-  await triggerAlias(sample(["greet", "react", "pose"] as const));
+async function handlePetInteract(event?: MouseEvent) {
+  if (!currentModel || isBooting.value || isDeparting.value || isSwitching.value) return;
+
+  if (event) {
+    const region = stagePointToModelRegion(event);
+    if (!region) return;
+    await triggerRegionInteraction(region);
+  } else {
+    setTransientStatus("LIVE REACT", "已触发中心互动", 1700);
+    await triggerArrivalMotion();
+  }
+
   startAmbientLoop();
 }
 
 async function handleRandomSwitch() {
-  if (isBooting.value || isSwitching.value || !app) return;
+  if (isBooting.value || isDeparting.value || isSwitching.value || !app) return;
   const nextVariant = pickRandomSwitchTarget();
   if (!nextVariant) return;
 
@@ -404,37 +569,47 @@ async function handleRandomSwitch() {
     statusTimer = null;
   }
 
-  isSwitching.value = true;
   pinPanel(isMobile.value ? 6200 : 4200);
   hasError.value = false;
   statusTitle.value = "CHANNEL REROUTE";
   statusLine.value = `正在切换至 ${nextVariant.characterName}`;
 
   try {
-    await triggerAlias("farewell");
-    await new Promise((resolve) => window.setTimeout(resolve, 560));
-    await swapVariant(nextVariant);
+    isDeparting.value = true;
+    await triggerDepartureMotion();
+    await new Promise((resolve) => window.setTimeout(resolve, 760));
+    statusTitle.value = "CHANNEL SYNC";
+    statusLine.value = `正在接入 ${nextVariant.characterName}`;
+    const prepared = await prepareModel(nextVariant);
+    isDeparting.value = false;
+    isSwitching.value = true;
+    await activatePreparedVariant(nextVariant, prepared);
     isMaterializing.value = true;
-    window.setTimeout(() => {
-      isMaterializing.value = false;
-    }, 620);
-    await triggerAlias("greet");
+    await new Promise((resolve) => window.setTimeout(resolve, 620));
+    isMaterializing.value = false;
+    isSwitching.value = false;
+    await triggerArrivalMotion();
     setTransientStatus("SIGNAL LOCK", `已切换至 ${nextVariant.characterName}`, 1700);
   } catch (error) {
     hasError.value = true;
     statusTitle.value = "SIGNAL LOST";
     statusLine.value = error instanceof Error ? error.message : "角色通道切换失败";
   } finally {
+    isDeparting.value = false;
     isSwitching.value = false;
   }
 }
 
 function attachListeners() {
   pointerHandler = (event) => {
-    if (!currentModel || typeof currentModel.focus !== "function") return;
-    const fx = (event.clientX / window.innerWidth) * 2 - 1;
-    const fy = 1 - (event.clientY / window.innerHeight) * 2;
-    currentModel.focus(fx, fy);
+    if (!currentModel || !app || !canvasRef.value || typeof currentModel.focus !== "function") return;
+
+    const rect = canvasRef.value.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
+
+    const focusX = ((event.clientX - rect.left) / rect.width) * app.renderer.width;
+    const focusY = ((event.clientY - rect.top) / rect.height) * app.renderer.height;
+    currentModel.focus(focusX, focusY);
   };
 
   resizeHandler = () => {
@@ -464,22 +639,21 @@ onMounted(async () => {
 
   try {
     statusTitle.value = "BOOT LINK";
-    statusLine.value = "正在装载本地桌宠运行时";
+    statusLine.value = "正在装载乐队运行时";
     await ensureRuntime();
-    statusLine.value = "运行时已就绪，正在装配角色";
+    statusLine.value = "运行时已就绪，正在装配 Band Link";
     initApp();
     attachListeners();
     await swapVariant(pickInitialVariant());
     isBooting.value = false;
     isMaterializing.value = true;
-    window.setTimeout(() => {
-      isMaterializing.value = false;
-    }, 620);
-    await triggerAlias("greet");
+    await new Promise((resolve) => window.setTimeout(resolve, 620));
+    isMaterializing.value = false;
+    await triggerArrivalMotion();
   } catch (error) {
     hasError.value = true;
     statusTitle.value = "BOOT FAILED";
-    statusLine.value = error instanceof Error ? error.message : "桌宠初始化失败";
+    statusLine.value = error instanceof Error ? error.message : "Band Link 初始化失败";
   } finally {
     isBooting.value = false;
   }
@@ -497,6 +671,7 @@ onBeforeUnmount(() => {
   releaseModel(currentModel);
   currentModel = null;
   currentMotionGroups = [];
+  currentModelBounds = null;
   if (app) {
     try {
       app.destroy(true, { children: true, texture: false, baseTexture: false });
@@ -518,14 +693,14 @@ onBeforeUnmount(() => {
       'has-error': hasError,
       'is-mobile': isMobile,
     }"
-    aria-label="右下角 Live2D 桌宠"
+    aria-label="右下角 Live2D Band Link"
   >
     <button
       type="button"
       class="deskpet-signal-node"
       :class="{ 'is-active': isPanelOpen }"
       :aria-expanded="isPanelOpen ? 'true' : 'false'"
-      aria-label="展开桌宠信道面板"
+      aria-label="展开 Band Signal 面板"
       @click="toggleSignalPanel"
     >
       <span class="deskpet-signal-node__ring"></span>
@@ -542,7 +717,7 @@ onBeforeUnmount(() => {
       @blur="handleRouterLeave"
     >
       <div class="deskpet-router__header">
-        <span class="eyebrow">PET SIGNAL</span>
+        <span class="eyebrow">BAND SIGNAL</span>
         <strong class="tech-digits tech-digits--mini">{{ routerSerial }}</strong>
       </div>
 
@@ -567,8 +742,8 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="deskpet-router__hint">
-        <span>console / reroute</span>
-        <span>pet / react</span>
+        <span>node / reroute</span>
+        <span>zone / react</span>
       </div>
     </button>
 
@@ -579,7 +754,7 @@ onBeforeUnmount(() => {
       tabindex="0"
       @pointerenter="handlePetEnter"
       @pointerleave="handlePetLeave"
-      @click="handlePetInteract"
+      @click="handlePetInteract($event)"
       @keydown.enter.prevent="handlePetInteract"
       @keydown.space.prevent="handlePetInteract"
     >
@@ -595,7 +770,7 @@ onBeforeUnmount(() => {
   position: fixed;
   right: 0;
   bottom: 0;
-  z-index: 30;
+  z-index: 80;
   display: block;
   pointer-events: none;
 }
@@ -610,7 +785,7 @@ onBeforeUnmount(() => {
   position: absolute;
   right: calc(100% - 0.75rem);
   bottom: 1.15rem;
-  z-index: 1;
+  z-index: 82;
   width: 2.35rem;
   height: 2.35rem;
   border: 1px solid rgba(119, 199, 215, 0.22);
@@ -671,7 +846,7 @@ onBeforeUnmount(() => {
   position: absolute;
   right: calc(100% - 0.45rem);
   bottom: 0.95rem;
-  z-index: 2;
+  z-index: 83;
   width: 13.2rem;
   padding: 0.85rem 0.9rem 0.8rem;
   border-color: rgba(119, 199, 215, 0.16);
@@ -962,15 +1137,15 @@ onBeforeUnmount(() => {
 
 @media (max-width: 520px) {
   .deskpet-signal-node {
-    right: 0.2rem;
-    bottom: calc(100% - 0.85rem);
-    width: 2rem;
-    height: 2rem;
+    right: calc(100% - 2.4rem);
+    bottom: 0.5rem;
+    width: 2.1rem;
+    height: 2.1rem;
   }
 
   .deskpet-signal-node__ring {
-    width: 1.26rem;
-    height: 1.26rem;
+    width: 1.32rem;
+    height: 1.32rem;
   }
 
   .deskpet-router {

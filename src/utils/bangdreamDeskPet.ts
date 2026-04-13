@@ -55,8 +55,12 @@ export interface BangdreamDeskPetVariant {
   rawManifestUrl: string;
 }
 
-function fillTemplate(template: string, modelKey: string) {
-  return template.replace("{modelKey}", modelKey);
+function buildLocalManifestUrl(modelKey: string) {
+  const basePath = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
+  const rootPath = import.meta.env.DEV
+    ? "/src/vendor/deskpet/bangdream-models"
+    : "/assets/bangdream-models";
+  return `${basePath}${rootPath}/${modelKey}/model.json`;
 }
 
 export function variantSeason(variant: string): BangdreamDeskPetVariant["season"] {
@@ -81,6 +85,7 @@ export function buildBangdreamVariants(pool: BangdreamDeskPetPoolData): Bangdrea
   return pool.characters.flatMap((character) =>
     character.variants.map((variant) => {
       const modelKey = `${character.code}_${variant}`;
+      const manifestUrl = buildLocalManifestUrl(modelKey);
       return {
         key: `bangdream_${modelKey}`,
         modelKey,
@@ -93,8 +98,8 @@ export function buildBangdreamVariants(pool: BangdreamDeskPetPoolData): Bangdrea
         runtime: pool.pool.runtime,
         motionGroupCount: character.motionGroupCount,
         expressionsCount: character.expressionsCount,
-        manifestUrl: fillTemplate(pool.pool.manifestBaseTemplate, modelKey),
-        rawManifestUrl: fillTemplate(pool.pool.rawManifestBaseTemplate, modelKey),
+        manifestUrl,
+        rawManifestUrl: manifestUrl,
       };
     }),
   );

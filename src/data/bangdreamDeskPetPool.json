@@ -9,8 +9,8 @@
     "validatedAt": "2026-04-13",
     "qualifiedVariantCount": 57,
     "qualifiedCharacterCount": 25,
-    "manifestBaseTemplate": "https://cdn.jsdelivr.net/gh/seia-soto/BanG-Dream-Live2D@master/models/{modelKey}/model.json",
-    "rawManifestBaseTemplate": "https://raw.githubusercontent.com/seia-soto/BanG-Dream-Live2D/master/models/{modelKey}/model.json",
+    "manifestBaseTemplate": "/assets/bangdream-models/{modelKey}/model.json",
+    "rawManifestBaseTemplate": "/assets/bangdream-models/{modelKey}/model.json",
     "desktopSlot": {
       "width": 378,
       "height": 504,
