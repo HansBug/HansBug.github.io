@@ -2,35 +2,43 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import OldBlogExplorer from "../components/OldBlogExplorer.vue";
 import SectionHeading from "../components/SectionHeading.astro";
+import TechMetaStrip from "../components/TechMetaStrip.astro";
 import { oldBlogArchive } from "../data/oldBlogArchive";
 import { oldBlogCatalog } from "../data/oldBlogCatalog";
 
 const numberFormatter = new Intl.NumberFormat("zh-CN");
+const oldBlogMeta = [
+  { label: "Period", value: oldBlogArchive.period },
+  { label: "Posts", value: `${oldBlogArchive.totalPosts} 篇`, accent: "accent" as const },
+  { label: "Comments", value: `${oldBlogArchive.totalComments} 条` },
+  { label: "Views", value: oldBlogArchive.totalViewsText },
+  { label: "Followers", value: `${oldBlogCatalog.profile.followers} 粉丝` },
+  { label: "Active Months", value: `${oldBlogCatalog.archives.length} 个活跃月份`, accent: "amber" as const },
+];
 ---
 
 <BaseLayout title="旧站归档">
   <div class="page-grid">
     <section class="page-header shell-card">
-      <p class="eyebrow">旧站归档</p>
-      <h1>博客园旧站归档说明</h1>
-      <p>
-        这里不搬旧博客正文，只负责把博客园旧站当成历史档案来处理：说明内容范围、列出仍有参考价值的旧文入口，并明确标注发布时间和阅读量。
-      </p>
-      <div class="tag-row">
-        <span class="tag-chip is-red"><span>写作期 {oldBlogArchive.period}</span></span>
-        <span class="tag-chip is-blue"><span>{oldBlogArchive.totalPosts} 篇随笔</span></span>
-        <span class="tag-chip is-green"><span>{oldBlogArchive.totalComments} 条评论</span></span>
-        <span class="tag-chip is-slate"><span>{oldBlogArchive.totalViewsText} 阅读</span></span>
-        <span class="tag-chip is-slate"><span>{oldBlogCatalog.profile.followers} 粉丝</span></span>
-        <span class="tag-chip is-slate"><span>{oldBlogCatalog.archives.length} 个活跃月份</span></span>
+      <div class="page-header__body">
+        <p class="eyebrow">LEGACY ARCHIVE</p>
+        <h1>博客园旧站归档说明</h1>
+        <p>
+          这里不搬旧博客正文，只负责把博客园旧站当成历史档案来处理：说明内容范围、列出仍有参考价值的旧文入口，并明确标注发布时间和阅读量。
+        </p>
+      </div>
+
+      <div class="page-header__side">
+        <TechMetaStrip items={oldBlogMeta} columns={2} />
       </div>
     </section>
 
     <section>
       <SectionHeading
-        eyebrow="写作阶段"
+        eyebrow="Legacy Phase"
         title="旧站大致经历了三个阶段"
         description="这部分是对旧博客结构的梳理，不是正文迁移。目的是帮助读者判断哪些入口现在还值得点开。"
+        serial="L-01"
       />
       <div class="grid-three">
         {
@@ -47,9 +55,10 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
     <section>
       <SectionHeading
-        eyebrow="主要脉络"
+        eyebrow="Main Tracks"
         title="旧站里比较成体系的内容方向"
         description="分类数量来自博客园旧站公开侧栏数据。这里展示的是更能代表旧站结构的几条主线。"
+        serial="L-02"
       />
       <div class="grid-three">
         {
@@ -69,9 +78,10 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
 
     <section>
       <SectionHeading
-        eyebrow="全量名录"
+        eyebrow="Legacy Catalog"
         title="旧站的 315 篇文章，现在可以直接检索、看趋势、随时跳转"
         description="这里维护的是博客园旧站的完整文章索引。你可以按标题、年份、旧站分类和归纳方向查询，也可以直接从年度趋势和检索区定位旧文。"
+        serial="L-03"
       />
       <OldBlogExplorer client:load catalog={oldBlogCatalog} />
     </section>
@@ -79,9 +89,10 @@ const numberFormatter = new Intl.NumberFormat("zh-CN");
     <section>
       <article class="info-panel shell-card">
         <SectionHeading
-          eyebrow="旧站结语"
+          eyebrow="Archive Closure"
           title="这部分历史内容到这里为止"
           description="旧站不是消失了，而是被明确地放回历史档案位置。以下两篇更能说明旧站为什么不适合继续作为当前主站。"
+          serial="L-04"
         />
         <div class="panel-list">
           {

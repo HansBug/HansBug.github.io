@@ -1,16 +1,30 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TechMetaStrip from "../components/TechMetaStrip.astro";
 import { siteConfig } from "../config/site";
+
+const contactMeta = [
+  { label: "Mail", value: siteConfig.email, accent: "accent" as const },
+  { label: "Issue", value: "公开勘误与站点反馈" },
+  { label: "Discuss", value: "公开讨论与延伸交流" },
+  { label: "Legacy", value: "旧站仍有独立归档", accent: "amber" as const },
+];
 ---
 
 <BaseLayout title="联系">
   <div class="page-grid">
     <section class="page-header shell-card">
-      <p class="eyebrow">联系</p>
-      <h1>联系 HansBug</h1>
-      <p>
-        这个页面专门负责“怎么联系我”。如果你在博客里看到问题、想讨论技术、希望合作或约稿，优先使用下面这些入口。
-      </p>
+      <div class="page-header__body">
+        <p class="eyebrow">CONTACT PORT</p>
+        <h1>联系 HansBug</h1>
+        <p>
+          这个页面只负责一件事：把联系入口放在显眼位置。如果你想勘误、交流技术、合作或约稿，优先使用下面这些通道。
+        </p>
+      </div>
+
+      <div class="page-header__side">
+        <TechMetaStrip items={contactMeta} columns={2} />
+      </div>
     </section>
 
     <section class="grid-three">
@@ -61,6 +75,10 @@ import { siteConfig } from "../config/site";
           <li>如果你想讨论旧文章，也可以直接在邮件里附上旧博客链接。</li>
           <li>后续新内容会优先发布在这里，并逐步建立新的标签和路线结构。</li>
         </ul>
+        <div class="hero-actions">
+          <a class="hero-action" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
+          <a class="hero-action" href={siteConfig.oldBlogUrl} target="_blank" rel="noreferrer">打开旧博客园</a>
+        </div>
       </article>
     </section>
   </div>

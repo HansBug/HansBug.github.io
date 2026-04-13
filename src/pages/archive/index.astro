@@ -1,19 +1,32 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import { siteConfig } from "../../config/site";
 import { getAllBlogPosts, groupPostsByYear } from "../../utils/content";
 import { formatDate } from "../../utils/date";
 
 const posts = await getAllBlogPosts();
 const archive = groupPostsByYear(posts);
+const archiveMeta = [
+  { label: "Years", value: `${archive.length} 个年份` },
+  { label: "Posts", value: `${posts.length} 篇文章`, accent: "accent" as const },
+  { label: "View", value: "按时间回看变化" },
+  { label: "Fallback", value: "旧文请走旧站归档", accent: "amber" as const },
+];
 ---
 
 <BaseLayout title="归档">
   <section class="page-header shell-card">
-    <p class="eyebrow">归档</p>
-    <h1>时间归档</h1>
-    <p>如果你习惯按时间线回看博客演化，可以从这里进入。归档更适合观察关注点如何逐渐收敛。</p>
+    <div class="page-header__body">
+      <p class="eyebrow">TIMELINE INDEX</p>
+      <h1>时间归档</h1>
+      <p>如果你习惯按时间线回看博客演化，可以从这里进入。归档更适合观察关注点如何逐渐收敛。</p>
+    </div>
+
+    <div class="page-header__side">
+      <TechMetaStrip items={archiveMeta} columns={2} />
+    </div>
   </section>
 
   <div class="page-grid">
@@ -22,9 +35,10 @@ const archive = groupPostsByYear(posts);
         archive.map((entry) => (
           <section class="archive-year shell-card">
             <SectionHeading
-              eyebrow="年份"
+              eyebrow="Year"
               title={entry.year}
               description={`这一年共整理出 ${entry.posts.length} 篇文章。`}
+              serial="A-01"
             />
             <ul class="archive-list">
               {entry.posts.map((post) => (
@@ -42,7 +56,10 @@ const archive = groupPostsByYear(posts);
           <p>
             当前没有迁移旧文，所以时间线暂时没有条目。历史文章请先进入旧站归档页，那里会标出发布时间和阅读量。
           </p>
-          <a class="hero-action" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
+          <div class="hero-actions">
+            <a class="hero-action is-primary" href={siteConfig.oldBlogArchivePath}>查看旧站归档</a>
+            <a class="hero-action" href="/blog/">返回博客页</a>
+          </div>
         </section>
       )
     }

@@ -4,6 +4,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import PostCard from "../../components/PostCard.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import TagChip from "../../components/TagChip.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
   getAllBlogPosts,
@@ -26,6 +27,12 @@ export async function getStaticPaths() {
 const { route } = Astro.props;
 const { Content } = await render(route);
 const posts = getRoutePosts(route, allPosts);
+const routeMeta = [
+  { label: "Stage", value: route.data.stage },
+  { label: "Time", value: route.data.estimatedTime, accent: "accent" as const },
+  { label: "Posts", value: `${posts.length} 篇` },
+  { label: "Mode", value: "Curated Reading" },
+];
 ---
 
 <BaseLayout title={route.data.title} description={route.data.summary}>
@@ -40,13 +47,13 @@ const posts = getRoutePosts(route, allPosts);
 
     <section class="article-shell shell-card">
       <header class="article-header">
-        <p class="eyebrow">{route.data.stage}</p>
+        <div class="entry-rail">
+          <p class="entry-rail__kicker">READING ROUTE</p>
+          <span class="entry-rail__status">{route.data.stage}</span>
+        </div>
         <h1>{route.data.title}</h1>
         <p class="article-intro">{route.data.summary}</p>
-        <div class="article-meta">
-          <span>建议投入：{route.data.estimatedTime}</span>
-          <span>推荐阅读文章：{posts.length} 篇</span>
-        </div>
+        <TechMetaStrip items={routeMeta} columns={4} />
         <div class="tag-row">
           {route.data.tags.map((tag) => <TagChip tag={tag} href={`/tags/${tagToSlug(tag)}/`} />)}
         </div>
@@ -58,9 +65,10 @@ const posts = getRoutePosts(route, allPosts);
 
     <section>
       <SectionHeading
-        eyebrow="推荐阅读"
+        eyebrow="Recommended Files"
         title="按这个顺序继续看"
         description="这里的文章被组织成一个更适合长期复用的阅读序列。"
+        serial="R-02"
       />
       <div class="grid-two">
         {posts.map((post) => <PostCard post={post} />)}

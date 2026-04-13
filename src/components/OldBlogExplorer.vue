@@ -145,7 +145,7 @@ function loadMore() {
 }
 
 function applyCategoryShortcut(category: string) {
-  selectedCategory.value = category;
+  selectedCategory.value = selectedCategory.value === category ? "all" : category;
 }
 
 watch([query, selectedYear, selectedCategory, selectedTrack, selectedSort], () => {
@@ -276,6 +276,8 @@ onBeforeUnmount(() => {
             :key="item.name"
             type="button"
             class="oldblog-filter-chip"
+            :class="{ 'is-active': item.name === selectedCategory }"
+            :aria-pressed="item.name === selectedCategory"
             @click="applyCategoryShortcut(item.name)"
           >
             <span>{{ item.name }}</span>

@@ -6,15 +6,21 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const projectStatus = project.data.featured ? "FEATURED" : "PROJECT";
 ---
 
 <article class="project-card shell-card">
+  <div class="entry-rail">
+    <p class="entry-rail__kicker">PROJECT DOSSIER</p>
+    <span class="entry-rail__status">{projectStatus}</span>
+  </div>
   <div class="project-card__meta">
-    <span>{project.data.status}</span>
-    <span>{project.data.stack.join(" / ")}</span>
+    <span>STATE · {project.data.status}</span>
+    <span>STACK · {project.data.stack.join(" / ")}</span>
   </div>
   <h3>
     <a href={`/projects/${project.id}/`}>{project.data.title}</a>
   </h3>
   <p>{project.data.summary}</p>
+  <p class="entry-footnote">/projects/{project.id}/</p>
 </article>

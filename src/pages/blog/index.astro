@@ -2,22 +2,35 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostCard from "../../components/PostCard.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import { getAllBlogPosts } from "../../utils/content";
 
 const posts = await getAllBlogPosts();
+const headerMeta = [
+  { label: "Files", value: `${posts.length} 篇文章` },
+  { label: "Sort Rule", value: "置顶优先 / 日期倒序", accent: "accent" as const },
+  { label: "Index", value: "Tags / Archive / Search" },
+  { label: "Policy", value: "只发布新站正文", accent: "amber" as const },
+];
 ---
 
 <BaseLayout title="博客">
   <section class="page-header shell-card">
-    <p class="eyebrow">博客</p>
-    <h1>博客文章</h1>
-    <p>
-      这里收录所有中文技术文章。每篇文章都会挂上多个标签，并且尽量放到某条阅读路线里，方便从单点问题回到体系视角。
-    </p>
-    <div class="hero-actions">
-      <a class="hero-action is-primary" href="/tags/">按标签浏览</a>
-      <a class="hero-action" href="/archive/">按时间归档</a>
-      <a class="hero-action" href="/search/">站内搜索</a>
+    <div class="page-header__body">
+      <p class="eyebrow">BLOG INDEX</p>
+      <h1>博客文章</h1>
+      <p>
+        这里收录所有中文技术文章。每篇文章都会挂上多个标签，并尽量放进某条阅读路线，让单点问题能重新回到体系视角。
+      </p>
+      <div class="hero-actions">
+        <a class="hero-action is-primary" href="/tags/">按标签浏览</a>
+        <a class="hero-action" href="/archive/">按时间归档</a>
+        <a class="hero-action" href="/search/">站内搜索</a>
+      </div>
+    </div>
+
+    <div class="page-header__side">
+      <TechMetaStrip items={headerMeta} columns={2} />
     </div>
   </section>
 
@@ -25,27 +38,29 @@ const posts = await getAllBlogPosts();
     posts.length > 0 ? (
       <section>
         <SectionHeading
-          eyebrow="全部文章"
+          eyebrow="All Files"
           title={`当前共 ${posts.length} 篇`}
           description="优先写那些真的能在未来复用的东西，而不是为了发一篇而发一篇。"
+          serial="B-01"
         />
         <div class="grid-two">
           {posts.map((post) => <PostCard post={post} />)}
         </div>
       </section>
     ) : (
-      <section class="empty-state shell-card">
-        <h2>新站文章暂时还是空的</h2>
-        <p>
-          当前还没有开始往新站迁移旧正文。我不会直接把博客园旧文整体搬过来；后续真正值得保留的主题，会在这里重新整理和重写。
-        </p>
-        <div class="hero-actions">
-          <a class="hero-action is-primary" href="https://www.cnblogs.com/HansBug/" target="_blank" rel="noreferrer">
-            查看旧博客园
-          </a>
-          <a class="hero-action" href="/contact/">联系 HansBug</a>
-        </div>
-      </section>
+        <section class="empty-state shell-card">
+          <h2>新站文章暂时还是空的</h2>
+          <p>
+            当前还没有开始往新站迁移旧正文。我不会直接把博客园旧文整体搬过来；后续真正值得保留的主题，会在这里重新整理和重写。
+          </p>
+          <div class="hero-actions">
+            <a class="hero-action is-primary" href="https://www.cnblogs.com/HansBug/" target="_blank" rel="noreferrer">
+              查看旧博客园
+            </a>
+            <a class="hero-action" href="/old-blog/">打开旧站归档</a>
+            <a class="hero-action" href="/contact/">联系 HansBug</a>
+          </div>
+        </section>
     )
   }
 </BaseLayout>

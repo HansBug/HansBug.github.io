@@ -2,6 +2,14 @@
 import { siteConfig } from "../config/site";
 
 const pathname = Astro.url.pathname;
+const navMeta = {
+  home: "Home",
+  blog: "Logs",
+  tag: "Tags",
+  archive: "Timeline",
+  mail: "Contact",
+  history: "Legacy",
+} as const;
 
 const iconMap = {
   home: {
@@ -32,46 +40,55 @@ const iconMap = {
 ---
 
 <header class="site-header">
-  <div class="container shell-card shell-card--dense header-inner">
-    <a class="brand-block" href="/">
-      <span class="brand-mark">
-        <img src={siteConfig.avatarPath} alt="HansBug 的 GitHub 头像" />
-      </span>
-      <span>
-        <strong>{siteConfig.shortTitle}</strong>
-        <small>{siteConfig.tagline}</small>
-      </span>
-    </a>
-    <nav class="main-nav" aria-label="主导航">
-      {
-        siteConfig.nav.map((item) => {
-          const isExternal = "external" in item && item.external;
-          const icon = iconMap[item.icon];
-          const active = isExternal
-            ? false
-            : (
-            item.href === "/"
-              ? pathname === item.href
-              : pathname.startsWith(item.href)
-          );
+  <div class="container">
+    <div class="shell-card shell-card--dense header-inner">
+      <a class="brand-block" href="/">
+        <span class="brand-mark">
+          <img src={siteConfig.avatarPath} alt="HansBug 的 GitHub 头像" />
+        </span>
+        <span class="brand-copy">
+          <small class="brand-kicker">HB-NODE // KNOWLEDGE INDEX</small>
+          <strong>{siteConfig.shortTitle}</strong>
+          <small>{siteConfig.tagline}</small>
+        </span>
+      </a>
 
-          return (
-            <a
-              class:list={["nav-link", active && "is-active"]}
-              href={item.href}
-              target={isExternal ? "_blank" : undefined}
-              rel={isExternal ? "noreferrer" : undefined}
-            >
-              <span class="nav-link__icon" aria-hidden="true">
-                <svg viewBox={icon.viewBox}>
-                  {icon.paths.map((path) => <path d={path} />)}
-                </svg>
-              </span>
-              <span class="nav-link__label">{item.label}</span>
-            </a>
-          );
-        })
-      }
-    </nav>
+      <div class="header-controls">
+        <div class="header-status" aria-label="站点状态">
+          <span class="header-status__label">Status</span>
+          <strong>Online</strong>
+        </div>
+
+        <nav class="main-nav" aria-label="主导航">
+          {
+            siteConfig.nav.map((item) => {
+              const isExternal = "external" in item && item.external;
+              const icon = iconMap[item.icon];
+              const active = !isExternal &&
+                (item.href === "/" ? pathname === item.href : pathname.startsWith(item.href));
+
+              return (
+                <a
+                  class:list={["nav-link", active && "is-active"]}
+                  href={item.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer" : undefined}
+                >
+                  <span class="nav-link__icon" aria-hidden="true">
+                    <svg viewBox={icon.viewBox}>
+                      {icon.paths.map((path) => <path d={path} />)}
+                    </svg>
+                  </span>
+                  <span class="nav-link__copy">
+                    <span class="nav-link__label">{item.label}</span>
+                    <small>{navMeta[item.icon]}</small>
+                  </span>
+                </a>
+              );
+            })
+          }
+        </nav>
+      </div>
+    </div>
   </div>
 </header>

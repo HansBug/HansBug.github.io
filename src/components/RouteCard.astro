@@ -8,12 +8,17 @@ interface Props {
 }
 
 const { route } = Astro.props;
+const routeStatus = route.data.recommendedPosts.length > 0 ? "CURATED" : "ROUTE";
 ---
 
 <article class="route-card shell-card">
+  <div class="entry-rail">
+    <p class="entry-rail__kicker">READING ROUTE</p>
+    <span class="entry-rail__status">{routeStatus}</span>
+  </div>
   <div class="route-card__meta">
-    <span>{route.data.stage}</span>
-    <span>{route.data.estimatedTime}</span>
+    <span>STAGE · {route.data.stage}</span>
+    <span>TIME · {route.data.estimatedTime}</span>
   </div>
   <h3>
     <a href={`/routes/${route.id}/`}>{route.data.title}</a>
@@ -22,4 +27,5 @@ const { route } = Astro.props;
   <div class="tag-row">
     {route.data.tags.map((tag) => <TagChip tag={tag} href={`/tags/${tagToSlug(tag)}/`} />)}
   </div>
+  <p class="entry-footnote">/routes/{route.id}/</p>
 </article>

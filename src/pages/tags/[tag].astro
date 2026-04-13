@@ -4,6 +4,7 @@ import PostCard from "../../components/PostCard.astro";
 import RouteCard from "../../components/RouteCard.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import TagChip from "../../components/TagChip.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import { fallbackTagMeta, tagMeta } from "../../data/tagMeta";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
@@ -31,6 +32,12 @@ export async function getStaticPaths() {
 
 const { tag, posts, routes } = Astro.props;
 const meta = tagMeta[tag] ?? fallbackTagMeta(tag);
+const tagMetaItems = [
+  { label: "Group", value: meta.group },
+  { label: "Posts", value: `${posts.length} 篇`, accent: "accent" as const },
+  { label: "Routes", value: `${routes.length} 条` },
+  { label: "Role", value: "主题索引", accent: "amber" as const },
+];
 ---
 
 <BaseLayout title={`标签：${tag}`} description={meta.description}>
@@ -44,19 +51,26 @@ const meta = tagMeta[tag] ?? fallbackTagMeta(tag);
     />
 
     <section class="page-header shell-card">
-      <p class="eyebrow">{meta.group}</p>
-      <h1>{tag}</h1>
-      <p>{meta.description}</p>
-      <div class="tag-row">
-        <TagChip tag={tag} count={posts.length} />
+      <div class="page-header__body">
+        <p class="eyebrow">{meta.group}</p>
+        <h1>{tag}</h1>
+        <p>{meta.description}</p>
+        <div class="tag-row">
+          <TagChip tag={tag} count={posts.length} />
+        </div>
+      </div>
+
+      <div class="page-header__side">
+        <TechMetaStrip items={tagMetaItems} columns={2} />
       </div>
     </section>
 
     <section>
       <SectionHeading
-        eyebrow="相关文章"
+        eyebrow="Related Files"
         title={`${posts.length} 篇文章`}
         description="这些文章都和当前标签有明确关联。"
+        serial="T-02"
       />
       <div class="grid-two">
         {posts.map((post) => <PostCard post={post} />)}
@@ -66,9 +80,10 @@ const meta = tagMeta[tag] ?? fallbackTagMeta(tag);
     {routes.length > 0 && (
       <section>
         <SectionHeading
-          eyebrow="相关路线"
+          eyebrow="Related Routes"
           title="想系统读下去，可以看这些路线"
           description="路线会把分散文章串成一套更清晰的阅读顺序。"
+          serial="T-03"
         />
         <div class="grid-three">
           {routes.map((route) => <RouteCard route={route} />)}

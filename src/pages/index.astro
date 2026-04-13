@@ -2,39 +2,131 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import TechMetaStrip from "../components/TechMetaStrip.astro";
 import { siteConfig } from "../config/site";
 import { getAllBlogPosts } from "../utils/content";
+import { formatDate } from "../utils/date";
 
 const posts = await getAllBlogPosts();
 const recentPosts = posts.slice(0, 6);
+const latestPost = posts[0];
+const latestUpdate = latestPost
+  ? formatDate(latestPost.data.updatedDate ?? latestPost.data.pubDate)
+  : "待录入";
+const heroMeta = [
+  { label: "Site Mode", value: "长期维护的技术档案站" },
+  { label: "Latest Update", value: latestUpdate, accent: "accent" as const },
+  { label: "Published Files", value: `${posts.length} 篇新站文章` },
+  { label: "Legacy Policy", value: "旧正文独立归档", accent: "amber" as const },
+];
 ---
 
 <BaseLayout>
   <div class="page-grid home-page">
-    <section class="home-intro shell-card">
-      <div class="home-intro__copy">
-        <p class="eyebrow">HansBug / 技术博客新站</p>
-        <h1>新的技术文章，会从这里开始。</h1>
-        <p class="home-intro__lead">
-          这里专门承接新的中文技术写作。首页只展示新站本身，不再把说明、归档和历史内容混进来；后续更新会直接从这里出现。
+    <section class="home-hero shell-card">
+      <div class="home-hero__copy">
+        <p class="eyebrow">HB-NODE // TECHNICAL DOSSIER</p>
+        <h1>把技术写作维护成一座持续更新的中文工程档案。</h1>
+        <p class="home-hero__lead">
+          这里不是个人介绍页，而是新文章入口、主题索引和长期维护的知识终端。风格可以更锋利，但内容仍然只服务技术阅读和后续复用。
         </p>
+        <TechMetaStrip items={heroMeta} columns={4} />
         <div class="hero-actions">
           <a class="hero-action is-primary" href="/blog/">进入博客</a>
+          <a class="hero-action" href="/tags/">浏览标签</a>
           <a class="hero-action" href={siteConfig.rssUrl}>订阅 RSS</a>
           <a class="hero-action" href="/contact/">联系 HansBug</a>
         </div>
+      </div>
+
+      <div class="home-hero__visual">
+        <article class="hero-dossier shell-card shell-card--dense">
+          <div class="entry-rail">
+            <p class="entry-rail__kicker">NODE STATUS</p>
+            <span class="entry-rail__status">ONLINE</span>
+          </div>
+
+          <div class="hero-dossier__counter">
+            <strong>{String(posts.length).padStart(2, "0")}</strong>
+            <span>published files</span>
+          </div>
+
+          <div class="hero-dossier__grid">
+            <div>
+              <span>Index</span>
+              <strong>Blog / Tags / Routes</strong>
+            </div>
+            <div>
+              <span>Writing Scope</span>
+              <strong>新文章与项目档案</strong>
+            </div>
+            <div>
+              <span>Legacy Gate</span>
+              <strong>旧站独立归档</strong>
+            </div>
+            <div>
+              <span>Contact Port</span>
+              <strong>{siteConfig.email}</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="signal-panel shell-card shell-card--dense">
+          <p class="eyebrow">Operating Notes</p>
+          <ul class="system-list">
+            <li>首页只承接新写作，不回灌旧站怀旧模块。</li>
+            <li>标签、路线和归档优先于装饰，始终是主索引。</li>
+            <li>联系入口保持高可见度，发布链路稳定优先。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <SectionHeading
+        eyebrow="System Access"
+        title="站点主要入口"
+        description="把博客、索引和联系入口保持在同一层级，让阅读路径比装饰更清楚。"
+        serial="S-01"
+      />
+
+      <div class="grid-three">
+        <article class="portal-card shell-card">
+          <p class="eyebrow">Posts</p>
+          <h3>博客主入口</h3>
+          <p>所有新文章都会先进入博客索引，再由标签、路线和归档继续分流。</p>
+          <a class="hero-action is-primary" href="/blog/">查看文章</a>
+        </article>
+
+        <article class="portal-card shell-card">
+          <p class="eyebrow">Index</p>
+          <h3>标签与路线</h3>
+          <p>标签负责横向问题域，路线负责纵向阅读顺序，两者一起承担知识组织。</p>
+          <div class="hero-actions">
+            <a class="hero-action" href="/tags/">标签页</a>
+            <a class="hero-action" href="/routes/">路线页</a>
+          </div>
+        </article>
+
+        <article class="portal-card shell-card">
+          <p class="eyebrow">Contact</p>
+          <h3>联系与反馈</h3>
+          <p>邮件、Issue 和 Discussions 始终保留在显眼位置，不把沟通入口藏进角落。</p>
+          <a class="hero-action" href="/contact/">打开联系页</a>
+        </article>
       </div>
     </section>
 
     <section class="home-feed shell-card">
       <SectionHeading
-        eyebrow="最新文章"
+        eyebrow="Live Feed"
         title={posts.length > 0 ? "最近更新" : "还没有新文章"}
         description={
           posts.length > 0
             ? "首页只展示新博客更新。更多文章可以直接进入博客页查看。"
             : "新站正文会从零开始整理。等第一批文章上线后，首页会直接展示它们。"
         }
+        serial="S-02"
       />
 
       {
@@ -47,10 +139,11 @@ const recentPosts = posts.slice(0, 6);
             <span class="home-empty__count">0 篇</span>
             <h2>第一批文章还在整理中</h2>
             <p>
-              现在这里先留给未来的新写作。等第一批文章发布以后，首页会直接切成最新更新列表，不再额外塞别的说明模块。
+              现在首页先为未来的新写作留出结构。等第一批文章发布后，这里会直接切成更新列表，不再额外塞回旧站总结或历史说明。
             </p>
             <div class="hero-actions">
               <a class="hero-action is-primary" href="/blog/">打开博客页</a>
+              <a class="hero-action" href="/tags/">看标签体系</a>
               <a class="hero-action" href={siteConfig.rssUrl}>查看 RSS</a>
             </div>
           </section>

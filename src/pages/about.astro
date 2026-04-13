@@ -1,16 +1,30 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TechMetaStrip from "../components/TechMetaStrip.astro";
 import { siteConfig } from "../config/site";
+
+const aboutMeta = [
+  { label: "Position", value: "中文个人技术博客" },
+  { label: "Role", value: "新写作与知识索引", accent: "accent" as const },
+  { label: "Legacy", value: "旧站独立归档" },
+  { label: "Contact", value: siteConfig.email, accent: "amber" as const },
+];
 ---
 
 <BaseLayout title="关于">
   <div class="page-grid">
     <section class="page-header shell-card">
-      <p class="eyebrow">关于</p>
-      <h1>关于 HansBug</h1>
-      <p>
-        这里是 HansBug 的个人技术博客新站。它会承接后续的新写作、项目记录和知识索引；历史内容则由单独的旧站归档页统一说明。
-      </p>
+      <div class="page-header__body">
+        <p class="eyebrow">ABOUT NODE</p>
+        <h1>关于 HansBug</h1>
+        <p>
+          这里是 HansBug 的个人技术博客新站。它会承接后续的新写作、项目记录和知识索引；历史内容则由单独的旧站归档页统一说明。
+        </p>
+      </div>
+
+      <div class="page-header__side">
+        <TechMetaStrip items={aboutMeta} columns={2} />
+      </div>
     </section>
 
     <section class="grid-two">

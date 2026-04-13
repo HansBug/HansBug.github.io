@@ -1,0 +1,26 @@
+---
+type TechMetaItem = {
+  label: string;
+  value: string;
+  accent?: "accent" | "amber" | "danger" | "muted";
+};
+
+interface Props {
+  items: TechMetaItem[];
+  compact?: boolean;
+  columns?: 2 | 3 | 4 | "auto";
+}
+
+const { items, compact = false, columns = "auto" } = Astro.props;
+---
+
+<div class:list={["tech-meta-strip", compact && "is-compact", columns !== "auto" && `columns-${columns}`]}>
+  {
+    items.map((item) => (
+      <article class:list={["tech-meta-strip__item", item.accent && `is-${item.accent}`]}>
+        <span class="tech-meta-strip__label">{item.label}</span>
+        <strong>{item.value}</strong>
+      </article>
+    ))
+  }
+</div>

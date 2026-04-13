@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllProjects } from "../../utils/content";
 
@@ -15,6 +16,12 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const projectMeta = [
+  { label: "State", value: project.data.status },
+  { label: "Stack", value: project.data.stack.join(" / "), accent: "accent" as const },
+  { label: "Repo", value: project.data.repoUrl ? "Available" : "Private / Pending" },
+  { label: "Demo", value: project.data.demoUrl ? "Available" : "Not Public" },
+];
 ---
 
 <BaseLayout title={project.data.title} description={project.data.summary}>
@@ -29,12 +36,13 @@ const { Content } = await render(project);
 
     <section class="article-shell shell-card">
       <header class="article-header">
-        <p class="eyebrow">{project.data.status}</p>
+        <div class="entry-rail">
+          <p class="entry-rail__kicker">PROJECT DOSSIER</p>
+          <span class="entry-rail__status">{project.data.status}</span>
+        </div>
         <h1>{project.data.title}</h1>
         <p class="article-intro">{project.data.summary}</p>
-        <div class="article-meta">
-          <span>技术栈：{project.data.stack.join(" / ")}</span>
-        </div>
+        <TechMetaStrip items={projectMeta} columns={4} />
         <div class="hero-actions">
           {project.data.repoUrl && (
             <a class="hero-action is-primary" href={project.data.repoUrl} target="_blank" rel="noreferrer">

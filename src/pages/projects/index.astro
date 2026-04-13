@@ -2,25 +2,39 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectCard from "../../components/ProjectCard.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import { getAllProjects } from "../../utils/content";
 
 const projects = await getAllProjects();
+const projectMeta = [
+  { label: "Projects", value: `${projects.length} 个项目`, accent: "accent" as const },
+  { label: "Scope", value: "长期实践与实验档案" },
+  { label: "Sort", value: "精选优先 / order 次序" },
+  { label: "Status", value: projects.length > 0 ? "已录入条目" : "待开放" },
+];
 ---
 
 <BaseLayout title="项目">
   <section class="page-header shell-card">
-    <p class="eyebrow">项目</p>
-    <h1>项目与实验</h1>
-    <p>项目页负责承接那些比单篇博客更长、比路线更具体的实践。这里会放正在做、持续维护或正在构思的技术工作。</p>
+    <div class="page-header__body">
+      <p class="eyebrow">PROJECT INDEX</p>
+      <h1>项目与实验</h1>
+      <p>项目页负责承接那些比单篇博客更长、比路线更具体的实践。这里会放正在做、持续维护或正在构思的技术工作。</p>
+    </div>
+
+    <div class="page-header__side">
+      <TechMetaStrip items={projectMeta} columns={2} />
+    </div>
   </section>
 
   {
     projects.length > 0 ? (
       <section>
         <SectionHeading
-          eyebrow="项目看板"
+          eyebrow="Project Board"
           title="当前公开的项目卡片"
           description="每张卡片都会链接到详细说明页，后续也可以继续扩展成项目档案。"
+          serial="J-01"
         />
         <div class="grid-three">
           {projects.map((project) => <ProjectCard project={project} />)}

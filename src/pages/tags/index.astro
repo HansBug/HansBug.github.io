@@ -2,19 +2,33 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import TagChip from "../../components/TagChip.astro";
+import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import { groupTagsByGroup, getAllBlogPosts } from "../../utils/content";
 
 const posts = await getAllBlogPosts();
 const groupedTags = groupTagsByGroup(posts);
+const totalTags = groupedTags.reduce((sum, [, items]) => sum + items.length, 0);
+const headerMeta = [
+  { label: "Groups", value: `${groupedTags.length} 个分组` },
+  { label: "Tags", value: `${totalTags} 个标签`, accent: "accent" as const },
+  { label: "Posts", value: `${posts.length} 篇文章` },
+  { label: "Role", value: "问题域索引", accent: "amber" as const },
+];
 ---
 
 <BaseLayout title="标签">
   <section class="page-header shell-card">
-    <p class="eyebrow">标签</p>
-    <h1>标签体系</h1>
-    <p>
-      标签不是装饰，而是这座博客的索引系统。每个标签都尽量对应一个真实的问题域，方便你从“我现在遇到的具体问题”回到更大的主题。
-    </p>
+    <div class="page-header__body">
+      <p class="eyebrow">TAG INDEX</p>
+      <h1>标签体系</h1>
+      <p>
+        标签不是装饰，而是这座博客的主索引。每个标签都尽量对应一个真实问题域，方便从当前问题重新回到更大的主题结构。
+      </p>
+    </div>
+
+    <div class="page-header__side">
+      <TechMetaStrip items={headerMeta} columns={2} />
+    </div>
   </section>
 
   <div class="page-grid">
@@ -23,9 +37,10 @@ const groupedTags = groupTagsByGroup(posts);
         groupedTags.map(([group, items]) => (
           <section class="tag-cluster shell-card">
             <SectionHeading
-              eyebrow="标签分组"
+              eyebrow="Tag Cluster"
               title={group}
               description="同一组标签通常对应同一类工程问题。"
+              serial="T-01"
             />
             <div class="grid-three">
               {items.map((item) => (
@@ -47,6 +62,10 @@ const groupedTags = groupTagsByGroup(posts);
           <p>
             旧博客正文不会直接迁过来，所以新站标签也不会自动出现。等新文章陆续进入后，我会按新的问题域重新组织标签。
           </p>
+          <div class="hero-actions">
+            <a class="hero-action is-primary" href="/blog/">回到博客页</a>
+            <a class="hero-action" href="/contact/">联系 HansBug</a>
+          </div>
         </section>
       )
     }

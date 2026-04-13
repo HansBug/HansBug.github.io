@@ -20,6 +20,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d1013" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="author" content={siteConfig.author} />
@@ -29,10 +30,16 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
   </head>
-  <body>
+  <body class="site-shell">
     <div class="site-bg"></div>
     <SiteHeader />
     <main class="page-main">
