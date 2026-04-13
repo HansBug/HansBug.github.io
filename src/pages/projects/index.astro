@@ -19,7 +19,7 @@ const projectMeta = [
     <div class="page-header__body">
       <p class="eyebrow">PROJECT INDEX</p>
       <h1>项目与实验</h1>
-      <p>项目页负责承接那些比单篇博客更长、比路线更具体的实践。这里会放正在做、持续维护或正在构思的技术工作。</p>
+      <p>这里集中查看那些比单篇文章更长、比路线更具体的项目、实验和持续实践。</p>
     </div>
 
     <div class="page-header__side">
@@ -33,7 +33,7 @@ const projectMeta = [
         <SectionHeading
           eyebrow="Project Board"
           title="当前公开的项目卡片"
-          description="每张卡片都会链接到详细说明页，后续也可以继续扩展成项目档案。"
+          description="每张卡片都会链接到对应说明页，方便继续查看背景、状态和细节。"
           serial="J-01"
         />
         <div class="grid-three">
@@ -43,9 +43,7 @@ const projectMeta = [
     ) : (
       <section class="empty-state shell-card">
         <h2>项目页骨架已经预留，但还没有录入内容</h2>
-        <p>
-          后续如果有值得长期展示的项目、实验或工具，会以更规范的项目档案形式放进来，而不是用占位卡片硬撑页面。
-        </p>
+        <p>项目条目录入后，这里会显示对应的项目档案和说明页。</p>
       </section>
     )
   }

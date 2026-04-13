@@ -1,0 +1,159 @@
+---
+interface QuoteItem {
+  text: string;
+  author: string;
+  sourceUrl?: string;
+}
+
+interface Props {
+  quotes: readonly QuoteItem[];
+}
+
+const { quotes } = Astro.props;
+const initialQuote = quotes[0];
+---
+
+<section
+  class="terminal-quote shell-card shell-card--dense"
+  data-terminal-quote
+  tabindex="0"
+  role="button"
+  aria-label="点击切换技术短句"
+>
+  <div class="terminal-quote__toolbar">
+    <span>~/signals/quotes.log</span>
+    <span data-terminal-count>01 / {String(quotes.length).padStart(2, "0")}</span>
+  </div>
+
+  <div class="terminal-quote__body">
+    <p class="terminal-quote__prompt">hb@node:~$</p>
+    <h1 class="terminal-quote__line">
+      <span data-terminal-text>{initialQuote.text}</span><span class="terminal-quote__cursor" aria-hidden="true"></span>
+    </h1>
+    <p class="terminal-quote__author" data-terminal-author>// {initialQuote.author}</p>
+  </div>
+</section>
+
+<script is:inline define:vars={{ quotes }}>
+  const root = document.querySelector("[data-terminal-quote]");
+
+  if (root) {
+    const textNode = root.querySelector("[data-terminal-text]");
+    const authorNode = root.querySelector("[data-terminal-author]");
+    const countNode = root.querySelector("[data-terminal-count]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (textNode && authorNode && countNode) {
+      const entries = quotes;
+      const total = String(entries.length).padStart(2, "0");
+      let index = 0;
+      let cursor = 0;
+      let deleting = false;
+      let holding = false;
+      let skipRequested = false;
+      let timeoutId;
+
+      const schedule = (delay) => {
+        window.clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(tick, delay);
+      };
+
+      const setMeta = () => {
+        const item = entries[index];
+        countNode.textContent = `${String(index + 1).padStart(2, "0")} / ${total}`;
+        authorNode.textContent = `// ${item.author}`;
+      };
+
+      const render = () => {
+        const item = entries[index];
+        textNode.textContent = item.text.slice(0, cursor);
+      };
+
+      if (reduceMotion) {
+        cursor = entries[0].text.length;
+        setMeta();
+        render();
+        authorNode.classList.add("is-visible");
+
+        const advanceStatic = () => {
+          index = (index + 1) % entries.length;
+          cursor = entries[index].text.length;
+          setMeta();
+          render();
+        };
+
+        root.addEventListener("click", advanceStatic);
+        root.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            advanceStatic();
+          }
+        });
+      } else {
+        authorNode.classList.remove("is-visible");
+        textNode.textContent = "";
+
+        const requestNext = () => {
+          authorNode.classList.remove("is-visible");
+          holding = false;
+          deleting = true;
+          skipRequested = true;
+          schedule(0);
+        };
+
+        root.addEventListener("click", requestNext);
+        root.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            requestNext();
+          }
+        });
+
+        function tick() {
+          const current = entries[index];
+          setMeta();
+
+          if (holding) {
+            holding = false;
+            deleting = true;
+          }
+
+          if (!deleting) {
+            cursor += 1;
+            render();
+
+            if (cursor >= current.text.length) {
+              cursor = current.text.length;
+              authorNode.classList.add("is-visible");
+              holding = true;
+              schedule(10000 + Math.floor(Math.random() * 5000));
+              return;
+            }
+
+            schedule(current.text[cursor - 1] === " " ? 35 : 28);
+            return;
+          }
+
+          authorNode.classList.remove("is-visible");
+          cursor -= 1;
+          render();
+
+          if (cursor <= 0) {
+            cursor = 0;
+            deleting = false;
+            index = (index + 1) % entries.length;
+            schedule(skipRequested ? 40 : 260);
+            skipRequested = false;
+            return;
+          }
+
+          schedule(14);
+        }
+
+        void tick;
+
+        schedule(400);
+      }
+    }
+  }
+</script>

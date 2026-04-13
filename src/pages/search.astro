@@ -51,7 +51,7 @@ const searchMeta = [
       <div class="page-header__body">
         <p class="eyebrow">SEARCH INDEX</p>
         <h1>站内搜索</h1>
-        <p>可以搜标题、描述、标签和项目技术栈。中文场景下我优先保证简单可用，而不是做一套过重的搜索基础设施。</p>
+        <p>可以搜索标题、描述、标签和项目技术栈，适合快速定位文章、路线和项目页。</p>
       </div>
 
       <div class="page-header__side">
@@ -64,9 +64,9 @@ const searchMeta = [
         <SearchPanel items={items} />
       ) : (
         <section class="empty-state shell-card">
-          <h2>当前还没有可搜索的新站内容</h2>
+          <h2>暂时还没有可搜索的新站内容</h2>
           <p>
-            因为旧文章暂不直接迁入，这里的搜索索引还是空的。你可以先去旧博客园，或者等新内容开始发布后再回来搜索。
+            新站内容开始发布后，搜索结果会直接显示在这里；历史文章可以先从旧站归档页进入。
           </p>
         </section>
       )
