@@ -135,20 +135,38 @@ function buildLocalManifestUrl(modelKey: string) {
 }
 
 export function variantSeason(variant: string): BangdreamDeskPetVariant["season"] {
-  if (variant.endsWith("_summer")) return "summer";
-  if (variant.endsWith("_winter")) return "winter";
+  if (/summer/i.test(variant)) return "summer";
+  if (/winter/i.test(variant)) return "winter";
   return "regular";
 }
 
 export function variantResourceType(variant: string) {
-  if (variant.endsWith("_summer")) return "半身 / 夏日便服立绘";
-  if (variant.endsWith("_winter")) return "半身 / 冬季便服立绘";
-  return "半身 / 日常便服立绘";
+  if (/casual.*summer|school_summer/i.test(variant)) return "半身 / 夏装立绘";
+  if (/casual.*winter|school_winter/i.test(variant)) return "半身 / 冬装立绘";
+  if (/casual/i.test(variant)) return "半身 / 私服立绘";
+  if (/school/i.test(variant)) return "半身 / 校服立绘";
+  if (/kirameki_festival/i.test(variant)) return "半身 / 辉彩祭立绘";
+  if (/dream_festival/i.test(variant)) return "半身 / 梦祭立绘";
+  if (/live_event_|live_default|live_sr_|live_ssr_/i.test(variant)) return "半身 / 活动立绘";
+  if (/collabo/i.test(variant)) return "半身 / 联动立绘";
+  if (/birthday/i.test(variant)) return "半身 / 生日立绘";
+  if (/furisode/i.test(variant)) return "半身 / 振袖立绘";
+  if (/arbeit/i.test(variant)) return "半身 / 打工立绘";
+  return "半身 / 角色立绘";
 }
 
 export function variantLabel(variant: string) {
-  if (variant.endsWith("_summer")) return "夏服";
-  if (variant.endsWith("_winter")) return "冬服";
+  if (/casual.*summer|school_summer/i.test(variant)) return "夏装";
+  if (/casual.*winter|school_winter/i.test(variant)) return "冬装";
+  if (/casual/i.test(variant)) return "私服";
+  if (/school/i.test(variant)) return "校服";
+  if (/kirameki_festival/i.test(variant)) return "辉彩祭";
+  if (/dream_festival/i.test(variant)) return "梦祭";
+  if (/live_event_|live_default|live_sr_|live_ssr_/i.test(variant)) return "活动";
+  if (/collabo/i.test(variant)) return "联动";
+  if (/birthday/i.test(variant)) return "生日";
+  if (/furisode/i.test(variant)) return "振袖";
+  if (/arbeit/i.test(variant)) return "打工";
   return "常服";
 }
 

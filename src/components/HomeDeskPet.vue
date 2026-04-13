@@ -29,6 +29,8 @@ const isProfileExpanded = ref(false);
 const statusTitle = ref("BOOT LINK");
 const statusLine = ref("正在建立乐队信道");
 const currentVariant = ref<BangdreamDeskPetVariant | null>(null);
+const currentLoadedMotionCount = ref(0);
+const currentLoadedExpressionCount = ref(0);
 const switchCount = ref(1);
 
 const variants = buildBangdreamVariants(props.pool);
@@ -64,6 +66,7 @@ let destroyed = false;
 type PreparedVariantModel = {
   model: any;
   motionGroups: string[];
+  expressionCount: number;
 };
 
 const motionAliasKeys: BangdreamDeskPetMotionAlias[] = [
@@ -100,7 +103,9 @@ const routerMeta = computed(() => {
 });
 const routerStats = computed(() => {
   if (!currentVariant.value) return "-- // --";
-  return `${compactPartLabel(currentVariant.value)} // ${currentVariant.value.motionGroupCount}M ${currentVariant.value.expressionsCount}E`;
+  const motionCount = currentLoadedMotionCount.value || currentVariant.value.motionGroupCount;
+  const expressionCount = currentLoadedExpressionCount.value || currentVariant.value.expressionsCount;
+  return `${compactPartLabel(currentVariant.value)} // ${motionCount}M ${expressionCount}E`;
 });
 const routerBadge = computed(() =>
   currentVariant.value && props.pool.defaultTopPickKeys.includes(currentVariant.value.key)
@@ -122,7 +127,10 @@ const routerProfileItems = computed(() => {
     { label: "AGE", value: `${variant.age} / H${variant.heightCm}` },
     { label: "SCHOOL", value: compactSchoolLabel(variant) },
     { label: "CV", value: variant.cvJa || variant.cv },
-    { label: "MOTION", value: `${variant.motionGroupCount}G / ${variant.expressionsCount}E` },
+    {
+      label: "MOTION",
+      value: `${currentLoadedMotionCount.value || variant.motionGroupCount}G / ${currentLoadedExpressionCount.value || variant.expressionsCount}E`,
+    },
     { label: "ACT", value: compactActionLabel(variant) },
   ];
 });
@@ -145,8 +153,12 @@ function compactPartLabel(variant: BangdreamDeskPetVariant) {
       return "Gt.";
     case "Bass":
       return "Ba.";
+    case "Bass & Vocals":
+      return "Ba.&Vo.";
     case "Drums":
       return "Dr.";
+    case "DJ":
+      return "DJ";
     case "Keyboard":
       return "Key.";
     case "Violin":
@@ -162,10 +174,14 @@ function compactSchoolName(school: string) {
       return "Hanasakigawa";
     case "Haneoka Girls' Academy":
       return "Haneoka";
+    case "Tsukinomori Girls' Academy":
+      return "Tsukinomori";
     case "Yotsuba Women's University":
       return "Yotsuba U";
     case "Keiho Women's University":
       return "Keiho U";
+    case "Geijutsu High School of Fine Arts":
+      return "Geijutsu";
     default:
       return school;
   }
@@ -368,7 +384,12 @@ function initApp() {
 
 function normalizeMotionGroups(settings: Record<string, unknown>) {
   const motions = (settings.motions || settings.Motions || {}) as Record<string, unknown>;
-  return Object.keys(motions);
+  return Object.keys(motions).filter((name) => !/^sys-/i.test(name));
+}
+
+function normalizeExpressionCount(settings: Record<string, unknown>) {
+  const expressions = (settings.expressions || settings.Expressions || []) as unknown[];
+  return expressions.length;
 }
 
 function availableAliasGroups(alias: BangdreamDeskPetMotionAlias) {
@@ -603,9 +624,11 @@ async function prepareModel(variant: BangdreamDeskPetVariant) {
   for (const manifestUrl of [variant.manifestUrl, variant.rawManifestUrl]) {
     try {
       const model = await runtime.Live2DModel.from(manifestUrl, options);
+      const settings = (model.internalModel?.settings ?? {}) as Record<string, unknown>;
       return {
         model,
-        motionGroups: normalizeMotionGroups(model.internalModel?.settings ?? {}),
+        motionGroups: normalizeMotionGroups(settings),
+        expressionCount: normalizeExpressionCount(settings),
       };
     } catch (error) {
       lastError = error;
@@ -627,6 +650,8 @@ async function activatePreparedVariant(
   const previousModel = currentModel;
   currentModel = prepared.model;
   currentMotionGroups = prepared.motionGroups;
+  currentLoadedMotionCount.value = prepared.motionGroups.length;
+  currentLoadedExpressionCount.value = prepared.expressionCount;
 
   app.stage.addChild(currentModel);
   await layoutModel(currentModel, nextVariant.resourceType);
@@ -656,6 +681,17 @@ function releaseModel(model: any) {
 }
 
 function pickInitialVariant() {
+  if (typeof window !== "undefined") {
+    const requested = new URL(window.location.href).searchParams.get("deskpet")?.trim();
+    if (requested) {
+      const resolved =
+        variantMap.get(requested) ??
+        variantMap.get(requested.startsWith("bangdream_") ? requested : `bangdream_${requested}`) ??
+        variants.find((item) => item.modelKey === requested);
+      if (resolved) return resolved;
+    }
+  }
+
   const preferred = props.pool.defaultTopPickKeys
     .map((key) => variantMap.get(key))
     .filter((item): item is BangdreamDeskPetVariant => Boolean(item));
@@ -802,6 +838,8 @@ onBeforeUnmount(() => {
   releaseModel(currentModel);
   currentModel = null;
   currentMotionGroups = [];
+  currentLoadedMotionCount.value = 0;
+  currentLoadedExpressionCount.value = 0;
   currentModelBounds = null;
   if (app) {
     try {
