@@ -25,6 +25,8 @@
     "@headlessui/vue": "^1.7.23",
     "astro": "^6.1.5",
     "chart.js": "^4.5.1",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js-legacy": "^6.5.10",
     "remark-gfm": "^4.0.1",
     "vue": "^3.5.32"
   },
