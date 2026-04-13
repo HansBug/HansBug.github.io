@@ -1136,6 +1136,11 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 520px) {
+  .deskpet-overlay {
+    right: -0.1rem;
+    bottom: -0.7rem;
+  }
+
   .deskpet-signal-node {
     right: calc(100% - 2.4rem);
     bottom: 0.5rem;

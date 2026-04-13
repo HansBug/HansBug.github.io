@@ -1,7 +1,9 @@
 ---
 import { siteConfig } from "../config/site";
+import HomeDeskPet from "../components/HomeDeskPet.vue";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import bangdreamDeskPetPool from "../data/bangdreamDeskPetPool.json";
 import "../styles/global.css";
 
 interface Props {
@@ -53,5 +55,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
       </div>
     </main>
     <SiteFooter />
+    <HomeDeskPet client:load pool={bangdreamDeskPetPool} />
   </body>
 </html>
