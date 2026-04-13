@@ -9,11 +9,11 @@
 
 ## 默认推荐 5 人
 
-- `bangdream_017_casual` 冰川纱夜 `017_casual`：综合色调最稳，右下角常驻时最不违和。
+- `bangdream_017_casual` 冰川日菜 `017_casual`：综合色调最稳，右下角常驻时最不违和。
 - `bangdream_006_casual` 美竹兰 `006_casual`：深色外套和站点工业感最贴。
 - `bangdream_003_casual_winter` 牛込里美 `003_casual_winter`：冬装半身感最好，贴边自然。
-- `bangdream_015_casual_winter` 若宫伊芙 `015_casual_winter`：动作多，活力够，但不吵。
-- `bangdream_014_casual_winter` 大和麻弥 `014_casual_winter`：低饱和，稳定，适合作默认常驻。
+- `bangdream_015_casual_winter` 奥泽美咲 `015_casual_winter`：动作多，活力够，但不吵。
+- `bangdream_014_casual_winter` 松原花音 `014_casual_winter`：低饱和，稳定，适合作默认常驻。
 
 ## 统一动作基础
 
@@ -33,25 +33,25 @@
 - `008` 上原绯玛丽 / Afterglow：`casual`、`casual_summer`、`casual_winter`
 - `009` 宇田川巴 / Afterglow：`casual`、`casual_summer`、`casual_winter`
 - `010` 羽泽鸫 / Afterglow：`casual`、`casual_summer`、`casual_winter`
-- `011` 丸山彩 / Pastel*Palettes：`casual`、`casual_summer`、`casual_winter`
-- `012` 冰川日菜 / Pastel*Palettes：`casual`、`casual_summer`、`casual_winter`
-- `013` 白鹭千圣 / Pastel*Palettes：`casual`、`casual_summer`、`casual_winter`
-- `014` 大和麻弥 / Pastel*Palettes：`casual`、`casual_summer`、`casual_winter`
-- `015` 若宫伊芙 / Pastel*Palettes：`casual`、`casual_summer`、`casual_winter`
-- `016` 凑友希那 / Roselia：`casual`、`casual_summer`、`casual_winter`
-- `017` 冰川纱夜 / Roselia：`casual`
-- `018` 今井莉莎 / Roselia：`casual`
-- `019` 宇田川亚子 / Roselia：`casual`
-- `020` 白金燐子 / Roselia：`casual`
-- `021` 弦卷心 / Hello, Happy World!：`casual`
-- `022` 濑田薰 / Hello, Happy World!：`casual`
-- `023` 北泽育美 / Hello, Happy World!：`casual`
-- `024` 松原花音 / Hello, Happy World!：`casual`
-- `025` 奥泽美咲 / Hello, Happy World!：`casual`
+- `011` 弦卷心 / Hello, Happy World!：`casual`、`casual_summer`、`casual_winter`
+- `012` 濑田薰 / Hello, Happy World!：`casual`、`casual_summer`、`casual_winter`
+- `013` 北泽育美 / Hello, Happy World!：`casual`、`casual_summer`、`casual_winter`
+- `014` 松原花音 / Hello, Happy World!：`casual`、`casual_summer`、`casual_winter`
+- `015` 奥泽美咲 / Hello, Happy World!：`casual`、`casual_summer`、`casual_winter`
+- `016` 丸山彩 / Pastel*Palettes：`casual`、`casual_summer`、`casual_winter`
+- `017` 冰川日菜 / Pastel*Palettes：`casual`
+- `018` 白鹭千圣 / Pastel*Palettes：`casual`
+- `019` 大和麻弥 / Pastel*Palettes：`casual`
+- `020` 若宫伊芙 / Pastel*Palettes：`casual`
+- `021` 凑友希那 / Roselia：`casual`
+- `022` 冰川纱夜 / Roselia：`casual`
+- `023` 今井莉莎 / Roselia：`casual`
+- `024` 宇田川亚子 / Roselia：`casual`
+- `025` 白金燐子 / Roselia：`casual`
 
 ## 额外说明
 
-- `Roselia` 的 `017-020` 和 `Hello, Happy World!` 的 `021-025` 当前只有 `casual`。
+- `Pastel*Palettes` 的 `017-020` 和 `Roselia` 的 `021-025` 当前只有 `casual`。
 - 其余 `001-016` 基本都同时具备 `casual / casual_summer / casual_winter`。
 - 次选池如 `Project SEKAI / Vocaloid`、`CUE!` 这轮都没有进入主切换池：前者更像全身立绘缩裁，后者动作密度不够。
-- 机器可读数据见 [src/data/bangdreamDeskPetPool.json](/home/zhangshaoang/sensetime-projects/hansbug-tech-blog/src/data/bangdreamDeskPetPool.json)。
+- 机器可读数据见 [src/data/bangdreamDeskPetPool.json](/home/hansbug/oo-projects/HansBug.github.io/src/data/bangdreamDeskPetPool.json)。

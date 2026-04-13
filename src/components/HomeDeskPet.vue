@@ -23,6 +23,7 @@ const hasError = ref(false);
 const isPetHovered = ref(false);
 const isRouterHovered = ref(false);
 const isPanelPinned = ref(false);
+const isProfileExpanded = ref(false);
 const statusTitle = ref("BOOT LINK");
 const statusLine = ref("正在建立乐队信道");
 const currentVariant = ref<BangdreamDeskPetVariant | null>(null);
@@ -87,8 +88,8 @@ const routerMeta = computed(() => {
   return `${currentVariant.value.band} // ${variantLabel(currentVariant.value.variant)}`;
 });
 const routerStats = computed(() => {
-  if (!currentVariant.value) return "-- MOT // -- EXP";
-  return `${currentVariant.value.motionGroupCount} MOT // ${currentVariant.value.expressionsCount} EXP`;
+  if (!currentVariant.value) return "-- PART // -- BDAY";
+  return `${currentVariant.value.part} // ${currentVariant.value.birthday}`;
 });
 const routerBadge = computed(() =>
   currentVariant.value && props.pool.defaultTopPickKeys.includes(currentVariant.value.key)
@@ -98,6 +99,51 @@ const routerBadge = computed(() =>
 const routerSerial = computed(() =>
   currentVariant.value ? `S-${currentVariant.value.characterCode}` : "S-??",
 );
+const routerToggleLabel = computed(() => (isProfileExpanded.value ? "STATUS" : "PROFILE"));
+const routerProfileItems = computed(() => {
+  if (!currentVariant.value) return [];
+
+  const variant = currentVariant.value;
+  return [
+    { label: "JP", value: variant.characterNameJa },
+    { label: "ROMA", value: variant.characterNameRomaji },
+    { label: "BAND", value: compactBandLabel(variant) },
+    { label: "PART", value: variant.part },
+    { label: "BDAY", value: variant.birthday },
+    { label: "AGE", value: `${variant.age} / ${variant.heightCm}cm` },
+    { label: "SCHOOL", value: compactSchoolLabel(variant) },
+    { label: "CV", value: variant.cvJa || variant.cv },
+  ];
+});
+
+function compactBandLabel(variant: BangdreamDeskPetVariant) {
+  if (variant.band === "Hello, Happy World!") {
+    return "ハロハピ";
+  }
+
+  return variant.bandJa;
+}
+
+function compactSchoolName(school: string) {
+  switch (school) {
+    case "Hanasakigawa Girls' Academy":
+      return "Hanasakigawa";
+    case "Haneoka Girls' Academy":
+      return "Haneoka";
+    case "Yotsuba Women's University":
+      return "Yotsuba U";
+    case "Keiho Women's University":
+      return "Keiho U";
+    default:
+      return school;
+  }
+}
+
+function compactSchoolLabel(variant: BangdreamDeskPetVariant) {
+  const school = compactSchoolName(variant.school);
+  const slot = variant.schoolClass || variant.academicStatus;
+  return slot ? `${school} / ${slot}` : school;
+}
 
 function sample<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)];
@@ -175,6 +221,35 @@ function handleRouterEnter() {
 function handleRouterLeave() {
   isRouterHovered.value = false;
   collapsePanel();
+}
+
+function handleRouterFocusIn() {
+  clearPanelTimer();
+  isRouterHovered.value = true;
+  pinPanel(0);
+}
+
+function handleRouterFocusOut(event: FocusEvent) {
+  const currentTarget = event.currentTarget;
+  const nextTarget = event.relatedTarget;
+
+  if (
+    currentTarget instanceof HTMLElement &&
+    nextTarget instanceof Node &&
+    currentTarget.contains(nextTarget)
+  ) {
+    return;
+  }
+
+  isRouterHovered.value = false;
+  collapsePanel();
+}
+
+function toggleProfilePanel() {
+  if (isBooting.value || isDeparting.value || isSwitching.value || !currentVariant.value) return;
+
+  isProfileExpanded.value = !isProfileExpanded.value;
+  pinPanel(isMobile.value ? 7600 : 5400);
 }
 
 async function toggleSignalPanel() {
@@ -506,6 +581,7 @@ async function activatePreparedVariant(
   }
 
   currentVariant.value = nextVariant;
+  isProfileExpanded.value = false;
   switchCount.value += 1;
   setLockedStatus(nextVariant);
   startAmbientLoop();
@@ -707,24 +783,41 @@ onBeforeUnmount(() => {
       <span class="deskpet-signal-node__core"></span>
     </button>
 
-    <button
-      type="button"
+    <div
       class="deskpet-router shell-card"
+      tabindex="0"
+      role="button"
+      aria-label="切换当前桌宠角色"
       @click="handleRandomSwitch"
       @pointerenter="handleRouterEnter"
       @pointerleave="handleRouterLeave"
-      @focus="pinPanel(0)"
-      @blur="handleRouterLeave"
+      @focusin="handleRouterFocusIn"
+      @focusout="handleRouterFocusOut"
+      @keydown.enter.prevent="handleRandomSwitch"
+      @keydown.space.prevent="handleRandomSwitch"
     >
       <div class="deskpet-router__header">
         <span class="eyebrow">BAND SIGNAL</span>
-        <strong class="tech-digits tech-digits--mini">{{ routerSerial }}</strong>
+        <div class="deskpet-router__header-actions">
+          <button
+            type="button"
+            class="deskpet-router__toggle"
+            :aria-expanded="isProfileExpanded ? 'true' : 'false'"
+            :aria-label="isProfileExpanded ? '切换为状态视图' : '展开角色资料'"
+            @click.stop="toggleProfilePanel"
+          >
+            {{ routerToggleLabel }}
+          </button>
+          <strong class="tech-digits tech-digits--mini">{{ routerSerial }}</strong>
+        </div>
       </div>
 
       <div class="deskpet-router__body">
         <div class="deskpet-router__copy">
           <span class="deskpet-router__badge">{{ routerBadge }}</span>
-          <strong class="deskpet-router__title">{{ routerTitle }}</strong>
+          <strong class="deskpet-router__title" :title="currentVariant?.characterNameJa ?? routerTitle">
+            {{ routerTitle }}
+          </strong>
           <span class="deskpet-router__meta">{{ routerMeta }}</span>
           <span class="deskpet-router__stats">{{ routerStats }}</span>
         </div>
@@ -736,16 +829,29 @@ onBeforeUnmount(() => {
         </span>
       </div>
 
-      <div class="deskpet-router__footer">
-        <span>{{ statusTitle }}</span>
-        <span>{{ statusLine }}</span>
-      </div>
+      <template v-if="!isProfileExpanded">
+        <div class="deskpet-router__footer">
+          <span>{{ statusTitle }}</span>
+          <span>{{ statusLine }}</span>
+        </div>
 
-      <div class="deskpet-router__hint">
-        <span>node / reroute</span>
-        <span>zone / react</span>
+        <div class="deskpet-router__hint">
+          <span>card / reroute</span>
+          <span>pet / react</span>
+        </div>
+      </template>
+
+      <div v-else class="deskpet-router__profile" @click.stop>
+        <div
+          v-for="item in routerProfileItems"
+          :key="item.label"
+          class="deskpet-router__profile-item"
+        >
+          <span class="deskpet-router__profile-label">{{ item.label }}</span>
+          <span class="deskpet-router__profile-value" :title="item.value">{{ item.value }}</span>
+        </div>
       </div>
-    </button>
+    </div>
 
     <div
       class="deskpet-stage"
@@ -895,6 +1001,12 @@ onBeforeUnmount(() => {
   gap: 0.75rem;
 }
 
+.deskpet-router__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 .deskpet-router__body {
   display: flex;
   align-items: center;
@@ -911,11 +1023,38 @@ onBeforeUnmount(() => {
 .deskpet-router__badge,
 .deskpet-router__stats,
 .deskpet-router__hint,
-.deskpet-router__footer {
+.deskpet-router__footer,
+.deskpet-router__profile-label {
   font-family: var(--font-meta);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.deskpet-router__toggle {
+  border: 1px solid rgba(119, 199, 215, 0.2);
+  border-radius: 999px;
+  background: rgba(119, 199, 215, 0.08);
+  color: var(--text-muted);
+  font-family: var(--font-meta);
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.24rem 0.38rem;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.deskpet-router__toggle:hover,
+.deskpet-router__toggle:focus-visible {
+  border-color: rgba(119, 199, 215, 0.38);
+  background: rgba(119, 199, 215, 0.12);
+  color: var(--heading);
+  outline: none;
 }
 
 .deskpet-router__badge {
@@ -948,6 +1087,35 @@ onBeforeUnmount(() => {
 .deskpet-router__hint {
   margin-top: 0.58rem;
   color: var(--text-faint);
+}
+
+.deskpet-router__profile {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.46rem 0.6rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.deskpet-router__profile-item {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.deskpet-router__profile-label {
+  font-size: 0.52rem;
+  color: var(--accent);
+}
+
+.deskpet-router__profile-value {
+  min-width: 0;
+  color: var(--text-muted);
+  font-size: 0.66rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .deskpet-router__dial {
@@ -1133,6 +1301,10 @@ onBeforeUnmount(() => {
     width: 11.6rem;
     padding: 0.78rem 0.8rem 0.74rem;
   }
+
+  .deskpet-router__profile-value {
+    font-size: 0.62rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1176,8 +1348,25 @@ onBeforeUnmount(() => {
 
   .deskpet-router__stats,
   .deskpet-router__hint,
-  .deskpet-router__footer {
+  .deskpet-router__footer,
+  .deskpet-router__profile-label {
     font-size: 0.6rem;
+  }
+
+  .deskpet-router__toggle {
+    font-size: 0.48rem;
+    padding: 0.18rem 0.28rem;
+  }
+
+  .deskpet-router__profile {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    max-height: 4.3rem;
+    overflow: auto;
+  }
+
+  .deskpet-router__profile-value {
+    font-size: 0.58rem;
   }
 
   .deskpet-router__dial {

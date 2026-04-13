@@ -1,7 +1,25 @@
 export interface BangdreamDeskPetCharacter {
   code: string;
   name: string;
+  nameJa: string;
+  nameRomaji: string;
   band: string;
+  bandJa: string;
+  part: string;
+  partEn: string;
+  birthday: string;
+  birthdayEn: string;
+  age: string;
+  ageNote: string;
+  heightCm: number;
+  zodiac: string;
+  academicStatus: string;
+  school: string;
+  schoolClass: string;
+  schoolYear: string;
+  cv: string;
+  cvJa: string;
+  description: string;
   motionGroupCount: number;
   expressionsCount: number;
   variants: string[];
@@ -44,7 +62,25 @@ export interface BangdreamDeskPetVariant {
   modelKey: string;
   characterCode: string;
   characterName: string;
+  characterNameJa: string;
+  characterNameRomaji: string;
   band: string;
+  bandJa: string;
+  part: string;
+  partEn: string;
+  birthday: string;
+  birthdayEn: string;
+  age: string;
+  ageNote: string;
+  heightCm: number;
+  zodiac: string;
+  academicStatus: string;
+  school: string;
+  schoolClass: string;
+  schoolYear: string;
+  cv: string;
+  cvJa: string;
+  description: string;
   variant: string;
   season: "regular" | "summer" | "winter";
   resourceType: string;
@@ -91,7 +127,25 @@ export function buildBangdreamVariants(pool: BangdreamDeskPetPoolData): Bangdrea
         modelKey,
         characterCode: character.code,
         characterName: character.name,
+        characterNameJa: character.nameJa,
+        characterNameRomaji: character.nameRomaji,
         band: character.band,
+        bandJa: character.bandJa,
+        part: character.part,
+        partEn: character.partEn,
+        birthday: character.birthday,
+        birthdayEn: character.birthdayEn,
+        age: character.age,
+        ageNote: character.ageNote,
+        heightCm: character.heightCm,
+        zodiac: character.zodiac,
+        academicStatus: character.academicStatus,
+        school: character.school,
+        schoolClass: character.schoolClass,
+        schoolYear: character.schoolYear,
+        cv: character.cv,
+        cvJa: character.cvJa,
+        description: character.description,
         variant,
         season: variantSeason(variant),
         resourceType: variantResourceType(variant),
