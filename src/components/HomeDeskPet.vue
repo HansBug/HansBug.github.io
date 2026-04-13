@@ -4,6 +4,8 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import {
   buildBangdreamVariants,
   variantLabel,
+  type BangdreamDeskPetInteractionZone,
+  type BangdreamDeskPetMotionAlias,
   type BangdreamDeskPetPoolData,
   type BangdreamDeskPetVariant,
 } from "../utils/bangdreamDeskPet";
@@ -64,6 +66,15 @@ type PreparedVariantModel = {
   motionGroups: string[];
 };
 
+const motionAliasKeys: BangdreamDeskPetMotionAlias[] = [
+  "idle",
+  "follow",
+  "greet",
+  "farewell",
+  "react",
+  "pose",
+];
+
 const currentBox = computed(() =>
   isMobile.value ? props.pool.pool.mobileSlot : props.pool.pool.desktopSlot,
 );
@@ -82,14 +93,14 @@ const isPanelOpen = computed(
     isPanelPinned.value,
 );
 
-const routerTitle = computed(() => currentVariant.value?.characterName ?? "LIVE LINK");
+const routerTitle = computed(() => currentVariant.value?.characterNameJa ?? "LIVE LINK");
 const routerMeta = computed(() => {
   if (!currentVariant.value) return "signal waiting";
-  return `${currentVariant.value.band} // ${variantLabel(currentVariant.value.variant)}`;
+  return `${compactBandLabel(currentVariant.value)} // ${variantLabel(currentVariant.value.variant)}`;
 });
 const routerStats = computed(() => {
-  if (!currentVariant.value) return "-- PART // -- BDAY";
-  return `${currentVariant.value.part} // ${currentVariant.value.birthday}`;
+  if (!currentVariant.value) return "-- // --";
+  return `${compactPartLabel(currentVariant.value)} // ${currentVariant.value.motionGroupCount}M ${currentVariant.value.expressionsCount}E`;
 });
 const routerBadge = computed(() =>
   currentVariant.value && props.pool.defaultTopPickKeys.includes(currentVariant.value.key)
@@ -105,14 +116,14 @@ const routerProfileItems = computed(() => {
 
   const variant = currentVariant.value;
   return [
-    { label: "JP", value: variant.characterNameJa },
-    { label: "ROMA", value: variant.characterNameRomaji },
     { label: "BAND", value: compactBandLabel(variant) },
-    { label: "PART", value: variant.part },
-    { label: "BDAY", value: variant.birthday },
-    { label: "AGE", value: `${variant.age} / ${variant.heightCm}cm` },
+    { label: "PART", value: variant.partEn },
+    { label: "BDAY", value: `${variant.birthdayEn} / ${variant.zodiac}` },
+    { label: "AGE", value: `${variant.age} / H${variant.heightCm}` },
     { label: "SCHOOL", value: compactSchoolLabel(variant) },
     { label: "CV", value: variant.cvJa || variant.cv },
+    { label: "MOTION", value: `${variant.motionGroupCount}G / ${variant.expressionsCount}E` },
+    { label: "ACT", value: compactActionLabel(variant) },
   ];
 });
 
@@ -122,6 +133,27 @@ function compactBandLabel(variant: BangdreamDeskPetVariant) {
   }
 
   return variant.bandJa;
+}
+
+function compactPartLabel(variant: BangdreamDeskPetVariant) {
+  switch (variant.partEn) {
+    case "Guitar & Vocals":
+      return "Gt.&Vo.";
+    case "Vocals":
+      return "Vo.";
+    case "Guitar":
+      return "Gt.";
+    case "Bass":
+      return "Ba.";
+    case "Drums":
+      return "Dr.";
+    case "Keyboard":
+      return "Key.";
+    case "Violin":
+      return "Vn.";
+    default:
+      return variant.partEn;
+  }
 }
 
 function compactSchoolName(school: string) {
@@ -145,6 +177,23 @@ function compactSchoolLabel(variant: BangdreamDeskPetVariant) {
   return slot ? `${school} / ${slot}` : school;
 }
 
+function birthdayCode(variant: BangdreamDeskPetVariant) {
+  const match = variant.birthday.match(/(\d+)月(\d+)日/);
+  if (!match) return variant.birthday;
+  const [, month, day] = match;
+  return `${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+}
+
+function compactActionLabel(variant: BangdreamDeskPetVariant) {
+  const semanticCount = motionAliasKeys.length - variant.interactionMissingAliases.length;
+  const { head, upper, lower } = variant.interactionZoneCounts;
+  return `${semanticCount}A / H${head} U${upper} L${lower}`;
+}
+
+function signalLockLine(variant: BangdreamDeskPetVariant) {
+  return `${variant.characterNameRomaji} / H${variant.heightCm} / ${birthdayCode(variant)}`;
+}
+
 function sample<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)];
 }
@@ -159,7 +208,7 @@ function currentPixi() {
 
 function setLockedStatus(variant: BangdreamDeskPetVariant) {
   statusTitle.value = "SIGNAL LOCK";
-  statusLine.value = `${variant.characterName} // ${variant.band} // ${variantLabel(variant.variant)}`;
+  statusLine.value = signalLockLine(variant);
 }
 
 function clearPanelTimer() {
@@ -322,8 +371,19 @@ function normalizeMotionGroups(settings: Record<string, unknown>) {
   return Object.keys(motions);
 }
 
-function availableAliasGroups(alias: keyof BangdreamDeskPetPoolData["commonMotionAliases"]) {
+function availableAliasGroups(alias: BangdreamDeskPetMotionAlias) {
+  const variantMatches = (currentVariant.value?.interactionMotions[alias] ?? []).filter((name) =>
+    currentMotionGroups.includes(name),
+  );
+  if (variantMatches.length > 0) return variantMatches;
+
   return (props.pool.commonMotionAliases[alias] ?? []).filter((name) =>
+    currentMotionGroups.includes(name),
+  );
+}
+
+function availableZoneGroups(zone: BangdreamDeskPetInteractionZone) {
+  return (currentVariant.value?.interactionZones[zone] ?? []).filter((name) =>
     currentMotionGroups.includes(name),
   );
 }
@@ -336,7 +396,7 @@ async function triggerMotion(groupName: string) {
 }
 
 async function triggerAlias(
-  alias: keyof BangdreamDeskPetPoolData["commonMotionAliases"],
+  alias: BangdreamDeskPetMotionAlias,
   fallbackToRandom = true,
 ) {
   const matches = availableAliasGroups(alias);
@@ -352,6 +412,12 @@ async function triggerAlias(
 
 async function triggerExactMotionNames(names: string[]) {
   const matches = names.filter((name) => currentMotionGroups.includes(name));
+  if (matches.length === 0) return false;
+  return triggerMotion(sample(matches));
+}
+
+async function triggerZoneMotion(zone: BangdreamDeskPetInteractionZone) {
+  const matches = availableZoneGroups(zone);
   if (matches.length === 0) return false;
   return triggerMotion(sample(matches));
 }
@@ -419,13 +485,9 @@ async function triggerRegionInteraction(region: NonNullable<ReturnType<typeof st
       1700,
     );
     return (
-      (await triggerExactMotionNames(
-        region.horizontal === "left"
-          ? ["left01", "wink01", "smile01"]
-          : region.horizontal === "right"
-            ? ["right01", "smile02", "talk01"]
-            : ["wink01", "smile01", "smile02", "talk01"],
-      )) ||
+      ((region.horizontal !== "center" && (await triggerAlias("follow", false))) ||
+        (region.horizontal === "center" && (await triggerAlias("greet", false)))) ||
+      (await triggerZoneMotion("head")) ||
       (await triggerAlias("greet"))
     );
   }
@@ -437,13 +499,8 @@ async function triggerRegionInteraction(region: NonNullable<ReturnType<typeof st
       1700,
     );
     return (
-      (await triggerExactMotionNames(
-        region.horizontal === "left"
-          ? ["left01", "talk01", "eeto01", "odoodo01"]
-          : region.horizontal === "right"
-            ? ["right01", "kime01", "wink01", "talk01"]
-            : ["talk01", "kime01", "gattsu01", "wink01"],
-      )) ||
+      (await triggerZoneMotion("upper")) ||
+      (await triggerAlias(region.horizontal === "center" ? "pose" : "greet", false)) ||
       (await triggerAlias("pose"))
     );
   }
@@ -454,12 +511,10 @@ async function triggerRegionInteraction(region: NonNullable<ReturnType<typeof st
     1700,
   );
   return (
-    (await triggerExactMotionNames(
-      region.horizontal === "center"
-        ? ["shame01", "surprised01", "odoodo01", "awate01"]
-        : ["surprised01", "shame01", "sad01", "odoodo01"],
-    )) ||
-    (await triggerAlias("react"))
+    (await triggerZoneMotion("lower")) ||
+    (await triggerAlias("react", false)) ||
+    (await triggerAlias("farewell", false)) ||
+    triggerAlias("react")
   );
 }
 
@@ -648,14 +703,14 @@ async function handleRandomSwitch() {
   pinPanel(isMobile.value ? 6200 : 4200);
   hasError.value = false;
   statusTitle.value = "CHANNEL REROUTE";
-  statusLine.value = `正在切换至 ${nextVariant.characterName}`;
+  statusLine.value = `正在切换至 ${nextVariant.characterNameJa}`;
 
   try {
     isDeparting.value = true;
     await triggerDepartureMotion();
     await new Promise((resolve) => window.setTimeout(resolve, 760));
     statusTitle.value = "CHANNEL SYNC";
-    statusLine.value = `正在接入 ${nextVariant.characterName}`;
+    statusLine.value = `正在接入 ${nextVariant.characterNameJa}`;
     const prepared = await prepareModel(nextVariant);
     isDeparting.value = false;
     isSwitching.value = true;
@@ -665,7 +720,7 @@ async function handleRandomSwitch() {
     isMaterializing.value = false;
     isSwitching.value = false;
     await triggerArrivalMotion();
-    setTransientStatus("SIGNAL LOCK", `已切换至 ${nextVariant.characterName}`, 1700);
+    setTransientStatus("SIGNAL LOCK", `已切换至 ${nextVariant.characterNameJa}`, 1700);
   } catch (error) {
     hasError.value = true;
     statusTitle.value = "SIGNAL LOST";
@@ -815,7 +870,7 @@ onBeforeUnmount(() => {
       <div class="deskpet-router__body">
         <div class="deskpet-router__copy">
           <span class="deskpet-router__badge">{{ routerBadge }}</span>
-          <strong class="deskpet-router__title" :title="currentVariant?.characterNameJa ?? routerTitle">
+          <strong class="deskpet-router__title" :title="currentVariant?.characterNameRomaji ?? routerTitle">
             {{ routerTitle }}
           </strong>
           <span class="deskpet-router__meta">{{ routerMeta }}</span>

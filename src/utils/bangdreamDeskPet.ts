@@ -1,3 +1,28 @@
+export type BangdreamDeskPetMotionAlias =
+  | "idle"
+  | "follow"
+  | "greet"
+  | "farewell"
+  | "react"
+  | "pose";
+
+export type BangdreamDeskPetInteractionZone = "head" | "upper" | "lower";
+
+export type BangdreamDeskPetInteractionMotionMap = Record<
+  BangdreamDeskPetMotionAlias,
+  string[]
+>;
+
+export type BangdreamDeskPetInteractionZoneMap = Record<
+  BangdreamDeskPetInteractionZone,
+  string[]
+>;
+
+export type BangdreamDeskPetInteractionZoneCounts = Record<
+  BangdreamDeskPetInteractionZone,
+  number
+>;
+
 export interface BangdreamDeskPetCharacter {
   code: string;
   name: string;
@@ -20,8 +45,13 @@ export interface BangdreamDeskPetCharacter {
   cv: string;
   cvJa: string;
   description: string;
+  motionGroups: string[];
   motionGroupCount: number;
   expressionsCount: number;
+  interactionMotions: BangdreamDeskPetInteractionMotionMap;
+  interactionZones: BangdreamDeskPetInteractionZoneMap;
+  interactionZoneCounts: BangdreamDeskPetInteractionZoneCounts;
+  interactionMissingAliases: BangdreamDeskPetMotionAlias[];
   variants: string[];
 }
 
@@ -53,7 +83,7 @@ export interface BangdreamDeskPetPoolData {
   };
   defaultTopPickKeys: string[];
   topPickReasons: Record<string, string>;
-  commonMotionAliases: Record<string, string[]>;
+  commonMotionAliases: BangdreamDeskPetInteractionMotionMap;
   characters: BangdreamDeskPetCharacter[];
 }
 
@@ -81,12 +111,17 @@ export interface BangdreamDeskPetVariant {
   cv: string;
   cvJa: string;
   description: string;
+  motionGroups: string[];
   variant: string;
   season: "regular" | "summer" | "winter";
   resourceType: string;
   runtime: string;
   motionGroupCount: number;
   expressionsCount: number;
+  interactionMotions: BangdreamDeskPetInteractionMotionMap;
+  interactionZones: BangdreamDeskPetInteractionZoneMap;
+  interactionZoneCounts: BangdreamDeskPetInteractionZoneCounts;
+  interactionMissingAliases: BangdreamDeskPetMotionAlias[];
   manifestUrl: string;
   rawManifestUrl: string;
 }
@@ -146,12 +181,17 @@ export function buildBangdreamVariants(pool: BangdreamDeskPetPoolData): Bangdrea
         cv: character.cv,
         cvJa: character.cvJa,
         description: character.description,
+        motionGroups: character.motionGroups,
         variant,
         season: variantSeason(variant),
         resourceType: variantResourceType(variant),
         runtime: pool.pool.runtime,
         motionGroupCount: character.motionGroupCount,
         expressionsCount: character.expressionsCount,
+        interactionMotions: character.interactionMotions,
+        interactionZones: character.interactionZones,
+        interactionZoneCounts: character.interactionZoneCounts,
+        interactionMissingAliases: character.interactionMissingAliases,
         manifestUrl,
         rawManifestUrl: manifestUrl,
       };

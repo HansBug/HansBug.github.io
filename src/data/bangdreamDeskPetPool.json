@@ -46,45 +46,106 @@
       "nf02",
       "nf03",
       "nf04",
-      "nf05"
+      "nf05",
+      "idle"
     ],
     "follow": [
-      "left01",
-      "right01",
       "nf01",
       "nf02",
       "nf03",
       "nf04",
-      "nf05"
+      "nf05",
+      "left01",
+      "right01"
     ],
     "greet": [
+      "gattsu01",
+      "jaan01",
+      "kime01",
+      "oowarai01",
+      "sing01",
       "smile01",
       "smile02",
       "smile03",
-      "talk01",
+      "smile04",
       "wink01",
-      "kime01"
+      "kime02",
+      "kime03",
+      "kime04",
+      "jaan",
+      "kime05",
+      "natural01",
+      "talk01"
     ],
     "farewell": [
       "bye01",
+      "cry01",
+      "cry02",
+      "cry03",
+      "sad01",
+      "sad02",
       "shame01",
-      "sad01"
+      "sleep01",
+      "sleep02",
+      "sad",
+      "sad03"
     ],
     "react": [
-      "surprised01",
       "angry01",
+      "cry01",
+      "cry02",
+      "cry03",
+      "eeto01",
       "sad01",
+      "sad02",
       "shame01",
-      "cry01"
+      "surprised01",
+      "surprised02",
+      "surprised03",
+      "awate01",
+      "odoodo01",
+      "odoodo02",
+      "angry02",
+      "angry03",
+      "pui01",
+      "strange01",
+      "gacha01",
+      "worry01",
+      "worry02",
+      "awate",
+      "sad",
+      "sad03"
     ],
     "pose": [
-      "kime01",
-      "gattsu01",
-      "wink01",
-      "odoodo01",
       "eeto01",
+      "gattsu01",
+      "hukumi01",
+      "jaan01",
+      "kime01",
+      "niyaniya01",
+      "oowarai01",
+      "sing01",
+      "wink01",
       "awate01",
-      "talk01"
+      "odoodo01",
+      "odoodo02",
+      "pui01",
+      "gacha01",
+      "fighting01",
+      "fighting02",
+      "kime02",
+      "kime03",
+      "kime04",
+      "simizimi01",
+      "jaan",
+      "kime05",
+      "natural01",
+      "awate",
+      "talk01",
+      "chuni02",
+      "sayomane01",
+      "sayomane02",
+      "chuni01"
     ]
   },
   "characters": [
@@ -116,7 +177,153 @@
       "schoolYear": "Third",
       "cv": "Aimi",
       "cvJa": "愛美",
-      "description": "She is highly active and always positive girl. Since she entered high school, she's been searching for something sparkling that could make her heart flutter...."
+      "description": "She is highly active and always positive girl. Since she entered high school, she's been searching for something sparkling that could make her heart flutter....",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "cry02",
+        "cry03",
+        "eeto01",
+        "gattsu01",
+        "hukumi01",
+        "idle01",
+        "idle02",
+        "jaan01",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "niyaniya01",
+        "oowarai01",
+        "sad01",
+        "sad02",
+        "serious01",
+        "serious02",
+        "shame01",
+        "sing01",
+        "sleep01",
+        "sleep02",
+        "smile01",
+        "smile02",
+        "smile03",
+        "smile04",
+        "sneeze01",
+        "sneeze02",
+        "surprised01",
+        "surprised02",
+        "surprised03",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "oowarai01",
+          "sing01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry02",
+          "cry03",
+          "sad01",
+          "sad02",
+          "shame01",
+          "sleep01",
+          "sleep02"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "cry02",
+          "cry03",
+          "eeto01",
+          "sad01",
+          "sad02",
+          "shame01",
+          "surprised01",
+          "surprised02",
+          "surprised03"
+        ],
+        "pose": [
+          "eeto01",
+          "gattsu01",
+          "hukumi01",
+          "jaan01",
+          "kime01",
+          "niyaniya01",
+          "oowarai01",
+          "sing01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "wink01"
+        ],
+        "upper": [
+          "eeto01",
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "oowarai01",
+          "sing01"
+        ],
+        "lower": [
+          "cry01",
+          "cry02",
+          "cry03",
+          "sad01",
+          "sad02",
+          "serious01",
+          "serious02",
+          "shame01",
+          "surprised01",
+          "surprised02",
+          "surprised03"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 7,
+        "upper": 6,
+        "lower": 11
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "002",
@@ -146,7 +353,106 @@
       "schoolYear": "Third",
       "cv": "Otsuka Sae",
       "cvJa": "大塚紗英",
-      "description": "She started playing the guitar in elementary school, and is very skilled at it. As a huge lover of music, she started working part-time at a live house upon..."
+      "description": "She started playing the guitar in elementary school, and is very skilled at it. As a huge lover of music, she started working part-time at a live house upon...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "cry03",
+        "eeto01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sleep01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry03",
+          "sad01",
+          "shame01",
+          "sleep01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "cry03",
+          "eeto01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "eeto01",
+          "kime01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "eeto01",
+          "kime01"
+        ],
+        "lower": [
+          "cry01",
+          "cry03",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 2,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "003",
@@ -176,7 +482,115 @@
       "schoolYear": "Third",
       "cv": "Nishimoto Rimi",
       "cvJa": "西本 りみ",
-      "description": "During their high school entrance ceremony, she heard Kasumi's intro that was filled with boundless optimism, and this sparked her interest in Kasumi. Even..."
+      "description": "During their high school entrance ceremony, she heard Kasumi's intro that was filled with boundless optimism, and this sparked her interest in Kasumi. Even...",
+      "motionGroups": [
+        "ando01",
+        "angry01",
+        "awate01",
+        "bye01",
+        "cry01",
+        "cry03",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "odoodo02",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry03",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "awate01",
+          "cry01",
+          "cry03",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "awate01",
+          "kime01",
+          "odoodo01",
+          "odoodo02"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01",
+          "odoodo02"
+        ],
+        "lower": [
+          "awate01",
+          "cry01",
+          "cry03",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 3,
+        "lower": 9
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "004",
@@ -206,7 +620,116 @@
       "schoolYear": "Third",
       "cv": "Ohashi Ayaka",
       "cvJa": "大橋 彩香",
-      "description": "She became good friends with her classmate Kasumi during the high school entrance ceremony, and since then they often eat their bentos together. A kind person..."
+      "description": "She became good friends with her classmate Kasumi during the high school entrance ceremony, and since then they often eat their bentos together. A kind person...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "angry03",
+        "bye01",
+        "cry01",
+        "cry03",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "sad01",
+        "serious01",
+        "serious02",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "smile04",
+        "surprised01",
+        "surprised02",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry03",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "angry03",
+          "cry01",
+          "cry03",
+          "sad01",
+          "shame01",
+          "surprised01",
+          "surprised02"
+        ],
+        "pose": [
+          "kime01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "wink01"
+        ],
+        "upper": [
+          "kime01"
+        ],
+        "lower": [
+          "cry01",
+          "cry03",
+          "sad01",
+          "serious01",
+          "serious02",
+          "shame01",
+          "surprised01",
+          "surprised02"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 7,
+        "upper": 1,
+        "lower": 8
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "005",
@@ -236,7 +759,118 @@
       "schoolYear": "Third",
       "cv": "Itou Ayasa",
       "cvJa": "伊藤 彩沙",
-      "description": "Her family runs a pawnshop called \"Ryuuseidou\". Being in indoor person, her hobbies include tending for bonsai plants and internet surfing. Even though she's..."
+      "description": "Her family runs a pawnshop called \"Ryuuseidou\". Being in indoor person, her hobbies include tending for bonsai plants and internet surfing. Even though she's...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "angry03",
+        "bye01",
+        "cry01",
+        "cry02",
+        "cry03",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "pui01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry02",
+          "cry03",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "angry03",
+          "cry01",
+          "cry02",
+          "cry03",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "kime01",
+          "odoodo01",
+          "pui01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01",
+          "pui01"
+        ],
+        "lower": [
+          "cry01",
+          "cry02",
+          "cry03",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 3,
+        "lower": 9
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "006",
@@ -266,7 +900,113 @@
       "schoolYear": "Third",
       "cv": "Sakura Ayane",
       "cvJa": "佐倉 綾音",
-      "description": "Ran is only child of the masters of a flower arrangement school that goes back over 100 years. She's strong-willed and hates to lose, but she also has a side..."
+      "description": "Ran is only child of the masters of a flower arrangement school that goes back over 100 years. She's strong-willed and hates to lose, but she also has a side...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "pui01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sleep01",
+        "sleep02",
+        "smile01",
+        "smile02",
+        "smile03",
+        "sneeze01",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01",
+          "sleep01",
+          "sleep02"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "cry01",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "kime01",
+          "odoodo01",
+          "pui01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01",
+          "pui01"
+        ],
+        "lower": [
+          "cry01",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 3,
+        "lower": 7
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "007",
@@ -296,7 +1036,110 @@
       "schoolYear": "Third",
       "cv": "Misawa Sachika",
       "cvJa": "三澤 紗千香",
-      "description": "Moca doesn't really have anything that she's super into, and is apathetic towards things that don't interest her, but she's the type who will get really..."
+      "description": "Moca doesn't really have anything that she's super into, and is apathetic towards things that don't interest her, but she's the type who will get really...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "eeto01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "niyaniya01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "eeto01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "niyaniya01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "upper": [
+          "eeto01",
+          "gattsu01",
+          "kime01"
+        ],
+        "lower": [
+          "cry01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 3,
+        "lower": 5
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "008",
@@ -326,7 +1169,121 @@
       "schoolYear": "Third",
       "cv": "Katou Emiri",
       "cvJa": "加藤 英美里",
-      "description": "Himari is cheerful, good-natured, and is the band coordinator. She struggles to read the mood of a situation, which means she sometimes does things that have..."
+      "description": "Himari is cheerful, good-natured, and is the band coordinator. She struggles to read the mood of a situation, which means she sometimes does things that have...",
+      "motionGroups": [
+        "angry01",
+        "awate01",
+        "bye01",
+        "cry01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "sneeze01",
+        "strange01",
+        "surprised01",
+        "wink01",
+        "gacha01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "awate01",
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "shame01",
+          "strange01",
+          "surprised01",
+          "gacha01"
+        ],
+        "pose": [
+          "awate01",
+          "gattsu01",
+          "kime01",
+          "odoodo01",
+          "wink01",
+          "gacha01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "upper": [
+          "gattsu01",
+          "kime01",
+          "odoodo01"
+        ],
+        "lower": [
+          "awate01",
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "strange01",
+          "surprised01",
+          "gacha01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 3,
+        "lower": 9
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "009",
@@ -356,7 +1313,123 @@
       "schoolYear": "Third",
       "cv": "Hikasa Yoko",
       "cvJa": "日笠 陽子",
-      "description": "Tomoe is a pretty chill person who never says anything bad about other people or holds grudges against them. She also keeps the band from falling apart. She's..."
+      "description": "Tomoe is a pretty chill person who never says anything bad about other people or holds grudges against them. She also keeps the band from falling apart. She's...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "bye01",
+        "cry01",
+        "fighting01",
+        "fighting02",
+        "idle01",
+        "idle02",
+        "kime01",
+        "kime02",
+        "kime03",
+        "kime04",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "simizimi01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "sneeze01",
+        "surprised01",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "kime02",
+          "kime03",
+          "kime04",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "cry01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "fighting01",
+          "fighting02",
+          "kime01",
+          "kime02",
+          "kime03",
+          "kime04",
+          "simizimi01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "upper": [
+          "fighting01",
+          "fighting02",
+          "kime01",
+          "kime02",
+          "kime03",
+          "kime04"
+        ],
+        "lower": [
+          "cry01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 6,
+        "lower": 5
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "010",
@@ -386,7 +1459,112 @@
       "schoolYear": "Third",
       "cv": "Kanemoto Hisako",
       "cvJa": "金元 寿子",
-      "description": "Tsugumi is the most normal girl in the band. However, it's because she's so \"normal\" that she's such a hardworking and optimistic person who rarely gets..."
+      "description": "Tsugumi is the most normal girl in the band. However, it's because she's so \"normal\" that she's such a hardworking and optimistic person who rarely gets...",
+      "motionGroups": [
+        "ando01",
+        "angry01",
+        "awate01",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "odoodo01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sleep01",
+        "sleep02",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "left01",
+        "right01",
+        "sneeze01",
+        "sneeze02"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01",
+          "sleep01",
+          "sleep02"
+        ],
+        "react": [
+          "angry01",
+          "awate01",
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "awate01",
+          "kime01",
+          "odoodo01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "smile01",
+          "smile02",
+          "smile03",
+          "left01",
+          "right01"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01"
+        ],
+        "lower": [
+          "awate01",
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 2,
+        "lower": 7
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "011",
@@ -416,7 +1594,113 @@
       "schoolYear": "Third",
       "cv": "Miku Itou",
       "cvJa": "美来 伊藤",
-      "description": "Kokoro loves watching people smile, and her goal in life is to make the world smile. Despite her appearance, she is the only daughter of an extremely wealthy..."
+      "description": "Kokoro loves watching people smile, and her goal in life is to make the world smile. Despite her appearance, she is the only daughter of an extremely wealthy...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "jaan01",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "oowarai01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sleep01",
+        "sleep02",
+        "smile01",
+        "smile02",
+        "surprised01",
+        "wink01",
+        "jaan"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "oowarai01",
+          "smile01",
+          "smile02",
+          "wink01",
+          "jaan"
+        ],
+        "farewell": [
+          "bye01",
+          "sad01",
+          "shame01",
+          "sleep01",
+          "sleep02"
+        ],
+        "react": [
+          "angry01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "oowarai01",
+          "wink01",
+          "jaan"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "wink01"
+        ],
+        "upper": [
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "oowarai01",
+          "jaan"
+        ],
+        "lower": [
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 5,
+        "lower": 4
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "012",
@@ -446,7 +1730,122 @@
       "schoolYear": "University",
       "cv": "Tadokoro Azusa",
       "cvJa": "田所 あずさ",
-      "description": "Kaoru is a celebrity at her school and belongs to the theater department there. She is very popular with ladies, who she dubs her \"little kittens\". In..."
+      "description": "Kaoru is a celebrity at her school and belongs to the theater department there. She is very popular with ladies, who she dubs her \"little kittens\". In...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "kime02",
+        "kime03",
+        "kime04",
+        "kime05",
+        "natural01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "sad01",
+        "serious01",
+        "serious02",
+        "shame01",
+        "smile01",
+        "surprised01",
+        "wink01",
+        "worry01",
+        "worry02"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "kime02",
+          "kime03",
+          "kime04",
+          "kime05",
+          "natural01",
+          "smile01",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "sad01",
+          "shame01",
+          "surprised01",
+          "worry01",
+          "worry02"
+        ],
+        "pose": [
+          "kime01",
+          "kime02",
+          "kime03",
+          "kime04",
+          "kime05",
+          "natural01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "natural01",
+          "left01",
+          "right01",
+          "smile01",
+          "wink01",
+          "worry01",
+          "worry02"
+        ],
+        "upper": [
+          "kime01",
+          "kime02",
+          "kime03",
+          "kime04",
+          "kime05"
+        ],
+        "lower": [
+          "cry01",
+          "sad01",
+          "serious01",
+          "serious02",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 7,
+        "upper": 5,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "013",
@@ -476,7 +1875,114 @@
       "schoolYear": "Third",
       "cv": "Yoshida Yuri",
       "cvJa": "吉田 有里",
-      "description": "Hagumi is always bright, active, but sensitive with a pure heart. She sometimes helps out at her parents' butcher shop, which is famous for their croquettes...."
+      "description": "Hagumi is always bright, active, but sensitive with a pure heart. She sometimes helps out at her parents' butcher shop, which is famous for their croquettes....",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sleep01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "smile04",
+        "surprised01",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01",
+          "sleep01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "gattsu01",
+          "kime01",
+          "odoodo01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "wink01"
+        ],
+        "upper": [
+          "gattsu01",
+          "kime01",
+          "odoodo01"
+        ],
+        "lower": [
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 7,
+        "upper": 3,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "014",
@@ -506,7 +2012,110 @@
       "schoolYear": "University",
       "cv": "Toyota Moe",
       "cvJa": "豊田 萌絵",
-      "description": "Kanon is very clumsy, quick to tears, and has a bad sense of direction. She's a bit of a pushover and very shy. Since she's a pushover, it's easy for her to..."
+      "description": "Kanon is very clumsy, quick to tears, and has a bad sense of direction. She's a bit of a pushover and very shy. Since she's a pushover, it's easy for her to...",
+      "motionGroups": [
+        "angry01",
+        "awate01",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "odoodo02",
+        "sad01",
+        "sad02",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "sad02",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "awate01",
+          "cry01",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "sad02",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "awate01",
+          "odoodo01",
+          "odoodo02"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "odoodo01",
+          "odoodo02"
+        ],
+        "lower": [
+          "awate01",
+          "cry01",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "sad02",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 2,
+        "lower": 9
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "015",
@@ -536,7 +2145,125 @@
       "schoolYear": "Third",
       "cv": "Kurosawa Tomoyo",
       "cvJa": "黒沢 ともよ",
-      "description": "Known to her band mates as the pink bear Michelle, Misaki is a reluctant member of Hello, Happy World! Misaki began wearing the bear costume at her part-time..."
+      "description": "Known to her band mates as the pink bear Michelle, Misaki is a reluctant member of Hello, Happy World! Misaki began wearing the bear costume at her part-time...",
+      "motionGroups": [
+        "awate",
+        "idle",
+        "nf01",
+        "nf03",
+        "nf04",
+        "sad",
+        "surprised",
+        "angry01",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf02",
+        "nf05",
+        "left01",
+        "right01",
+        "pui01",
+        "sad01",
+        "sad02",
+        "sad03",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "talk01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle",
+          "nf01",
+          "nf03",
+          "nf04",
+          "idle01",
+          "idle02",
+          "nf02",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf03",
+          "nf04",
+          "nf02",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "talk01"
+        ],
+        "farewell": [
+          "sad",
+          "bye01",
+          "cry01",
+          "sad01",
+          "sad02",
+          "sad03",
+          "shame01"
+        ],
+        "react": [
+          "awate",
+          "sad",
+          "angry01",
+          "cry01",
+          "pui01",
+          "sad01",
+          "sad02",
+          "sad03",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "awate",
+          "kime01",
+          "pui01",
+          "talk01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "talk01"
+        ],
+        "upper": [
+          "kime01",
+          "pui01",
+          "talk01"
+        ],
+        "lower": [
+          "awate",
+          "sad",
+          "cry01",
+          "pui01",
+          "sad01",
+          "sad02",
+          "sad03",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 3,
+        "lower": 10
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "016",
@@ -566,7 +2293,128 @@
       "schoolYear": "University",
       "cv": "Maeshima Ami",
       "cvJa": "前島亜美",
-      "description": "Aya admires idols and entered the entertainment industry as a probationary idol in the hopes of becoming one; however, she is easily nervous and cries easily..."
+      "description": "Aya admires idols and entered the entertainment industry as a probationary idol in the hopes of becoming one; however, she is easily nervous and cries easily...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "cry02",
+        "cry03",
+        "gattsu01",
+        "idle01",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "odoodo01",
+        "odoodo02",
+        "sad01",
+        "sad02",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "sneeze01",
+        "strange01",
+        "surprised01",
+        "wink01",
+        "left01",
+        "right01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry02",
+          "cry03",
+          "sad01",
+          "sad02",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "cry02",
+          "cry03",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "sad02",
+          "shame01",
+          "strange01",
+          "surprised01"
+        ],
+        "pose": [
+          "gattsu01",
+          "kime01",
+          "odoodo01",
+          "odoodo02",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01",
+          "left01",
+          "right01"
+        ],
+        "upper": [
+          "gattsu01",
+          "kime01",
+          "odoodo01",
+          "odoodo02"
+        ],
+        "lower": [
+          "cry01",
+          "cry02",
+          "cry03",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "sad02",
+          "serious01",
+          "shame01",
+          "strange01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 4,
+        "lower": 11
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "017",
@@ -594,7 +2442,133 @@
       "schoolYear": "University",
       "cv": "Ozawa Ari",
       "cvJa": "小澤亜李",
-      "description": "A bright and quick-witted genius of a girl, she's capable of doing something after she's seen it once. She has a happy and refreshing personality, but she can..."
+      "description": "A bright and quick-witted genius of a girl, she's capable of doing something after she's seen it once. She has a happy and refreshing personality, but she can...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "bye01",
+        "chuni02",
+        "cry01",
+        "cry03",
+        "eeto01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "oowarai01",
+        "sad01",
+        "sayomane01",
+        "sayomane02",
+        "serious01",
+        "serious02",
+        "shame01",
+        "sleep01",
+        "sleep02",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "oowarai01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry03",
+          "sad01",
+          "shame01",
+          "sleep01",
+          "sleep02"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "cry01",
+          "cry03",
+          "eeto01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "chuni02",
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "oowarai01",
+          "sayomane01",
+          "sayomane02",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "upper": [
+          "chuni02",
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "oowarai01",
+          "sayomane01",
+          "sayomane02"
+        ],
+        "lower": [
+          "cry01",
+          "cry03",
+          "sad01",
+          "serious01",
+          "serious02",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 7,
+        "lower": 7
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "018",
@@ -622,7 +2596,104 @@
       "schoolYear": "University",
       "cv": "Uesaka Sumire",
       "cvJa": "上坂 すみれ",
-      "description": "A young actress who has been active in the field since her roles as a child actress. She is polite and very responsible. Prior to joining Pastel Palettes, she..."
+      "description": "A young actress who has been active in the field since her roles as a child actress. She is polite and very responsible. Prior to joining Pastel Palettes, she...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "pui01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "sneeze01",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "cry01",
+          "pui01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "kime01",
+          "pui01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "pui01"
+        ],
+        "lower": [
+          "cry01",
+          "pui01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 2,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "019",
@@ -650,7 +2721,131 @@
       "schoolYear": "University",
       "cv": "Nakagami Ikumi",
       "cvJa": "育実 中上",
-      "description": "An equipment geek, Maya is happiest when she's surrounded by instrument equipment. When you talk about instrument equipment, she becomes talkative. Prior to..."
+      "description": "An equipment geek, Maya is happiest when she's surrounded by instrument equipment. When you talk about instrument equipment, she becomes talkative. Prior to...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "eeto01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "kime04",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sleep01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "smile04",
+        "surprised01",
+        "talk01",
+        "wink01",
+        "kime02"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "kime04",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "talk01",
+          "wink01",
+          "kime02"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01",
+          "sleep01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "eeto01",
+          "odoodo01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "kime04",
+          "odoodo01",
+          "talk01",
+          "wink01",
+          "kime02"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "smile04",
+          "talk01",
+          "wink01"
+        ],
+        "upper": [
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "kime04",
+          "odoodo01",
+          "talk01",
+          "kime02"
+        ],
+        "lower": [
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 8,
+        "upper": 7,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "020",
@@ -678,7 +2873,112 @@
       "schoolYear": "Third",
       "cv": "Hata Sawako",
       "cvJa": "秦 佐和子",
-      "description": "Eve has an honest and friendly personality to everyone. She is in the same class as Kasumi Toyama and many other members of Poppin' Party. Before joining..."
+      "description": "Eve has an honest and friendly personality to everyone. She is in the same class as Kasumi Toyama and many other members of Poppin' Party. Before joining...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "eeto01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "wink01",
+        "gacha01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "eeto01",
+          "sad01",
+          "shame01",
+          "surprised01",
+          "gacha01"
+        ],
+        "pose": [
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "wink01",
+          "gacha01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "upper": [
+          "eeto01",
+          "gattsu01",
+          "kime01"
+        ],
+        "lower": [
+          "cry01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01",
+          "gacha01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 3,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "021",
@@ -706,7 +3006,112 @@
       "schoolYear": "University",
       "cv": "Aiba Aina",
       "cvJa": "相羽 あいな",
-      "description": "Yukina is a powerful vocalist, sparking the admiration of the other Roselia members. She has a strong-willed and stubborn personality and doesn't smile much..."
+      "description": "Yukina is a powerful vocalist, sparking the admiration of the other Roselia members. She has a strong-willed and stubborn personality and doesn't smile much...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "cry02",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nekodere01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "pui01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "sing01",
+        "smile01",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "sing01",
+          "smile01",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry02",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "cry02",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "kime01",
+          "odoodo01",
+          "pui01",
+          "sing01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01",
+          "pui01",
+          "sing01"
+        ],
+        "lower": [
+          "cry01",
+          "cry02",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 4,
+        "upper": 4,
+        "lower": 8
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "022",
@@ -734,7 +3139,111 @@
       "schoolYear": "University",
       "cv": "Kudō Haruka",
       "cvJa": "工藤晴香",
-      "description": "A serious and fussy girl, Sayo can come off as somewhat cold in nature. She would never cut corners or be shoddy about things; because of that, she lives her..."
+      "description": "A serious and fussy girl, Sayo can come off as somewhat cold in nature. She would never cut corners or be shoddy about things; because of that, she lives her...",
+      "motionGroups": [
+        "angry01",
+        "angry02",
+        "angry03",
+        "bye01",
+        "cry01",
+        "cry02",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "pui01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "cry02",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "angry02",
+          "angry03",
+          "cry01",
+          "cry02",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "kime01",
+          "odoodo01",
+          "pui01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01",
+          "pui01"
+        ],
+        "lower": [
+          "cry01",
+          "cry02",
+          "odoodo01",
+          "pui01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 4,
+        "upper": 3,
+        "lower": 8
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "023",
@@ -762,7 +3271,107 @@
       "schoolYear": "University",
       "cv": "Nakashima Yuki",
       "cvJa": "中島由貴",
-      "description": "With her flamboyant looks, Lisa is easily misunderstood as frivolous, but is actually a compassionate and faithful person. She has a lot of friends due to her..."
+      "description": "With her flamboyant looks, Lisa is easily misunderstood as frivolous, but is actually a compassionate and faithful person. She has a lot of friends due to her...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "eeto01",
+        "gattsu01",
+        "idle01",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "uwame01",
+        "wink01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "eeto01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "eeto01",
+          "gattsu01",
+          "kime01",
+          "wink01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03",
+          "wink01"
+        ],
+        "upper": [
+          "eeto01",
+          "gattsu01",
+          "kime01"
+        ],
+        "lower": [
+          "cry01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 6,
+        "upper": 3,
+        "lower": 5
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "024",
@@ -790,7 +3399,119 @@
       "schoolYear": "Second",
       "cv": "Sakuragawa Megu",
       "cvJa": "桜川 めぐ",
-      "description": "Ako has chuunibyou tendencies, which Shirokane Rinko supposes results from her playing online games. She often wonders how she can be a \"cooler\" drummer, and..."
+      "description": "Ako has chuunibyou tendencies, which Shirokane Rinko supposes results from her playing online games. She often wonders how she can be a \"cooler\" drummer, and...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "chuni01",
+        "chuni02",
+        "cry01",
+        "eeto01",
+        "gattsu01",
+        "idle01",
+        "idle02",
+        "jaan01",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "eeto01",
+          "odoodo01",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "chuni01",
+          "chuni02",
+          "eeto01",
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "odoodo01"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "chuni01",
+          "chuni02",
+          "eeto01",
+          "gattsu01",
+          "jaan01",
+          "kime01",
+          "odoodo01"
+        ],
+        "lower": [
+          "cry01",
+          "odoodo01",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 7,
+        "lower": 6
+      },
+      "interactionMissingAliases": []
     },
     {
       "code": "025",
@@ -818,7 +3539,109 @@
       "schoolYear": "University",
       "cv": "Shizaki Kanon",
       "cvJa": "志崎樺音",
-      "description": "Rinko is very shy and quiet, and at first is scared of the idea of performing in a live concert. She has an easily withdrawn and pessimistic personality, but..."
+      "description": "Rinko is very shy and quiet, and at first is scared of the idea of performing in a live concert. She has an easily withdrawn and pessimistic personality, but...",
+      "motionGroups": [
+        "angry01",
+        "bye01",
+        "cry01",
+        "idle01",
+        "idle02",
+        "kime01",
+        "nf01",
+        "nf02",
+        "nf03",
+        "nf04",
+        "nf05",
+        "left01",
+        "right01",
+        "odoodo01",
+        "odoodo02",
+        "sad01",
+        "serious01",
+        "shame01",
+        "smile01",
+        "smile02",
+        "smile03",
+        "surprised01",
+        "chuni02"
+      ],
+      "interactionMotions": {
+        "idle": [
+          "idle01",
+          "idle02",
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05"
+        ],
+        "follow": [
+          "nf01",
+          "nf02",
+          "nf03",
+          "nf04",
+          "nf05",
+          "left01",
+          "right01"
+        ],
+        "greet": [
+          "kime01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "farewell": [
+          "bye01",
+          "cry01",
+          "sad01",
+          "shame01"
+        ],
+        "react": [
+          "angry01",
+          "cry01",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "shame01",
+          "surprised01"
+        ],
+        "pose": [
+          "kime01",
+          "odoodo01",
+          "odoodo02",
+          "chuni02"
+        ]
+      },
+      "interactionZones": {
+        "head": [
+          "left01",
+          "right01",
+          "smile01",
+          "smile02",
+          "smile03"
+        ],
+        "upper": [
+          "kime01",
+          "odoodo01",
+          "odoodo02",
+          "chuni02"
+        ],
+        "lower": [
+          "cry01",
+          "odoodo01",
+          "odoodo02",
+          "sad01",
+          "serious01",
+          "shame01",
+          "surprised01"
+        ]
+      },
+      "interactionZoneCounts": {
+        "head": 5,
+        "upper": 4,
+        "lower": 7
+      },
+      "interactionMissingAliases": []
     }
   ]
 }
