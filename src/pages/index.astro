@@ -3,24 +3,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import TerminalQuoteHero from "../components/TerminalQuoteHero.astro";
 import PostCard from "../components/PostCard.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import TechMetaStrip from "../components/TechMetaStrip.astro";
 import { siteConfig } from "../config/site";
 import { heroQuotes } from "../data/heroQuotes";
 import { getAllBlogPosts } from "../utils/content";
-import { formatDate } from "../utils/date";
 
 const posts = await getAllBlogPosts();
 const recentPosts = posts.slice(0, 6);
 const latestPost = posts[0];
-const latestUpdate = latestPost
-  ? formatDate(latestPost.data.updatedDate ?? latestPost.data.pubDate)
-  : "待录入";
-const heroMeta = [
-  { label: "Latest Update", value: latestUpdate, accent: "accent" as const },
-  { label: "Blog Entries", value: `${posts.length} 篇新站文章` },
-  { label: "Legacy Archive", value: "315 篇旧站索引", accent: "amber" as const },
-  { label: "Contact", value: siteConfig.email },
-];
+const latestSignalDate = latestPost ? latestPost.data.updatedDate ?? latestPost.data.pubDate : undefined;
+const latestDigits = latestSignalDate
+  ? `${latestSignalDate.getFullYear().toString().slice(-2)}.${String(latestSignalDate.getMonth() + 1).padStart(2, "0")}.${String(latestSignalDate.getDate()).padStart(2, "0")}`
+  : "--.--.--";
+const latestStatus = latestSignalDate ? "SYNCED" : "PENDING";
+const entryDigits = String(posts.length).padStart(4, "0");
+const legacyDigits = "0315";
 ---
 
 <BaseLayout>
@@ -41,15 +37,54 @@ const heroMeta = [
       </div>
 
       <div class="home-hero__visual">
-        <article class="hero-dossier shell-card shell-card--dense">
-          <div class="entry-rail">
-            <p class="entry-rail__kicker">LIVE INDEX</p>
-            <span class="entry-rail__status">READY</span>
-          </div>
-          <p class="hero-dossier__summary">
-            新内容从博客页进入，旧内容从归档页回看；标签、时间线和搜索页可以把零散问题重新串起来。
+        <article class="hero-hud shell-card shell-card--dense">
+          <header class="hero-hud__header">
+            <div>
+              <p class="eyebrow">LIVE INDEX</p>
+              <h2 class="hero-hud__title">READY</h2>
+            </div>
+            <div class="hero-hud__bars" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </header>
+
+          <p class="hero-hud__summary">
+            博客、标签、归档和搜索页已经联通，可以直接从熟悉的入口进入。
           </p>
-          <TechMetaStrip items={heroMeta} columns={2} compact />
+
+          <div class="hero-hud__grid">
+            <article class="hero-hud-card is-accent">
+              <span class="hero-hud-card__label">Latest Sync</span>
+              <strong class="tech-digits">{latestDigits}</strong>
+              <p>{latestStatus}</p>
+            </article>
+
+            <article class="hero-hud-card">
+              <span class="hero-hud-card__label">Blog Entries</span>
+              <strong class="tech-digits">{entryDigits}</strong>
+              <p>new articles</p>
+            </article>
+
+            <article class="hero-hud-card is-amber">
+              <span class="hero-hud-card__label">Legacy Index</span>
+              <strong class="tech-digits">{legacyDigits}</strong>
+              <p>archived posts</p>
+            </article>
+
+            <article class="hero-hud-card">
+              <span class="hero-hud-card__label">Contact Port</span>
+              <strong class="hero-hud-card__value">{siteConfig.email}</strong>
+              <p>mail signal</p>
+            </article>
+          </div>
+
+          <div class="hero-hud__footer">
+            <span>RSS / TAGS / ARCHIVE / LEGACY</span>
+            <span class="tech-digits tech-digits--mini">01</span>
+          </div>
         </article>
       </div>
     </section>
