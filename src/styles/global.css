@@ -1544,6 +1544,7 @@ code {
   color: var(--heading);
   font-family: var(--font-sans);
   line-height: 1.18;
+  scroll-margin-top: 6.75rem;
 }
 
 .article-content h2 {
@@ -1565,6 +1566,26 @@ code {
   text-decoration: underline;
   text-decoration-color: rgba(119, 199, 215, 0.34);
   text-underline-offset: 0.14em;
+}
+
+.article-content .article-citation {
+  margin-left: 0.1rem;
+  font-size: 0.72em;
+  vertical-align: super;
+  line-height: 0;
+  white-space: nowrap;
+}
+
+.article-content .article-citation__link {
+  text-decoration: none;
+}
+
+.article-content .article-citation__link:hover {
+  text-decoration: underline;
+}
+
+.article-content .article-citation__sep {
+  color: var(--text-faint);
 }
 
 .article-content blockquote {
@@ -1626,6 +1647,19 @@ code {
   border: 1px solid var(--line-soft);
   border-radius: 12px;
   margin: 1.5rem 0;
+}
+
+.article-content .reference-list {
+  margin-top: 1.25rem;
+}
+
+.article-content .reference-item {
+  scroll-margin-top: 6.75rem;
+}
+
+.article-content .reference-item:target {
+  border-radius: 10px;
+  background: rgba(119, 199, 215, 0.08);
 }
 
 .mermaid-shell {

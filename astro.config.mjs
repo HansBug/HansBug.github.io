@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
 import remarkGfm from "remark-gfm";
+import remarkCitations from "./src/utils/remark/remarkCitations.mjs";
 
 export default defineConfig({
   site: "https://hansbug.github.io",
@@ -10,7 +11,7 @@ export default defineConfig({
   compressHTML: true,
   integrations: [sitemap(), vue()],
   markdown: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkCitations],
     shikiConfig: {
       theme: "github-dark",
     },
