@@ -1,0 +1,348 @@
+# CLAUDE.md / AGENTS.md
+
+> 注意：`CLAUDE.md` 与 `AGENTS.md` 是同一个文件；`AGENTS.md` 只是指向 `CLAUDE.md` 的软链接。请只维护这一份内容，不要重复编辑或分别修改。
+
+本文件用于未来继续维护本站的 agent / 协作者快速上手。
+
+和 `README.md` 相比，这里更偏“维护约束 + 实际工作路径 + 不要做什么”。
+
+## 一句话概述
+
+这是 HansBug 的中文个人技术博客仓库，当前运行在：
+
+- 仓库：`HansBug/HansBug.github.io`
+- 线上：`https://hansbug.github.io`
+
+站点定位不是个人介绍页，而是长期维护的中文技术写作与知识索引工作台。
+
+## 维护优先级
+
+1. 发布链路稳定
+2. 新文章进入路径清晰
+3. 标签、路线、归档等索引持续可用
+4. 联系入口始终明确
+5. 视觉克制、简洁、淡雅
+
+## 当前架构摘要
+
+### 主体栈
+
+- Astro
+- Vue
+- TypeScript
+- Chart.js
+- GitHub Pages
+- GitHub Actions
+
+### 关键路径
+
+- 站点配置：`src/config/site.ts`
+- 内容 schema：`src/content.config.ts`
+- 内容聚合逻辑：`src/utils/content.ts`
+- 全局样式：`src/styles/global.css`
+- GitHub Pages 工作流：`.github/workflows/deploy.yml`
+
+### 旧站归档页
+
+`old-blog` 现在不是纯 Astro 静态片段，而是：
+
+- 页面入口：`src/pages/old-blog.astro`
+- 主交互组件：`src/components/OldBlogExplorer.vue`
+- 下拉筛选组件：`src/components/OldBlogFilterSelect.vue`
+
+如果任务涉及 `old-blog` 的筛选、排序、趋势图或交互，优先改 Vue 组件，不要重新回退到：
+
+- 原生浏览器默认 `select`
+- 零散的内联 DOM 拼接
+- 大段无类型的脚本状态管理
+
+## 内容系统约定
+
+### 博客文章
+
+目录：`src/content/blog/`
+
+schema 以 `src/content.config.ts` 为准，当前核心字段：
+
+- `title`
+- `description`
+- `pubDate`
+- `updatedDate`
+- `tags`
+- `difficulty`
+- `excerpt`
+- `series`
+- `draft`
+- `featured`
+- `pinned`
+- `routeSlugs`
+
+行为规则：
+
+- `draft: true` 不会被发布
+- 排序规则是 `pinned` 优先，然后按 `pubDate` 倒序
+- 文章详情页路由来自内容文件路径本身
+- `routeSlugs` 用于把文章显式挂到路线
+
+### 阅读路线
+
+目录：`src/content/routes/`
+
+行为规则：
+
+- 路线按 `order` 升序
+- 如果配置了 `recommendedPosts`，路线页优先使用它
+- 否则回退到 `routeSlugs + 共享标签`
+
+### 项目页
+
+目录：`src/content/projects/`
+
+行为规则：
+
+- 项目按 `featured` 优先，再按 `order`
+
+### 标签
+
+- 标签元数据集中维护在 `src/data/tagMeta.ts`
+- 新标签优先复用现有标签
+- 如必须新增，必须补标签分组、描述和配色
+
+## 新文章发布流程
+
+### 推荐步骤
+
+1. 在 `src/content/blog/` 下新建 Markdown 文件
+2. 填完整 frontmatter
+3. 优先复用现有标签；必要时补 `src/data/tagMeta.ts`
+4. 如果文章属于某条路线，补 `routeSlugs`
+5. 执行 `npm run build`
+6. 本地检查首页、博客页、文章详情页、标签页
+7. 推送到 `main`
+
+### 路径建议
+
+推荐使用稳定、可长期维护的路径，如：
+
+- `src/content/blog/python/treevalue-overview.md`
+- `src/content/blog/engineering/github-actions-notes.md`
+
+不要把路径命名成临时口语化、难以长期维护的 slug。
+
+## 旧博客园迁移策略
+
+旧博客园地址：
+
+- `https://www.cnblogs.com/HansBug/`
+
+当前策略必须坚持：
+
+- 不直接批量搬运旧正文
+- 新站只保留入口、索引、时间、阅读量和结构化归纳
+- 真正值得保留的主题，在新站重写
+
+### 旧站数据源
+
+旧站全量索引由脚本生成：
+
+```bash
+python3 scripts/fetch_old_blog.py
+```
+
+会更新：
+
+- `src/data/oldBlogCatalog.json`
+- `src/data/oldBlogCatalog.ts`
+
+当前已知事实：
+
+- 旧站共 `315` 篇文章
+- 有真实阅读量、评论数、年份趋势、旧站分类
+- `old-blog` 已支持趋势、筛选、检索和直接跳转博客园原文
+
+### 改旧站归档页时不要做的事
+
+- 不要把旧文伪装成最近新内容
+- 不要把旧站怀旧模块重新塞回首页
+- 不要直接复制博客园正文到新站
+- 不要把旧站分类原样当成新站标签体系
+
+## 首页和视觉约定
+
+### 首页
+
+- 首页只面向未来的新写作
+- 只展示新文章、新入口和必要动作
+- 不要再把旧站总结、迁移说明、历史归档大段挂回首页
+
+### 视觉
+
+- 保持轻工业感、低饱和、淡雅、克制
+- 可以有轻度风格化气氛，但不要重度二次元
+- 全站按钮、badge、标签、筛选器保持扁平、低厚度、轻边框
+- 避免臃肿玻璃感、过高按钮、双层无意义边框
+- 中文阅读舒适度优先于花哨装饰
+- `HomeDeskPet` 是全站公共视觉层，默认应挂在共享布局里，不要只留在首页或只在个别页面出现
+
+### 页面文案
+
+- 所有展示给读者的页面文案，默认必须使用读者视角来写
+- 不要在页面上出现设计者 / 维护者自述式的话，如“我为什么这样设计”“这个页面负责什么”“这里本来打算怎样演化”
+- 可以写站点事实、阅读建议、内容范围和使用方式，但要写成读者进入页面后能直接理解和使用的信息
+- 如果确实需要说明维护策略，优先写进 `AGENTS.md`、`README.md` 或代码注释，不要直接写进页面正文
+
+## 部署与验证
+
+### 本地命令
+
+```bash
+npm install
+npm run dev
+npm run check
+npm run build
+npm run preview
+```
+
+### 发布
+
+- 推送 `main` 会触发 `.github/workflows/deploy.yml`
+- GitHub Pages 自动发布 `dist/`
+
+### 常用检查
+
+```bash
+gh run list --limit 5
+gh run watch <run_id> --exit-status
+```
+
+### 页面改动验收
+
+只要改动涉及任意页面、组件、样式或前端交互，就必须做真实浏览器验收；不能只靠代码阅读、静态截图或构建通过来判断完成。
+
+当前本地环境已确认可用的链路：
+
+- `google-chrome`
+- `npx playwright`
+- 仓库内已有 `puppeteer-core`
+
+如果要用 Chrome / Playwright / Puppeteer 打开外网站点或抓网页截图，先检查当前 shell 里是否存在 `http_proxy`、`https_proxy` 或 `all_proxy`。如果存在，必须把同一代理显式传给浏览器，例如：
+
+```bash
+google-chrome --proxy-server="$https_proxy" https://example.com
+```
+
+或在 Puppeteer / Playwright 的启动参数里补：
+
+```text
+--proxy-server=<proxy_url>
+```
+
+不要假设 shell 能联网时，Chrome 也会自动走同一条代理链路。
+
+推荐按下面的顺序执行：
+
+1. 启动本地站点，固定端口，避免每次验收地址漂移：
+
+```bash
+npm run dev -- --host 127.0.0.1 --port 4321
+```
+
+2. 用 Chrome 或其他真实浏览器直接打开要验收的页面。
+
+```bash
+google-chrome http://127.0.0.1:4321/
+google-chrome http://127.0.0.1:4321/old-blog/
+```
+
+3. 站点启用了 `trailingSlash: always`，所以除了首页以外，路径要带结尾 `/`；例如应打开 `/old-blog/`，不要打开 `/old-blog`，否则会直接落到 404。
+
+4. 每个改过的页面至少检查两轮：
+
+- 桌面宽度先看一遍，检查首屏、标题层级、正文区、按钮、标签、表单、页脚和主视觉是否成立
+- 再切到移动宽度看一遍，确认没有横向滚动、内容截断、元素遮挡、点击区域失效或间距崩坏
+
+5. 如果页面有交互，必须把核心交互完整走一遍，再根据真实视觉效果判断是否达标。不要只打开页面不点。
+
+6. 如果任务包含网页截图、文章配图或验收截图，默认使用接近正常显示器的横向比例，例如 `16:10` 或 `16:9`，推荐尺寸如 `1440x900`、`1600x900`。不要默认使用超长整页截图；除非“长页面本身”就是需要说明的对象，否则应截取关键视口，必要时拆成多张图。
+
+7. `old-blog` 的最低验收动作按这组步骤走：
+
+- 打开 `/old-blog/`
+- 确认趋势图、分类区、检索区和文章列表都已经渲染出来
+- 在检索框输入 `treevalue`
+- 点击一个分类 chip；当前仓库可以直接点第一个 `Bzoj`
+- 观察筛选结果数量和结果列表是否随交互变化
+- 当前本地实测基线可参考：初始是 `315` 篇，输入 `treevalue` 后是 `4` 篇，再点 `Bzoj` 后会变成 `0` 篇，点击“重置筛选”后恢复到 `315` 篇；如果以后旧站数据更新，允许数值变化，但交互链路本身必须跑通
+- 点击“重置筛选”，确认列表恢复到初始状态
+- 检查标题跳转、时间、阅读量、评论数是否还在
+
+8. 如果当前环境只能跑 headless Chrome、自动脚本或截图探测，那只能算预检，不算最终验收；必须切换到能看见真实浏览器窗口的环境，肉眼确认后，才能继续 `commit` 或 `push`。
+
+### 提交前最低要求
+
+默认至少执行：
+
+```bash
+npm run build
+```
+
+如果改动涉及任意页面：
+
+- 必须先完整执行上面的“页面改动验收”
+- 验收完成后再执行 `npm run build`
+- 通过后才能 `commit` 并 `push`
+
+如果改动涉及 `old-blog`：
+
+- 检查筛选器能否正常工作
+- 检查年份趋势图是否正常
+- 检查标题跳转、时间、阅读量显示是否还在
+- 检查没有残留本地临时端口或测试文件
+
+## 当前已知仓库特性
+
+- 当前 `src/content/blog/`、`src/content/routes/`、`src/content/projects/` 可以为空
+- 即使内容目录为空，页面也必须正常渲染空状态
+- 旧站筛选器已迁到 Vue；当前不需要引入更重的前端框架
+- `siteUrl`、仓库地址、导航等关键信息集中在 `src/config/site.ts`
+
+## 如果未来要改域名或仓库名
+
+至少同步检查：
+
+- `astro.config.mjs`
+- `src/config/site.ts`
+- GitHub Pages 仓库设置
+- `README.md`
+
+## 联系入口
+
+当前默认联系入口：
+
+- 邮箱：`hansbug@buaa.edu.cn`
+- GitHub Issue
+- GitHub Discussions
+
+任何改动都不要把联系入口藏得太深，至少首页、联系页、页脚应可找到。
+
+## 推荐的阅读顺序
+
+新协作者或 agent 建议按这个顺序建立上下文：
+
+1. `README.md`
+2. `AGENTS.md`
+3. `src/content.config.ts`
+4. `src/config/site.ts`
+5. `src/utils/content.ts`
+6. 目标页面与对应组件
+
+如果只是发新文章，通常不需要通读全站实现。
+
+如果只是改 `old-blog` 体验，优先从：
+
+1. `src/pages/old-blog.astro`
+2. `src/components/OldBlogExplorer.vue`
+3. `src/components/OldBlogFilterSelect.vue`
+4. `src/styles/global.css`
+
+开始。
