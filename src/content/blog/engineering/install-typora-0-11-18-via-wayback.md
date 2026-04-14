@@ -33,7 +33,7 @@ pinned: false
 
 ## Typora 没失踪，只是早就不是当年的 Typora 了
 
-先把最基础的问题说清楚：**Typora 本质上就是一个 Markdown 编辑器。** 它长期以来最能打的地方，也不是插件商店、知识库体系或者一堆花里胡哨的附加能力，而是那种把写作和预览尽量揉平、把干扰降到最低的体验。Typora 官网首页对它自己的描述也很直白，大意就是一个极简的 Markdown editor and reader，重点在于减少模式切换，把写作动作做顺。（见文末参考资料 1）
+先把最基础的问题说清楚：**Typora 本质上就是一个 Markdown 编辑器。** 它长期以来最能打的地方，也不是插件商店、知识库体系或者一堆花里胡哨的附加能力，而是那种把写作和预览尽量揉平、把干扰降到最低的体验。Typora 官网首页对它自己的描述也很直白，大意就是一个极简的 Markdown editor and reader，重点在于减少模式切换，把写作动作做顺。[@typora-home]
 
 这也是为什么它会有一批相当稳定的老用户。你平时未必会天天夸它，但真到了要换编辑器、或者重装机器的那一刻，往往才会意识到，自己的手已经被这套工作流养刁了。
 
@@ -41,12 +41,12 @@ pinned: false
 
 ![Typora 官网首页首屏截图（2026-04-13）](/images/posts/install-typora-0-11-18-via-wayback/typora-home-hero.png)
 
-*图 1：Typora 官方首页首屏。来源：Typora 官方首页（参考资料 1），截图时间 2026-04-13。*
+*图 1：Typora 官方首页首屏。来源：Typora 官方首页[@typora-home]，截图时间 2026-04-13。*
 
 至于“这东西到底是谁做的”，公开信息其实能对出两层口径：
 
-- Typora 官网页脚的 `Team` 链接会跳转到 `appmakes.io`，而 Typora 也确实列在这个站点的产品列表里。（见参考资料 1、6）
-- 但 Typora 的 `License Agreement` 里，又把 typora.io / Typora 的 developer(s) 更正式地写成了 `Qiyun (Shanghai) Technology Ltd.`。（见参考资料 3）
+- Typora 官网页脚的 `Team` 链接会跳转到 `appmakes.io`，而 Typora 也确实列在这个站点的产品列表里。[@typora-home; @appmakes-home]
+- 但 Typora 的 `License Agreement` 里，又把 typora.io / Typora 的 developer(s) 更正式地写成了 `Qiyun (Shanghai) Technology Ltd.`。[@typora-license]
 
 换句话说，如果按公开产品体系去理解，把它看成 `typora.io / appmakes` 这套品牌链路下的产品，没有问题；如果按协议文本去说，那么开发主体在法律文本里写得更明确。两种说法不是互相打架，而是处在不同层次。
 
@@ -54,15 +54,15 @@ pinned: false
 
 这件事其实没必要兜圈子。公开信息里至少有三条线可以互相对上：
 
-- 官网购买区直接写着 `15 days free trial` 和价格。（见参考资料 1）
-- 购买 FAQ 明确说明它是 **one-time payment**，不是订阅制，而且一个 license 最多可激活 3 台设备。（见参考资料 2）
-- `What's New 1.0` 页面把 `Typora finally reaches v1.0` 和 `Purchase / Activate Typora` 并列写在一起，这基本已经把“beta 长跑结束，进入正式商业化阶段”的分界线摆明了。（见参考资料 4）
+- 官网购买区直接写着 `15 days free trial` 和价格。[@typora-home]
+- 购买 FAQ 明确说明它是 **one-time payment**，不是订阅制，而且一个 license 最多可激活 3 台设备。[@typora-purchase]
+- `What's New 1.0` 页面把 `Typora finally reaches v1.0` 和 `Purchase / Activate Typora` 并列写在一起，这基本已经把“beta 长跑结束，进入正式商业化阶段”的分界线摆明了。[@typora-whats-new-1-0]
 
 下面这张图，就是笔者在 **2026 年 4 月 13 日** 从 Typora 官网首页截下来的购买区：
 
 ![Typora 官网购买区截图（2026-04-13）](/images/posts/install-typora-0-11-18-via-wayback/typora-home-purchase.png)
 
-*图 2：Typora 官网购买区。可以直接看到 `15 days free trial`、价格和 `All / History Releases` 入口。来源：Typora 官方首页（参考资料 1），截图时间 2026-04-13。*
+*图 2：Typora 官网购买区。可以直接看到 `15 days free trial`、价格和 `All / History Releases` 入口。来源：Typora 官方首页[@typora-home]，截图时间 2026-04-13。*
 
 所以先把这个坐标系钉死：**“Typora 现在收费”** 这件事是真的，而且并不隐晦；但它和 **“我今天还能不能把某个 old beta 包直接从官网官方下载回来”**，压根不是同一个问题。很多讨论之所以越聊越乱，就是因为一上来把这两件事糊成了一锅粥。
 
@@ -76,8 +76,8 @@ pinned: false
 
 这里最容易混淆的点，笔者直接列出来：
 
-- 官网并不是彻底没有历史版本入口。首页和购买区今天依然能看到 `All / History Releases`。（见参考资料 1）
-- 购买 FAQ 也明确提到，old release builds 可以在对应页面找到。（见参考资料 2）
+- 官网并不是彻底没有历史版本入口。首页和购买区今天依然能看到 `All / History Releases`。[@typora-home]
+- 购买 FAQ 也明确提到，old release builds 可以在对应页面找到。[@typora-purchase]
 - 但是像 `0.11.18` 这种 **pre-1.0 的 Linux beta 包**，当前公开页面已经不是“点一下按钮就能把 `.deb` 下回来”的状态了。
 
 换句话说，事情的真实面貌不是“官网只剩 404”，而是更别扭、也更容易让人误判的那一种：
@@ -100,15 +100,15 @@ pinned: false
 
 ![Wayback 上 Typora 0.11.18 官方 deb 归档页截图（2026-04-13）](/images/posts/install-typora-0-11-18-via-wayback/wayback-typora-package-index.png)
 
-*图 3：Wayback Machine 对 `typora_0.11.18_amd64.deb` 原始官方地址的归档页。来源：Internet Archive Wayback Machine（参考资料 7），截图时间 2026-04-13。*
+*图 3：Wayback Machine 对 `typora_0.11.18_amd64.deb` 原始官方地址的归档页。来源：Internet Archive Wayback Machine[@wayback-typora-package-index]，截图时间 2026-04-13。*
 
 下面这张图，则是当前 dev release 页面里 `Old Beta / 0.11.18` 那一段：
 
 ![Typora dev release 页面 Old Beta 截图（2026-04-13）](/images/posts/install-typora-0-11-18-via-wayback/typora-dev-old-beta.png)
 
-*图 4：Typora 当前 dev release 页面中的 `Old Beta / 0.11.18` 段落。页面保留了旧 beta 的发布说明，但当前公开页面里没有继续给出 Linux 下载按钮。来源：Typora dev release 页面（参考资料 5），截图时间 2026-04-13。*
+*图 4：Typora 当前 dev release 页面中的 `Old Beta / 0.11.18` 段落。页面保留了旧 beta 的发布说明，但当前公开页面里没有继续给出 Linux 下载按钮。来源：Typora dev release 页面[@typora-dev-release]，截图时间 2026-04-13。*
 
-从协议文本角度看，这种局面其实也不算奇怪。Typora 的 `License Agreement` 明确写过，他们可以在一段时间后，或者在发现 older versions 存在严重问题时，把这些版本从网站上移除。（见参考资料 3）
+从协议文本角度看，这种局面其实也不算奇怪。Typora 的 `License Agreement` 明确写过，他们可以在一段时间后，或者在发现 older versions 存在严重问题时，把这些版本从网站上移除。[@typora-license]
 
 所以，严格来说，今天这个局面不是“官网没了”，而是：
 
@@ -124,7 +124,7 @@ pinned: false
 
 答案其实相当务实，没有什么玄学成分：
 
-- 它在当前 dev release 页面里依然保留着明确的 `Old Beta` 记录。（见参考资料 5）
+- 它在当前 dev release 页面里依然保留着明确的 `Old Beta` 记录。[@typora-dev-release]
 - Wayback 里对应的 Linux `amd64 .deb` 快照可以完整取回。
 - 下载之后，用 `dpkg-deb -I` 检查时，版本字段明确写的是 `0.11.18-1`。
 
@@ -357,12 +357,12 @@ Typora 并不是“突然消失”的软件。到 **2026 年 4 月 13 日** 为�
 
 ## 参考资料
 
-1. Typora 官方首页：<https://typora.io/>，访问时间：2026-04-13。
-2. Typora Purchase FAQ：<https://support.typora.io/purchase/>，访问时间：2026-04-13。
-3. Typora License Agreement：<https://support.typora.io/License-Agreement/>，访问时间：2026-04-13。
-4. Typora What's New 1.0：<https://support.typora.io/What%27s-New-1.0/>，访问时间：2026-04-13。
-5. Typora Dev Release Channel：<https://typora.io/releases/dev>，访问时间：2026-04-13。
-6. Appmakes 团队页：<https://appmakes.io/>，访问时间：2026-04-13。
-7. Internet Archive Wayback Machine 页面：<https://web.archive.org/web/*/https://download.typora.io/linux/typora_0.11.18_amd64.deb>，访问时间：2026-04-13。
-8. Typora 旧版 Linux 包原始地址：<https://download.typora.io/linux/typora_0.11.18_amd64.deb>，访问时间：2026-04-13。
-9. Typora 旧版 Linux 包 Wayback 原始快照：<https://web.archive.org/web/20220518163411if_/https://download.typora.io/linux/typora_0.11.18_amd64.deb>，访问时间：2026-04-13。
+1. [@typora-home] Typora 官方首页：<https://typora.io/>，访问时间：2026-04-13。
+2. [@typora-purchase] Typora Purchase FAQ：<https://support.typora.io/purchase/>，访问时间：2026-04-13。
+3. [@typora-license] Typora License Agreement：<https://support.typora.io/License-Agreement/>，访问时间：2026-04-13。
+4. [@typora-whats-new-1-0] Typora What's New 1.0：<https://support.typora.io/What%27s-New-1.0/>，访问时间：2026-04-13。
+5. [@typora-dev-release] Typora Dev Release Channel：<https://typora.io/releases/dev>，访问时间：2026-04-13。
+6. [@appmakes-home] Appmakes 团队页：<https://appmakes.io/>，访问时间：2026-04-13。
+7. [@wayback-typora-package-index] Internet Archive Wayback Machine 页面：<https://web.archive.org/web/*/https://download.typora.io/linux/typora_0.11.18_amd64.deb>，访问时间：2026-04-13。
+8. [@typora-old-deb-origin] Typora 旧版 Linux 包原始地址：<https://download.typora.io/linux/typora_0.11.18_amd64.deb>，访问时间：2026-04-13。
+9. [@typora-old-deb-wayback] Typora 旧版 Linux 包 Wayback 原始快照：<https://web.archive.org/web/20220518163411if_/https://download.typora.io/linux/typora_0.11.18_amd64.deb>，访问时间：2026-04-13。
