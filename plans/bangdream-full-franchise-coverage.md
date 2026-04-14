@@ -2,15 +2,22 @@
 
 ## 1. 当前桌宠池快照
 
-- 本地桌宠模型目录 `src/vendor/deskpet/bangdream-models` 当前只有 `001-025` 共 `25` 名角色、`57` 个可用变体。
-- 当前桌宠池实际覆盖的团体只有 5 团：
+- 本地桌宠模型目录 `src/vendor/deskpet/bangdream-models` 当前已扩到 `001-040`，共 `40` 名角色、`144` 个可用变体。
+- 当前桌宠池实际覆盖的团体已扩到 8 团：
   - Poppin'Party
   - Afterglow
   - ハロー、ハッピーワールド！
   - Pastel*Palettes
   - Roselia
-- 按“当前官方现行主线 + 当前官方新作团体”口径计算，共 `12` 团、`60` 个团席位；当前桌宠池已覆盖 `25/60`，缺少 `35` 个席位。
-- 如果把剧情侧团、偶像组合、衍生团和原型团也纳入，当前桌宠池只覆盖 `5/20` 个团体。
+  - Morfonica
+  - RAISE A SUILEN
+  - MyGO!!!!!
+- 按“当前官方现行主线 + 当前官方新作团体”口径计算，共 `12` 团、`60` 个团席位；当前桌宠池已覆盖 `40/60`，还缺 `20` 个席位。
+- 如果把剧情侧团、偶像组合、衍生团和原型团也纳入，当前桌宠池已覆盖 `8/20` 个团体。
+- 当前池中角色分布是：
+  - `16` 名角色各有 `3` 套可用服装
+  - `24` 名角色各有 `4` 套可用服装
+- 本轮新增条目采用 GitHub 优先的公开资源链路，主要来源为 `A-kirami/bestdori-live2d-downloader` 指向的 Bestdori 公开 Live2D 资源；导入后的新增服装已逐个在浏览器里完成加载、交互和截图验收。
 
 ## 2. 官方现行主线 / 新作团体
 
@@ -21,9 +28,9 @@
 | 主线 | ハロー、ハッピーワールド！ | 弦巻 こころ / 瀬田 薫 / 北沢 はぐみ / 松原 花音 / 奥沢 美咲 | `5/5` 已覆盖 |
 | 主线 | Pastel*Palettes | 丸山 彩 / 氷川 日菜 / 白鷺 千聖 / 大和 麻弥 / 若宮 イヴ | `5/5` 已覆盖 |
 | 主线 | Roselia | 湊 友希那 / 氷川 紗夜 / 今井 リサ / 宇田川 あこ / 白金 燐子 | `5/5` 已覆盖 |
-| 主线 | Morfonica | 倉田 ましろ / 桐ヶ谷 透子 / 広町 七深 / 二葉 つくし / 八潮 瑠唯 | `0/5` 全缺 |
-| 主线 | RAISE A SUILEN | LAYER / LOCK / MASKING / PAREO / CHU² | `0/5` 全缺 |
-| 主线 | MyGO!!!!! | 高松 燈 / 千早 愛音 / 要 楽奈 / 長崎 そよ / 椎名 立希 | `0/5` 全缺 |
+| 主线 | Morfonica | 倉田 ましろ / 桐ヶ谷 透子 / 広町 七深 / 二葉 つくし / 八潮 瑠唯 | `5/5` 已覆盖 |
+| 主线 | RAISE A SUILEN | LAYER / LOCK / MASKING / PAREO / CHU² | `5/5` 已覆盖 |
+| 主线 | MyGO!!!!! | 高松 燈 / 千早 愛音 / 要 楽奈 / 長崎 そよ / 椎名 立希 | `5/5` 已覆盖 |
 | 主线 | Ave Mujica | 三角 初華 / 若葉 睦 / 八幡 海鈴 / 祐天寺 にゃむ / 豊川 祥子 | `0/5` 全缺 |
 | 新作 `Our Notes` | 夢限大みゅーたいぷ | 仲町 あられ / 宮永 ののか / 峰月 律 / 藤 都子 / 千石ユノ | `0/5` 全缺 |
 | 新作 `Our Notes` | millsage | Hotaru Shiomi / Natsume Izawa / Nagi Kotohira / Mahoro Hamasaki / Houka Izumi | `0/5` 全缺 |
@@ -46,14 +53,17 @@
 ## 4. 面向当前资源池的直接结论
 
 - 如果只按当前官方现行主线与新作团体补资源，当前桌宠池还缺：
-  - Morfonica 5 人
-  - RAISE A SUILEN 5 人
-  - MyGO!!!!! 5 人
   - Ave Mujica 5 人
   - 夢限大みゅーたいぷ 5 人
   - millsage 5 人
   - 一家Dumb Rock! 5 人
-- 也就是说，最直接、最稳妥的下一阶段补齐目标是 `35` 个席位。
+- 也就是说，最直接、最稳妥的下一阶段补齐目标现在缩到 `20` 个席位。
+- 当前已经补齐并验证通过的主线角色上限是 `001-040`。这对应：
+  - 传统 5 团
+  - Morfonica
+  - RAISE A SUILEN
+  - MyGO!!!!!
+- 在这轮 GitHub 优先检索和公开资源清点里，`041+` 没有找到能直接纳入现有 `Cubism 2.1` 桌宠链路、并能通过真实浏览器交互验收的同类公开 Live2D 包，因此 Ave Mujica 和 `Our Notes` 三团暂时仍是空缺。
 - `sumimi`、`CRYCHIC` 这类“成员已在别团出现”的组合，建议后续作为“团体标签 / 背景关系”补录，不要和“新人物资源缺口”混算。
 - `Mitt Clang`、`RAZES`、`Marmalade`、`DEATH GALAXY` 这类资料分散、公开口径不完全一致的团体，建议作为“附录团体”维护，不要阻塞当前桌宠资源修正主线。
 
@@ -62,17 +72,21 @@
 - 本地桌宠池与资源目录：
   - `src/data/bangdreamDeskPetPool.json`
   - `src/vendor/deskpet/bangdream-models`
+- 当前桌宠资源抓取工具：
+  - <https://github.com/A-kirami/bestdori-live2d-downloader>
+- Bestdori 公开角色接口：
+  - <https://bestdori.com/api/characters/all.2.json>
+  - <https://bestdori.com/api/characters/1.json>
 - 主线前 7 团成员总表：
   - <https://bandori.party/members/>
-- MyGO!!!!! 官方角色页：
-  - <https://anime.bang-dream.com/mygo/character/>
-- Ave Mujica 官方角色页：
-  - <https://anime.bang-dream.com/avemujica/character/>
+- MyGO!!!!! 官方页：
+  - <https://bang-dream.com/mygo/>
+- Ave Mujica 官方页：
+  - <https://bang-dream.com/avemujica/>
 - BanG Dream! 官方艺人页：
   - <https://bang-dream.com/artist/>
 - BanG Dream! Our Notes 官方站：
-  - <https://bang-dream-on.bushimo.jp/>
-  - <https://bang-dream-on.bushimo.jp/character/>
+  - <https://bang-dream.com/news/2278>
 - 夢限大みゅーたいぷ官方页：
   - <https://bang-dream.com/yumemita/>
 - 角色 / 侧团补充公开资料：
