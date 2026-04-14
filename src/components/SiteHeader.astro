@@ -53,42 +53,104 @@ const iconMap = {
         </span>
       </a>
 
-      <div class="header-controls">
-        <div class="header-status" aria-label="站点状态">
-          <span class="header-status__label">Status</span>
-          <strong>Online</strong>
+      <details class="header-menu" open>
+        <summary class="header-menu-toggle" aria-controls="site-header-panel" aria-expanded="true">
+          <span class="header-menu-toggle__bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="header-menu-toggle__copy">
+            <span>导航</span>
+            <small>Menu</small>
+          </span>
+        </summary>
+
+        <div class="header-panel" id="site-header-panel">
+          <div class="header-controls">
+            <div class="header-status" aria-label="站点状态">
+              <span class="header-status__label">Status</span>
+              <strong>Online</strong>
+            </div>
+
+            <nav class="main-nav" aria-label="主导航">
+              {
+                siteConfig.nav.map((item) => {
+                  const isExternal = "external" in item && item.external;
+                  const icon = iconMap[item.icon];
+                  const active = !isExternal &&
+                    (item.href === "/" ? pathname === item.href : pathname.startsWith(item.href));
+
+                  return (
+                    <a
+                      class:list={["nav-link", active && "is-active"]}
+                      href={item.href}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noreferrer" : undefined}
+                    >
+                      <span class="nav-link__icon" aria-hidden="true">
+                        <svg viewBox={icon.viewBox}>
+                          {icon.paths.map((path) => <path d={path} />)}
+                        </svg>
+                      </span>
+                      <span class="nav-link__copy">
+                        <span class="nav-link__label">{item.label}</span>
+                        <small>{navMeta[item.icon]}</small>
+                      </span>
+                    </a>
+                  );
+                })
+              }
+            </nav>
+          </div>
         </div>
-
-        <nav class="main-nav" aria-label="主导航">
-          {
-            siteConfig.nav.map((item) => {
-              const isExternal = "external" in item && item.external;
-              const icon = iconMap[item.icon];
-              const active = !isExternal &&
-                (item.href === "/" ? pathname === item.href : pathname.startsWith(item.href));
-
-              return (
-                <a
-                  class:list={["nav-link", active && "is-active"]}
-                  href={item.href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noreferrer" : undefined}
-                >
-                  <span class="nav-link__icon" aria-hidden="true">
-                    <svg viewBox={icon.viewBox}>
-                      {icon.paths.map((path) => <path d={path} />)}
-                    </svg>
-                  </span>
-                  <span class="nav-link__copy">
-                    <span class="nav-link__label">{item.label}</span>
-                    <small>{navMeta[item.icon]}</small>
-                  </span>
-                </a>
-              );
-            })
-          }
-        </nav>
-      </div>
+      </details>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  const headerRoot = document.currentScript?.previousElementSibling;
+  const headerMenu = headerRoot?.querySelector(".header-menu");
+  const headerToggle = headerRoot?.querySelector(".header-menu-toggle");
+  const headerNavLinks = headerRoot?.querySelectorAll(".main-nav a") ?? [];
+
+  if (headerMenu instanceof HTMLDetailsElement && headerToggle instanceof HTMLElement) {
+    const mobileQuery = window.matchMedia("(max-width: 720px)");
+
+    const syncHeaderMenu = (collapseMobile = false) => {
+      if (mobileQuery.matches) {
+        if (collapseMobile) {
+          headerMenu.open = false;
+        }
+      } else {
+        headerMenu.open = true;
+      }
+
+      headerToggle.setAttribute("aria-expanded", String(headerMenu.open));
+    };
+
+    syncHeaderMenu(true);
+
+    headerMenu.addEventListener("toggle", () => {
+      headerToggle.setAttribute("aria-expanded", String(headerMenu.open));
+    });
+
+    mobileQuery.addEventListener("change", () => syncHeaderMenu(true));
+
+    headerNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mobileQuery.matches) {
+          headerMenu.open = false;
+        }
+      });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && mobileQuery.matches && headerMenu.open) {
+        headerMenu.open = false;
+        headerToggle.focus();
+      }
+    });
+  }
+</script>
