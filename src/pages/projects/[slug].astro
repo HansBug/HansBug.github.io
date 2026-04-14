@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import MermaidRenderer from "../../components/MermaidRenderer.astro";
 import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllProjects } from "../../utils/content";
@@ -16,6 +17,7 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const hasMermaid = (project.body ?? "").includes("```mermaid");
 const projectMeta = [
   { label: "State", value: project.data.status },
   { label: "Stack", value: project.data.stack.join(" / "), accent: "accent" as const },
@@ -58,6 +60,7 @@ const projectMeta = [
       </header>
       <div class="article-content shell-card">
         <Content />
+        {hasMermaid && <MermaidRenderer />}
       </div>
     </section>
   </div>

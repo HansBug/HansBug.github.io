@@ -5,23 +5,274 @@ interface Props {
   headings: MarkdownHeading[];
 }
 
+type TocChild = {
+  slug: string;
+  text: string;
+};
+
+type TocGroup = {
+  slug: string;
+  text: string;
+  children: TocChild[];
+};
+
 const { headings } = Astro.props;
 const filteredHeadings = headings.filter(
   (heading) => heading.depth >= 2 && heading.depth <= 3,
 );
+
+const groups: TocGroup[] = [];
+let currentGroup: TocGroup | null = null;
+
+for (const heading of filteredHeadings) {
+  if (heading.depth === 2 || currentGroup === null) {
+    currentGroup = {
+      slug: heading.slug,
+      text: heading.text,
+      children: [],
+    };
+    groups.push(currentGroup);
+    continue;
+  }
+
+  currentGroup.children.push({
+    slug: heading.slug,
+    text: heading.text,
+  });
+}
 ---
 
 {
-  filteredHeadings.length > 0 && (
-    <aside class="toc shell-card">
-      <p class="toc-title">文章目录</p>
-      <ol>
-        {filteredHeadings.map((heading) => (
-          <li class:list={[`depth-${heading.depth}`]}>
-            <a href={`#${heading.slug}`}>{heading.text}</a>
+  groups.length > 0 && (
+    <aside class="toc shell-card" data-toc-root>
+      <div class="toc-head">
+        <p class="toc-title">文章目录</p>
+        <p class="toc-caption">按当前阅读位置自动跟随，长文默认只展开所在分组。</p>
+      </div>
+
+      <ol class="toc-groups">
+        {groups.map((group, index) => (
+          <li
+            class:list={["toc-group", index === 0 && "is-open"]}
+            data-toc-group
+            data-group-slug={group.slug}
+          >
+            <div class="toc-group__row">
+              <a
+                class="toc-group__anchor"
+                href={`#${group.slug}`}
+                data-toc-anchor
+                data-toc-slug={group.slug}
+              >
+                {group.text}
+              </a>
+
+              {group.children.length > 0 && (
+                <button
+                  class="toc-group__toggle"
+                  type="button"
+                  aria-label={`展开或收起 ${group.text}`}
+                  aria-expanded={index === 0 ? "true" : "false"}
+                  data-toc-toggle
+                >
+                  <span aria-hidden="true"></span>
+                </button>
+              )}
+            </div>
+
+            {group.children.length > 0 && (
+              <ol class="toc-children" data-toc-children hidden={index !== 0}>
+                {group.children.map((child) => (
+                  <li class="toc-child">
+                    <a
+                      class="toc-child__anchor"
+                      href={`#${child.slug}`}
+                      data-toc-anchor
+                      data-toc-slug={child.slug}
+                      data-parent-slug={group.slug}
+                    >
+                      {child.text}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            )}
           </li>
         ))}
       </ol>
     </aside>
   )
 }
+
+<script>
+  function getTopOffset() {
+    const header = document.querySelector(".site-header");
+    const headerHeight = header instanceof HTMLElement ? header.getBoundingClientRect().height : 0;
+    return headerHeight + 24;
+  }
+
+  function setGroupOpen(group: HTMLLIElement, open: boolean) {
+    const childList = group.querySelector("[data-toc-children]");
+    const toggle = group.querySelector("[data-toc-toggle]");
+
+    group.classList.toggle("is-open", open);
+
+    if (childList instanceof HTMLElement) {
+      childList.hidden = !open;
+    }
+
+    if (toggle instanceof HTMLButtonElement) {
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+  }
+
+  function initToc(root: HTMLElement) {
+    if (root.dataset.tocInitialized === "true") {
+      return;
+    }
+
+    root.dataset.tocInitialized = "true";
+
+    const groups = Array.from(
+      root.querySelectorAll<HTMLLIElement>("[data-toc-group]"),
+    );
+    const anchors = Array.from(
+      root.querySelectorAll<HTMLAnchorElement>("[data-toc-anchor]"),
+    );
+
+    if (groups.length === 0 || anchors.length === 0) {
+      return;
+    }
+
+    const slugToAnchor = new Map();
+    const slugToHeading = new Map();
+    const slugToParent = new Map();
+
+    for (const anchor of anchors) {
+      const slug = anchor.dataset.tocSlug;
+
+      if (!slug) {
+        continue;
+      }
+
+      slugToAnchor.set(slug, anchor);
+      slugToHeading.set(slug, document.getElementById(slug));
+      slugToParent.set(slug, anchor.dataset.parentSlug ?? slug);
+    }
+
+    function openOnly(parentSlug: string) {
+      for (const group of groups) {
+        setGroupOpen(group, group.dataset.groupSlug === parentSlug);
+      }
+    }
+
+    function syncActiveState(activeSlug: string) {
+      const activeParent = slugToParent.get(activeSlug) ?? activeSlug;
+
+      for (const anchor of anchors) {
+        const slug = anchor.dataset.tocSlug;
+        const isActive = slug === activeSlug;
+        const isAncestor = slug === activeParent && slug !== activeSlug;
+
+        anchor.classList.toggle("is-active", isActive);
+        anchor.classList.toggle("is-ancestor-active", isAncestor);
+
+        if (isActive) {
+          anchor.setAttribute("aria-current", "true");
+        } else {
+          anchor.removeAttribute("aria-current");
+        }
+      }
+
+      openOnly(activeParent);
+
+      const activeAnchor = slugToAnchor.get(activeSlug) ?? slugToAnchor.get(activeParent);
+      if (activeAnchor instanceof HTMLElement) {
+        activeAnchor.scrollIntoView({ block: "nearest" });
+      }
+    }
+
+    function findCurrentSlug() {
+      const topOffset = getTopOffset();
+      const positioned = [];
+
+      for (const [slug, node] of slugToHeading.entries()) {
+        if (!(node instanceof HTMLElement)) {
+          continue;
+        }
+
+        positioned.push({
+          slug,
+          top: node.getBoundingClientRect().top - topOffset,
+        });
+      }
+
+      positioned.sort((left, right) => left.top - right.top);
+
+      const passed = positioned.filter((item) => item.top <= 64);
+      if (passed.length > 0) {
+        return passed[passed.length - 1].slug;
+      }
+
+      return positioned[0]?.slug ?? null;
+    }
+
+    for (const group of groups) {
+      const toggle = group.querySelector("[data-toc-toggle]");
+      if (!(toggle instanceof HTMLButtonElement)) {
+        continue;
+      }
+
+      toggle.addEventListener("click", () => {
+        const isOpen = group.classList.contains("is-open");
+        if (!isOpen) {
+          openOnly(group.dataset.groupSlug ?? "");
+        } else {
+          setGroupOpen(group, false);
+        }
+      });
+    }
+
+    for (const anchor of anchors) {
+      anchor.addEventListener("click", () => {
+        const slug = anchor.dataset.tocSlug;
+        if (!slug) {
+          return;
+        }
+
+        const parentSlug = slugToParent.get(slug) ?? slug;
+        openOnly(parentSlug);
+        syncActiveState(slug);
+      });
+    }
+
+    let rafId = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const currentSlug = findCurrentSlug();
+        if (currentSlug) {
+          syncActiveState(currentSlug);
+        }
+      });
+    };
+
+    onScroll();
+    document.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+  }
+
+  function initAllTocs() {
+    for (const root of document.querySelectorAll<HTMLElement>("[data-toc-root]")) {
+      initToc(root);
+    }
+  }
+
+  document.addEventListener("astro:page-load", initAllTocs);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAllTocs, { once: true });
+  } else {
+    initAllTocs();
+  }
+</script>

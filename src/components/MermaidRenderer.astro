@@ -1,0 +1,131 @@
+---
+interface Props {
+  rootSelector?: string;
+}
+
+const { rootSelector = ".article-content" } = Astro.props;
+---
+
+<div class="mermaid-config" data-root-selector={rootSelector} hidden></div>
+
+<script>
+  import mermaid from "mermaid";
+
+  const configNode = document.currentScript?.previousElementSibling;
+  const rootSelector =
+    configNode instanceof HTMLElement
+      ? (configNode.dataset.rootSelector ?? ".article-content")
+      : ".article-content";
+
+  let initialized = false;
+  let renderIndex = 0;
+
+  function findBlocks() {
+    const roots = Array.from(document.querySelectorAll(rootSelector));
+    const preSet = new Set<HTMLPreElement>();
+
+    for (const root of roots) {
+      for (const node of root.querySelectorAll('pre[data-language="mermaid"], pre code.language-mermaid')) {
+        const pre = node.tagName.toLowerCase() === "pre" ? node : node.closest("pre");
+        if (pre instanceof HTMLPreElement && !pre.dataset.mermaidProcessed) {
+          preSet.add(pre);
+        }
+      }
+    }
+
+    return Array.from(preSet);
+  }
+
+  function buildShell(source: string) {
+    const shell = document.createElement("figure");
+    shell.className = "mermaid-shell";
+
+    const renderTarget = document.createElement("div");
+    renderTarget.className = "mermaid-render";
+    shell.append(renderTarget);
+
+    const details = document.createElement("details");
+    details.className = "mermaid-source";
+
+    const summary = document.createElement("summary");
+    summary.textContent = "查看 Mermaid 源码";
+    details.append(summary);
+
+    const fallbackPre = document.createElement("pre");
+    const fallbackCode = document.createElement("code");
+    fallbackCode.className = "language-mermaid";
+    fallbackCode.textContent = source;
+    fallbackPre.append(fallbackCode);
+    details.append(fallbackPre);
+    shell.append(details);
+
+    return { shell, renderTarget };
+  }
+
+  async function renderMermaidBlocks() {
+    if (!initialized) {
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+        theme: "base",
+        fontFamily:
+          '"Chakra Petch", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Source Han Sans SC", sans-serif',
+        themeVariables: {
+          background: "#14191d",
+          primaryColor: "#1f2b31",
+          primaryTextColor: "#edf1f4",
+          primaryBorderColor: "#77c7d7",
+          lineColor: "#77c7d7",
+          secondaryColor: "#1b242a",
+          tertiaryColor: "#0f1418",
+          textColor: "#edf1f4",
+          fontSize: "16px",
+        },
+      });
+      initialized = true;
+    }
+
+    for (const pre of findBlocks()) {
+      const source = pre.textContent?.trim();
+      if (!source) {
+        pre.dataset.mermaidProcessed = "empty";
+        continue;
+      }
+
+      pre.dataset.mermaidProcessed = "processing";
+      const { shell, renderTarget } = buildShell(source);
+
+      try {
+        const id = `mermaid-diagram-${renderIndex++}`;
+        const { svg, bindFunctions } = await mermaid.render(id, source);
+        renderTarget.innerHTML = svg;
+        bindFunctions?.(renderTarget);
+      } catch (error) {
+        shell.classList.add("is-error");
+        const message = document.createElement("p");
+        message.className = "mermaid-error";
+        message.textContent = `Mermaid 渲染失败：${error instanceof Error ? error.message : String(error)}`;
+        renderTarget.replaceChildren(message);
+      }
+
+      pre.replaceWith(shell);
+      pre.dataset.mermaidProcessed = "done";
+    }
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    void renderMermaidBlocks();
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        void renderMermaidBlocks();
+      },
+      { once: true },
+    );
+  } else {
+    void renderMermaidBlocks();
+  }
+</script>
