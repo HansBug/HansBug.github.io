@@ -141,6 +141,8 @@ export function variantSeason(variant: string): BangdreamDeskPetVariant["season"
 }
 
 export function variantResourceType(variant: string) {
+  if (/sumimi/i.test(variant)) return "半身 / 偶像舞台装";
+  if (/event_\d+_story_/i.test(variant)) return "半身 / 剧情立绘";
   if (/casual.*summer|school_summer/i.test(variant)) return "半身 / 夏装立绘";
   if (/casual.*winter|school_winter/i.test(variant)) return "半身 / 冬装立绘";
   if (/casual/i.test(variant)) return "半身 / 私服立绘";
@@ -156,6 +158,8 @@ export function variantResourceType(variant: string) {
 }
 
 export function variantLabel(variant: string) {
+  if (/sumimi/i.test(variant)) return "sumimi";
+  if (/event_\d+_story_/i.test(variant)) return "剧情";
   if (/casual.*summer|school_summer/i.test(variant)) return "夏装";
   if (/casual.*winter|school_winter/i.test(variant)) return "冬装";
   if (/casual/i.test(variant)) return "私服";

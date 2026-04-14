@@ -2,8 +2,8 @@
 
 ## 1. 当前桌宠池快照
 
-- 本地桌宠模型目录 `src/vendor/deskpet/bangdream-models` 当前已扩到 `001-040`，共 `40` 名角色、`144` 个可用变体。
-- 当前桌宠池实际覆盖的团体已扩到 8 团：
+- 本地桌宠模型目录 `src/vendor/deskpet/bangdream-models` 当前已扩到 `001-045`，共 `45` 名角色、`165` 个可用变体。
+- 当前桌宠池实际覆盖的团体已扩到 9 团：
   - Poppin'Party
   - Afterglow
   - ハロー、ハッピーワールド！
@@ -12,12 +12,16 @@
   - Morfonica
   - RAISE A SUILEN
   - MyGO!!!!!
-- 按“当前官方现行主线 + 当前官方新作团体”口径计算，共 `12` 团、`60` 个团席位；当前桌宠池已覆盖 `40/60`，还缺 `20` 个席位。
-- 如果把剧情侧团、偶像组合、衍生团和原型团也纳入，当前桌宠池已覆盖 `8/20` 个团体。
+- Ave Mujica
+- 按“当前官方现行主线 + 当前官方新作团体”口径计算，共 `12` 团、`60` 个团席位；当前桌宠池已覆盖 `45/60`，还缺 `15` 个席位。
+- 如果把剧情侧团、偶像组合、衍生团和原型团也纳入，当前桌宠池已覆盖 `9/20` 个团体。
 - 当前池中角色分布是：
+  - `1` 名角色有 `2` 套可用服装
   - `16` 名角色各有 `3` 套可用服装
-  - `24` 名角色各有 `4` 套可用服装
-- 本轮新增条目采用 GitHub 优先的公开资源链路，主要来源为 `A-kirami/bestdori-live2d-downloader` 指向的 Bestdori 公开 Live2D 资源；导入后的新增服装已逐个在浏览器里完成加载、交互和截图验收。
+  - `26` 名角色各有 `4` 套可用服装
+  - `1` 名角色有 `5` 套可用服装
+  - `1` 名角色有 `6` 套可用服装
+- 本轮新增条目采用 GitHub 优先、官方公开资源补齐的链路：祥子 / 睦 / 初華的可核对提取包优先参考公开 GitHub 仓库，缺口部分再补 Bestdori 公开 Live2D 资源；导入后的 `21` 个 Ave Mujica 变体已逐个在真实 Chrome 里完成加载、点击交互和截图复核。
 
 ## 2. 官方现行主线 / 新作团体
 
@@ -31,7 +35,7 @@
 | 主线 | Morfonica | 倉田 ましろ / 桐ヶ谷 透子 / 広町 七深 / 二葉 つくし / 八潮 瑠唯 | `5/5` 已覆盖 |
 | 主线 | RAISE A SUILEN | LAYER / LOCK / MASKING / PAREO / CHU² | `5/5` 已覆盖 |
 | 主线 | MyGO!!!!! | 高松 燈 / 千早 愛音 / 要 楽奈 / 長崎 そよ / 椎名 立希 | `5/5` 已覆盖 |
-| 主线 | Ave Mujica | 三角 初華 / 若葉 睦 / 八幡 海鈴 / 祐天寺 にゃむ / 豊川 祥子 | `0/5` 全缺 |
+| 主线 | Ave Mujica | 三角 初華 / 若葉 睦 / 八幡 海鈴 / 祐天寺 にゃむ / 豊川 祥子 | `5/5` 已覆盖 |
 | 新作 `Our Notes` | 夢限大みゅーたいぷ | 仲町 あられ / 宮永 ののか / 峰月 律 / 藤 都子 / 千石ユノ | `0/5` 全缺 |
 | 新作 `Our Notes` | millsage | Hotaru Shiomi / Natsume Izawa / Nagi Kotohira / Mahoro Hamasaki / Houka Izumi | `0/5` 全缺 |
 | 新作 `Our Notes` | 一家Dumb Rock! | Raika Suga / Miku Mahashi / Yomogi Yakura / Chieri Umezato / Shizuku Shinomiya | `0/5` 全缺 |
@@ -53,17 +57,27 @@
 ## 4. 面向当前资源池的直接结论
 
 - 如果只按当前官方现行主线与新作团体补资源，当前桌宠池还缺：
-  - Ave Mujica 5 人
   - 夢限大みゅーたいぷ 5 人
   - millsage 5 人
   - 一家Dumb Rock! 5 人
-- 也就是说，最直接、最稳妥的下一阶段补齐目标现在缩到 `20` 个席位。
-- 当前已经补齐并验证通过的主线角色上限是 `001-040`。这对应：
+- 也就是说，最直接、最稳妥的下一阶段补齐目标现在缩到 `15` 个席位。
+- 当前已经补齐并验证通过的主线角色上限是 `001-045`。这对应：
   - 传统 5 团
   - Morfonica
   - RAISE A SUILEN
   - MyGO!!!!!
-- 在这轮 GitHub 优先检索和公开资源清点里，`041+` 没有找到能直接纳入现有 `Cubism 2.1` 桌宠链路、并能通过真实浏览器交互验收的同类公开 Live2D 包，因此 Ave Mujica 和 `Our Notes` 三团暂时仍是空缺。
+  - Ave Mujica
+- 2026-04-14 这轮已补齐 Ave Mujica `041-045` 五名角色，并落地 `21` 个可用变体：
+  - `041` 豊川 祥子：`casual-2023 / event_297_story_01 / jh_school_winter-2023 / school_summer-2023 / school_winter-2023`
+  - `042` 三角 初華：`casual-2023 / casual-2023_nocap / event_297_story_01 / school_summer-2023 / school_winter-2023 / sumimi`
+  - `043` 八幡 海鈴：`casual-2023 / event_297_story_01 / school_summer-2023 / school_winter-2023`
+  - `044` 祐天寺 にゃむ：`casual-2023 / event_297_story_01`
+  - `045` 若葉 睦：`casual-2023 / event_297_story_01 / school_summer-2023 / school_winter-2023`
+- 上述 `21` 个变体都已在真实 Chrome 里逐个验证：
+  - 页面可进 `SIGNAL LOCK`
+  - 点击桌宠后状态会切到 `FACE LINK`
+  - 前后截图肉眼可见姿态变化，强差分范围约 `5.8% - 39.9%`
+- `Our Notes` 三团这轮继续做了 GitHub / 公开网页检索；当前能稳定确认公开 Live2D 制作信息的是 夢限大みゅーたいぷ，但仍没有找到能直接纳入现有 `Cubism 2.1` 桌宠链路、并通过真实浏览器交互验收的公开模型包，因此 `Our Notes` 三团暂时仍是空缺。
 - `sumimi`、`CRYCHIC` 这类“成员已在别团出现”的组合，建议后续作为“团体标签 / 背景关系”补录，不要和“新人物资源缺口”混算。
 - `Mitt Clang`、`RAZES`、`Marmalade`、`DEATH GALAXY` 这类资料分散、公开口径不完全一致的团体，建议作为“附录团体”维护，不要阻塞当前桌宠资源修正主线。
 
@@ -83,6 +97,8 @@
   - <https://bang-dream.com/mygo/>
 - Ave Mujica 官方页：
   - <https://bang-dream.com/avemujica/>
+- 夢限大みゅーたいぷ公开 Live2D 制作页：
+  - <https://www.live2dcs.jp/works/yumemita/>
 - BanG Dream! 官方艺人页：
   - <https://bang-dream.com/artist/>
 - BanG Dream! Our Notes 官方站：
