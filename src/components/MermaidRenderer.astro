@@ -56,7 +56,7 @@ import mermaidBundleSource from "mermaid/dist/mermaid.min.js?raw";
     const head = source
       .split("\n")
       .map((line) => line.trim())
-      .find(Boolean);
+      .find((line) => Boolean(line) && !line.startsWith("%%"));
     return head ? head.split(/[ {\t]/)[0] : "unknown";
   }
 
@@ -154,6 +154,19 @@ import mermaidBundleSource from "mermaid/dist/mermaid.min.js?raw";
 
   function normalizeText(value: string) {
     return value.replace(/\s+/g, " ").trim();
+  }
+
+  function extractSourceMeta(source: string) {
+    const meta = new Map<string, string>();
+
+    for (const line of source.split("\n")) {
+      const match = line.match(/^\s*%%\s*([A-Za-z0-9_-]+)\s*:\s*(.+?)\s*$/);
+      if (match) {
+        meta.set(match[1].toLowerCase(), match[2]);
+      }
+    }
+
+    return meta;
   }
 
   function createSvgGradient(
@@ -285,6 +298,38 @@ import mermaidBundleSource from "mermaid/dist/mermaid.min.js?raw";
     legend.append(yearGroup, eventGroup);
   }
 
+  function populateSeriesLegend(
+    legend: HTMLElement,
+    title: string,
+    series: Array<{ label: string; color: string }>,
+  ) {
+    legend.replaceChildren();
+    legend.hidden = series.length === 0;
+    if (series.length === 0) {
+      return;
+    }
+
+    const group = document.createElement("div");
+    group.className = "mermaid-legend__group";
+
+    const heading = document.createElement("span");
+    heading.className = "mermaid-legend__title";
+    heading.textContent = title;
+    group.append(heading);
+
+    for (const itemMeta of series) {
+      const item = document.createElement("span");
+      item.className = "mermaid-legend__item";
+      item.style.setProperty("--legend-start", itemMeta.color);
+      item.style.setProperty("--legend-end", itemMeta.color);
+      item.style.setProperty("--legend-stroke", itemMeta.color);
+      item.textContent = itemMeta.label;
+      group.append(item);
+    }
+
+    legend.append(group);
+  }
+
   function styleTimelineSvg(shell: HTMLElement) {
     const svg = shell.querySelector(".mermaid-stage > svg");
     const legend = shell.querySelector(".mermaid-legend");
@@ -385,6 +430,136 @@ import mermaidBundleSource from "mermaid/dist/mermaid.min.js?raw";
 
     populateTimelineLegend(legend, yearLegend);
     shell.classList.add("is-timeline-enhanced");
+  }
+
+  function styleXyChartSvg(shell: HTMLElement, source: string) {
+    const svg = shell.querySelector(".mermaid-stage > svg");
+    const legend = shell.querySelector(".mermaid-legend");
+    if (!(svg instanceof SVGSVGElement) || !(legend instanceof HTMLElement)) {
+      return;
+    }
+
+    const meta = extractSourceMeta(source);
+    const defaultSeriesColors = ["#8fd6ff", "#f2c16d", "#8fe1ba", "#ff9bb0", "#d8dee9"];
+    const sourceSeries = source
+      .split("\n")
+      .map((line) => line.trim())
+      .filter((line) => /^(bar|line)\s*\[/.test(line))
+      .map((line, index) => ({
+        type: line.startsWith("line") ? "line" : "bar",
+        label: "",
+        color: defaultSeriesColors[index % defaultSeriesColors.length],
+      }));
+
+    const labels = (meta.get("series-labels") ?? "")
+      .split("|")
+      .map((item) => normalizeText(item))
+      .filter(Boolean);
+    const colors = (meta.get("series-colors") ?? "")
+      .split("|")
+      .map((item) => normalizeText(item))
+      .filter(Boolean);
+
+    sourceSeries.forEach((series, index) => {
+      series.label = labels[index] ?? `${series.type === "line" ? "折线" : "柱状"} ${index + 1}`;
+      series.color = colors[index] ?? series.color;
+    });
+
+    const plot = svg.querySelector(".plot");
+    if (!(plot instanceof SVGGElement)) {
+      return;
+    }
+
+    const plottedSeries = Array.from(plot.children).filter((node) => {
+      const cls = node.getAttribute("class") ?? "";
+      return /^(bar-plot|line-plot)-/.test(cls);
+    });
+
+    plottedSeries.forEach((group, index) => {
+      const series = sourceSeries[index];
+      if (!series) {
+        return;
+      }
+
+      if (series.type === "bar") {
+        Array.from(group.querySelectorAll("rect")).forEach((rect) => {
+          rect.setAttribute("fill", series.color);
+          rect.setAttribute("stroke", series.color);
+          rect.setAttribute("rx", "4");
+          rect.setAttribute("ry", "4");
+        });
+      } else {
+        Array.from(group.querySelectorAll("path")).forEach((path) => {
+          path.setAttribute("stroke", series.color);
+          path.setAttribute("stroke-width", "3.5");
+          path.setAttribute("stroke-linecap", "round");
+          path.setAttribute("stroke-linejoin", "round");
+        });
+      }
+    });
+
+    const barSeries = plottedSeries
+      .map((group, index) => ({ group, series: sourceSeries[index] }))
+      .filter((item): item is { group: Element; series: { type: string; label: string; color: string } } => {
+        return Boolean(item.series) && item.series.type === "bar";
+      });
+
+    if (barSeries.length > 1) {
+      const groupedRects = barSeries.map(({ group }) =>
+        Array.from(group.querySelectorAll("rect")).filter((rect): rect is SVGRectElement => rect instanceof SVGRectElement),
+      );
+      const categoryCount = groupedRects[0]?.length ?? 0;
+
+      for (let categoryIndex = 0; categoryIndex < categoryCount; categoryIndex += 1) {
+        const sampleRect = groupedRects[0]?.[categoryIndex];
+        if (!sampleRect) {
+          continue;
+        }
+
+        const originalX = Number(sampleRect.getAttribute("x") ?? "0");
+        const originalWidth = Number(sampleRect.getAttribute("width") ?? "0");
+        const center = originalX + originalWidth / 2;
+        const clusterWidth = originalWidth * 0.84;
+        const gap = Math.min(6, originalWidth * 0.05);
+        const barWidth = Math.max(6, (clusterWidth - gap * (barSeries.length - 1)) / barSeries.length);
+        const totalWidth = barWidth * barSeries.length + gap * (barSeries.length - 1);
+        const startX = center - totalWidth / 2;
+
+        barSeries.forEach((_, seriesIndex) => {
+          const rect = groupedRects[seriesIndex]?.[categoryIndex];
+          if (!rect) {
+            return;
+          }
+
+          rect.setAttribute("x", `${startX + seriesIndex * (barWidth + gap)}`);
+          rect.setAttribute("width", `${barWidth}`);
+        });
+      }
+    }
+
+    const background = svg.querySelector("rect.background");
+    if (background instanceof SVGRectElement) {
+      background.setAttribute("fill", "#11161a");
+      background.setAttribute("stroke", "rgba(119, 199, 215, 0.14)");
+      background.setAttribute("rx", "12");
+      background.setAttribute("ry", "12");
+    }
+
+    Array.from(svg.querySelectorAll(".axis-line path, .axisl-line path, .ticks path")).forEach((path) => {
+      path.setAttribute("stroke", "#96acb6");
+    });
+    Array.from(svg.querySelectorAll(".bottom-axis text, .left-axis text, .chart-title text")).forEach((textNode) => {
+      if (textNode instanceof SVGTextElement) {
+        textNode.setAttribute("fill", "#edf1f4");
+      }
+    });
+
+    populateSeriesLegend(
+      legend,
+      "图例",
+      sourceSeries.map((series) => ({ label: series.label, color: series.color })),
+    );
+    shell.classList.add("is-xychart-enhanced");
   }
 
   function setupViewport(shell: HTMLElement, renderTarget: HTMLElement, controls: ReturnType<typeof buildShell>["controls"]) {
@@ -596,6 +771,9 @@ import mermaidBundleSource from "mermaid/dist/mermaid.min.js?raw";
         setupViewport(shell, renderTarget, controls);
         if (shell.dataset.diagramType === "timeline") {
           styleTimelineSvg(shell);
+        }
+        if (shell.dataset.diagramType === "xychart-beta") {
+          styleXyChartSvg(shell, source);
         }
       } catch (error) {
         shell.classList.add("is-error");
