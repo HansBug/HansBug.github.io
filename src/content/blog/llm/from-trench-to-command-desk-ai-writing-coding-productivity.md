@@ -1,8 +1,8 @@
 ---
 title: "从战壕到帅案——关于 AI 在写作与编码中的真实作用、产能重估与劳心时代"
-description: "把“AI 提高效率”这种已经说烂的话，翻成可复核的 GitHub 统计、时代分期和真实工作体验之后，结论其实比口号更激烈。"
+description: "把“AI 提高效率”这种已经说烂的话，翻成可复核的 GitHub 统计、发展时间线和真实工作体验之后，结论其实比口号更激烈。"
 pubDate: 2026-04-14
-updatedDate: 2026-04-14
+updatedDate: 2026-04-15
 tags:
   - LLM 应用
   - 工程效率
@@ -16,29 +16,121 @@ draft: false
 pinned: false
 ---
 
-最近这段时间，笔者越来越强烈地意识到一件事：如果今天还把 AI 工具理解成 IDE 角落里那个偶尔帮你补全两行代码的小玩意，那基本已经落后现实半个时代了。真正把工作方式掀翻的，并不是“它会不会写一段函数”，而是模型、agent、仓库级搜索、终端执行、上下文压缩和多任务并行这些东西一旦拧成一股绳，人面对的工作单元就彻底变了。过去你面对的是一个 repo、一段代码、一个 issue；现在你面对的往往是一整条战线、一排同时推进的任务，以及一群等着你继续喂上下文、做判断、定边界的 agent。
+最近这段时间，笔者越来越强烈地意识到一件事：AI在自己的日常工作流程里开始起到越来越重要的作用，而且已经远远不只是一个能帮你写两行docstring或者单元测试或者小函数的玩具。若真要只是那样的话，那说实话，基本已经落后现实半个时代了。为此我觉得，有必要单独就AI这件事拿出来好好说说自己的现状与理解。
 
-这件事如果只靠感觉讲，很容易写成两种都不太中用的文章。要么是“AI 真香”“效率起飞”这种一听就知道没什么统计底座的口号文；要么是“工具无罪”“拥抱变化”“保持理性”这种句句正确、读完却像没读的行业播报。前者太浮，后者太轻。说白了，很多文章之所以没有说服力，不是因为它们说错了，而是因为它们把一个已经剧烈改写现实的东西，写得像一段温吞吞的新闻摘要。
+然而，问题恰恰也出在这里。今天关于 AI coding 的讨论，太容易滑向两边：一边是“AI 真香”“效率起飞”这种一听就知道没什么信息量的水文；另一边是“工具无罪”“拥抱变化”“保持理性”这种句句正确、却句句无用的空话。前者太浮，后者太轻。说白了，很多文章之所以没有说服力，不是因为它们说错了，而是因为它们没有真的把问题立起来，结果把一个已经剧烈改写现实的东西，写得像一段平平无奇的新闻摘要。
 
-所以这次，笔者不打算顺着那条路写。我确实去翻了自己的 GitHub 记录，也确实做了统计。公开部分只用 `HansBug` 这边已经开放的信息做详细表格、详细链接和细粒度拆解；另一部分未开源工作，则只保留匿名聚合结果，不挂仓库名，不挂链接，也不写任何可以逆推出具体项目的细节。该公开的地方公开到底，不该公开的地方到此为止，这不是姿态问题，而是边界问题。
+所以这篇文章，笔者更想按一种接近 empirical study 的方式来写：先把问题提出来，再一层一层往下答，而不是一上来就把后文的结论拍在桌上。具体来说，本文至少想回答下面几组问题：
 
-还有一点也必须先说清楚：这篇文章的主体分析，按“人”做，不按“单个 repo”做。原因很简单，vibe/agent 时代真正离谱的地方，本来就不是某一个仓库一天多了多少 commit，而是同一个人在同一个时间窗里，能不能同时把代码、文档、研究笔记、博客长文、脚手架、站点本身一起挂起来推进。如果今天还用单仓库视角理解这种产能，那个坐标系从一开始就是歪的。
+> * `RQ1`：如果把时间线、分期和可复核样本都摆上来，今天的产能变化到底有多大？
+> * `RQ2`：AI Coding 到底把今天的工作模式和流程改写成了什么？
+> * `RQ3`：这种变化到底有没有把人变轻松？
+> * `RQ4`：身为开发者，以及自己在这条链路里真正不可替代的部分？
+> * `RQ5`：今天到底应该怎样看待 AI 产物的责任边界？
 
-不过在看数字之前，有两件事必须先钉死：分期坐标系和统计口径。前者不钉死，后面很容易在时间边界上吵成一锅；后者不钉死，后面那些看起来很漂亮的倍数，很可能只是把自己先哄舒服了而已。
+也正因为如此，我会以我自己为研究对象，拿我现在和过去的真实的Git行为、GitHub 统计，并且进行详实的时间线整理和样本清洗。做这些，并不是为了把文章写成一份“看我最近产能多高”的自我展示报告，而是为了给这些问题提供一个足够具体、足够贴地的回答。笔者确实去翻了自己的 GitHub 记录，也确实做了统计。公开部分只用 `HansBug` 这边已经开放的信息做详细表格、详细链接和细粒度拆解；另一部分未开源工作，则只保留匿名聚合结果，不挂仓库名，不挂链接，也不写任何可以逆推出具体项目的细节。该公开的地方公开到底，不该公开的地方到此为止，这不是姿态问题，而是边界问题。
 
-## 写在前面：先把这篇文章的坐标系钉住
+还有一点也必须先说清楚：这篇文章的主体分析，按“人”做，不按“单个 repo”做——也就是同一个人在同一个时间窗内到底产出了总计多少内容。至于原因，后面的RQ Answer阶段会给出回答——这件事也恰恰是AI Coding带来的非常核心的改变。
 
-### 分期：这三个时代到底怎么切
+## LLM、Agent 与 Coding Agent 的前世今生
 
-这组原始分期设定里有一个很现实的问题：“前 AI 时代”写的是 `2024 年 6 月之前`，“初步 AI 时代”写的是 `2024 年 1 月到 2026 年 1 月底`。这两个区间在 `2024-01-01` 到 `2024-05-31` 之间明显重叠。写文章的时候可以含糊，做统计的时候不能含糊；否则同一段时间会被重复计入，后面无论算 commit 数、活跃仓库数还是产能倍数，最后都会变成坐标系先坏掉、结论再跟着坏掉。
+如果今天要严肃讨论 AI coding 给工程工作、写作工作和人的脑力分配带来的变化，那么有一条背景线是绕不过去的：我们今天所说的 `AI`，并不是一个单一技术对象，而是一串彼此相连、但层级并不相同的能力演化。`ChatGPT` 爆火[@openai-chatgpt]、`GPT-4` 发布[@openai-gpt4]、`SWE-bench` 提出[@swe-bench]、`Codex` 研究预览[@openai-codex-preview]，以及 `Claude Code` 团队级使用经验公开[@anthropic-claude-code]，都可以被泛泛地归到“AI 来了”这四个字里；但如果不先把这条技术史拆开，后面关于分期、产能和工作流改写的讨论就很容易失焦。原因并不复杂：这些节点对应的，不是同一层级的能力变化，也不是同一层级的工作单元。
 
-因此，本文采用不重叠的精确分期：
+从公开文献与产品演进回看，这条线至少可以拆成四层。第一层，是对话式大模型把自然语言接口真正做成了一个普适入口。`ChatGPT` 把 LLM 从研究圈内的实验对象推成了大众工具，`GPT-4` 则进一步把推理、写作、复杂任务遵循和多步骤说明执行往前推了一截[@openai-chatgpt; @openai-gpt4]。与此同时，`A Survey of Large Language Models` 对训练范式、scaling、对齐、指令跟随与能力边界做了系统梳理，而且它不是一篇停留在 `2023` 年的定稿综述，而是一篇截至 `2026-03-18` 仍在持续更新的 living survey，当前 arXiv 版本已经到 `v19`[@llm-survey]。换句话说，这一层的核心贡献，是把“一个能用自然语言交互、能稳定完成问答与改写、能按指令做事的大模型”正式确立为新的通用接口。
+
+第二层，是 LLM 从“会回答”走向“会围绕目标持续做事”。`ReAct` 把推理与行动显式绑定起来[@react]；`Toolformer` 让模型学会在需要的时候调用外部工具[@toolformer]；`Reflexion` 与 `Voyager` 则分别把自我反思和长程任务推进到了更连续的 agent 语境里[@reflexion; @voyager]。紧接着，两篇 agent 综述开始把记忆、规划、工具使用、环境交互和长期目标执行整理成相对稳定的讨论框架[@autonomous-agent-survey; @agent-rise-survey]。这一层真正改写的问题，不再是“模型能不能给一个像样回答”，而是“模型能不能以 agent 的形式持续推进任务”。
+
+第三层，是软件工程任务开始被单独拿出来，作为 agent 能力的主战场来讨论。`SWE-bench` 把真实 GitHub issue resolution 变成了公开 benchmark[@swe-bench]；`SWE-agent` 和 `Agentless` 则进一步把 repo 浏览、命令执行、补丁生成、测试反馈和 issue 修复串成了更完整的链路[@swe-agent; @agentless]。在此基础上，《A Survey of Software Engineering Agents》把 software engineering agents 讨论的坐标明确抬到了 repo-scale reasoning、tool orchestration、verification loop 与 workflow integration[@se-agent-survey]。这一层非常关键，因为它把“模型会写代码”从 demo 层面，真正推到了工程层面。
+
+第四层，才是今天本文真正关心的现实：agent 从单次能力展示走向组织化、工作流级落地。`GPT-4o` 把速度、成本和多模态交互压低到了更适合高频使用的区间[@openai-gpt4o]；`OpenAI o1 preview` 把 reasoning model 这条线摆到了台前[@openai-o1]；`Claude Sonnet 3.7`、`GitHub Copilot` 的 agent 叙事、`Jules`、`Codex` 预览与 GA，以及 `Anthropic` 自己对 `Claude Code` 的团队级使用总结，则共同指向了一件事：行业今天面对的，已经不是“模型能不能辅助写点代码”，而是人如何把一群可执行、可并行、可持续追问的 agent 接进自己的日常工作流[@anthropic-api-notes; @copilot-agent; @google-jules; @openai-codex-preview; @openai-codex-ga; @anthropic-claude-code]。
+
+如果把这条线压缩成一张更清楚的坐标表，大致可以写成下面这样：
+
+| 客观技术时代 | 时间范围 | 能力边界真正变化在哪里 | 代表工作 |
+| --- | --- | --- | --- |
+| 对话式 LLM 爆发期 | `2022-11` 到 `2023-03` | 模型第一次成为普适的人机接口，能稳定完成问答、总结、改写与基础代码生成 | `ChatGPT`、`GPT-4`、`A Survey of Large Language Models`[@openai-chatgpt; @openai-gpt4; @llm-survey] |
+| 工具使用与 agent 原型期 | `2023-03` 到 `2024-05` | 模型开始显式接工具、接环境、接反思与规划，agent 讨论从零散想法变成范式 | `ReAct`、`Toolformer`、`Reflexion`、`Voyager`、两篇 agent 综述[@react; @toolformer; @reflexion; @voyager; @autonomous-agent-survey; @agent-rise-survey] |
+| Repo 级编码助手成形期 | `2024-05` 到 `2026-01` | 讨论对象从“会写函数”升级为“能读仓库、跑命令、解 issue、过测试” | `GPT-4o`、`SWE-bench`、`SWE-agent`、`Agentless`、`Claude Sonnet 3.7`、`Copilot` agent、`Jules`、`Codex` 预览[@openai-gpt4o; @swe-bench; @swe-agent; @agentless; @anthropic-api-notes; @copilot-agent; @google-jules; @openai-codex-preview] |
+| Agent 编排与组织化落地期 | `2026-02` 至今 | 多 agent 并行、长上下文调度、代码与写作合流，开始直接重写个人与团队工作单元 | `Codex` GA、`Claude Code` 团队实践、`2026 Agentic Coding Trends Report`[@openai-codex-ga; @anthropic-claude-code; @anthropic-agentic-report] |
+
+单看文字，还是容易把这条线看散。所以下面直接按三个阶段来展示时间线：第一张图看对话式 LLM 与 Agent 原型期，第二张图看软件工程 Agent 进入主线的过渡期，第三张图看 repo 级编码助手与组织化 Agent 工作流如何真正成形。每张图内部都保留季度格子，因此既能看大阶段，也不会把时间感抹平。为了避免季度线上出现大片空白，图里额外补进了几个非常关键、但前文表格里没逐个展开的节点，例如 `2024-03` 的 Devin 首次亮相、`2024-10` 的 Claude Computer Use 公测、以及 `2025-08` 前后 GitHub agents panel 与 GPT-5 for developers 这些点[@cognition-devin; @anthropic-computer-use; @copilot-agents-panel; @openai-gpt5-dev]。图里同时放了产品发布、方法范式和综述 / 基准三类节点；年份主线与事件框使用不同颜色区分，基本可以直接看出，哪些节点是在推模型能力本身，哪些是在把 agent / software engineering 这套方法论钉实，哪些又是在把它真正推到工程实践里。
+
+```mermaid
+timeline
+    title 第一阶段：对话式 LLM 爆发与 Agent 原型成形（2022 Q4 - 2023 Q4）
+    section 2022
+      四季度
+        : 2022-10-06 ReAct 推理-行动范式
+        : 2022-11-30 ChatGPT 出圈
+    section 2023
+      一季度
+        : 2023-02-09 Toolformer 工具调用
+        : 2023-03-14 GPT-4 发布
+        : 2023-03-20 Reflexion 反思式 Agent
+        : 2023-03-31 大模型综述
+      二季度
+        : 2023-05-25 Voyager 长程 Agent
+      三季度
+        : 2023-08-22 自主 Agent 综述
+        : 2023-09-14 LLM Agent 发展综述
+      四季度
+        : 2023-10-10 SWE-bench 基准
+```
+
+```mermaid
+timeline
+    title 第二阶段：软件工程 Agent 进入主线（2024 Q1 - 2024 Q4）
+    section 2024
+      一季度
+        : 2024-03-12 Devin 首次亮相
+      二季度
+        : 2024-05-13 GPT-4o 发布
+        : 2024-05-24 SWE-agent
+      三季度
+        : 2024-07-02 Agentless
+        : 2024-09-05 软件工程 Agent 综述
+        : 2024-09-12 OpenAI o1 preview
+      四季度
+        : 2024-10-22 Claude Computer Use 公测
+```
+
+```mermaid
+timeline
+    title 第三阶段：Repo 级编码助手成形与组织化 Agent 落地（2025 Q1 - 2026 Q1）
+    section 2025
+      一季度
+        : 2025-02-06 GitHub Copilot Agent 模式
+        : 2025-02-24 Claude Sonnet 3.7 / Claude Code
+      二季度
+        : 2025-05-16 Codex 预览
+        : 2025-05-20 Jules 公测
+      三季度
+        : 2025-08-07 GPT-5 for developers
+        : 2025-08-19 GitHub Agents Panel
+      四季度
+        : 2025-10-06 Codex GA
+    section 2026
+      一季度
+        : 2026-03-04 Claude Code 团队实践公开
+```
+
+之所以要先把这条时间线铺出来，不是为了在文里堆名词，而是为了避免一件特别常见、也特别要命的误判：把不同层级的技术变化混成一个“AI 一直在进步”的含糊叙事。实际上，`ChatGPT` 带来的是自然语言接口普及，`ReAct` 和 agent 综述带来的是“模型如何连续做事”的范式坐标，`SWE-bench` 一类工作带来的是软件工程任务的公开衡量，而 `Codex`、`Claude Code`、`Jules` 这类产品化形态带来的，则是 agent 真正接进生产流之后，工作单元如何被整体改写。把这几层混在一起，后面分期就一定会切歪。
+
+## 样本、定义与研究结果
+
+### 定义：研究对象、时代划分与核心指标
+
+本文的实证部分，并不是一个要去证明“AI 一定让人更强”的先验论证，而是一个围绕前述 `RQ` 所做的样本化研究。研究对象只有一个，就是笔者本人在不同技术阶段下的工作痕迹；研究目的也只有一个，就是尽量用可复核、可解释的方式，把工作单元、产能结构和工作负荷究竟发生了什么变化，拆给自己和读者看。
+
+这一步首先要解决的，就是定义问题。原始分期设定里有一个很现实的冲突：“前 AI 时代”写的是 `2024 年 6 月之前`，“初步 AI 时代”写的是 `2024 年 1 月到 2026 年 1 月底`。这两个区间在 `2024-01-01` 到 `2024-05-31` 之间明显重叠。写文章时可以含糊，做研究设计时不能含糊；否则同一段时间会被重复计入，后面无论是 commit 数、活跃仓库数还是产能倍率，都会从坐标系层面先坏掉。
+
+不过，技术史分期和个人工作流分期也不是一回事。前一节回答的是“行业走到了哪里”，这里回答的则是“笔者自己的工作方式究竟是什么时候真的被改写了”。因此，本文最终采用的是下面这组不重叠、且与个人工作方式直接对应的精确分期：
 
 | 时期 | 精确时间范围 | 为什么这么切 |
 | --- | --- | --- |
 | 前 AI 基线期 | `截至 2024-05-31` | 把 `2024-05-13` 的 GPT-4o 和 `2024` 年中之后更成熟的代码助手浪潮之前的部分，视为“AI 已存在，但尚未重写日常工作流”的基线期。 |
 | 初步 AI 期 | `2024-06-01` 到 `2026-01-31` | 这段时间里，模型开始真正可用，仓库级辅助开始成形，AI 从“能玩”变成“能干活”；但多 agent 编排和大规模 vibe 工作流还没有在笔者这里完全爆开。 |
-| Vibe / Agent 期 | `2026-02-28` 到 `2026-04-14` | 这里的 `2026-02-28` 是本文统计采用的个人工作流分界点，不是术语诞生日。所谓 `vibe coding` 一词通常追溯到 `2025-02-02` 的公开表述，但术语出生和个人工作方式真正被改写，本来就不是一回事[@vibe-coding-origin]。 |
+| Vibe / Agent 期 | `2026-02-28` 到 `2026-04-14` | 这里的 `2026-02-28` 是本文统计采用的个人工作流分界点，不是术语诞生日。术语本身在 `2025` 年初就已经流行开来，但术语流行与个人工作方式什么时候真的被改写，本来就不是同一件事。 |
 
 这张图是本文采用的切法：
 
@@ -47,11 +139,11 @@ flowchart LR
     A["前 AI 基线期<br/>截至 2024-05-31<br/>AI 已存在，但尚未重写日常工作流"] --> B["初步 AI 期<br/>2024-06-01 至 2026-01-31<br/>模型开始真正可用，仓库级辅助成形"] --> C["Vibe / Agent 期<br/>2026-02-28 至 2026-04-14<br/>多 agent 并行、跨仓库协同、写作与编码合流"]
 ```
 
-之所以敢这么切，不是因为我想在文里玩概念，而是因为公开时间线已经很清楚。`OpenAI` 在 `2024-05-13` 推出 `GPT-4o`，把速度、成本和交互能力一起往前推了一截[@openai-gpt4o]；`Anthropic` 在 `2025-02-24` 推出 `Claude Sonnet 3.7`，后续又持续推进更强的编码模型和 `Claude Code` 形态[@anthropic-api-notes; @anthropic-claude-code]；`OpenAI` 则在 `2025-05-16` 公布 `Codex` 研究预览，并在 `2025-10-06` 宣布 `Codex` GA[@openai-codex-preview; @openai-codex-ga]。再结合 `SWE-bench`、软件工程 agents 综述以及 `2026 Agentic Coding Trends Report` 这些公开资料看，行业讨论的对象早就不只是“补全”了，而是 repo-scale reasoning、tool use、issue resolution 和 workflow orchestration 这些更大的工作单元[@swe-bench; @se-agent-survey; @anthropic-agentic-report; @genai-reshaping-dev]。
+这个切法和前面的技术时间线是能对上的，但并不是机械对应。前 AI 基线期，客观上已经处在对话式 LLM 与 agent 原型逐渐成熟的时代里，可对笔者来说，它们还没有真正把日常工作结构掀翻；初步 AI 期，对应的是 repo 级编码助手逐渐成形、开始真正能带动主线效率的阶段；而 `2026-02-28` 之后这段时间，对应的则不是“模型又涨了一点分”，而是 agent 真正进入多线程日常工作流之后，代码、文档、研究、博客和站点维护开始被一并挂进同一个指挥系统里。行业时间线告诉我这股浪潮是怎么来的，个人工作流分期则告诉我：它到底是什么时候真正打到了我自己身上。
 
-换句话说，这三个阶段之间真正的差别，根本不在于“有没有模型”，而在于模型被接进了多大尺度的工作单元。前面是 AI 已经存在，但还没真正改写工作结构；中间是 AI 开始真正能打，单条主线被明显加速；到了现在，AI 则开始像一整排部将一样被接进日常工作流。术语当然重要，但比术语更重要的，是你的工作方式到底什么时候真的被它改写。
+这组定义还隐含了另一个前提：本文的统计单位是“人”，不是“单个 repo”。原因很简单，vibe / agent 时代真正离谱的地方，本来就不是某一个仓库一天多了多少 commit，而是同一个人在同一个时间窗里，能不能同时把代码、文档、研究笔记、博客长文、脚手架和站点维护一起挂起来推进。按单 repo 看，最多只能看见一个局部战场是否热闹；按人看，才更接近这篇文章真正想研究的对象。
 
-### 方法：本文到底统计什么，不统计什么
+### 研究设计：样本口径、清洗规则与比较方式
 
 这次统计我用了两层口径。第一层是 GitHub `contributionsCollection` 里的 `commit contribution`，它回答的是“在一个连续时间窗里，作为这个人，我总共发生了多少次跨仓库的有效提交活动”。这一层最适合做峰值窗口筛选，因为它天然按“人”而不是按某个仓库在看。第二层是 GitHub 默认分支 landed commit 对应的落地层指标，包括 landed commit、非 merge commit、修改文件数、增删行，以及提交更偏代码还是更偏文档。它回答的是另一个问题：这些高强度窗口最后到底在工程表面上落成了什么。
 
@@ -59,20 +151,23 @@ flowchart LR
 
 “按人统计”这件事也不是姿态，而是现实要求。前 AI 时代的高强度输出，往往是一个主 repo 带一两个配套仓库；现在的高强度输出，往往同时挂着研究笔记、框架代码、博客站点、文档沉淀、技能脚手架和若干调研仓库。如果今天还按单 repo 统计，得到的最多只是“这个库最近很热闹”，而不是“这个人当前到底处在什么工作状态里”。说得更直一点，那就像拿单兵冲锋速度去衡量一个师级指挥调度水平，当然也能测，但测出来的根本不是重点。
 
-另外，本文专门处理了那些明显“脚本味过重”的样本。GitHub 上有些仓库一看名字、一看提交结构，就知道更像镜像、同步、机械回填、数据导入或者自动更新。它们当然不是没价值，但如果把这种窗口直接拿来代表“人类高强度思维劳动”，那结论会走样。所以这次的做法是：先在人级贡献层里找峰值，再人工排掉那些更像镜像/同步/机械回填的候选窗口，优先保留更能体现“人写的、人在判断的”那部分样本。
+另外，本文这次不再满足于“看 commit 数和 raw 行数”，而是把公开窗口逐条拉到 commit 明细层做了一次人工清洗。原因并不复杂：如果直接拿 raw changed lines 来说事，那么 merge diff、生成式语法文件、锁文件、批量导入的原始文本、资源镜像和结构化台账，很容易把图表直接顶飞，最后得到一张看上去很吓人、但其实解释力很差的曲线。这种数当然不是假的，但它衡量的往往不是“人到底输出了多少有效内容”，而是“这一阶段有多少机器可批量展开的表面被一起推平了”。
+
+因此，本文在落地层额外定义了一个 **有效变更行** 指标。它的计算方式很直接：先排除 merge commit 的重复 diff，再从非 merge 提交里去掉几类明显不适合直接当作“有效产能”的文件，包括自动生成的 parser/lexer 产物、锁文件、批量导入的论文全文转储 `paper_content.txt`、vendored 桌宠资源、自动生成的旧站目录账本，以及那种更像半自动评审台账的大型 JSON。保留下来的，才是本文后面真正拿来比较的“有效变更行”。换句话说，本文不是不用 raw 行数，而是把 raw 行数当作表面规模信号，把清洗后的有效变更行当作更接近真实工作量的信号。
 
 数据边界也一并说清楚，省得后面又跑偏：
 
 1. 公开细表和外链，只使用 `HansBug` 这边已经公开的信息。
 2. 另一部分未开源工作，确实做了统计，但只给匿名聚合结果，不挂仓库名，不挂链接，也不写任何可逆去匿名的细节。
 3. 全文时间统计的截止时间，是 **2026-04-14**。
-4. 行数、文件数只作为辅助证据，不作为 headline KPI，因为大规模批量更新、资源导入以及 GitHub Commit API 的 `300 files` 返回上限，都会让这类数字在某些窗口里显著变形。
+4. 全文并行保留两套行数：`raw changed lines` 用来看工作表面的总展开规模，`有效变更行` 用来看排除 merge diff 与明显机器产物之后，真正仍值得拿来比较的那部分工作量。
+5. `有效变更行` 的清洗规则，在公开样本里固定排除了 merge diff、生成式 parser/lexer 产物、锁文件、批量导入的论文全文转储、vendored 资源以及少数明显台账型 JSON；语言桶按 `py / node / md / other` 四类聚合。
 
 这一步看上去有点像先把话说死，实际上非常必要。因为如果方法论不先钉住，后面的数字很容易沦为一种很省事、也很廉价的自我催眠：先拿几个漂亮数把自己哄舒服，再假装那就是分析。坦白说，这种活 AI 比人还会干，但也正因为如此，人更得把坐标系先守住。
 
-## 公开样本与匿名样本：三段高强度窗口到底差在哪里
+### 研究结果（一）：公开样本与匿名样本的窗口结构
 
-### 公开样本：`HansBug` 这边能完全复核的三段窗口
+#### 公开样本：`HansBug` 这边能完全复核的三段窗口
 
 先看公开样本。这里的窗口，都是按“人”的维度，在对应时期里挑出的 14 天高强度窗口；表里给出的公开仓库链接，都可以直接点进去核对。
 
@@ -88,19 +183,52 @@ flowchart LR
 
 更重要的是，这种变化不是简单的“多开几个仓库窗口”。平均活跃公开仓库数从前 AI 公开窗口的 `0.79`，涨到当前公开窗口的 `2.43`；峰值同时活跃公开仓库数从 `2` 变成 `4`。前者意味着你日常就在多条线上持续切换，后者意味着在最忙的时候，公共可见层面的工作并行度已经是过去的两倍。这个差异并不是装饰项，它本身就是工作方式已经被改写的证据。
 
-#### 表 2：公开样本的 14 天峰值窗口（落地层，默认分支 landed commit）
+#### 表 2：公开样本的 14 天峰值窗口（落地层，加入清洗后的有效代码量）
 
-| 时期 | 时间窗 | landed commit | 非 merge commit | 覆盖仓库数 | 修改文件数 | `+` 行 | `-` 行 | 涉及代码提交数 | 涉及文档提交数 |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 前 AI 基线期 | `2023-02-22` ~ `2023-03-07` | 60 | 46 | 3 | 256 | 7,580 | 384 | 50 | 22 |
-| 初步 AI 期 | `2025-06-13` ~ `2025-06-26` | 174 | 174 | 2 | 537 | 34,142 | 13,283 | 146 | 25 |
-| Vibe / Agent 期 | `2026-04-01` ~ `2026-04-14` | 627 | 611 | 7 | 12,158 | 5,727,977 | 149,172 | 158 | 541 |
+| 时期 | 时间窗 | landed commit | 非 merge commit | 有效提交 | raw changed lines | 非 merge changed lines | 有效变更行 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 前 AI 基线期 | `2023-02-22` ~ `2023-03-07` | 60 | 46 | 46 | 7,964 | 4,914 | 4,914 |
+| 初步 AI 期 | `2025-06-13` ~ `2025-06-26` | 174 | 174 | 174 | 47,425 | 47,425 | 23,980 |
+| Vibe / Agent 期 | `2026-04-01` ~ `2026-04-14` | 639 | 622 | 620 | 5,943,848 | 3,303,799 | 587,672 |
 
-落地层比贡献层看起来夸张得多，是因为它更容易把今天这种批量 sweep、跨仓库联动和文档铺开都一起显出来。但也正因为如此，这张表更适合说明“工作面与落地面发生了什么”，而不适合被简单拿来喊一句“我比过去强了十倍”。行数尤其如此，后面我还会专门泼一盆冷水。
+如果只看 `raw changed lines`，当前公开 Vibe 窗口几乎已经到了不宜直接拿来比较的程度：`5,943,848` 行的 raw 变更里，先有 `2,640,049` 行其实只是 merge diff 的重复展开，剩下的非 merge 变更里，又有 `2,716,127` 行来自明显不该和“有效写作 / 有效编码”直接画等号的机器产物。最夸张的是研究资料库里的 `paper_content.txt`，单这一类原文转储就吃掉了 `1,410,872` 行；博客站点里的 `live2d-desktop-pet-eval.json` 这种评审台账型 JSON 又吃掉了 `214,937` 行；此外还有 `81,516` 行 vendored 桌宠资源、`28,661` 行生成式 parser 产物、`16,829` 行 lockfile 和 `5,784` 行自动生成的旧站目录账本。把这些东西不加分辨地算进 headline KPI，本质上和拿“打印机一晚上吐了多少纸”去衡量作者写作能力差不多，热闹是热闹，结论却会歪得很难看。
 
-真正值得注意的是最后两列。当前公开 Vibe 窗口里，代码相关提交是 `158`，文档相关提交却到了 `541`。这说明今天真正爆炸的，根本不只是“写代码更多了”，而是过去那些没空写、懒得写、来不及写、写起来很折磨人的文档、研究笔记、博客正文、站点内容和知识组织面，全都被重新拉回了主流程。很多人谈 AI coding 时只盯代码，这其实已经是老坐标系了；从我自己的窗口看，AI 更离谱的一刀，恰恰是把写作和代码一起拖进了日常高强度生产流。
+所以后面真正拿来比的，是最右边这列“有效变更行”。在这个口径下，前 AI 公开窗口是 `4,914`，初步 AI 公开窗口是 `23,980`，当前公开 Vibe 窗口仍然达到 `587,672`。换句话说，就算把 merge diff、原始全文转储和生成式文件全都扫出去以后，今天公开窗口留下来的有效工作面，依旧不是过去那种“多写了点”的量级。
 
-### 匿名样本：那部分未开源工作不该被省略
+语言分布再往下拆，就更能看出三个窗口的结构差异了：
+
+| 时期 | `py` | `node` | `md` | `other` |
+| --- | ---: | ---: | ---: | ---: |
+| 前 AI 基线期 | `1,927` (`39.2%`) | `0` | `195` (`4.0%`) | `2,792` (`56.8%`) |
+| 初步 AI 期 | `20,635` (`86.1%`) | `0` | `1,930` (`8.0%`) | `1,415` (`5.9%`) |
+| Vibe / Agent 期 | `83,021` (`14.1%`) | `26,413` (`4.5%`) | `435,666` (`74.1%`) | `42,572` (`7.2%`) |
+
+这里的 `other` 不是什么神秘垃圾桶，而是 `Cython / workflow / Makefile / CSS / 配置与杂项结构文件` 这类既不该硬算进 `py`，也不该硬塞进 `md` 的东西。于是前 AI 公开窗口里 `other` 偏高，更多反映的是 `treevalue` 当时那类库工程内部确实含有不少 `pyx / pxd / workflow` 变更；初步 AI 公开窗口则非常典型，几乎就是一条 `py` 主线拉到底；到了当前 Vibe 窗口，`md` 一下子抬到 `74.1%`，说明今天爆炸的并不是单纯的代码敲得更快，而是代码、研究、路线说明、博客正文、知识索引和站点内容一起被接进了主流程。
+
+如果再按提交主导形态去分，差异会更刺眼：
+
+| 时期 | 文档型提交 | 代码型提交 | 混合型提交 |
+| --- | ---: | ---: | ---: |
+| 前 AI 基线期 | `1` (`2.2%`) | `34` (`73.9%`) | `11` (`23.9%`) |
+| 初步 AI 期 | `6` (`3.4%`) | `144` (`82.8%`) | `24` (`13.8%`) |
+| Vibe / Agent 期 | `182` (`29.4%`) | `77` (`12.4%`) | `361` (`58.2%`) |
+
+这张表其实比单纯的行数更能说明问题。前两个窗口的主导形态非常传统，基本就是“写代码，然后偶尔补文档”；当前 Vibe 窗口则完全不是这个画风，真正占主导的是 **混合型提交**。这意味着今天常见的工作单元，已经不是“先把代码敲完，再找机会补文档”，而是代码、文档、路线、研究和站点维护在同一次提交里一起发生。很多人还在用旧时代那种“代码是主业，文档是附庸”的坐标系理解 AI，这就已经有点像拿冷兵器年代的营盘图去看现代参谋部了，问题不在于你算不出数字，而在于你的坐标轴根本没跟上。
+
+把 commit 数和代码量放在同一张图里看，会更直观一些。严格来说，这张图本来应该画双纵轴；但 `Mermaid` 原生并不支持双 `y-axis`，所以这里只能退一步，把“有效变更行”按 `100 × log10(lines)` 的方式投射成折线，左边的柱子仍然保留真实的有效提交数。原始数值以表 2 为准，图只负责把趋势压到同一视野里：
+
+```mermaid
+xychart-beta
+    title "公开 14 天峰值窗口：有效提交与有效变更行"
+    x-axis ["前AI公开", "初步AI公开", "Vibe公开"]
+    y-axis "Commits / 100×log10(Changed Lines)" 0 --> 650
+    bar [46, 174, 620]
+    line [369, 438, 577]
+```
+
+如果非要把这几张表和这张图压成一句话，那就是：前 AI 公开窗口像“一个库的高强度开发期”，初步 AI 公开窗口像“一个主 repo 被模型显著加速的时期”，而当前 Vibe 公开窗口看起来则更像“多个不同性质的工作面被同时挂到一个指挥系统里推进”。这已经不是单仓库爆发，而是工作单元本身被改写了。
+
+#### 匿名样本：那部分未开源工作不该被省略
 
 如果只看公开样本，这篇文章很容易被理解成“拿现在公开窗口去欺负一个历史上比较窄的基线”。可事实不是这样。笔者在前 AI 和初步 AI 阶段，本来就不是低产的人，那部分没有开源的工作如果完全省略，反而会把历史强度压得过低。所以这里必须把匿名聚合结果摆出来，边界守住，但历史强度也不能被抹平。
 
@@ -111,7 +239,7 @@ flowchart LR
 | 匿名前 AI 高强度窗口 | `2023-12-23` ~ `2024-01-05` | 167 | 140 | 8 | 14 | 2.86 | 4 | 1,391 | 51,535 | 5,175 |
 | 匿名初步 AI 高强度窗口 | `2024-08-27` ~ `2024-09-09` | 167 | 157 | 6 | 14 | 1.57 | 3 | 644 | 20,560 | 1,461 |
 
-这张表至少说明了两件事。第一，今天的比较不是拿一个很松垮、很温吞的历史自己来烘托现在；相反，历史样本本身就是高压、多仓库并行的样本。第二，也正因为基线不软，当前 `2026-04-01` 到 `2026-04-14` 的公开窗口才显得格外不讲道理：哪怕把匿名历史强度算进去，今天的 landed commit 仍然是 `627 / 167 = 3.75 倍`，非 merge 提交则分别达到 `611 / 140 = 4.36 倍` 与 `611 / 157 = 3.89 倍`。这就不是“我主观上感觉 AI 很猛”了，而是连坐标轴都换了。
+这张表至少说明了两件事。第一，今天的比较不是拿一个很松垮、很温吞的历史自己来烘托现在；相反，历史样本本身就是高压、多仓库并行的样本。第二，也正因为基线不软，当前 `2026-04-01` 到 `2026-04-14` 的公开窗口才显得格外不讲道理：哪怕把匿名历史强度算进去，今天的 landed commit 仍然是 `639 / 167 = 3.83 倍`，非 merge 提交则分别达到 `622 / 140 = 4.44 倍` 与 `622 / 157 = 3.96 倍`。这就不是“我主观上感觉 AI 很猛”了，而是连坐标轴都换了。
 
 #### 表 4：匿名历史样本与当前公开样本的“代码/文档触达面”对比
 
@@ -123,9 +251,9 @@ flowchart LR
 
 这张表很关键，因为它直接把“AI 只是让代码写得更快”这个常见直觉拆掉了。当前公开窗口里的代码触达提交数，相对于匿名历史高强度样本并没有出现那种夸张到十倍八倍的差距；相反，它相对匿名前 AI 窗口只是 `1.20 倍`，对匿名初步 AI 窗口几乎就是持平。真正爆炸的，是文档和写作面的覆盖：当前公开窗口的文档触达提交数，是匿名前 AI 高强度窗口的 `7.84 倍`，是匿名初步 AI 窗口的 `21.64 倍`。这说明 AI 最离谱的地方，不是让单条代码生产线转得更快，而是让代码、文档、研究笔记、博客长文和知识组织这些过去经常互相挤占时间的东西，开始在同一段高强度工作里一起发生。
 
-## 把“感觉离谱”翻成数字：当前产能到底放大了多少
+### 研究结果（二）：峰值窗口倍率与结果汇总
 
-### 表 5：按人、跨仓库的峰值窗口倍率（贡献层，保守口径）
+#### 表 5：按人、跨仓库的峰值窗口倍率（贡献层，保守口径）
 
 | 时间窗 | 前 AI 基线期 | 初步 AI 期 | Vibe / Agent 期 | `Vibe / 前AI` | `Vibe / 初步AI` |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -147,22 +275,22 @@ xychart-beta
 
 这三个数之所以不是表 1 里的 `117 / 264 / 635`，原因前面已经交代过了：表 1 展开的是公开可复核窗口，而这张图和表 5 用的是按人视角的人级峰值窗口，因此把匿名未开源样本也纳入了比较。公开样本负责把事情说实，匿名样本负责不让历史强度被低估；这两层必须一起看，否则不是低估历史，就是抹平当下。
 
-### 表 6：公开与匿名样本的落地层倍率（更贴近“干成了多少事”）
+#### 表 6：公开与匿名样本的落地层倍率（更贴近“干成了多少事”）
 
 | 对比口径 | 基线窗口 | 当前 Vibe 公开窗口 | 倍率 |
 | --- | --- | ---: | ---: |
-| 公开 landed commit | 前 AI 公开窗口 60 | 627 | 10.45x |
-| 公开 landed commit | 初步 AI 公开窗口 174 | 627 | 3.60x |
-| 公开非 merge commit | 前 AI 公开窗口 46 | 611 | 13.28x |
-| 公开非 merge commit | 初步 AI 公开窗口 174 | 611 | 3.51x |
-| 匿名 landed commit | 匿名前 AI 高强度窗口 167 | 627 | 3.75x |
-| 匿名 landed commit | 匿名初步 AI 高强度窗口 167 | 627 | 3.75x |
-| 匿名非 merge commit | 匿名前 AI 高强度窗口 140 | 611 | 4.36x |
-| 匿名非 merge commit | 匿名初步 AI 高强度窗口 157 | 611 | 3.89x |
+| 公开 landed commit | 前 AI 公开窗口 60 | 639 | 10.65x |
+| 公开 landed commit | 初步 AI 公开窗口 174 | 639 | 3.67x |
+| 公开非 merge commit | 前 AI 公开窗口 46 | 622 | 13.52x |
+| 公开非 merge commit | 初步 AI 公开窗口 174 | 622 | 3.57x |
+| 公开有效变更行 | 前 AI 公开窗口 4,914 | 587,672 | 119.59x |
+| 公开有效变更行 | 初步 AI 公开窗口 23,980 | 587,672 | 24.51x |
+| 匿名 landed commit | 匿名前 AI 高强度窗口 167 | 639 | 3.83x |
+| 匿名 landed commit | 匿名初步 AI 高强度窗口 167 | 639 | 3.83x |
+| 匿名非 merge commit | 匿名前 AI 高强度窗口 140 | 622 | 4.44x |
+| 匿名非 merge commit | 匿名初步 AI 高强度窗口 157 | 622 | 3.96x |
 
-如果说表 5 说明的是“总体强度确实翻倍了”，那么这张表说明的就是：当工作流真正进入多 agent、多仓库、多输出面的状态以后，最终落到默认分支上的那些东西，已经是过去高强度窗口的 `3` 到 `4` 倍，某些公开对比甚至能到 `10` 倍以上。笔者没有直接把 `10.45x` 当 headline 写在开头，是因为那样虽然很炸，但不够稳。公开前 AI 窗口本身更窄，结构也更集中，如果只拿它当唯一基线，很容易显得像是在挑软柿子捏。
-
-所以更稳妥的 headline 应该是三句话一起看。第一，用 contribution-layer 看，当前人级峰值窗口大致是历史高强度窗口的两倍左右；第二，用 landed-layer 看，当前公开窗口相对于历史匿名高强度窗口，已经是 `3.75` 到 `4.36` 倍；第三，真正“离谱”的地方不是代码单项，而是代码和写作一起被推到了高并行状态。把这三句话拆开讲都不完整，合在一起才是比较稳的结论。
+表 6 把峰值窗口倍率直接摊开之后，至少有两点结果是清楚的。第一，用 contribution-layer 看，当前人级峰值窗口相对于历史高强度窗口，稳定落在约 `1.7` 到 `2.3` 倍。第二，用 landed-layer 看，当前公开窗口相对于历史匿名高强度窗口，已经达到 `3.83` 到 `4.44` 倍；如果只看公开样本中的前 AI 窗口，则某些指标会继续抬高到 `10` 倍以上。至于这些结果各自意味着什么、又应该怎样回答前文的 `RQ`，后文再专门展开；在这一节里，先把结果本身摆平、摆实，就已经足够。
 
 下面这张图把 landed-layer 里最能说明问题的一组对比单独画出来：
 
@@ -171,10 +299,10 @@ xychart-beta
     title "落地层 14 天窗口：历史高强度样本 vs 当前公开 Vibe 样本"
     x-axis ["匿名前AI", "匿名初步AI", "当前Vibe公开"]
     y-axis "Landed commits" 0 --> 700
-    bar [167, 167, 627]
+    bar [167, 167, 639]
 ```
 
-如果非要把这段统计压缩成一句俗一点、但并不失真的话，那就是：AI 真正厉害的地方，不是给你省几次敲键盘，而是把你原来要分三周、分三条线、分三种心境才能做完的东西，硬生生压进了同一个 14 天窗口里。所谓“感觉离谱”，本质上就是这种时间压缩和工作面并行叠出来的结果。
+如果非要把这段统计压缩成一句俗一点、但并不失真的话，那就是：AI 真正厉害的地方，不是给你省几次敲键盘，而是把你原来要分三周、分三条线、分三种心境才能做完的东西，硬生生压进了同一个 14 天窗口里。所谓“感觉离谱”，本质上就是这种时间压缩和工作面并行叠出来的结果。只不过今天再谈“压缩”，已经不能只盯 commit 条数了；commit、有效变更行、语言构成和提交主导形态，得一起看，才能看见这股力量到底把什么改写了。
 
 ## AI 对写作和代码的真实作用：不是单任务更快，而是总工作面被改写
 
@@ -247,13 +375,30 @@ AI 在这里最狠的一刀，不是替你“写得更漂亮”，而是把知�
 
 ## 参考资料
 
-1. [@openai-gpt4o] OpenAI, “Hello GPT-4o”, `2024-05-13`：<https://openai.com/index/hello-gpt-4o/>
-2. [@anthropic-api-notes] Anthropic, API release notes，含 `Claude Sonnet 3.7`、`Claude Sonnet 4.x` 等时间线：<https://docs.anthropic.com/en/release-notes/api>
-3. [@anthropic-claude-code] Anthropic, “How Anthropic teams use Claude Code”, `2026-03-04`：<https://www.anthropic.com/customers/how-anthropic-teams-use-claude-code>
-4. [@openai-codex-preview] OpenAI, “Introducing Codex”, `2025-05-16`：<https://openai.com/index/introducing-codex/>
-5. [@openai-codex-ga] OpenAI, “Codex is now generally available”, `2025-10-06`：<https://openai.com/index/codex-generally-available/>
-6. [@anthropic-agentic-report] Anthropic, “2026 Agentic Coding Trends Report” PDF：<https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf>
-7. [@swe-bench] Jimenez et al., “SWE-bench: Can Language Models Resolve Real-World GitHub Issues?”, `2024`：<https://arxiv.org/abs/2310.06770>
-8. [@se-agent-survey] Wang et al., “A Survey of Software Engineering Agents”, `2024`：<https://arxiv.org/abs/2409.02977>
-9. [@genai-reshaping-dev] “How early adopters are reshaping software development with GenAI”, `2025`：<https://arxiv.org/abs/2503.05012>
-10. [@vibe-coding-origin] Know Your Meme 对 `vibe coding` 词源脉络的整理，指出该词通常追溯到 `2025-02-02` 的相关表述：<https://knowyourmeme.com/photos/3029670-vibe-coding>
+1. [@openai-chatgpt] OpenAI, “ChatGPT”, `2022-11-30`：<https://openai.com/blog/chatgpt>
+2. [@openai-gpt4] OpenAI, “GPT-4”, `2023-03-14`：<https://openai.com/research/gpt-4>
+3. [@llm-survey] Zhao et al., “A Survey of Large Language Models”，始于 `2023-03-31`，截至 `2026-03-18` 仍在持续更新，当前 arXiv `v19`：<https://arxiv.org/abs/2303.18223>
+4. [@react] Yao et al., “ReAct: Synergizing Reasoning and Acting in Language Models”, `2022`：<https://arxiv.org/abs/2210.03629>
+5. [@toolformer] Schick et al., “Toolformer: Language Models Can Teach Themselves to Use Tools”, `2023`：<https://arxiv.org/abs/2302.04761>
+6. [@reflexion] Shinn et al., “Reflexion: Language Agents with Verbal Reinforcement Learning”, `2023`：<https://arxiv.org/abs/2303.11366>
+7. [@voyager] Wang et al., “Voyager: An Open-Ended Embodied Agent with Large Language Models”, `2023`：<https://arxiv.org/abs/2305.16291>
+8. [@autonomous-agent-survey] Xi et al., “The Rise and Potential of Large Language Model Based Agents: A Survey”, `2023`：<https://arxiv.org/abs/2309.07864>
+9. [@agent-rise-survey] Wang et al., “A Survey on Large Language Model based Autonomous Agents”, `2023`：<https://arxiv.org/abs/2308.11432>
+10. [@swe-bench] Jimenez et al., “SWE-bench: Can Language Models Resolve Real-World GitHub Issues?”, `2024`：<https://arxiv.org/abs/2310.06770>
+11. [@openai-gpt4o] OpenAI, “Hello GPT-4o”, `2024-05-13`：<https://openai.com/index/hello-gpt-4o/>
+12. [@openai-o1] OpenAI, “Introducing OpenAI o1-preview”, `2024-09-12`：<https://openai.com/index/introducing-openai-o1-preview/>
+13. [@swe-agent] Yang et al., “SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering”, `2024`：<https://arxiv.org/abs/2405.15793>
+14. [@agentless] Xia et al., “Agentless: Demystifying LLM-based Software Engineering Agents”, `2024`：<https://arxiv.org/abs/2407.01489>
+15. [@se-agent-survey] Wang et al., “A Survey of Software Engineering Agents”, `2024`：<https://arxiv.org/abs/2409.02977>
+16. [@anthropic-api-notes] Anthropic, API release notes，含 `Claude Sonnet 3.7`、`Claude Sonnet 4.x` 等时间线：<https://docs.anthropic.com/en/release-notes/api>
+17. [@copilot-agent] GitHub, “GitHub Copilot: The Agent Awakens”, `2025-02-06`：<https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/>
+18. [@google-jules] Google, “Jules: an asynchronous coding agent”, `2025-05-20`：<https://blog.google/technology/google-labs/jules/>
+19. [@openai-codex-preview] OpenAI, “Introducing Codex”, `2025-05-16`：<https://openai.com/index/introducing-codex/>
+20. [@openai-codex-ga] OpenAI, “Codex is now generally available”, `2025-10-06`：<https://openai.com/index/codex-generally-available/>
+21. [@anthropic-claude-code] Anthropic, “How Anthropic teams use Claude Code”, `2026-03-04`：<https://www.anthropic.com/customers/how-anthropic-teams-use-claude-code>
+22. [@anthropic-agentic-report] Anthropic, “2026 Agentic Coding Trends Report” PDF：<https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf>
+23. [@genai-reshaping-dev] “How early adopters are reshaping software development with GenAI”, `2025`：<https://arxiv.org/abs/2503.05012>
+24. [@cognition-devin] Cognition, “Introducing Devin, the first AI software engineer”, `2024-03-12`：<https://cognition.ai/blog/introducing-devin>
+25. [@anthropic-computer-use] Anthropic, “Claude 3.5 Sonnet, Claude 3.5 Haiku, and computer use”, `2024-10-22`：<https://www.anthropic.com/news/3-5-models-and-computer-use>
+26. [@copilot-agents-panel] GitHub Changelog, “Agents panel for GitHub Copilot in VS Code is now generally available”, `2025-08-19`：<https://github.blog/changelog/2025-08-19-agents-panel-for-github-copilot-in-vs-code-is-now-generally-available/>
+27. [@openai-gpt5-dev] OpenAI, “GPT-5 for developers”, `2025-08-07`：<https://openai.com/index/introducing-gpt-5-for-developers/>

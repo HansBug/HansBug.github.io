@@ -4,18 +4,34 @@ interface Props {
 }
 
 const { rootSelector = ".article-content" } = Astro.props;
+import mermaidBundleSource from "mermaid/dist/mermaid.min.js?raw";
 ---
 
 <div class="mermaid-config" data-root-selector={rootSelector} hidden></div>
 
-<script>
-  import mermaid from "mermaid";
+<script is:inline set:html={mermaidBundleSource}></script>
 
+<script>
   const configNode = document.currentScript?.previousElementSibling;
   const rootSelector =
     configNode instanceof HTMLElement
       ? (configNode.dataset.rootSelector ?? ".article-content")
       : ".article-content";
+
+  const TIMELINE_YEAR_PALETTE_MAP = {
+    "2022": { start: "#17324a", end: "#245c7a", stroke: "#8bd7ff", glow: "rgba(139, 215, 255, 0.28)" },
+    "2023": { start: "#15342e", end: "#2a6a56", stroke: "#8ee7c0", glow: "rgba(142, 231, 192, 0.24)" },
+    "2024": { start: "#3f2f16", end: "#8a5b1f", stroke: "#f5c979", glow: "rgba(245, 201, 121, 0.22)" },
+    "2025": { start: "#462229", end: "#8a394d", stroke: "#ff9bb0", glow: "rgba(255, 155, 176, 0.22)" },
+    "2026": { start: "#173a55", end: "#2f79a9", stroke: "#8fd6ff", glow: "rgba(143, 214, 255, 0.24)" },
+  } as const;
+  const TIMELINE_YEAR_PALETTES = Object.values(TIMELINE_YEAR_PALETTE_MAP);
+  const TIMELINE_EVENT_PALETTES = {
+    product: { label: "产品 / 发布", start: "#113147", end: "#1d5d82", stroke: "#84d2ff" },
+    method: { label: "方法 / Agent 工作", start: "#3d2713", end: "#8f5b1f", stroke: "#f2c16d" },
+    survey: { label: "综述 / 基准", start: "#16352d", end: "#2d705b", stroke: "#8fe1ba" },
+  } as const;
+  type TimelineEventKind = keyof typeof TIMELINE_EVENT_PALETTES;
 
   let initialized = false;
   let renderIndex = 0;
@@ -36,13 +52,76 @@ const { rootSelector = ".article-content" } = Astro.props;
     return Array.from(preSet);
   }
 
+  function detectDiagramType(source: string) {
+    const head = source
+      .split("\n")
+      .map((line) => line.trim())
+      .find(Boolean);
+    return head ? head.split(/[ {\t]/)[0] : "unknown";
+  }
+
   function buildShell(source: string) {
+    const diagramType = detectDiagramType(source);
     const shell = document.createElement("figure");
     shell.className = "mermaid-shell";
+    shell.dataset.diagramType = diagramType;
+
+    const toolbar = document.createElement("div");
+    toolbar.className = "mermaid-toolbar";
+
+    const hint = document.createElement("p");
+    hint.className = "mermaid-toolbar__hint";
+    hint.textContent = "拖动平移，Ctrl/Cmd + 滚轮缩放";
+    toolbar.append(hint);
+
+    const controls = document.createElement("div");
+    controls.className = "mermaid-controls";
+
+    const zoomOutButton = document.createElement("button");
+    zoomOutButton.type = "button";
+    zoomOutButton.className = "mermaid-control-button";
+    zoomOutButton.textContent = "−";
+    zoomOutButton.setAttribute("aria-label", "缩小 Mermaid 图");
+    controls.append(zoomOutButton);
+
+    const zoomInButton = document.createElement("button");
+    zoomInButton.type = "button";
+    zoomInButton.className = "mermaid-control-button";
+    zoomInButton.textContent = "+";
+    zoomInButton.setAttribute("aria-label", "放大 Mermaid 图");
+    controls.append(zoomInButton);
+
+    const fitButton = document.createElement("button");
+    fitButton.type = "button";
+    fitButton.className = "mermaid-control-button mermaid-control-button--text";
+    fitButton.textContent = "适宽";
+    fitButton.setAttribute("aria-label", "将 Mermaid 图恢复到适合容器宽度");
+    controls.append(fitButton);
+
+    const actualButton = document.createElement("button");
+    actualButton.type = "button";
+    actualButton.className = "mermaid-control-button mermaid-control-button--text";
+    actualButton.textContent = "1:1";
+    actualButton.setAttribute("aria-label", "按 Mermaid 图原始尺寸查看");
+    controls.append(actualButton);
+
+    const scaleValue = document.createElement("output");
+    scaleValue.className = "mermaid-scale-value";
+    scaleValue.value = "100%";
+    scaleValue.textContent = "100%";
+    controls.append(scaleValue);
+
+    toolbar.append(controls);
+    shell.append(toolbar);
 
     const renderTarget = document.createElement("div");
     renderTarget.className = "mermaid-render";
     shell.append(renderTarget);
+
+    const legend = document.createElement("figcaption");
+    legend.className = "mermaid-legend";
+    legend.hidden = true;
+    shell.append(legend);
 
     const details = document.createElement("details");
     details.className = "mermaid-source";
@@ -59,10 +138,424 @@ const { rootSelector = ".article-content" } = Astro.props;
     details.append(fallbackPre);
     shell.append(details);
 
-    return { shell, renderTarget };
+    return {
+      shell,
+      renderTarget,
+      legend,
+      controls: {
+        zoomOutButton,
+        zoomInButton,
+        fitButton,
+        actualButton,
+        scaleValue,
+      },
+    };
+  }
+
+  function normalizeText(value: string) {
+    return value.replace(/\s+/g, " ").trim();
+  }
+
+  function createSvgGradient(
+    svg: SVGSVGElement,
+    id: string,
+    start: string,
+    end: string,
+    attrs: Record<string, string> = {},
+  ) {
+    let defs = svg.querySelector("defs");
+    if (!defs) {
+      defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+      svg.insertBefore(defs, svg.firstChild);
+    }
+
+    let gradient = svg.querySelector(`#${id}`);
+    if (!(gradient instanceof SVGLinearGradientElement)) {
+      gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+      gradient.id = id;
+      defs.append(gradient);
+    }
+
+    for (const [name, value] of Object.entries({ x1: "0%", y1: "0%", x2: "100%", y2: "100%", ...attrs })) {
+      gradient.setAttribute(name, value);
+    }
+
+    gradient.replaceChildren();
+
+    const startStop = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    startStop.setAttribute("offset", "0%");
+    startStop.setAttribute("stop-color", start);
+    gradient.append(startStop);
+
+    const endStop = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+    endStop.setAttribute("offset", "100%");
+    endStop.setAttribute("stop-color", end);
+    gradient.append(endStop);
+
+    return gradient;
+  }
+
+  function extractTimelineSectionClass(group: Element) {
+    return Array.from(group.classList).find((name) => name.startsWith("section")) ?? null;
+  }
+
+  function classifyTimelineEvent(text: string): TimelineEventKind {
+    const label = normalizeText(text).toLowerCase();
+    if (/(综述|survey|swe-bench|benchmark|基准)/i.test(label)) {
+      return "survey";
+    }
+    if (/(react|toolformer|reflexion|voyager|swe-agent|agentless|范式|工具调用)/i.test(label)) {
+      return "method";
+    }
+    return "product";
+  }
+
+  function paintTimelineNode(
+    group: Element,
+    fillId: string,
+    stroke: string,
+    extras: { shadow?: string; textColor?: string } = {},
+  ) {
+    const shape = group.querySelector(".node-bkg");
+    const accent = group.querySelector('[class*="node-line"]');
+    const textNode = group.querySelector("text");
+
+    if (shape instanceof SVGElement) {
+      shape.setAttribute("fill", `url(#${fillId})`);
+      shape.setAttribute("stroke", stroke);
+      shape.setAttribute("stroke-width", "1.6");
+      if (extras.shadow) {
+        shape.style.filter = `drop-shadow(0 0 10px ${extras.shadow})`;
+      }
+    }
+
+    if (accent instanceof SVGLineElement) {
+      accent.setAttribute("stroke", stroke);
+      accent.setAttribute("stroke-width", "2");
+    }
+
+    if (textNode instanceof SVGTextElement) {
+      textNode.setAttribute("fill", extras.textColor ?? "#edf1f4");
+    }
+  }
+
+  function populateTimelineLegend(
+    legend: HTMLElement,
+    years: Array<{ label: string; palette: (typeof TIMELINE_YEAR_PALETTES)[number] }>,
+  ) {
+    legend.replaceChildren();
+    legend.hidden = false;
+
+    const yearGroup = document.createElement("div");
+    yearGroup.className = "mermaid-legend__group";
+
+    const yearTitle = document.createElement("span");
+    yearTitle.className = "mermaid-legend__title";
+    yearTitle.textContent = "年份主线";
+    yearGroup.append(yearTitle);
+
+    for (const year of years) {
+      const item = document.createElement("span");
+      item.className = "mermaid-legend__item";
+      item.style.setProperty("--legend-start", year.palette.start);
+      item.style.setProperty("--legend-end", year.palette.end);
+      item.style.setProperty("--legend-stroke", year.palette.stroke);
+      item.textContent = year.label;
+      yearGroup.append(item);
+    }
+
+    const eventGroup = document.createElement("div");
+    eventGroup.className = "mermaid-legend__group";
+
+    const eventTitle = document.createElement("span");
+    eventTitle.className = "mermaid-legend__title";
+    eventTitle.textContent = "事件性质";
+    eventGroup.append(eventTitle);
+
+    for (const palette of Object.values(TIMELINE_EVENT_PALETTES)) {
+      const item = document.createElement("span");
+      item.className = "mermaid-legend__item";
+      item.style.setProperty("--legend-start", palette.start);
+      item.style.setProperty("--legend-end", palette.end);
+      item.style.setProperty("--legend-stroke", palette.stroke);
+      item.textContent = palette.label;
+      eventGroup.append(item);
+    }
+
+    legend.append(yearGroup, eventGroup);
+  }
+
+  function styleTimelineSvg(shell: HTMLElement) {
+    const svg = shell.querySelector(".mermaid-stage > svg");
+    const legend = shell.querySelector(".mermaid-legend");
+    if (!(svg instanceof SVGSVGElement) || !(legend instanceof HTMLElement)) {
+      return;
+    }
+
+    const yearNodes = Array.from(svg.querySelectorAll(".timeline-node")).filter((group) => {
+      return !group.closest(".taskWrapper") && !group.closest(".eventWrapper");
+    });
+    const sectionOrder = yearNodes
+      .map((group) => extractTimelineSectionClass(group))
+      .filter((value, index, array): value is string => Boolean(value) && array.indexOf(value) === index);
+
+    const sectionPaletteMap = new Map<string, (typeof TIMELINE_YEAR_PALETTES)[number]>();
+    const yearLegend = new Array<{ label: string; palette: (typeof TIMELINE_YEAR_PALETTES)[number] }>();
+
+    sectionOrder.forEach((sectionClass, index) => {
+      const label = normalizeText(
+        svg.querySelector(`.timeline-node.${sectionClass} text`)?.textContent ?? `Year ${index + 1}`,
+      );
+      const palette =
+        TIMELINE_YEAR_PALETTE_MAP[label as keyof typeof TIMELINE_YEAR_PALETTE_MAP] ??
+        TIMELINE_YEAR_PALETTES[index % TIMELINE_YEAR_PALETTES.length];
+      sectionPaletteMap.set(sectionClass, palette);
+      yearLegend.push({ label, palette });
+
+      createSvgGradient(svg, `${svg.id}-${sectionClass}-year`, palette.start, palette.end);
+      createSvgGradient(svg, `${svg.id}-${sectionClass}-quarter`, palette.start, palette.end, {
+        x1: "0%",
+        y1: "0%",
+        x2: "100%",
+        y2: "0%",
+      });
+    });
+
+    for (const [kind, palette] of Object.entries(TIMELINE_EVENT_PALETTES)) {
+      createSvgGradient(svg, `${svg.id}-event-${kind}`, palette.start, palette.end);
+    }
+
+    yearNodes.forEach((group) => {
+      const sectionClass = extractTimelineSectionClass(group);
+      if (!sectionClass) {
+        return;
+      }
+      const palette = sectionPaletteMap.get(sectionClass);
+      if (!palette) {
+        return;
+      }
+
+      paintTimelineNode(group, `${svg.id}-${sectionClass}-year`, palette.stroke, {
+        shadow: palette.glow,
+      });
+    });
+
+    Array.from(svg.querySelectorAll(".taskWrapper")).forEach((wrapper) => {
+      const group = wrapper.querySelector(".timeline-node");
+      if (!group) {
+        return;
+      }
+
+      const sectionClass = extractTimelineSectionClass(group);
+      if (!sectionClass) {
+        return;
+      }
+
+      const palette = sectionPaletteMap.get(sectionClass);
+      if (!palette) {
+        return;
+      }
+
+      paintTimelineNode(group, `${svg.id}-${sectionClass}-quarter`, palette.stroke, {
+        shadow: palette.glow,
+      });
+
+      const guide = wrapper.querySelector(".lineWrapper line");
+      if (guide instanceof SVGLineElement) {
+        guide.setAttribute("stroke", palette.stroke);
+        guide.setAttribute("stroke-width", "1.5");
+        guide.setAttribute("stroke-dasharray", "4 4");
+      }
+    });
+
+    Array.from(svg.querySelectorAll(".eventWrapper .timeline-node")).forEach((group) => {
+      const label = normalizeText(group.querySelector("text")?.textContent ?? "");
+      const kind = classifyTimelineEvent(label);
+      const palette = TIMELINE_EVENT_PALETTES[kind];
+      paintTimelineNode(group, `${svg.id}-event-${kind}`, palette.stroke);
+    });
+
+    const axisLine = Array.from(svg.querySelectorAll(".lineWrapper > line")).find((line) => {
+      return !line.closest(".taskWrapper");
+    });
+    if (axisLine instanceof SVGLineElement) {
+      axisLine.setAttribute("stroke", "#b9cdd4");
+      axisLine.setAttribute("stroke-width", "2");
+    }
+
+    populateTimelineLegend(legend, yearLegend);
+    shell.classList.add("is-timeline-enhanced");
+  }
+
+  function setupViewport(shell: HTMLElement, renderTarget: HTMLElement, controls: ReturnType<typeof buildShell>["controls"]) {
+    const svg = renderTarget.querySelector("svg");
+    if (!(svg instanceof SVGSVGElement)) {
+      return;
+    }
+
+    const viewBoxValue = svg.getAttribute("viewBox")?.split(/\s+/).map(Number);
+    const intrinsicWidth = viewBoxValue && viewBoxValue.length === 4 ? Math.abs(viewBoxValue[2]) : svg.getBBox().width;
+    const intrinsicHeight = viewBoxValue && viewBoxValue.length === 4 ? Math.abs(viewBoxValue[3]) : svg.getBBox().height;
+
+    if (!intrinsicWidth || !intrinsicHeight) {
+      return;
+    }
+
+    const stage = document.createElement("div");
+    stage.className = "mermaid-stage";
+    renderTarget.replaceChildren(stage);
+    stage.append(svg);
+
+    const minFitScale = () => Math.min(1, Math.max(0.2, renderTarget.clientWidth / intrinsicWidth));
+    const state = {
+      scale: 1,
+      fitScale: minFitScale(),
+      maxScale: 5,
+      mode: "fit" as "fit" | "manual" | "actual",
+    };
+
+    const applyScale = (nextScale: number, anchor?: { x: number; y: number }) => {
+      const previousScale = state.scale;
+      const clampedScale = Math.min(state.maxScale, Math.max(state.fitScale, nextScale));
+      const rect = renderTarget.getBoundingClientRect();
+      const localAnchor = anchor ?? { x: rect.width / 2, y: rect.height / 2 };
+      const contentX = renderTarget.scrollLeft + localAnchor.x;
+      const contentY = renderTarget.scrollTop + localAnchor.y;
+      const baseX = contentX / previousScale;
+      const baseY = contentY / previousScale;
+
+      state.scale = clampedScale;
+      stage.style.width = `${intrinsicWidth * clampedScale}px`;
+      stage.style.height = `${intrinsicHeight * clampedScale}px`;
+      shell.dataset.zoomState = clampedScale > state.fitScale + 0.001 ? "zoomed" : "fit";
+      controls.scaleValue.value = `${Math.round(clampedScale * 100)}%`;
+      controls.scaleValue.textContent = `${Math.round(clampedScale * 100)}%`;
+
+      renderTarget.scrollLeft = Math.max(0, baseX * clampedScale - localAnchor.x);
+      renderTarget.scrollTop = Math.max(0, baseY * clampedScale - localAnchor.y);
+    };
+
+    const setFitScale = () => {
+      state.fitScale = minFitScale();
+      if (state.mode === "fit") {
+        applyScale(state.fitScale);
+      } else if (state.scale < state.fitScale) {
+        applyScale(state.fitScale);
+      }
+    };
+
+    controls.zoomOutButton.addEventListener("click", () => {
+      state.mode = "manual";
+      applyScale(state.scale / 1.2);
+    });
+
+    controls.zoomInButton.addEventListener("click", () => {
+      state.mode = "manual";
+      applyScale(state.scale * 1.2);
+    });
+
+    controls.fitButton.addEventListener("click", () => {
+      state.mode = "fit";
+      applyScale(state.fitScale);
+    });
+
+    controls.actualButton.addEventListener("click", () => {
+      state.mode = "actual";
+      applyScale(1);
+    });
+
+    renderTarget.addEventListener(
+      "wheel",
+      (event) => {
+        if (!(event.ctrlKey || event.metaKey)) {
+          return;
+        }
+
+        event.preventDefault();
+        state.mode = "manual";
+
+        const rect = renderTarget.getBoundingClientRect();
+        applyScale(state.scale * (event.deltaY < 0 ? 1.12 : 1 / 1.12), {
+          x: event.clientX - rect.left,
+          y: event.clientY - rect.top,
+        });
+      },
+      { passive: false },
+    );
+
+    let dragState:
+      | {
+          pointerId: number;
+          clientX: number;
+          clientY: number;
+          scrollLeft: number;
+          scrollTop: number;
+        }
+      | null = null;
+
+    renderTarget.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || shell.dataset.zoomState !== "zoomed") {
+        return;
+      }
+
+      dragState = {
+        pointerId: event.pointerId,
+        clientX: event.clientX,
+        clientY: event.clientY,
+        scrollLeft: renderTarget.scrollLeft,
+        scrollTop: renderTarget.scrollTop,
+      };
+      renderTarget.setPointerCapture(event.pointerId);
+      renderTarget.classList.add("is-dragging");
+      event.preventDefault();
+    });
+
+    renderTarget.addEventListener("pointermove", (event) => {
+      if (!dragState || dragState.pointerId !== event.pointerId) {
+        return;
+      }
+
+      renderTarget.scrollLeft = dragState.scrollLeft - (event.clientX - dragState.clientX);
+      renderTarget.scrollTop = dragState.scrollTop - (event.clientY - dragState.clientY);
+    });
+
+    const clearDragState = (event?: PointerEvent) => {
+      if (!dragState) {
+        return;
+      }
+
+      if (event && dragState.pointerId !== event.pointerId) {
+        return;
+      }
+
+      renderTarget.classList.remove("is-dragging");
+      dragState = null;
+    };
+
+    renderTarget.addEventListener("pointerup", clearDragState);
+    renderTarget.addEventListener("pointercancel", clearDragState);
+    renderTarget.addEventListener("pointerleave", clearDragState);
+
+    svg.style.width = "100%";
+    svg.style.height = "100%";
+    svg.style.maxWidth = "none";
+
+    if ("ResizeObserver" in window) {
+      const observer = new ResizeObserver(() => {
+        setFitScale();
+      });
+      observer.observe(renderTarget);
+    }
+
+    applyScale(state.fitScale);
   }
 
   async function renderMermaidBlocks() {
+    const mermaid = (window as Window & { mermaid?: any }).mermaid;
+    if (!mermaid) {
+      return;
+    }
+
     if (!initialized) {
       mermaid.initialize({
         startOnLoad: false,
@@ -93,13 +586,17 @@ const { rootSelector = ".article-content" } = Astro.props;
       }
 
       pre.dataset.mermaidProcessed = "processing";
-      const { shell, renderTarget } = buildShell(source);
+      const { shell, renderTarget, controls } = buildShell(source);
 
       try {
         const id = `mermaid-diagram-${renderIndex++}`;
         const { svg, bindFunctions } = await mermaid.render(id, source);
         renderTarget.innerHTML = svg;
         bindFunctions?.(renderTarget);
+        setupViewport(shell, renderTarget, controls);
+        if (shell.dataset.diagramType === "timeline") {
+          styleTimelineSvg(shell);
+        }
       } catch (error) {
         shell.classList.add("is-error");
         const message = document.createElement("p");
