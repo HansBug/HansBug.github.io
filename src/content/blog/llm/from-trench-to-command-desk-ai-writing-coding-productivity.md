@@ -412,9 +412,34 @@ xychart-beta
 
 #### 实验设计：以统一导出 schema 组织单机与多环境日志
 
-本研究当前采用的基础工具，是 [`agent-records-exporter`](/home/zhangshaoang/oo-projects/agent-records-exporter/README.md) 这一套本地导出器。它会同时读取 `~/.codex` 与 `~/.claude`，并统一导出 `session`、`message`、`turn`、`tool_call`、`history`、`log` 与 `event` 七类记录；输出层则同时保留 `agent_records.parquet`、若干 CSV 明细表以及 `summary.json`。这一点很关键，因为后续真正做分析时，既需要 long-table 层的统一抽样，也需要按表检查细节和做人工复核。
+本研究当前采用的基础工具，是 [HansBug/agent-records-exporter](https://github.com/HansBug/agent-records-exporter) 这一套本地导出器[@agent-records-exporter]。它会同时读取 `~/.codex` 与 `~/.claude`，并统一导出 `session`、`message`、`turn`、`tool_call`、`history`、`log` 与 `event` 七类记录；输出层则同时保留 `agent_records.parquet`、若干 CSV 明细表以及 `summary.json`。这一点很关键，因为后续真正做分析时，既需要 long-table 层的统一抽样，也需要按表检查细节和做人工复核。
 
-从字段上看，这套导出器已经足够支撑一组严肃的工作流级指标。`sessions.csv` 里除了 `agent_type`、`session_key`、`session_id` 之外，还会保留 `model_provider`、`model`、`reasoning_effort`、`cwd`、`approval_mode`、`sandbox_policy`、`git_branch`、`git_origin_url`、`duration_seconds`、`turn_count`、`tool_call_count`、`exec_command_count`、`web_search_count`、`patch_apply_count`、`history_count_delta`、`issue_count` 等字段；`turns.csv` 会补 `status`、`abort_reason`、`duration_seconds`、`commentary_message_count`、`final_answer_message_count` 等 turn 级字段；`tool_calls.csv` 则可以进一步下钻到 `tool_name`、`duration_seconds`、`exit_code`、`cwd`、`command_json`、`parsed_cmd_json`、`changes_count` 等调用级信息。也就是说，后续真正要算会话规模、交互密度、工具强度、并行切换、工作流锚定和人工裁决负担，这套底层字段基本都已经在场了。
+从字段上看，这套导出器已经足够支撑一组严肃的工作流级指标。为了避免后面只剩下一串 schema 名字，先把研究（三）真正会用到的关键字段与用途摊成表：
+
+#### 表 7：研究（三）关键字段与分析用途
+
+| 记录层 | 关键字段 | 主要用途 |
+| --- | --- | --- |
+| `session` | `agent_type`、`session_key`、`session_id` | 统一会话主键、区分 `codex` 与 `claude_code`、完成跨表 join |
+| `session` | `model_provider`、`model`、`reasoning_effort` | 区分模型路线与推理档位，避免把不同能力设定混在一起比较 |
+| `session` | `cwd`、`git_branch`、`git_origin_url` | 把会话重新锚回真实工作目录、仓库与分支，支撑 repo 级切换分析 |
+| `session` | `approval_mode`、`sandbox_policy` | 区分权限边界与运行约束，避免把受限会话与高权限会话直接并列 |
+| `session` | `duration_seconds`、`turn_count`、`tool_call_count`、`exec_command_count`、`web_search_count`、`patch_apply_count` | 估计单会话工作强度、工具依赖度与执行型特征 |
+| `session` | `history_count_delta`、`issue_count` | 观察 history 对齐质量、异常会话比例与明显摩擦点 |
+| `turn` | `status`、`abort_reason`、`duration_seconds`、`commentary_message_count`、`final_answer_message_count` | 判断单轮是顺利收口、中途打断，还是主要停留在 commentary 阶段 |
+| `tool_call` | `tool_name`、`duration_seconds`、`exit_code`、`cwd`、`command_json`、`parsed_cmd_json`、`changes_count` | 下钻具体工具结构、命令行为、执行代价与潜在改动强度 |
+
+这里面真正关键的，不是某一个孤立字段，而是几组字段之间的组合关系。
+
+第一组是 `session_key / agent_type / session_id`。这三者决定了后续所有分析能不能站稳。原因很简单：研究（三）不是在做一份聊天导出，而是在做一份跨 `Codex` 与 `Claude Code` 的统一工作流数据集。如果连最基本的会话主键都立不住，那么后面的 turn、tool call、history 和 log 就都只能是一堆散片，谈不上什么严肃分析。
+
+第二组是 `cwd / git_branch / git_origin_url`。这组字段的重要性，怎么强调都不为过。因为本文真正关心的不是“今天模型说了多少话”，而是“这些会话究竟锚在什么工作环境里”。`cwd` 把会话拉回到具体目录，`git_branch` 说明它当时落在哪条开发支线上，`git_origin_url` 则进一步把本地目录重新锚回远端仓库。没有这组字段，后面要谈跨 repo 切换、多任务并行、同日多仓回流，几乎都只能凭感觉；有了这组字段，很多原本只是体感的东西才第一次变成了可测对象。
+
+第三组是 `model_provider / model / reasoning_effort` 再加上 `approval_mode / sandbox_policy`。前者回答的是“这次到底调用的是哪类模型、哪档推理强度”，后者回答的是“这次会话在什么权限边界与运行约束下展开”。这两层必须放在一起看，因为同样是一个 session，高推理档位、宽权限边界和严格沙箱下的工作形态，根本不是一回事。后续如果要比较不同会话的工具密度、完成度或者人工插手频率，不把运行约束和模型设定一起交代清楚，结论会很虚。
+
+第四组是 `duration_seconds / turn_count / tool_call_count`，以及 `turn` 表里的 `status / abort_reason`，再加上 `tool_call` 表里的 `tool_name / exit_code / changes_count`。这组字段共同回答的是“这条任务线到底是怎么推进的”。一条会话持续多久、包含多少轮、调用了多少次工具、最后是完成还是中断、是在哪一类工具上反复打转、有没有明显失败退出，这些信息合在一起，才真正接近后文要谈的“工作流密度”和“人工裁决负担”。
+
+最后一组是 `history_count_delta / issue_count`。这两个字段看起来不如前面那几组显眼，但在方法论上非常重要，因为它们直接关系到数据质量与摩擦识别。`history_count_delta` 能提示 history 对齐是否稳定，`issue_count` 则能把那些已经被 exporter 显式标出来的异常 session 单独拎出来。后续只要涉及 session 质量筛选、异常剔除或者人工复核抽样，这两个字段都会是最先要看的入口。
 
 从当前单机预检看，关键字段的可用性也足以支持正式设计。以 `2026-04-16` 这次导出为例，`session` 级字段里，`model_provider` 非空 `130 / 136`，`model` 非空 `116 / 136`，`reasoning_effort` 非空 `104 / 136`，`cwd` 非空 `130 / 136`，`git_branch` 非空 `81 / 136`，`git_origin_url` 非空 `55 / 136`，`approval_mode` 非空 `108 / 136`，`sandbox_policy` 非空 `104 / 136`，`duration_seconds` 非空 `130 / 136`。这意味着后续真正要做模型分布、repo 锚定、审批策略、沙箱环境、时长密度和工作环境切换分析，并不是空中楼阁，而是已经有相当一部分 session 能提供可靠支撑。
 
@@ -433,7 +458,7 @@ xychart-beta
 
 在完整分析正式展开之前，至少可以先给出一份当前单机预检摘要，说明这项研究不是凭空设想，而是已经有真实可用的数据基础：
 
-#### 表 7：研究（三）当前单机预检摘要（`2026-04-16`）
+#### 表 8：研究（三）当前单机预检摘要（`2026-04-16`）
 
 | 项目 | 当前单机预检结果 |
 | --- | --- |
@@ -461,7 +486,7 @@ xychart-beta
 
 这个问题其实已经不太含糊了。只要把前面的分期、公开窗口、清洗规则和落地层指标一起摆上来，结论就很难再往“小幅提升”那边糊弄：今天的产能变化，已经不是“有点快了”，而是工作单元被重写之后，整体输出规模和并行度都发生了量级切换。
 
-#### 表 8：公开样本的关键倍率（更贴近“干成了多少事”）
+#### 表 9：公开样本的关键倍率（更贴近“干成了多少事”）
 
 | 对比口径 | 前 AI 公开窗口 | 初步 AI 公开窗口 | 当前 Vibe 公开窗口 | `Vibe / 前AI` | `Vibe / 初步AI` |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -471,7 +496,7 @@ xychart-beta
 | 有效提交 | 46 | 174 | 620 | 13.48x | 3.56x |
 | 有效变更行 | 4,914 | 23,980 | 587,672 | 119.59x | 24.51x |
 
-表 8 把公开样本里几组最关键的倍率直接压到了一张表里。只从公开可复核窗口来看，当前 Vibe / Agent 期相对于前 AI 公开窗口，在 `14 天 commit contribution` 上是 `5.43x`，在 landed commit 上是 `10.65x`，在有效变更行上更是达到了 `119.59x`；相对于初步 AI 公开窗口，几个主要指标也仍然稳定在 `2.4x` 到 `24.5x` 之间。
+表 9 把公开样本里几组最关键的倍率直接压到了一张表里。只从公开可复核窗口来看，当前 Vibe / Agent 期相对于前 AI 公开窗口，在 `14 天 commit contribution` 上是 `5.43x`，在 landed commit 上是 `10.65x`，在有效变更行上更是达到了 `119.59x`；相对于初步 AI 公开窗口，几个主要指标也仍然稳定在 `2.4x` 到 `24.5x` 之间。
 
 如果非要把这段统计压缩成一句俗一点、但并不失真的话，那就是：AI 真正厉害的地方，不是给你省几次敲键盘，而是把你原来要分三周、分三条线、分三种心境才能做完的东西，硬生生压进了同一个公开可复核的 `14` 天窗口里。所谓“感觉离谱”，本质上就是这种时间压缩和工作面并行叠出来的结果。只不过今天再谈“压缩”，已经不能只盯 commit 条数了；commit、有效变更行、语言构成和提交主导形态，得一起看，才能看见这股力量到底把什么改写了。
 
@@ -595,3 +620,4 @@ AI 在这里最狠的一刀，不是替你“写得更漂亮”，而是把知�
 25. [@anthropic-computer-use] Anthropic, “Claude 3.5 Sonnet, Claude 3.5 Haiku, and computer use”, `2024-10-22`：<https://www.anthropic.com/news/3-5-models-and-computer-use>
 26. [@copilot-agents-panel] GitHub Changelog, “Agents panel for GitHub Copilot in VS Code is now generally available”, `2025-08-19`：<https://github.blog/changelog/2025-08-19-agents-panel-for-github-copilot-in-vs-code-is-now-generally-available/>
 27. [@openai-gpt5-dev] OpenAI, “GPT-5 for developers”, `2025-08-07`：<https://openai.com/index/introducing-gpt-5-for-developers/>
+28. [@agent-records-exporter] HansBug, “agent-records-exporter” GitHub repository：<https://github.com/HansBug/agent-records-exporter>
