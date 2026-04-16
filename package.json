@@ -25,10 +25,13 @@
     "@headlessui/vue": "^1.7.23",
     "astro": "^6.1.5",
     "chart.js": "^4.5.1",
+    "katex": "^0.16.45",
     "mermaid": "^11.14.0",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js-legacy": "^6.5.10",
+    "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
     "vue": "^3.5.32"
   },
   "devDependencies": {

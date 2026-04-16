@@ -1649,6 +1649,23 @@ code {
   margin: 1.5rem 0;
 }
 
+.article-content .katex {
+  font-size: 1.02em;
+  color: var(--text);
+}
+
+.article-content .katex-display {
+  margin: 1.45rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}
+
+.article-content .katex-display > .katex {
+  display: inline-block;
+  min-width: min-content;
+}
+
 .article-content .reference-list {
   margin-top: 1.25rem;
 }

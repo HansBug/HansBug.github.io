@@ -2,6 +2,8 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import vue from "@astrojs/vue";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import remarkCitations from "./src/utils/remark/remarkCitations.mjs";
 
 export default defineConfig({
@@ -11,7 +13,8 @@ export default defineConfig({
   compressHTML: true,
   integrations: [sitemap(), vue()],
   markdown: {
-    remarkPlugins: [remarkGfm, remarkCitations],
+    remarkPlugins: [remarkGfm, remarkMath, remarkCitations],
+    rehypePlugins: [rehypeKatex],
     shikiConfig: {
       theme: "github-dark",
     },
