@@ -10,6 +10,7 @@ const { rootSelector = ".article-content" } = Astro.props;
 
 <script>
   import {
+    MERMAID_PAN_STEP,
     MERMAID_SCALE_STEP,
     calculateFitScale,
     clampMermaidScale,
@@ -25,6 +26,10 @@ const { rootSelector = ".article-content" } = Astro.props;
   type MermaidControls = {
     zoomOutButton: HTMLButtonElement;
     zoomInButton: HTMLButtonElement;
+    panLeftButton: HTMLButtonElement;
+    panRightButton: HTMLButtonElement;
+    panUpButton: HTMLButtonElement;
+    panDownButton: HTMLButtonElement;
     fitButton: HTMLButtonElement;
     actualButton: HTMLButtonElement;
     scaleValue: HTMLOutputElement;
@@ -95,6 +100,10 @@ const { rootSelector = ".article-content" } = Astro.props;
 
     const zoomOutButton = createButton("-", "缩小 Mermaid 图");
     const zoomInButton = createButton("+", "放大 Mermaid 图");
+    const panLeftButton = createButton("←", "向左平移 Mermaid 图", "mermaid-control-button--pan");
+    const panRightButton = createButton("→", "向右平移 Mermaid 图", "mermaid-control-button--pan");
+    const panUpButton = createButton("↑", "向上平移 Mermaid 图", "mermaid-control-button--pan");
+    const panDownButton = createButton("↓", "向下平移 Mermaid 图", "mermaid-control-button--pan");
     const fitButton = createButton("适宽", "将 Mermaid 图恢复到适合容器宽度", "mermaid-control-button--text");
     const actualButton = createButton("1:1", "按 Mermaid 图原始尺寸查看", "mermaid-control-button--text");
 
@@ -103,7 +112,17 @@ const { rootSelector = ".article-content" } = Astro.props;
     scaleValue.value = "100%";
     scaleValue.textContent = "100%";
 
-    controls.append(zoomOutButton, zoomInButton, fitButton, actualButton, scaleValue);
+    controls.append(
+      zoomOutButton,
+      zoomInButton,
+      panLeftButton,
+      panRightButton,
+      panUpButton,
+      panDownButton,
+      fitButton,
+      actualButton,
+      scaleValue,
+    );
     toolbar.append(controls);
 
     const renderTarget = document.createElement("div");
@@ -130,6 +149,10 @@ const { rootSelector = ".article-content" } = Astro.props;
       controls: {
         zoomOutButton,
         zoomInButton,
+        panLeftButton,
+        panRightButton,
+        panUpButton,
+        panDownButton,
         fitButton,
         actualButton,
         scaleValue,
@@ -202,6 +225,18 @@ const { rootSelector = ".article-content" } = Astro.props;
     controls.zoomOutButton.addEventListener("click", () => {
       state.mode = "manual";
       applyScale(state.scale / MERMAID_SCALE_STEP);
+    });
+    controls.panLeftButton.addEventListener("click", () => {
+      renderTarget.scrollBy({ left: -MERMAID_PAN_STEP, top: 0, behavior: "smooth" });
+    });
+    controls.panRightButton.addEventListener("click", () => {
+      renderTarget.scrollBy({ left: MERMAID_PAN_STEP, top: 0, behavior: "smooth" });
+    });
+    controls.panUpButton.addEventListener("click", () => {
+      renderTarget.scrollBy({ left: 0, top: -MERMAID_PAN_STEP, behavior: "smooth" });
+    });
+    controls.panDownButton.addEventListener("click", () => {
+      renderTarget.scrollBy({ left: 0, top: MERMAID_PAN_STEP, behavior: "smooth" });
     });
 
     renderTarget.addEventListener(

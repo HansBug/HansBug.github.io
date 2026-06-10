@@ -3,6 +3,7 @@ export const DEFAULT_MERMAID_SVG_HEIGHT = 420;
 export const MIN_MERMAID_SCALE = 0.2;
 export const MAX_MERMAID_SCALE = 5;
 export const MERMAID_SCALE_STEP = 1.2;
+export const MERMAID_PAN_STEP = 120;
 
 export type MermaidSvgSize = {
   width: number;

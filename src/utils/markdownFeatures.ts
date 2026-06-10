@@ -21,6 +21,10 @@ type InlineMathNode = {
   type: "inlineMath";
   value: string;
   data?: unknown;
+  position?: {
+    start?: { line?: number; column?: number; offset?: number };
+    end?: { line?: number; column?: number; offset?: number };
+  };
 };
 
 function isFenceClose(line: string, marker: string) {
@@ -67,7 +71,7 @@ export function hasMermaidFence(markdown: string): boolean {
 export function hasMathSyntax(markdown: string): boolean {
   for (const match of markdown.matchAll(DOLLAR_MATH_RE)) {
     const [, delimiter, value] = match;
-    if (delimiter === "$$" || shouldRenderInlineMath(value)) {
+    if (delimiter === "$$" || shouldRenderInlineMath(value) || isSpacedInlineMathSource(match[0])) {
       return true;
     }
   }
@@ -81,13 +85,22 @@ export function shouldRenderInlineMath(value: string): boolean {
     return false;
   }
 
+  if (isLikelyShellVariableName(trimmed)) {
+    return false;
+  }
+
   if (/^[a-zA-Z]$/.test(trimmed)) {
     return true;
   }
 
   // This heuristic is deliberately conservative: false negatives such as
-  // `$xy$` are preferable to turning shell variables like `$PATH` into KaTeX.
+  // `$xy$` are preferable to turning regular prose into KaTeX. Writers can
+  // force ambiguous short formulas with the spaced form, such as `$ xy $`.
   return INLINE_MATH_SIGNAL_RE.test(trimmed);
+}
+
+function isLikelyShellVariableName(value: string) {
+  return /^[A-Z_][A-Z0-9_]*$/.test(value);
 }
 
 function escapeHtml(value: string) {
@@ -131,6 +144,10 @@ function isInlineMathNode(node: unknown): node is InlineMathNode {
   return Boolean(node && typeof node === "object" && (node as { type?: unknown }).type === "inlineMath");
 }
 
+function isParagraphNode(node: unknown): node is ParentNode & { type: "paragraph" } {
+  return Boolean(node && typeof node === "object" && (node as { type?: unknown }).type === "paragraph");
+}
+
 function getOpeningFenceLine(source: string, node: CodeNode) {
   const offset = node.position?.start?.offset;
   if (typeof offset !== "number") {
@@ -147,6 +164,69 @@ function isStandardMermaidCodeNode(source: string, node: CodeNode) {
   }
 
   return /^ {0,3}`{3,}mermaid$/.test(getOpeningFenceLine(source, node));
+}
+
+function getSourceSlice(source: string, node: InlineMathNode) {
+  const start = node.position?.start?.offset;
+  const end = node.position?.end?.offset;
+  if (typeof start !== "number" || typeof end !== "number") {
+    return "";
+  }
+
+  return source.slice(start, end);
+}
+
+function getSourceLength(node: InlineMathNode) {
+  const start = node.position?.start?.offset;
+  const end = node.position?.end?.offset;
+  if (typeof start === "number" && typeof end === "number" && end >= start) {
+    return end - start;
+  }
+
+  const startLine = node.position?.start?.line;
+  const endLine = node.position?.end?.line;
+  const startColumn = node.position?.start?.column;
+  const endColumn = node.position?.end?.column;
+  if (
+    typeof startLine === "number" &&
+    typeof endLine === "number" &&
+    startLine === endLine &&
+    typeof startColumn === "number" &&
+    typeof endColumn === "number" &&
+    endColumn >= startColumn
+  ) {
+    return endColumn - startColumn;
+  }
+
+  return undefined;
+}
+
+function isSingleLineDisplayMath(source: string, node: InlineMathNode, parent: ParentNode) {
+  if (!isParagraphNode(parent) || parent.children?.length !== 1) {
+    return false;
+  }
+
+  const sourceSlice = getSourceSlice(source, node).trim();
+  if (sourceSlice) {
+    return sourceSlice.startsWith("$$") && sourceSlice.endsWith("$$");
+  }
+
+  const sourceLength = getSourceLength(node);
+  return typeof sourceLength === "number" && sourceLength - node.value.length >= 6;
+}
+
+function isSpacedInlineMathSource(sourceSlice: string) {
+  return /^\$[\t ]+\S[\s\S]*\S[\t ]+\$$/.test(sourceSlice);
+}
+
+function isSpacedInlineMath(source: string, node: InlineMathNode) {
+  const sourceSlice = getSourceSlice(source, node);
+  if (sourceSlice) {
+    return isSpacedInlineMathSource(sourceSlice);
+  }
+
+  const sourceLength = getSourceLength(node);
+  return typeof sourceLength === "number" && sourceLength - node.value.length >= 4;
 }
 
 export function remarkStandardMermaid() {
@@ -173,13 +253,36 @@ export function remarkStandardMermaid() {
 }
 
 export function remarkProtectDollarText() {
-  return (tree: unknown) => {
+  return (tree: unknown, file: { value?: unknown }) => {
+    const source = typeof file.value === "string" ? file.value : "";
+
     walkTree(tree, (node, parent, index) => {
       if (!parent?.children || typeof index !== "number" || !isInlineMathNode(node)) {
         return;
       }
 
-      if (shouldRenderInlineMath(node.value)) {
+      if (isSingleLineDisplayMath(source, node, parent)) {
+        Object.assign(parent, {
+          type: "math",
+          meta: null,
+          value: node.value,
+          data: {
+            hName: "pre",
+            hChildren: [
+              {
+                type: "element",
+                tagName: "code",
+                properties: { className: ["language-math", "math-display"] },
+                children: [{ type: "text", value: node.value }],
+              },
+            ],
+          },
+        });
+        delete parent.children;
+        return;
+      }
+
+      if (shouldRenderInlineMath(node.value) || isSpacedInlineMath(source, node)) {
         return;
       }
 

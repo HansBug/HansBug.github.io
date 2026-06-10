@@ -1691,6 +1691,11 @@ code {
   text-transform: uppercase;
 }
 
+.mermaid-control-button--pan {
+  min-width: 2rem;
+  padding-inline: 0.55rem;
+}
+
 .mermaid-control-button:hover {
   border-color: rgba(119, 199, 215, 0.7);
   background: var(--bg-control-hover);

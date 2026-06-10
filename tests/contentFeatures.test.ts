@@ -37,6 +37,7 @@ async function renderMarkdown(markdown: string) {
 describe("Mermaid fence detection", () => {
   it("detects only the documented standard mermaid fence", () => {
     expect(hasMermaidFence("```mermaid\nflowchart TD\n  A --> B\n```")).toBe(true);
+    expect(hasMermaidFence("````mermaid\nflowchart TD\n  A --> B\n````")).toBe(true);
     expect(hasMermaidFence("```Mermaid\nflowchart TD\n  A --> B\n```")).toBe(false);
     expect(hasMermaidFence("``` mermaid\nflowchart TD\n  A --> B\n```")).toBe(false);
     expect(hasMermaidFence("```mermaid title=\"demo\"\nflowchart TD\n  A --> B\n```")).toBe(false);
@@ -94,7 +95,19 @@ describe("Markdown rendering pipeline", () => {
     const html = await renderMarkdown([
       "Path: $PATH and home $HOME should stay text.",
       "",
+      "Tight shell vars: $PATH$ and $HOME$ should stay text.",
+      "",
+      "Underscore shell vars: $NODE_ENV$ and $_TMP$ should stay text.",
+      "",
+      "Tight lowercase words: $npm$ should stay text.",
+      "",
+      "Easy inline: $ x $.",
+      "",
+      "Spaced inline: $ xy $.",
+      "",
       "Energy: $E = mc^2$.",
+      "",
+      "$$ xxxx $$",
       "",
       "$$",
       "\\int_0^1 x^2 dx",
@@ -102,10 +115,21 @@ describe("Markdown rendering pipeline", () => {
     ].join("\n"));
 
     expect(html).toContain("$PATH and home $HOME");
+    expect(html).toContain("$PATH$ and $HOME$");
+    expect(html).toContain("$NODE_ENV$ and $_TMP$");
+    expect(html).toContain("$npm$");
     expect(html).not.toContain("PATH and home</annotation>");
-    expect(html.match(/class="katex"/g)?.length ?? 0).toBeGreaterThanOrEqual(2);
-    expect(html).toContain("class=\"katex-display\"");
+    expect(html).not.toContain(">PATH</annotation>");
+    expect(html).not.toContain(">HOME</annotation>");
+    expect(html).not.toContain(">NODE_ENV</annotation>");
+    expect(html).not.toContain(">_TMP</annotation>");
+    expect(html).not.toContain(">npm</annotation>");
+    expect(html.match(/class="katex"/g)?.length ?? 0).toBeGreaterThanOrEqual(5);
+    expect(html.match(/class="katex-display"/g)).toHaveLength(2);
+    expect(html).toContain(">x</annotation>");
+    expect(html).toContain(">xy</annotation>");
     expect(html).toContain("E = mc^2");
+    expect(html).toContain(">xxxx</annotation>");
   });
 
   it("keeps GFM tables, code blocks, inline code, lists and blockquotes stable around dollar text", async () => {
@@ -142,8 +166,15 @@ describe("Markdown rendering pipeline", () => {
 
   it("detects math syntax only for formulas that will render", () => {
     expect(hasMathSyntax("$PATH and home $HOME")).toBe(false);
+    expect(hasMathSyntax("$PATH$")).toBe(false);
+    expect(hasMathSyntax("$HOME$")).toBe(false);
+    expect(hasMathSyntax("$NODE_ENV$")).toBe(false);
+    expect(hasMathSyntax("$npm$")).toBe(false);
     expect(hasMathSyntax("$plain words$")).toBe(false);
+    expect(hasMathSyntax("$ x $")).toBe(true);
+    expect(hasMathSyntax("$ xy $")).toBe(true);
     expect(hasMathSyntax("$E = mc^2$")).toBe(true);
+    expect(hasMathSyntax("$$ xxxx $$")).toBe(true);
     expect(hasMathSyntax("$$\\int_0^1 x^2 dx$$")).toBe(true);
   });
 });
@@ -171,6 +202,8 @@ describe("Mermaid renderer wiring", () => {
 
     expect(renderer).toContain('import("mermaid")');
     expect(renderer).toContain('pre[data-standard-mermaid="true"]');
+    expect(renderer).toContain("向左平移 Mermaid 图");
+    expect(renderer).toContain("MERMAID_PAN_STEP");
     expect(renderer.indexOf("const blocks = rootSelectors.flatMap")).toBeLessThan(renderer.indexOf("await loadMermaid()"));
     expect(renderer).toContain('securityLevel: "strict"');
     expect(renderer).toContain('window.matchMedia("(prefers-color-scheme: light)")');
