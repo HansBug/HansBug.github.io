@@ -4,6 +4,7 @@ import vue from "@astrojs/vue";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { remarkProtectDollarText, remarkStandardMermaid } from "./src/utils/markdownFeatures.ts";
 
 export default defineConfig({
   site: "https://hansbug.github.io",
@@ -14,7 +15,7 @@ export default defineConfig({
   vite: {
     server: {
       watch: {
-        usePolling: true,
+        usePolling: process.env.CHOKIDAR_USEPOLLING === "true",
         interval: 1000,
         ignored: [
           "**/.astro/**",
@@ -28,7 +29,7 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkGfm, remarkMath],
+    remarkPlugins: [remarkGfm, remarkMath, remarkProtectDollarText, remarkStandardMermaid],
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       theme: "github-dark",

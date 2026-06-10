@@ -91,6 +91,7 @@
   --text: #edf1f4;
   --text-muted: #a3adb7;
   --text-faint: #6f7881;
+  --text-danger: #ffc7c7;
   --heading: #ffffff;
   --accent: #77c7d7;
   --accent-soft: rgba(119, 199, 215, 0.12);
@@ -98,6 +99,10 @@
   --accent-red: #b5685d;
   --accent-green: #7ea98e;
   --accent-blue: #7ea7cf;
+  --bg-mermaid-shell: rgba(12, 16, 19, 0.94);
+  --bg-mermaid-render: rgba(6, 9, 11, 0.64);
+  --bg-control: rgba(18, 24, 28, 0.92);
+  --bg-control-hover: rgba(28, 39, 45, 0.96);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   --radius: 16px;
   --radius-sm: 10px;
@@ -1636,7 +1641,7 @@ code {
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
-    rgba(12, 16, 19, 0.94);
+    var(--bg-mermaid-shell);
 }
 
 .mermaid-toolbar {
@@ -1667,8 +1672,8 @@ code {
   padding: 0 0.65rem;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(18, 24, 28, 0.92);
-  color: var(--text-main);
+  background: var(--bg-control);
+  color: var(--text);
   font-family: var(--font-sans);
   font-size: 0.95rem;
   line-height: 1;
@@ -1688,7 +1693,7 @@ code {
 
 .mermaid-control-button:hover {
   border-color: rgba(119, 199, 215, 0.7);
-  background: rgba(28, 39, 45, 0.96);
+  background: var(--bg-control-hover);
   transform: translateY(-1px);
 }
 
@@ -1706,7 +1711,7 @@ code {
   overflow: auto;
   border: 1px solid var(--line-soft);
   border-radius: 8px;
-  background: rgba(6, 9, 11, 0.64);
+  background: var(--bg-mermaid-render);
   cursor: grab;
   overscroll-behavior: contain;
 }
@@ -1746,7 +1751,7 @@ code {
 .mermaid-error {
   margin: 0;
   padding: 1rem;
-  color: #ffc7c7;
+  color: var(--text-danger);
   font-family: var(--font-sans);
   line-height: 1.7;
 }

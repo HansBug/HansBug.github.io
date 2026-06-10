@@ -18,7 +18,7 @@ import {
   tagToSlug,
 } from "../../utils/content";
 import { formatDate } from "../../utils/date";
-import { hasMermaidFence } from "../../utils/markdownFeatures";
+import { hasMathSyntax, hasMermaidFence } from "../../utils/markdownFeatures";
 
 const allPosts = await getAllBlogPosts();
 const allRoutes = await getAllRoutes();
@@ -37,7 +37,9 @@ export async function getStaticPaths() {
 
 const { post, newer, older } = Astro.props;
 const { Content, headings } = await render(post);
-const hasMermaid = hasMermaidFence(post.body ?? "");
+const markdownBody = post.body ?? "";
+const hasMermaid = hasMermaidFence(markdownBody);
+const hasMath = hasMathSyntax(markdownBody);
 const relatedPosts = getRelatedPosts(post, allPosts);
 const readingMinutes = calculateReadingMinutes(post.body ?? "");
 const relatedRoutes = allRoutes
@@ -59,7 +61,7 @@ const postMeta = [
 ];
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} includeKatex={hasMath}>
   <div class="page-grid">
     <Breadcrumbs
       items={[

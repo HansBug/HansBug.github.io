@@ -5,7 +5,7 @@ import MermaidRenderer from "../../components/MermaidRenderer.astro";
 import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllProjects } from "../../utils/content";
-import { hasMermaidFence } from "../../utils/markdownFeatures";
+import { hasMathSyntax, hasMermaidFence } from "../../utils/markdownFeatures";
 
 export async function getStaticPaths() {
   const projects = await getAllProjects();
@@ -18,7 +18,9 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const hasMermaid = hasMermaidFence(project.body ?? "");
+const markdownBody = project.body ?? "";
+const hasMermaid = hasMermaidFence(markdownBody);
+const hasMath = hasMathSyntax(markdownBody);
 const projectMeta = [
   { label: "State", value: project.data.status },
   { label: "Stack", value: project.data.stack.join(" / "), accent: "accent" as const },
@@ -27,7 +29,7 @@ const projectMeta = [
 ];
 ---
 
-<BaseLayout title={project.data.title} description={project.data.summary}>
+<BaseLayout title={project.data.title} description={project.data.summary} includeKatex={hasMath}>
   <div class="page-grid">
     <Breadcrumbs
       items={[

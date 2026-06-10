@@ -13,6 +13,7 @@ env:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   test:
@@ -41,7 +42,7 @@ jobs:
 
       - name: 上传 Codecov
         uses: codecov/codecov-action@v5
-        continue-on-error: true
         with:
           files: ./coverage/lcov.info
-          fail_ci_if_error: false
+          fail_ci_if_error: true
+          use_oidc: true

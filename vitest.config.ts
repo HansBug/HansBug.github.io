@@ -5,7 +5,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "lcov"],
-      include: ["src/utils/markdownFeatures.ts"],
+      include: ["src/utils/markdownFeatures.ts", "src/utils/mermaidViewport.ts"],
     },
   },
 });

@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "HansBug 的个人技术博客，基于 Astro 和 GitHub Pages 构建。",
   "scripts": {
+    "sync:katex": "node scripts/sync_katex_assets.mjs",
+    "predev": "npm run sync:katex",
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "build": "astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
+    "build": "npm run sync:katex && astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
     "preview": "astro preview"
   },
   "keywords": [

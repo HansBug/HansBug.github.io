@@ -4,15 +4,15 @@ import HomeDeskPet from "../components/HomeDeskPet.vue";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import bangdreamDeskPetPool from "../data/bangdreamDeskPetPool.json";
-import "katex/dist/katex.min.css";
 import "../styles/global.css";
 
 interface Props {
   title?: string;
   description?: string;
+  includeKatex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, includeKatex = false } = Astro.props;
 const pageTitle = title ? `${title} | ${siteConfig.shortTitle}` : siteConfig.title;
 const pageDescription = description ?? siteConfig.description;
 const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
@@ -36,6 +36,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     <link rel="icon" type="image/png" href={siteConfig.avatarPath} />
     <link rel="apple-touch-icon" href={siteConfig.avatarPath} />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+    {includeKatex && <link rel="stylesheet" href="/vendor/katex/katex.min.css" />}
   </head>
   <body class="site-shell">
     <div class="site-bg" aria-hidden="true">

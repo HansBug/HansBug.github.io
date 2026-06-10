@@ -9,10 +9,17 @@ const { rootSelector = ".article-content" } = Astro.props;
 <div class="mermaid-config" data-root-selector={rootSelector} hidden></div>
 
 <script>
+  import {
+    MERMAID_SCALE_STEP,
+    calculateFitScale,
+    clampMermaidScale,
+    formatMermaidScale,
+    getMermaidZoomState,
+    parseSvgSizeAttributes,
+  } from "../utils/mermaidViewport";
+
   const MERMAID_CONFIG_SELECTOR = ".mermaid-config";
-  const MERMAID_BLOCK_SELECTOR = 'pre[data-language="mermaid"], pre code.language-mermaid';
-  const MAX_SCALE = 5;
-  const SCALE_STEP = 1.2;
+  const MERMAID_BLOCK_SELECTOR = 'pre[data-standard-mermaid="true"]';
 
   type MermaidApi = typeof import("mermaid").default;
   type MermaidControls = {
@@ -131,24 +138,6 @@ const { rootSelector = ".article-content" } = Astro.props;
     };
   }
 
-  function parseSvgSize(svg: SVGSVGElement) {
-    const viewBox = svg
-      .getAttribute("viewBox")
-      ?.split(/\s+/)
-      .map(Number);
-
-    if (viewBox?.length === 4 && viewBox.every(Number.isFinite) && viewBox[2] > 0 && viewBox[3] > 0) {
-      return { width: Math.abs(viewBox[2]), height: Math.abs(viewBox[3]) };
-    }
-
-    const width = Number.parseFloat(svg.getAttribute("width") ?? "");
-    const height = Number.parseFloat(svg.getAttribute("height") ?? "");
-    return {
-      width: Number.isFinite(width) && width > 0 ? width : 720,
-      height: Number.isFinite(height) && height > 0 ? height : 420,
-    };
-  }
-
   function setupViewport(shell: HTMLElement, renderTarget: HTMLElement, controls: MermaidControls) {
     const svg = renderTarget.querySelector("svg");
     if (!(svg instanceof SVGSVGElement)) {
@@ -156,7 +145,11 @@ const { rootSelector = ".article-content" } = Astro.props;
     }
     const renderedSvg = svg;
 
-    const { width: intrinsicWidth, height: intrinsicHeight } = parseSvgSize(renderedSvg);
+    const { width: intrinsicWidth, height: intrinsicHeight } = parseSvgSizeAttributes({
+      viewBox: renderedSvg.getAttribute("viewBox"),
+      width: renderedSvg.getAttribute("width"),
+      height: renderedSvg.getAttribute("height"),
+    });
     const stage = document.createElement("div");
     stage.className = "mermaid-stage";
     renderTarget.replaceChildren(stage);
@@ -166,6 +159,7 @@ const { rootSelector = ".article-content" } = Astro.props;
       scale: 1,
       mode: "fit",
       isDragging: false,
+      activePointerId: undefined as number | undefined,
       lastX: 0,
       lastY: 0,
       startScrollLeft: 0,
@@ -173,20 +167,20 @@ const { rootSelector = ".article-content" } = Astro.props;
     };
 
     function fitScale() {
-      const viewportWidth = Math.max(renderTarget.clientWidth, 1);
-      return Math.min(1, Math.max(0.2, viewportWidth / intrinsicWidth));
+      return calculateFitScale(renderTarget.clientWidth, intrinsicWidth);
     }
 
     function applyScale(nextScale: number) {
-      const next = Math.min(MAX_SCALE, Math.max(fitScale(), nextScale));
+      const currentFitScale = fitScale();
+      const next = clampMermaidScale(nextScale, currentFitScale);
       state.scale = next;
       renderedSvg.style.width = `${intrinsicWidth * next}px`;
       renderedSvg.style.height = `${intrinsicHeight * next}px`;
       stage.style.width = `${intrinsicWidth * next}px`;
       stage.style.height = `${intrinsicHeight * next}px`;
-      shell.dataset.zoomState = next > fitScale() + 0.001 ? "zoomed" : "fit";
-      controls.scaleValue.value = `${Math.round(next * 100)}%`;
-      controls.scaleValue.textContent = `${Math.round(next * 100)}%`;
+      shell.dataset.zoomState = getMermaidZoomState(next, currentFitScale);
+      controls.scaleValue.value = formatMermaidScale(next);
+      controls.scaleValue.textContent = formatMermaidScale(next);
     }
 
     function setFitScale() {
@@ -204,11 +198,11 @@ const { rootSelector = ".article-content" } = Astro.props;
     controls.actualButton.addEventListener("click", setActualScale);
     controls.zoomInButton.addEventListener("click", () => {
       state.mode = "manual";
-      applyScale(state.scale * SCALE_STEP);
+      applyScale(state.scale * MERMAID_SCALE_STEP);
     });
     controls.zoomOutButton.addEventListener("click", () => {
       state.mode = "manual";
-      applyScale(state.scale / SCALE_STEP);
+      applyScale(state.scale / MERMAID_SCALE_STEP);
     });
 
     renderTarget.addEventListener(
@@ -220,7 +214,7 @@ const { rootSelector = ".article-content" } = Astro.props;
 
         event.preventDefault();
         state.mode = "manual";
-        applyScale(state.scale * (event.deltaY < 0 ? SCALE_STEP : 1 / SCALE_STEP));
+        applyScale(state.scale * (event.deltaY < 0 ? MERMAID_SCALE_STEP : 1 / MERMAID_SCALE_STEP));
       },
       { passive: false },
     );
@@ -230,6 +224,7 @@ const { rootSelector = ".article-content" } = Astro.props;
         return;
       }
       state.isDragging = true;
+      state.activePointerId = event.pointerId;
       state.lastX = event.clientX;
       state.lastY = event.clientY;
       state.startScrollLeft = renderTarget.scrollLeft;
@@ -239,7 +234,7 @@ const { rootSelector = ".article-content" } = Astro.props;
     });
 
     renderTarget.addEventListener("pointermove", (event: PointerEvent) => {
-      if (!state.isDragging) {
+      if (!state.isDragging || event.pointerId !== state.activePointerId) {
         return;
       }
 
@@ -247,11 +242,20 @@ const { rootSelector = ".article-content" } = Astro.props;
       renderTarget.scrollTop = state.startScrollTop - (event.clientY - state.lastY);
     });
 
-    renderTarget.addEventListener("pointerup", (event: PointerEvent) => {
+    function stopDragging(event: PointerEvent) {
+      if (event.pointerId !== state.activePointerId) {
+        return;
+      }
       state.isDragging = false;
-      renderTarget.releasePointerCapture(event.pointerId);
+      state.activePointerId = undefined;
+      if (renderTarget.hasPointerCapture(event.pointerId)) {
+        renderTarget.releasePointerCapture(event.pointerId);
+      }
       renderTarget.classList.remove("is-dragging");
-    });
+    }
+
+    renderTarget.addEventListener("pointerup", stopDragging);
+    renderTarget.addEventListener("pointercancel", stopDragging);
 
     const resizeObserver = new ResizeObserver(() => {
       if (state.mode === "fit") {
@@ -259,6 +263,8 @@ const { rootSelector = ".article-content" } = Astro.props;
       }
     });
     resizeObserver.observe(renderTarget);
+    window.addEventListener("pagehide", () => resizeObserver.disconnect(), { once: true });
+    document.addEventListener("astro:before-swap", () => resizeObserver.disconnect(), { once: true });
 
     setFitScale();
   }
@@ -292,22 +298,26 @@ const { rootSelector = ".article-content" } = Astro.props;
       return;
     }
 
+    const blocks = rootSelectors.flatMap((rootSelector) => findMermaidBlocks(rootSelector));
+    if (blocks.length === 0) {
+      return;
+    }
+
+    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
     const mermaid = await loadMermaid();
     mermaid.initialize({
       startOnLoad: false,
       securityLevel: "strict",
-      theme: "dark",
-      darkMode: true,
+      theme: prefersLight ? "default" : "dark",
+      darkMode: !prefersLight,
       flowchart: { htmlLabels: false },
       sequence: { useMaxWidth: false },
     });
 
     let renderIndex = 0;
-    for (const rootSelector of rootSelectors) {
-      for (const block of findMermaidBlocks(rootSelector)) {
-        renderIndex += 1;
-        await renderBlock(mermaid, block, renderIndex);
-      }
+    for (const block of blocks) {
+      renderIndex += 1;
+      await renderBlock(mermaid, block, renderIndex);
     }
   }
 
