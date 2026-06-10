@@ -85,12 +85,12 @@ export function shouldRenderInlineMath(value: string): boolean {
     return false;
   }
 
-  if (isLikelyShellVariableName(trimmed)) {
-    return false;
-  }
-
   if (/^[a-zA-Z]$/.test(trimmed)) {
     return true;
+  }
+
+  if (isLikelyShellVariableName(trimmed)) {
+    return false;
   }
 
   // This heuristic is deliberately conservative: false negatives such as

@@ -103,6 +103,8 @@ describe("Markdown rendering pipeline", () => {
       "",
       "Easy inline: $ x $.",
       "",
+      "Single uppercase variable: $E$.",
+      "",
       "Spaced inline: $ xy $.",
       "",
       "Energy: $E = mc^2$.",
@@ -127,6 +129,7 @@ describe("Markdown rendering pipeline", () => {
     expect(html.match(/class="katex"/g)?.length ?? 0).toBeGreaterThanOrEqual(5);
     expect(html.match(/class="katex-display"/g)).toHaveLength(2);
     expect(html).toContain(">x</annotation>");
+    expect(html).toContain(">E</annotation>");
     expect(html).toContain(">xy</annotation>");
     expect(html).toContain("E = mc^2");
     expect(html).toContain(">xxxx</annotation>");
@@ -172,6 +175,7 @@ describe("Markdown rendering pipeline", () => {
     expect(hasMathSyntax("$npm$")).toBe(false);
     expect(hasMathSyntax("$plain words$")).toBe(false);
     expect(hasMathSyntax("$ x $")).toBe(true);
+    expect(hasMathSyntax("$E$")).toBe(true);
     expect(hasMathSyntax("$ xy $")).toBe(true);
     expect(hasMathSyntax("$E = mc^2$")).toBe(true);
     expect(hasMathSyntax("$$ xxxx $$")).toBe(true);
