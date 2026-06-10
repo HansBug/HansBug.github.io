@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import MermaidRenderer from "../../components/MermaidRenderer.astro";
 import PostCard from "../../components/PostCard.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
 import TagChip from "../../components/TagChip.astro";
@@ -12,6 +13,7 @@ import {
   getRoutePosts,
   tagToSlug,
 } from "../../utils/content";
+import { hasMermaidFence } from "../../utils/markdownFeatures";
 
 const allPosts = await getAllBlogPosts();
 
@@ -26,6 +28,7 @@ export async function getStaticPaths() {
 
 const { route } = Astro.props;
 const { Content } = await render(route);
+const hasMermaid = hasMermaidFence(route.body ?? "");
 const posts = getRoutePosts(route, allPosts);
 const routeMeta = [
   { label: "Stage", value: route.data.stage },
@@ -60,6 +63,7 @@ const routeMeta = [
       </header>
       <div class="article-content shell-card">
         <Content />
+        {hasMermaid && <MermaidRenderer />}
       </div>
     </section>
 

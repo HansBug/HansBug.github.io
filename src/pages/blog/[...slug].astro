@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import MermaidRenderer from "../../components/MermaidRenderer.astro";
 import PostCard from "../../components/PostCard.astro";
 import RouteCard from "../../components/RouteCard.astro";
 import SectionHeading from "../../components/SectionHeading.astro";
@@ -17,6 +18,7 @@ import {
   tagToSlug,
 } from "../../utils/content";
 import { formatDate } from "../../utils/date";
+import { hasMermaidFence } from "../../utils/markdownFeatures";
 
 const allPosts = await getAllBlogPosts();
 const allRoutes = await getAllRoutes();
@@ -35,6 +37,7 @@ export async function getStaticPaths() {
 
 const { post, newer, older } = Astro.props;
 const { Content, headings } = await render(post);
+const hasMermaid = hasMermaidFence(post.body ?? "");
 const relatedPosts = getRelatedPosts(post, allPosts);
 const readingMinutes = calculateReadingMinutes(post.body ?? "");
 const relatedRoutes = allRoutes
@@ -83,6 +86,7 @@ const postMeta = [
 
         <div class="article-content shell-card">
           <Content />
+          {hasMermaid && <MermaidRenderer />}
         </div>
       </article>
 
