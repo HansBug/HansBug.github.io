@@ -29,9 +29,9 @@ function isFenceClose(line: string, marker: string) {
 }
 
 /**
- * Detects only the documented Mermaid fence form for this site: an exact
- * lowercase backtick opener of ` ```mermaid` with no leading language space,
- * no meta string, and no tilde fence.
+ * Detects only the documented Mermaid fence form for this site: a lowercase
+ * backtick opener with at least three backticks, an info string exactly equal
+ * to `mermaid`, no leading language space, no meta string, and no tilde fence.
  */
 export function hasMermaidFence(markdown: string): boolean {
   let activeFence: string | undefined;
@@ -85,6 +85,8 @@ export function shouldRenderInlineMath(value: string): boolean {
     return true;
   }
 
+  // This heuristic is deliberately conservative: false negatives such as
+  // `$xy$` are preferable to turning shell variables like `$PATH` into KaTeX.
   return INLINE_MATH_SIGNAL_RE.test(trimmed);
 }
 

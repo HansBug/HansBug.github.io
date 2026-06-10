@@ -50,9 +50,8 @@ const { rootSelector = ".article-content" } = Astro.props;
 
     for (const root of document.querySelectorAll(rootSelector)) {
       for (const node of root.querySelectorAll(MERMAID_BLOCK_SELECTOR)) {
-        const pre = node.tagName.toLowerCase() === "pre" ? node : node.closest("pre");
-        if (pre instanceof HTMLPreElement && !pre.dataset.mermaidProcessed) {
-          preSet.add(pre);
+        if (node instanceof HTMLPreElement && !node.dataset.mermaidProcessed) {
+          preSet.add(node);
         }
       }
     }

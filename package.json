@@ -6,6 +6,7 @@
     "sync:katex": "node scripts/sync_katex_assets.mjs",
     "predev": "npm run sync:katex",
     "dev": "astro dev",
+    "prestart": "npm run sync:katex",
     "start": "astro dev",
     "check": "astro check",
     "test": "vitest run",
