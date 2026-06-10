@@ -88,11 +88,10 @@ pinned: false
 
 ```text
 IMAP SSL:  imap.buaa.edu.cn:993
-POP3 SSL:  pop.buaa.edu.cn:995
 SMTP SSL:  smtp.buaa.edu.cn:465
 ```
 
-这里我只用 IMAP 和 SMTP，不用 POP3。原因也简单：POP3 更像“把信取下来”，IMAP 更适合“在服务端邮箱里按 UID 查看、搜索、保留状态”。我们要的是一个远程邮箱访问工具，不是把邮箱搬空。
+这里我只列 IMAP 和 SMTP，不列 POP3。原因也简单：POP3 更像“把信取下来”，IMAP 更适合“在服务端邮箱里按 UID 查看、搜索、保留状态”。我们要的是一个远程邮箱访问工具，不是把邮箱搬空。
 
 学校邮箱通常会给一个“客户端专用密码”。这类密码只在生成时可见，专门给 Outlook、Foxmail、手机 Mail App、IMAP、SMTP、CalDAV、CardDAV 这类客户端用。它不是网页登录密码，也不应该被复制进 repo、聊天记录、Markdown、shell history。
 
@@ -109,6 +108,14 @@ Ubuntu / Debian 上先装：
 ```bash
 sudo apt-get update
 sudo apt-get install -y python3 libsecret-tools
+mkdir -p ~/bin
+
+case ":$PATH:" in
+  *":$HOME/bin:"*) ;;
+  *) printf '\nexport PATH="$HOME/bin:$PATH"\n' >> ~/.profile ;;
+esac
+
+export PATH="$HOME/bin:$PATH"
 ```
 
 如果你想走经典 Maildir 路线，也可以顺手装：
@@ -147,6 +154,8 @@ export MAIL_AGENT_SMTP_HOST="smtp.gmail.com"
 
 但 Gmail 这边要注意账号安全策略。有些账号允许客户端专用密码，有些 Workspace 组织会禁用或要求 OAuth。别硬猜，看自己组织策略。
 
+顺手解释一下上一步为什么要处理 `PATH`：后面脚本会写到 `~/bin/mail-agent` 和 `~/bin/mail-agent-pass`。如果 `~/bin` 没进当前 shell 的 `PATH`，你复制完命令之后立刻跑 `mail-agent boxes`，得到的不是邮箱错误，而是一个很扫兴的 `command not found`。这种问题没有技术含量，但特别会消磨耐心，所以一开始就把它钉住。
+
 ### 3. 把客户端专用密码放进 keyring
 
 先加载配置：
@@ -169,13 +178,13 @@ printf '%s' "$MAIL_APP_PASS" | secret-tool store \
 unset MAIL_APP_PASS
 ```
 
+这里的 `Mail app password` 不是你平时网页登录邮箱用的那个密码。现在很多邮箱都会要求先登录网页版邮箱，到设置、安全、客户端授权、第三方客户端之类的页面里单独生成一个“客户端专用密码”或者“应用专用密码”，再把这个专用密码交给 IMAP / SMTP 客户端。网页密码能登录，不代表 IMAP / SMTP 就会接受它；拿日常密码硬试，通常只会得到一堆看起来很像网络问题的认证失败。
+
 这一步的关键不是 `secret-tool` 这个具体工具，而是“不要把密码落到明文配置文件里”。如果你机器上有 1Password CLI、`pass`、macOS Keychain、GNOME Keyring，都可以替换成你更习惯的凭据来源。
 
 ### 4. 写一个取密码 helper
 
 ```bash
-mkdir -p ~/bin
-
 cat > ~/bin/mail-agent-pass <<'SH'
 #!/usr/bin/env bash
 set -euo pipefail
@@ -204,7 +213,7 @@ SH
 chmod 700 ~/bin/mail-agent-pass
 ```
 
-这里保留了一个交互输入兜底，是为了在 keyring 不可用时还能临时跑通。但长期使用时，还是应该让它从凭据库取。
+这里保留了两个兜底：一个是 `MAIL_AGENT_PASS` 环境变量，一个是交互输入。它们只适合临时手动调试，不应该写进 `~/.profile`、`~/.bashrc`、`AGENTS.md`、`CLAUDE.md`，也不应该交给 agent 动态设置。长期使用时，还是应该让 helper 从系统凭据库取。
 
 ### 5. 写主脚本
 
@@ -256,9 +265,6 @@ DB_PATH = Path(os.environ.get("MAIL_AGENT_DB", "~/.local/share/mail-agent/mail.s
 def get_password():
     if os.environ.get("MAIL_AGENT_PASS"):
         return os.environ["MAIL_AGENT_PASS"]
-    cmd = os.environ.get("MAIL_AGENT_PASS_CMD")
-    if cmd:
-        return subprocess.check_output(cmd, shell=True, text=True).rstrip("\n")
     helper = Path.home() / "bin/mail-agent-pass"
     return subprocess.check_output([str(helper), ACCOUNT], text=True).rstrip("\n")
 
@@ -529,7 +535,7 @@ def cmd_show(args):
 
 def body_from_args(args):
     if args.body_file:
-        return Path(args.body_file).read_text()
+        return Path(args.body_file).read_text(encoding="utf-8")
     if args.body is not None:
         return args.body
     raise SystemExit("provide --body or --body-file")
