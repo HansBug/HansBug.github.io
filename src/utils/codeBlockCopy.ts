@@ -1,4 +1,5 @@
 export const COPY_RESET_DELAY_MS = 1600;
+export const PAGE_URL_PLACEHOLDER = "{{PAGE_URL}}";
 
 type CopyButtonState = {
   dataset: DOMStringMap;
@@ -11,6 +12,7 @@ type ClipboardWriter = {
 };
 
 type ResetScheduler = (handler: () => void, timeout: number) => unknown;
+type PageUrlProvider = () => string | undefined;
 
 function getDefaultClipboard() {
   return typeof navigator === "undefined" ? undefined : navigator.clipboard;
@@ -22,6 +24,31 @@ function getDefaultResetScheduler(): ResetScheduler {
   }
 
   return window.setTimeout.bind(window);
+}
+
+function getDefaultPageUrl() {
+  if (typeof document !== "undefined") {
+    const canonicalLink = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    const rawCanonicalHref = canonicalLink?.getAttribute("href")?.trim();
+    if (rawCanonicalHref) {
+      const resolvedCanonicalHref = canonicalLink?.href?.trim();
+      if (resolvedCanonicalHref) {
+        return resolvedCanonicalHref;
+      }
+
+      if (typeof window !== "undefined" && window.location?.href) {
+        return new URL(rawCanonicalHref, window.location.href).toString();
+      }
+
+      return rawCanonicalHref;
+    }
+  }
+
+  if (typeof window !== "undefined" && window.location?.href) {
+    return window.location.href;
+  }
+
+  return undefined;
 }
 
 function findCopyButton(target: EventTarget | null) {
@@ -46,6 +73,19 @@ function scheduleButtonReset(button: CopyButtonState, scheduleReset: ResetSchedu
     button.disabled = false;
     setButtonState(button, "复制");
   }, COPY_RESET_DELAY_MS);
+}
+
+export function expandCopyPlaceholders(rawCode: string, pageUrlProvider: PageUrlProvider = getDefaultPageUrl) {
+  if (!rawCode.includes(PAGE_URL_PLACEHOLDER)) {
+    return rawCode;
+  }
+
+  const pageUrl = pageUrlProvider()?.trim();
+  if (!pageUrl) {
+    return rawCode;
+  }
+
+  return rawCode.split(PAGE_URL_PLACEHOLDER).join(pageUrl);
 }
 
 export async function copyRawCodeToClipboard(
@@ -80,6 +120,7 @@ export async function copyCodeBlock(
   button: Pick<HTMLButtonElement, "closest"> & CopyButtonState,
   clipboard?: ClipboardWriter,
   scheduleReset?: ResetScheduler,
+  pageUrlProvider?: PageUrlProvider,
 ) {
   const block = button.closest<HTMLElement>("[data-enhanced-code-block]");
   const rawCode = block?.dataset.codeRaw;
@@ -88,7 +129,10 @@ export async function copyCodeBlock(
     return;
   }
 
-  await copyRawCodeToClipboard(button, rawCode, clipboard, scheduleReset);
+  const copyText =
+    block.dataset.codeLiteralPageUrl === "true" ? rawCode : expandCopyPlaceholders(rawCode, pageUrlProvider);
+
+  await copyRawCodeToClipboard(button, copyText, clipboard, scheduleReset);
 }
 
 export function handleCodeBlockCopyClick(
