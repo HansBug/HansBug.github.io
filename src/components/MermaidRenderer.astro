@@ -1,0 +1,364 @@
+---
+interface Props {
+  rootSelector?: string;
+}
+
+const { rootSelector = ".article-content" } = Astro.props;
+---
+
+<div class="mermaid-config" data-root-selector={rootSelector} hidden></div>
+
+<script>
+  import {
+    MERMAID_PAN_STEP,
+    MERMAID_SCALE_STEP,
+    calculateFitScale,
+    clampMermaidScale,
+    formatMermaidScale,
+    getMermaidZoomState,
+    parseSvgSizeAttributes,
+  } from "../utils/mermaidViewport";
+
+  const MERMAID_CONFIG_SELECTOR = ".mermaid-config";
+  const MERMAID_BLOCK_SELECTOR = 'pre[data-standard-mermaid="true"]';
+
+  type MermaidApi = typeof import("mermaid").default;
+  type MermaidControls = {
+    zoomOutButton: HTMLButtonElement;
+    zoomInButton: HTMLButtonElement;
+    panLeftButton: HTMLButtonElement;
+    panRightButton: HTMLButtonElement;
+    panUpButton: HTMLButtonElement;
+    panDownButton: HTMLButtonElement;
+    fitButton: HTMLButtonElement;
+    actualButton: HTMLButtonElement;
+    scaleValue: HTMLOutputElement;
+  };
+
+  let mermaidModulePromise: Promise<MermaidApi> | undefined;
+
+  async function loadMermaid() {
+    if (!mermaidModulePromise) {
+      mermaidModulePromise = import("mermaid").then((module) => module.default);
+    }
+    return mermaidModulePromise;
+  }
+
+  function getRootSelectors() {
+    return Array.from(document.querySelectorAll(MERMAID_CONFIG_SELECTOR))
+      .map((node) => (node instanceof HTMLElement ? node.dataset.rootSelector : undefined))
+      .filter((selector): selector is string => Boolean(selector && selector.trim().length > 0));
+  }
+
+  function findMermaidBlocks(rootSelector: string) {
+    const preSet = new Set<HTMLPreElement>();
+
+    for (const root of document.querySelectorAll(rootSelector)) {
+      for (const node of root.querySelectorAll(MERMAID_BLOCK_SELECTOR)) {
+        if (node instanceof HTMLPreElement && !node.dataset.mermaidProcessed) {
+          preSet.add(node);
+        }
+      }
+    }
+
+    return Array.from(preSet);
+  }
+
+  function detectDiagramType(source: string) {
+    const firstLine = source
+      .split("\n")
+      .map((line: string) => line.trim())
+      .find((line: string) => line && !line.startsWith("%%"));
+
+    return firstLine ? firstLine.split(/[ \t{]/)[0] : "unknown";
+  }
+
+  function createButton(label: string, ariaLabel: string, className = "") {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `mermaid-control-button ${className}`.trim();
+    button.textContent = label;
+    button.setAttribute("aria-label", ariaLabel);
+    return button;
+  }
+
+  function createShell(source: string) {
+    const shell = document.createElement("figure");
+    shell.className = "mermaid-shell";
+    shell.dataset.diagramType = detectDiagramType(source);
+
+    const toolbar = document.createElement("div");
+    toolbar.className = "mermaid-toolbar";
+
+    const hint = document.createElement("p");
+    hint.className = "mermaid-toolbar__hint";
+    hint.textContent = "拖动平移，Ctrl/Cmd + 滚轮缩放";
+    toolbar.append(hint);
+
+    const controls = document.createElement("div");
+    controls.className = "mermaid-controls";
+
+    const zoomOutButton = createButton("-", "缩小 Mermaid 图");
+    const zoomInButton = createButton("+", "放大 Mermaid 图");
+    const panLeftButton = createButton("←", "向左平移 Mermaid 图", "mermaid-control-button--pan");
+    const panRightButton = createButton("→", "向右平移 Mermaid 图", "mermaid-control-button--pan");
+    const panUpButton = createButton("↑", "向上平移 Mermaid 图", "mermaid-control-button--pan");
+    const panDownButton = createButton("↓", "向下平移 Mermaid 图", "mermaid-control-button--pan");
+    const fitButton = createButton("适宽", "将 Mermaid 图恢复到适合容器宽度", "mermaid-control-button--text");
+    const actualButton = createButton("1:1", "按 Mermaid 图原始尺寸查看", "mermaid-control-button--text");
+
+    const scaleValue = document.createElement("output");
+    scaleValue.className = "mermaid-scale-value";
+    scaleValue.value = "100%";
+    scaleValue.textContent = "100%";
+
+    controls.append(
+      zoomOutButton,
+      zoomInButton,
+      panLeftButton,
+      panRightButton,
+      panUpButton,
+      panDownButton,
+      fitButton,
+      actualButton,
+      scaleValue,
+    );
+    toolbar.append(controls);
+
+    const renderTarget = document.createElement("div");
+    renderTarget.className = "mermaid-render";
+
+    const details = document.createElement("details");
+    details.className = "mermaid-source";
+
+    const summary = document.createElement("summary");
+    summary.textContent = "查看 Mermaid 源码";
+
+    const fallbackPre = document.createElement("pre");
+    const fallbackCode = document.createElement("code");
+    fallbackCode.className = "language-mermaid";
+    fallbackCode.textContent = source;
+    fallbackPre.append(fallbackCode);
+
+    details.append(summary, fallbackPre);
+    shell.append(toolbar, renderTarget, details);
+
+    return {
+      shell,
+      renderTarget,
+      controls: {
+        zoomOutButton,
+        zoomInButton,
+        panLeftButton,
+        panRightButton,
+        panUpButton,
+        panDownButton,
+        fitButton,
+        actualButton,
+        scaleValue,
+      },
+    };
+  }
+
+  function setupViewport(shell: HTMLElement, renderTarget: HTMLElement, controls: MermaidControls) {
+    const svg = renderTarget.querySelector("svg");
+    if (!(svg instanceof SVGSVGElement)) {
+      return;
+    }
+    const renderedSvg = svg;
+
+    const { width: intrinsicWidth, height: intrinsicHeight } = parseSvgSizeAttributes({
+      viewBox: renderedSvg.getAttribute("viewBox"),
+      width: renderedSvg.getAttribute("width"),
+      height: renderedSvg.getAttribute("height"),
+    });
+    const stage = document.createElement("div");
+    stage.className = "mermaid-stage";
+    renderTarget.replaceChildren(stage);
+    stage.append(renderedSvg);
+
+    const state = {
+      scale: 1,
+      mode: "fit",
+      isDragging: false,
+      activePointerId: undefined as number | undefined,
+      lastX: 0,
+      lastY: 0,
+      startScrollLeft: 0,
+      startScrollTop: 0,
+    };
+
+    function fitScale() {
+      return calculateFitScale(renderTarget.clientWidth, intrinsicWidth);
+    }
+
+    function applyScale(nextScale: number) {
+      const currentFitScale = fitScale();
+      const next = clampMermaidScale(nextScale, currentFitScale);
+      state.scale = next;
+      renderedSvg.style.width = `${intrinsicWidth * next}px`;
+      renderedSvg.style.height = `${intrinsicHeight * next}px`;
+      stage.style.width = `${intrinsicWidth * next}px`;
+      stage.style.height = `${intrinsicHeight * next}px`;
+      shell.dataset.zoomState = getMermaidZoomState(next, currentFitScale);
+      controls.scaleValue.value = formatMermaidScale(next);
+      controls.scaleValue.textContent = formatMermaidScale(next);
+    }
+
+    function setFitScale() {
+      state.mode = "fit";
+      applyScale(fitScale());
+      renderTarget.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    }
+
+    function setActualScale() {
+      state.mode = "actual";
+      applyScale(1);
+    }
+
+    controls.fitButton.addEventListener("click", setFitScale);
+    controls.actualButton.addEventListener("click", setActualScale);
+    controls.zoomInButton.addEventListener("click", () => {
+      state.mode = "manual";
+      applyScale(state.scale * MERMAID_SCALE_STEP);
+    });
+    controls.zoomOutButton.addEventListener("click", () => {
+      state.mode = "manual";
+      applyScale(state.scale / MERMAID_SCALE_STEP);
+    });
+    function panBy(left: number, top: number) {
+      renderTarget.scrollLeft += left;
+      renderTarget.scrollTop += top;
+    }
+
+    controls.panLeftButton.addEventListener("click", () => {
+      panBy(-MERMAID_PAN_STEP, 0);
+    });
+    controls.panRightButton.addEventListener("click", () => {
+      panBy(MERMAID_PAN_STEP, 0);
+    });
+    controls.panUpButton.addEventListener("click", () => {
+      panBy(0, -MERMAID_PAN_STEP);
+    });
+    controls.panDownButton.addEventListener("click", () => {
+      panBy(0, MERMAID_PAN_STEP);
+    });
+
+    renderTarget.addEventListener(
+      "wheel",
+      (event: WheelEvent) => {
+        if (!event.ctrlKey && !event.metaKey) {
+          return;
+        }
+
+        event.preventDefault();
+        state.mode = "manual";
+        applyScale(state.scale * (event.deltaY < 0 ? MERMAID_SCALE_STEP : 1 / MERMAID_SCALE_STEP));
+      },
+      { passive: false },
+    );
+
+    renderTarget.addEventListener("pointerdown", (event: PointerEvent) => {
+      if (event.button !== 0) {
+        return;
+      }
+      state.isDragging = true;
+      state.activePointerId = event.pointerId;
+      state.lastX = event.clientX;
+      state.lastY = event.clientY;
+      state.startScrollLeft = renderTarget.scrollLeft;
+      state.startScrollTop = renderTarget.scrollTop;
+      renderTarget.setPointerCapture(event.pointerId);
+      renderTarget.classList.add("is-dragging");
+    });
+
+    renderTarget.addEventListener("pointermove", (event: PointerEvent) => {
+      if (!state.isDragging || event.pointerId !== state.activePointerId) {
+        return;
+      }
+
+      renderTarget.scrollLeft = state.startScrollLeft - (event.clientX - state.lastX);
+      renderTarget.scrollTop = state.startScrollTop - (event.clientY - state.lastY);
+    });
+
+    function stopDragging(event: PointerEvent) {
+      if (event.pointerId !== state.activePointerId) {
+        return;
+      }
+      state.isDragging = false;
+      state.activePointerId = undefined;
+      if (renderTarget.hasPointerCapture(event.pointerId)) {
+        renderTarget.releasePointerCapture(event.pointerId);
+      }
+      renderTarget.classList.remove("is-dragging");
+    }
+
+    renderTarget.addEventListener("pointerup", stopDragging);
+    renderTarget.addEventListener("pointercancel", stopDragging);
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (state.mode === "fit") {
+        applyScale(fitScale());
+      }
+    });
+    resizeObserver.observe(renderTarget);
+    window.addEventListener("pagehide", () => resizeObserver.disconnect(), { once: true });
+    document.addEventListener("astro:before-swap", () => resizeObserver.disconnect(), { once: true });
+
+    setFitScale();
+  }
+
+  async function renderBlock(mermaid: MermaidApi, pre: HTMLPreElement, index: number) {
+    pre.dataset.mermaidProcessed = "true";
+    const source = pre.textContent ?? "";
+    const { shell, renderTarget, controls } = createShell(source);
+    pre.replaceWith(shell);
+
+    try {
+      const result = await mermaid.render(`mermaid-diagram-${index}`, source);
+      renderTarget.innerHTML = result.svg;
+      result.bindFunctions?.(renderTarget);
+      setupViewport(shell, renderTarget, controls);
+      shell.dataset.renderState = "ready";
+    } catch (error) {
+      shell.dataset.renderState = "error";
+      const message = error instanceof Error ? error.message : String(error);
+      renderTarget.innerHTML = "";
+      const errorBox = document.createElement("p");
+      errorBox.className = "mermaid-error";
+      errorBox.textContent = `Mermaid 图渲染失败：${message}`;
+      renderTarget.append(errorBox);
+    }
+  }
+
+  async function initMermaid() {
+    const rootSelectors = getRootSelectors();
+    if (rootSelectors.length === 0) {
+      return;
+    }
+
+    const blocks = rootSelectors.flatMap((rootSelector) => findMermaidBlocks(rootSelector));
+    if (blocks.length === 0) {
+      return;
+    }
+
+    const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const mermaid = await loadMermaid();
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: prefersLight ? "default" : "dark",
+      darkMode: !prefersLight,
+      flowchart: { htmlLabels: false },
+      sequence: { useMaxWidth: false },
+    });
+
+    let renderIndex = 0;
+    for (const block of blocks) {
+      renderIndex += 1;
+      await renderBlock(mermaid, block, renderIndex);
+    }
+  }
+
+  void initMermaid();
+</script>
