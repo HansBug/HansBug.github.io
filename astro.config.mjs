@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import contentHmr from "./src/integrations/contentHmr.ts";
 import {
+  remarkCodeCopyOptions,
   rehypeEnhancedCodeBlocks,
   remarkProtectDollarText,
   remarkStandardMermaid,
@@ -34,7 +35,7 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkGfm, remarkMath, remarkProtectDollarText, remarkStandardMermaid],
+    remarkPlugins: [remarkGfm, remarkMath, remarkCodeCopyOptions, remarkProtectDollarText, remarkStandardMermaid],
     rehypePlugins: [rehypeKatex, rehypeEnhancedCodeBlocks],
     shikiConfig: {
       theme: "github-dark",
