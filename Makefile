@@ -1,5 +1,7 @@
 HOST ?= 127.0.0.1
 PORT ?= 4321
+CHOKIDAR_USEPOLLING ?= true
+CHOKIDAR_INTERVAL ?= 1000
 
 .PHONY: dev start build preview check clean install
 
@@ -7,7 +9,7 @@ install:
 	npm install
 
 dev:
-	npm run dev -- --host $(HOST) --port $(PORT)
+	CHOKIDAR_USEPOLLING=$(CHOKIDAR_USEPOLLING) CHOKIDAR_INTERVAL=$(CHOKIDAR_INTERVAL) npm run dev -- --host $(HOST) --port $(PORT)
 
 start: dev
 
