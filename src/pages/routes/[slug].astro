@@ -1,5 +1,4 @@
 ---
-import { render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import MermaidRenderer from "../../components/MermaidRenderer.astro";
 import PostCard from "../../components/PostCard.astro";
@@ -13,6 +12,7 @@ import {
   getRoutePosts,
   tagToSlug,
 } from "../../utils/content";
+import { renderFreshContent } from "../../utils/liveContent";
 import { hasMathSyntax, hasMermaidFence } from "../../utils/markdownFeatures";
 
 const allPosts = await getAllBlogPosts();
@@ -26,9 +26,10 @@ export async function getStaticPaths() {
   }));
 }
 
-const { route } = Astro.props;
-const { Content } = await render(route);
-const markdownBody = route.body ?? "";
+let { route } = Astro.props;
+const { entry: freshRoute, Content } = await renderFreshContent(route);
+route = freshRoute;
+const markdownBody = freshRoute.body ?? "";
 const hasMermaid = hasMermaidFence(markdownBody);
 const hasMath = hasMathSyntax(markdownBody);
 const posts = getRoutePosts(route, allPosts);

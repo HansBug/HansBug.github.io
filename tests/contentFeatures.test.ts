@@ -194,11 +194,37 @@ describe("Mermaid renderer wiring", () => {
     const source = await readSource(path);
 
     expect(source).toContain('import MermaidRenderer from "../../components/MermaidRenderer.astro";');
+    expect(source).toContain('import { renderFreshContent } from "../../utils/liveContent";');
     expect(source).toContain('import { hasMathSyntax, hasMermaidFence } from "../../utils/markdownFeatures";');
+    expect(source).toContain("renderFreshContent(");
     expect(source).toContain("hasMermaidFence(");
     expect(source).toContain("hasMathSyntax(");
     expect(source).toContain("includeKatex={hasMath}");
     expect(source).toContain("{hasMermaid && <MermaidRenderer />}");
+  });
+
+  it("uses the fresh dev content helper to avoid stale Markdown renders during Vite HMR", async () => {
+    const source = await readSource("src/utils/liveContent.ts");
+
+    expect(source).toContain('const dataStoreUrl = new URL("../../.astro/data-store.json", import.meta.url);');
+    expect(source).toContain("if (!import.meta.env.DEV)");
+    expect(source).toContain("store.get(entry.collection)?.get(entry.id)");
+    expect(source).toContain("render(freshEntry)");
+  });
+
+  it("registers a dev content HMR integration for Markdown collection edits", async () => {
+    const config = await readSource("astro.config.mjs");
+    const integration = await readSource("src/integrations/contentHmr.ts");
+
+    expect(config).toContain('import contentHmr from "./src/integrations/contentHmr.ts";');
+    expect(config).toContain("contentHmr()");
+    expect(integration).toContain('"astro:server:setup"');
+    expect(integration).toContain("refreshContent({})");
+    expect(integration).toContain('server.watcher.add("src/content/**/*.md")');
+    expect(integration).toContain('server.watcher.on("add", scheduleRefresh)');
+    expect(integration).toContain('server.watcher.on("change", scheduleRefresh)');
+    expect(integration).toContain('server.watcher.on("unlink", scheduleRefresh)');
+    expect(integration).toContain('server.ws.send({ type: "full-reload", path: "*" })');
   });
 
   it("loads Mermaid dynamically only after finding standard marked blocks", async () => {

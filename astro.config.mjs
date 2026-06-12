@@ -4,6 +4,7 @@ import vue from "@astrojs/vue";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import contentHmr from "./src/integrations/contentHmr.ts";
 import { remarkProtectDollarText, remarkStandardMermaid } from "./src/utils/markdownFeatures.ts";
 
 export default defineConfig({
@@ -11,7 +12,7 @@ export default defineConfig({
   output: "static",
   trailingSlash: "always",
   compressHTML: true,
-  integrations: [sitemap(), vue()],
+  integrations: [sitemap(), vue(), contentHmr()],
   vite: {
     server: {
       watch: {
