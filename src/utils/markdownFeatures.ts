@@ -39,6 +39,13 @@ type TextNode = {
   value: string;
 };
 
+type MarkdownFile = {
+  value?: unknown;
+  data?: Record<string, unknown>;
+};
+
+const CODE_COPY_LITERAL_PAGE_URLS_KEY = "codeCopyLiteralPageUrls";
+
 function isFenceClose(line: string, marker: string) {
   const closePattern = new RegExp(`^\\s*${marker[0]}{${marker.length},}\\s*$`);
   return closePattern.test(line);
@@ -296,6 +303,10 @@ function createCopyButton(rawCode: string): HtmlElementNode {
   };
 }
 
+function shouldCopyPageUrlPlaceholderLiterally(meta: string | null | undefined) {
+  return /\bcopy-literal-page-url\b/.test(meta ?? "");
+}
+
 function isShikiPreNode(node: unknown): node is HtmlElementNode {
   if (!isHtmlElementNode(node) || node.tagName !== "pre") {
     return false;
@@ -350,7 +361,11 @@ function createLineNode(lineNode: HtmlElementNode, lineNumber: number): HtmlElem
 }
 
 export function rehypeEnhancedCodeBlocks() {
-  return (tree: unknown) => {
+  return (tree: unknown, file?: MarkdownFile) => {
+    const copyLiteralPageUrls = Array.isArray(file?.data?.[CODE_COPY_LITERAL_PAGE_URLS_KEY])
+      ? ([...(file.data[CODE_COPY_LITERAL_PAGE_URLS_KEY] as boolean[])] as boolean[])
+      : [];
+
     walkTree(tree, (node, parent, index) => {
       if (!parent?.children || typeof index !== "number" || !isShikiPreNode(node)) {
         return;
@@ -369,6 +384,7 @@ export function rehypeEnhancedCodeBlocks() {
       const rawCode = lineNodes.map((lineNode) => collectText(lineNode)).join("\n");
       const language = getStringProperty(node.properties, "data-language") || "plaintext";
       const preClassList = getClassList(node.properties);
+      const copyLiteralPageUrl = copyLiteralPageUrls.shift() ?? false;
 
       const enhancedPre: HtmlElementNode = {
         ...node,
@@ -398,6 +414,7 @@ export function rehypeEnhancedCodeBlocks() {
           "data-enhanced-code-block": "true",
           "data-code-language": language,
           "data-code-raw": rawCode,
+          ...(copyLiteralPageUrl ? { "data-code-literal-page-url": "true" } : {}),
         },
         children: [
           {
@@ -420,6 +437,30 @@ export function rehypeEnhancedCodeBlocks() {
         ],
       };
     });
+  };
+}
+
+export function remarkCodeCopyOptions() {
+  return (tree: unknown, file: MarkdownFile) => {
+    const source = typeof file.value === "string" ? file.value : "";
+    const copyLiteralPageUrls: boolean[] = [];
+
+    walkTree(tree, (node) => {
+      if (!isCodeNode(node)) {
+        return;
+      }
+
+      if (isStandardMermaidCodeNode(source, node)) {
+        return;
+      }
+
+      copyLiteralPageUrls.push(shouldCopyPageUrlPlaceholderLiterally(node.meta));
+    });
+
+    file.data = {
+      ...file.data,
+      [CODE_COPY_LITERAL_PAGE_URLS_KEY]: copyLiteralPageUrls,
+    };
   };
 }
 

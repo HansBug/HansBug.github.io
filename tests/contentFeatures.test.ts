@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { describe, expect, it } from "vitest";
 import {
+  remarkCodeCopyOptions,
   rehypeEnhancedCodeBlocks,
   hasMathSyntax,
   hasMermaidFence,
@@ -28,7 +29,7 @@ async function renderMarkdown(markdown: string) {
   const processor = await createMarkdownProcessor({
     syntaxHighlight: "shiki",
     shikiConfig: { theme: "github-dark" },
-    remarkPlugins: [remarkGfm, remarkMath, remarkProtectDollarText, remarkStandardMermaid],
+    remarkPlugins: [remarkGfm, remarkMath, remarkCodeCopyOptions, remarkProtectDollarText, remarkStandardMermaid],
     rehypePlugins: [rehypeKatex, rehypeEnhancedCodeBlocks],
   });
 
@@ -242,15 +243,51 @@ describe("Markdown rendering pipeline", () => {
     expect(trailingBlankHtml).toContain('data-line-number="3"');
   });
 
+  it("marks code blocks that should copy page URL placeholders literally", async () => {
+    const literalHtml = await renderMarkdown(["```text copy-literal-page-url", "{{PAGE_URL}}", "```"].join("\n"));
+    const defaultHtml = await renderMarkdown(["```text", "{{PAGE_URL}}", "```"].join("\n"));
+
+    expect(literalHtml).toContain('data-code-literal-page-url="true"');
+    expect(literalHtml).toContain("{{PAGE_URL}}");
+    expect(defaultHtml).not.toContain("data-code-literal-page-url");
+  });
+
+  it("keeps literal page URL copy options aligned when Mermaid blocks are present", async () => {
+    const html = await renderMarkdown(
+      [
+        "```mermaid",
+        "flowchart TD",
+        "  A --> B",
+        "```",
+        "",
+        "```text copy-literal-page-url",
+        "{{PAGE_URL}}",
+        "```",
+      ].join("\n"),
+    );
+
+    expect(html).toContain('data-standard-mermaid="true"');
+    expect(html).toContain('data-code-literal-page-url="true"');
+  });
+
   it("uses conditional KaTeX CSS loading from detail layouts", async () => {
     const layout = await readSource("src/layouts/BaseLayout.astro");
     const config = await readSource("astro.config.mjs");
 
     expect(layout).toContain('{includeKatex && <link rel="stylesheet" href="/vendor/katex/katex.min.css" />}');
     expect(config).toContain("remarkProtectDollarText");
+    expect(config).toContain("remarkCodeCopyOptions");
     expect(config).toContain("remarkStandardMermaid");
     expect(config).toContain("rehypeEnhancedCodeBlocks");
     expect(layout).toContain('import "../utils/codeBlockCopy";');
+  });
+
+  it("documents page URL prompt placeholders and literal-copy escapes for future articles", async () => {
+    const agentsGuide = await readSource("AGENTS.md");
+
+    expect(agentsGuide).toContain("{{PAGE_URL}}");
+    expect(agentsGuide).toContain("copy-literal-page-url");
+    expect(agentsGuide).toContain("不要把某个 PR 的临时验收步骤、截图要求或 CI 要求写进这里");
   });
 
   it("detects math syntax only for formulas that will render", () => {
