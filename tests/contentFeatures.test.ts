@@ -397,6 +397,13 @@ describe("Mermaid renderer wiring", () => {
     expect(integration).toContain('server.ws.send({ type: "full-reload", path: "*" })');
   });
 
+  it("keeps the dev citation fixture out of production sitemap output", async () => {
+    const config = await readSource("astro.config.mjs");
+
+    expect(config).toContain("sitemap({");
+    expect(config).toContain('filter: (page) => !page.includes("/citation-fixture/")');
+  });
+
   it("keeps the citation fixture gated to dev content with a production redirect", async () => {
     const source = await readSource("src/pages/citation-fixture.astro");
     const layout = await readSource("src/layouts/BaseLayout.astro");

@@ -10,7 +10,6 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   remarkArticleCitationPreflight,
   rehypeArticleCitations,
-  hasArticleCitationSyntax,
   resolveArticleCitationPaths,
 } from "../src/utils/citations";
 import {
@@ -150,6 +149,73 @@ describe("article citation pipeline", () => {
     expect(result.code).not.toContain("article-citation");
   });
 
+  it("does not require bibliography for ordinary email links or social mentions", async () => {
+    const fixture = await makeFixtureDir();
+    fixtureRoot = fixture.root;
+
+    const result = await renderArticleMarkdown(
+      fixture.root,
+      fixture.markdownPath,
+      "普通邮件链接：[hansbug@buaa.edu.cn](mailto:hansbug@buaa.edu.cn)，普通 mention @hansbug 也不是引用。",
+      {},
+    );
+
+    expect(result.code).toContain("mailto:hansbug@buaa.edu.cn");
+    expect(result.code).toContain("@hansbug");
+    expect(result.code).not.toContain("article-citation");
+  });
+
+  it("does not scan indented code blocks or raw HTML code blocks as citations", async () => {
+    const fixture = await makeFixtureDir();
+    fixtureRoot = fixture.root;
+    await writeFixtureBib(fixture.articleDir);
+
+    const result = await renderArticleMarkdown(
+      fixture.root,
+      fixture.markdownPath,
+      [
+        "真实引用[@nash1950].",
+        "",
+        "    Literal bracket marker: [@literal]",
+        "    Literal bare marker: @nash1950",
+        "",
+        "<pre>",
+        "[@evil] and @nash1950 are literal here.",
+        "</pre>",
+        "",
+        "<code>[@evil-too]</code>",
+        "",
+        "## 参考文献",
+        "",
+        "[^ref]",
+      ].join("\n"),
+    );
+
+    expect(result.code).toContain('href="#bib-nash1950"');
+    expect(result.code).toContain("Literal bracket marker: [@literal]");
+    expect(result.code).toContain("[@evil] and @nash1950 are literal here.");
+    expect(result.code).not.toContain("bib-literal");
+    expect(result.code).not.toContain("bib-evil");
+  });
+
+  it("allows normal @mentions while still rejecting bare keys that exist in the article bibliography", async () => {
+    const fixture = await makeFixtureDir();
+    fixtureRoot = fixture.root;
+    await writeFixtureBib(fixture.articleDir);
+
+    const result = await renderArticleMarkdown(
+      fixture.root,
+      fixture.markdownPath,
+      "正文引用[@nash1950]，顺手提一下 @hansbug 不是引用。",
+    );
+    expect(result.code).toContain("@hansbug");
+    expect(result.code).toContain('href="#bib-nash1950"');
+
+    await expect(renderArticleMarkdown(fixture.root, fixture.markdownPath, "Bare @nash1950 is banned.")).rejects.toThrow(
+      /Bare citation syntax is not supported[\s\S]*Fix: replace `@nash1950` with `\[@nash1950\]`/,
+    );
+  });
+
   it("fails before rehype-citation for missing bibliography entries", async () => {
     const fixture = await makeFixtureDir();
     fixtureRoot = fixture.root;
@@ -261,14 +327,6 @@ describe("article citation pipeline", () => {
     ).toThrow(/must stay in the article directory/);
   });
 
-  it("keeps citation syntax detection stable across repeated calls", () => {
-    expect(hasArticleCitationSyntax("plain text only")).toBe(false);
-    expect(hasArticleCitationSyntax("plain text only")).toBe(false);
-    expect(hasArticleCitationSyntax("Citation [@nash1950]")).toBe(true);
-    expect(hasArticleCitationSyntax("plain text only")).toBe(false);
-    expect(hasArticleCitationSyntax("Bare @nash1950 is banned.")).toBe(true);
-    expect(hasArticleCitationSyntax("plain text only")).toBe(false);
-  });
 });
 
 describe("citation guide and schema wiring", () => {

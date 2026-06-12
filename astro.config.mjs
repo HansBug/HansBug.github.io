@@ -18,7 +18,13 @@ export default defineConfig({
   output: "static",
   trailingSlash: "always",
   compressHTML: true,
-  integrations: [sitemap(), vue(), contentHmr()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/citation-fixture/"),
+    }),
+    vue(),
+    contentHmr(),
+  ],
   vite: {
     server: {
       watch: {

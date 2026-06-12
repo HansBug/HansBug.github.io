@@ -12,6 +12,16 @@ const BRACKET_CITATION_RE = /\[((?:[^\[\]]|\[[^\]]*\])*@(?:[^\[\]]|\[[^\]]*\])*)
 const BARE_CITATION_RE = /(^|[\s([{"'，。；：、])@([A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*)/g;
 const CITE_KEY_RE = /@([A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*)/g;
 const BIB_ENTRY_RE = /@([A-Za-z]+)\s*{\s*([^,\s]+)\s*,/g;
+const CITATION_SCAN_SKIP_NODE_TYPES = new Set([
+  "code",
+  "definition",
+  "html",
+  "image",
+  "imageReference",
+  "inlineCode",
+  "link",
+  "linkReference",
+]);
 
 type ParentNode = {
   children?: unknown[];
@@ -58,6 +68,25 @@ type CitationUse = {
 
 type CitationScan = {
   citations: CitationUse[];
+  bareCitations: CitationUse[];
+};
+
+type MdastNode = {
+  type?: string;
+  value?: unknown;
+  children?: unknown[];
+  position?: {
+    start?: {
+      line?: number;
+      column?: number;
+      offset?: number;
+    };
+  };
+};
+
+type MarkdownTextSegment = {
+  value: string;
+  startOffset?: number;
 };
 
 type BibEntryIndex = {
@@ -78,13 +107,6 @@ export type ArticleCitationPaths = {
   cslAbsPath: string;
   cslRelativePath: string;
 };
-
-export function hasArticleCitationSyntax(markdown: string): boolean {
-  const masked = maskCodeRanges(markdown);
-  BRACKET_CITATION_RE.lastIndex = 0;
-  BARE_CITATION_RE.lastIndex = 0;
-  return BRACKET_CITATION_RE.test(masked) || BARE_CITATION_RE.test(masked);
-}
 
 export function resolveArticleCitationPaths(input: CitationPathInput): ArticleCitationPaths {
   const root = resolve(input.root ?? process.cwd());
@@ -143,13 +165,13 @@ export function resolveArticleCitationPaths(input: CitationPathInput): ArticleCi
 }
 
 export function remarkArticleCitationPreflight(options: ArticleCitationOptions = {}) {
-  return (_tree: unknown, file: MarkdownFile) => {
+  return (tree: unknown, file: MarkdownFile) => {
     const source = typeof file.value === "string" ? file.value : "";
     const markdownPath = getMarkdownPath(file);
     const frontmatter = getFrontmatter(file);
     const bibliography = getStringFrontmatter(frontmatter, "bibliography");
     const citationStyle = getStringFrontmatter(frontmatter, "citationStyle");
-    const scan = scanCitationUses(source);
+    const scan = scanCitationUses(source, tree, markdownPath);
 
     if (citationStyle && citationStyle !== SUPPORTED_CITATION_STYLE) {
       throw new Error(
@@ -187,6 +209,22 @@ export function remarkArticleCitationPreflight(options: ArticleCitationOptions =
     const bibtex = readBibtex(paths);
     const bibIndex = parseBibtexIndex(bibtex, paths);
     const usedKeys = new Set(scan.citations.map((citation) => citation.key));
+
+    for (const citation of scan.bareCitations) {
+      if (!bibIndex.keys.has(citation.key)) {
+        continue;
+      }
+      throw new Error(
+        formatCitationError("Bare citation syntax is not supported", {
+          markdownPath: paths.markdownAbsPath,
+          bibliographyPath: paths.bibliographyAbsPath,
+          key: citation.key,
+          position: formatPosition(citation),
+          context: citation.raw,
+          fix: `replace \`@${citation.key}\` with \`[@${citation.key}]\`. If this is only a social mention or literal text, put it in inline code.`,
+        }),
+      );
+    }
 
     for (const citation of scan.citations) {
       if (!bibIndex.keys.has(citation.key)) {
@@ -356,21 +394,45 @@ function parseBibtexIndex(bibtex: string, paths: ArticleCitationPaths): BibEntry
   return { keys };
 }
 
-function scanCitationUses(markdown: string): CitationScan {
-  const masked = maskCodeRanges(markdown);
+function scanCitationUses(markdown: string, tree?: unknown, markdownPath?: string): CitationScan {
+  const segments = collectMarkdownTextSegments(tree, markdown);
+  if (segments.length === 0 && !tree) {
+    return scanCitationText(maskCodeRanges(markdown), markdown, markdownPath);
+  }
+
+  const citations: CitationUse[] = [];
+  const bareCitations: CitationUse[] = [];
+  for (const segment of segments) {
+    const scan = scanCitationText(segment.value, markdown, markdownPath, segment.startOffset ?? 0);
+    citations.push(...scan.citations);
+    bareCitations.push(...scan.bareCitations);
+  }
+
+  return { citations, bareCitations };
+}
+
+function scanCitationText(
+  text: string,
+  fullMarkdown: string,
+  markdownPath?: string,
+  startOffset = 0,
+): CitationScan {
   const bracketRanges: Array<[number, number]> = [];
   const citations: CitationUse[] = [];
+  const bareCitations: CitationUse[] = [];
   let bracketMatch: RegExpExecArray | null;
 
   BRACKET_CITATION_RE.lastIndex = 0;
-  while ((bracketMatch = BRACKET_CITATION_RE.exec(masked))) {
+  while ((bracketMatch = BRACKET_CITATION_RE.exec(text))) {
     const raw = bracketMatch[0];
     const body = bracketMatch[1];
-    bracketRanges.push([bracketMatch.index, bracketMatch.index + raw.length]);
+    const bracketStartOffset = startOffset + bracketMatch.index;
+    bracketRanges.push([bracketStartOffset, bracketStartOffset + raw.length]);
     if (/@[A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*\s*,\s*@/.test(body)) {
       throw new Error(
         formatCitationError("Invalid comma-separated citation", {
-          position: formatOffset(markdown, bracketMatch.index),
+          markdownPath,
+          position: formatOffset(fullMarkdown, bracketStartOffset),
           context: raw,
           fix: "逗号不是多引用分隔符，多引用请写 `[@a; @b]`；逗号只用于 locator / suffix，例如 `[@a, p. 12]`。",
         }),
@@ -380,33 +442,99 @@ function scanCitationUses(markdown: string): CitationScan {
     CITE_KEY_RE.lastIndex = 0;
     let keyMatch: RegExpExecArray | null;
     while ((keyMatch = CITE_KEY_RE.exec(body))) {
+      const keyOffset = bracketStartOffset + keyMatch.index + 1;
       citations.push({
         key: keyMatch[1],
         raw,
-        ...offsetToPosition(markdown, bracketMatch.index + keyMatch.index + 1),
+        ...offsetToPosition(fullMarkdown, keyOffset),
       });
     }
   }
 
   let bareMatch: RegExpExecArray | null;
   BARE_CITATION_RE.lastIndex = 0;
-  while ((bareMatch = BARE_CITATION_RE.exec(masked))) {
+  while ((bareMatch = BARE_CITATION_RE.exec(text))) {
     const key = bareMatch[2];
-    const atOffset = bareMatch.index + bareMatch[1].length;
+    const atOffset = startOffset + bareMatch.index + bareMatch[1].length;
     if (bracketRanges.some(([start, end]) => atOffset >= start && atOffset < end)) {
       continue;
     }
-    throw new Error(
-      formatCitationError("Bare citation syntax is not supported", {
-        key,
-        position: formatOffset(markdown, atOffset),
-        context: `@${key}`,
-        fix: `replace \`@${key}\` with \`[@${key}]\`.`,
-      }),
-    );
+    bareCitations.push({
+      key,
+      raw: `@${key}`,
+      ...offsetToPosition(fullMarkdown, atOffset),
+    });
   }
 
-  return { citations };
+  return { citations, bareCitations };
+}
+
+function collectMarkdownTextSegments(tree: unknown, markdown: string): MarkdownTextSegment[] {
+  const segments: MarkdownTextSegment[] = [];
+  const rawHtmlLiteralRanges = getRawHtmlLiteralRanges(markdown);
+
+  const visit = (node: unknown) => {
+    if (!isMdastNode(node) || shouldSkipCitationScan(node)) {
+      return;
+    }
+
+    if (node.type === "text" && typeof node.value === "string") {
+      const startOffset = getNodeStartOffset(markdown, node);
+      if (!rawHtmlLiteralRanges.some(([start, end]) => startOffset >= start && startOffset < end)) {
+        segments.push({ value: node.value, startOffset });
+      }
+      return;
+    }
+
+    for (const child of node.children ?? []) {
+      visit(child);
+    }
+  };
+
+  visit(tree);
+  return segments;
+}
+
+function shouldSkipCitationScan(node: MdastNode) {
+  return CITATION_SCAN_SKIP_NODE_TYPES.has(node.type ?? "");
+}
+
+function isMdastNode(node: unknown): node is MdastNode {
+  return Boolean(node && typeof node === "object" && typeof (node as MdastNode).type === "string");
+}
+
+function getRawHtmlLiteralRanges(markdown: string): Array<[number, number]> {
+  const ranges: Array<[number, number]> = [];
+  const htmlLiteralRe = /<(pre|code|script|style)\b[^>]*>[\s\S]*?<\/\1>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = htmlLiteralRe.exec(markdown))) {
+    ranges.push([match.index, match.index + match[0].length]);
+  }
+  return ranges;
+}
+
+function getNodeStartOffset(markdown: string, node: MdastNode) {
+  if (typeof node.position?.start?.offset === "number") {
+    return node.position.start.offset;
+  }
+  if (typeof node.position?.start?.line === "number" && typeof node.position.start.column === "number") {
+    return positionToOffset(markdown, node.position.start.line, node.position.start.column);
+  }
+  return 0;
+}
+
+function positionToOffset(markdown: string, line: number, column: number) {
+  let currentLine = 1;
+  let offset = 0;
+  while (currentLine < line && offset < markdown.length) {
+    const newlineIndex = markdown.indexOf("\n", offset);
+    if (newlineIndex === -1) {
+      return markdown.length;
+    }
+    offset = newlineIndex + 1;
+    currentLine += 1;
+  }
+  return Math.min(markdown.length, offset + Math.max(0, column - 1));
 }
 
 function maskCodeRanges(markdown: string) {

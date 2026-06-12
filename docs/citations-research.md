@@ -27,7 +27,7 @@
 - `[^ref]` 可以控制 bibliography 插入位置。
 - 缺失 key 默认不会硬失败，所以必须加本站 preflight。
 - `[@a, @b]` 在 upstream 行为上不适合作为多引用写法，本站 preflight 直接拒绝并提示用分号。
-- 裸 `@key` 在 numeric CSL 下可能产生不适合本站的输出，本站第一阶段直接拒绝。
+- 裸 `@key` 在 numeric CSL 下可能产生不适合本站的输出，本站第一阶段对“命中当前文章 `.bib` key 的裸写法”直接拒绝；普通社交 mention 或邮箱地址不应被误判成 citation。
 
 ### 其他候选
 
@@ -79,8 +79,9 @@ citationStyle: hansbug-numeric-superscript
 - `.bib` 重复 key：fail
 - `.bib` key 只靠大小写区分：fail
 - `[@a, @b]`：fail，提示 `[@a; @b]`
-- 裸 `@key`：fail，提示 `[@key]`
-- inline code / fenced code 中的 `[@key]`：忽略
+- 裸 `@key` 且 key 存在于当前文章 `.bib`：fail，提示 `[@key]`
+- 普通 `@mention`、邮箱链接、Markdown 链接文本：忽略，不要求补 bibliography
+- inline code、fenced code、缩进代码块、raw HTML `<pre>` / `<code>` 中的 `[@key]` / `@key`：忽略
 - 未引用 `.bib` 条目：warning
 
 典型错误格式：
@@ -114,13 +115,14 @@ Fix: add @...{nash1950, ...} to the article bibliography, or correct the citatio
 - `[-@a]`
 - `[@a, @b]` 错误
 - 裸 `@a` 错误
+- 普通 `@mention` 和邮箱链接不误判
 - 缺失 key
 - 重复 key
 - 大小写冲突
 - 无效 BibTeX
 - 找不到 `.bib`
 - 未引用条目 warning
-- code / inline code 字面量保护
+- code / inline code / 缩进代码块 / raw HTML code 字面量保护
 - `.bib` 在文章目录、CSL 在全站固定目录
 - 两篇文章路径不串台的路径解析基础
 
@@ -138,3 +140,5 @@ src/content/blog/engineering/citation-latex-mermaid-fixture.bib
 ```
 
 该页面同时包含 citation、LaTeX、Mermaid 和增强 code block，用于真实浏览器检查点击跳转、高亮和同页共存。
+
+生产构建仍会生成 `/citation-fixture/` 的 noindex redirect 兜底页，但 sitemap 显式过滤该 URL，避免内部验收入口进入正式 sitemap。

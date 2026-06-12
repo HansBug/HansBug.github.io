@@ -142,11 +142,13 @@ citationStyle: hansbug-numeric-superscript
 [^ref]
 ```
 
+`[^ref]` 是推荐锚点，不是强制语法；如果忘了写，渲染器也会把 bibliography 自动追加到文章末尾。但正式文章最好显式放出这一节，否则 agent 后续维护时很难一眼看出参考文献应该落在哪里。
+
 不要写成 `[@a, @b]`。逗号不是多引用分隔符，多引用必须用分号 `[@a; @b]`；逗号只留给 locator / suffix，例如 `[@a, p. 12]`。
 
-不要使用裸 `@key`。本站第一阶段会直接报错，要求改成 `[@key]`，避免 numeric CSL 在页面里产出 `[NO_PRINTED_FORM]` 这类污染内容。
+不要使用裸 `@key`。如果这个 key 存在于当前文章的 `.bib`，本站第一阶段会直接报错，要求改成 `[@key]`，避免 numeric CSL 在页面里产出 `[NO_PRINTED_FORM]` 这类污染内容。普通社交 mention（例如 `@hansbug`）不需要为了 citation 系统改写；但如果 mention 恰好和 `.bib` key 同名，就用 inline code 表示字面量。
 
-如果只是想在文章里展示 `[@key]`、`[@a; @b]`、`@key` 这些字面写法，请放进 inline code 或 fenced code block；代码里的这些内容不会参与 citation 校验。
+如果只是想在文章里展示 `[@key]`、`[@a; @b]`、`@key` 这些字面写法，请放进 inline code 或 fenced code block；缩进代码块、raw HTML `<pre>` / `<code>` 块里的这些内容也不会参与 citation 校验。正式写作仍优先使用 fenced code block，因为它最清楚，也最不容易被后续 agent 误改。
 
 `.bib` 里每个 key 必须唯一，且不能只靠大小写区分，例如 `Foo2024` 和 `foo2024` 不能同时存在。正文引用了不存在的 key、`.bib` 语法错误、找不到 bibliography 文件、正文有 citation 却没配 bibliography，都会在构建期硬失败；错误信息会包含 Markdown 路径、BibTeX 路径、key、上下文和 Fix 建议，优先按 Fix 提示修，不要绕过校验。
 
