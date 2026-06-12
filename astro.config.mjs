@@ -5,7 +5,12 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import contentHmr from "./src/integrations/contentHmr.ts";
-import { remarkProtectDollarText, remarkStandardMermaid } from "./src/utils/markdownFeatures.ts";
+import {
+  remarkCodeCopyOptions,
+  rehypeEnhancedCodeBlocks,
+  remarkProtectDollarText,
+  remarkStandardMermaid,
+} from "./src/utils/markdownFeatures.ts";
 
 export default defineConfig({
   site: "https://hansbug.github.io",
@@ -30,8 +35,8 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkGfm, remarkMath, remarkProtectDollarText, remarkStandardMermaid],
-    rehypePlugins: [rehypeKatex],
+    remarkPlugins: [remarkGfm, remarkMath, remarkCodeCopyOptions, remarkProtectDollarText, remarkStandardMermaid],
+    rehypePlugins: [rehypeKatex, rehypeEnhancedCodeBlocks],
     shikiConfig: {
       theme: "github-dark",
     },
