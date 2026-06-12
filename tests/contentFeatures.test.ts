@@ -368,6 +368,9 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain('const dataStoreUrl = new URL("../../.astro/data-store.json", import.meta.url);');
     expect(source).toContain("if (!import.meta.env.DEV)");
     expect(source).toContain("store.get(entry.collection)?.get(entry.id)");
+    expect(source).toContain("getCitationCacheKey");
+    expect(source).toContain("freshEntry.data.bibliography");
+    expect(source).toContain("processor.render(freshEntry.body");
     expect(source).toContain("console.warn");
     expect(source).toContain("falling back to stale entry");
     expect(source).toContain("render(freshEntry)");
@@ -386,8 +389,23 @@ describe("Mermaid renderer wiring", () => {
     expect(integration).toContain('server.watcher.on("add", (filePath) => scheduleRefresh(filePath, "add"))');
     expect(integration).toContain('server.watcher.on("change", (filePath) => scheduleRefresh(filePath, "change"))');
     expect(integration).toContain('server.watcher.on("unlink", (filePath) => scheduleRefresh(filePath, "unlink"))');
+    expect(integration).toContain("BLOG_BIB_RE");
+    expect(integration).toContain("collectInitialMarkdownPaths");
+    expect(integration).toContain("existsSync(join(rootPath, siblingMarkdown))");
+    expect(integration).toContain("changed bibliography has no clear owning Markdown article");
     expect(integration).toContain("may require restarting dev server to rebuild Astro routes");
     expect(integration).toContain('server.ws.send({ type: "full-reload", path: "*" })');
+  });
+
+  it("keeps the citation fixture gated to dev content with a production redirect", async () => {
+    const source = await readSource("src/pages/citation-fixture.astro");
+    const layout = await readSource("src/layouts/BaseLayout.astro");
+
+    expect(source).toContain("import.meta.env.PROD");
+    expect(source).toContain('Astro.redirect("/404/")');
+    expect(source).toContain('getEntry("blog", "engineering/citation-latex-mermaid-fixture")');
+    expect(source).toContain("noindex");
+    expect(layout).toContain('meta name="robots" content="noindex,nofollow"');
   });
 
   it("loads Mermaid dynamically only after finding standard marked blocks", async () => {

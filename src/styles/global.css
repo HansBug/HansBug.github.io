@@ -1572,6 +1572,61 @@ code {
   text-underline-offset: 0.14em;
 }
 
+.article-content .article-citation {
+  display: inline-block;
+  margin: 0 0.05em;
+  font-family: var(--font-sans);
+  font-size: 0.78em;
+  line-height: 1;
+  vertical-align: super;
+  white-space: nowrap;
+}
+
+.article-content .article-citation sup {
+  top: auto;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.article-content .article-citation__link {
+  color: #a9ecf4;
+  text-decoration: none;
+}
+
+.article-content .article-citation__link:hover,
+.article-content .article-citation__link:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.article-content #refs {
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.article-content .article-reference-entry {
+  scroll-margin-top: 6rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: var(--font-serif);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.article-content .article-reference-entry:target {
+  background: rgba(119, 199, 215, 0.14);
+  color: var(--text);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
 .article-content blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1rem 1rem 1.1rem;

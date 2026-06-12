@@ -1,0 +1,58 @@
+---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import MermaidRenderer from "../components/MermaidRenderer.astro";
+import TechMetaStrip from "../components/TechMetaStrip.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
+import { formatDate } from "../utils/date";
+import { renderFreshContent } from "../utils/liveContent";
+import { hasMathSyntax, hasMermaidFence } from "../utils/markdownFeatures";
+
+if (import.meta.env.PROD) {
+  return Astro.redirect("/404/");
+}
+
+const fixture = await getEntry("blog", "engineering/citation-latex-mermaid-fixture");
+if (!fixture) {
+  throw new Error("Missing citation fixture article.");
+}
+
+const { entry: post, Content } = await renderFreshContent(fixture);
+const markdownBody = post.body ?? "";
+const hasMermaid = hasMermaidFence(markdownBody);
+const hasMath = hasMathSyntax(markdownBody);
+const postMeta = [
+  { label: "Fixture", value: "Citation" },
+  { label: "Updated", value: formatDate(post.data.pubDate), accent: "accent" as const },
+  { label: "Mode", value: "DEV only" },
+  { label: "Scope", value: "Markdown pipeline", accent: "amber" as const },
+];
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} includeKatex={hasMath} noindex>
+  <div class="page-grid">
+    <Breadcrumbs
+      items={[
+        { label: "首页", href: "/" },
+        { label: "Citation Fixture" },
+      ]}
+    />
+
+    <article class="article-shell shell-card">
+      <header class="article-header">
+        <div class="entry-rail">
+          <p class="entry-rail__kicker">INTERNAL FIXTURE</p>
+          <span class="entry-rail__status">DEV</span>
+        </div>
+        <h1>{post.data.title}</h1>
+        <p class="article-intro">{post.data.description}</p>
+        <TechMetaStrip items={postMeta} columns={4} />
+      </header>
+
+      <div class="article-content shell-card">
+        <Content />
+        {hasMermaid && <MermaidRenderer />}
+      </div>
+    </article>
+  </div>
+</BaseLayout>
