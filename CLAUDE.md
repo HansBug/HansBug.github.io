@@ -307,8 +307,8 @@ schema 以 `src/content.config.ts` 为准，当前核心字段：
 
 - 文章开头的 agent 快速执行提示：
   - 如果文章适合让读者直接把当前页面交给 Codex / Claude Code 照办，开头可以保留三段式提示：先说明本文包含什么和解决什么问题，再给出可以无脑复制给 agent 的 prompt，最后说明什么情况下才建议继续阅读全文。
-  - 这类 prompt 推荐写在 fenced code block 里，并用 `{{PAGE_URL}}` 表示当前页面 URL。读者点击代码块右上角复制按钮时，复制到剪贴板里的 `{{PAGE_URL}}` 会被替换成当前页面的 canonical URL；如果页面没有 canonical，才回退到当前浏览器地址。
-  - `{{PAGE_URL}}` 只在代码块复制动作里替换，不会在页面加载后改写可见正文。因此正文、inline code 或普通说明文字里直接写 `{{PAGE_URL}}`，页面上看到的仍然是这段字面量。
+  - 这类 prompt 推荐写在 fenced code block 里，并用 `{{PAGE_URL}}` 表示当前页面 URL。读者打开页面后，代码块里可见的 `{{PAGE_URL}}` 会被前端替换成当前浏览器页面地址；点击代码块右上角复制按钮时，复制到剪贴板里的内容也使用同一个当前页面地址。
+  - `{{PAGE_URL}}` 只在代码块运行时处理，不会在构建期固定成某个 canonical URL。因此正文、inline code 或普通说明文字里直接写 `{{PAGE_URL}}`，页面上看到的仍然是这段字面量。
   - 如果需要在可复制代码块里讲解 `{{PAGE_URL}}` 这段文字本身，并且希望读者点击复制后也得到字面量 `{{PAGE_URL}}`，代码块 fence 上加 `copy-literal-page-url` meta，例如：
 
 ````markdown

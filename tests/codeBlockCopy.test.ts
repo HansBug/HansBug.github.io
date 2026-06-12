@@ -5,6 +5,7 @@ import {
   copyRawCodeToClipboard,
   expandCopyPlaceholders,
   handleCodeBlockCopyClick,
+  replaceCodeBlockPageUrlPlaceholders,
 } from "../src/utils/codeBlockCopy";
 
 function createButton() {
@@ -56,14 +57,11 @@ describe("code block copy behavior", () => {
     expect(expandCopyPlaceholders(rawCode, () => "")).toBe(rawCode);
   });
 
-  it("supports canonical-first URL providers for placeholder expansion", () => {
-    const canonicalUrl = "https://hansbug.github.io/blog/canonical/";
-    const currentUrl = "http://127.0.0.1:4321/blog/canonical/";
-    const pageUrlProvider = vi.fn(() => canonicalUrl || currentUrl);
+  it("supports current-page URL providers for placeholder expansion", () => {
+    const currentUrl = "http://127.0.0.1:4321/blog/current/";
+    const pageUrlProvider = vi.fn(() => currentUrl);
 
-    expect(expandCopyPlaceholders("url={{PAGE_URL}}", pageUrlProvider)).toBe(
-      "url=https://hansbug.github.io/blog/canonical/",
-    );
+    expect(expandCopyPlaceholders("url={{PAGE_URL}}", pageUrlProvider)).toBe("url=http://127.0.0.1:4321/blog/current/");
     expect(pageUrlProvider).toHaveBeenCalledTimes(1);
   });
 
@@ -75,39 +73,65 @@ describe("code block copy behavior", () => {
     );
   });
 
-  it("uses the document canonical URL by default when it is available", () => {
+  it("uses the actual browser location by default even when canonical URLs are available", () => {
     const querySelector = vi.fn(() => ({
       href: "https://hansbug.github.io/blog/default-canonical/",
       getAttribute: vi.fn(() => "https://hansbug.github.io/blog/default-canonical/"),
     }));
     vi.stubGlobal("document", { querySelector });
-    vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/default-canonical/" } });
+    vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/default-current/?draft=1#copy" } });
 
     expect(expandCopyPlaceholders("url={{PAGE_URL}}")).toBe(
-      "url=https://hansbug.github.io/blog/default-canonical/",
+      "url=http://127.0.0.1:4321/blog/default-current/?draft=1#copy",
     );
-    expect(querySelector).toHaveBeenCalledWith('link[rel="canonical"]');
+    expect(querySelector).not.toHaveBeenCalled();
   });
 
-  it("uses window.location.href by default when canonical URLs are unavailable", () => {
-    vi.stubGlobal("document", { querySelector: vi.fn(() => undefined) });
+  it("uses window.location.href by default", () => {
     vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/default-fallback/" } });
 
     expect(expandCopyPlaceholders("url={{PAGE_URL}}")).toBe("url=http://127.0.0.1:4321/blog/default-fallback/");
   });
 
-  it("does not treat empty canonical href attributes as canonical URLs", () => {
-    vi.stubGlobal("document", {
-      querySelector: vi.fn(() => ({
-        href: "http://127.0.0.1:4321/blog/empty-canonical/",
-        getAttribute: vi.fn(() => ""),
-      })),
-    });
-    vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/empty-canonical/" } });
+  it("keeps placeholders unchanged by default when browser location is unavailable", () => {
+    vi.stubGlobal("window", {});
 
-    expect(expandCopyPlaceholders("url={{PAGE_URL}}")).toBe(
-      "url=http://127.0.0.1:4321/blog/empty-canonical/",
-    );
+    expect(expandCopyPlaceholders("url={{PAGE_URL}}")).toBe("url={{PAGE_URL}}");
+  });
+
+  it("replaces visible code block placeholders and copy source with the current page URL", () => {
+    const lineNodes = [{ textContent: "请阅读 {{PAGE_URL}}" }, { textContent: "然后继续" }];
+    const block = {
+      dataset: { codeRaw: "请阅读 {{PAGE_URL}}\n然后继续" },
+      querySelectorAll: vi.fn(() => lineNodes),
+    };
+    const root = {
+      querySelectorAll: vi.fn(() => [block]),
+    };
+
+    expect(
+      replaceCodeBlockPageUrlPlaceholders(root, () => "http://127.0.0.1:4321/blog/demo/?preview=1"),
+    ).toBe(1);
+    expect(root.querySelectorAll).toHaveBeenCalledWith("[data-enhanced-code-block]");
+    expect(block.querySelectorAll).toHaveBeenCalledWith(".code-block__line-code");
+    expect(block.dataset.codeRaw).toBe("请阅读 http://127.0.0.1:4321/blog/demo/?preview=1\n然后继续");
+    expect(lineNodes[0].textContent).toBe("请阅读 http://127.0.0.1:4321/blog/demo/?preview=1");
+    expect(lineNodes[1].textContent).toBe("然后继续");
+  });
+
+  it("does not replace visible placeholders for literal page URL code blocks", () => {
+    const lineNodes = [{ textContent: "{{PAGE_URL}}" }];
+    const block = {
+      dataset: { codeRaw: "{{PAGE_URL}}", codeLiteralPageUrl: "true" },
+      querySelectorAll: vi.fn(() => lineNodes),
+    };
+    const root = {
+      querySelectorAll: vi.fn(() => [block]),
+    };
+
+    expect(replaceCodeBlockPageUrlPlaceholders(root, () => "http://127.0.0.1:4321/blog/demo/")).toBe(0);
+    expect(block.dataset.codeRaw).toBe("{{PAGE_URL}}");
+    expect(lineNodes[0].textContent).toBe("{{PAGE_URL}}");
   });
 
   it("copies the exact raw code and resets the button state", async () => {
