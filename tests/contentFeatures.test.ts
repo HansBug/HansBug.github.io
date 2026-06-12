@@ -322,7 +322,8 @@ describe("Markdown rendering pipeline", () => {
 
     expect(agentsGuide).toContain("{{PAGE_URL}}");
     expect(agentsGuide).toContain("copy-literal-page-url");
-    expect(agentsGuide).toContain("不要把某个 PR 的临时验收步骤、截图要求或 CI 要求写进这里");
+    expect(agentsGuide).not.toContain("某个 PR 的临时验收步骤");
+    expect(agentsGuide).not.toContain("本 PR 专属");
   });
 
   it("detects math syntax only for formulas that will render", () => {
