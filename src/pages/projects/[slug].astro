@@ -1,9 +1,11 @@
 ---
-import { render } from "astro:content";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import MermaidRenderer from "../../components/MermaidRenderer.astro";
 import TechMetaStrip from "../../components/TechMetaStrip.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getAllProjects } from "../../utils/content";
+import { renderFreshContent } from "../../utils/liveContent";
+import { hasMathSyntax, hasMermaidFence } from "../../utils/markdownFeatures";
 
 export async function getStaticPaths() {
   const projects = await getAllProjects();
@@ -14,8 +16,12 @@ export async function getStaticPaths() {
   }));
 }
 
-const { project } = Astro.props;
-const { Content } = await render(project);
+let { project } = Astro.props;
+const { entry: freshProject, Content } = await renderFreshContent(project);
+project = freshProject;
+const markdownBody = freshProject.body ?? "";
+const hasMermaid = hasMermaidFence(markdownBody);
+const hasMath = hasMathSyntax(markdownBody);
 const projectMeta = [
   { label: "State", value: project.data.status },
   { label: "Stack", value: project.data.stack.join(" / "), accent: "accent" as const },
@@ -24,7 +30,7 @@ const projectMeta = [
 ];
 ---
 
-<BaseLayout title={project.data.title} description={project.data.summary}>
+<BaseLayout title={project.data.title} description={project.data.summary} includeKatex={hasMath}>
   <div class="page-grid">
     <Breadcrumbs
       items={[
@@ -58,6 +64,7 @@ const projectMeta = [
       </header>
       <div class="article-content shell-card">
         <Content />
+        {hasMermaid && <MermaidRenderer />}
       </div>
     </section>
   </div>
