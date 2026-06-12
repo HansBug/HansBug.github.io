@@ -146,6 +146,55 @@ describe("code block copy behavior", () => {
     expect(highlightedPlaceholderText.textContent).toBe("http://127.0.0.1:4321/blog/demo/");
   });
 
+  it("falls back to replacing the whole line when syntax highlighting splits the page URL placeholder", () => {
+    const openingToken = { nodeType: 3, textContent: "{{" };
+    const middleToken = { nodeType: 3, textContent: "PAGE_URL" };
+    const closingToken = { nodeType: 3, textContent: "}}" };
+    const lineNode = {
+      nodeType: 1,
+      childNodes: [
+        { nodeType: 3, textContent: "请阅读 " },
+        { nodeType: 1, childNodes: [openingToken] },
+        { nodeType: 1, childNodes: [middleToken] },
+        { nodeType: 1, childNodes: [closingToken] },
+        { nodeType: 3, textContent: " 后继续" },
+      ],
+      textContent: "请阅读 {{PAGE_URL}} 后继续",
+    };
+    const block = {
+      dataset: { codeRaw: "请阅读 {{PAGE_URL}} 后继续" },
+      querySelectorAll: vi.fn(() => [lineNode]),
+    };
+    const root = {
+      querySelectorAll: vi.fn(() => [block]),
+    };
+
+    expect(replaceCodeBlockPageUrlPlaceholders(root, () => "http://127.0.0.1:4321/blog/demo/")).toBe(1);
+    expect(block.dataset.codeRaw).toBe("请阅读 http://127.0.0.1:4321/blog/demo/ 后继续");
+    expect(lineNode.textContent).toBe("请阅读 http://127.0.0.1:4321/blog/demo/ 后继续");
+    expect(openingToken.textContent).toBe("{{");
+    expect(middleToken.textContent).toBe("PAGE_URL");
+    expect(closingToken.textContent).toBe("}}");
+  });
+
+  it("does not rewrite element-like nodes without childNodes as text-node fallbacks", () => {
+    const lineNode = {
+      nodeType: 1,
+      textContent: "请阅读 {{PAGE_URL}} 后继续",
+    };
+    const block = {
+      dataset: { codeRaw: "请阅读 {{PAGE_URL}} 后继续" },
+      querySelectorAll: vi.fn(() => [lineNode]),
+    };
+    const root = {
+      querySelectorAll: vi.fn(() => [block]),
+    };
+
+    expect(replaceCodeBlockPageUrlPlaceholders(root, () => "http://127.0.0.1:4321/blog/demo/")).toBe(1);
+    expect(block.dataset.codeRaw).toBe("请阅读 http://127.0.0.1:4321/blog/demo/ 后继续");
+    expect(lineNode.textContent).toBe("请阅读 http://127.0.0.1:4321/blog/demo/ 后继续");
+  });
+
   it("does not replace visible placeholders for literal page URL code blocks", () => {
     const lineNodes = [{ textContent: "{{PAGE_URL}}" }];
     const block = {

@@ -41,25 +41,42 @@ function isElementLike(node: unknown): node is HTMLElement {
   return typeof HTMLElement === "undefined" ? Boolean(node) : node instanceof HTMLElement;
 }
 
-function replaceTextNodePlaceholders(node: unknown, pageUrl: string) {
+function replaceTextNodePlaceholders(node: unknown, pageUrl: string): boolean {
   const textNode = node as {
     nodeType?: number;
     textContent?: string | null;
     childNodes?: Iterable<unknown>;
   };
 
-  if (textNode.nodeType === 3) {
+  if (textNode.nodeType === 3 || (textNode.nodeType === undefined && !textNode.childNodes)) {
+    if (!textNode.textContent?.includes(PAGE_URL_PLACEHOLDER)) {
+      return false;
+    }
+
     textNode.textContent = textNode.textContent?.split(PAGE_URL_PLACEHOLDER).join(pageUrl) ?? "";
-    return;
+    return true;
   }
 
   if (!textNode.childNodes) {
-    textNode.textContent = textNode.textContent?.split(PAGE_URL_PLACEHOLDER).join(pageUrl) ?? "";
+    return false;
+  }
+
+  let replaced = false;
+  for (const childNode of textNode.childNodes ?? []) {
+    replaced = replaceTextNodePlaceholders(childNode, pageUrl) || replaced;
+  }
+
+  return replaced;
+}
+
+function setNodeTextContent(node: unknown, text: string) {
+  if (!node || typeof node !== "object") {
     return;
   }
 
-  for (const childNode of textNode.childNodes ?? []) {
-    replaceTextNodePlaceholders(childNode, pageUrl);
+  const textNode = node as { textContent?: string | null };
+  if ("textContent" in textNode) {
+    textNode.textContent = text;
   }
 }
 
@@ -125,10 +142,14 @@ export function replaceCodeBlockPageUrlPlaceholders(
     block.dataset.codeRaw = expandedCode;
 
     const rawLines = rawCode.split("\n");
+    const expandedLines = expandedCode.split("\n");
 
     block.querySelectorAll(".code-block__line-code").forEach((lineCodeNode, lineIndex) => {
       if (rawLines[lineIndex]?.includes(PAGE_URL_PLACEHOLDER)) {
-        replaceTextNodePlaceholders(lineCodeNode, pageUrl);
+        const replacedVisibleTextNode = replaceTextNodePlaceholders(lineCodeNode, pageUrl);
+        if (!replacedVisibleTextNode) {
+          setNodeTextContent(lineCodeNode, expandedLines[lineIndex] ?? "");
+        }
       }
     });
 
