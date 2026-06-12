@@ -58,5 +58,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
     </main>
     <SiteFooter />
     <HomeDeskPet client:load pool={bangdreamDeskPetPool} />
+    <script>
+      import "../utils/codeBlockCopy";
+    </script>
   </body>
 </html>
