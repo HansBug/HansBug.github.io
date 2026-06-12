@@ -226,17 +226,22 @@ const { rootSelector = ".article-content" } = Astro.props;
       state.mode = "manual";
       applyScale(state.scale / MERMAID_SCALE_STEP);
     });
+    function panBy(left: number, top: number) {
+      renderTarget.scrollLeft += left;
+      renderTarget.scrollTop += top;
+    }
+
     controls.panLeftButton.addEventListener("click", () => {
-      renderTarget.scrollBy({ left: -MERMAID_PAN_STEP, top: 0, behavior: "smooth" });
+      panBy(-MERMAID_PAN_STEP, 0);
     });
     controls.panRightButton.addEventListener("click", () => {
-      renderTarget.scrollBy({ left: MERMAID_PAN_STEP, top: 0, behavior: "smooth" });
+      panBy(MERMAID_PAN_STEP, 0);
     });
     controls.panUpButton.addEventListener("click", () => {
-      renderTarget.scrollBy({ left: 0, top: -MERMAID_PAN_STEP, behavior: "smooth" });
+      panBy(0, -MERMAID_PAN_STEP);
     });
     controls.panDownButton.addEventListener("click", () => {
-      renderTarget.scrollBy({ left: 0, top: MERMAID_PAN_STEP, behavior: "smooth" });
+      panBy(0, MERMAID_PAN_STEP);
     });
 
     renderTarget.addEventListener(

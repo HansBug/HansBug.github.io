@@ -25,7 +25,9 @@ async function getFreshDevEntry<TEntry extends RenderableEntry>(entry: TEntry): 
       ...freshEntry,
       collection: entry.collection,
     } as TEntry;
-  } catch {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`[hansbug-content-hmr] failed to read fresh content store, falling back to stale entry: ${message}`);
     return entry;
   }
 }

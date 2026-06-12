@@ -209,6 +209,8 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain('const dataStoreUrl = new URL("../../.astro/data-store.json", import.meta.url);');
     expect(source).toContain("if (!import.meta.env.DEV)");
     expect(source).toContain("store.get(entry.collection)?.get(entry.id)");
+    expect(source).toContain("console.warn");
+    expect(source).toContain("falling back to stale entry");
     expect(source).toContain("render(freshEntry)");
   });
 
@@ -220,10 +222,12 @@ describe("Mermaid renderer wiring", () => {
     expect(config).toContain("contentHmr()");
     expect(integration).toContain('"astro:server:setup"');
     expect(integration).toContain("refreshContent({})");
-    expect(integration).toContain('server.watcher.add("src/content/**/*.md")');
-    expect(integration).toContain('server.watcher.on("add", scheduleRefresh)');
-    expect(integration).toContain('server.watcher.on("change", scheduleRefresh)');
-    expect(integration).toContain('server.watcher.on("unlink", scheduleRefresh)');
+    expect(integration).toContain('const CONTENT_ROOT_DIR = "src/content";');
+    expect(integration).toContain("server.watcher.add(join(rootPath, CONTENT_ROOT_DIR))");
+    expect(integration).toContain('server.watcher.on("add", (filePath) => scheduleRefresh(filePath, "add"))');
+    expect(integration).toContain('server.watcher.on("change", (filePath) => scheduleRefresh(filePath, "change"))');
+    expect(integration).toContain('server.watcher.on("unlink", (filePath) => scheduleRefresh(filePath, "unlink"))');
+    expect(integration).toContain("may require restarting dev server to rebuild Astro routes");
     expect(integration).toContain('server.ws.send({ type: "full-reload", path: "*" })');
   });
 
