@@ -28,7 +28,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^6.0.1",
     "@headlessui/vue": "^1.7.23",
-    "astro": "^6.1.5",
+    "astro": "^6.4.6",
     "chart.js": "^4.5.1",
     "devalue": "^5.8.1",
     "katex": "^0.16.47",
