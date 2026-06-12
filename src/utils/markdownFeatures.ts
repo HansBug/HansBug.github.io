@@ -281,6 +281,21 @@ function collectText(node: unknown): string {
   return "";
 }
 
+function createCopyButton(rawCode: string): HtmlElementNode {
+  return {
+    type: "element",
+    tagName: "button",
+    properties: {
+      className: ["code-block__copy"],
+      type: "button",
+      "data-code-copy-button": "true",
+      "aria-label": rawCode.length === 0 ? "空代码块，无可复制内容" : "复制代码",
+      ...(rawCode.length === 0 ? { disabled: true } : {}),
+    },
+    children: [{ type: "text", value: rawCode.length === 0 ? "空代码" : "复制" }],
+  };
+}
+
 function isShikiPreNode(node: unknown): node is HtmlElementNode {
   if (!isHtmlElementNode(node) || node.tagName !== "pre") {
     return false;
@@ -397,15 +412,7 @@ export function rehypeEnhancedCodeBlocks() {
                 children: [{ type: "text", value: language }],
               },
               {
-                type: "element",
-                tagName: "button",
-                properties: {
-                  className: ["code-block__copy"],
-                  type: "button",
-                  "data-code-copy-button": "true",
-                  "aria-label": "复制代码",
-                },
-                children: [{ type: "text", value: "复制" }],
+                ...createCopyButton(rawCode),
               },
             ],
           },
