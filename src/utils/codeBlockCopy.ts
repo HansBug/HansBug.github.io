@@ -41,6 +41,28 @@ function isElementLike(node: unknown): node is HTMLElement {
   return typeof HTMLElement === "undefined" ? Boolean(node) : node instanceof HTMLElement;
 }
 
+function replaceTextNodePlaceholders(node: unknown, pageUrl: string) {
+  const textNode = node as {
+    nodeType?: number;
+    textContent?: string | null;
+    childNodes?: Iterable<unknown>;
+  };
+
+  if (textNode.nodeType === 3) {
+    textNode.textContent = textNode.textContent?.split(PAGE_URL_PLACEHOLDER).join(pageUrl) ?? "";
+    return;
+  }
+
+  if (!textNode.childNodes) {
+    textNode.textContent = textNode.textContent?.split(PAGE_URL_PLACEHOLDER).join(pageUrl) ?? "";
+    return;
+  }
+
+  for (const childNode of textNode.childNodes ?? []) {
+    replaceTextNodePlaceholders(childNode, pageUrl);
+  }
+}
+
 function findCopyButton(target: EventTarget | null) {
   if (typeof Element === "undefined" || !(target instanceof Element)) {
     return undefined;
@@ -103,11 +125,10 @@ export function replaceCodeBlockPageUrlPlaceholders(
     block.dataset.codeRaw = expandedCode;
 
     const rawLines = rawCode.split("\n");
-    const expandedLines = expandedCode.split("\n");
 
     block.querySelectorAll(".code-block__line-code").forEach((lineCodeNode, lineIndex) => {
       if (rawLines[lineIndex]?.includes(PAGE_URL_PLACEHOLDER)) {
-        lineCodeNode.textContent = expandedLines[lineIndex] ?? "";
+        replaceTextNodePlaceholders(lineCodeNode, pageUrl);
       }
     });
 
@@ -179,6 +200,17 @@ export function handleCodeBlockCopyClick(
 }
 
 if (typeof document !== "undefined") {
-  replaceCodeBlockPageUrlPlaceholders(document);
+  const initializeCodeBlocks = () => {
+    replaceCodeBlockPageUrlPlaceholders(document);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeCodeBlocks, { once: true });
+  } else {
+    initializeCodeBlocks();
+  }
+
+  document.addEventListener("astro:page-load", initializeCodeBlocks);
+  document.addEventListener("astro:after-swap", initializeCodeBlocks);
   document.addEventListener("click", handleCodeBlockCopyClick);
 }

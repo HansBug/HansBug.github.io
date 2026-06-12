@@ -119,6 +119,33 @@ describe("code block copy behavior", () => {
     expect(lineNodes[1].textContent).toBe("然后继续");
   });
 
+  it("preserves highlighted child nodes while replacing visible page URL placeholders", () => {
+    const highlightedPlaceholderText = { nodeType: 3, textContent: "{{PAGE_URL}}" };
+    const highlightedPlaceholderSpan = {
+      nodeType: 1,
+      childNodes: [highlightedPlaceholderText],
+      textContent: "{{PAGE_URL}}",
+    };
+    const lineNode = {
+      nodeType: 1,
+      childNodes: [{ nodeType: 3, textContent: "请阅读 " }, highlightedPlaceholderSpan, { nodeType: 3, textContent: " 后继续" }],
+      textContent: "请阅读 {{PAGE_URL}} 后继续",
+    };
+    const block = {
+      dataset: { codeRaw: "请阅读 {{PAGE_URL}} 后继续" },
+      querySelectorAll: vi.fn(() => [lineNode]),
+    };
+    const root = {
+      querySelectorAll: vi.fn(() => [block]),
+    };
+
+    expect(replaceCodeBlockPageUrlPlaceholders(root, () => "http://127.0.0.1:4321/blog/demo/")).toBe(1);
+    expect(block.dataset.codeRaw).toBe("请阅读 http://127.0.0.1:4321/blog/demo/ 后继续");
+    expect(lineNode.childNodes).toHaveLength(3);
+    expect(lineNode.childNodes[1]).toBe(highlightedPlaceholderSpan);
+    expect(highlightedPlaceholderText.textContent).toBe("http://127.0.0.1:4321/blog/demo/");
+  });
+
   it("does not replace visible placeholders for literal page URL code blocks", () => {
     const lineNodes = [{ textContent: "{{PAGE_URL}}" }];
     const block = {
