@@ -5,6 +5,8 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { describe, expect, it } from "vitest";
 import {
+  remarkCodeCopyOptions,
+  rehypeEnhancedCodeBlocks,
   hasMathSyntax,
   hasMermaidFence,
   remarkProtectDollarText,
@@ -27,11 +29,43 @@ async function renderMarkdown(markdown: string) {
   const processor = await createMarkdownProcessor({
     syntaxHighlight: "shiki",
     shikiConfig: { theme: "github-dark" },
-    remarkPlugins: [remarkGfm, remarkMath, remarkProtectDollarText, remarkStandardMermaid],
-    rehypePlugins: [rehypeKatex],
+    remarkPlugins: [remarkGfm, remarkMath, remarkCodeCopyOptions, remarkProtectDollarText, remarkStandardMermaid],
+    rehypePlugins: [rehypeKatex, rehypeEnhancedCodeBlocks],
   });
 
   return processor.render(markdown).then((result) => result.code);
+}
+
+function getAttributeValue(html: string, name: string) {
+  const match = html.match(new RegExp(`${name}="([\\s\\S]*?)"`));
+  return match?.[1] ?? "";
+}
+
+function decodeHtmlAttributeValue(value: string) {
+  return value.replace(/&(#x[0-9a-f]+|#\d+|amp|lt|gt|quot|apos);/gi, (entity, body: string) => {
+    if (body.toLowerCase().startsWith("#x")) {
+      return String.fromCodePoint(Number.parseInt(body.slice(2), 16));
+    }
+    if (body.startsWith("#")) {
+      return String.fromCodePoint(Number.parseInt(body.slice(1), 10));
+    }
+    const namedEntities: Record<string, string> = {
+      amp: "&",
+      apos: "'",
+      gt: ">",
+      lt: "<",
+      quot: '"',
+    };
+    return namedEntities[body.toLowerCase()] ?? entity;
+  });
+}
+
+function getEnhancedCodeBlockTags(html: string) {
+  return [...html.matchAll(/<figure class="code-block"[\s\S]*?<\/figure>/g)].map((match) => match[0]);
+}
+
+function getStandardMermaidTags(html: string) {
+  return [...html.matchAll(/<pre class="mermaid-source-block"[\s\S]*?<\/pre>/g)].map((match) => match[0]);
 }
 
 describe("Mermaid fence detection", () => {
@@ -154,8 +188,121 @@ describe("Markdown rendering pipeline", () => {
     expect(html).toContain("<code>$HOME</code>");
     expect(html).toContain("<blockquote>");
     expect(html).toContain("quoted $PATH should stay text");
-    expect(html).toContain("data-language=\"sh\"");
+    expect(html).toContain("data-code-language=\"sh\"");
     expect(html).toContain("$HOME");
+  });
+
+  it("enhances fenced code blocks with line numbers, raw copy text and soft-wrap line structure", async () => {
+    const longLine = "printf '" + "segment-".repeat(16) + "'";
+    const html = await renderMarkdown([
+      "```bash",
+      "echo first",
+      longLine,
+      "",
+      "echo done",
+      "```",
+    ].join("\n"));
+
+    expect(html).toContain('class="code-block"');
+    expect(html).toContain('data-enhanced-code-block="true"');
+    expect(html).toContain('data-code-language="bash"');
+    expect(html).toContain('data-code-raw="echo first\n');
+    expect(html).toContain('aria-label="复制代码"');
+    expect(html).toContain('data-code-copy-button');
+    expect(html.match(/class="code-block__line /g)).toHaveLength(4);
+    expect(html).toContain('data-line-number="1"');
+    expect(html).toContain('data-line-number="4"');
+    expect(html).toContain('class="code-block__line code-block__line--even"');
+    expect(html).toContain('class="code-block__line code-block__line--odd"');
+    expect(html).toContain('class="code-block__line-number" aria-hidden="true">2</span>');
+    expect(html).toContain('class="code-block__line-code">');
+    expect(html).toContain("segment-segment-segment-segment");
+  });
+
+  it("keeps dangerous characters and literal HTML entities intact for browser-decoded copy text", async () => {
+    const rawCode = [
+      '<script>alert("XSS")</script>',
+      "literal entities: &#x22; &amp; &#39;",
+      'if (a < b && c > d) { return "ok"; }',
+    ].join("\n");
+    const html = await renderMarkdown(["```html", rawCode, "```"].join("\n"));
+    const encodedRaw = getAttributeValue(html, "data-code-raw");
+
+    expect(html).toContain('data-code-language="html"');
+    expect(encodedRaw).toContain("&#x22;XSS&#x22;");
+    expect(encodedRaw).toContain("&#x26;#x22;");
+    expect(encodedRaw).toContain("&#x26;amp;");
+    expect(encodedRaw).toContain("&#x26;#39;");
+    expect(decodeHtmlAttributeValue(encodedRaw)).toBe(rawCode);
+  });
+
+  it("pins empty and trailing-blank fenced code block behavior", async () => {
+    const emptyHtml = await renderMarkdown(["```bash", "```"].join("\n"));
+    expect(emptyHtml).toContain('data-code-raw=""');
+    expect(emptyHtml).toContain('aria-label="空代码块，无可复制内容"');
+    expect(emptyHtml).toContain(">空代码</button>");
+    expect(emptyHtml).toContain("disabled");
+    expect(emptyHtml.match(/data-line-number=/g)).toHaveLength(1);
+
+    const trailingBlankHtml = await renderMarkdown(["```text", "line1", "line2", "", "```"].join("\n"));
+    const decodedRaw = decodeHtmlAttributeValue(getAttributeValue(trailingBlankHtml, "data-code-raw"));
+    expect(decodedRaw).toBe("line1\nline2\n");
+    expect(trailingBlankHtml.match(/data-line-number=/g)).toHaveLength(3);
+    expect(trailingBlankHtml).toContain('data-line-number="3"');
+  });
+
+  it("marks code blocks that should copy page URL placeholders literally", async () => {
+    const literalHtml = await renderMarkdown(["```text copy-literal-page-url", "{{PAGE_URL}}", "```"].join("\n"));
+    const disabledHtml = await renderMarkdown(["```text copy-literal-page-url=false", "{{PAGE_URL}}", "```"].join("\n"));
+    const defaultHtml = await renderMarkdown(["```text", "{{PAGE_URL}}", "```"].join("\n"));
+
+    expect(literalHtml).toContain('data-code-literal-page-url="true"');
+    expect(literalHtml).toContain("{{PAGE_URL}}");
+    expect(disabledHtml).not.toContain("data-code-literal-page-url");
+    expect(defaultHtml).not.toContain("data-code-literal-page-url");
+  });
+
+  it("keeps literal page URL copy options aligned when Mermaid blocks are present", async () => {
+    const html = await renderMarkdown(
+      [
+        "```mermaid",
+        "flowchart TD",
+        "  A --> B",
+        "```",
+        "",
+        "```text copy-literal-page-url",
+        "{{PAGE_URL}}",
+        "```",
+      ].join("\n"),
+    );
+    const mermaidTags = getStandardMermaidTags(html);
+    const codeBlockTags = getEnhancedCodeBlockTags(html);
+
+    expect(mermaidTags).toHaveLength(1);
+    expect(mermaidTags[0]).not.toContain("data-code-literal-page-url");
+    expect(codeBlockTags).toHaveLength(1);
+    expect(codeBlockTags[0]).toContain('data-code-literal-page-url="true"');
+  });
+
+  it("keeps literal page URL copy options aligned when non-standard Mermaid blocks are present", async () => {
+    const html = await renderMarkdown(
+      [
+        "```mermaid title=\"demo\"",
+        "flowchart TD",
+        "  A --> B",
+        "```",
+        "",
+        "```text copy-literal-page-url",
+        "{{PAGE_URL}}",
+        "```",
+      ].join("\n"),
+    );
+    const codeBlockTags = getEnhancedCodeBlockTags(html);
+
+    expect(html).not.toContain('data-standard-mermaid="true"');
+    expect(codeBlockTags).toHaveLength(2);
+    expect(codeBlockTags[0]).not.toContain("data-code-literal-page-url");
+    expect(codeBlockTags[1]).toContain('data-code-literal-page-url="true"');
   });
 
   it("uses conditional KaTeX CSS loading from detail layouts", async () => {
@@ -164,7 +311,19 @@ describe("Markdown rendering pipeline", () => {
 
     expect(layout).toContain('{includeKatex && <link rel="stylesheet" href="/vendor/katex/katex.min.css" />}');
     expect(config).toContain("remarkProtectDollarText");
+    expect(config).toContain("remarkCodeCopyOptions");
     expect(config).toContain("remarkStandardMermaid");
+    expect(config).toContain("rehypeEnhancedCodeBlocks");
+    expect(layout).toContain('import "../utils/codeBlockCopy";');
+  });
+
+  it("documents page URL prompt placeholders and literal-copy escapes for future articles", async () => {
+    const agentsGuide = await readSource("AGENTS.md");
+
+    expect(agentsGuide).toContain("{{PAGE_URL}}");
+    expect(agentsGuide).toContain("copy-literal-page-url");
+    expect(agentsGuide).not.toContain("某个 PR 的临时验收步骤");
+    expect(agentsGuide).not.toContain("本 PR 专属");
   });
 
   it("detects math syntax only for formulas that will render", () => {

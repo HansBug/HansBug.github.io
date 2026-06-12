@@ -27,6 +27,25 @@ type InlineMathNode = {
   };
 };
 
+type HtmlElementNode = {
+  type: "element";
+  tagName: string;
+  properties?: Record<string, unknown>;
+  children?: unknown[];
+};
+
+type TextNode = {
+  type: "text";
+  value: string;
+};
+
+type MarkdownFile = {
+  value?: unknown;
+  data?: Record<string, unknown>;
+};
+
+const CODE_COPY_LITERAL_PAGE_URLS_KEY = "codeCopyLiteralPageUrls";
+
 function isFenceClose(line: string, marker: string) {
   const closePattern = new RegExp(`^\\s*${marker[0]}{${marker.length},}\\s*$`);
   return closePattern.test(line);
@@ -144,6 +163,14 @@ function isInlineMathNode(node: unknown): node is InlineMathNode {
   return Boolean(node && typeof node === "object" && (node as { type?: unknown }).type === "inlineMath");
 }
 
+function isHtmlElementNode(node: unknown): node is HtmlElementNode {
+  return Boolean(node && typeof node === "object" && (node as { type?: unknown }).type === "element");
+}
+
+function isTextNode(node: unknown): node is TextNode {
+  return Boolean(node && typeof node === "object" && (node as { type?: unknown }).type === "text");
+}
+
 function isParagraphNode(node: unknown): node is ParentNode & { type: "paragraph" } {
   return Boolean(node && typeof node === "object" && (node as { type?: unknown }).type === "paragraph");
 }
@@ -227,6 +254,214 @@ function isSpacedInlineMath(source: string, node: InlineMathNode) {
 
   const sourceLength = getSourceLength(node);
   return typeof sourceLength === "number" && sourceLength - node.value.length >= 4;
+}
+
+function getClassList(properties: Record<string, unknown> | undefined) {
+  const className = properties?.className ?? properties?.class;
+  if (Array.isArray(className)) {
+    return className.filter((item): item is string => typeof item === "string");
+  }
+  if (typeof className === "string") {
+    return className.split(/\s+/).filter(Boolean);
+  }
+  return [];
+}
+
+function getStringProperty(properties: Record<string, unknown> | undefined, name: string) {
+  const value = properties?.[name] ?? properties?.[toCamelCase(name)];
+  return typeof value === "string" ? value : "";
+}
+
+function toCamelCase(name: string) {
+  return name.replace(/-([a-z])/g, (_, char: string) => char.toUpperCase());
+}
+
+function collectText(node: unknown): string {
+  if (isTextNode(node)) {
+    return node.value;
+  }
+
+  if (isHtmlElementNode(node) && Array.isArray(node.children)) {
+    return node.children.map((child) => collectText(child)).join("");
+  }
+
+  return "";
+}
+
+function createCopyButton(rawCode: string): HtmlElementNode {
+  return {
+    type: "element",
+    tagName: "button",
+    properties: {
+      className: ["code-block__copy"],
+      type: "button",
+      "data-code-copy-button": "true",
+      "aria-label": rawCode.length === 0 ? "空代码块，无可复制内容" : "复制代码",
+      ...(rawCode.length === 0 ? { disabled: true } : {}),
+    },
+    children: [{ type: "text", value: rawCode.length === 0 ? "空代码" : "复制" }],
+  };
+}
+
+function shouldCopyPageUrlPlaceholderLiterally(meta: string | null | undefined) {
+  return (meta ?? "").split(/\s+/).includes("copy-literal-page-url");
+}
+
+function isShikiPreNode(node: unknown): node is HtmlElementNode {
+  if (!isHtmlElementNode(node) || node.tagName !== "pre") {
+    return false;
+  }
+
+  const classList = getClassList(node.properties);
+  return classList.includes("astro-code") && Boolean(getStringProperty(node.properties, "data-language"));
+}
+
+function getPreCodeChild(node: HtmlElementNode) {
+  return node.children?.find(
+    (child): child is HtmlElementNode => isHtmlElementNode(child) && child.tagName === "code",
+  );
+}
+
+function getShikiLineNodes(codeNode: HtmlElementNode) {
+  return (codeNode.children ?? []).filter(
+    (child): child is HtmlElementNode =>
+      isHtmlElementNode(child) && child.tagName === "span" && getClassList(child.properties).includes("line"),
+  );
+}
+
+function createLineNode(lineNode: HtmlElementNode, lineNumber: number): HtmlElementNode {
+  return {
+    type: "element",
+    tagName: "span",
+    properties: {
+      className: [
+        "code-block__line",
+        lineNumber % 2 === 0 ? "code-block__line--even" : "code-block__line--odd",
+      ],
+      "data-line-number": String(lineNumber),
+    },
+    children: [
+      {
+        type: "element",
+        tagName: "span",
+        properties: {
+          className: ["code-block__line-number"],
+          "aria-hidden": "true",
+        },
+        children: [{ type: "text", value: String(lineNumber) }],
+      },
+      {
+        type: "element",
+        tagName: "span",
+        properties: { className: ["code-block__line-code"] },
+        children: lineNode.children ?? [],
+      },
+    ],
+  };
+}
+
+export function rehypeEnhancedCodeBlocks() {
+  return (tree: unknown, file?: MarkdownFile) => {
+    const copyLiteralPageUrls = Array.isArray(file?.data?.[CODE_COPY_LITERAL_PAGE_URLS_KEY])
+      ? ([...(file.data[CODE_COPY_LITERAL_PAGE_URLS_KEY] as boolean[])] as boolean[])
+      : [];
+
+    walkTree(tree, (node, parent, index) => {
+      if (!parent?.children || typeof index !== "number" || !isShikiPreNode(node)) {
+        return;
+      }
+
+      const codeNode = getPreCodeChild(node);
+      if (!codeNode) {
+        return;
+      }
+
+      const lineNodes = getShikiLineNodes(codeNode);
+      if (lineNodes.length === 0) {
+        return;
+      }
+
+      const rawCode = lineNodes.map((lineNode) => collectText(lineNode)).join("\n");
+      const language = getStringProperty(node.properties, "data-language") || "plaintext";
+      const preClassList = getClassList(node.properties);
+      const copyLiteralPageUrl = copyLiteralPageUrls.shift() ?? false;
+
+      const enhancedPre: HtmlElementNode = {
+        ...node,
+        properties: {
+          className: [...preClassList.filter((className) => className !== "astro-code"), "code-block__pre"],
+          style: node.properties?.style,
+          tabIndex: node.properties?.tabindex ?? node.properties?.tabIndex,
+          dataLanguage: language,
+        },
+        children: [
+          {
+            ...codeNode,
+            properties: {
+              ...codeNode.properties,
+              className: [...getClassList(codeNode.properties), "code-block__code"],
+            },
+            children: lineNodes.map((lineNode, lineIndex) => createLineNode(lineNode, lineIndex + 1)),
+          },
+        ],
+      };
+
+      parent.children[index] = {
+        type: "element",
+        tagName: "figure",
+        properties: {
+          className: ["code-block"],
+          "data-enhanced-code-block": "true",
+          "data-code-language": language,
+          "data-code-raw": rawCode,
+          ...(copyLiteralPageUrl ? { "data-code-literal-page-url": "true" } : {}),
+        },
+        children: [
+          {
+            type: "element",
+            tagName: "figcaption",
+            properties: { className: ["code-block__header"] },
+            children: [
+              {
+                type: "element",
+                tagName: "span",
+                properties: { className: ["code-block__language"] },
+                children: [{ type: "text", value: language }],
+              },
+              {
+                ...createCopyButton(rawCode),
+              },
+            ],
+          },
+          enhancedPre,
+        ],
+      };
+    });
+  };
+}
+
+export function remarkCodeCopyOptions() {
+  return (tree: unknown, file: MarkdownFile) => {
+    const source = typeof file.value === "string" ? file.value : "";
+    const copyLiteralPageUrls: boolean[] = [];
+
+    walkTree(tree, (node) => {
+      if (!isCodeNode(node)) {
+        return;
+      }
+
+      if (isStandardMermaidCodeNode(source, node)) {
+        return;
+      }
+
+      copyLiteralPageUrls.push(shouldCopyPageUrlPlaceholderLiterally(node.meta));
+    });
+
+    file.data = {
+      ...file.data,
+      [CODE_COPY_LITERAL_PAGE_URLS_KEY]: copyLiteralPageUrls,
+    };
+  };
 }
 
 export function remarkStandardMermaid() {
