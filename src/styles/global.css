@@ -91,6 +91,7 @@
   --text: #edf1f4;
   --text-muted: #a3adb7;
   --text-faint: #6f7881;
+  --text-danger: #ffc7c7;
   --heading: #ffffff;
   --accent: #77c7d7;
   --accent-soft: rgba(119, 199, 215, 0.12);
@@ -98,6 +99,10 @@
   --accent-red: #b5685d;
   --accent-green: #7ea98e;
   --accent-blue: #7ea7cf;
+  --bg-mermaid-shell: rgba(12, 16, 19, 0.94);
+  --bg-mermaid-render: rgba(6, 9, 11, 0.64);
+  --bg-control: rgba(18, 24, 28, 0.92);
+  --bg-control-hover: rgba(28, 39, 45, 0.96);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   --radius: 16px;
   --radius-sm: 10px;
@@ -1610,6 +1615,273 @@ code {
   border: 1px solid var(--line-soft);
   border-radius: 12px;
   margin: 1.5rem 0;
+}
+
+.article-content .katex {
+  color: var(--text);
+  font-size: 1.02em;
+}
+
+.article-content .katex-display {
+  margin: 1.45rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0 0.35rem;
+}
+
+.article-content .katex-display > .katex {
+  display: inline-block;
+  min-width: min-content;
+}
+
+.article-content .code-block {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  margin: 1.45rem 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(8, 11, 14, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.article-content .code-block__header {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.55rem 0.65rem 0.55rem 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.article-content .code-block__language {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.article-content .code-block__copy {
+  flex: 0 0 auto;
+  min-width: 3.6rem;
+  min-height: 1.9rem;
+  padding: 0.3rem 0.58rem;
+  border: 1px solid rgba(119, 199, 215, 0.35);
+  border-radius: 6px;
+  background: rgba(119, 199, 215, 0.1);
+  color: #d8f4f8;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.article-content .code-block__copy:hover,
+.article-content .code-block__copy:focus-visible {
+  border-color: rgba(119, 199, 215, 0.72);
+  background: rgba(119, 199, 215, 0.18);
+}
+
+.article-content .code-block__copy:disabled {
+  cursor: default;
+  opacity: 0.82;
+}
+
+.article-content .code-block__copy[data-copy-state="success"] {
+  border-color: rgba(104, 211, 145, 0.55);
+  background: rgba(104, 211, 145, 0.14);
+  color: #cef5d9;
+}
+
+.article-content .code-block__copy[data-copy-state="error"] {
+  border-color: rgba(255, 139, 148, 0.55);
+  background: rgba(255, 139, 148, 0.12);
+  color: #ffd8dc;
+}
+
+.article-content .code-block__pre,
+.article-content .astro-code.code-block__pre {
+  max-width: 100%;
+  overflow: hidden !important;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  white-space: normal;
+}
+
+.article-content .code-block__code {
+  display: grid;
+  min-width: 0;
+  font-size: 0.88rem;
+  line-height: 1.72;
+}
+
+.article-content .code-block__line {
+  display: grid;
+  grid-template-columns: 3.35rem minmax(0, 1fr);
+  min-width: 0;
+}
+
+.article-content .code-block__line--odd {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.article-content .code-block__line--even {
+  background: rgba(119, 199, 215, 0.035);
+}
+
+.article-content .code-block__line-number {
+  display: block;
+  padding: 0.18rem 0.68rem 0.18rem 0.45rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(199, 219, 225, 0.52);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  user-select: none;
+}
+
+.article-content .code-block__line-code {
+  display: block;
+  min-width: 0;
+  padding: 0.18rem 0.95rem;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+.mermaid-shell {
+  margin: 1.6rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0)),
+    var(--bg-mermaid-shell);
+}
+
+.mermaid-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.mermaid-toolbar__hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.mermaid-controls {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.mermaid-control-button {
+  min-width: 2.15rem;
+  height: 2.15rem;
+  padding: 0 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-control);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.mermaid-control-button--text {
+  min-width: auto;
+  padding-inline: 0.78rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.mermaid-control-button--pan {
+  min-width: 2rem;
+  padding-inline: 0.55rem;
+}
+
+.mermaid-control-button:hover {
+  border-color: rgba(119, 199, 215, 0.7);
+  background: var(--bg-control-hover);
+  transform: translateY(-1px);
+}
+
+.mermaid-scale-value {
+  min-width: 3.2rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.mermaid-render {
+  min-height: 10rem;
+  max-height: min(72vh, 42rem);
+  overflow: auto;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: var(--bg-mermaid-render);
+  cursor: grab;
+  overscroll-behavior: contain;
+}
+
+.mermaid-render.is-dragging {
+  cursor: grabbing;
+}
+
+.mermaid-stage {
+  display: grid;
+  place-items: start;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.mermaid-stage svg {
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+.mermaid-source {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+}
+
+.mermaid-source pre {
+  max-height: 16rem;
+  overflow: auto;
+  margin: 0.65rem 0 0;
+}
+
+.mermaid-error {
+  margin: 0;
+  padding: 1rem;
+  color: var(--text-danger);
+  font-family: var(--font-sans);
+  line-height: 1.7;
 }
 
 .astro-code {

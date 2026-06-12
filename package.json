@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "HansBug 的个人技术博客，基于 Astro 和 GitHub Pages 构建。",
   "scripts": {
+    "sync:katex": "node scripts/sync_katex_assets.mjs",
+    "predev": "npm run sync:katex",
     "dev": "astro dev",
+    "prestart": "npm run sync:katex",
     "start": "astro dev",
     "check": "astro check",
-    "build": "astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "build": "npm run sync:katex && astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
     "preview": "astro preview"
   },
   "keywords": [
@@ -23,17 +28,24 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vue": "^6.0.1",
     "@headlessui/vue": "^1.7.23",
-    "astro": "^6.1.5",
+    "astro": "^6.4.6",
     "chart.js": "^4.5.1",
+    "devalue": "^5.8.1",
+    "katex": "^0.16.47",
+    "mermaid": "^11.15.0",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js-legacy": "^6.5.10",
+    "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",
+    "remark-math": "^6.0.0",
     "vue": "^3.5.32"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
+    "@vitest/coverage-v8": "^4.1.8",
     "puppeteer-core": "^19.2.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.8"
   },
   "engines": {
     "node": ">=20"
