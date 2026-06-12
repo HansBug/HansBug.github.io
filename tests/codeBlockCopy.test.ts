@@ -35,6 +35,14 @@ describe("code block copy behavior", () => {
     );
   });
 
+  it("expands every page URL placeholder in the copied text", () => {
+    const rawCode = "先看 {{PAGE_URL}}\n然后再把 {{PAGE_URL}} 丢给 agent";
+
+    expect(expandCopyPlaceholders(rawCode, () => "https://hansbug.github.io/blog/demo/")).toBe(
+      "先看 https://hansbug.github.io/blog/demo/\n然后再把 https://hansbug.github.io/blog/demo/ 丢给 agent",
+    );
+  });
+
   it("leaves regular copy text unchanged when no placeholder exists", () => {
     const rawCode = "echo '{{NOT_PAGE_URL}}'\nplain text";
 
@@ -70,7 +78,7 @@ describe("code block copy behavior", () => {
   it("uses the document canonical URL by default when it is available", () => {
     const querySelector = vi.fn(() => ({
       href: "https://hansbug.github.io/blog/default-canonical/",
-      getAttribute: vi.fn(() => undefined),
+      getAttribute: vi.fn(() => "https://hansbug.github.io/blog/default-canonical/"),
     }));
     vi.stubGlobal("document", { querySelector });
     vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/default-canonical/" } });
@@ -86,6 +94,20 @@ describe("code block copy behavior", () => {
     vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/default-fallback/" } });
 
     expect(expandCopyPlaceholders("url={{PAGE_URL}}")).toBe("url=http://127.0.0.1:4321/blog/default-fallback/");
+  });
+
+  it("does not treat empty canonical href attributes as canonical URLs", () => {
+    vi.stubGlobal("document", {
+      querySelector: vi.fn(() => ({
+        href: "http://127.0.0.1:4321/blog/empty-canonical/",
+        getAttribute: vi.fn(() => ""),
+      })),
+    });
+    vi.stubGlobal("window", { location: { href: "http://127.0.0.1:4321/blog/empty-canonical/" } });
+
+    expect(expandCopyPlaceholders("url={{PAGE_URL}}")).toBe(
+      "url=http://127.0.0.1:4321/blog/empty-canonical/",
+    );
   });
 
   it("copies the exact raw code and resets the button state", async () => {

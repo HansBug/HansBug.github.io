@@ -29,18 +29,23 @@ function getDefaultResetScheduler(): ResetScheduler {
 function getDefaultPageUrl() {
   if (typeof document !== "undefined") {
     const canonicalLink = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    const canonicalUrl = canonicalLink?.href || canonicalLink?.getAttribute("href");
-    if (canonicalUrl?.trim()) {
-      return canonicalUrl;
+    const rawCanonicalHref = canonicalLink?.getAttribute("href")?.trim();
+    if (rawCanonicalHref) {
+      const resolvedCanonicalHref = canonicalLink?.href?.trim();
+      if (resolvedCanonicalHref) {
+        return resolvedCanonicalHref;
+      }
+
+      if (typeof window !== "undefined" && window.location?.href) {
+        return new URL(rawCanonicalHref, window.location.href).toString();
+      }
+
+      return rawCanonicalHref;
     }
   }
 
   if (typeof window !== "undefined" && window.location?.href) {
     return window.location.href;
-  }
-
-  if (typeof location !== "undefined" && location.href) {
-    return location.href;
   }
 
   return undefined;

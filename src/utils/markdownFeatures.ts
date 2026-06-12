@@ -304,7 +304,7 @@ function createCopyButton(rawCode: string): HtmlElementNode {
 }
 
 function shouldCopyPageUrlPlaceholderLiterally(meta: string | null | undefined) {
-  return /\bcopy-literal-page-url\b/.test(meta ?? "");
+  return (meta ?? "").split(/\s+/).includes("copy-literal-page-url");
 }
 
 function isShikiPreNode(node: unknown): node is HtmlElementNode {

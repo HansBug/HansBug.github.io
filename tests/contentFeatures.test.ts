@@ -60,6 +60,14 @@ function decodeHtmlAttributeValue(value: string) {
   });
 }
 
+function getEnhancedCodeBlockTags(html: string) {
+  return [...html.matchAll(/<figure class="code-block"[\s\S]*?<\/figure>/g)].map((match) => match[0]);
+}
+
+function getStandardMermaidTags(html: string) {
+  return [...html.matchAll(/<pre class="mermaid-source-block"[\s\S]*?<\/pre>/g)].map((match) => match[0]);
+}
+
 describe("Mermaid fence detection", () => {
   it("detects only the documented standard mermaid fence", () => {
     expect(hasMermaidFence("```mermaid\nflowchart TD\n  A --> B\n```")).toBe(true);
@@ -245,10 +253,12 @@ describe("Markdown rendering pipeline", () => {
 
   it("marks code blocks that should copy page URL placeholders literally", async () => {
     const literalHtml = await renderMarkdown(["```text copy-literal-page-url", "{{PAGE_URL}}", "```"].join("\n"));
+    const disabledHtml = await renderMarkdown(["```text copy-literal-page-url=false", "{{PAGE_URL}}", "```"].join("\n"));
     const defaultHtml = await renderMarkdown(["```text", "{{PAGE_URL}}", "```"].join("\n"));
 
     expect(literalHtml).toContain('data-code-literal-page-url="true"');
     expect(literalHtml).toContain("{{PAGE_URL}}");
+    expect(disabledHtml).not.toContain("data-code-literal-page-url");
     expect(defaultHtml).not.toContain("data-code-literal-page-url");
   });
 
@@ -265,9 +275,34 @@ describe("Markdown rendering pipeline", () => {
         "```",
       ].join("\n"),
     );
+    const mermaidTags = getStandardMermaidTags(html);
+    const codeBlockTags = getEnhancedCodeBlockTags(html);
 
-    expect(html).toContain('data-standard-mermaid="true"');
-    expect(html).toContain('data-code-literal-page-url="true"');
+    expect(mermaidTags).toHaveLength(1);
+    expect(mermaidTags[0]).not.toContain("data-code-literal-page-url");
+    expect(codeBlockTags).toHaveLength(1);
+    expect(codeBlockTags[0]).toContain('data-code-literal-page-url="true"');
+  });
+
+  it("keeps literal page URL copy options aligned when non-standard Mermaid blocks are present", async () => {
+    const html = await renderMarkdown(
+      [
+        "```mermaid title=\"demo\"",
+        "flowchart TD",
+        "  A --> B",
+        "```",
+        "",
+        "```text copy-literal-page-url",
+        "{{PAGE_URL}}",
+        "```",
+      ].join("\n"),
+    );
+    const codeBlockTags = getEnhancedCodeBlockTags(html);
+
+    expect(html).not.toContain('data-standard-mermaid="true"');
+    expect(codeBlockTags).toHaveLength(2);
+    expect(codeBlockTags[0]).not.toContain("data-code-literal-page-url");
+    expect(codeBlockTags[1]).toContain('data-code-literal-page-url="true"');
   });
 
   it("uses conditional KaTeX CSS loading from detail layouts", async () => {
