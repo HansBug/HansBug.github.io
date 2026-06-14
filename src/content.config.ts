@@ -17,6 +17,8 @@ const blog = defineCollection({
     featured: z.boolean().default(false),
     pinned: z.boolean().default(false),
     routeSlugs: z.array(z.string()).default([]),
+    bibliography: z.string().optional(),
+    citationStyle: z.literal("hansbug-numeric-superscript").optional(),
   }),
 });
 

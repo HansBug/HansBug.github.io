@@ -108,6 +108,52 @@ schema 以 `src/content.config.ts` 为准，当前核心字段：
 - 新标签优先复用现有标签
 - 如必须新增，必须补标签分组、描述和配色
 
+### 论文式引用
+
+博客正文支持每篇文章独立的 BibTeX / CSL 论文式引用系统。这个能力用于需要像论文一样给出处、让正文上标编号跳到文末参考文献的文章；普通链接、普通资料列表仍然可以继续用 Markdown 原生写法，不要为了显得正式而硬塞 `.bib`。
+
+推荐文件组织方式：
+
+```text
+src/content/blog/engineering/example-post.md
+src/content/blog/engineering/example-post.bib
+```
+
+文章 frontmatter 里写：
+
+```yaml
+bibliography: ./example-post.bib
+citationStyle: hansbug-numeric-superscript
+```
+
+其中 `bibliography` 必须是当前文章目录内的相对路径，第一阶段不要引用上级目录、全站共享 `.bib` 或远程 URL。`citationStyle` 目前只支持 `hansbug-numeric-superscript`；如果不写，渲染层也会使用这个默认样式，不要自造 style 名称。
+
+正文引用只承诺下面这几类本站已验证写法：
+
+```md
+单篇引用[@key]，多篇引用[@a; @b]，带页码或位置的引用[@key, p. 12]。
+```
+
+文末建议明确写 `## 参考文献`，然后在标题后放 `[^ref]`，让 bibliography 插入到这个位置：
+
+```md
+## 参考文献
+
+[^ref]
+```
+
+`[^ref]` 是推荐锚点，不是强制语法；如果忘了写，渲染器也会把 bibliography 自动追加到文章末尾。但正式文章最好显式放出这一节，否则 agent 后续维护时很难一眼看出参考文献应该落在哪里。
+
+不要写成 `[@a, @b]`。逗号不是多引用分隔符，多引用必须用分号 `[@a; @b]`；逗号只留给 locator / suffix，例如 `[@a, p. 12]`。
+
+不要使用裸 `@key`。如果这个 key 存在于当前文章的 `.bib`，本站第一阶段会直接报错，要求改成 `[@key]`，避免 numeric CSL 在页面里产出 `[NO_PRINTED_FORM]` 这类污染内容。普通社交 mention（例如 `@hansbug`）不需要为了 citation 系统改写；但如果 mention 恰好和 `.bib` key 同名，就用 inline code 表示字面量。
+
+如果只是想在文章里展示 `[@key]`、`[@a; @b]`、`@key` 这些字面写法，请放进 inline code 或 fenced code block；缩进代码块、raw HTML `<pre>` / `<code>` 块里的这些内容也不会参与 citation 校验。正式写作仍优先使用 fenced code block，因为它最清楚，也最不容易被后续 agent 误改。
+
+`.bib` 里每个 key 必须唯一，且不能只靠大小写区分，例如 `Foo2024` 和 `foo2024` 不能同时存在。正文引用了不存在的 key、`.bib` 语法错误、找不到 bibliography 文件、正文有 citation 却没配 bibliography，都会在构建期硬失败；错误信息会包含 Markdown 路径、BibTeX 路径、key、上下文和 Fix 建议，优先按 Fix 提示修，不要绕过校验。
+
+未被正文引用的 `.bib` 条目第一阶段只 warning，不阻断构建；但如果是长期文章，最好删掉无用条目，避免每篇自己的 `.bib` 逐渐变成小垃圾场。
+
 ## 新文章发布流程
 
 ### 推荐步骤

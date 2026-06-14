@@ -5,6 +5,7 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import contentHmr from "./src/integrations/contentHmr.ts";
+import { remarkArticleCitationPreflight, rehypeArticleCitations } from "./src/utils/citations.ts";
 import {
   remarkCodeCopyOptions,
   rehypeEnhancedCodeBlocks,
@@ -17,7 +18,13 @@ export default defineConfig({
   output: "static",
   trailingSlash: "always",
   compressHTML: true,
-  integrations: [sitemap(), vue(), contentHmr()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/citation-fixture/"),
+    }),
+    vue(),
+    contentHmr(),
+  ],
   vite: {
     server: {
       watch: {
@@ -35,8 +42,15 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [remarkGfm, remarkMath, remarkCodeCopyOptions, remarkProtectDollarText, remarkStandardMermaid],
-    rehypePlugins: [rehypeKatex, rehypeEnhancedCodeBlocks],
+    remarkPlugins: [
+      remarkGfm,
+      remarkMath,
+      remarkCodeCopyOptions,
+      remarkProtectDollarText,
+      remarkStandardMermaid,
+      remarkArticleCitationPreflight,
+    ],
+    rehypePlugins: [rehypeKatex, rehypeEnhancedCodeBlocks, rehypeArticleCitations],
     shikiConfig: {
       theme: "github-dark",
     },

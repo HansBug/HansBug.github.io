@@ -362,12 +362,17 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain("{hasMermaid && <MermaidRenderer />}");
   });
 
-  it("uses the fresh dev content helper to avoid stale Markdown renders during Vite HMR", async () => {
+  it("uses the fresh content helper to avoid stale citation renders during Vite HMR and builds", async () => {
     const source = await readSource("src/utils/liveContent.ts");
 
     expect(source).toContain('const dataStoreUrl = new URL("../../.astro/data-store.json", import.meta.url);');
     expect(source).toContain("if (!import.meta.env.DEV)");
     expect(source).toContain("store.get(entry.collection)?.get(entry.id)");
+    expect(source).toContain("getCitationCacheKey");
+    expect(source).toContain("freshEntry.data.bibliography");
+    expect(source).toContain('freshEntry.collection === "blog" && freshEntry.data.bibliography && freshEntry.filePath');
+    expect(source).not.toContain("import.meta.env.DEV && freshEntry.collection === \"blog\" && freshEntry.data.bibliography");
+    expect(source).toContain("processor.render(freshEntry.body");
     expect(source).toContain("console.warn");
     expect(source).toContain("falling back to stale entry");
     expect(source).toContain("render(freshEntry)");
@@ -386,8 +391,43 @@ describe("Mermaid renderer wiring", () => {
     expect(integration).toContain('server.watcher.on("add", (filePath) => scheduleRefresh(filePath, "add"))');
     expect(integration).toContain('server.watcher.on("change", (filePath) => scheduleRefresh(filePath, "change"))');
     expect(integration).toContain('server.watcher.on("unlink", (filePath) => scheduleRefresh(filePath, "unlink"))');
+    expect(integration).toContain("BLOG_BIB_RE");
+    expect(integration).toContain("collectInitialMarkdownPaths");
+    expect(integration).toContain("existsSync(join(rootPath, siblingMarkdown))");
+    expect(integration).toContain("changed bibliography has no clear owning Markdown article");
     expect(integration).toContain("may require restarting dev server to rebuild Astro routes");
     expect(integration).toContain('server.ws.send({ type: "full-reload", path: "*" })');
+  });
+
+  it("keeps the dev citation fixture out of production sitemap output", async () => {
+    const config = await readSource("astro.config.mjs");
+
+    expect(config).toContain("sitemap({");
+    expect(config).toContain('filter: (page) => !page.includes("/citation-fixture/")');
+  });
+
+  it("keeps the citation fixture gated to dev content with a production redirect", async () => {
+    const source = await readSource("src/pages/citation-fixture.astro");
+    const layout = await readSource("src/layouts/BaseLayout.astro");
+
+    expect(source).toContain("import.meta.env.PROD");
+    expect(source).toContain('Astro.redirect("/404/")');
+    expect(source).toContain('getEntry("blog", "engineering/citation-latex-mermaid-fixture")');
+    expect(source).toContain("noindex");
+    expect(layout).toContain('meta name="robots" content="noindex,nofollow"');
+  });
+
+  it("keeps citation anchors offset below the sticky site header", async () => {
+    const source = await readSource("src/styles/global.css");
+
+    expect(source).toContain("--article-anchor-offset");
+    expect(source).toContain("scroll-padding-top: var(--article-anchor-offset)");
+    expect(source).toContain("scroll-margin-top: var(--article-anchor-offset)");
+    expect(source).toContain(".article-content .article-citation__link:target");
+    expect(source).toContain(".article-content .article-reference-entry:target");
+    expect(source).toContain("article-citation-target-pulse");
+    expect(source).toContain("article-reference-target-pulse");
+    expect(source).toContain("@media (prefers-reduced-motion: reduce)");
   });
 
   it("loads Mermaid dynamically only after finding standard marked blocks", async () => {
