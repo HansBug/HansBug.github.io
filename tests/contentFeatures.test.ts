@@ -423,6 +423,11 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain("--article-anchor-offset");
     expect(source).toContain("scroll-padding-top: var(--article-anchor-offset)");
     expect(source).toContain("scroll-margin-top: var(--article-anchor-offset)");
+    expect(source).toContain(".article-content .article-citation__link:target");
+    expect(source).toContain(".article-content .article-reference-entry:target");
+    expect(source).toContain("article-citation-target-pulse");
+    expect(source).toContain("article-reference-target-pulse");
+    expect(source).toContain("@media (prefers-reduced-motion: reduce)");
   });
 
   it("loads Mermaid dynamically only after finding standard marked blocks", async () => {
