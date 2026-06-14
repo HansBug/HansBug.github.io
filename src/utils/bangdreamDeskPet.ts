@@ -236,6 +236,10 @@ export function buildBangdreamVariantsByCharacter(variants: readonly BangdreamDe
     variantsByCharacter.set(variant.characterCode, characterVariants);
   }
 
+  for (const characterVariants of variantsByCharacter.values()) {
+    Object.freeze(characterVariants);
+  }
+
   return variantsByCharacter;
 }
 

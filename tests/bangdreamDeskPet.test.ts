@@ -8,6 +8,7 @@ import {
   pickBangdreamSwitchVariant,
   pickFairBangdreamInitialVariant,
   resolveBangdreamVariantRequest,
+  sampleBangdreamItem,
   type BangdreamDeskPetVariant,
 } from "../src/utils/bangdreamDeskPet";
 
@@ -127,6 +128,7 @@ describe("Bang Dream deskpet variant selection", () => {
   it("keeps every current-pool character and variant reachable without using defaultTopPickKeys as the pool", () => {
     const variants = buildBangdreamVariants(pool);
     const variantsByCharacter = buildBangdreamVariantsByCharacter(variants);
+    const characterCodes = [...variantsByCharacter.keys()];
     const topPickKeys = new Set(pool.defaultTopPickKeys);
     const topPickCharacterCodes = new Set(
       variants.filter((variant) => topPickKeys.has(variant.key)).map((variant) => variant.characterCode),
@@ -135,18 +137,20 @@ describe("Bang Dream deskpet variant selection", () => {
     expect(topPickCharacterCodes.size).toBeLessThan(variantsByCharacter.size);
 
     for (const [characterCode, characterVariants] of variantsByCharacter) {
-      const characterIndex = [...variantsByCharacter.keys()].indexOf(characterCode);
-      const variantIndex = characterVariants.length - 1;
-      const selected = pickFairBangdreamInitialVariant(
-        variantsByCharacter,
-        fixedRandom([
-          (characterIndex + 0.1) / variantsByCharacter.size,
-          (variantIndex + 0.1) / characterVariants.length,
-        ]),
-      );
+      const characterIndex = characterCodes.indexOf(characterCode);
 
-      expect(selected.characterCode).toBe(characterCode);
-      expect(selected.key).toBe(characterVariants[variantIndex].key);
+      for (const [variantIndex, expectedVariant] of characterVariants.entries()) {
+        const selected = pickFairBangdreamInitialVariant(
+          variantsByCharacter,
+          fixedRandom([
+            (characterIndex + 0.1) / variantsByCharacter.size,
+            (variantIndex + 0.1) / characterVariants.length,
+          ]),
+        );
+
+        expect(selected.characterCode).toBe(characterCode);
+        expect(selected.key).toBe(expectedVariant.key);
+      }
     }
   });
 
@@ -192,5 +196,23 @@ describe("Bang Dream deskpet variant selection", () => {
     const variantsByCharacter = buildBangdreamVariantsByCharacter([createVariant("001", "casual")]);
 
     expect(pickBangdreamSwitchVariant(variantsByCharacter, "001", fixedRandom([]))).toBeNull();
+  });
+
+  it("throws clear errors instead of falling back to a biased global pool", () => {
+    const emptyInitialMap = new Map<string, BangdreamDeskPetVariant[]>([["001", []]]);
+    const emptySwitchMap = new Map<string, BangdreamDeskPetVariant[]>([
+      ["001", [createVariant("001", "casual")]],
+      ["002", []],
+    ]);
+
+    expect(() => sampleBangdreamItem([], fixedRandom([]), "deskpet fixtures")).toThrow(
+      "No deskpet fixtures available.",
+    );
+    expect(() => pickFairBangdreamInitialVariant(emptyInitialMap, fixedRandom([0]))).toThrow(
+      "No deskpet variants available for character 001.",
+    );
+    expect(() => pickBangdreamSwitchVariant(emptySwitchMap, "001", fixedRandom([0]))).toThrow(
+      "No deskpet variants available for character 002.",
+    );
   });
 });
