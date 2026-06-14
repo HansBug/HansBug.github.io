@@ -168,6 +168,70 @@ describe("article citation pipeline", () => {
     expect(result.code).toContain('https://example.com/docs/path</a>.');
   });
 
+  it("keeps sorted citation labels aligned with their reference hrefs and backrefs", async () => {
+    const fixture = await makeFixtureDir();
+    fixtureRoot = fixture.root;
+    await writeFixtureBib(
+      fixture.articleDir,
+      [
+        "@online{first,",
+        "  title = {First reference},",
+        "  author = {{First Docs}},",
+        "  url = {https://example.com/first},",
+        "  year = {2026}",
+        "}",
+        "",
+        "@online{late,",
+        "  title = {Late reference},",
+        "  author = {{Late Docs}},",
+        "  url = {https://example.com/late},",
+        "  year = {2026}",
+        "}",
+        "",
+        "@online{middle,",
+        "  title = {Middle reference},",
+        "  author = {{Middle Docs}},",
+        "  url = {https://example.com/middle},",
+        "  year = {2026}",
+        "}",
+      ].join("\n"),
+    );
+
+    const result = await renderArticleMarkdown(
+      fixture.root,
+      fixture.markdownPath,
+      [
+        "先给 first 编号[@first]。",
+        "",
+        "再提前给 middle 编号[@middle]。",
+        "",
+        "这里故意按 late、middle 的源码顺序写，但 CSL 会按 citation-number 显示为 middle、late[@late; @middle]。",
+        "",
+        "## 参考文献",
+        "",
+        "[^ref]",
+      ].join("\n"),
+    );
+
+    const sortedPair = result.code.match(/但 CSL 会按 citation-number[^<]*显示为 middle、late(?<links>[\s\S]*?)<\/sup>/)
+      ?.groups?.links;
+    expect(sortedPair).toBeTruthy();
+    expect(sortedPair).toContain('href="#bib-middle"');
+    expect(sortedPair).toContain('>2</a>');
+    expect(sortedPair).toContain('href="#bib-late"');
+    expect(sortedPair).toContain('>3</a>');
+    expect(sortedPair).not.toMatch(/href="#bib-late"[^>]*>2<\/a>/);
+    expect(sortedPair).not.toMatch(/href="#bib-middle"[^>]*>3<\/a>/);
+
+    const middleEntry = result.code.match(/<div class="csl-entry article-reference-entry" id="bib-middle"[\s\S]*?<\/div>\n  <div class="csl-entry article-reference-entry"/)?.[0];
+    const lateEntry = result.code.match(/<div class="csl-entry article-reference-entry" id="bib-late"[\s\S]*?<\/div>\n<\/div>/)?.[0];
+    expect(middleEntry).toContain('href="#cite-middle-1"');
+    expect(middleEntry).toContain('href="#cite-middle-2"');
+    expect(lateEntry).toContain('href="#cite-late-1"');
+    expect(middleEntry).not.toContain('href="#cite-late-1"');
+    expect(lateEntry).not.toContain('href="#cite-middle-1"');
+  });
+
   it("does not treat inline code or fenced code citations as real citations", async () => {
     const fixture = await makeFixtureDir();
     fixtureRoot = fixture.root;

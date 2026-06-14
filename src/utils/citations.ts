@@ -590,6 +590,7 @@ function enhanceCitationHtml(tree: unknown) {
   const citationIndexesByRef = new Map<string, number>();
   const citationBackrefsByRef = new Map<string, Array<{ id: string; index: number }>>();
   const referenceEntries: HastElement[] = [];
+  const citationLinks: HastElement[] = [];
 
   walkTree(tree, (node) => {
     if (!isElementNode(node)) {
@@ -599,20 +600,7 @@ function enhanceCitationHtml(tree: unknown) {
     const classList = getClassList(node.properties);
     node.properties ??= {};
     if (node.tagName === "a" && typeof node.properties.href === "string" && node.properties.href.startsWith("#bib-")) {
-      const refId = node.properties.href.slice(1);
-      const citationIndex = (citationIndexesByRef.get(refId) ?? 0) + 1;
-      citationIndexesByRef.set(refId, citationIndex);
-      const citationId = `cite-${refId.replace(/^bib-/, "")}-${citationIndex}`;
-
-      node.properties.className = mergeClassNames(classList, ["article-citation__link"]);
-      node.properties.id ??= citationId;
-      node.properties["data-citation-ref-id"] = refId;
-      node.properties["aria-label"] = `跳转到参考文献 ${node.properties.href.slice(5)}`;
-
-      citationBackrefsByRef.set(refId, [
-        ...(citationBackrefsByRef.get(refId) ?? []),
-        { id: String(node.properties.id), index: citationIndex },
-      ]);
+      citationLinks.push(node);
     }
 
     if (node.tagName === "div" && classList.includes("csl-entry")) {
@@ -624,11 +612,49 @@ function enhanceCitationHtml(tree: unknown) {
     }
   });
 
+  const refIdsByNumber = collectReferenceIdsByNumber(referenceEntries);
+
+  for (const link of citationLinks) {
+    const classList = getClassList(link.properties);
+    const displayNumber = normalizeCitationNumberText(getElementText(link));
+    const refId = refIdsByNumber.get(displayNumber) ?? String(link.properties?.href ?? "").slice(1);
+    const citationIndex = (citationIndexesByRef.get(refId) ?? 0) + 1;
+    citationIndexesByRef.set(refId, citationIndex);
+    const citationId = `cite-${refId.replace(/^bib-/, "")}-${citationIndex}`;
+
+    link.properties ??= {};
+    link.properties.href = `#${refId}`;
+    link.properties.className = mergeClassNames(classList, ["article-citation__link"]);
+    link.properties.id ??= citationId;
+    link.properties["data-citation-ref-id"] = refId;
+    link.properties["aria-label"] = `跳转到参考文献 ${refId.slice(4)}`;
+
+    citationBackrefsByRef.set(refId, [
+      ...(citationBackrefsByRef.get(refId) ?? []),
+      { id: String(link.properties.id), index: citationIndex },
+    ]);
+  }
+
   for (const entry of referenceEntries) {
     linkifyReferenceUrls(entry);
     const refId = typeof entry.properties?.id === "string" ? entry.properties.id : "";
     appendReferenceBackrefs(entry, citationBackrefsByRef.get(refId) ?? []);
   }
+}
+
+function collectReferenceIdsByNumber(entries: HastElement[]) {
+  const refIdsByNumber = new Map<string, string>();
+  for (const entry of entries) {
+    const refId = typeof entry.properties?.id === "string" ? entry.properties.id : "";
+    if (!refId.startsWith("bib-")) {
+      continue;
+    }
+    const numberText = normalizeCitationNumberText(getElementText(findElementByClass(entry, "csl-left-margin")));
+    if (numberText) {
+      refIdsByNumber.set(numberText, refId);
+    }
+  }
+  return refIdsByNumber;
 }
 
 function linkifyReferenceUrls(node: HastElement) {
@@ -743,6 +769,25 @@ function findElementByClass(node: unknown, className: string): HastElement | und
     }
   }
   return undefined;
+}
+
+function getElementText(node: unknown): string {
+  if (isTextNode(node)) {
+    return node.value;
+  }
+  if (!isElementNode(node)) {
+    return "";
+  }
+  return (node.children ?? []).map((child) => getElementText(child)).join("");
+}
+
+function normalizeCitationNumberText(value: string) {
+  return value
+    .trim()
+    .replace(/^\[/, "")
+    .replace(/\]$/, "")
+    .replace(/\.$/, "")
+    .trim();
 }
 
 function walkTree(node: unknown, visitor: (node: unknown, parent?: ParentNode, index?: number) => void) {
