@@ -124,8 +124,9 @@
   ],
   "completed_batches": 14,
   "eligible_rows": 215,
-  "failed_batches": 1,
-  "generated_at": "2026-06-14T20:27:04Z",
+  "failed_batches": 0,
+  "generated_at": "2026-06-14T21:09:31Z",
+  "historical_failed_batches": 1,
   "items": [
     {
       "confidence": 0.54,
@@ -1419,6 +1420,7 @@
     }
   ],
   "min_confidence": 0.65,
+  "missing_resource_keys": [],
   "results_path": "llm-review-results.json",
   "reviewed_rows": 215,
   "reviewer": "codex exec",

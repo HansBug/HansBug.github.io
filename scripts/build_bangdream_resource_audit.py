@@ -85,6 +85,7 @@ CONTENT_POLICY_DECISIONS = [
 LLM_REVIEW_STATUSES = [
     "pending",
     "completed",
+    "partial",
     "blocked",
     "not_required",
     "skipped",
@@ -1362,15 +1363,25 @@ def load_tagger_artifacts() -> dict[str, Any]:
         }
     selected_tags = pd.read_csv(artifacts["selected_tags.csv"]["path"])
     tag_names = [normalize_text(value) for value in selected_tags["name"].tolist()]
+    tag_index = {name: index for index, name in enumerate(tag_names)}
+    missing_rating_labels = [label for label in RATING_LABELS if label not in tag_index]
+    if missing_rating_labels:
+        raise SystemExit(
+            "Tagger selected_tags.csv is missing direct rating labels: "
+            + ", ".join(missing_rating_labels)
+        )
     rating_thresholds = {}
     for label in RATING_LABELS:
         match = selected_tags[selected_tags["name"] == label]
-        rating_thresholds[label] = float(match.iloc[0]["best_threshold"]) if not match.empty else 0.5
+        if match.empty:
+            raise SystemExit(f"Tagger threshold metadata missing direct rating label: {label}")
+        rating_thresholds[label] = float(match.iloc[0]["best_threshold"])
     policy_tags = sorted({rule["tag_name"] for rule in TAG_MAPPING["rules"] if rule.get("tag_name")})
     return {
         "files": artifacts,
         "selected_tags": selected_tags,
         "tag_names": tag_names,
+        "tag_index": tag_index,
         "rating_thresholds": rating_thresholds,
         "policy_tags": policy_tags,
     }
@@ -1423,10 +1434,11 @@ def normalized_entropy(scores: list[float]) -> float:
 def classify_tagger_result(
     probs: list[float],
     tag_names: list[str],
+    tag_index: dict[str, int],
     rating_thresholds: dict[str, float],
     policy_tags: list[str],
 ) -> dict[str, Any]:
-    rating_scores = {label: float(probs[index]) for index, label in enumerate(RATING_LABELS)}
+    rating_scores = {label: float(probs[tag_index[label]]) for label in RATING_LABELS}
     ordered_ratings = sorted(rating_scores.items(), key=lambda item: item[1], reverse=True)
     label, confidence = ordered_ratings[0]
     margin = confidence - ordered_ratings[1][1]
@@ -1437,11 +1449,10 @@ def classify_tagger_result(
         {"tag": tag_names[index], "score": round(float(probs[index]), 6)}
         for index in top_indices
     ]
-    policy_index = {tag: index for index, tag in enumerate(tag_names)}
     policy_probs = {
-        tag: round(float(probs[policy_index[tag]]), 6)
+        tag: round(float(probs[tag_index[tag]]), 6)
         for tag in policy_tags
-        if tag in policy_index
+        if tag in tag_index
     }
     return {
         "rating_scores": rating_scores,
@@ -1476,6 +1487,7 @@ def run_tagger_scan(
     data_config = resolve_data_config(model.pretrained_cfg, model=model)
     transform = create_transform(**data_config, is_training=False)
     tag_names = artifacts["tag_names"]
+    tag_index = artifacts["tag_index"]
     rating_thresholds = artifacts["rating_thresholds"]
     policy_tags = artifacts["policy_tags"]
 
@@ -1516,7 +1528,7 @@ def run_tagger_scan(
         for job, probs_row in zip(batch, probs_tensor):
             idx = job["row_index"]
             probs = [float(value) for value in probs_row.tolist()]
-            result = classify_tagger_result(probs, tag_names, rating_thresholds, policy_tags)
+            result = classify_tagger_result(probs, tag_names, tag_index, rating_thresholds, policy_tags)
             scores = result["rating_scores"]
             label = result["label"]
             decision, eligible_default, eligible_sensitive, exclusion = rating_policy_decision(label)
@@ -1578,6 +1590,7 @@ def run_tagger_scan(
         "visual_evidence_ready_rows": sum(1 for value in visual_evidence.values() if value.get("items")),
         "artifact_sha256": {name: info["sha256"] for name, info in artifacts["files"].items()},
         "rating_thresholds": rating_thresholds,
+        "rating_label_indices": {label: tag_index[label] for label in RATING_LABELS},
     }
     return audit, summary
 
@@ -1678,7 +1691,7 @@ def run_llm_review_command(
     tmp_dir = output_dir / ".tmp"
     tmp_dir.mkdir(parents=True, exist_ok=True)
     output_path = tmp_dir / f"llm-review-batch-{batch_index:04d}.json"
-    command = command_template.format(output_path=shlex.quote(str(output_path)))
+    command = command_template.replace("{output_path}", shlex.quote(str(output_path)))
     started = time.time()
     completed_stdout = ""
     completed_stderr = ""
@@ -1778,6 +1791,10 @@ def summarize_llm_batch_record(record: dict[str, Any]) -> dict[str, Any]:
         summary["output_tail"] = scrub_llm_batch_text(record.get("output_tail"))
     if record.get("stderr_tail") and summary["status"] != "completed":
         summary["stderr_tail"] = scrub_llm_batch_text(record.get("stderr_tail"))
+    if "missing_count" in record:
+        summary["missing_count"] = int(record.get("missing_count") or 0)
+    if "extra_count" in record:
+        summary["extra_count"] = int(record.get("extra_count") or 0)
     return summary
 
 
@@ -1907,27 +1924,34 @@ def run_llm_review(
             existing_batches = []
     existing_reviewed_keys = {item["resource_key"] for item in existing_items}
     total_eligible_rows = len(existing_reviewed_keys) + int(len(review_df))
+    target_review_keys = existing_reviewed_keys | {
+        normalize_text(row["resource_key"]) for _, row in review_df.iterrows()
+    }
     summary: dict[str, Any] = {
         "generated_at": utc_now(),
-        "status": "not_required" if len(review_df) == 0 else "completed",
+        "status": "not_required" if total_eligible_rows == 0 else "pending",
         "reviewer": "codex exec",
         "reviewed_rows": 0,
         "eligible_rows": total_eligible_rows,
         "applied_rows": 0,
         "completed_batches": sum(1 for item in existing_batches if item.get("status") == "completed"),
-        "failed_batches": sum(1 for item in existing_batches if item.get("status") == "failed"),
+        "historical_failed_batches": sum(1 for item in existing_batches if item.get("status") == "failed"),
+        "failed_batches": 0,
         "min_confidence": MIN_LLM_REVIEW_CONFIDENCE,
         "results_path": "llm-review-results.json",
         "batches": existing_batches,
+        "missing_resource_keys": [],
         "items": [],
     }
     if not command_template.strip() or len(review_df) == 0:
         summary["reviewed_rows"] = len({result["resource_key"] for result in existing_items})
         summary["applied_rows"] = int((audit["llm_review_status"] == "completed").sum())
         summary["items"] = sorted(existing_items, key=lambda item: item["resource_key"])
+        missing_keys = sorted(target_review_keys - {result["resource_key"] for result in existing_items})
+        summary["missing_resource_keys"] = missing_keys
         if len(review_df) > 0:
             summary["status"] = "skipped"
-        elif existing_items:
+        elif total_eligible_rows > 0 and not missing_keys and summary["applied_rows"] == total_eligible_rows:
             summary["status"] = "completed"
         write_json(output_dir / "llm-review-results.json", summary)
         return audit, summary
@@ -1951,17 +1975,18 @@ def run_llm_review(
             batch_index=batch_index,
             timeout_seconds=timeout_seconds,
         )
-        summary["batches"].append(summarize_llm_batch_record(record))
         if not payload:
+            summary["batches"].append(summarize_llm_batch_record(record))
             summary["failed_batches"] += 1
             continue
-        summary["completed_batches"] += 1
+        returned_keys: set[str] = set()
         for item in payload.get("items", []):
             if not isinstance(item, dict):
                 continue
             resource_key = normalize_text(item.get("resource_key"))
             if not resource_key:
                 continue
+            returned_keys.add(resource_key)
             result = {
                 "resource_key": resource_key,
                 "label": normalize_llm_label(item.get("label")),
@@ -1969,22 +1994,41 @@ def run_llm_review(
                 "notes": normalize_text(item.get("notes")),
             }
             all_results.append(result)
+        expected_keys = {normalize_text(item["resource_key"]) for item in batch_rows}
+        missing_keys = sorted(expected_keys - returned_keys)
+        extra_keys = sorted(returned_keys - expected_keys)
+        if missing_keys:
+            record["status"] = "failed"
+            record["error"] = (
+                "LLM response did not cover every input row; "
+                f"missing={len(missing_keys)} extra={len(extra_keys)}"
+            )
+            record["missing_count"] = len(missing_keys)
+            record["extra_count"] = len(extra_keys)
+            summary["failed_batches"] += 1
+        else:
+            summary["completed_batches"] += 1
+        summary["batches"].append(summarize_llm_batch_record(record))
 
     deduped_results = {result["resource_key"]: result for result in all_results}
     all_results = [deduped_results[key] for key in sorted(deduped_results)]
     audit = apply_llm_review_results(audit, all_results, model_name="codex exec")
-    summary["reviewed_rows"] = len({result["resource_key"] for result in all_results})
+    reviewed_keys = {result["resource_key"] for result in all_results}
+    missing_keys = sorted(target_review_keys - reviewed_keys)
+    summary["reviewed_rows"] = len(reviewed_keys)
     summary["applied_rows"] = int((audit["llm_review_status"] == "completed").sum())
+    summary["missing_resource_keys"] = missing_keys
     summary["items"] = all_results
     if (
         summary["eligible_rows"] > 0
-        and summary["reviewed_rows"] >= summary["eligible_rows"]
-        and summary["applied_rows"] >= summary["eligible_rows"]
+        and not missing_keys
+        and summary["reviewed_rows"] == summary["eligible_rows"]
+        and summary["applied_rows"] == summary["eligible_rows"]
     ):
         summary["status"] = "completed"
     elif summary["failed_batches"] and not all_results:
         summary["status"] = "failed"
-    elif summary["failed_batches"]:
+    elif summary["failed_batches"] or missing_keys:
         summary["status"] = "partial"
     write_json(output_dir / "llm-review-results.json", summary)
     return audit, summary
@@ -2274,7 +2318,10 @@ def build_evidence_index(
                             ensure_ascii=False,
                             sort_keys=True,
                         ),
-                        "is_committed_to_repo": (REPO_ROOT / row.get("render_log_ref", "")).exists(),
+                        "is_committed_to_repo": path_from_display(
+                            row.get("render_log_ref", "render-completeness.csv"),
+                            output_dir,
+                        ).exists(),
                         "external_artifact_url": "",
                     }
                 )
@@ -2644,6 +2691,18 @@ def verify_outputs(output_dir: Path) -> None:
         raise SystemExit("llm-review-results.json applied_rows does not match completed rows")
     if len(llm_review_results.get("items", [])) != llm_completed:
         raise SystemExit("llm-review-results.json items do not match completed rows")
+    if llm_review_results.get("status") == "completed":
+        eligible_rows = int(llm_review_results.get("eligible_rows", 0))
+        reviewed_rows = int(llm_review_results.get("reviewed_rows", 0))
+        applied_rows = int(llm_review_results.get("applied_rows", 0))
+        failed_batches = int(llm_review_results.get("failed_batches", 0))
+        missing_keys = llm_review_results.get("missing_resource_keys", [])
+        if reviewed_rows != eligible_rows or applied_rows != eligible_rows:
+            raise SystemExit("llm-review-results.json completed status does not cover all eligible rows")
+        if failed_batches != 0:
+            raise SystemExit("llm-review-results.json completed status has failed batches")
+        if missing_keys:
+            raise SystemExit("llm-review-results.json completed status has missing resource keys")
     if not llm_results_path.exists():
         raise SystemExit("llm-review-results.json missing")
     current_pool_rows = audit[audit["is_current_pool"] == True]  # noqa: E712
@@ -2869,8 +2928,6 @@ def main() -> None:
                 "tagger_scanned_rows": int((audit["rating_signal_source"] == "direct_rating_label").sum()),
                 "llm_review_queue_rows": len(llm_review_queue),
                 "duration_seconds": round(time.time() - started, 2),
-                "full_current_pool_requested": args.all_current_pool,
-                "full_candidates_requested": args.all_candidates,
             },
             ensure_ascii=False,
             indent=2,
