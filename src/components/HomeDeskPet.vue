@@ -2,7 +2,13 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 import {
+  buildBangdreamVariantMap,
   buildBangdreamVariants,
+  buildBangdreamVariantsByCharacter,
+  pickBangdreamSwitchVariant,
+  pickFairBangdreamInitialVariant,
+  resolveBangdreamVariantRequest,
+  sampleBangdreamItem,
   variantLabel,
   type BangdreamDeskPetInteractionZone,
   type BangdreamDeskPetMotionAlias,
@@ -34,13 +40,8 @@ const currentLoadedExpressionCount = ref(0);
 const switchCount = ref(1);
 
 const variants = buildBangdreamVariants(props.pool);
-const variantMap = new Map(variants.map((item) => [item.key, item]));
-const variantsByCharacter = new Map(
-  props.pool.characters.map((character) => [
-    character.code,
-    variants.filter((item) => item.characterCode === character.code),
-  ]),
-);
+const variantMap = buildBangdreamVariantMap(variants);
+const variantsByCharacter = buildBangdreamVariantsByCharacter(variants);
 
 let app: any = null;
 let currentModel: any = null;
@@ -208,10 +209,6 @@ function compactActionLabel(variant: BangdreamDeskPetVariant) {
 
 function signalLockLine(variant: BangdreamDeskPetVariant) {
   return `${variant.characterNameRomaji} / H${variant.heightCm} / ${birthdayCode(variant)}`;
-}
-
-function sample<T>(items: T[]) {
-  return items[Math.floor(Math.random() * items.length)];
 }
 
 function currentPixi() {
@@ -422,25 +419,25 @@ async function triggerAlias(
 ) {
   const matches = availableAliasGroups(alias);
   if (matches.length > 0) {
-    return triggerMotion(sample(matches));
+    return triggerMotion(sampleBangdreamItem(matches));
   }
 
   if (!fallbackToRandom) return false;
   const motionPool = currentMotionGroups.filter((name) => !/^idle/i.test(name));
   if (motionPool.length === 0) return false;
-  return triggerMotion(sample(motionPool));
+  return triggerMotion(sampleBangdreamItem(motionPool));
 }
 
 async function triggerExactMotionNames(names: string[]) {
   const matches = names.filter((name) => currentMotionGroups.includes(name));
   if (matches.length === 0) return false;
-  return triggerMotion(sample(matches));
+  return triggerMotion(sampleBangdreamItem(matches));
 }
 
 async function triggerZoneMotion(zone: BangdreamDeskPetInteractionZone) {
   const matches = availableZoneGroups(zone);
   if (matches.length === 0) return false;
-  return triggerMotion(sample(matches));
+  return triggerMotion(sampleBangdreamItem(matches));
 }
 
 async function triggerArrivalMotion() {
@@ -551,7 +548,7 @@ function startAmbientLoop() {
   ambientTimer = window.setTimeout(async () => {
     ambientTimer = null;
     if (!destroyed && !isSwitching.value && currentModel) {
-      await triggerAlias(sample(["idle", "pose", "react"] as const));
+      await triggerAlias(sampleBangdreamItem(["idle", "pose", "react"] as const));
     }
     if (!destroyed) startAmbientLoop();
   }, 7000 + Math.random() * 6000);
@@ -684,26 +681,17 @@ function pickInitialVariant() {
   if (typeof window !== "undefined") {
     const requested = new URL(window.location.href).searchParams.get("deskpet")?.trim();
     if (requested) {
-      const resolved =
-        variantMap.get(requested) ??
-        variantMap.get(requested.startsWith("bangdream_") ? requested : `bangdream_${requested}`) ??
-        variants.find((item) => item.modelKey === requested);
+      const resolved = resolveBangdreamVariantRequest(requested, variantMap, variants);
       if (resolved) return resolved;
     }
   }
 
-  const preferred = props.pool.defaultTopPickKeys
-    .map((key) => variantMap.get(key))
-    .filter((item): item is BangdreamDeskPetVariant => Boolean(item));
-  return preferred.length > 0 ? sample(preferred) : sample(variants);
+  return pickFairBangdreamInitialVariant(variantsByCharacter);
 }
 
 function pickRandomSwitchTarget() {
   const currentCode = currentVariant.value?.characterCode;
-  const otherCharacterCodes = [...variantsByCharacter.keys()].filter((code) => code !== currentCode);
-  const nextCharacterCode = sample(otherCharacterCodes);
-  const nextVariants = variantsByCharacter.get(nextCharacterCode) ?? variants;
-  return sample(nextVariants);
+  return pickBangdreamSwitchVariant(variantsByCharacter, currentCode);
 }
 
 async function swapVariant(nextVariant: BangdreamDeskPetVariant) {
