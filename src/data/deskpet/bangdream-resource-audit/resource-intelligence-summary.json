@@ -1,0 +1,108 @@
+{
+  "bestdoriSnapshot": {
+    "failed_resources": [],
+    "fetched_at": "2026-06-14T12:19:50Z",
+    "snapshot_id": "20260614T121950Z"
+  },
+  "contentPolicyDecisionCounts": {
+    "pending": 3443
+  },
+  "coveredCandidateRows": 3340,
+  "currentPoolRows": 165,
+  "finalContentRatingCounts": {
+    "unknown": 3443
+  },
+  "generatedAt": "2026-06-14T12:19:56Z",
+  "gistDatasetSummary": {
+    "aveMujicaLocalToUpstreamMap": {
+      "041": "341",
+      "042": "337",
+      "043": "338",
+      "044": "340",
+      "045": "339"
+    },
+    "bestdoriServerLive2dCharaCounts": {
+      "cn": 3497,
+      "en": 3451,
+      "jp": 3524,
+      "kr": 2395,
+      "tw": 3386
+    },
+    "coveredCharacterCompatibleCandidateRows": 3340,
+    "currentPoolRows": 45,
+    "currentQualifiedCharacterCount": 45,
+    "currentQualifiedVariantCount": 165,
+    "generatedAt": "2026-06-14T09:06:44.501Z",
+    "missingCandidateRowsForCoveredCharacters": 3175,
+    "ourNotesMissingCharacters": 15,
+    "runtime": "Cubism 2.1",
+    "sourceRepo": "https://github.com/A-kirami/bestdori-live2d-downloader",
+    "unionNonGeneralCostumeCount": 3443
+  },
+  "gistResourceIntelligenceSummary": {
+    "allRowsNeedManualContentReview": true,
+    "bestdoriApiSnapshots": {
+      "cardsAll5Rows": 2410,
+      "costumeDetailRowsFetched": 2362,
+      "costumesAll5Rows": 2364,
+      "eventsAll5Rows": 334,
+      "gachaAll5Rows": 2030
+    },
+    "candidateRows": 3340,
+    "cardMappedRows": 2142,
+    "cardMatchMethodCounts": {
+      "costume_detail_cards": 5,
+      "costume_detail_cards_with_title_crosscheck": 1975,
+      "costume_detail_cards_with_title_crosscheck_mismatch": 162,
+      "no_match": 1198
+    },
+    "contentSafetyHintCounts": {
+      "manual_review_required": 3320,
+      "sensitive_review_hint": 20
+    },
+    "costumeDetailMatchedRows": 2362,
+    "costumeMetadataMatchedRows": 2362,
+    "costumeMetadataUnmatchedRows": 978,
+    "detailCardMappedRows": 2142,
+    "eventMappedRows": 1957,
+    "fieldNotes": {
+      "card_match_method": "costume_detail_cards is preferred; no_match is explicit; mismatch rows keep detail cards but expose the title-match mismatch for review.",
+      "costume_detail_card_ids": "Authoritative Bestdori costume detail cards[] mapping when the costume detail endpoint exists.",
+      "family_summary_caveat": "Low costume metadata coverage for a family, especially casual/school/base clothing, does not imply missing Live2D package; live2d.chara index remains the package source of truth.",
+      "final_content_rating": "unknown for all rows until rendered-model/manual review is performed.",
+      "real_heat_source": "Set to none_found for this audit because no public costume-key popularity/likes/views/rank source was found.",
+      "selection_proxy_score": "Deterministic triage score derived from issue priority, server count, family, mapped card rarity/type, event/gacha context. It is not popularity or heat.",
+      "title_matched_card_ids": "Conservative fallback/cross-check based on same characterId plus exact localized title match."
+    },
+    "gachaMappedRows": 1478,
+    "generatedAt": "2026-06-14T10:06:56.024826+00:00",
+    "realHeatSourcesFound": 0,
+    "selectionProxyBucketCounts": {
+      "A": 502,
+      "B": 1231,
+      "C": 992,
+      "D": 615
+    },
+    "sourcesChecked": [
+      "https://bestdori.com/api/explorer/{server}/assets/_info.json",
+      "https://bestdori.com/api/costumes/all.5.json",
+      "https://bestdori.com/api/costumes/{id}.json",
+      "https://bestdori.com/api/cards/all.5.json",
+      "https://bestdori.com/api/events/all.5.json",
+      "https://bestdori.com/api/gacha/all.5.json",
+      "https://bestdori.com/tool/live2d",
+      "https://github.com/danbooru/danbooru/blob/master/app/models/post.rb",
+      "https://github.com/danbooru/danbooru/blob/master/app/logical/post_query.rb",
+      "https://danbooru.donmai.us/wiki_pages/howto%3Arate"
+    ],
+    "titleCardMappedRows": 2137
+  },
+  "rowCount": 3443,
+  "rowKindCounts": {
+    "covered_candidate": 3175,
+    "current_pool": 165,
+    "union_only": 103
+  },
+  "source": "scripts/build_bangdream_resource_audit.py",
+  "unionReferenceRows": 3443
+}

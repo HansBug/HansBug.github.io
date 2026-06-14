@@ -1,0 +1,57 @@
+{
+  "description": "Fail-closed tag-to-rating policy used for BanG Dream deskpet resource audit.",
+  "low_confidence": {
+    "direct_rating_label": {
+      "action": "needs_review",
+      "margin_threshold": 0.2,
+      "max_score_threshold": 0.8,
+      "strategy": "max_score_or_margin"
+    },
+    "tag_mapping": {
+      "action": "needs_review",
+      "default_policy_tag_threshold": 0.35,
+      "margin_threshold": 0.15,
+      "strategy": "policy_tag_threshold_or_manual_hint"
+    }
+  },
+  "mapping_version": "v1",
+  "rules": [
+    {
+      "rating_category": "sensitive",
+      "rationale": "泳装类标签至少进入 sensitive 复核。",
+      "tag_name": "swimsuit",
+      "threshold": 0.35
+    },
+    {
+      "rating_category": "sensitive",
+      "rationale": "日文泳装标签至少进入 sensitive 复核。",
+      "tag_name": "mizugi",
+      "threshold": 0.35
+    },
+    {
+      "rating_category": "sensitive",
+      "rationale": "比基尼类服装必须人工复核后才可进入非默认池。",
+      "tag_name": "bikini",
+      "threshold": 0.35
+    },
+    {
+      "rating_category": "questionable",
+      "rationale": "内衣类标签默认隔离，除非人工证据显式改判。",
+      "tag_name": "lingerie",
+      "threshold": 0.2
+    }
+  ],
+  "sensitive_keywords": [
+    "swimsuit",
+    "mizugi",
+    "bikini",
+    "beach",
+    "bath",
+    "bath_towel",
+    "towel",
+    "lingerie",
+    "pajama",
+    "yukata",
+    "onsen"
+  ]
+}
