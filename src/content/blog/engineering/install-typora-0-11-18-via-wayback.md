@@ -93,8 +93,8 @@ citationStyle: hansbug-numeric-superscript
 
 1. `https://typora.io/releases/dev` 当前仍然保留着 `Old Beta` 和 `0.11.18` 这一段说明[@typoraDevReleaseChannel]。
 2. 但在这个页面里，`0.11.18` 目前只剩 release notes，本身并没有像新版那样继续挂出 Linux `.deb` 按钮。
-3. 笔者在 **2026 年 4 月 13 日** 直接请求原始地址 `https://download.typora.io/linux/typora_0.11.18_amd64.deb`[@typoraLinuxPackageOriginal]，返回的是 `HTTP 404`。
-4. 同一时间，请求 Wayback 对应的历史快照[@waybackTyporaPackageSnapshot]时，则还能拿到 `HTTP 200` 和完整文件长度。
+3. 笔者在 **2026 年 4 月 13 日** 直接请求原始地址 `https://download.typora.io/linux/typora_0.11.18_amd64.deb`，返回的是 `HTTP 404`[@typoraLinuxPackageOriginal]。
+4. 同一时间，请求 Wayback 对应的历史快照时，则还能拿到 `HTTP 200` 和完整文件长度[@waybackTyporaPackageSnapshot]。
 
 这也是为什么这篇文章里一定要把 Wayback Machine 拿出来单独说。不是因为它多神秘，而是因为它在这里承担的角色很单纯：**不是拿来替代官方来源，而是把当年的官方原始文件地址从历史归档里重新捞出来。**
 
