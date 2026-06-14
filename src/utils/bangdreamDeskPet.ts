@@ -126,6 +126,8 @@ export interface BangdreamDeskPetVariant {
   rawManifestUrl: string;
 }
 
+export type BangdreamDeskPetRandom = () => number;
+
 function buildLocalManifestUrl(modelKey: string) {
   const basePath = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
   const rootPath = import.meta.env.DEV
@@ -218,5 +220,94 @@ export function buildBangdreamVariants(pool: BangdreamDeskPetPoolData): Bangdrea
         rawManifestUrl: manifestUrl,
       };
     }),
+  );
+}
+
+export function buildBangdreamVariantMap(variants: readonly BangdreamDeskPetVariant[]) {
+  return new Map(variants.map((item) => [item.key, item]));
+}
+
+export function buildBangdreamVariantsByCharacter(variants: readonly BangdreamDeskPetVariant[]) {
+  const variantsByCharacter = new Map<string, BangdreamDeskPetVariant[]>();
+
+  for (const variant of variants) {
+    const characterVariants = variantsByCharacter.get(variant.characterCode) ?? [];
+    characterVariants.push(variant);
+    variantsByCharacter.set(variant.characterCode, characterVariants);
+  }
+
+  for (const characterVariants of variantsByCharacter.values()) {
+    Object.freeze(characterVariants);
+  }
+
+  return variantsByCharacter;
+}
+
+export function sampleBangdreamItem<T>(
+  items: readonly T[],
+  random: BangdreamDeskPetRandom = Math.random,
+  label = "deskpet candidates",
+) {
+  if (items.length === 0) {
+    throw new Error(`No ${label} available.`);
+  }
+
+  const rawIndex = Math.floor(random() * items.length);
+  const index = Math.min(Math.max(rawIndex, 0), items.length - 1);
+  return items[index];
+}
+
+export function pickFairBangdreamInitialVariant(
+  variantsByCharacter: ReadonlyMap<string, readonly BangdreamDeskPetVariant[]>,
+  random: BangdreamDeskPetRandom = Math.random,
+) {
+  const characterCodes = [...variantsByCharacter.keys()];
+  const nextCharacterCode = sampleBangdreamItem(characterCodes, random, "deskpet characters");
+  const nextVariants = variantsByCharacter.get(nextCharacterCode);
+
+  if (!nextVariants || nextVariants.length === 0) {
+    throw new Error(`No deskpet variants available for character ${nextCharacterCode}.`);
+  }
+
+  return sampleBangdreamItem(nextVariants, random, `deskpet variants for character ${nextCharacterCode}`);
+}
+
+export function pickBangdreamSwitchVariant(
+  variantsByCharacter: ReadonlyMap<string, readonly BangdreamDeskPetVariant[]>,
+  currentCharacterCode: string | undefined,
+  random: BangdreamDeskPetRandom = Math.random,
+) {
+  const characterCodes = [...variantsByCharacter.keys()];
+  const candidateCharacterCodes = currentCharacterCode
+    ? characterCodes.filter((code) => code !== currentCharacterCode)
+    : characterCodes;
+
+  if (candidateCharacterCodes.length === 0) {
+    return null;
+  }
+
+  const nextCharacterCode = sampleBangdreamItem(
+    candidateCharacterCodes,
+    random,
+    "deskpet switch characters",
+  );
+  const nextVariants = variantsByCharacter.get(nextCharacterCode);
+
+  if (!nextVariants || nextVariants.length === 0) {
+    throw new Error(`No deskpet variants available for character ${nextCharacterCode}.`);
+  }
+
+  return sampleBangdreamItem(nextVariants, random, `deskpet variants for character ${nextCharacterCode}`);
+}
+
+export function resolveBangdreamVariantRequest(
+  requested: string,
+  variantMap: ReadonlyMap<string, BangdreamDeskPetVariant>,
+  variants: readonly BangdreamDeskPetVariant[],
+) {
+  return (
+    variantMap.get(requested) ??
+    variantMap.get(requested.startsWith("bangdream_") ? requested : `bangdream_${requested}`) ??
+    variants.find((item) => item.modelKey === requested)
   );
 }
