@@ -2331,7 +2331,7 @@ def build_evidence_index(
                         "evidence_id": evidence_id,
                         "resource_key": row["resource_key"],
                         "evidence_type": "llm_review",
-                        "evidence_path": llm_review_results_path.as_posix(),
+                        "evidence_path": display_path(llm_review_results_path),
                         "evidence_sha256": llm_review_results_sha,
                         "evidence_created_at": llm_review_created_at,
                         "evidence_created_by": "codex exec",
