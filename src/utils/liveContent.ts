@@ -63,7 +63,7 @@ async function getFreshDevEntry<TEntry extends RenderableEntry>(entry: TEntry): 
 
 export async function renderFreshContent<TEntry extends RenderableEntry>(entry: TEntry) {
   const freshEntry = await getFreshDevEntry(entry);
-  if (import.meta.env.DEV && freshEntry.collection === "blog" && freshEntry.data.bibliography && freshEntry.filePath) {
+  if (freshEntry.collection === "blog" && freshEntry.data.bibliography && freshEntry.filePath) {
     const citationCacheKey = getCitationCacheKey(freshEntry.filePath, freshEntry.data.bibliography);
     const cacheKey = `${freshEntry.filePath}:${freshEntry.body}:${citationCacheKey}`;
     let processor = markdownCache.get(cacheKey) as Awaited<ReturnType<typeof createFreshMarkdownProcessor>> | undefined;

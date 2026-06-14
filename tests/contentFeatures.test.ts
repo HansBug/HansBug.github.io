@@ -362,7 +362,7 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain("{hasMermaid && <MermaidRenderer />}");
   });
 
-  it("uses the fresh dev content helper to avoid stale Markdown renders during Vite HMR", async () => {
+  it("uses the fresh content helper to avoid stale citation renders during Vite HMR and builds", async () => {
     const source = await readSource("src/utils/liveContent.ts");
 
     expect(source).toContain('const dataStoreUrl = new URL("../../.astro/data-store.json", import.meta.url);');
@@ -370,6 +370,8 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain("store.get(entry.collection)?.get(entry.id)");
     expect(source).toContain("getCitationCacheKey");
     expect(source).toContain("freshEntry.data.bibliography");
+    expect(source).toContain('freshEntry.collection === "blog" && freshEntry.data.bibliography && freshEntry.filePath');
+    expect(source).not.toContain("import.meta.env.DEV && freshEntry.collection === \"blog\" && freshEntry.data.bibliography");
     expect(source).toContain("processor.render(freshEntry.body");
     expect(source).toContain("console.warn");
     expect(source).toContain("falling back to stale entry");
@@ -413,6 +415,14 @@ describe("Mermaid renderer wiring", () => {
     expect(source).toContain('getEntry("blog", "engineering/citation-latex-mermaid-fixture")');
     expect(source).toContain("noindex");
     expect(layout).toContain('meta name="robots" content="noindex,nofollow"');
+  });
+
+  it("keeps citation anchors offset below the sticky site header", async () => {
+    const source = await readSource("src/styles/global.css");
+
+    expect(source).toContain("--article-anchor-offset");
+    expect(source).toContain("scroll-padding-top: var(--article-anchor-offset)");
+    expect(source).toContain("scroll-margin-top: var(--article-anchor-offset)");
   });
 
   it("loads Mermaid dynamically only after finding standard marked blocks", async () => {

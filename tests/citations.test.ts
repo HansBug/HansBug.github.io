@@ -123,6 +123,13 @@ describe("article citation pipeline", () => {
     expect(result.code).toContain('href="#bib-nash1950"');
     expect(result.code).toContain('href="#bib-riehl2017"');
     expect(result.code).toContain('class="article-citation__link"');
+    expect(result.code).not.toContain("]–[");
+    expect(result.code).toContain('id="cite-nash1950-1"');
+    expect(result.code).toContain('id="cite-nash1950-2"');
+    expect(result.code).toContain('href="#cite-nash1950-1"');
+    expect(result.code).toContain('href="#cite-nash1950-2"');
+    expect(result.code).toContain('class="article-reference-backrefs"');
+    expect(result.code).toContain('class="article-reference-backref"');
     expect(result.code).toContain('id="refs"');
     expect(result.code).toContain('class="csl-entry article-reference-entry"');
     expect(result.code).toContain('id="bib-nash1950"');
@@ -131,6 +138,34 @@ describe("article citation pipeline", () => {
     expect(result.code).toContain("Category Theory in Context");
     expect(result.code).not.toContain("[NO_PRINTED_FORM]");
     expect(result.code).not.toContain("[@nash1950]");
+  });
+
+  it("linkifies bibliography URLs and keeps trailing punctuation outside the link", async () => {
+    const fixture = await makeFixtureDir();
+    fixtureRoot = fixture.root;
+    await writeFixtureBib(
+      fixture.articleDir,
+      [
+        "@online{web2026,",
+        "  title = {Web documentation},",
+        "  author = {{Example Docs}},",
+        "  url = {https://example.com/docs/path},",
+        "  urldate = {2026-06-10}",
+        "}",
+      ].join("\n"),
+    );
+
+    const result = await renderArticleMarkdown(
+      fixture.root,
+      fixture.markdownPath,
+      ["Web citation[@web2026].", "", "## 参考文献", "", "[^ref]"].join("\n"),
+    );
+
+    expect(result.code).toContain('class="article-reference-url"');
+    expect(result.code).toContain('href="https://example.com/docs/path"');
+    expect(result.code).toContain('target="_blank"');
+    expect(result.code).toContain('rel="noreferrer"');
+    expect(result.code).toContain('https://example.com/docs/path</a>.');
   });
 
   it("does not treat inline code or fenced code citations as real citations", async () => {

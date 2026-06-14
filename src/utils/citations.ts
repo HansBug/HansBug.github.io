@@ -12,6 +12,8 @@ const BRACKET_CITATION_RE = /\[((?:[^\[\]]|\[[^\]]*\])*@(?:[^\[\]]|\[[^\]]*\])*)
 const BARE_CITATION_RE = /(^|[\s([{"'，。；：、])@([A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*)/g;
 const CITE_KEY_RE = /@([A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*)/g;
 const BIB_ENTRY_RE = /@([A-Za-z]+)\s*{\s*([^,\s]+)\s*,/g;
+const URL_TEXT_RE = /https?:\/\/[^\s<>"']+/g;
+const URL_TRAILING_PUNCTUATION_RE = /[.,;:!?]+$/;
 const CITATION_SCAN_SKIP_NODE_TYPES = new Set([
   "code",
   "definition",
@@ -31,6 +33,11 @@ type HastElement = ParentNode & {
   type?: string;
   tagName?: string;
   properties?: Record<string, unknown>;
+};
+
+type HastText = {
+  type?: string;
+  value?: unknown;
 };
 
 type MarkdownFile = {
@@ -580,6 +587,10 @@ function maskCodeRanges(markdown: string) {
 }
 
 function enhanceCitationHtml(tree: unknown) {
+  const citationIndexesByRef = new Map<string, number>();
+  const citationBackrefsByRef = new Map<string, Array<{ id: string; index: number }>>();
+  const referenceEntries: HastElement[] = [];
+
   walkTree(tree, (node) => {
     if (!isElementNode(node)) {
       return;
@@ -588,8 +599,20 @@ function enhanceCitationHtml(tree: unknown) {
     const classList = getClassList(node.properties);
     node.properties ??= {};
     if (node.tagName === "a" && typeof node.properties.href === "string" && node.properties.href.startsWith("#bib-")) {
+      const refId = node.properties.href.slice(1);
+      const citationIndex = (citationIndexesByRef.get(refId) ?? 0) + 1;
+      citationIndexesByRef.set(refId, citationIndex);
+      const citationId = `cite-${refId.replace(/^bib-/, "")}-${citationIndex}`;
+
       node.properties.className = mergeClassNames(classList, ["article-citation__link"]);
+      node.properties.id ??= citationId;
+      node.properties["data-citation-ref-id"] = refId;
       node.properties["aria-label"] = `跳转到参考文献 ${node.properties.href.slice(5)}`;
+
+      citationBackrefsByRef.set(refId, [
+        ...(citationBackrefsByRef.get(refId) ?? []),
+        { id: String(node.properties.id), index: citationIndex },
+      ]);
     }
 
     if (node.tagName === "div" && classList.includes("csl-entry")) {
@@ -597,8 +620,129 @@ function enhanceCitationHtml(tree: unknown) {
       if (typeof node.properties.id === "string" && node.properties.id.startsWith("bib-")) {
         node.properties.tabIndex = "-1";
       }
+      referenceEntries.push(node);
     }
   });
+
+  for (const entry of referenceEntries) {
+    linkifyReferenceUrls(entry);
+    const refId = typeof entry.properties?.id === "string" ? entry.properties.id : "";
+    appendReferenceBackrefs(entry, citationBackrefsByRef.get(refId) ?? []);
+  }
+}
+
+function linkifyReferenceUrls(node: HastElement) {
+  replaceTextUrlsInChildren(node);
+}
+
+function replaceTextUrlsInChildren(node: ParentNode) {
+  if (!Array.isArray(node.children)) {
+    return;
+  }
+
+  const nextChildren: unknown[] = [];
+  for (const child of node.children) {
+    if (isTextNode(child)) {
+      nextChildren.push(...linkifyUrlsInText(child.value));
+      continue;
+    }
+    if (isElementNode(child) && child.tagName !== "a") {
+      replaceTextUrlsInChildren(child);
+    }
+    nextChildren.push(child);
+  }
+  node.children = nextChildren;
+}
+
+function linkifyUrlsInText(text: string): unknown[] {
+  const nodes: unknown[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  URL_TEXT_RE.lastIndex = 0;
+  while ((match = URL_TEXT_RE.exec(text))) {
+    if (match.index > lastIndex) {
+      nodes.push({ type: "text", value: text.slice(lastIndex, match.index) });
+    }
+
+    const rawUrl = match[0];
+    const trailingPunctuation = rawUrl.match(URL_TRAILING_PUNCTUATION_RE)?.[0] ?? "";
+    const href = trailingPunctuation ? rawUrl.slice(0, -trailingPunctuation.length) : rawUrl;
+    nodes.push({
+      type: "element",
+      tagName: "a",
+      properties: {
+        className: ["article-reference-url"],
+        href,
+        target: "_blank",
+        rel: "noreferrer",
+      },
+      children: [{ type: "text", value: href }],
+    });
+    if (trailingPunctuation) {
+      nodes.push({ type: "text", value: trailingPunctuation });
+    }
+
+    lastIndex = match.index + rawUrl.length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push({ type: "text", value: text.slice(lastIndex) });
+  }
+
+  return nodes.length > 0 ? nodes : [{ type: "text", value: text }];
+}
+
+function appendReferenceBackrefs(entry: HastElement, backrefs: Array<{ id: string; index: number }>) {
+  if (backrefs.length === 0) {
+    return;
+  }
+
+  const host = findElementByClass(entry, "csl-right-inline") ?? entry;
+  host.children ??= [];
+  host.children.push({ type: "text", value: " " });
+  host.children.push({
+    type: "element",
+    tagName: "span",
+    properties: {
+      className: ["article-reference-backrefs"],
+      "aria-label": "文中引用位置",
+    },
+    children: [
+      {
+        type: "element",
+        tagName: "span",
+        properties: { className: ["article-reference-backrefs__label"] },
+        children: [{ type: "text", value: "cite" }],
+      },
+      ...backrefs.map((backref) => ({
+        type: "element",
+        tagName: "a",
+        properties: {
+          className: ["article-reference-backref"],
+          href: `#${backref.id}`,
+          "aria-label": `跳转到第 ${backref.index} 处正文引用`,
+        },
+        children: [{ type: "text", value: String(backref.index) }],
+      })),
+    ],
+  });
+}
+
+function findElementByClass(node: unknown, className: string): HastElement | undefined {
+  if (!isElementNode(node)) {
+    return undefined;
+  }
+  if (getClassList(node.properties).includes(className)) {
+    return node;
+  }
+  for (const child of node.children ?? []) {
+    const found = findElementByClass(child, className);
+    if (found) {
+      return found;
+    }
+  }
+  return undefined;
 }
 
 function walkTree(node: unknown, visitor: (node: unknown, parent?: ParentNode, index?: number) => void) {
@@ -615,6 +759,10 @@ function walkTree(node: unknown, visitor: (node: unknown, parent?: ParentNode, i
 
 function isElementNode(node: unknown): node is HastElement {
   return Boolean(node && typeof node === "object" && (node as HastElement).type === "element");
+}
+
+function isTextNode(node: unknown): node is HastText & { value: string } {
+  return Boolean(node && typeof node === "object" && (node as HastText).type === "text" && typeof (node as HastText).value === "string");
 }
 
 function getClassList(properties: Record<string, unknown> | undefined) {
