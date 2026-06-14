@@ -35,10 +35,20 @@
     "gist_content_safety_hint",
     "bestdori_available_servers",
     "bestdori_preferred_server",
+    "tagger_visual_evidence_status",
+    "tagger_visual_evidence_count",
+    "tagger_visual_evidence_primary_url",
+    "tagger_visual_evidence_primary_sha256",
     "download_status",
     "conversion_status",
     "validate_status",
     "render_status",
+    "render_complete_person_decision",
+    "render_complete_person_reason",
+    "render_nonblank_ratio",
+    "render_bounds_width",
+    "render_bounds_height",
+    "render_bounds_inside_ratio",
     "render_image_sha256_primary",
     "render_image_sha256_desktop",
     "render_image_sha256_mobile",
@@ -52,6 +62,8 @@
     "rating_predicted_label",
     "rating_confidence",
     "rating_margin",
+    "llm_review_status",
+    "llm_review_reason",
     "needs_llm_review",
     "llm_review_label",
     "needs_human_review",
@@ -81,6 +93,8 @@
     "pending_count",
     "render_success_rate",
     "validate_success_rate",
+    "tagger_scanned_count",
+    "llm_review_queue_count",
     "needs_llm_review_count",
     "needs_human_review_count"
   ],
@@ -202,6 +216,26 @@
     },
     {
       "name": "bestdori_build_data_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_visual_evidence_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_visual_evidence_count",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "tagger_visual_evidence_primary_url",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_visual_evidence_primary_sha256",
       "nullable": true,
       "type": "string"
     },
@@ -376,6 +410,36 @@
       "type": "string"
     },
     {
+      "name": "render_complete_person_decision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_complete_person_reason",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_nonblank_ratio",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "render_bounds_width",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_bounds_height",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_bounds_inside_ratio",
+      "nullable": true,
+      "type": "number"
+    },
+    {
       "name": "rendered_at",
       "nullable": true,
       "type": "string"
@@ -543,7 +607,7 @@
     {
       "name": "tagger_inference_batch_size",
       "nullable": true,
-      "type": "string"
+      "type": "integer"
     },
     {
       "name": "tagger_top_tags_top30_json",
@@ -578,22 +642,22 @@
     {
       "name": "rating_score_general",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "rating_score_sensitive",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "rating_score_questionable",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "rating_score_explicit",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "rating_predicted_label",
@@ -603,17 +667,17 @@
     {
       "name": "rating_confidence",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "rating_margin",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "rating_entropy",
       "nullable": true,
-      "type": "string"
+      "type": "number"
     },
     {
       "name": "needs_llm_review",
@@ -1036,7 +1100,7 @@
       "type": "string"
     }
   ],
-  "generatedAt": "2026-06-14T12:19:56Z",
+  "generatedAt": "2026-06-14T20:27:05Z",
   "notes": [
     "gist_* columns preserve candidate-resource-intelligence.csv source names with the gist_ prefix.",
     "is_union_reference means the costume key appears in the five-server Bestdori live2d.chara union and may overlap current_pool/covered_candidate.",

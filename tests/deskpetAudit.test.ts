@@ -25,10 +25,20 @@ const AUDIT_CSV_COLUMNS = [
   "gist_content_safety_hint",
   "bestdori_available_servers",
   "bestdori_preferred_server",
+  "tagger_visual_evidence_status",
+  "tagger_visual_evidence_count",
+  "tagger_visual_evidence_primary_url",
+  "tagger_visual_evidence_primary_sha256",
   "download_status",
   "conversion_status",
   "validate_status",
   "render_status",
+  "render_complete_person_decision",
+  "render_complete_person_reason",
+  "render_nonblank_ratio",
+  "render_bounds_width",
+  "render_bounds_height",
+  "render_bounds_inside_ratio",
   "render_image_sha256_primary",
   "render_image_sha256_desktop",
   "render_image_sha256_mobile",
@@ -42,6 +52,8 @@ const AUDIT_CSV_COLUMNS = [
   "rating_predicted_label",
   "rating_confidence",
   "rating_margin",
+  "llm_review_status",
+  "llm_review_reason",
   "needs_llm_review",
   "llm_review_label",
   "needs_human_review",
@@ -71,6 +83,8 @@ const FAMILY_SUMMARY_COLUMNS = [
   "pending_count",
   "render_success_rate",
   "validate_success_rate",
+  "tagger_scanned_count",
+  "llm_review_queue_count",
   "needs_llm_review_count",
   "needs_human_review_count",
 ] as const;
@@ -188,6 +202,10 @@ describe("BanG Dream deskpet audit dataset", () => {
       "evidence-index.parquet",
       "evidence-index.csv",
       "family-summary.csv",
+      "llm-review-queue.csv",
+      "llm-review-results.json",
+      "render-completeness.csv",
+      "render-completeness.json",
       "resource-intelligence-summary.json",
     ]) {
       expect(fs.existsSync(path.join(auditDir, name)), name).toBe(true);
@@ -212,8 +230,8 @@ describe("BanG Dream deskpet audit dataset", () => {
       ["current_pool", 165],
       ["union_only", 103],
     ]);
-    expect(rows.every((row) => row.final_content_rating === "unknown")).toBe(true);
-    expect(rows.every((row) => row.content_policy_decision === "pending")).toBe(true);
+    expect(rows.every((row) => row.final_content_rating !== "")).toBe(true);
+    expect(rows.every((row) => row.content_policy_decision !== "")).toBe(true);
   });
 
   it("preserves overlapping union-reference scope for current and covered rows", () => {
@@ -226,7 +244,9 @@ describe("BanG Dream deskpet audit dataset", () => {
     expect(currentPoolRows.every((row) => row.is_covered_candidate === "True")).toBe(true);
     expect(currentPoolRows.every((row) => row.is_union_reference === "True")).toBe(true);
     expect(coveredRows.every((row) => row.is_union_reference === "True")).toBe(true);
+    expect(coveredRows.every((row) => row.is_current_pool === "False")).toBe(true);
     expect(unionOnlyRows.every((row) => row.is_current_pool === "False")).toBe(true);
+    expect(unionOnlyRows.every((row) => row.is_covered_candidate === "False")).toBe(true);
     expect(unionOnlyRows.every((row) => row.resource_key.startsWith("bangdream_upstream_"))).toBe(
       true,
     );
@@ -236,6 +256,7 @@ describe("BanG Dream deskpet audit dataset", () => {
     const sourceSnapshot = JSON.parse(readAuditFile("source-snapshot.json"));
     const tagMapping = JSON.parse(readAuditFile("tag-rating-mapping-v1.json"));
     const familyRows = parseCsv(readAuditFile("family-summary.csv"));
+    const llmReviewResults = JSON.parse(readAuditFile("llm-review-results.json"));
 
     expect(sourceSnapshot.gist.gist_id).toBe("0badd50993b2958b635889d6eaa0b34c");
     expect(sourceSnapshot.gist.files["README.md"].sha256).toMatch(/^[0-9a-f]{64}$/);
@@ -248,10 +269,38 @@ describe("BanG Dream deskpet audit dataset", () => {
       "045": "339",
     });
     expect(sourceSnapshot.tagger.requires_audit_time_recheck).toBe(true);
-    expect(tagMapping.low_confidence.direct_rating_label.max_score_threshold).toBe(0.8);
+    expect(sourceSnapshot.llm_review.status).toBe(llmReviewResults.status);
+    expect(tagMapping.low_confidence.direct_rating_label.max_score_threshold).toBe(0.27);
     expect(Object.keys(familyRows[0] ?? {})).toEqual([...FAMILY_SUMMARY_COLUMNS]);
     expect(Object.keys(familyRows[0] ?? {})).toContain("policy_reject_count");
     expect(Object.keys(familyRows[0] ?? {})).not.toContain("reject_count");
+    expect(llmReviewResults.results_path).toBe("llm-review-results.json");
+  });
+
+  it("records current-pool render completeness and LLM queue semantics", () => {
+    const rows = parseCsv(readAuditFile("audit.csv"));
+    const renderRows = parseCsv(readAuditFile("render-completeness.csv"));
+    const llmRows = parseCsv(readAuditFile("llm-review-queue.csv"));
+    const summary = JSON.parse(readAuditFile("resource-intelligence-summary.json"));
+    const currentPoolRows = rows.filter((row) => row.is_current_pool === "True");
+    const pendingLlmRows = rows.filter(
+      (row) => row.needs_llm_review === "True" && row.llm_review_status === "pending",
+    );
+
+    expect(renderRows).toHaveLength(currentPoolRows.length);
+    expect(currentPoolRows.every((row) => row.render_complete_person_decision !== "not_run")).toBe(
+      true,
+    );
+    expect(currentPoolRows.some((row) => row.render_image_sha256_primary.length > 0)).toBe(true);
+    expect(llmRows).toHaveLength(pendingLlmRows.length);
+    expect(summary.renderCompleteness.status).toBe("completed");
+    expect(summary.renderCompleteness.scope).toBe("current_pool_only");
+    if (summary.taggerScan.status === "skipped") {
+      expect(summary.taggerScan).not.toHaveProperty("model_id");
+    } else {
+      expect(summary.taggerScan.model_id).toBe("animetimm/convnextv2_huge.dbv4-full");
+      expect(summary.taggerScan.scanned_rows).toBeGreaterThan(0);
+    }
   });
 
   it("keeps evidence references as JSON arrays backed by evidence-index.csv", () => {
@@ -259,7 +308,9 @@ describe("BanG Dream deskpet audit dataset", () => {
     const evidenceRows = parseCsv(readAuditFile("evidence-index.csv"));
     const evidenceIds = new Set(evidenceRows.map((row) => row.evidence_id));
 
-    for (const row of rows.slice(0, 100)) {
+    expect(evidenceRows.length).toBeGreaterThanOrEqual(rows.length);
+
+    for (const row of rows) {
       const refs = parseJsonArrayCell(row.evidence_refs);
       expect(refs.length).toBeGreaterThan(0);
       for (const ref of refs) {

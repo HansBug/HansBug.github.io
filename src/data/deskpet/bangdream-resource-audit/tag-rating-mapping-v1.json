@@ -4,7 +4,8 @@
     "direct_rating_label": {
       "action": "needs_review",
       "margin_threshold": 0.2,
-      "max_score_threshold": 0.8,
+      "max_score_threshold": 0.27,
+      "notes": "max_score_threshold follows the selected_tags.csv direct rating thresholds; margin_threshold catches ambiguous top-2 ratings.",
       "strategy": "max_score_or_margin"
     },
     "tag_mapping": {

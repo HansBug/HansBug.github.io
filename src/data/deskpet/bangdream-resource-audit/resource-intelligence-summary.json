@@ -1,18 +1,24 @@
 {
   "bestdoriSnapshot": {
     "failed_resources": [],
-    "fetched_at": "2026-06-14T12:19:50Z",
-    "snapshot_id": "20260614T121950Z"
+    "fetched_at": "2026-06-14T19:25:35Z",
+    "snapshot_id": "20260614T192535Z"
   },
   "contentPolicyDecisionCounts": {
-    "pending": 3443
+    "allow_default": 1112,
+    "allow_sensitive_easter_egg": 2135,
+    "pending": 181,
+    "quarantine": 15
   },
   "coveredCandidateRows": 3340,
   "currentPoolRows": 165,
   "finalContentRatingCounts": {
-    "unknown": 3443
+    "general": 1112,
+    "questionable": 15,
+    "sensitive": 2135,
+    "unknown": 181
   },
-  "generatedAt": "2026-06-14T12:19:56Z",
+  "generatedAt": "2026-06-14T20:27:05Z",
   "gistDatasetSummary": {
     "aveMujicaLocalToUpstreamMap": {
       "041": "341",
@@ -97,6 +103,1456 @@
     ],
     "titleCardMappedRows": 2137
   },
+  "llmReview": {
+    "applied_rows": 215,
+    "batches": [
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 39.03,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 31.9,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 44.58,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 38.25,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 240.1,
+        "error": "Command 'codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <repo>/<batch-output>-0005.json -' timed out after 240 seconds",
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "failed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 51.51,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 80.68,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 52.77,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 32.37,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 38.0,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 40.55,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 21.62,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 27.28,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 28.11,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      },
+      {
+        "command": "codex exec --dangerously-bypass-approvals-and-sandbox --output-last-message <batch-output> -",
+        "duration_seconds": 27.97,
+        "exit_code": 0,
+        "output_artifact": "llm-review-results.json:items",
+        "reviewer": "codex exec",
+        "status": "completed"
+      }
+    ],
+    "completed_batches": 14,
+    "eligible_rows": 215,
+    "failed_batches": 1,
+    "generated_at": "2026-06-14T20:27:04Z",
+    "items": [
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "general略高但sensitive也高且margin偏小；无泳装/内衣证据，保守待复核",
+        "resource_key": "bangdream_001_cafe"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，且有collarbone、medium_breasts等轻度暗示标签",
+        "resource_key": "bangdream_001_casual"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "睡衣变体，general与sensitive接近；无明确裸露标签，证据不足",
+        "resource_key": "bangdream_001_chapter0_pajamas"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "sensitive略高，含collarbone/breasts等轻度身体标签；无questionable证据",
+        "resource_key": "bangdream_001_event_147_story_01"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "sensitive高于general，服装含collarbone等轻度暗示；无裸露或泳装证据",
+        "resource_key": "bangdream_001_live_event_05_ssr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general略高但sensitive接近；仅短裤/腿带等轻度标签，证据不足",
+        "resource_key": "bangdream_001_live_event_130_r"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "sensitive与general差距极小，shorts/short_shorts证据较弱，保守待复核",
+        "resource_key": "bangdream_001_live_event_83_r"
+      },
+      {
+        "confidence": 0.83,
+        "label": "questionable",
+        "notes": "questionable与sensitive接近但出现nipples、nude高分，属于明显裸露",
+        "resource_key": "bangdream_001_live_r_2018"
+      },
+      {
+        "confidence": 0.56,
+        "label": "unknown",
+        "notes": "general较高但sensitive不低；睡衣变体且缺少服装细节，证据不足",
+        "resource_key": "bangdream_001_pajamas-2023"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "sensitive略高但主要是校服标签，无裸露；按低置信轻度敏感处理",
+        "resource_key": "bangdream_001_school_winter"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "与school_winter同分同标签，sensitive略高；无questionable证据",
+        "resource_key": "bangdream_001_school_winter_v3"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "sensitive略高但no_humans较高且服装证据偏装饰性，证据不足",
+        "resource_key": "bangdream_002_live_event_102_sr"
+      },
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "general略高，和服/过膝袜标签；sensitive接近但无明确敏感证据",
+        "resource_key": "bangdream_002_live_event_209_ssr"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "general与sensitive几乎持平，且no_humans较高；无法可靠判定",
+        "resource_key": "bangdream_002_live_event_332_ur"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "general略高但sensitive接近；泳装policy概率低但不为零，证据不足",
+        "resource_key": "bangdream_003_miku_nocturnality"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，含collarbone/miniskirt/body_blush等轻度敏感标签",
+        "resource_key": "bangdream_003_special_5th"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "general略高但sensitive接近；和服标签为主，无明确敏感证据",
+        "resource_key": "bangdream_004_2019_furisode"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive略高且有sundress/collarbone/blush等轻度暗示标签，无更高风险标签",
+        "resource_key": "bangdream_004_casual"
+      },
+      {
+        "confidence": 0.48,
+        "label": "unknown",
+        "notes": "general与sensitive接近，标签主要为普通冬季便服，证据不足",
+        "resource_key": "bangdream_004_casual_winter"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "general略高，常规服装标签为主；sensitive接近，证据不足",
+        "resource_key": "bangdream_004_chispa"
+      },
+      {
+        "confidence": 0.56,
+        "label": "unknown",
+        "notes": "general略高但标签多为表情/抽象，角色证据混杂；保守待复核",
+        "resource_key": "bangdream_004_live_event_220_ssr"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "general略高但sensitive超过0.5，含shorts/thighhighs/short_shorts等轻度性感标签",
+        "resource_key": "bangdream_004_live_event_41_sr"
+      },
+      {
+        "confidence": 0.66,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，含corset/maid/thighhighs等轻度性感服装标签",
+        "resource_key": "bangdream_004_live_event_68_r"
+      },
+      {
+        "confidence": 0.56,
+        "label": "unknown",
+        "notes": "general与sensitive分数几乎持平，虽为校服且无高危标签，但证据不足。",
+        "resource_key": "bangdream_004_school_winter"
+      },
+      {
+        "confidence": 0.67,
+        "label": "general",
+        "notes": "校服标签明确，general领先，泳装/内衣策略标签极低。",
+        "resource_key": "bangdream_005_event_216_story_01"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "sensitive领先，corset、fishnets、thighhighs等轻度性感标签存在。",
+        "resource_key": "bangdream_005_event_92_story_01"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive小幅领先，虽为校服但有breasts标签，保守归入轻度敏感。",
+        "resource_key": "bangdream_005_live_event_119_ssr"
+      },
+      {
+        "confidence": 0.69,
+        "label": "unknown",
+        "notes": "top tags大量抽象/误识别标签且分数冲突，无法可靠判断。",
+        "resource_key": "bangdream_005_live_event_238_ssr"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "与event_92一致，corset、fishnets、thighhighs等标签支持轻度敏感。",
+        "resource_key": "bangdream_005_live_event_92_ssr"
+      },
+      {
+        "confidence": 0.72,
+        "label": "general",
+        "notes": "校服标签强，general明显领先，策略高危标签极低。",
+        "resource_key": "bangdream_005_school_winter"
+      },
+      {
+        "confidence": 0.58,
+        "label": "general",
+        "notes": "general略高，主要为毛衣外套短裤裤袜等日常服饰，政策标签极低",
+        "resource_key": "bangdream_006_casual"
+      },
+      {
+        "confidence": 0.72,
+        "label": "sensitive",
+        "notes": "sensitive领先，shorts、thigh_strap、see-through_clothes、crop_top等标签。",
+        "resource_key": "bangdream_006_live_event_169_ssr"
+      },
+      {
+        "confidence": 0.56,
+        "label": "sensitive",
+        "notes": "general领先但thighhighs较高，和服装束有轻度性感可能，保守上调。",
+        "resource_key": "bangdream_006_live_event_173_sr"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "sensitive领先，heart_cutout、clothing_cutout、thighhighs等暗示标签。",
+        "resource_key": "bangdream_006_live_event_320_ssr"
+      },
+      {
+        "confidence": 0.65,
+        "label": "unknown",
+        "notes": "general与sensitive接近且角色/多人数/抽象标签混杂，证据不稳。",
+        "resource_key": "bangdream_006_live_event_328_ur"
+      },
+      {
+        "confidence": 0.78,
+        "label": "sensitive",
+        "notes": "sensitive明显领先，fishnets、torn_clothes、thigh_strap等轻度性感标签。",
+        "resource_key": "bangdream_006_live_event_78_sr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "general仅小幅领先，但corset、shorts、torn_thighhighs、thigh_strap较多。",
+        "resource_key": "bangdream_006_live_r_2021"
+      },
+      {
+        "confidence": 0.66,
+        "label": "general",
+        "notes": "校服标签强，general领先，无泳装/内衣/裸露证据。",
+        "resource_key": "bangdream_006_memorial_middle_school"
+      },
+      {
+        "confidence": 0.61,
+        "label": "general",
+        "notes": "日常衣物与裤装标签为主，general领先，策略标签很低。",
+        "resource_key": "bangdream_007_event_49_story_01"
+      },
+      {
+        "confidence": 0.58,
+        "label": "general",
+        "notes": "夏季校服标签明确，general小幅领先，无明显敏感标签。",
+        "resource_key": "bangdream_007_school_summer_s2"
+      },
+      {
+        "confidence": 0.66,
+        "label": "general",
+        "notes": "夏季校服标签明确，general领先，策略标签极低。",
+        "resource_key": "bangdream_007_school_summer_v3"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "general领先但有sleeveless、breasts、collarbone、medium_breasts，保守归敏感。",
+        "resource_key": "bangdream_008_event_49_story_01"
+      },
+      {
+        "confidence": 0.64,
+        "label": "unknown",
+        "notes": "sensitive低置信领先，no_humans/food等误识别标签多，证据不足。",
+        "resource_key": "bangdream_008_live_event_206_sr"
+      },
+      {
+        "confidence": 0.74,
+        "label": "general",
+        "notes": "校服标签强，general明显领先，策略高危标签极低。",
+        "resource_key": "bangdream_008_school_summer_v3"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "校服标签偏SFW，但general/sensitive接近且人工复核提示，证据不足",
+        "resource_key": "bangdream_008_school_winter_s2"
+      },
+      {
+        "confidence": 0.72,
+        "label": "questionable",
+        "notes": "questionable分数较高，且nipples、navel、midriff等标签集中出现",
+        "resource_key": "bangdream_009_live_event_145_sr"
+      },
+      {
+        "confidence": 0.66,
+        "label": "questionable",
+        "notes": "general与questionable接近，nipples标签较高，按保守策略上调",
+        "resource_key": "bangdream_009_live_event_182_sr"
+      },
+      {
+        "confidence": 0.49,
+        "label": "unknown",
+        "notes": "general/sensitive接近，top tags偏抽象参考图，缺少明确分级证据",
+        "resource_key": "bangdream_009_live_event_320_r"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "general/sensitive几乎打平，但short_shorts、corset、bridal_garter等提示轻度性感",
+        "resource_key": "bangdream_009_live_event_37_ssr"
+      },
+      {
+        "confidence": 0.56,
+        "label": "sensitive",
+        "notes": "general略高但sensitive接近，hadanugi_dousa与thigh_strap提示轻度暴露风险",
+        "resource_key": "bangdream_009_live_event_44_ssr"
+      },
+      {
+        "confidence": 0.7,
+        "label": "questionable",
+        "notes": "questionable最高，且see-through_clothes、nipples、bodysuit等标签支持隔离",
+        "resource_key": "bangdream_009_live_event_49_sr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "睡衣场景且sensitive接近general，collarbone/blush提示轻度暧昧风险",
+        "resource_key": "bangdream_009_pajamas"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，strapless/strapless_dress等标签提示轻度性感",
+        "resource_key": "bangdream_010_live_event_115_ssr"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "sensitive领先，fishnets、thighhighs、thigh_strap等标签集中",
+        "resource_key": "bangdream_010_live_event_136_ssr"
+      },
+      {
+        "confidence": 0.56,
+        "label": "sensitive",
+        "notes": "general略高但short_shorts、thighhighs、detached_sleeves等有轻度性感风险",
+        "resource_key": "bangdream_011_delta"
+      },
+      {
+        "confidence": 0.76,
+        "label": "sensitive",
+        "notes": "sensitive领先，bloomers与underwear标签较高，适合低概率彩蛋池",
+        "resource_key": "bangdream_011_halloween_without_lantern"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "general略高但bridal_garter、garter_straps、thighhighs等标签提示轻度性感",
+        "resource_key": "bangdream_011_live_event_103_ssr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "general领先但sensitive超过0.5，striped_thighhighs等标签带轻度风险",
+        "resource_key": "bangdream_011_live_event_113_sr"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "sensitive略高，thighhighs与bow_legwear等标签提示轻度性感",
+        "resource_key": "bangdream_011_live_event_131_ssr"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "sensitive领先但主要标签是玩偶/参考图，缺少可靠内容证据",
+        "resource_key": "bangdream_011_live_event_40_r"
+      },
+      {
+        "confidence": 0.61,
+        "label": "sensitive",
+        "notes": "sensitive明显领先，shorts、thighhighs、thigh_boots等提示轻度性感",
+        "resource_key": "bangdream_011_live_event_71_sr"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "sensitive高于general且为夏季便服，但无泳装/内衣/裸露高风险标签",
+        "resource_key": "bangdream_012_casual_summer"
+      },
+      {
+        "confidence": 0.51,
+        "label": "unknown",
+        "notes": "sensitive领先但标签多为首饰/手部/角色误识别，证据不足",
+        "resource_key": "bangdream_012_event_316_story_01"
+      },
+      {
+        "confidence": 0.58,
+        "label": "general",
+        "notes": "服装标签以手套、靴子、裤装为主，无明确暴露或成人标签",
+        "resource_key": "bangdream_012_live_event_123_ssr"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive最高，garter_straps、navel、midriff、thighhighs等提示轻度性感",
+        "resource_key": "bangdream_012_live_event_137_sr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general与sensitive分数接近，标签无明确风险但证据不足",
+        "resource_key": "bangdream_012_live_event_186_sr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive略高，伴随blush与饰品/礼服类标签，无更高风险",
+        "resource_key": "bangdream_012_live_event_316_ur"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general略高但sensitive接近，普通服装标签为主，保守待复核",
+        "resource_key": "bangdream_012_special_5th"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，shorts/thighhighs/short_shorts等轻度性感标签",
+        "resource_key": "bangdream_013_delta"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "sensitive高于general，但主要是校服与blush，按保守低风险处理",
+        "resource_key": "bangdream_013_event_216_story_01"
+      },
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "sensitive略高但缺少明确性感标签，证据不足",
+        "resource_key": "bangdream_013_live_event_265_sr"
+      },
+      {
+        "confidence": 0.72,
+        "label": "sensitive",
+        "notes": "garter_straps、thighhighs、shorts等标签较强，低概率泳装标签不高",
+        "resource_key": "bangdream_013_live_event_67_sr"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "sensitive高于general，和服/动物耳尾为主，无裸露或色情证据",
+        "resource_key": "bangdream_013_live_event_95_ssr"
+      },
+      {
+        "confidence": 0.56,
+        "label": "unknown",
+        "notes": "general略高但含thighhighs，分数不够稳，保守待复核",
+        "resource_key": "bangdream_013_live_event_98_ssr"
+      },
+      {
+        "confidence": 0.66,
+        "label": "general",
+        "notes": "general高于sensitive，校服标签为主，policy标签极低",
+        "resource_key": "bangdream_013_school_winter"
+      },
+      {
+        "confidence": 0.45,
+        "label": "unknown",
+        "notes": "general与sensitive几乎打平，collarbone存在但不足以稳定定级",
+        "resource_key": "bangdream_014_casual_summer"
+      },
+      {
+        "confidence": 0.84,
+        "label": "sensitive",
+        "notes": "strapless、breasts、cleavage、bare_shoulders、underwear等标签支持敏感级",
+        "resource_key": "bangdream_014_live_event_121_ssr"
+      },
+      {
+        "confidence": 0.56,
+        "label": "unknown",
+        "notes": "sensitive偏高但top tags多为参考/发型，缺少内容证据",
+        "resource_key": "bangdream_014_live_event_327_ssr"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "虽general略高，但navel、midriff、thigh_strap、short_shorts支持轻度性感",
+        "resource_key": "bangdream_014_live_event_79_sr"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "general与sensitive几乎持平，少量bare_shoulders/breasts但证据弱",
+        "resource_key": "bangdream_014_ranger"
+      },
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "sensitive略高但为校服常规标签，缺少明确风险证据",
+        "resource_key": "bangdream_014_school_winter"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "sensitive高于general，pantyhose/frills等轻度敏感，policy标签很低",
+        "resource_key": "bangdream_015_live_event_20_sr"
+      },
+      {
+        "confidence": 0.68,
+        "label": "general",
+        "notes": "general明显高于sensitive，主要为表情/头发/多视图标签",
+        "resource_key": "bangdream_016_collabo_ssr"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "general与sensitive几乎持平，缺少明确内容证据",
+        "resource_key": "bangdream_016_dream_festival_2"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "sensitive较高但top tags主要是表情/发色/多视图，证据不足",
+        "resource_key": "bangdream_016_live_event_267_ur"
+      },
+      {
+        "confidence": 0.6,
+        "label": "general",
+        "notes": "general高于sensitive，表情与食物标签为主，policy标签极低",
+        "resource_key": "bangdream_016_live_event_304_sr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general略高于sensitive，标签以裙装、发饰、花饰为主，泳装/内衣概率极低。",
+        "resource_key": "bangdream_016_live_event_36_sr"
+      },
+      {
+        "confidence": 0.48,
+        "label": "unknown",
+        "notes": "general与sensitive分数接近，缺少明确性感或裸露标签，证据不足以稳判。",
+        "resource_key": "bangdream_016_live_event_66_r"
+      },
+      {
+        "confidence": 0.61,
+        "label": "sensitive",
+        "notes": "sensitive高于general，虽主要是T恤短裙标签，但保守按轻度敏感处理。",
+        "resource_key": "bangdream_016_special_5th"
+      },
+      {
+        "confidence": 0.72,
+        "label": "sensitive",
+        "notes": "sensitive占优，且有collarbone、breasts、sundress、cleavage等轻度性感相关标签。",
+        "resource_key": "bangdream_017_live_event_08_r"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "general较高但sensitive接近，存在thighhighs、zettai_ryouiki等暗示性标签，保守降为sensitive。",
+        "resource_key": "bangdream_017_live_event_112_r"
+      },
+      {
+        "confidence": 0.74,
+        "label": "sensitive",
+        "notes": "sensitive略高于general且差距很小；fishnets、fishnet_thighhighs、midriff、crop_top等轻度性感标签集中，保守标sensitive。",
+        "resource_key": "bangdream_017_live_event_143_sr"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "sensitive高于general；miniskirt、thighhighs、choker、breasts等标签有轻度暗示，但无questionable/explicit证据。",
+        "resource_key": "bangdream_017_live_event_178_r"
+      },
+      {
+        "confidence": 0.82,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general；navel、midriff、crop_top、single_thighhigh等裸露/轻度性感标签较强，未见更高风险证据。",
+        "resource_key": "bangdream_017_live_event_33_sr"
+      },
+      {
+        "confidence": 0.72,
+        "label": "general",
+        "notes": "general高于sensitive且policy标签极低；主要是T恤、格裙、参考图等普通服装标签，轻微collarbone不足以上调。",
+        "resource_key": "bangdream_017_special_5th"
+      },
+      {
+        "confidence": 0.63,
+        "label": "sensitive",
+        "notes": "general仅小幅高于sensitive，且有collar、animal_collar、collarbone、breasts等轻度暗示标签；证据不足以判questionable，保守标sensitive。",
+        "resource_key": "bangdream_018_2018_dog"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "general 与 sensitive 分数非常接近，且有 thighhighs、miniskirt、microskirt 等轻度性感服饰信号，保守上调。",
+        "resource_key": "bangdream_018_live_event_106_r"
+      },
+      {
+        "confidence": 0.68,
+        "label": "general",
+        "notes": "general 分数领先较明显，主要为 dress、flower、jewelry；strapless 信号较弱，未见泳装或露骨策略标签。",
+        "resource_key": "bangdream_018_live_event_118_sr"
+      },
+      {
+        "confidence": 0.57,
+        "label": "general",
+        "notes": "general 略高于 sensitive，服饰为乐队制服、裙装、长袜；策略标签极低，但分差较小所以置信度不高。",
+        "resource_key": "bangdream_018_live_event_17_sr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "general",
+        "notes": "虽然 sensitive 分数略高，但 top tags 主要是 T 恤、牛仔裤、乐器和参考图，缺少实际性感或裸露证据，按证据不足以升敏处理。",
+        "resource_key": "bangdream_019_garupa_t"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "tagger 结果冲突且质量可疑：no_humans、abstract 很高，同时出现低分 panties 与角色误识别；不能看图时证据不足，待人工复核。",
+        "resource_key": "bangdream_019_live_event_219_ur"
+      },
+      {
+        "confidence": 0.62,
+        "label": "unknown",
+        "notes": "general与sensitive分数接近，top tags无明确泳装/裸露证据，保守待复核",
+        "resource_key": "bangdream_019_live_event_290_ssr"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "sensitive有一定优势，但标签缺少明确服装证据，按保守复核置为轻度敏感",
+        "resource_key": "bangdream_019_live_event_325_ur"
+      },
+      {
+        "confidence": 0.6,
+        "label": "unknown",
+        "notes": "general略高但sensitive接近，服装为裙装/长袜，swimsuit概率偏低但不够稳",
+        "resource_key": "bangdream_019_live_event_66_ssr"
+      },
+      {
+        "confidence": 0.78,
+        "label": "general",
+        "notes": "校服标签明确，泳装/内衣概率极低，questionable和explicit接近零",
+        "resource_key": "bangdream_019_school_summer_s2"
+      },
+      {
+        "confidence": 0.82,
+        "label": "general",
+        "notes": "校服与参考图标签明确，general优势较明显，无敏感政策标签支撑",
+        "resource_key": "bangdream_019_school_summer_v3"
+      },
+      {
+        "confidence": 0.58,
+        "label": "unknown",
+        "notes": "sensitive高于general但内容标签是冬季校服，无泳装/裸露证据，分数冲突需人工复核",
+        "resource_key": "bangdream_019_school_winter"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "general略高但sensitive接近，且有strapless/bare_shoulders/breasts标签，保守上调。",
+        "resource_key": "bangdream_020_event_80_story_01"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "sensitive领先，short_shorts/thighhighs等轻度性感标签；无更高风险证据。",
+        "resource_key": "bangdream_020_live_event_104_sr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "general领先但sensitive较高，bare_shoulders/thighhighs/bloomers提示轻度敏感，保守处理。",
+        "resource_key": "bangdream_020_live_event_118_ssr"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "general领先但sensitive接近，lower_body/legs/zettai_ryouiki标签存在，保守列为轻度敏感。",
+        "resource_key": "bangdream_020_live_event_143_ssr"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "sensitive明显领先，婚纱/连衣裙标签为主，无questionable或explicit证据。",
+        "resource_key": "bangdream_020_live_event_188_r"
+      },
+      {
+        "confidence": 0.66,
+        "label": "sensitive",
+        "notes": "sensitive领先，标签多为首饰和普通服饰；按分数保守归入敏感。",
+        "resource_key": "bangdream_020_live_event_246_ur"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive小幅领先，kimono/pantyhose/thighhighs类标签，无更高风险证据。",
+        "resource_key": "bangdream_020_live_event_29_ssr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "sensitive仅微弱领先，yuri/kiss/blush标签有暗示性；证据不足以上调到questionable。",
+        "resource_key": "bangdream_020_live_event_300_sr"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "sensitive领先，china_dress/thighhighs等轻度性感标签；高风险分数很低。",
+        "resource_key": "bangdream_020_live_event_39_ssr"
+      },
+      {
+        "confidence": 0.63,
+        "label": "sensitive",
+        "notes": "sensitive领先，corset等服饰标签略偏性感；无裸露或性行为证据。",
+        "resource_key": "bangdream_020_live_event_77_sr"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "general仅小幅领先，garter_straps/thighhighs/rabbit_ears提示轻度敏感，保守上调。",
+        "resource_key": "bangdream_020_live_event_99_sr"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "general与sensitive几乎持平，标签无明确敏感证据，分数冲突需人工复核。",
+        "resource_key": "bangdream_020_live_r_2018"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general领先，标签以发型/背景/多视图为主，policy标签和高风险分数很低。",
+        "resource_key": "bangdream_021_event_216_story_01"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general领先，标签以发型/背景/多视图为主，policy标签和高风险分数很低。",
+        "resource_key": "bangdream_021_event_216_story_02"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive小幅领先，pantyhose/corset/maid/lolita相关标签存在，保守归入敏感。",
+        "resource_key": "bangdream_021_event_89_story_01"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general领先，标签以发型/背景/多视图为主，policy标签和高风险分数很低。",
+        "resource_key": "bangdream_021_live_event_216_ssr"
+      },
+      {
+        "confidence": 0.64,
+        "label": "sensitive",
+        "notes": "sensitive小幅领先，bare_shoulders/breasts/collarbone标签存在，保守归入敏感。",
+        "resource_key": "bangdream_021_live_event_97_ssr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "sensitive小幅领先，pantyhose/corset/maid/lolita相关标签存在，保守归入敏感。",
+        "resource_key": "bangdream_021_live_r_2019"
+      },
+      {
+        "confidence": 0.51,
+        "label": "unknown",
+        "notes": "general与sensitive几乎持平，虽为校服SFW标签但分数冲突，保持人工复核。",
+        "resource_key": "bangdream_021_school_summer_s2"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "sensitive仅微弱领先，标签多为围裙/衬衫/裙装且policy概率极低，证据不足。",
+        "resource_key": "bangdream_022_apron"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "general 与 sensitive 分数很接近，且有 thighhighs/zettai_ryouiki，保守放入轻敏。",
+        "resource_key": "bangdream_022_fantasy"
+      },
+      {
+        "confidence": 0.62,
+        "label": "questionable",
+        "notes": "questionable 分最高，且出现 nipples 中等置信标签，保守隔离。",
+        "resource_key": "bangdream_022_live_event_123_ssr"
+      },
+      {
+        "confidence": 0.66,
+        "label": "sensitive",
+        "notes": "sensitive 明显高于 general，服装标签含 corset/sleeveless，但无 Q/E 强证据。",
+        "resource_key": "bangdream_022_live_event_23_sr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general 高于 sensitive，主要是 T 恤、短裙、参考图标签，策略标签很低。",
+        "resource_key": "bangdream_022_special_5th"
+      },
+      {
+        "confidence": 0.66,
+        "label": "general",
+        "notes": "general 占优，主要是铠甲和普通服装标签，泳装/内衣概率很低。",
+        "resource_key": "bangdream_023_2021af"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "general 仅小幅领先，存在 shorts/short_shorts 等轻度暴露服装信号，保守提级。",
+        "resource_key": "bangdream_023_2nd_general_election_r"
+      },
+      {
+        "confidence": 0.58,
+        "label": "general",
+        "notes": "general 明显占优，未见高风险策略标签；top tags 有噪声但无明确敏感证据。",
+        "resource_key": "bangdream_023_dream_festival_3_ur"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 高于 general，虽有 abstract/how_to 噪声，但无 Q/E 证据。",
+        "resource_key": "bangdream_023_dream_festival_4_ur"
+      },
+      {
+        "confidence": 0.72,
+        "label": "sensitive",
+        "notes": "sensitive 明显占优，且有 garter_straps、thighhighs、shorts 等轻度性感服装标签。",
+        "resource_key": "bangdream_023_live_event_127_sr"
+      },
+      {
+        "confidence": 0.76,
+        "label": "unknown",
+        "notes": "general 与 sensitive 几乎持平，且 top tags 噪声较高，证据不足。",
+        "resource_key": "bangdream_023_live_event_214_sr"
+      },
+      {
+        "confidence": 0.61,
+        "label": "general",
+        "notes": "general 小幅占优，主要是校服、衬衫、裙装标签，策略标签很低。",
+        "resource_key": "bangdream_023_school_summer"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "sensitive 明显高于 general；虽多为 T 恤/格裙标签，保守按轻敏处理。",
+        "resource_key": "bangdream_023_special_5th"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "sensitive 高于 general，top tags 有 blush/tongue 等轻度暗示信号，但证据偏弱。",
+        "resource_key": "bangdream_024_live_event_314_ssr"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "direct rating 为 general，但 bikini/swimsuit 策略概率明显偏高，保守提为 sensitive。",
+        "resource_key": "bangdream_024_live_event_65_r"
+      },
+      {
+        "confidence": 0.72,
+        "label": "sensitive",
+        "notes": "sensitive 明显占优，且有 corset、lace、thighhighs 等轻度性感服装标签。",
+        "resource_key": "bangdream_024_live_r_2018"
+      },
+      {
+        "confidence": 0.72,
+        "label": "general",
+        "notes": "general 明显占优，校服标签稳定，策略风险极低。",
+        "resource_key": "bangdream_024_school_summer_s2"
+      },
+      {
+        "confidence": 0.75,
+        "label": "sensitive",
+        "notes": "sensitive 明显占优，garter_straps、thighhighs、dress 等标签支持轻敏。",
+        "resource_key": "bangdream_025_dream_festival"
+      },
+      {
+        "confidence": 0.82,
+        "label": "sensitive",
+        "notes": "sensitive 明显占优，且有 breasts、cleavage、strapless/wedding_dress，未到 Q/E。",
+        "resource_key": "bangdream_025_event_116_story_01"
+      },
+      {
+        "confidence": 0.55,
+        "label": "sensitive",
+        "notes": "sensitive 高于 general，但 top tags 抽象噪声较多，低置信保守轻敏。",
+        "resource_key": "bangdream_025_live_event_214"
+      },
+      {
+        "confidence": 0.58,
+        "label": "general",
+        "notes": "general 高于 sensitive，未见高风险策略标签；top tags 噪声较多所以置信偏低。",
+        "resource_key": "bangdream_025_live_event_281_ur"
+      },
+      {
+        "confidence": 0.78,
+        "label": "sensitive",
+        "notes": "泳装/bikini 分数过半，按轻度性感处理。",
+        "resource_key": "bangdream_025_live_event_314_ur"
+      },
+      {
+        "confidence": 0.68,
+        "label": "questionable",
+        "notes": "nipples 标签较高，且有 breasts/navel/garter 等裸露暗示。",
+        "resource_key": "bangdream_025_live_event_78_sr"
+      },
+      {
+        "confidence": 0.82,
+        "label": "questionable",
+        "notes": "bikini/swimsuit 很高，questionable 接近 sensitive，且有 nude/underwear 证据。",
+        "resource_key": "bangdream_026_event_194_story_01"
+      },
+      {
+        "confidence": 0.62,
+        "label": "sensitive",
+        "notes": "敏感分略高，monster/teeth/colored_skin 偏轻度不适，无色情强证据。",
+        "resource_key": "bangdream_026_event_203_story_02"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "general 与 sensitive 接近，主要是正常服装标签，证据不足。",
+        "resource_key": "bangdream_026_live_event_148_sr"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "general 略高但与 sensitive 接近，缺少明确内容风险标签。",
+        "resource_key": "bangdream_026_live_event_259_ur"
+      },
+      {
+        "confidence": 0.5,
+        "label": "unknown",
+        "notes": "general 与 sensitive 差距很小，标签多为抽象/头像类，证据不足。",
+        "resource_key": "bangdream_026_live_event_271_ur"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "sensitive 略高但无泳装、裸露或暴力标签支撑。",
+        "resource_key": "bangdream_027_live_event_194_sr"
+      },
+      {
+        "confidence": 0.49,
+        "label": "unknown",
+        "notes": "general 与 sensitive 几乎打平，服装标签正常，证据不足。",
+        "resource_key": "bangdream_028_live_event_165_sr"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general 领先，主要为常规舞台服装，政策风险标签很低。",
+        "resource_key": "bangdream_029_live_event_165_sr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "sensitive 分较高但主要是常规服装/短裙标签，缺少明确风险证据。",
+        "resource_key": "bangdream_029_live_r_2022"
+      },
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "sensitive 领先但标签以手套、裙装、饰品为主，证据不足。",
+        "resource_key": "bangdream_029_live_sr_01"
+      },
+      {
+        "confidence": 0.66,
+        "label": "sensitive",
+        "notes": "garter_straps/thighhighs/sleeveless 等暗示性服装标签较高。",
+        "resource_key": "bangdream_029_live_ssr_01"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "sensitive 领先但主要为服装标签，breasts 中等，缺少明确裸露证据。",
+        "resource_key": "bangdream_030_live_event_132_sr"
+      },
+      {
+        "confidence": 0.76,
+        "label": "sensitive",
+        "notes": "midriff/navel/crop_top/cleavage 等轻度性感标签明确。",
+        "resource_key": "bangdream_031_live_event_133_ssr"
+      },
+      {
+        "confidence": 0.63,
+        "label": "sensitive",
+        "notes": "sensitive 领先，arthropod/monster/facial_mark 偏轻度不适，无色情强证据。",
+        "resource_key": "bangdream_031_live_event_256_sr"
+      },
+      {
+        "confidence": 0.66,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，虽政策标签极低但无法确认完全SFW",
+        "resource_key": "bangdream_032_casual-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "sensitive 领先但缺少泳装、裸露或暴力标签支撑。",
+        "resource_key": "bangdream_032_casual_summer-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "与 summer 同源分数，sensitive 领先但风险证据不足。",
+        "resource_key": "bangdream_032_casual_winter-2023"
+      },
+      {
+        "confidence": 0.6,
+        "label": "general",
+        "notes": "校服/眼镜等 SFW 标签占主导，政策风险标签极低。",
+        "resource_key": "bangdream_032_event_216_story_01"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "midriff/navel/miniskirt/thigh_strap 等轻度性感标签明确。",
+        "resource_key": "bangdream_032_live_event_151_sr"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 分数高于 general，虽无泳装/内衣证据但保守留敏感池",
+        "resource_key": "bangdream_032_live_event_237_r"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "同组分数指向 sensitive，policy 标签极低，无更高风险证据",
+        "resource_key": "bangdream_032_live_event_248_ssr"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 略占优，未见 questionable/explicit 证据",
+        "resource_key": "bangdream_032_live_event_256_r"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "tagger 直接分级偏 sensitive，低风险标签不足以下调 general",
+        "resource_key": "bangdream_032_live_event_298_sr"
+      },
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "general 与 sensitive 分差很小，且 top tags 证据混杂，待人工复核",
+        "resource_key": "bangdream_032_live_event_302_r"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 分数稳定高于 general，缺少明确色情或暴力标签",
+        "resource_key": "bangdream_032_live_event_319_r"
+      },
+      {
+        "confidence": 0.6,
+        "label": "general",
+        "notes": "general 明显高于 sensitive，policy 标签极低，top tags 无暴露证据",
+        "resource_key": "bangdream_032_live_event_329_ur"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 分数高于 general，按保守策略不下调",
+        "resource_key": "bangdream_032_live_r_2023"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 分数占优，summer 变体保守留敏感池",
+        "resource_key": "bangdream_032_school_summer-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "校服标签偏 SFW，但 general/sensitive 几乎打平，证据不足",
+        "resource_key": "bangdream_032_school_winter"
+      },
+      {
+        "confidence": 0.59,
+        "label": "sensitive",
+        "notes": "sensitive 分数占优，缺少更高风险标签",
+        "resource_key": "bangdream_032_school_winter-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "sensitive 与 general 分差很小，top tags 抽象且冲突，证据不足",
+        "resource_key": "bangdream_033_casual-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "summer 变体但 policy 标签很低，rating 近乎打平，待复核",
+        "resource_key": "bangdream_033_casual_summer-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "rating 分差过小且缺少明确内容证据",
+        "resource_key": "bangdream_033_casual_winter-2023"
+      },
+      {
+        "confidence": 0.58,
+        "label": "sensitive",
+        "notes": "sensitive 高于 general，bikini/swimsuit 概率略有抬升但不足 questionable",
+        "resource_key": "bangdream_033_dream_festival_2"
+      },
+      {
+        "confidence": 0.46,
+        "label": "unknown",
+        "notes": "general与sensitive差距很小且top tags噪声较多，证据冲突",
+        "resource_key": "bangdream_033_dream_festival_3_ur"
+      },
+      {
+        "confidence": 0.61,
+        "label": "general",
+        "notes": "general 明显占优，虽有 shorts/crop_top 但无明显暴露或泳装证据",
+        "resource_key": "bangdream_033_live_default"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "cleavage、navel、midriff、crop_top 等标签较强，符合轻度性感",
+        "resource_key": "bangdream_033_live_event_125_ssr"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "sensitive 略高但分差过小，top tags 无足够具体风险证据",
+        "resource_key": "bangdream_033_live_event_222_sr"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "rating 接近打平且证据混杂，保留人工复核",
+        "resource_key": "bangdream_033_live_event_249_r"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "sensitive/general 分差不足，缺少明确暴露标签",
+        "resource_key": "bangdream_033_live_event_256_ssr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general与sensitive分数几乎打平，top tags冲突且缺少明确性感证据",
+        "resource_key": "bangdream_033_live_event_269_sr"
+      },
+      {
+        "confidence": 0.66,
+        "label": "sensitive",
+        "notes": "sensitive高于general但无questionable/explicit或泳装内衣证据，保守列为轻度敏感",
+        "resource_key": "bangdream_033_live_event_288_ur"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general与sensitive分数几乎打平，top tags冲突且缺少明确性感证据",
+        "resource_key": "bangdream_033_live_event_298_r"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general与sensitive分数几乎打平，top tags冲突且缺少明确性感证据",
+        "resource_key": "bangdream_033_live_event_325_ssr"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general与sensitive分数几乎打平，top tags冲突且缺少明确性感证据",
+        "resource_key": "bangdream_033_live_r_2023"
+      },
+      {
+        "confidence": 0.55,
+        "label": "unknown",
+        "notes": "general与sensitive分数几乎打平，top tags冲突且缺少明确性感证据",
+        "resource_key": "bangdream_033_school_winter-2023"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "general略高但fishnets、thighhighs等轻度性感标签明显，保守列为sensitive",
+        "resource_key": "bangdream_034_live_event_133_sr"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "general仅小幅领先，top tags多为抽象/发色，证据不足",
+        "resource_key": "bangdream_034_live_event_298_ur"
+      },
+      {
+        "confidence": 0.68,
+        "label": "sensitive",
+        "notes": "midriff、navel、crop_top、see-through、cleavage等标签支持轻度性感",
+        "resource_key": "bangdream_035_live_event_125_sr"
+      },
+      {
+        "confidence": 0.52,
+        "label": "unknown",
+        "notes": "general小幅领先但sensitive接近，缺少稳定内容证据",
+        "resource_key": "bangdream_035_live_event_269_ur"
+      },
+      {
+        "confidence": 0.56,
+        "label": "unknown",
+        "notes": "general领先但出现低分nude标签，证据弱且冲突，待人工复核",
+        "resource_key": "bangdream_035_live_event_288_r"
+      },
+      {
+        "confidence": 0.54,
+        "label": "unknown",
+        "notes": "sensitive仅小幅领先，top tags无明确性感或高风险证据",
+        "resource_key": "bangdream_036_collabo_a_ur"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，多项抽象/异常标签导致不宜放入默认池",
+        "resource_key": "bangdream_039_casual-2023"
+      },
+      {
+        "confidence": 0.53,
+        "label": "unknown",
+        "notes": "general小幅领先但sensitive接近，top tags偏抽象，证据不足",
+        "resource_key": "bangdream_039_collabo_a_ur"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "与同源资源分数一致，sensitive明显高于general，保守置为轻度敏感",
+        "resource_key": "bangdream_039_live_default"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，但无questionable/explicit及泳装内衣证据",
+        "resource_key": "bangdream_039_live_event_235_ur"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，但无questionable/explicit及泳装内衣证据",
+        "resource_key": "bangdream_039_live_event_240_r"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，但无questionable/explicit及泳装内衣证据",
+        "resource_key": "bangdream_039_live_event_250_ur"
+      },
+      {
+        "confidence": 0.7,
+        "label": "sensitive",
+        "notes": "与同源资源分数一致，sensitive明显高于general，保守置为轻度敏感",
+        "resource_key": "bangdream_039_live_event_307_sr"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，但无questionable/explicit及泳装内衣证据",
+        "resource_key": "bangdream_039_live_sr_01"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，但无questionable/explicit及泳装内衣证据",
+        "resource_key": "bangdream_039_school_summer-2023"
+      },
+      {
+        "confidence": 0.67,
+        "label": "sensitive",
+        "notes": "sensitive明显高于general，但无questionable/explicit及泳装内衣证据",
+        "resource_key": "bangdream_039_school_winter-2023"
+      },
+      {
+        "confidence": 0.6,
+        "label": "sensitive",
+        "notes": "general较高但有collarbone/bare_shoulders/thighhighs/detached_sleeves等轻度性感标签",
+        "resource_key": "bangdream_upstream_302_casual"
+      },
+      {
+        "confidence": 0.44,
+        "label": "unknown",
+        "notes": "general与sensitive几乎持平，校服标签普通但分数不够稳定",
+        "resource_key": "bangdream_upstream_317_school_winter"
+      },
+      {
+        "confidence": 0.56,
+        "label": "sensitive",
+        "notes": "sensitive略高，含thighhighs/breasts等轻度敏感标签，无questionable/explicit证据",
+        "resource_key": "bangdream_upstream_322_school_winter"
+      },
+      {
+        "confidence": 0.62,
+        "label": "general",
+        "notes": "general高于sensitive，主要为多人/表情/背景标签，政策标签低",
+        "resource_key": "bangdream_upstream_343_event_286_story_01"
+      }
+    ],
+    "min_confidence": 0.65,
+    "results_path": "llm-review-results.json",
+    "reviewed_rows": 215,
+    "reviewer": "codex exec",
+    "status": "completed"
+  },
+  "llmReviewQueueRows": 0,
+  "llmReviewResultsRows": 215,
+  "llmReviewStatusCounts": {
+    "blocked": 28,
+    "completed": 215,
+    "not_required": 3200
+  },
+  "ratingSignalSourceCounts": {
+    "direct_rating_label": 3415,
+    "unavailable": 28
+  },
+  "renderCompleteness": {
+    "csv_path": "src/data/deskpet/bangdream-resource-audit/render-completeness.csv",
+    "decision_counts": {
+      "pass": 165
+    },
+    "matched_rows": 165,
+    "render_status_counts": {
+      "rendered": 165
+    },
+    "row_count": 165,
+    "scope": "current_pool_only",
+    "status": "completed"
+  },
   "rowCount": 3443,
   "rowKindCounts": {
     "covered_candidate": 3175,
@@ -104,5 +1560,40 @@
     "union_only": 103
   },
   "source": "scripts/build_bangdream_resource_audit.py",
+  "taggerPredictedLabelCounts": {
+    "general": 1186,
+    "questionable": 12,
+    "sensitive": 2217,
+    "unknown": 28
+  },
+  "taggerScan": {
+    "artifact_sha256": {
+      "categories.json": "9c02d594bba377da15a414c4ccca513959d3fb3e79d350032fabebd347f39916",
+      "config.json": "a0e76eb99472c4468b24a769d8b4f7a4c8622e912be4d0d4d88409eaf091a522",
+      "meta.json": "ee80a53694e64878c910a53d42c6e66d98c3585ee0db4d2d749c0c44dd3861d0",
+      "metrics.json": "b9122c19daf531ecf75760791ee429d1de39e5d60d1225e0fe11bd1bd85e0f63",
+      "preprocess.json": "9c34483faab75e806bb6e655f7bd9c3487cc17dc74f06eea91363fad1fc647ac",
+      "selected_tags.csv": "c08f1359510e09355728d2a61e7a29e38ace8533b0f1018b18da493db723fecd",
+      "thresholds.csv": "488a472f4b7ed9f34f6c45e24934cb594ab70f0bd6f7f203b8cc423c4f858a8f"
+    },
+    "batch_size": 64,
+    "device": "cuda:0",
+    "model_id": "animetimm/convnextv2_huge.dbv4-full",
+    "model_revision": "18177355d1448a69bafb0410a0608e144f714e8b",
+    "rating_thresholds": {
+      "explicit": 0.6,
+      "general": 0.27,
+      "questionable": 0.29,
+      "sensitive": 0.2
+    },
+    "runtime": "torch_timm",
+    "scanned_rows": 3415,
+    "status": "completed",
+    "visual_evidence_ready_rows": 3415
+  },
+  "taggerVisualEvidenceStatusCounts": {
+    "failed": 28,
+    "ready": 3415
+  },
   "unionReferenceRows": 3443
 }
