@@ -13,6 +13,8 @@ excerpt: "这篇文章真正要解决的问题，不是“怎么让 AI 打开邮
 series: "开发环境折腾"
 draft: false
 pinned: false
+bibliography: ./local-mail-cli-for-agents.bib
+citationStyle: hansbug-numeric-superscript
 ---
 
 > 本文大体是在讲怎么用 IMAP / SMTP、系统 keyring、本地 SQLite 索引和一个很薄的 `mail-agent` CLI，把 Codex / Claude 接进一套可控的个人邮件工作流。它解决的是“本机 agent 怎么安全地查邮件、取正文、起草邮件、确认后发出去”的问题，不解决多用户 SaaS、企业级 OAuth 治理、自动群发或完全无人值守代发邮件的问题。
@@ -41,7 +43,7 @@ pinned: false
 
 1. **可行，而且不难。** 对 Gmail、Outlook / Microsoft 365、北航这类 edu 邮箱，主流路线都已经相当成熟。
 2. **不要把问题想成“给 AI 一个邮箱密码”。** 正确做法是把读信、检索、取正文、起草、发送拆成几个小工具，每一步都有边界。
-3. **对 Gmail / Microsoft 365 这类大厂邮箱，官方 API 是长期最正的路。** Gmail 走 Gmail API / OAuth / scope，Microsoft 走 Graph Mail API / delegated permission。
+3. **对 Gmail / Microsoft 365 这类大厂邮箱，官方 API 是长期最正的路。** Gmail 走 Gmail API / OAuth / scope，Microsoft 走 Graph Mail API / delegated permission[@gmailApiOverview; @gmailApiScopes; @microsoftGraphMailOverview; @microsoftGraphPermissions]。
 4. **对很多学校邮箱、单位邮箱、老牌服务商邮箱，IMAP + SMTP + 客户端专用密码仍然是最务实的路。** 北航邮箱就是这一类。
 5. **我最终采用的是轻量本地 CLI：只索引邮件头，搜索命中后再按 UID 取正文，发送前默认人工确认。**
 6. **不建议默认全量 Maildir 同步。** `mbsync + notmuch + msmtp` 是非常成熟的 Unix 邮件栈，但如果一上来就把十几年的附件全拖到本地，很容易把“自动化”做成“自动搬砖”。
@@ -73,14 +75,14 @@ pinned: false
 
 | 路线 | 适合场景 | 优点 | 代价 |
 | --- | --- | --- | --- |
-| Gmail API / Gmail MCP | Gmail 或 Google Workspace 用户 | 官方接口、OAuth、scope 边界清晰，适合长期接入 | 需要 Google Cloud / OAuth 配置，敏感 scope 和组织策略会影响落地 |
-| Microsoft Graph Mail API | Outlook / Microsoft 365 / Exchange Online | 官方路线，权限模型和企业治理比较完整 | Azure 应用、租户策略、管理员 consent 可能比较烦 |
+| Gmail API / Gmail MCP | Gmail 或 Google Workspace 用户 | 官方接口、OAuth、scope 边界清晰，适合长期接入[@gmailApiOverview; @gmailApiScopes; @gmailMcpServer] | 需要 Google Cloud / OAuth 配置，敏感 scope 和组织策略会影响落地 |
+| Microsoft Graph Mail API | Outlook / Microsoft 365 / Exchange Online | 官方路线，权限模型和企业治理比较完整[@microsoftGraphMailOverview; @microsoftGraphPermissions] | Azure 应用、租户策略、管理员 consent 可能比较烦 |
 | IMAP + SMTP | 学校邮箱、单位邮箱、QQ / 163 / iCloud / Yahoo 等传统邮箱 | 通用、轻、容易本地化，客户端专用密码就能跑 | 协议老，提供商差异多，搜索和增量同步要自己处理 |
-| `mbsync + notmuch + msmtp` | 重度命令行邮件用户 | 非常成熟，Maildir + 全文索引 + Unix 管道生态舒服 | 全量同步可能拖附件；配置项多；不同发行版权限细节会咬人 |
-| EmailEngine | 自托管 REST 网关 | 把 IMAP / SMTP / Gmail / Graph 包成 HTTP API，还有 webhook | 要维护服务和数据库，个人场景略重 |
-| Nylas / n8n / Zapier | 需要快速搭流程或多平台统一 API | 上手快，平台能力丰富 | 数据和凭据进入第三方平台，成本和信任边界要认真算 |
+| `mbsync + notmuch + msmtp` | 重度命令行邮件用户 | 非常成熟，Maildir + 全文索引 + Unix 管道生态舒服[@notmuchDocs; @msmtpDocs] | 全量同步可能拖附件；配置项多；不同发行版权限细节会咬人 |
+| EmailEngine | 自托管 REST 网关 | 把 IMAP / SMTP / Gmail / Graph 包成 HTTP API，还有 webhook[@emailEngineDocs] | 要维护服务和数据库，个人场景略重 |
+| Nylas / n8n / Zapier | 需要快速搭流程或多平台统一 API | 上手快，平台能力丰富[@nylasEmailApi; @n8nImapTrigger; @n8nSendEmail] | 数据和凭据进入第三方平台，成本和信任边界要认真算 |
 
-笔者这次最后没有直接采用 `mbsync + notmuch + msmtp`，不是因为它不好。恰恰相反，它是经典到不能再经典的路线。`notmuch` 官方就把自己定位成一个给大量邮件消息做索引、搜索、阅读和标签管理的命令行程序；`msmtp` 也是标准的 SMTP 客户端。
+笔者这次最后没有直接采用 `mbsync + notmuch + msmtp`，不是因为它不好。恰恰相反，它是经典到不能再经典的路线。`notmuch` 官方就把自己定位成一个给大量邮件消息做索引、搜索、阅读和标签管理的命令行程序；`msmtp` 也是标准的 SMTP 客户端[@notmuchDocs; @msmtpDocs]。
 
 问题在于，我这次要解决的是 **agent 可控访问邮箱**，不是重新搭一个完整邮件客户端。全量 Maildir 同步很强，但默认把正文和附件都拉下来，个人邮箱时间跨度一长，体积马上就不体面。我本机实测过，刚开始同步没多久，本地缓存就已经膨胀到几百 MB。能跑是能跑，但能跑不等于设计成立。
 
@@ -111,7 +113,7 @@ SMTP SSL:  smtp.buaa.edu.cn:465
 
 ## 正式动手：搭一套本地 mail-agent
 
-下面这套脚本是通用版。以北航为例，只要把账号和服务器填成对应值即可；换成其他学校邮箱、单位邮箱、个人域名邮箱，也只是改 IMAP / SMTP host 和端口。
+下面这套脚本是通用版[@pythonImaplib; @pythonSmtplib; @pythonEmailExamples; @sqliteFts5]。以北航为例，只要把账号和服务器填成对应值即可；换成其他学校邮箱、单位邮箱、个人域名邮箱，也只是改 IMAP / SMTP host 和端口。
 
 ### 1. 安装最小依赖
 
@@ -822,11 +824,11 @@ mail-agent boxes
 
 上面这套脚本适合个人本机工作流。如果你要的是更正式的集成，可以按下面的判断选：
 
-- **Gmail 用户**：优先看 Gmail API。官方文档明确提供读取、发送、草稿、push notification、OAuth scope 和 Gmail MCP server 配置路径。
-- **Microsoft 365 用户**：优先看 Microsoft Graph Mail API。发信用 `sendMail`，权限上注意 delegated / application permission 的差异。
-- **想要本地全文邮件库**：用 `mbsync + notmuch + msmtp`。这条路很成熟，但要接受 Maildir、同步体积和配置复杂度。
-- **想把 IMAP/SMTP 变成 REST API**：看 EmailEngine。它更像“自托管邮件网关”，不是一个简单脚本。
-- **想快速搭自动化流程**：看 n8n、Zapier 或 Nylas。但这里要重新评估凭据托管、数据出境、费用和平台锁定。
+- **Gmail 用户**：优先看 Gmail API。官方文档明确提供读取、发送、草稿、push notification、OAuth scope 和 Gmail MCP server 配置路径[@gmailApiOverview; @gmailApiScopes; @gmailApiSending; @gmailMcpServer]。
+- **Microsoft 365 用户**：优先看 Microsoft Graph Mail API。发信用 `sendMail`，权限上注意 delegated / application permission 的差异[@microsoftGraphMailOverview; @microsoftGraphSendMail; @microsoftGraphPermissions]。
+- **想要本地全文邮件库**：用 `mbsync + notmuch + msmtp`。这条路很成熟，但要接受 Maildir、同步体积和配置复杂度[@notmuchDocs; @msmtpDocs]。
+- **想把 IMAP/SMTP 变成 REST API**：看 EmailEngine。它更像“自托管邮件网关”，不是一个简单脚本[@emailEngineDocs]。
+- **想快速搭自动化流程**：看 n8n、Zapier 或 Nylas。但这里要重新评估凭据托管、数据出境、费用和平台锁定[@nylasEmailApi; @n8nImapTrigger; @n8nSendEmail]。
 
 一句话：**个人工作流要收边界，产品系统要上治理。** 这两件事不要互相冒充。
 
@@ -852,20 +854,4 @@ mail-agent boxes
 
 ## 参考资料
 
-- [Gmail API overview](https://developers.google.com/workspace/gmail/api/guides)
-- [Choose Gmail API scopes](https://developers.google.com/workspace/gmail/api/auth/scopes)
-- [Create and send email messages with Gmail API](https://developers.google.com/workspace/gmail/api/guides/sending)
-- [Configure the Gmail MCP server](https://developers.google.com/workspace/gmail/api/guides/configure-mcp-server)
-- [Microsoft Graph mail API overview](https://learn.microsoft.com/en-us/graph/api/resources/mail-api-overview)
-- [Microsoft Graph user: sendMail](https://learn.microsoft.com/en-us/graph/api/user-sendmail)
-- [Microsoft Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference)
-- [Python imaplib documentation](https://docs.python.org/3/library/imaplib.html)
-- [Python smtplib documentation](https://docs.python.org/3/library/smtplib.html)
-- [Python email examples](https://docs.python.org/3/library/email.examples.html)
-- [SQLite FTS5 documentation](https://sqlite.org/fts5.html)
-- [notmuch documentation](https://notmuchmail.org/doc/latest/man1/notmuch.html)
-- [msmtp documentation](https://marlam.de/msmtp/documentation/)
-- [EmailEngine documentation](https://learn.emailengine.app/)
-- [Nylas Email API documentation](https://developer.nylas.com/docs/v3/email/)
-- [n8n IMAP Email Trigger documentation](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.emailimap/)
-- [n8n Send Email node documentation](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail/)
+[^ref]

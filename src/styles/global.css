@@ -1605,6 +1605,7 @@ code {
   margin: 2rem 0 0;
   padding-top: 1rem;
   border-top: 1px solid var(--line-soft);
+  overflow-wrap: anywhere;
 }
 
 .article-content .article-reference-entry {
@@ -1615,10 +1616,16 @@ code {
   font-family: var(--font-serif);
   font-size: 0.96rem;
   line-height: 1.75;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   transition:
     background 180ms ease,
     color 180ms ease,
     box-shadow 180ms ease;
+}
+
+.article-content .article-reference-entry .csl-right-inline {
+  min-width: 0;
 }
 
 .article-content .article-reference-entry:target {
