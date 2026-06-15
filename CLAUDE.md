@@ -177,6 +177,16 @@ citationStyle: hansbug-numeric-superscript
 
 ## 博客写作风格约定
 
+### HansBug 文风 Skill 强入口
+
+**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
+
+`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
+
+检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
+
+### 基础文风约定
+
 这部分约束的是 `src/content/blog/` 下的 博客正文 写法，而不是首页、导航、按钮或普通页面说明文案。
 
 博客正文默认应保留明确的作者视角与判断，不必压成“完全中性、完全说明书化”的口气。后续新文章，默认应向 HansBug 在旧博客园 `2018` 年及之后文章里已经稳定形成的写法靠拢，重点不是机械复刻个别口头禅，而是延续那种 一看就知道是他本人在写 的行文重心、分析方式和语气张力。
