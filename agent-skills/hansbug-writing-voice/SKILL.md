@@ -29,7 +29,7 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 | `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`（后续 PR 占位）; `references/article-archetypes.md`（后续 PR 占位）; `references/macro-logic.md`（后续 PR 占位）; `references/micro-patterns.md`（后续 PR 占位）; `references/prompt-recipes.md`（后续 PR 占位） |
 | `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`（后续 PR 占位）; `references/micro-patterns.md`（后续 PR 占位）; `references/anti-patterns.md`（后续 PR 占位）; `references/review-rubric.md`（后续 PR 占位） |
 | `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`（后续 PR 占位）; `references/anti-patterns.md`（后续 PR 占位）; `references/review-rubric.md`（后续 PR 占位） |
-| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest 是否合规。 | `references/corpus-policy.md`; `scripts/lint_voice_references.py`; `references/review-rubric.md`（后续 PR 占位）; `scripts/check_hansbug_voice.py`（后续 PR 占位） |
+| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest / 派生特征是否合规。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/derived/voice-features.json`; `scripts/lint_voice_references.py`; `scripts/fetch_voice_corpus.py`; `scripts/extract_voice_features.py`; `references/review-rubric.md`（后续 PR 占位）; `scripts/check_hansbug_voice.py`（后续 PR 占位） |
 
 ## 工作流
 
@@ -43,7 +43,7 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 8. 审阅时，把文风问题落到可执行修改或具体例子上；不要只写“感觉不像”“味道不够”这种空话。
 9. 检查时，先跑确定性脚本，再补人工文风判断。
 
-## PR-0 可用命令
+## PR-0 / PR-1 可用命令
 
 检查已提交 reference 参考资料里的摘录是否满足来源、用途、JSON 结构和长度约束（单条 `120` 个中文字、同一来源累计 `300` 个中文字）：
 
@@ -51,6 +51,21 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
 ```
 
-PR-0 的 lint gate 只保护摘录元数据和长度上限。旧文全文抓取、特征提取、文风 rubric 和多轮真实 CLI forward-test 都属于后续 PR。
+PR-0 的 lint gate 只保护摘录元数据和长度上限。PR-1 额外提供样本 manifest、cache-only 正文抓取脚本和机械特征提取脚本；文风 rubric、多轮真实 CLI forward-test 和最终强入口仍属于后续 PR。
 
-PR-0 的 references 参考资料默认不包含真实旧文摘录，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
+查看 PR-1 样本抓取计划，不发请求、不写 cache：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/fetch_voice_corpus.py --dry-run --limit 3
+```
+
+抽取机械特征时，默认只向 stdout 打印 JSON；只有显式 `--write-derived` 才会覆盖 `references/derived/voice-features.json`。如果本地没有 ignored cache，可以加 `--allow-catalog-summary` 生成 smoke 级特征，但正式画像归纳仍应优先使用 `.cache/hansbug-writing-voice/corpus/` 里的正文。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary --write-derived
+```
+
+PR-1 的派生特征只做段落长度、句长、标题模式、高频 n-gram、转场词粗统计等机械统计，不等价于文风画像。后续写作或审阅时，可以把 `references/sample-manifest.json` 和 `references/derived/voice-features.json` 当作“样本入口和粗粒度仪表盘”，但不要拿它们替代 PR-2 之后的正式文风画像。
+
+PR-0 / PR-1 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。

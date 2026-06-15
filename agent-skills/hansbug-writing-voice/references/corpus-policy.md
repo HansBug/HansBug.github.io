@@ -52,6 +52,12 @@ JSON manifest 可以把摘录对象放在 `excerpts` 数组里；数组里的每
 - `negative-example`
 - `review-rubric`
 
+## PR-1 脚本边界
+
+PR-1 的 `fetch_voice_corpus.py` 只负责把 manifest 中的旧博客正文抓到本地 ignored cache，默认目录是 `.cache/hansbug-writing-voice/corpus/`。它必须支持 `--dry-run`、`--limit`、`--delay`、`--timeout`、`--max-retries`、`--user-agent` 等参数，并在状态码异常、正文 selector 未命中、正文过短、manifest 缺字段或网络失败时非零退出。
+
+PR-1 的 `extract_voice_features.py` 只负责从 cache 或显式允许的 catalog 摘要里生成机械统计。它默认只打印 JSON；只有传入 `--write-derived` 时才可以写入 `references/derived/voice-features.json`。这些派生特征不能被描述成“已经理解 HansBug 文风”，只能作为后续画像归纳前的粗统计输入。
+
 ## 验证方式
 
 提交任何 reference 变更前，先运行：
