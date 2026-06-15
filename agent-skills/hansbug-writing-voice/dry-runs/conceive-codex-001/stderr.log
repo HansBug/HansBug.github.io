@@ -1,0 +1,1484 @@
+Reading additional input from stdin...
+OpenAI Codex v0.139.0
+--------
+workdir: /home/hansbug/sensetime-projects/hansbug-tech-blog
+model: gpt-5.5
+provider: pro
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ecc62-02a7-76b2-84ca-5400f5648b61
+--------
+user
+你正在为 HansBug/HansBug.github.io 仓库执行 PR-5 真实 CLI forward-test。
+
+硬性要求：
+1. 先阅读并遵守 `CLAUDE.md` 的 “HansBug 文风 Skill 强入口”。
+2. 再阅读并执行 `agent-skills/hansbug-writing-voice/SKILL.md`，按任务模式渐进读取 references，不要默认全量加载。
+3. 不要启动 sub-subagent，不要修改仓库文件，不要访问 `.cache/hansbug-writing-voice/corpus/`。
+4. 不要编造作者真实经历、课程现场、项目现场、会议经历或第一手态度。缺少事实时必须标记需要作者补充。
+5. 输出必须是中文，并严格使用下面三个 Markdown 标题，不能少、不能改名、不能把整段输出包进 fenced code block：
+
+## draft
+（你的构思 / 正文 / 改写稿 / 对候选稿的审阅主体 / 事实缺口处理主体。若任务本身要求审阅候选稿或识别事实缺口，请把对“输入材料”的 C/I/M 判定放在这里，而不是放在最终自审里。）
+
+## review
+（这是对你本次 dry-run 输出本身的最终自审，不是对输入候选稿的审阅结论。必须写成 `C=0 / I=0 / M=<数字>` 或列出未修复 C/I；如果发现你自己的输出还有 C/I，先在 revision 中修掉，再让最终自审达到 C=0 / I=0。不能为了通过验收谎写 0。）
+
+## revision
+（说明你如何根据自审修订；如果没有 C/I，说明为什么无需阻断性修订。不得再引入新的正文主体。）
+
+写作类任务额外硬要求：
+- `write` / `rewrite` / `fix-ai-cliche` 的 `## draft` 必须是可以直接喂给 `check_hansbug_voice.py` 的 Markdown 正文片段。
+- 这些正文片段第一行必须写：`<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->`。
+- 这些正文片段必须使用真正的 Markdown 二级标题 `## ...`，至少包含边界 / 坑点类章节和总结类章节。不要用 `【标题】` 冒充二级标题。
+- 不要把 AI 腔反例里的“总体而言 / 值得注意的是 / 可以看出 / 具有重要意义 / 综上所述 / 积极意义 / 参考价值 / 随着技术的发展”等词原样带进修复后的正文。
+
+输出中必须包含 `CLAUDE.md` 和 `agent-skills/hansbug-writing-voice/SKILL.md` 这两个入口路径，方便验收确认入口被使用。
+
+本次是 independentEntryOnly 测试：除本 prompt 外，你只能依靠 `CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md` 的入口自行决定需要读取哪些 references；不要使用 reviewer 反馈或预期答案。
+
+当前 taskType: `conceive`，cli: `codex`。
+
+# 任务输入：构思技术实践文
+
+请构思一篇面向中文技术读者的博客，主题是“把一个临时脚本改造成可维护的仓库内工具”。
+
+已知事实：
+
+- 场景是个人技术博客仓库中的维护脚本。
+- 问题不是脚本能不能跑，而是长期维护时会不会让后续 agent 和作者都踩坑。
+- 不能编造作者真实项目经历，只能基于这个抽象场景给构思。
+- 需要声明样本对照：`cnblogs-8701447` 和 `cnblogs-14711869`。
+
+输出需要包含主问题、边界、核心判断、章节推进和事实缺口。
+
+
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+我会先按入口顺序只读约束文件：先定位 `CLAUDE.md` 里的文风 Skill 强入口，再打开 repo-local Skill。随后按 `conceive` 模式只加载它要求的 references。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'rg -n -C 12 "HansBug 文风 Skill 强入口|强制规则|agent-skills/hansbug-writing-voice" CLAUDE.md' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+168-
+169-### 路径建议
+170-
+171-推荐使用稳定、可长期维护的路径，如：
+172-
+173-- `src/content/blog/python/treevalue-overview.md`
+174-- `src/content/blog/engineering/github-actions-notes.md`
+175-
+176-不要把路径命名成临时口语化、难以长期维护的 slug。
+177-
+178-## 博客写作风格约定
+179-
+180:### HansBug 文风 Skill 强入口
+181-
+182:**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
+183-
+184:`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
+185-
+186:检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
+187-
+188-### 基础文风约定
+189-
+190-这部分约束的是 `src/content/blog/` 下的 博客正文 写法，而不是首页、导航、按钮或普通页面说明文案。
+191-
+192-博客正文默认应保留明确的作者视角与判断，不必压成“完全中性、完全说明书化”的口气。后续新文章，默认应向 HansBug 在旧博客园 `2018` 年及之后文章里已经稳定形成的写法靠拢，重点不是机械复刻个别口头禅，而是延续那种 一看就知道是他本人在写 的行文重心、分析方式和语气张力。
+193-
+194-- 参照样本：
+195-  - 后续判断“像不像 HansBug 的文章”，优先参考这批旧文：
+196-    - `2018`：`【技巧】Java工程中的Debug信息分级输出接口及部署模式`
+197-    - `2018`：`【作业】HansBug的前三次OO作业分析与小结`
+198-    - `2018`：`【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会`
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+`CLAUDE.md` 的强入口已确认：这类博客构思必须进入 repo-local Skill，且不能在未完成 Skill 要求前宣称 ready 或通过文风 gate。现在读取 Skill 主文件，并只跟随 `conceive` 相关引用。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/SKILL.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+---
+name: hansbug-writing-voice
+description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、改写、审阅和机械检查博客正文。用于 Codex 或 Claude 需要撰写、改写、审阅、校验 src/content/blog/ 下中文文章，或维护本仓库内 HansBug 文风工作流的场景。
+---
+
+# HansBug 中文博客文风 Skill
+
+如果本仓库内的 Skill 不能被自动发现，先手动读取本文件，再按下方任务模式表只读取当前任务需要的 references 参考资料。不要假设 PR-0 阶段已经存在所有未来 reference 参考资料；标注为 `后续 PR 占位` 的路径只是后续 PR 的导航契约，不是 missing-file error，缺失时不要中止任务。
+
+## 适用边界
+
+这个 Skill 只面向 HansBug 中文技术博客正文写作。它的目标不是泛化到英文写作，也不是把任何页面文案都改成博客腔；后续 agent 在处理 `src/content/blog/` 文章的构思、写作、改写、审阅、检查时，才应优先使用它。
+
+使用本 Skill 时，要在不整篇复制旧文的前提下，让中文技术文章更接近 HansBug 本人已经稳定形成的表达方式、判断结构和论述节奏。仓库根目录的 `CLAUDE.md / AGENTS.md` 负责外层边界、维护纪律和站点级提醒；本 Skill 及其 references 负责 `src/content/blog/` 中文博客正文构思、写作、改写、扩写、审阅和检查的执行细则。
+
+不要用本 Skill 做这些事：
+
+- 抓取或提交旧博客完整正文；
+- 绕过来源站点 ToS、robots 或版权边界；
+- 实现 citation、BibTeX、CSL 或站点渲染功能；
+- 在用户没有给出事实依据时，替作者编造经历、项目现场、课程现场或第一手判断；
+- 把中文文风约束强行套到英文写作任务上。
+
+## 任务模式
+
+| 模式 | 何时使用 | 读取这些 references / scripts |
+|---|---|---|
+| `构思` | 规划新文章，决定角度、读者、结构、边界和核心判断。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/prompt-recipes.md` |
+| `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/micro-patterns.md`; `references/prompt-recipes.md` |
+| `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/micro-patterns.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+| `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest / 派生特征是否合规。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/derived/voice-features.json`; `scripts/lint_voice_references.py`; `scripts/fetch_voice_corpus.py`; `scripts/extract_voice_features.py`; `references/review-rubric.md`; `scripts/check_hansbug_voice.py` |
+
+## 工作流
+
+1. 先检查仓库根目录的 `CLAUDE.md / AGENTS.md`，确认外层边界、维护纪律和站点级提醒；博客正文写作与审阅的具体执行细则以本 Skill references 为准，措辞差异不等于冲突。
+2. 判断当前任务属于上表中的一个或多个模式。
+3. 读取 reference 参考资料之前，先说明你选择了哪些模式、准备读取哪些文件或脚本。
+4. 只要涉及旧博客材料、样本、manifest、摘录或抓取产物，必须先读取 `references/corpus-policy.md`。
+5. 只加载当前模式需要、且在当前 PR 阶段实际存在的 references；不要为了“更像”而无脑全量加载。
+6. 如果某个后续 PR 占位 reference 参考资料还不存在，明确说明当前阶段缺少该 reference，然后用现有规则继续；不要臆造它的内容。
+7. 写作或改写时，保持文章事实、主题和用户意图不乱跑；只在有助于文风贴合的地方调整结构、重心、语气和措辞。
+8. 审阅时，把文风问题落到可执行修改或具体例子上；不要只写“感觉不像”“味道不够”这种空话。
+9. 检查时，先跑确定性脚本，再补人工文风判断。
+
+## PR-0 / PR-1 可用命令
+
+检查已提交 reference 参考资料里的摘录是否满足来源、用途、JSON 结构和长度约束（单条 `120` 个中文字、同一来源累计 `300` 个中文字）：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
+```
+
+PR-0 的 lint gate 只保护摘录元数据和长度上限。PR-1 额外提供样本 manifest、cache-only 正文抓取脚本和机械特征提取脚本；文风 rubric、多轮真实 CLI forward-test 和最终强入口仍属于后续 PR。
+
+查看 PR-1 样本抓取计划，不发请求、不写 cache：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/fetch_voice_corpus.py --dry-run --limit 3
+```
+
+抽取机械特征时，默认只向 stdout 打印 JSON；只有显式 `--write-derived` 才会覆盖 `references/derived/voice-features.json`。如果本地没有 ignored cache，可以加 `--allow-catalog-summary` 生成 smoke 级特征，但正式画像归纳仍应优先使用 `.cache/hansbug-writing-voice/corpus/` 里的正文。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary --write-derived
+```
+
+PR-1 的派生特征只做段落长度、句长、标题模式、高频 n-gram、转场词粗统计等机械统计，不等价于文风画像。PR-2 已补充正式画像层，后续写作或审阅时，应把 `references/voice-profile.md`、`references/article-archetypes.md`、`references/micro-patterns.md`、`references/macro-logic.md` 和 `references/anti-patterns.md` 作为主要文风依据，把 `sample-manifest.json` 与 `voice-features.json` 当作样本入口和粗粒度仪表盘。
+
+PR-3 已补齐 `references/review-rubric.md`、`references/prompt-recipes.md` 和 `scripts/check_hansbug_voice.py`。构思、写作、改写、审阅时优先按 `prompt-recipes.md` 固定样本版本、sample ids、最后更新、输出格式和事实缺口；审阅时按 `review-rubric.md` 做 C/I/M 分级，不要用“感觉不像”糊弄过去。机械粗筛命令如下，`score` 只代表粗筛健康度，不是文风相似度；只要存在 C 级 finding 就必须先修。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
+  src/content/blog/example.md \
+  --skill-root agent-skills/hansbug-writing-voice \
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
+  --format json \
+  --pretty
+```
+
+如果要给人读摘要，可以把 `--format json --pretty` 换成 `--format text`。正式 PR 中仍建议保留 JSON 结果，方便 reviewer 复核 finding code。
+
+PR-2 references 的推荐读取顺序：
+
+```text
+voice-profile.md -> article-archetypes.md -> macro-logic.md -> micro-patterns.md -> anti-patterns.md
+```
+
+不要默认全量加载所有文件。构思新文章时优先读 `article-archetypes.md` 和 `macro-logic.md`；写作或改写时再读 `voice-profile.md` 和 `micro-patterns.md`；审阅时重点读 `voice-profile.md` 与 `anti-patterns.md`。如果任务只是在检查 reference 合规性，仍然先跑 lint / test，不要把文风画像当作机械 gate。
+
+PR-0 / PR-1 / PR-2 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+本次模式判断为 `构思`，对应 Skill 表里需要 `corpus-policy.md`、`sample-manifest.json`、`article-archetypes.md`、`macro-logic.md`、`prompt-recipes.md`。我不会读取 `.cache/hansbug-writing-voice/corpus/`，也不会改文件。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'wc -l agent-skills/hansbug-writing-voice/references/corpus-policy.md agent-skills/hansbug-writing-voice/references/sample-manifest.json agent-skills/hansbug-writing-voice/references/article-archetypes.md agent-skills/hansbug-writing-voice/references/macro-logic.md agent-skills/hansbug-writing-voice/references/prompt-recipes.md' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+   69 agent-skills/hansbug-writing-voice/references/corpus-policy.md
+ 1255 agent-skills/hansbug-writing-voice/references/sample-manifest.json
+  127 agent-skills/hansbug-writing-voice/references/article-archetypes.md
+  106 agent-skills/hansbug-writing-voice/references/macro-logic.md
+  294 agent-skills/hansbug-writing-voice/references/prompt-recipes.md
+ 1851 总用量
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/sample-manifest.json" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+{
+  "schemaVersion": 2,
+  "stage": "pr-1-sample-manifest",
+  "description": "HansBug 中文博客文风 Skill 的可执行样本清单。它只记录来源、分层和用途，不提交旧博客完整正文；完整抓取结果只能写入 .cache/hansbug-writing-voice/corpus/。",
+  "generatedFrom": {
+    "oldBlogCatalog": "src/data/oldBlogCatalog.json",
+    "catalogGeneratedAt": "2026-04-10T17:14:31",
+    "sourceSelector": "#cnblogs_post_body",
+    "notes": "PR-1 先以旧站 catalog 中稳定存在的 URL、标题、年份、阅读量和分类为 manifest 来源；正文抓取由 fetch_voice_corpus.py 在本地 ignored cache 中完成。"
+  },
+  "selectionPolicy": {
+    "core": {
+      "count": 10,
+      "notes": "覆盖 CLAUDE.md / AGENTS.md 当前列出的 10 篇 2018 年及之后核心参照旧文。"
+    },
+    "statistical": {
+      "targetMin": 40,
+      "targetMax": 60,
+      "actualCount": 40,
+      "notes": "优先覆盖非 OI 的长期技术写作、课程复盘、环境配置、开源与产品测评；为达到 40-60 的统计样本目标，补入少量 2015/2014 年研究/算法总结型长文，但它们只作为分布补样，不会在后续 PR 中压过 2018 年之后的核心样本。"
+    },
+    "negative": {
+      "count": 4,
+      "notes": "保留通知、评分表、调查问卷和讲课手稿等边界样本，帮助后续 rubric 识别“不应学习”的旧站形态。"
+    },
+    "holdout": {
+      "minimum": 2,
+      "actualCount": 2,
+      "notes": "至少两篇不参与画像归纳，只用于后续真实 CLI forward-test。"
+    }
+  },
+  "audit": {
+    "source": "https://www.cnblogs.com/HansBug/ 及旧站 catalog 中列出的文章 URL",
+    "tosCheck": "2026-06-15：PR-1 未提交旧文全文；自动抓取脚本默认限速并只写本地 ignored cache。若后续执行全量抓取，执行者仍需在 PR 描述或审计文件中记录当日 ToS / 站点策略结论。",
+    "robotsCheck": "2026-06-15：本 PR 不固化远端 robots 结论；fetch 脚本提供限速、User-Agent、dry-run 和 fail-fast。实际抓取前仍按 corpus-policy.md 做当日 robots 审计。",
+    "fetchFeasibility": "代码层面支持受限、可复现、cache-only 抓取；合规结论以执行抓取当天审计为准。",
+    "fallbackPlan": "若 ToS、robots 或网络行为不清楚，只使用带 sourceUrl/useFor 的短摘录，并遵守单条 120、同源累计 300 个中文字限制。"
+  },
+  "sources": [
+    {
+      "id": "cnblogs-8701447",
+      "title": "【技巧】Java工程中的Debug信息分级输出接口及部署模式",
+      "url": "https://www.cnblogs.com/HansBug/p/8701447.html",
+      "year": 2018,
+      "date": "2018-04-04",
+      "articleType": "technical-practice",
+      "sampleRole": "core",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-8701447",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "环境 / 部署",
+      "views": 2820,
+      "comments": 2,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-8694939",
+      "title": "【作业】HansBug的前三次OO作业分析与小结",
+      "url": "https://www.cnblogs.com/HansBug/p/8694939.html",
+      "year": 2018,
+      "date": "2018-04-03",
+      "articleType": "course-summary",
+      "sampleRole": "core",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-8694939",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 2336,
+      "comments": 4,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-8977811",
+      "title": "【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会",
+      "url": "https://www.cnblogs.com/HansBug/p/8977811.html",
+      "year": 2018,
+      "date": "2018-05-02",
+      "articleType": "course-summary",
+      "sampleRole": "core",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-8977811",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 1272,
+      "comments": 3,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-13982882",
+      "title": "【学习笔记】Latex各平台2020实战攻略",
+      "url": "https://www.cnblogs.com/HansBug/p/13982882.html",
+      "year": 2020,
+      "date": "2020-11-15",
+      "articleType": "tutorial-note",
+      "sampleRole": "core",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-13982882",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "环境 / 部署",
+      "views": 1220,
+      "comments": 1,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-14059040",
+      "title": "【开源系列】项目开源实战记录-序",
+      "url": "https://www.cnblogs.com/HansBug/p/14059040.html",
+      "year": 2020,
+      "date": "2020-11-30",
+      "articleType": "open-source",
+      "sampleRole": "core",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14059040",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 829,
+      "comments": 1,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-14691847",
+      "title": "【助教工作】2021团队项目助教跟班全攻略",
+      "url": "https://www.cnblogs.com/HansBug/p/14691847.html",
+      "year": 2021,
+      "date": "2021-04-22",
+      "articleType": "course-summary",
+      "sampleRole": "core",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14691847",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 529,
+      "comments": 0,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-14711869",
+      "title": "【项目管理】关于Issue/Milestone的使用指导",
+      "url": "https://www.cnblogs.com/HansBug/p/14711869.html",
+      "year": 2021,
+      "date": "2021-04-28",
+      "articleType": "technical-practice",
+      "sampleRole": "core",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14711869",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 1886,
+      "comments": 0,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-14849014",
+      "title": "沉舟侧畔千帆过，病树前头万木春——对【题士】产品的深度测评与解析",
+      "url": "https://www.cnblogs.com/HansBug/p/14849014.html",
+      "year": 2021,
+      "date": "2021-06-04",
+      "articleType": "review-commentary",
+      "sampleRole": "core",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14849014",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 832,
+      "comments": 3,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-15470559",
+      "title": "姗姗来迟的一个总结",
+      "url": "https://www.cnblogs.com/HansBug/p/15470559.html",
+      "year": 2021,
+      "date": "2021-10-27",
+      "articleType": "retrospective",
+      "sampleRole": "core",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-15470559",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 1435,
+      "comments": 11,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+      "id": "cnblogs-15894649",
+      "title": "treevalue——Master Nested Data Like Tensor",
+      "url": "https://www.cnblogs.com/HansBug/p/15894649.html",
+      "year": 2022,
+      "date": "2022-02-14",
+      "articleType": "open-source",
+      "sampleRole": "core",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-15894649",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 170,
+      "comments": 0,
+      "notes": "CLAUDE.md 当前列出的核心参照样本之一，优先用于后续 PR 归纳稳定文风。"
+    },
+    {
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/corpus-policy.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# 旧文语料使用策略
+
+本策略约束 HansBug 中文博客文风 Skill 如何使用旧博客材料。凡是后续 crawler、manifest、短摘录、文风画像或审稿 rubric 需要使用 `https://www.cnblogs.com/HansBug/` 的内容，都必须先遵守这里的边界。
+
+## 硬边界
+
+- 旧文原始 HTML、Markdown、纯文本和抓取输出，只允许保存在 `.cache/hansbug-writing-voice/corpus/`。
+- 不得把旧博客完整正文提交到本仓库。
+- 只提交服务于文风分析所必需的短摘录。
+- 单条摘录最多 `120` 个中文字。
+- 同一来源文章在仓库内累计摘录最多 `300` 个中文字。
+- 每条已提交摘录必须包含来源字段：`sourceUrl` 或 `url`。
+- 每条已提交摘录必须包含用途字段：`purpose` 或 `useFor`。
+- 如果来源站规则与本仓库策略冲突，按更严格的一方执行。
+
+## 抓取可行性审计
+
+PR-1 或后续 PR 在新增、刷新旧文抓取产物之前，必须把审计结果记录在 PR description，或记录到后续机器可读的审计文件中：
+
+| 字段 | 必填内容 |
+|---|---|
+| `source` | 使用的旧博客精确来源 URL 或索引页。 |
+| `tosCheck` | ToS / 站点策略检查结果，包含日期和结论。 |
+| `robotsCheck` | `robots.txt` 检查结果，包含日期、相关路径规则和结论。 |
+| `fetchFeasibility` | 自动抓取是允许、需要限速、不允许，还是结论不清。 |
+| `fallbackPlan` | 若自动抓取不允许或结论不清，退回只使用手动短摘录。 |
+
+如果 ToS、robots 或网络行为不清楚，不要猜。退回到手动摘录：只截取完成某个具体文风分析目的所必需的最短片段，并同时写清 `sourceUrl` 和 `purpose` / `useFor`。
+
+## 已提交摘录格式
+
+Markdown reference 可以使用带 `hansbug-voice-excerpt` 标记的 fenced JSON block：
+
+````markdown
+```json hansbug-voice-excerpt
+{
+  "sourceUrl": "https://www.cnblogs.com/HansBug/p/example.html",
+  "purpose": "macro-logic",
+  "text": "这里放不超过一百二十个中文字的必要短摘录。"
+}
+```
+````
+
+JSON manifest 可以把摘录对象放在 `excerpts` 数组里；数组里的每一项都必须是 JSON object。同一套必填字段和长度上限仍然生效。
+
+`purpose` / `useFor` 的值要能说明这段摘录为什么需要被提交，例如：
+
+- `macro-logic`
+- `micro-pattern`
+- `tone`
+- `article-archetype`
+- `negative-example`
+- `review-rubric`
+
+## PR-1 脚本边界
+
+PR-1 的 `fetch_voice_corpus.py` 只负责把 manifest 中的旧博客正文抓到本地 ignored cache，默认目录是 `.cache/hansbug-writing-voice/corpus/`。它必须支持 `--dry-run`、`--limit`、`--delay`、`--timeout`、`--max-retries`、`--user-agent` 等参数，并在状态码异常、正文 selector 未命中、正文过短、manifest 缺字段或网络失败时非零退出。
+
+PR-1 的 `extract_voice_features.py` 只负责从 cache 或显式允许的 catalog 摘要里生成机械统计。它默认只打印 JSON；只有传入 `--write-derived` 时才可以写入 `references/derived/voice-features.json`。这些派生特征不能被描述成“已经理解 HansBug 文风”，只能作为后续画像归纳前的粗统计输入。
+
+## 验证方式
+
+提交任何 reference 变更前，先运行：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
+```
+
+当摘录过长、缺少 `sourceUrl` / `url`、缺少 `purpose` / `useFor`，`excerpts` 数组项不是 JSON object，或文件不是合法 UTF-8 / JSON 时，lint gate 必须非零退出，并给出具体文件路径和字段 / 上限原因。当前长度 gate 按中文字计数；如果短摘录里必须保留英文术语，也要保持同等克制，不要借“英文不计数”塞进大段原文。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+已读到 corpus 策略和样本 manifest 开头：manifest 确认了 `cnblogs-8701447` 与 `cnblogs-14711869` 都是核心技术实践样本。接下来补完所选 reference，避免只凭入口摘要做构思。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '261,560p' agent-skills/hansbug-writing-voice/references/sample-manifest.json" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+      "id": "cnblogs-15584738",
+      "title": "Python科普系列——类与方法（下篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15584738.html",
+      "year": 2021,
+      "date": "2021-11-22",
+      "articleType": "tutorial-note",
+      "sampleRole": "statistical",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-15584738",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 534,
+      "comments": 0,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-15557196",
+      "title": "Python科普系列——类与方法（上篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15557196.html",
+      "year": 2021,
+      "date": "2021-11-15",
+      "articleType": "tutorial-note",
+      "sampleRole": "statistical",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-15557196",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 349,
+      "comments": 0,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-15515307",
+      "title": "Treevalue(0x02)——函数树化详细解析（上篇）",
+      "url": "https://www.cnblogs.com/HansBug/p/15515307.html",
+      "year": 2021,
+      "date": "2021-11-05",
+      "articleType": "open-source",
+      "sampleRole": "statistical",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-15515307",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 262,
+      "comments": 0,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-15484957",
+      "title": "Treevalue(0x01)——功能概述",
+      "url": "https://www.cnblogs.com/HansBug/p/15484957.html",
+      "year": 2021,
+      "date": "2021-11-01",
+      "articleType": "open-source",
+      "sampleRole": "statistical",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-15484957",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 296,
+      "comments": 0,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-14942400",
+      "title": "2021北航敏捷软工Beta阶段评分与总结",
+      "url": "https://www.cnblogs.com/HansBug/p/14942400.html",
+      "year": 2021,
+      "date": "2021-06-27",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14942400",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 686,
+      "comments": 2,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-14661665",
+      "title": "【助教工作】2021敏捷软件工程需求评审答辩问题总结与建议",
+      "url": "https://www.cnblogs.com/HansBug/p/14661665.html",
+      "year": 2021,
+      "date": "2021-04-15",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14661665",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 1071,
+      "comments": 2,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-14374021",
+      "title": "【调研】北航计算机学院2019及2020年本科敏捷软工结对作业数据调研",
+      "url": "https://www.cnblogs.com/HansBug/p/14374021.html",
+      "year": 2021,
+      "date": "2021-02-04",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14374021",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 994,
+      "comments": 5,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-14316104",
+      "title": "【作业】2020年高等软件工程期末总结",
+      "url": "https://www.cnblogs.com/HansBug/p/14316104.html",
+      "year": 2021,
+      "date": "2021-01-23",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14316104",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "环境 / 部署",
+      "views": 499,
+      "comments": 3,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-14247560",
+      "title": "【作业】2020年高等软件工程系统设计阶段思考",
+      "url": "https://www.cnblogs.com/HansBug/p/14247560.html",
+      "year": 2021,
+      "date": "2021-01-07",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14247560",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 387,
+      "comments": 1,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-9154683",
+      "title": "【老文放出】【思考】基于目前OO课程的一些制度问题引发的思考",
+      "url": "https://www.cnblogs.com/HansBug/p/9154683.html",
+      "year": 2020,
+      "date": "2020-12-12",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-9154683",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "研究 / 总结",
+      "views": 461,
+      "comments": 2,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-14097245",
+      "title": "【作业】2020年高等软件工程中期总结与反思",
+      "url": "https://www.cnblogs.com/HansBug/p/14097245.html",
+      "year": 2020,
+      "date": "2020-12-07",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-14097245",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 467,
+      "comments": 4,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-13770092",
+      "title": "【作业】2020年高等软件工程课程期望与笃信",
+      "url": "https://www.cnblogs.com/HansBug/p/13770092.html",
+      "year": 2020,
+      "date": "2020-10-06",
+      "articleType": "course-summary",
+      "sampleRole": "statistical",
+      "useFor": [
+        "macro-logic",
+        "micro-patterns",
+        "tone"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-13770092",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "课程 / 软件工程",
+      "views": 3301,
+      "comments": 16,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-12712205",
+      "title": "【学习笔记】深度学习 demo2 二次函数回归",
+      "url": "https://www.cnblogs.com/HansBug/p/12712205.html",
+      "year": 2020,
+      "date": "2020-04-16",
+      "articleType": "tutorial-note",
+      "sampleRole": "statistical",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-12712205",
+      "sourceSelector": "#cnblogs_post_body",
+      "track": "Python / 开源 / AI",
+      "views": 1200,
+      "comments": 0,
+      "notes": "进入统计样本层，用于补足年份、题材和写法分布；不单独作为风格金标准。"
+    },
+    {
+      "id": "cnblogs-12712197",
+      "title": "【学习笔记】深度学习 demo1 线性回归",
+      "url": "https://www.cnblogs.com/HansBug/p/12712197.html",
+      "year": 2020,
+      "date": "2020-04-16",
+      "articleType": "tutorial-note",
+      "sampleRole": "statistical",
+      "useFor": [
+        "micro-patterns",
+        "structure",
+        "technical-judgement"
+      ],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' agent-skills/hansbug-writing-voice/references/macro-logic.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 宏观论述逻辑
+
+本文件描述 HansBug 风格文章的宏观推进方式。它解决的是“文章应该怎样往前走”的问题，而不是某一句话应该怎么写。
+
+## 总体轨道
+
+最常见的推进轨道是：
+
+1. 缘起 / 题外话破题。
+2. 问题定义 / 边界交代。
+3. 核心判断前置。
+4. 分维度展开分析。
+5. 补坑点、反例、例外或更深层原因。
+6. 总结与上升一层的反思。
+
+关键不在于必须写六节，而在于文章始终有一条判断主线。读者应该能看出作者从现象走向本质，从局部实现走向工程取舍，从一次经历走向方法论判断。
+
+## 从现象到本质
+
+HansBug 风格不会满足于描述“发生了什么”。它通常会继续追问：这个现象背后的本质问题是什么？为什么它不是小问题？如果不改会怎样？
+
+推荐推进：
+
+1. 先承认读者看见的表层现象。
+2. 再指出这个现象为什么容易误导。
+3. 然后把根因拆到设计、流程、认知或维护链路上。
+4. 最后给出可操作的改法或明确方向。
+
+## 从实现到工程取舍
+
+技术实践文不能停在“命令能跑”。它要解释为什么这个实现选择在长期维护上站得住，或者为什么看似省事的方案其实是在给未来挖坑。
+
+推荐推进：
+
+1. 给出可运行方案。
+2. 解释方案背后的约束。
+3. 对比被放弃的方案。
+4. 说明长期维护成本。
+5. 明确边界和失败方式。
+
+判断句可以硬一点：能跑只是最低门槛，不是设计成立的证据。
+
+## 从经历到方法论
+
+如果文章包含作者经历，经历不能只是履历展示。它应当承担“为什么作者有资格下这个判断”的作用。
+
+推荐推进：
+
+1. 交代自己为什么碰到这个问题。
+2. 说明踩过什么坑或见过什么现象。
+3. 把经历压缩成判断。
+4. 再把判断上升到方法、制度或价值取舍。
+
+如果缺少真实经历材料，必须向作者要材料，不能编造现场。
+
+## 分维度拆解
+
+中段分析不能只是并列堆料。每个维度都应该有明确功能：证明核心判断、解释边界、拆掉反例或给出改法。
+
+可用维度包括：
+
+- 用户视角。
+- 开发者视角。
+- 维护者视角。
+- PM / 组织流程视角。
+- 长期演化视角。
+
+多视角不是为了显得全面，而是为了说明同一个问题会怎样伤到不同角色。
+
+## 反例与边界
+
+HansBug 风格通常会处理“真正难的地方”。这部分经常出现在倒数第二节，用来说明：方案在哪里不适用，哪些问题还没解决，哪些看似反例其实不构成反驳。
+
+推荐写法：
+
+1. 先承认局部例外。
+2. 再说明例外为什么不推翻主判断。
+3. 如果确实会推翻，就收窄适用边界。
+4. 给出后续处理方向。
+
+不要把边界写成免责声明。边界是判断的一部分。
+
+## 结尾上升
+
+结尾应当完成一次视角抬升：从本文的具体问题回到更长期、更稳定的判断。
+
+可以上升到：
+
+- 工程维护习惯。
+- 协作流程设计。
+- 产品设计思路。
+- 学习和写作方法。
+- 对糊弄式方案的明确否定。
+
+结尾不需要很长，但要有落锤感。文章最后几句应该像盖章，而不是像客服结束语。
+
+## 宏观自检
+
+审阅时按这组问题检查：
+
+- 文章主线是否只有一条？
+- 前三段是否已经进入问题定义？
+- 核心判断是否足够靠前？
+- 每个大节是否推进了判断，而不是只补资料？
+- 是否有处理例外、反例或边界？
+- 结尾是否比前文再高半层？
+
+hook: PostToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/article-archetypes.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 文章类型骨架
+
+本文件给出 HansBug 中文技术博客常见文章类型的写作骨架。骨架不是死模板，而是为了让 agent 在构思时先抓住文章的推进方向：从哪里切入、用什么判断坐标、怎样收束。
+
+## 技术实践文
+
+### 适用场景
+
+用于记录工具配置、工程链路、自动化方案、环境搭建、部署排障、脚本改造等实践问题。
+
+### 推荐结构
+
+1. 缘起：最近被什么问题追着打，为什么值得写。
+2. 问题定义：本文解决什么，不解决什么，涉及哪些版本或环境。
+3. 先说结论：最终采用的方案是什么。
+4. 为什么旧做法不够：解释旧方案短板，不要只说“不好”。
+5. 我的方案：步骤、配置、代码、验证方式。
+6. 坑点与边界：哪些情况会失败，怎么排查。
+7. 总结：把一次配置上升到工程维护判断。
+
+### 禁区
+
+- 只贴命令不解释取舍。
+- 把“能跑”当作“设计成立”。
+- 不说明适用环境和失败边界。
+- 用官方文档重新排版冒充实践经验。
+
+## 教程 / 学习笔记文
+
+### 适用场景
+
+用于解释某个工具、语言特性、论文工具链、写作环境或学习路线。
+
+### 推荐结构
+
+1. 写在前面：为什么现在写，读者应如何使用本文。
+2. 整体定位：这个东西解决哪一类问题，不是什么。
+3. 概念拆分：把容易混在一起的术语先拆开。
+4. 实操方案：给出可执行路径。
+5. 关键细节解释：解释为什么这些步骤必要。
+6. 常见坑：列出最容易踩的坑和排查方式。
+7. 一点总结：给出长期维护建议。
+
+### 禁区
+
+- 把教程写成百科词条。
+- 不交代版本、平台或前置条件。
+- 只告诉读者怎么做，不解释为什么这样做。
+- 为了“完整”而塞入和主线无关的资料。
+
+## 复盘 / 事故分析文
+
+### 适用场景
+
+用于分析失败、冲突、排障、流程问题、项目事故、课程或协作中的结构性问题。
+
+### 推荐结构
+
+1. 事故缘起：发生了什么，影响了谁。
+2. 先给结论：根因或核心判断是什么。
+3. 表面现象：读者最容易看到的症状。
+4. 根因分析：把现象背后的设计、流程或认知错误拆开。
+5. 为什么难查：说明误导点、盲区和假线索。
+6. 反思与改法：给出能落地的修复方向。
+7. 总结：上升到制度、方法或长期维护判断。
+
+### 禁区
+
+- 写成流水账。
+- 只追责不分析结构。
+- 把情绪当洞察。
+- 没有复现路径、影响范围或后续改法。
+
+## 测评 / 评论文
+
+### 适用场景
+
+用于评价产品、工具、课程、项目、平台或某套设计方案。
+
+### 推荐结构
+
+1. 评测范围与标准：先说明用什么坐标评价。
+2. 总体判断：先给结论，不要拖到最后。
+3. 分维度体验：功能、交互、性能、可维护性、用户成本。
+4. 问题与影响：哪些问题不是小瑕疵，而会伤到用户或维护者。
+5. 建议：给出可改方向，不能只开喷。
+6. 更高层总结：把产品体验上升到设计思路或组织问题。
+
+### 禁区
+
+- 先入为主地开喷。
+- 表扬很空，批评也很空。
+- 不说明评价标准。
+- 只站在单一角色视角看问题。
+
+## 课程 / 项目总结文
+
+### 适用场景
+
+用于总结课程作业、助教工作、团队项目、开源项目、阶段性经历或长期协作。
+
+### 推荐结构
+
+1. 完整过程回顾：交代阶段，不要直接堆成果。
+2. 各阶段判断：每个阶段发生了什么、暴露了什么问题。
+3. 个人总结：作者从中学到了什么，哪些看法被改变。
+4. 更深一层反思：制度、协作、工程方法或价值判断。
+5. 鸣谢或补充说明：可以有，但不能替代判断收束。
+
+### 禁区
+
+- 只写“做了什么”，没有“为什么重要”。
+- 把总结写成履历展示。
+- 不区分个人经验和普遍结论。
+- 没有最终判断，只剩礼貌收尾。
+
+## 选型建议
+
+当一篇文章同时像多种类型时，优先选择主问题最强的类型：
+
+- 主问题是“怎么把它搞定”：技术实践文。
+- 主问题是“怎么理解并上手”：教程 / 学习笔记。
+- 主问题是“为什么会坏”：复盘 / 事故分析。
+- 主问题是“这个东西到底怎么样”：测评 / 评论。
+- 主问题是“这段经历说明了什么”：课程 / 项目总结。
+
+不要为了显得全面把所有骨架揉在一起。骨架可以混用，但主线只能有一条。
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,340p' agent-skills/hansbug-writing-voice/references/prompt-recipes.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 文风 Prompt Recipes
+
+本文件提供给 Codex / Claude 使用 HansBug 中文博客文风 Skill 时的固定任务配方。它的目的不是让每次输出都长一个样，而是让 agent 在构思、写作、改写、审稿和机械检查时，稳定地读取正确材料、暴露事实缺口、避免编造经历，并把输出落到可审阅的结构上。
+
+所有 recipe 默认面向中文写作。代码、路径、JSON key、CLI 参数可以保持英文；人读说明、审稿意见和写作正文默认中文。
+
+## 通用前置动作
+
+每次使用本 Skill，先做这几件事：
+
+1. 说明当前模式：构思、初稿写作、改写、风格增强、风格审稿、反向批评、检查 / CLI gate 中的哪一种。
+2. 按 `SKILL.md` 只读取当前模式需要的 references，不要默认全量加载。
+3. 如果任务涉及旧博客样本、manifest、摘录或抓取，先读 `corpus-policy.md`。
+4. 明确样本版本：当前使用 `sample-manifest.json` 的 `schemaVersion: 2`，正向样本只允许 `participatesInProfile: true`。
+5. 明确 sample ids：输出中列出实际使用的样本 id；没有样本对照时必须承认缺口。
+6. 明确最后更新：在审稿或计划中写出本次使用的日期或 PR 阶段，例如 `最后更新：2026-06-15 / PR-3`。
+7. 盘点事实缺口：把缺少作者真实经历、版本、环境、数据、链接的地方列出来。
+8. 不编造经历：没有来源时，用占位请求或降格表述，不写成作者已经经历过。
+
+## 构思
+
+### 适用场景
+
+用户只给了主题、问题或一组材料，需要先决定文章角度、读者、边界、核心判断和大纲。
+
+### 必须读取
+
+- `references/corpus-policy.md`（若涉及旧博客样本）
+- `references/sample-manifest.json`
+- `references/article-archetypes.md`
+- `references/macro-logic.md`
+- 必要时读取 `references/voice-profile.md`
+
+### 样本版本 / sample ids / 最后更新
+
+输出中必须包含：
+
+```text
+样本版本：sample-manifest schemaVersion 2
+参考 sample ids：cnblogs-8701447, ...
+最后更新：2026-06-15 / PR-3
+```
+
+sample ids 只列实际对照过的正向样本；不要把 holdout 或 negative 写进去。
+
+### 输出格式
+
+```text
+文章类型：技术实践文 / 教程 / 复盘 / 测评 / 课程总结 / 其他
+主问题：...
+不解决：...
+核心判断：...
+读者应该先看：...
+建议结构：
+1. 缘起 / 破题：...
+2. 问题定义 / 边界：...
+3. 核心判断前置：...
+4. 分维度分析：...
+5. 反例 / 坑点：...
+6. 总结盖章：...
+事实缺口：...
+```
+
+### 事实缺口与不编造经历
+
+如果用户没有提供经历，不要写“我曾经在某项目里”。应写“这里需要作者补一个真实项目现场，否则只能写成一般工程经验”。
+
+## 初稿写作
+
+### 适用场景
+
+用户要求直接写一篇新文章，或给了足够事实材料让 agent 输出完整草稿。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/article-archetypes.md`
+- `references/macro-logic.md`
+- `references/micro-patterns.md`
+- 必要时读取 `references/anti-patterns.md`
+
+### 样本版本 / sample ids / 最后更新
+
+在写作前的简短说明中列出样本版本、sample ids 和最后更新；正文里不必硬塞这些元信息，除非文章本身需要说明写作依据。
+
+### 输出格式
+
+先给一段“写作前确认”，再给正文：
+
+```text
+写作前确认：
+- 样本版本：...
+- 参考 sample ids：...
+- 本文解决：...
+- 本文不解决：...
+- 事实缺口：...
+
+--- 正文 ---
+```
+
+正文必须在前三段内进入主问题和核心判断。技术实践文如果适合三段式 quick-start，应按 `CLAUDE.md / AGENTS.md` 的固定模板写。
+
+### 事实缺口与不编造经历
+
+缺少事实时，可以写“【需要作者补充：这里最好放一个真实踩坑经历】”，不能自动补会议、项目、课程现场。
+
+## 改写
+
+### 适用场景
+
+用户已有草稿，希望在不改变事实和含义的前提下更像 HansBug。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/micro-patterns.md`
+- `references/anti-patterns.md`
+- `references/review-rubric.md`
+
+### 样本版本 / sample ids / 最后更新
+
+改写说明中列出参考样本和最后更新；如果没有样本对照，只能做一般中文技术文润色，不能声称已完成 HansBug 文风贴合。
+
+### 输出格式
+
+```text
+改写原则：
+- 保留事实：...
+- 调整结构：...
+- 加强判断：...
+- 不碰内容：...
+
+改写稿：...
+
+改动说明：
+- ...
+```
+
+### 事实缺口与不编造经历
+
+原文没有的经历不要新增。原文含糊的第一人称经历，应标记“需作者确认”，不要越写越真。
+
+## 风格增强
+
+### 适用场景
+
+文章结构基本成立，只需要增加作者判断、段落落锤、概念拆分、读者引导和适度松弛感。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/micro-patterns.md`
+- `references/macro-logic.md`
+
+### 样本版本 / sample ids / 最后更新
+
+列出本次对照的正向样本 id；如果只增强局部段落，也要说明没有做全文审稿。
+
+### 输出格式
+
+```text
+增强目标：判断前置 / 概念拆分 / 工程取舍 / 结尾盖章 / 读者引导
+原段落问题：...
+增强后文本：...
+为什么这样改：...
+```
+
+### 事实缺口与不编造经历
+
+风格增强不能增加事实强度。可以把“可能”写得更清楚，不能把“可能”写成“我亲历”。
+
+## 风格审稿
+
+### 适用场景
+
+用户要求检查文章像不像 HansBug、是否有 AI 腔、是否符合 `CLAUDE.md / AGENTS.md` 和本 Skill。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/anti-patterns.md`
+- `references/review-rubric.md`
+- 必要时读取 `references/macro-logic.md`
+
+### 样本版本 / sample ids / 最后更新
+
+审稿意见开头必须写：
+
+```text
+样本版本：sample-manifest schemaVersion 2
+对照 sample ids：...
+最后更新：2026-06-15 / PR-3
+```
+
+### 输出格式
+
+按 C/I/M 输出：
+
+```text
+结论：C=0 / I=1 / M=2
+C 级问题：...
+I 级问题：...
+M 级建议：...
+建议修改顺序：...
+```
+
+### 事实缺口与不编造经历
+
+把无来源第一人称经历单独列出。审稿时不要因为段落“很有味道”就放过事实风险。
+
+## 反向批评
+
+### 适用场景
+
+需要轻度对抗性 review，专门找假模仿、空泛判断、样本误用、事实编造和机械 gate 漏洞。
+
+### 必须读取
+
+- `references/anti-patterns.md`
+- `references/review-rubric.md`
+- `references/sample-manifest.json`
+- 必要时读取 `references/micro-patterns.md`
+
+### 样本版本 / sample ids / 最后更新
+
+必须写明检查了哪些 sample ids，尤其要确认没有使用 holdout / negative 做正向证据。
+
+### 输出格式
+
+```text
+对抗性结论：...
+最像假模仿的地方：...
+最可能编造事实的地方：...
+最可能误用样本的地方：...
+至少一个可复现反例：...
+C/I/M 列表：...
+```
+
+### 事实缺口与不编造经历
+
+优先攻击“写得像真的但没有来源”的段落。宁可要求作者补证据，也不要为了顺滑放行。
+
+## 检查 / CLI gate
+
+### 适用场景
+
+需要确定性粗筛 Markdown 草稿，或需要在 PR 中证明明显问题会被拦住。
+
+### 必须读取
+
+- `references/corpus-policy.md`
+- `references/sample-manifest.json`
+- `references/review-rubric.md`
+- `scripts/check_hansbug_voice.py`
+- 必要时运行 `scripts/lint_voice_references.py`
+
+### 样本版本 / sample ids / 最后更新
+
+CLI 输出里的 `matchedSamples` 只允许来自 `participatesInProfile: true` 的样本。人工报告中仍需写明本次 manifest 路径和最后更新。
+
+### 输出格式
+
+样本声明推荐写成 HTML 注释，且必须在正文普通 Markdown 中出现，不要放进 fenced code block 里解释自己：
+
+```md
+<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+```
+
+如果只是展示这段写法本身，应放进 fenced code block；机械 gate 不应把代码块里的示例当成真实样本对照。
+
+机器消费统一使用 JSON：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
+  src/content/blog/example.md \
+  --skill-root agent-skills/hansbug-writing-voice \
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
+  --format json \
+  --pretty
+```
+
+人读摘要可以使用：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
+  src/content/blog/example.md \
+  --skill-root agent-skills/hansbug-writing-voice \
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
+  --format text
+```
+
+### 事实缺口与不编造经历
+
+如果 CLI 命中 `possibleUnsupportedExperienceClaims`，先处理事实风险，再谈文风润色。不要让漂亮的语气盖过不可靠的事实。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+## draft
+
+使用入口：已按 `CLAUDE.md` 的强入口要求读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。  
+样本版本：`sample-manifest schemaVersion 2`  
+参考 sample ids：`cnblogs-8701447`, `cnblogs-14711869`  
+最后更新：`2026-06-15 / PR-3`
+
+文章类型：技术实践文
+
+主问题：一个临时脚本已经能跑，为什么还要把它改造成仓库内可维护工具？真正要讨论的不是“脚本能不能完成当前任务”，而是它在长期维护里会不会变成后续 agent 和作者都不敢碰、碰了就踩坑的隐形债务。
+
+不解决：不讨论某一种脚本语言的完整工程化教程；不讨论大型 CLI 框架选型；不把个人博客仓库包装成复杂平台；不编造作者在哪个真实项目里因为脚本翻车的经历。
+
+核心判断：临时脚本的最低目标是把一次事情办完，仓库内工具的最低目标是让下一次维护者能判断、能复现、能失败得明白。能跑只是底线，不是设计成立。一个脚本只要进入仓库维护链路，就不再是作者手边的“顺手小玩具”，而是会影响内容发布、数据生成、构建检查和后续协作的工程入口。
+
+读者应该先看：维护个人站点、技术博客、数据索引、内容迁移脚本，且已经开始让 agent 或自动化工具参与维护的人。尤其是那些手上有一堆 `scripts/tmp_xxx.py`、`fix_once.ts`、`convert_old_data.js`，但每次重跑之前都要先在脑子里考古半天的人。
+
+建议结构：
+
+1. 缘起 / 破题：从“临时脚本最可怕的地方不是丑，而是它后来被人当成正式入口继续用”切入。可以用抽象场景写：个人技术博客里有维护脚本负责生成索引、清洗旧数据、检查内容字段或同步元信息。这里必须声明没有作者真实踩坑材料，所以只基于仓库维护场景做构思。
+
+2. 问题定义 / 边界：拆开“脚本能跑”和“工具可维护”这两个概念。前者关心一次执行，后者关心入口、参数、错误提示、幂等性、文档、测试、目录位置、输出文件边界和后续 agent 是否能读懂。本文边界放在个人博客仓库内维护脚本，不上升到企业级平台治理。
+
+3. 核心判断前置：把判断压到前面讲清楚：凡是会被重复执行、会修改仓库文件、会影响发布链路、会被 agent 调用的脚本，都应该按仓库内工具处理。反过来，一次性探索脚本可以保留粗糙，但不能悄悄混进正式维护路径。这个判断要带一点硬度：别把“当时省了十分钟”变成“以后每次都要烧半小时香”。
+
+4. 分维度分析：  
+   第一维是入口：命令名、参数、默认行为、dry-run、help 文案。维护工具应该让人不读源码也能知道它要干什么。  
+   第二维是状态：输入从哪里来，输出写到哪里，是否会覆盖文件，失败后仓库会不会半脏不脏。  
+   第三维是错误：不要只抛一坨栈，要告诉维护者错在哪个文件、哪个字段、下一步怎么修。  
+   第四维是验证：至少有 smoke test 或 fixture，让后续 agent 改完之后能证明没有把发布链路炸穿。  
+   第五维是归属：脚本放在什么目录、README 或 `package.json` / npm scripts 里如何暴露、哪些输出文件不该手改。
+
+5. 反例 / 坑点：承认不是所有脚本都值得工程化。真正的边界是使用频率、破坏半径和知识沉淀价值。只跑一次、无副作用、不会进入发布链路的探索脚本，可以留在临时区甚至删掉；但只要它开始生成正式数据、修正文档结构、参与构建检查，就不能再靠作者记忆续命。还要特别写 agent 场景：未来 agent 不知道你当时脑子里那几条隐含规则，它只会读仓库里留下来的入口、注释、测试和错误信息。
+
+6. 总结盖章：把文章收束到工程维护判断：把临时脚本改造成仓库内工具，本质不是追求“漂亮”，而是把隐性经验从作者脑子里搬回仓库。个人项目也需要这种克制，因为个人项目最容易把“只有我知道”误判成“以后我也会记得”。说白了，工具化不是给脚本穿西装，而是让下一次维护少一点玄学。
+
+事实缺口：
+
+- 需要作者补充一个真实的博客维护脚本类型，例如旧博客索引清洗、标签元数据检查、引用系统校验、文章 frontmatter 批量修正，或构建前数据生成。
+- 需要作者确认是否已有具体路径或命令入口可作为例子，例如 `scripts/`、`npm run ...`、`src/data/...`。
+- 需要作者补充一次真实维护痛点：参数忘记、输出覆盖、错误信息难读、agent 误改、数据格式漂移，任选其一即可。
+- 如果要写成正式正文，应补一个可展示的前后对照：临时脚本长什么样，仓库内工具最终至少具备哪些接口。
+- 不能写“笔者曾在某项目中踩过坑”之类第一手经历，除非作者给出具体事实。
+
+## review
+
+C=0 / I=0 / M=1
+
+M 级建议：当前只是构思稿，没有展开到可直接发布的正文；如果进入写作阶段，需要再按写作模式读取更多 references，并把事实缺口补齐或保留明确占位。
+
+## revision
+
+无需阻断性修订。自审确认：输出使用了指定的三个 Markdown 标题；包含 `CLAUDE.md` 和 `agent-skills/hansbug-writing-voice/SKILL.md` 两个入口路径；声明了样本版本、sample ids 和事实缺口；没有编造作者真实经历，也没有修改仓库文件或读取 `.cache/hansbug-writing-voice/corpus/`。
+hook: Stop
+hook: Stop Completed
+tokens used
+50,065
