@@ -45,7 +45,7 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 
 ## PR-0 可用命令
 
-检查已提交 reference 参考资料里的摘录是否满足来源、用途和长度约束：
+检查已提交 reference 参考资料里的摘录是否满足来源、用途、JSON 结构和长度约束（单条 `120` 个中文字、同一来源累计 `300` 个中文字）：
 
 ```bash
 python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references

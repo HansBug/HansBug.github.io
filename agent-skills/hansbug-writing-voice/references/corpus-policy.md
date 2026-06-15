@@ -41,7 +41,7 @@ Markdown reference 可以使用带 `hansbug-voice-excerpt` 标记的 fenced JSON
 ```
 ````
 
-JSON manifest 可以把摘录对象放在 `excerpts` 数组里。同一套必填字段和长度上限仍然生效。
+JSON manifest 可以把摘录对象放在 `excerpts` 数组里；数组里的每一项都必须是 JSON object。同一套必填字段和长度上限仍然生效。
 
 `purpose` / `useFor` 的值要能说明这段摘录为什么需要被提交，例如：
 
@@ -60,4 +60,4 @@ JSON manifest 可以把摘录对象放在 `excerpts` 数组里。同一套必填
 python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
 ```
 
-当摘录过长、缺少 `sourceUrl` / `url`、缺少 `purpose` / `useFor`，或文件不是合法 UTF-8 / JSON 时，lint gate 必须非零退出，并给出具体文件路径和字段 / 上限原因。
+当摘录过长、缺少 `sourceUrl` / `url`、缺少 `purpose` / `useFor`，`excerpts` 数组项不是 JSON object，或文件不是合法 UTF-8 / JSON 时，lint gate 必须非零退出，并给出具体文件路径和字段 / 上限原因。当前长度 gate 按中文字计数；如果短摘录里必须保留英文术语，也要保持同等克制，不要借“英文不计数”塞进大段原文。

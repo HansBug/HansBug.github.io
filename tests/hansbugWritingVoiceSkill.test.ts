@@ -197,6 +197,35 @@ describe("HansBug writing voice skill", () => {
     expect(result.stdout).toContain("OK");
   });
 
+  it("rejects non-object items in JSON manifest excerpts arrays", async () => {
+    const fixture = await makeReferencesFixture();
+    fixtureRoot = fixture.root;
+    await writeFile(
+      join(fixture.references, "bad-excerpts-array.json"),
+      JSON.stringify(
+        {
+          excerpts: [
+            "not an object",
+            {
+              url: "https://www.cnblogs.com/HansBug/p/json.html",
+              useFor: "review-rubric",
+              excerpt: "合法摘录仍然可以和坏条目一起被扫描。",
+            },
+          ],
+        },
+        null,
+        2,
+      ),
+    );
+
+    const result = await runLint(fixture.references);
+
+    expect(result.code).not.toBe(0);
+    expect(result.stderr).toContain("bad-excerpts-array.json");
+    expect(result.stderr).toContain("excerpts");
+    expect(result.stderr).toContain("JSON object");
+  });
+
   it("rejects non-UTF-8 reference files with a clear lint error", async () => {
     const fixture = await makeReferencesFixture();
     fixtureRoot = fixture.root;

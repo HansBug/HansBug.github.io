@@ -166,6 +166,8 @@ def collect_json_excerpts_from_value(
                     in_excerpts_array=in_excerpts_array,
                 )
             )
+    elif in_excerpts_array:
+        errors.append(f"{format_path(file)}:{location}: excerpts 数组里的摘录必须是 JSON object")
     return excerpts
 
 
