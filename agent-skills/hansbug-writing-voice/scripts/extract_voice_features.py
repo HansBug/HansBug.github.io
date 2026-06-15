@@ -105,6 +105,7 @@ def validate_manifest(manifest: dict[str, Any]) -> list[dict[str, Any]]:
         for field in ["title", "url", "articleType", "sampleRole", "cacheKey", "sourceSelector", "notes"]:
             if not isinstance(raw.get(field), str) or not raw[field].strip():
                 raise FeatureError(f"manifest.sources[{index}].{field} 必须是非空字符串")
+        validate_cache_key(raw["cacheKey"])
         if not isinstance(raw.get("year"), int):
             raise FeatureError(f"manifest.sources[{index}].year 必须是整数")
         result.append(raw)
@@ -143,8 +144,21 @@ def load_catalog_summaries(path: Path) -> dict[str, str]:
     return summaries
 
 
+def validate_cache_key(cache_key: str) -> None:
+    if not re.fullmatch(r"[A-Za-z0-9._-]+", cache_key):
+        raise FeatureError(f"cacheKey 只能包含字母、数字、点、下划线和短横线：{cache_key!r}")
+
+
 def cache_path(cache_dir: Path, source: dict[str, Any]) -> Path:
-    return cache_dir / f"{source['cacheKey']}.txt"
+    cache_key = source["cacheKey"]
+    validate_cache_key(cache_key)
+    base = cache_dir.resolve()
+    candidate = (cache_dir / f"{cache_key}.txt").resolve()
+    try:
+        candidate.relative_to(base)
+    except ValueError as exc:
+        raise FeatureError(f"cacheKey 指向 cache 目录之外：{cache_key!r}") from exc
+    return candidate
 
 
 def read_source_text(
@@ -155,7 +169,10 @@ def read_source_text(
 ) -> tuple[str, str]:
     path = cache_path(cache_dir, source)
     if path.exists():
-        text = path.read_text(encoding="utf-8").strip()
+        try:
+            text = path.read_text(encoding="utf-8").strip()
+        except OSError as exc:
+            raise FeatureError(f"无法读取 cache 文件 {repo_relative(path)}：{exc}") from exc
         if text:
             return text, "cache"
         raise FeatureError(f"cache 文件为空：{repo_relative(path)}")
@@ -352,8 +369,11 @@ def main() -> int:
         output_text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
         if args.write_derived:
             output_path = Path(args.output)
-            output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_text(output_text, encoding="utf-8")
+            try:
+                output_path.parent.mkdir(parents=True, exist_ok=True)
+                output_path.write_text(output_text, encoding="utf-8")
+            except OSError as exc:
+                raise FeatureError(f"无法写入派生特征文件 {repo_relative(output_path)}：{exc}") from exc
             print(f"OK: 已写入 {repo_relative(output_path)}")
         else:
             print(output_text, end="")

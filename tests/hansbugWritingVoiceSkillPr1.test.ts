@@ -219,9 +219,54 @@ describe("HansBug writing voice skill PR-1", () => {
     expect(result.stderr).not.toContain("Traceback");
   });
 
-  it("fails fast on abnormal HTTP status without a Python traceback", async () => {
+  it("rejects invalid cacheKey before dry-run prints a partial fetch plan", async () => {
     fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    const badManifest = join(fixtureRoot, "bad-cachekey-manifest.json");
+    await writeFile(
+      badManifest,
+      JSON.stringify(
+        {
+          sources: [
+            {
+              id: "bad-cachekey",
+              title: "坏 cacheKey 样本",
+              url: "https://example.invalid/post.html",
+              year: 2026,
+              articleType: "technical-practice",
+              sampleRole: "core",
+              useFor: ["macro-logic"],
+              participatesInProfile: true,
+              holdoutForDryRun: false,
+              cacheKey: "bad/key",
+              sourceSelector: "#cnblogs_post_body",
+              notes: "用于确认 dry-run 不输出半截计划。",
+            },
+          ],
+          excerpts: [],
+        },
+        null,
+        2,
+      ),
+    );
+
+    const result = await runPython([
+      fetchScript,
+      "--manifest",
+      badManifest,
+      "--dry-run",
+    ]);
+
+    expect(result.code).not.toBe(0);
+    expect(result.stdout).not.toContain("DRY-RUN");
+    expect(result.stderr).toContain("cacheKey 只能包含");
+    expect(result.stderr).not.toContain("Traceback");
+  });
+
+  it("fails fast on abnormal HTTP status without retrying or printing a Python traceback", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    let requestCount = 0;
     const server = createServer((_request, response) => {
+      requestCount += 1;
       response.statusCode = 404;
       response.end("missing");
     });
@@ -270,10 +315,13 @@ describe("HansBug writing voice skill PR-1", () => {
         "--delay",
         "0",
         "--max-retries",
+        "3",
+        "--retry-backoff",
         "0",
       ]);
 
       expect(result.code).not.toBe(0);
+      expect(requestCount).toBe(1);
       expect(result.stderr).toContain("HTTP 状态码异常：404");
       expect(result.stderr).not.toContain("Traceback");
     } finally {
@@ -421,6 +469,56 @@ describe("HansBug writing voice skill PR-1", () => {
     ).toBe(true);
   });
 
+  it("keeps extract cacheKey reads inside the selected cache directory", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    const cacheDir = join(fixtureRoot, "cache");
+    await mkdir(cacheDir, { recursive: true });
+    await writeFile(
+      join(fixtureRoot, "outside.txt"),
+      "首先，这段文本不在 cache 目录内，不能被 cacheKey 越界读取。\n",
+    );
+    const manifest = join(fixtureRoot, "manifest-escape.json");
+    await writeFile(
+      manifest,
+      JSON.stringify(
+        {
+          sources: [
+            {
+              id: "escape",
+              title: "越界 fixture",
+              url: "https://example.invalid/escape.html",
+              year: 2026,
+              articleType: "technical-practice",
+              sampleRole: "core",
+              useFor: ["macro-logic"],
+              participatesInProfile: true,
+              holdoutForDryRun: false,
+              cacheKey: "../outside",
+              sourceSelector: "#cnblogs_post_body",
+              notes: "用于验证 extract 是否限制 cacheKey。",
+            },
+          ],
+          excerpts: [],
+        },
+        null,
+        2,
+      ),
+    );
+
+    const result = await runPython([
+      extractScript,
+      "--manifest",
+      manifest,
+      "--cache-dir",
+      cacheDir,
+    ]);
+
+    expect(result.code).not.toBe(0);
+    expect(result.stdout).not.toContain("outside");
+    expect(result.stderr).toContain("cacheKey 只能包含");
+    expect(result.stderr).not.toContain("Traceback");
+  });
+
   it("keeps derived voice features schema stable and excludes holdout samples by default", async () => {
     const derived = await readJson(derivedPath);
     expect(derived.schemaVersion).toBe(1);
@@ -482,6 +580,28 @@ describe("HansBug writing voice skill PR-1", () => {
     expect(writeResult.stdout).toContain("已写入");
     const written = JSON.parse(await readFile(outputPath, "utf8"));
     expect(written.sampleIds).toEqual(["cnblogs-8701447"]);
+  });
+
+  it("reports derived write errors as clear Chinese messages", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    const outputDir = join(fixtureRoot, "output-is-directory.json");
+    await mkdir(outputDir, { recursive: true });
+
+    const result = await runPython([
+      extractScript,
+      "--manifest",
+      manifestPath,
+      "--allow-catalog-summary",
+      "--output",
+      outputDir,
+      "--id",
+      "cnblogs-8701447",
+      "--write-derived",
+    ]);
+
+    expect(result.code).not.toBe(0);
+    expect(result.stderr).toContain("无法写入派生特征文件");
+    expect(result.stderr).not.toContain("Traceback");
   });
 
   it("documents PR-1 scripts in the skill entry and corpus policy", async () => {

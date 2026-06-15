@@ -44,6 +44,10 @@ class CorpusError(RuntimeError):
     """语料抓取中的可解释错误。"""
 
 
+class NonRetryableCorpusError(CorpusError):
+    """不应进入重试循环的抓取错误，例如 HTTP 4xx/5xx 状态码。"""
+
+
 @dataclass(frozen=True)
 class SourceItem:
     id: str
@@ -161,6 +165,11 @@ def selector_matches(tag: str, attrs: dict[str, str], target: tuple[str, str]) -
     return False
 
 
+def validate_cache_key(cache_key: str) -> None:
+    if not re.fullmatch(r"[A-Za-z0-9._-]+", cache_key):
+        raise CorpusError(f"cacheKey 只能包含字母、数字、点、下划线和短横线：{cache_key!r}")
+
+
 def repo_relative(path: Path) -> str:
     try:
         return str(path.resolve().relative_to(REPO_ROOT))
@@ -200,6 +209,7 @@ def validate_source(raw: Any, index: int) -> SourceItem:
     if not isinstance(raw.get("holdoutForDryRun"), bool):
         raise CorpusError(f"manifest.sources[{index}].holdoutForDryRun 必须是布尔值")
     parse_simple_selector(raw["sourceSelector"])
+    validate_cache_key(raw["cacheKey"])
     return SourceItem(
         id=raw["id"].strip(),
         title=raw["title"].strip(),
@@ -246,13 +256,10 @@ def read_url(url: str, timeout: float, user_agent: str) -> str:
     request = urllib.request.Request(url, headers={"User-Agent": user_agent})
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:  # noqa: S310 - URL 来自受控 manifest
-            status = getattr(response, "status", 200)
-            if status < 200 or status >= 300:
-                raise CorpusError(f"HTTP 状态码异常：{status} ({url})")
             charset = response.headers.get_content_charset() or "utf-8"
             return response.read().decode(charset, errors="replace")
     except urllib.error.HTTPError as exc:
-        raise CorpusError(f"HTTP 状态码异常：{exc.code} ({url})") from exc
+        raise NonRetryableCorpusError(f"HTTP 状态码异常：{exc.code} ({url})") from exc
 
 
 def fetch_with_retries(source: SourceItem, timeout: float, user_agent: str, max_retries: int, retry_backoff: float) -> str:
@@ -261,6 +268,8 @@ def fetch_with_retries(source: SourceItem, timeout: float, user_agent: str, max_
     for attempt in range(1, attempts + 1):
         try:
             return read_url(source.url, timeout=timeout, user_agent=user_agent)
+        except NonRetryableCorpusError:
+            raise
         except (OSError, UnicodeError, urllib.error.URLError, CorpusError) as exc:
             last_error = exc
             if attempt >= attempts:
@@ -283,8 +292,7 @@ def extract_text(html: str, source: SourceItem, min_chars: int) -> str:
 
 
 def cache_path(cache_dir: Path, source: SourceItem) -> Path:
-    if not re.fullmatch(r"[A-Za-z0-9._-]+", source.cache_key):
-        raise CorpusError(f"cacheKey 只能包含字母、数字、点、下划线和短横线：{source.cache_key!r}")
+    validate_cache_key(source.cache_key)
     return cache_dir / f"{source.cache_key}.txt"
 
 
@@ -328,17 +336,17 @@ def main() -> int:
             raise CorpusError("没有任何样本匹配当前 --id / --sample-role / --limit 条件")
 
         cache_dir = Path(args.cache_dir)
+        planned_targets = [(source, cache_path(cache_dir, source)) for source in selected]
         if args.dry_run:
             print(f"DRY-RUN: 将处理 {len(selected)} 篇样本，cache 目录为 {repo_relative(cache_dir)}")
-            for source in selected:
-                print(f"- {source.id} [{source.sample_role}] {source.title} -> {repo_relative(cache_path(cache_dir, source))}")
+            for source, target in planned_targets:
+                print(f"- {source.id} [{source.sample_role}] {source.title} -> {repo_relative(target)}")
             return 0
 
         cache_dir.mkdir(parents=True, exist_ok=True)
-        for index, source in enumerate(selected, start=1):
+        for index, (source, target) in enumerate(planned_targets, start=1):
             html = fetch_with_retries(source, args.timeout, args.user_agent, args.max_retries, args.retry_backoff)
             text = extract_text(html, source, args.min_chars)
-            target = cache_path(cache_dir, source)
             target.write_text(text + "\n", encoding="utf-8")
             print(f"OK {index}/{len(selected)}: {source.id} -> {repo_relative(target)}")
             if index < len(selected) and args.delay:
