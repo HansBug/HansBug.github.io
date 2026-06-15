@@ -4,4 +4,5 @@ dist
 coverage
 artifacts
 public/vendor/katex
+.cache/hansbug-writing-voice/
 .DS_Store

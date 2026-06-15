@@ -1,0 +1,2 @@
+# PR-0 uses only the Python standard library.
+# This file is scoped to agent-skills/hansbug-writing-voice/scripts/ and must not add root package dependencies.

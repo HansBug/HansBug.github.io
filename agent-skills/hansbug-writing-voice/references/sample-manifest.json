@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "stage": "pr-0-placeholder",
+  "description": "Minimal manifest shape for future HansBug writing voice samples. PR-1 may extend fields with a compatibility note.",
+  "sources": [
+    {
+      "id": "cnblogs-hansbug-example",
+      "url": "https://www.cnblogs.com/HansBug/",
+      "status": "placeholder",
+      "purpose": "document-source-shape",
+      "notes": "Do not place full old-blog article bodies here. Use .cache/hansbug-writing-voice/corpus/ for raw crawler output."
+    }
+  ],
+  "excerpts": []
+}
