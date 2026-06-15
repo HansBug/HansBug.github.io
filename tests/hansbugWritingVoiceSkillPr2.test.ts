@@ -27,19 +27,55 @@ async function readJson(path: string) {
 }
 
 function countChineseChars(text: string) {
-  return [...text].filter((char) => /[\u4e00-\u9fff]/u.test(char)).length;
+  return [...text].filter((char) =>
+    /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/u.test(char),
+  ).length;
+}
+
+function getMarkdownH2Sections(text: string) {
+  return text.split(/\n## /).slice(1);
+}
+
+function getSampleEvidenceTokens(source: {
+  id: string;
+  cacheKey: string;
+  title?: string;
+}) {
+  const title = source.title ?? "";
+  const titleFragments = Array.from(
+    new Set(
+      title
+        .split(/[\s\p{P}\p{S}]+/u)
+        .map((token) => token.trim())
+        .filter((token) => token.length >= 4),
+    ),
+  );
+
+  return [source.id, source.cacheKey, title, ...titleFragments].filter(Boolean);
 }
 
 async function runLint() {
   try {
-    const result = await execFileAsync("python3", [lintScript, referencesRoot], {
-      cwd: repoRoot,
-      maxBuffer: 1024 * 1024,
-    });
+    const result = await execFileAsync(
+      "python3",
+      [lintScript, referencesRoot],
+      {
+        cwd: repoRoot,
+        maxBuffer: 1024 * 1024,
+      },
+    );
     return { code: 0, stdout: result.stdout, stderr: result.stderr };
   } catch (error) {
-    const err = error as Error & { code?: number; stdout?: string; stderr?: string };
-    return { code: err.code ?? 1, stdout: err.stdout ?? "", stderr: err.stderr ?? "" };
+    const err = error as Error & {
+      code?: number;
+      stdout?: string;
+      stderr?: string;
+    };
+    return {
+      code: err.code ?? 1,
+      stdout: err.stdout ?? "",
+      stderr: err.stderr ?? "",
+    };
   }
 }
 
@@ -70,7 +106,9 @@ describe("HansBug writing voice skill PR-2", () => {
   it("keeps the voice profile centered on judgement instead of catchphrases", async () => {
     const text = await readReference("voice-profile.md");
 
-    expect(text).toContain("像 HansBug，首先不是像某几个词，而是像一套判断方式");
+    expect(text).toContain(
+      "像 HansBug，首先不是像某几个词，而是像一套判断方式",
+    );
     expect(text).toContain("概念拆分与对立辨析");
     expect(text).toContain("技术判断密度");
     expect(text).toContain("事实与经历边界");
@@ -101,10 +139,7 @@ describe("HansBug writing voice skill PR-2", () => {
 
   it("requires every micro pattern to carry the three anti-buffet labels", async () => {
     const text = await readReference("micro-patterns.md");
-    const sections = text
-      .split(/\n## /)
-      .slice(1)
-      .filter((section) => !section.startsWith("每个模式"));
+    const sections = getMarkdownH2Sections(text);
 
     expect(sections.length).toBeGreaterThanOrEqual(8);
     for (const section of sections) {
@@ -130,20 +165,10 @@ describe("HansBug writing voice skill PR-2", () => {
 
   it("covers anti-patterns with signals, harm and repair directions", async () => {
     const text = await readReference("anti-patterns.md");
-    const required = [
-      "AI 式正确废话",
-      "高口癖密度 + 低判断密度",
-      "假锋利",
-      "无边界感",
-      "编造作者经历",
-      "旧题解 / 模板腔误用",
-    ];
+    const sections = getMarkdownH2Sections(text);
 
-    for (const title of required) {
-      const index = text.indexOf(`## ${title}`);
-      expect(index).toBeGreaterThanOrEqual(0);
-      const next = text.indexOf("\n## ", index + 1);
-      const section = next === -1 ? text.slice(index) : text.slice(index, next);
+    expect(sections.length).toBeGreaterThanOrEqual(8);
+    for (const section of sections) {
       expect(section).toContain("识别信号");
       expect(section).toContain("危害");
       expect(section).toContain("修复方向");
@@ -152,10 +177,14 @@ describe("HansBug writing voice skill PR-2", () => {
   });
 
   it("keeps holdout samples out of positive voice-profile evidence", async () => {
-    const manifest = await readJson(join(referencesRoot, "sample-manifest.json"));
+    const manifest = await readJson(
+      join(referencesRoot, "sample-manifest.json"),
+    );
     const holdoutIds = manifest.sources
-      .filter((source: { holdoutForDryRun: boolean }) => source.holdoutForDryRun)
-      .map((source: { id: string; cacheKey: string; title: string }) => [source.id, source.cacheKey, source.title])
+      .filter(
+        (source: { holdoutForDryRun: boolean }) => source.holdoutForDryRun,
+      )
+      .map(getSampleEvidenceTokens)
       .flat();
     const positiveFiles = [
       "voice-profile.md",
@@ -163,21 +192,29 @@ describe("HansBug writing voice skill PR-2", () => {
       "micro-patterns.md",
       "macro-logic.md",
     ];
-    const positiveText = (await Promise.all(positiveFiles.map(readReference))).join("\n");
+    const positiveText = (
+      await Promise.all(positiveFiles.map(readReference))
+    ).join("\n");
 
     for (const token of holdoutIds) {
       expect(positiveText).not.toContain(token);
     }
-    const pr2Text = (await Promise.all(pr2ReferenceFiles.map(readReference))).join("\n");
+    const pr2Text = (
+      await Promise.all(pr2ReferenceFiles.map(readReference))
+    ).join("\n");
     expect(pr2Text).toContain("holdout");
     expect(pr2Text).toContain("不得进入");
   });
 
   it("keeps negative samples as anti-pattern evidence only", async () => {
-    const manifest = await readJson(join(referencesRoot, "sample-manifest.json"));
+    const manifest = await readJson(
+      join(referencesRoot, "sample-manifest.json"),
+    );
     const negativeTokens = manifest.sources
-      .filter((source: { sampleRole: string }) => source.sampleRole === "negative")
-      .map((source: { id: string; cacheKey: string }) => [source.id, source.cacheKey])
+      .filter(
+        (source: { sampleRole: string }) => source.sampleRole === "negative",
+      )
+      .map(getSampleEvidenceTokens)
       .flat();
     const positiveFiles = [
       "voice-profile.md",
@@ -185,7 +222,9 @@ describe("HansBug writing voice skill PR-2", () => {
       "micro-patterns.md",
       "macro-logic.md",
     ];
-    const positiveText = (await Promise.all(positiveFiles.map(readReference))).join("\n");
+    const positiveText = (
+      await Promise.all(positiveFiles.map(readReference))
+    ).join("\n");
 
     for (const token of negativeTokens) {
       expect(positiveText).not.toContain(token);
