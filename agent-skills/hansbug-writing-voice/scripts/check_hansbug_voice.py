@@ -4,9 +4,7 @@
 from __future__ import annotations
 
 import argparse
-import contextlib
 import importlib.util
-import io
 import json
 import re
 import sys
@@ -20,7 +18,7 @@ DEFAULT_MANIFEST = DEFAULT_REFERENCES / "sample-manifest.json"
 
 CJK_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 H2_RE = re.compile(r"^##\s+(.+)$", re.MULTILINE)
-SAMPLE_COMMENT_RE = re.compile(r"hansbug-voice-samples\s*:\s*([^\n<>]+)", re.IGNORECASE)
+SAMPLE_COMMENT_RE = re.compile(r"<!--\s*hansbug-voice-samples\s*:\s*([^\n<>]+?)\s*-->", re.IGNORECASE)
 SAMPLE_INLINE_RE = re.compile(r"(?:样本|sample ids?|参考|对照)[:：]\s*([A-Za-z0-9_,，、\-\s]+)", re.IGNORECASE)
 CNBLOGS_ID_RE = re.compile(r"cnblogs-\d+")
 
@@ -55,14 +53,15 @@ JUDGEMENT_TERMS = [
     "维护成本",
 ]
 BOUNDARY_TERMS = ["不解决", "边界", "适用", "不适用", "前置条件", "失败方式", "版本", "环境"]
-CLOSING_TERMS = ["归根结底", "说到底", "总结", "盖章", "最终判断", "长期", "方法论", "维护"]
+CLOSING_TERMS = ["归根结底", "说到底", "总结", "盖章", "最终判断", "长期", "方法论", "维护", "反思", "展望"]
+CLOSING_HEADING_TERMS = ["总结", "反思", "展望", "方法论", "收束", "结尾", "盖章"]
 EXPERIENCE_TERMS = ["我", "笔者", "我们"]
 UNSUPPORTED_EXPERIENCE_PATTERNS = [
     r"(?:我|笔者|我们).{0,16}(?:负责|参与|经历|踩过|见过|拍板|上线|复盘)",
     r"(?:项目|课程|助教|会议|现场|团队|内部|上线).{0,24}(?:我|笔者|我们|当时|曾经)",
     r"(?:我|笔者|我们).{0,24}(?:会议|现场|课程|项目|团队|内部)",
 ]
-EXPERIENCE_SOURCE_MARKERS = ["用户提供", "作者提供", "据材料", "公开链接", "需要作者补充", "需作者确认"]
+EXPERIENCE_SOURCE_MARKERS = ["用户提供", "作者提供", "据材料", "公开链接", "sourceUrl", "来源链接"]
 
 
 @dataclass(frozen=True)
@@ -89,6 +88,41 @@ def strip_frontmatter(text: str) -> str:
     return text
 
 
+def strip_fenced_code(text: str) -> str:
+    return re.sub(r"^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[ \t]*$", "\n", text, flags=re.MULTILINE)
+
+
+def normalize_draft_body(text: str) -> str:
+    return strip_frontmatter(text).lstrip()
+
+
+def get_intro_window(text: str, max_chars: int = 1200) -> str:
+    body = normalize_draft_body(text)
+    body = strip_fenced_code(body)
+    lines = body.splitlines()
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    # 跳过三段式 quick-start 的开头 blockquote；它是读者引导，不应挤掉正文判断窗口。
+    while lines and (lines[0].lstrip().startswith(">") or not lines[0].strip()):
+        lines.pop(0)
+    return "\n".join(lines)[:max_chars]
+
+
+def split_paragraphs_with_offsets(text: str) -> list[tuple[int, int, str]]:
+    paragraphs: list[tuple[int, int, str]] = []
+    for match in re.finditer(r"\S(?:[\s\S]*?)(?=\n{2,}|\Z)", text):
+        para = match.group(0)
+        paragraphs.append((match.start(), match.end(), para))
+    return paragraphs
+
+
+def local_context(text: str, start: int, end: int, radius: int = 90) -> str:
+    for para_start, para_end, paragraph in split_paragraphs_with_offsets(text):
+        if para_start <= start < para_end:
+            return paragraph
+    return text[max(0, start - radius) : min(len(text), end + radius)]
+
+
 def compact_evidence(text: str, limit: int = 180) -> str:
     normalized = re.sub(r"\s+", " ", text).strip()
     if len(normalized) <= limit:
@@ -101,6 +135,8 @@ def make_finding(code: str, severity: str, message: str, evidence: str, fix_hint
 
 
 def load_json(path: Path) -> Any:
+    if not path.is_file():
+        raise OSError("路径不是普通文件")
     with path.open("r", encoding="utf-8") as fh:
         return json.load(fh)
 
@@ -110,6 +146,8 @@ def load_manifest(path: Path) -> tuple[dict[str, Any] | None, list[Finding]]:
         manifest = load_json(path)
     except FileNotFoundError:
         return None, [make_finding("manifest-not-found", "C", "找不到样本 manifest。", str(path), "传入正确的 --manifest 路径。")]
+    except OSError as exc:
+        return None, [make_finding("manifest-not-readable", "C", "样本 manifest 无法作为普通文件读取。", f"{path}: {exc}", "传入一个可读的 sample-manifest.json 文件路径，不要传目录。")]
     except json.JSONDecodeError as exc:
         return None, [make_finding("manifest-invalid-json", "C", "样本 manifest 不是合法 JSON。", f"{path}: {exc.msg}", "修复 JSON 语法。")]
 
@@ -153,10 +191,11 @@ def get_sources_by_id(manifest: dict[str, Any] | None) -> dict[str, dict[str, An
 
 
 def extract_declared_sample_ids(text: str) -> list[str]:
+    scan_text = strip_fenced_code(text)
     ids: list[str] = []
-    for match in SAMPLE_COMMENT_RE.finditer(text):
+    for match in SAMPLE_COMMENT_RE.finditer(scan_text):
         ids.extend(CNBLOGS_ID_RE.findall(match.group(1)))
-    for match in SAMPLE_INLINE_RE.finditer(text):
+    for match in SAMPLE_INLINE_RE.finditer(scan_text):
         ids.extend(CNBLOGS_ID_RE.findall(match.group(1)))
     # 去重但保持顺序。
     result: list[str] = []
@@ -222,7 +261,11 @@ def judgement_density(text: str) -> int:
 def detect_ai_cliches(text: str) -> list[Finding]:
     hits = count_terms(text, AI_CLICHE_TERMS)
     findings: list[Finding] = []
-    if len(hits) >= 3 or sum(hits.values()) >= 4:
+    total_hits = sum(hits.values())
+    cjk = max(count_cjk(text), 1)
+    dense_short_text = cjk < 1200 and (len(hits) >= 3 or total_hits >= 4)
+    dense_long_text = cjk >= 1200 and total_hits / cjk >= 0.006
+    if dense_short_text or dense_long_text:
         findings.append(
             make_finding(
                 "ai-cliche-generic-summary",
@@ -236,8 +279,7 @@ def detect_ai_cliches(text: str) -> list[Finding]:
 
 
 def detect_core_judgement(text: str) -> list[Finding]:
-    body = strip_frontmatter(text)
-    first_part = body[: min(len(body), 520)]
+    first_part = get_intro_window(text)
     density = judgement_density(first_part)
     has_conclusion = any(term in first_part for term in ["先说结论", "核心判断", "本文解决", "本文真正", "归根结底"])
     if density < 2 and not has_conclusion:
@@ -273,18 +315,19 @@ def detect_catchphrase_stuffing(text: str) -> list[Finding]:
 
 def detect_macro_structure(text: str) -> list[Finding]:
     findings: list[Finding] = []
-    headings = H2_RE.findall(text)
-    if len(headings) < 2:
+    headings = list(H2_RE.finditer(text))
+    heading_names = [match.group(1).strip() for match in headings]
+    if len(heading_names) < 2:
         findings.append(
             make_finding(
                 "missing-h2-structure",
                 "C",
                 "缺少稳定的二级标题结构。",
-                f"检测到 {len(headings)} 个二级标题。",
+                f"检测到 {len(heading_names)} 个二级标题。",
                 "至少拆出问题定义、方案分析、边界 / 坑点、总结等章节。",
             )
         )
-    boundary_headings = [heading for heading in headings if any(term in heading for term in ["边界", "反例", "例外", "坑点", "适用"])]
+    boundary_headings = [heading for heading in heading_names if any(term in heading for term in ["边界", "反例", "例外", "坑点", "适用"])]
     has_boundary_statement = "不解决" in text or "不适用" in text or "失败方式" in text
     if not boundary_headings and not has_boundary_statement:
         findings.append(
@@ -296,39 +339,40 @@ def detect_macro_structure(text: str) -> list[Finding]:
                 "补“本文解决什么 / 不解决什么”、适用环境、失败方式和例外。",
             )
         )
-    closing_area = text[-500:]
-    if not has_any(closing_area, CLOSING_TERMS) or not ("##" in closing_area and ("总结" in closing_area or "收束" in closing_area or "结尾" in closing_area)):
+    last_section = text[headings[-1].start() :] if headings else text[-1000:]
+    last_heading = heading_names[-1] if heading_names else ""
+    has_closing_heading = any(term in last_heading for term in CLOSING_HEADING_TERMS)
+    has_closing_terms = has_any(last_section, CLOSING_TERMS)
+    if not (has_closing_heading and has_closing_terms):
         findings.append(
             make_finding(
                 "missing-closing-lift",
                 "C",
                 "结尾没有完成总结盖章或视角上升。",
-                closing_area,
-                "补一个回到主问题、抬高到方法论或长期维护判断的总结段。",
+                last_section,
+                "补一个回到主问题、抬高到方法论或长期维护判断的总结 / 反思 / 展望 / 方法论类收束段。",
             )
         )
     return findings
 
 
 def detect_unsupported_experience(text: str) -> list[Finding]:
-    if has_any(text, EXPERIENCE_SOURCE_MARKERS):
-        return []
     findings: list[Finding] = []
     for pattern in UNSUPPORTED_EXPERIENCE_PATTERNS:
-        match = re.search(pattern, text)
-        if match:
-            start = max(0, match.start() - 35)
-            end = min(len(text), match.end() + 55)
+        for match in re.finditer(pattern, text):
+            context = local_context(text, match.start(), match.end())
+            if has_any(context, EXPERIENCE_SOURCE_MARKERS):
+                continue
             findings.append(
                 make_finding(
                     "unsupported-first-person-experience",
                     "C",
                     "疑似无来源第一人称项目 / 课程 / 会议现场。",
-                    text[start:end],
+                    context,
                     "补作者提供的真实来源，或改成需要作者补充的占位，不要写成确定经历。",
                 )
             )
-            break
+            return findings
     return findings
 
 
@@ -360,6 +404,8 @@ def load_lint_module(skill_root: Path):
 def lint_references(skill_root: Path, references_dir: Path) -> list[Finding]:
     try:
         module = load_lint_module(skill_root)
+        if not hasattr(module, "lint_references"):
+            raise RuntimeError("lint_voice_references.py 缺少 lint_references(root) 函数")
         errors = module.lint_references(references_dir)
     except Exception as exc:  # pragma: no cover - defensive, still returns JSON.
         return [
@@ -394,6 +440,11 @@ def bucket_findings(findings: list[Finding]) -> dict[str, list[Finding]]:
         "possibleUnsupportedExperienceClaims": [],
     }
     for finding in findings:
+        if finding.severity == "C":
+            buckets["blockingFindings"].append(finding)
+        else:
+            buckets["warnings"].append(finding)
+
         if finding.code.startswith("missing-") and finding.code in {"missing-h2-structure", "missing-boundary-section", "missing-closing-lift"}:
             buckets["missingMacroSections"].append(finding)
         elif finding.code == "catchphrase-without-judgement":
@@ -402,10 +453,6 @@ def bucket_findings(findings: list[Finding]) -> dict[str, list[Finding]]:
             buckets["aiClicheHits"].append(finding)
         elif finding.code == "unsupported-first-person-experience":
             buckets["possibleUnsupportedExperienceClaims"].append(finding)
-        elif finding.severity == "C":
-            buckets["blockingFindings"].append(finding)
-        else:
-            buckets["warnings"].append(finding)
     return buckets
 
 
@@ -436,18 +483,19 @@ def build_report(markdown_path: Path, skill_root: Path, manifest_path: Path, ref
         findings.append(make_finding("draft-invalid-utf8", "C", "待检查 Markdown 不是合法 UTF-8。", f"{markdown_path}: {exc.reason}", "用 UTF-8 保存 Markdown 文件。"))
         text = ""
 
-    sample_ids = extract_declared_sample_ids(text)
+    body_text = normalize_draft_body(text) if text else ""
+    sample_ids = extract_declared_sample_ids(body_text)
     matched_samples, sample_findings = validate_declared_samples(sample_ids, sources_by_id)
     findings.extend(sample_findings)
     findings.extend(lint_references(skill_root, references_dir))
 
-    if text:
+    if body_text:
         findings.extend(detect_missing_sample_comparison(sample_ids))
-        findings.extend(detect_ai_cliches(text))
-        findings.extend(detect_core_judgement(text))
-        findings.extend(detect_catchphrase_stuffing(text))
-        findings.extend(detect_macro_structure(text))
-        findings.extend(detect_unsupported_experience(text))
+        findings.extend(detect_ai_cliches(body_text))
+        findings.extend(detect_core_judgement(body_text))
+        findings.extend(detect_catchphrase_stuffing(body_text))
+        findings.extend(detect_macro_structure(body_text))
+        findings.extend(detect_unsupported_experience(body_text))
 
     buckets = bucket_findings(findings)
     status = "fail" if any(f.severity == "C" for f in findings) else "pass"

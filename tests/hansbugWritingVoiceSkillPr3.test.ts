@@ -1,4 +1,5 @@
-import { readFile, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -58,6 +59,11 @@ function allFindings(report: Record<string, unknown>) {
 
 function expectFinding(report: Record<string, unknown>, code: string) {
   expect(allFindings(report).some((finding) => finding.code === code), JSON.stringify(report, null, 2)).toBe(true);
+}
+
+function expectBlockingFinding(report: Record<string, unknown>, code: string) {
+  const blocking = report.blockingFindings as Array<Record<string, string>>;
+  expect(blocking.some((finding) => finding.code === code), JSON.stringify(report, null, 2)).toBe(true);
 }
 
 async function readReference(file: string) {
@@ -186,6 +192,8 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(report.status).toBe("fail");
     expectFinding(report, "ai-cliche-generic-summary");
     expectFinding(report, "missing-core-judgement");
+    expectBlockingFinding(report, "ai-cliche-generic-summary");
+    expectBlockingFinding(report, "missing-core-judgement");
   });
 
   it("fails catchphrase stuffing without judgement", async () => {
@@ -193,6 +201,7 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(result.code).not.toBe(0);
     const report = parseJson(result.stdout);
     expectFinding(report, "catchphrase-without-judgement");
+    expectBlockingFinding(report, "catchphrase-without-judgement");
   });
 
   it("fails unsupported first-person project or course experience claims", async () => {
@@ -200,6 +209,7 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(result.code).not.toBe(0);
     const report = parseJson(result.stdout);
     expectFinding(report, "unsupported-first-person-experience");
+    expectBlockingFinding(report, "unsupported-first-person-experience");
     const experience = report.possibleUnsupportedExperienceClaims as Array<Record<string, string>>;
     expect(experience.some((finding) => finding.severity === "C")).toBe(true);
   });
@@ -211,6 +221,9 @@ describe("HansBug writing voice skill PR-3", () => {
     expectFinding(report, "missing-h2-structure");
     expectFinding(report, "missing-boundary-section");
     expectFinding(report, "missing-closing-lift");
+    expectBlockingFinding(report, "missing-h2-structure");
+    expectBlockingFinding(report, "missing-boundary-section");
+    expectBlockingFinding(report, "missing-closing-lift");
   });
 
   it("fails missing sample comparison", async () => {
@@ -218,6 +231,7 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(result.code).not.toBe(0);
     const report = parseJson(result.stdout);
     expectFinding(report, "missing-sample-comparison");
+    expectBlockingFinding(report, "missing-sample-comparison");
   });
 
   it("fails unknown sample ids referenced by drafts", async () => {
@@ -225,6 +239,7 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(result.code).not.toBe(0);
     const report = parseJson(result.stdout);
     expectFinding(report, "unknown-sample-id");
+    expectBlockingFinding(report, "unknown-sample-id");
   });
 
   it("fails manifests that let holdout or negative samples participate in the positive profile", async () => {
@@ -233,6 +248,7 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(result.code).not.toBe(0);
     const report = parseJson(result.stdout);
     expectFinding(report, "invalid-positive-sample-role");
+    expectBlockingFinding(report, "invalid-positive-sample-role");
   });
 
   it("fails references lint errors through the PR-3 gate", async () => {
@@ -243,7 +259,57 @@ describe("HansBug writing voice skill PR-3", () => {
     expect(result.code).not.toBe(0);
     const report = parseJson(result.stdout);
     expectFinding(report, "reference-lint-failed");
-    expect(JSON.stringify(report)).toContain("120");
+    expectBlockingFinding(report, "reference-lint-failed");
+    const blocking = report.blockingFindings as Array<Record<string, string>>;
+    const lintFinding = blocking.find((finding) => finding.code === "reference-lint-failed");
+    expect(lintFinding?.evidence).toContain("120");
+  });
+
+  it("keeps source markers local instead of bypassing unsupported experience globally", async () => {
+    const result = await runCheck(join(fixturesRoot, "fail/unsupported-experience-bypass.md"));
+    expect(result.code).not.toBe(0);
+    const report = parseJson(result.stdout);
+    expectFinding(report, "unsupported-first-person-experience");
+    expectBlockingFinding(report, "unsupported-first-person-experience");
+  });
+
+  it("ignores frontmatter when detecting style and unsupported experience", async () => {
+    const result = await runCheck(join(fixturesRoot, "pass/frontmatter-trap.md"));
+    expect(result.code).toBe(0);
+    const report = parseJson(result.stdout);
+    expect(report.status).toBe("pass");
+    expect(report.blockingFindings).toEqual([]);
+    expect(report.possibleUnsupportedExperienceClaims).toEqual([]);
+  });
+
+  it("accepts long closing sections and non-summary closing headings", async () => {
+    for (const fixture of ["pass/long-closing.md", "pass/quick-start-window.md"]) {
+      const result = await runCheck(join(fixturesRoot, fixture));
+      expect(result.code).toBe(0);
+      const report = parseJson(result.stdout);
+      expect(report.status).toBe("pass");
+      expect(report.missingMacroSections).toEqual([]);
+    }
+  });
+
+  it("does not treat code-block sample declaration examples as real sample comparison", async () => {
+    const result = await runCheck(join(fixturesRoot, "pass/codeblock-sample-literal.md"));
+    expect(result.code).not.toBe(0);
+    const report = parseJson(result.stdout);
+    expectFinding(report, "missing-sample-comparison");
+  });
+
+  it("reports manifest path type errors as JSON instead of traceback", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr3-"));
+    const manifestDir = join(fixtureRoot, "manifest-dir");
+    await rm(manifestDir, { recursive: true, force: true });
+    await mkdir(manifestDir, { recursive: true });
+    const result = await runCheck(join(fixturesRoot, "pass/technical-practice.md"), ["--manifest", manifestDir]);
+    expect(result.code).not.toBe(0);
+    expect(result.stderr).not.toContain("Traceback");
+    const report = parseJson(result.stdout);
+    expectFinding(report, "manifest-not-readable");
+    expectBlockingFinding(report, "manifest-not-readable");
   });
 
   it("keeps PR-2 holdout and negative guard terms from regressing", async () => {

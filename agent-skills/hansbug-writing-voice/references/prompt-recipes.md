@@ -260,6 +260,14 @@ CLI 输出里的 `matchedSamples` 只允许来自 `participatesInProfile: true` 
 
 ### 输出格式
 
+样本声明推荐写成 HTML 注释，且必须在正文普通 Markdown 中出现，不要放进 fenced code block 里解释自己：
+
+```md
+<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+```
+
+如果只是展示这段写法本身，应放进 fenced code block；机械 gate 不应把代码块里的示例当成真实样本对照。
+
 机器消费统一使用 JSON：
 
 ```bash
