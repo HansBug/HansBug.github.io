@@ -138,7 +138,7 @@ npm run build
 
 ## CI 证据
 
-- PR-6 自身最近一次已完成 GitHub Actions run URL（计划审查阶段基线）：https://github.com/HansBug/HansBug.github.io/actions/runs/27568416029
+- PR-6 自身最近一次已完成 GitHub Actions run URL（实现提交 be93c7c 后）：https://github.com/HansBug/HansBug.github.io/actions/runs/27570040988
 - main 上 PR-5 合入后最近一次成功 run URL：https://github.com/HansBug/HansBug.github.io/actions/runs/27568146702
 
 说明：本报告提交后，PR #34 会触发新的 PR CI；最终合入前以 PR checks 面板和 PR comment 中记录的最新 run 为准。本报告保留上述 URL，确保报告自身也有可追溯的 CI 基线。

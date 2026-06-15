@@ -299,7 +299,7 @@ describe("HansBug writing voice skill PR-6 final acceptance", () => {
       "PR-6",
       "https://github.com/HansBug/HansBug.github.io/issues/25#issuecomment-4711395657",
       "https://github.com/HansBug/HansBug.github.io/pull/26#issuecomment-4711395670",
-      "https://github.com/HansBug/HansBug.github.io/actions/runs/27568416029",
+      "https://github.com/HansBug/HansBug.github.io/actions/runs/27570040988",
       "https://github.com/HansBug/HansBug.github.io/actions/runs/27568146702",
       "git status --ignored -- .cache/hansbug-writing-voice/",
       "C=0 / I=0",
