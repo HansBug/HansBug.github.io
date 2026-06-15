@@ -1,0 +1,44 @@
+{
+  "cli": "claude",
+  "command": "claude -p --dangerously-skip-permissions \"$(cat agent-skills/hansbug-writing-voice/acceptance-runs/pr6-claude-final-smoke/prompt.md)\"",
+  "completedAt": "2026-06-15T19:05:04Z",
+  "criteria": [
+    "显式提到 CLAUDE.md 与 agent-skills/hansbug-writing-voice/SKILL.md",
+    "按写作模式选择 references",
+    "包含 cnblogs-8701447 与 cnblogs-14711869 样本对照",
+    "不编造项目、会议、课程、上线现场",
+    "最终自审 C=0/I=0"
+  ],
+  "evidenceFiles": [
+    "prompt.md",
+    "command.md",
+    "stdout.log",
+    "stderr.log",
+    "exit-code.txt",
+    "result.json"
+  ],
+  "exitCode": 0,
+  "notes": "PR-6 最终真实 CLI smoke；stdout/stderr 保留原始输出，不由主 session 代写。",
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 2
+  },
+  "role": "pr6-final-smoke",
+  "schemaVersion": 1,
+  "status": "pass",
+  "taskSlug": "pr6-claude-final-smoke",
+  "taskType": "write",
+  "usedEntryPoints": [
+    "CLAUDE.md",
+    "agent-skills/hansbug-writing-voice/SKILL.md"
+  ],
+  "usedReferences": [
+    "references/corpus-policy.md",
+    "references/voice-profile.md",
+    "references/article-archetypes.md",
+    "references/macro-logic.md",
+    "references/micro-patterns.md",
+    "references/prompt-recipes.md"
+  ]
+}

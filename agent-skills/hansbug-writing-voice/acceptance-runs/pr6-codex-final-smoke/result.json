@@ -1,0 +1,41 @@
+{
+  "cli": "codex",
+  "command": "codex exec --dangerously-bypass-approvals-and-sandbox \"$(cat agent-skills/hansbug-writing-voice/acceptance-runs/pr6-codex-final-smoke/prompt.md)\"",
+  "completedAt": "2026-06-15T19:05:04Z",
+  "criteria": [
+    "显式提到 CLAUDE.md 与 agent-skills/hansbug-writing-voice/SKILL.md",
+    "按审阅模式选择 references",
+    "指出 AI 腔、边界缺失、判断不足",
+    "最终自审 C=0/I=0"
+  ],
+  "evidenceFiles": [
+    "prompt.md",
+    "command.md",
+    "stdout.log",
+    "stderr.log",
+    "exit-code.txt",
+    "result.json"
+  ],
+  "exitCode": 0,
+  "notes": "PR-6 最终真实 CLI smoke；stdout/stderr 保留原始输出，不由主 session 代写。",
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "role": "pr6-final-smoke",
+  "schemaVersion": 1,
+  "status": "pass",
+  "taskSlug": "pr6-codex-final-smoke",
+  "taskType": "review",
+  "usedEntryPoints": [
+    "CLAUDE.md",
+    "agent-skills/hansbug-writing-voice/SKILL.md"
+  ],
+  "usedReferences": [
+    "references/corpus-policy.md",
+    "references/voice-profile.md",
+    "references/anti-patterns.md",
+    "references/review-rubric.md"
+  ]
+}
