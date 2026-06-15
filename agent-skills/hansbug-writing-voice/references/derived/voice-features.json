@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-15T11:59:07Z",
+  "generatedAt": "2026-06-15T13:29:02Z",
   "generator": "agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py",
   "manifest": "agent-skills/hansbug-writing-voice/references/sample-manifest.json",
   "cacheDir": ".cache/hansbug-writing-voice/corpus",
@@ -727,7 +727,6 @@
   "limitations": [
     "这些数据只做段落、句长、标题、高频字符片段和转场词等机械统计，不等价于文风画像。",
     "catalog-summary 来源只适合 smoke 和 schema 稳定性验证；正式画像归纳应优先基于 ignored cache 中的旧文正文，并继续遵守 corpus-policy。",
-    "holdoutForDryRun 或 participatesInProfile=false 的样本默认不会进入本文件。",
-    "headingPatterns 在 --allow-catalog-summary 模式下可能为空，因为旧站 catalog 摘要不含 Markdown 标题；正式画像归纳时应基于 ignored cache 中的旧文正文重新提取。"
+    "holdoutForDryRun 或 participatesInProfile=false 的样本默认不会进入本文件。"
   ]
 }

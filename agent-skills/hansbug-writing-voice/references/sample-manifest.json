@@ -1209,12 +1209,12 @@
       "notes": "反例或边界样本，用于提醒后续画像不要把通知、表格记录、题解手稿等写法当作新站核心风格。"
     },
     {
-      "id": "cnblogs-14748624",
-      "title": "2021北航敏捷软工中期调查问卷总结",
-      "url": "https://www.cnblogs.com/HansBug/p/14748624.html",
-      "year": 2021,
-      "date": "2021-05-09",
-      "articleType": "raw-record",
+      "id": "cnblogs-4523770",
+      "title": "算法模板——平衡树Treap 2",
+      "url": "https://www.cnblogs.com/HansBug/p/4523770.html",
+      "year": 2015,
+      "date": "2015-05-23",
+      "articleType": "algorithm-template",
       "sampleRole": "negative",
       "useFor": [
         "anti-pattern-boundary",
@@ -1222,12 +1222,12 @@
       ],
       "participatesInProfile": false,
       "holdoutForDryRun": false,
-      "cacheKey": "cnblogs-14748624",
+      "cacheKey": "cnblogs-4523770",
       "sourceSelector": "#cnblogs_post_body",
-      "track": "课程 / 软件工程",
-      "views": 4,
+      "track": "算法 / OI / 题解",
+      "views": 509,
       "comments": 0,
-      "notes": "反例或边界样本，用于提醒后续画像不要把通知、表格记录、题解手稿等写法当作新站核心风格。"
+      "notes": "替换原 cnblogs-14748624 问卷总结：该原文当前公开访问返回“博文阅读密码验证”页面，无法稳定抓取正文。本条是公开可抓的算法模板类反例样本，用于提醒后续画像不要把早期模板/题解式写法当作新站核心风格。"
     },
     {
       "id": "cnblogs-8439342",

@@ -8,6 +8,7 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { createServer } from "node:http";
+import type { Socket } from "node:net";
 import { join } from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -58,6 +59,12 @@ describe("HansBug writing voice skill PR-1", () => {
 
   it("defines a four-layer executable sample manifest with required fields", async () => {
     const manifest = await readJson(manifestPath);
+    expect(
+      manifest.sources.some(
+        (source: { id: string; url: string }) =>
+          source.id === "cnblogs-14748624" || source.url.includes("/14748624.html"),
+      ),
+    ).toBe(false);
     expect(manifest.schemaVersion).toBe(2);
     expect(manifest.stage).toBe("pr-1-sample-manifest");
     expect(manifest.description).toContain("中文博客文风");
@@ -154,6 +161,7 @@ describe("HansBug writing voice skill PR-1", () => {
     expect(fetchHelp.stdout).toContain("完整正文只写入");
     expect(fetchHelp.stdout).toContain("--dry-run");
     expect(fetchHelp.stdout).toContain("--user-agent");
+    expect(fetchHelp.stdout).toContain("--source-timeout");
 
     const extractHelp = await runPython([extractScript, "--help"]);
     expect(extractHelp.code).toBe(0);
@@ -330,6 +338,170 @@ describe("HansBug writing voice skill PR-1", () => {
     await expect(
       readFile(join(fixtureRoot, "outside.txt"), "utf8"),
     ).resolves.toBe("原内容不应被覆盖。");
+  });
+
+  it("retries broken chunked responses and reports a Chinese error without traceback", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    let requestCount = 0;
+    const server = createServer((_request, response) => {
+      requestCount += 1;
+      response.writeHead(200, {
+        "Content-Type": "text/html; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+      });
+      response.write(
+        `<html><body><article id="cnblogs_post_body"><p>首先，这是一段故意被截断的 chunked fixture，用来模拟博客园偶发的 IncompleteRead 网络断流。</p>`,
+      );
+      response.socket?.destroy();
+    });
+    try {
+      await new Promise<void>((resolve) =>
+        server.listen(0, "127.0.0.1", resolve),
+      );
+      const address = server.address();
+      if (!address || typeof address === "string") {
+        throw new Error("unexpected test server address");
+      }
+      const manifest = join(fixtureRoot, "manifest-broken-chunk.json");
+      await writeFile(
+        manifest,
+        JSON.stringify(
+          {
+            sources: [
+              {
+                id: "broken-chunk",
+                title: "断流 fixture",
+                url: `http://127.0.0.1:${address.port}/broken.html`,
+                year: 2026,
+                articleType: "technical-practice",
+                sampleRole: "core",
+                useFor: ["macro-logic"],
+                participatesInProfile: true,
+                holdoutForDryRun: false,
+                cacheKey: "broken-chunk",
+                sourceSelector: "#cnblogs_post_body",
+                notes: "用于测试 chunked 断流时进入重试和中文错误路径。",
+              },
+            ],
+            excerpts: [],
+          },
+          null,
+          2,
+        ),
+      );
+
+      const result = await runPython([
+        fetchScript,
+        "--manifest",
+        manifest,
+        "--cache-dir",
+        join(fixtureRoot, "cache"),
+        "--delay",
+        "0",
+        "--max-retries",
+        "2",
+        "--retry-backoff",
+        "0",
+      ]);
+
+      expect(result.code).not.toBe(0);
+      expect(requestCount).toBe(3);
+      expect(result.stderr).toContain("抓取失败：broken-chunk");
+      expect(result.stderr).toMatch(/网络读取异常|IncompleteRead|RemoteDisconnected/);
+      expect(result.stderr).not.toContain("Traceback");
+    } finally {
+      await new Promise<void>((resolve, reject) =>
+        server.close((error) => (error ? reject(error) : resolve())),
+      );
+    }
+  });
+
+  it("aborts a slow endless response with per-source timeout instead of hanging", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    let requestCount = 0;
+    const sockets = new Set<Socket>();
+    const intervals: NodeJS.Timeout[] = [];
+    const server = createServer((_request, response) => {
+      requestCount += 1;
+      response.writeHead(200, {
+        "Content-Type": "text/html; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+      });
+      response.write(
+        `<html><body><article id="cnblogs_post_body"><p>首先，这是一段永远不会正常结束的慢响应 fixture，用来证明单篇 deadline 会切断卡住的旧博客抓取。</p>`,
+      );
+      intervals.push(setInterval(() => response.write(" "), 50));
+    });
+    server.on("connection", (socket) => {
+      sockets.add(socket);
+      socket.on("close", () => sockets.delete(socket));
+    });
+    try {
+      await new Promise<void>((resolve) =>
+        server.listen(0, "127.0.0.1", resolve),
+      );
+      const address = server.address();
+      if (!address || typeof address === "string") {
+        throw new Error("unexpected test server address");
+      }
+      const manifest = join(fixtureRoot, "manifest-slow-endless.json");
+      await writeFile(
+        manifest,
+        JSON.stringify(
+          {
+            sources: [
+              {
+                id: "slow-endless",
+                title: "慢响应 fixture",
+                url: `http://127.0.0.1:${address.port}/slow.html`,
+                year: 2026,
+                articleType: "technical-practice",
+                sampleRole: "core",
+                useFor: ["macro-logic"],
+                participatesInProfile: true,
+                holdoutForDryRun: false,
+                cacheKey: "slow-endless",
+                sourceSelector: "#cnblogs_post_body",
+                notes: "用于测试单篇整体超时。",
+              },
+            ],
+            excerpts: [],
+          },
+          null,
+          2,
+        ),
+      );
+
+      const result = await runPython([
+        fetchScript,
+        "--manifest",
+        manifest,
+        "--cache-dir",
+        join(fixtureRoot, "cache"),
+        "--delay",
+        "0",
+        "--timeout",
+        "5",
+        "--source-timeout",
+        "0.5",
+        "--max-retries",
+        "2",
+        "--retry-backoff",
+        "0",
+      ]);
+
+      expect(result.code).not.toBe(0);
+      expect(requestCount).toBe(3);
+      expect(result.stderr).toContain("抓取失败：slow-endless");
+      expect(result.stderr).toContain("单篇抓取超时：slow-endless");
+      expect(result.stderr).not.toContain("Traceback");
+    } finally {
+      for (const interval of intervals) clearInterval(interval);
+      for (const socket of sockets) socket.destroy();
+      await new Promise<void>((resolve, reject) =>
+        server.close((error) => (error ? reject(error) : resolve())),
+      );
+    }
   });
 
   it("fails fast on abnormal HTTP status without retrying or printing a Python traceback", async () => {
