@@ -145,27 +145,44 @@ def collect_json_excerpts_from_value(
                 excerpts.append(excerpt)
 
         for key, child in value.items():
-            child_in_excerpts = key == "excerpts" and isinstance(child, list)
+            child_location = f"{location}.{key}"
+            if key == "excerpts":
+                if not isinstance(child, list):
+                    errors.append(f"{format_path(file)}:{child_location}: excerpts 字段必须是 JSON array")
+                    continue
+                for index, item in enumerate(child):
+                    excerpts.extend(
+                        collect_json_excerpts_from_value(
+                            item,
+                            file,
+                            f"{child_location}[{index}]",
+                            errors,
+                            in_excerpts_array=True,
+                        )
+                    )
+                continue
+
             excerpts.extend(
                 collect_json_excerpts_from_value(
                     child,
                     file,
-                    f"{location}.{key}",
+                    child_location,
                     errors,
-                    in_excerpts_array=child_in_excerpts,
                 )
             )
     elif isinstance(value, list):
-        for index, child in enumerate(value):
-            excerpts.extend(
-                collect_json_excerpts_from_value(
-                    child,
-                    file,
-                    f"{location}[{index}]",
-                    errors,
-                    in_excerpts_array=in_excerpts_array,
+        if in_excerpts_array:
+            errors.append(f"{format_path(file)}:{location}: excerpts 数组里的摘录必须是 JSON object")
+        else:
+            for index, child in enumerate(value):
+                excerpts.extend(
+                    collect_json_excerpts_from_value(
+                        child,
+                        file,
+                        f"{location}[{index}]",
+                        errors,
+                    )
                 )
-            )
     elif in_excerpts_array:
         errors.append(f"{format_path(file)}:{location}: excerpts 数组里的摘录必须是 JSON object")
     return excerpts

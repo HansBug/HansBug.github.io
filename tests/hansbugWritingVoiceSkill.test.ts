@@ -69,6 +69,8 @@ describe("HansBug writing voice skill", () => {
     expect(policy).toContain("300");
     expect(policy).toContain("sourceUrl");
     expect(policy).toMatch(/purpose|useFor/);
+    expect(policy).toContain("每一项都必须是 JSON object");
+    expect(policy).toContain("英文术语");
   });
 
   it("keeps the full corpus cache ignored by git", async () => {
@@ -206,6 +208,7 @@ describe("HansBug writing voice skill", () => {
         {
           excerpts: [
             "not an object",
+            [],
             {
               url: "https://www.cnblogs.com/HansBug/p/json.html",
               useFor: "review-rubric",
