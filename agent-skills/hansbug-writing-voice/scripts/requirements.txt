@@ -1,2 +1,4 @@
-# PR-0 只使用 Python 标准库。
+# PR-1 仍只使用 Python 标准库。
+# fetch_voice_corpus.py 使用 urllib/html.parser，避免为了轻量抓取脚本额外引入 requests/bs4/lxml。
+# extract_voice_features.py 也只做机械统计，不需要第三方 NLP 依赖。
 # 本文件只服务于 agent-skills/hansbug-writing-voice/scripts/，不得把依赖污染到仓库根目录。

@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-15T13:29:02Z",
+  "generator": "agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py",
+  "manifest": "agent-skills/hansbug-writing-voice/references/sample-manifest.json",
+  "cacheDir": ".cache/hansbug-writing-voice/corpus",
+  "catalogFallback": {
+    "enabled": true,
+    "path": "src/data/oldBlogCatalog.json",
+    "说明": "仅在本地 cache 缺失且显式开启 --allow-catalog-summary 时使用旧站 catalog 摘要生成 smoke 级机械特征。"
+  },
+  "sampleIds": [
+    "cnblogs-8701447",
+    "cnblogs-8694939",
+    "cnblogs-8977811",
+    "cnblogs-13982882",
+    "cnblogs-14059040",
+    "cnblogs-14691847",
+    "cnblogs-14711869",
+    "cnblogs-14849014",
+    "cnblogs-15470559",
+    "cnblogs-15894649",
+    "cnblogs-15584738",
+    "cnblogs-15557196",
+    "cnblogs-15515307",
+    "cnblogs-15484957",
+    "cnblogs-14942400",
+    "cnblogs-14661665",
+    "cnblogs-14374021",
+    "cnblogs-14316104",
+    "cnblogs-14247560",
+    "cnblogs-9154683",
+    "cnblogs-14097245",
+    "cnblogs-13770092",
+    "cnblogs-12712205",
+    "cnblogs-12712197",
+    "cnblogs-11102715",
+    "cnblogs-10534435",
+    "cnblogs-10473959",
+    "cnblogs-9813627",
+    "cnblogs-9447020",
+    "cnblogs-9222492",
+    "cnblogs-9045174",
+    "cnblogs-9100737",
+    "cnblogs-8901865",
+    "cnblogs-8687273",
+    "cnblogs-7403306",
+    "cnblogs-7288868",
+    "cnblogs-6903269",
+    "cnblogs-6559289",
+    "cnblogs-6546606",
+    "cnblogs-6528558",
+    "cnblogs-4631056",
+    "cnblogs-4296675",
+    "cnblogs-4297571",
+    "cnblogs-4288118",
+    "cnblogs-4280423",
+    "cnblogs-4293503",
+    "cnblogs-4388378",
+    "cnblogs-4439979",
+    "cnblogs-4230021",
+    "cnblogs-4190848"
+  ],
+  "samples": [
+    {
+      "id": "cnblogs-8701447",
+      "title": "【技巧】Java工程中的Debug信息分级输出接口及部署模式",
+      "sampleRole": "core",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-8694939",
+      "title": "【作业】HansBug的前三次OO作业分析与小结",
+      "sampleRole": "core",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-8977811",
+      "title": "【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会",
+      "sampleRole": "core",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-13982882",
+      "title": "【学习笔记】Latex各平台2020实战攻略",
+      "sampleRole": "core",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14059040",
+      "title": "【开源系列】项目开源实战记录-序",
+      "sampleRole": "core",
+      "articleType": "open-source",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14691847",
+      "title": "【助教工作】2021团队项目助教跟班全攻略",
+      "sampleRole": "core",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14711869",
+      "title": "【项目管理】关于Issue/Milestone的使用指导",
+      "sampleRole": "core",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14849014",
+      "title": "沉舟侧畔千帆过，病树前头万木春——对【题士】产品的深度测评与解析",
+      "sampleRole": "core",
+      "articleType": "review-commentary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-15470559",
+      "title": "姗姗来迟的一个总结",
+      "sampleRole": "core",
+      "articleType": "retrospective",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-15894649",
+      "title": "treevalue——Master Nested Data Like Tensor",
+      "sampleRole": "core",
+      "articleType": "open-source",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-15584738",
+      "title": "Python科普系列——类与方法（下篇）",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-15557196",
+      "title": "Python科普系列——类与方法（上篇）",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-15515307",
+      "title": "Treevalue(0x02)——函数树化详细解析（上篇）",
+      "sampleRole": "statistical",
+      "articleType": "open-source",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-15484957",
+      "title": "Treevalue(0x01)——功能概述",
+      "sampleRole": "statistical",
+      "articleType": "open-source",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14942400",
+      "title": "2021北航敏捷软工Beta阶段评分与总结",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14661665",
+      "title": "【助教工作】2021敏捷软件工程需求评审答辩问题总结与建议",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14374021",
+      "title": "【调研】北航计算机学院2019及2020年本科敏捷软工结对作业数据调研",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14316104",
+      "title": "【作业】2020年高等软件工程期末总结",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14247560",
+      "title": "【作业】2020年高等软件工程系统设计阶段思考",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-9154683",
+      "title": "【老文放出】【思考】基于目前OO课程的一些制度问题引发的思考",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-14097245",
+      "title": "【作业】2020年高等软件工程中期总结与反思",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-13770092",
+      "title": "【作业】2020年高等软件工程课程期望与笃信",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-12712205",
+      "title": "【学习笔记】深度学习 demo2 二次函数回归",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-12712197",
+      "title": "【学习笔记】深度学习 demo1 线性回归",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-11102715",
+      "title": "【作业】软件工程课程总结博客",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-10534435",
+      "title": "【作业】结对编程纪实",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-10473959",
+      "title": "【软工作业&思考】关于软工的一些概念性理解暨第一次阅读作业",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-9813627",
+      "title": "【gitlab】gitlab快速部署教程",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-9447020",
+      "title": "【vagrant】硬盘扩容",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-9222492",
+      "title": "【作业4.0】HansBug的第四次面向对象课程思考",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-9045174",
+      "title": "【调查报告】关于面向对象（OO）课程目前存在的一些问题和个人思考",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-9100737",
+      "title": "【作业3.0】HansBug的第三次博客规格总结",
+      "sampleRole": "statistical",
+      "articleType": "course-summary",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-8901865",
+      "title": "【前端】Ubuntu16下nodejs+npm+vue环境配置",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-8687273",
+      "title": "【备忘】Idea的那些事",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-7403306",
+      "title": "win10下vagrant+centos7 rails虚拟开发机配置流程",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-7288868",
+      "title": "面向对象先导课感想",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-6903269",
+      "title": "【LATEX】个人版latex论文模板",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-6559289",
+      "title": "【前端】wangEditor（富文本编辑器） 简易使用示例",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-6546606",
+      "title": "【前端】ACE Editor（代码编辑器） 简易使用示例",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-6528558",
+      "title": "【Ruby on Rails】Model中关于保存之前的原值和修改状态",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4631056",
+      "title": "一个很逗的东西——Jd",
+      "sampleRole": "statistical",
+      "articleType": "retrospective",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4296675",
+      "title": "关于一般的并查集求根操作的一组对照研究",
+      "sampleRole": "statistical",
+      "articleType": "retrospective",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4297571",
+      "title": "再看最短路算法 1 —— 单源最短路",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4288118",
+      "title": "从Hash Killer I、II、III论字符串哈希",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4280423",
+      "title": "JSOI2015 一轮省选 个人题解与小结",
+      "sampleRole": "statistical",
+      "articleType": "technical-practice",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4293503",
+      "title": "算法模板——并查集 2（支持快速即时查询本连通块内容，纯原创！）",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4388378",
+      "title": "算法模板——线段树9（区间加+区间求和+区间方和）",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4439979",
+      "title": "算法模板——Dinic最小费用最大流",
+      "sampleRole": "statistical",
+      "articleType": "tutorial-note",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4230021",
+      "title": "关于使用lazytag的线段树两种查询方式的比较研究",
+      "sampleRole": "statistical",
+      "articleType": "retrospective",
+      "textSource": "catalog-summary"
+    },
+    {
+      "id": "cnblogs-4190848",
+      "title": "Bzoj超级经验大放送题集（好评如潮哦～～～）",
+      "sampleRole": "statistical",
+      "articleType": "retrospective",
+      "textSource": "catalog-summary"
+    }
+  ],
+  "features": {
+    "sourceText": {
+      "catalog-summary": 50
+    },
+    "sampleCount": 50,
+    "cjkCharCount": {
+      "total": 4846,
+      "meanPerSample": 96.92
+    },
+    "paragraphLength": {
+      "stats": {
+        "count": 50,
+        "min": 23,
+        "max": 150,
+        "mean": 99.92,
+        "median": 109.0
+      },
+      "buckets": {
+        "emptyOrTiny": 0,
+        "short": 13,
+        "medium": 37,
+        "long": 0,
+        "veryLong": 0
+      }
+    },
+    "sentenceLength": {
+      "stats": {
+        "count": 151,
+        "min": 1,
+        "max": 132,
+        "mean": 33.56,
+        "median": 28
+      },
+      "buckets": {
+        "tiny": 29,
+        "short": 70,
+        "medium": 38,
+        "long": 13,
+        "veryLong": 1
+      }
+    },
+    "headingPatterns": {},
+    "topNgrams": {
+      "char2": [
+        {
+          "text": "一个",
+          "count": 32
+        },
+        {
+          "text": "笔者",
+          "count": 19
+        },
+        {
+          "text": "一些",
+          "count": 18
+        },
+        {
+          "text": "课程",
+          "count": 16
+        },
+        {
+          "text": "了一",
+          "count": 15
+        },
+        {
+          "text": "进行",
+          "count": 15
+        },
+        {
+          "text": "作业",
+          "count": 15
+        },
+        {
+          "text": "已经",
+          "count": 13
+        },
+        {
+          "text": "程序",
+          "count": 13
+        },
+        {
+          "text": "的一",
+          "count": 13
+        },
+        {
+          "text": "其实",
+          "count": 12
+        },
+        {
+          "text": "使用",
+          "count": 11
+        },
+        {
+          "text": "本人",
+          "count": 11
+        },
+        {
+          "text": "之前",
+          "count": 11
+        },
+        {
+          "text": "本文",
+          "count": 10
+        },
+        {
+          "text": "代码",
+          "count": 10
+        },
+        {
+          "text": "博客",
+          "count": 10
+        },
+        {
+          "text": "工作",
+          "count": 9
+        },
+        {
+          "text": "一次",
+          "count": 9
+        },
+        {
+          "text": "可以",
+          "count": 9
+        },
+        {
+          "text": "基本",
+          "count": 9
+        },
+        {
+          "text": "自己",
+          "count": 9
+        },
+        {
+          "text": "问题",
+          "count": 9
+        },
+        {
+          "text": "在本",
+          "count": 8
+        },
+        {
+          "text": "第一",
+          "count": 8
+        },
+        {
+          "text": "次作",
+          "count": 8
+        },
+        {
+          "text": "功能",
+          "count": 8
+        },
+        {
+          "text": "部分",
+          "count": 8
+        },
+        {
+          "text": "这个",
+          "count": 8
+        },
+        {
+          "text": "然后",
+          "count": 8
+        }
+      ],
+      "char3": [
+        {
+          "text": "次作业",
+          "count": 8
+        },
+        {
+          "text": "第一次",
+          "count": 7
+        },
+        {
+          "text": "接下来",
+          "count": 7
+        },
+        {
+          "text": "的一些",
+          "count": 6
+        },
+        {
+          "text": "根节点",
+          "count": 6
+        },
+        {
+          "text": "了一个",
+          "count": 5
+        },
+        {
+          "text": "程序的",
+          "count": 5
+        },
+        {
+          "text": "好久不",
+          "count": 5
+        },
+        {
+          "text": "久不见",
+          "count": 5
+        },
+        {
+          "text": "的问题",
+          "count": 5
+        },
+        {
+          "text": "之前的",
+          "count": 5
+        },
+        {
+          "text": "编辑器",
+          "count": 5
+        },
+        {
+          "text": "最短路",
+          "count": 5
+        },
+        {
+          "text": "实际上",
+          "count": 4
+        },
+        {
+          "text": "了一些",
+          "count": 4
+        },
+        {
+          "text": "软件工",
+          "count": 4
+        },
+        {
+          "text": "件工程",
+          "count": 4
+        },
+        {
+          "text": "的思考",
+          "count": 4
+        },
+        {
+          "text": "使用的",
+          "count": 4
+        },
+        {
+          "text": "有一个",
+          "count": 4
+        },
+        {
+          "text": "笔者将",
+          "count": 3
+        },
+        {
+          "text": "进行了",
+          "count": 3
+        },
+        {
+          "text": "我在本",
+          "count": 3
+        },
+        {
+          "text": "在本文",
+          "count": 3
+        },
+        {
+          "text": "图程序",
+          "count": 3
+        },
+        {
+          "text": "结构如",
+          "count": 3
+        },
+        {
+          "text": "构如下",
+          "count": 3
+        },
+        {
+          "text": "不知不",
+          "count": 3
+        },
+        {
+          "text": "知不觉",
+          "count": 3
+        },
+        {
+          "text": "的程序",
+          "count": 3
+        }
+      ]
+    },
+    "transitionTerms": [
+      {
+        "term": "首先",
+        "count": 6
+      },
+      {
+        "term": "另一方面",
+        "count": 1
+      },
+      {
+        "term": "咳咳",
+        "count": 1
+      },
+      {
+        "term": "好吧",
+        "count": 1
+      },
+      {
+        "term": "说正经的",
+        "count": 1
+      }
+    ]
+  },
+  "limitations": [
+    "这些数据只做段落、句长、标题、高频字符片段和转场词等机械统计，不等价于文风画像。",
+    "catalog-summary 来源只适合 smoke 和 schema 稳定性验证；正式画像归纳应优先基于 ignored cache 中的旧文正文，并继续遵守 corpus-policy。",
+    "holdoutForDryRun 或 participatesInProfile=false 的样本默认不会进入本文件。"
+  ]
+}
