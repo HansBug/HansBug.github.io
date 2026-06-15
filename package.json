@@ -9,6 +9,8 @@
     "prestart": "npm run sync:katex",
     "start": "astro dev",
     "check": "astro check",
+    "deskpet:rendered-audit": "python3 scripts/build_bangdream_rendered_resource_audit.py",
+    "deskpet:rendered-audit:verify": "python3 scripts/build_bangdream_rendered_resource_audit.py --verify",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "build": "npm run sync:katex && astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",

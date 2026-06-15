@@ -1,0 +1,1771 @@
+{
+  "dedupClusters": [
+    {
+      "clusterId": "dedup-0001",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0001/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0001/representative-bangdream_001_2019_furisode.png",
+          "image_sha256": "e5b652807ff42b35dbab8ff0f21f0fee43373751378ee228a91d813daee4a54b",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_2019_furisode"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0001/member-bangdream_001_2024_furisode.png",
+          "image_sha256": "65d490f157ad60a59050f032ac5a2ab6cb0c558fd38cd5b0654a980ddd7ee64e",
+          "reason": "duplicate:0.9946213364601135",
+          "resource_key": "bangdream_001_2024_furisode"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_001_2019_furisode",
+        "bangdream_001_2024_furisode"
+      ],
+      "representativeKey": "bangdream_001_2019_furisode"
+    },
+    {
+      "clusterId": "dedup-0002",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0002/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0002/representative-bangdream_001_casual.png",
+          "image_sha256": "0591f4f42749af1a0308a3401671fcff292e6c9f9c8bfdc01fb89e077e11afc4",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_casual"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0002/member-bangdream_001_event_147_story_01.png",
+          "image_sha256": "9a1be5d6b96bd9d616cff39f81197a2b12ac9cf76b3f28a551bd5e66db4d57d3",
+          "reason": "duplicate:0.99925696849823",
+          "resource_key": "bangdream_001_event_147_story_01"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_001_casual",
+        "bangdream_001_event_147_story_01"
+      ],
+      "representativeKey": "bangdream_001_casual"
+    },
+    {
+      "clusterId": "dedup-0003",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0003/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0003/representative-bangdream_001_casual_winter.png",
+          "image_sha256": "7f037503a70ce6702cf5ba5456303db669275545197628b03aa1d03fbb61b543",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_casual_winter"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0003/member-bangdream_001_event_102_story_01.png",
+          "image_sha256": "7230137ca32b4f7c3fc2ec4ad609fa609c756bb840e1156b92b6afb5610a1ead",
+          "reason": "duplicate:0.9993786811828613",
+          "resource_key": "bangdream_001_event_102_story_01"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0003/member-bangdream_001_event_65_story_01.png",
+          "image_sha256": "ae490e2683d35c0496c2e9b9db5ab655cbf49bf40a1099ea346a810e60384163",
+          "reason": "duplicate:0.9991050362586975",
+          "resource_key": "bangdream_001_event_65_story_01"
+        }
+      ],
+      "memberCount": 3,
+      "members": [
+        "bangdream_001_casual_winter",
+        "bangdream_001_event_102_story_01",
+        "bangdream_001_event_65_story_01"
+      ],
+      "representativeKey": "bangdream_001_casual_winter"
+    },
+    {
+      "clusterId": "dedup-0004",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0004/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0004/representative-bangdream_001_chapter0_pajamas.png",
+          "image_sha256": "67ee7d65271db89a449c5332a419105216f0580c6af20ed4848e272e8f90d947",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_chapter0_pajamas"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0004/member-bangdream_001_pajamas-2023.png",
+          "image_sha256": "3c57ca847301b9b1d8e15833d30ee274606c35fa5af69e7d4b0de153efcf70c1",
+          "reason": "duplicate:0.9935935139656067",
+          "resource_key": "bangdream_001_pajamas-2023"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_001_chapter0_pajamas",
+        "bangdream_001_pajamas-2023"
+      ],
+      "representativeKey": "bangdream_001_chapter0_pajamas"
+    },
+    {
+      "clusterId": "dedup-0005",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0005/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0005/representative-bangdream_001_event_124_story_01.png",
+          "image_sha256": "ae6a1b02c7a4462ea8f4b114f847de82b1c96823da4657ebaaaa68f8adf8f9cc",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_event_124_story_01"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0005/member-bangdream_001_event_160_story_01.png",
+          "image_sha256": "ccf8ea17c38397efd461b379b55483f9ca43f00a7875816e6864b090766a0e17",
+          "reason": "duplicate:0.9992173910140991",
+          "resource_key": "bangdream_001_event_160_story_01"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0005/member-bangdream_001_swimsuit-2023.png",
+          "image_sha256": "1a601bb75f3a8b3f18f1f0eb4886314d99984fc91134c1ec417bd6636df454d6",
+          "reason": "duplicate:0.9930777549743652",
+          "resource_key": "bangdream_001_swimsuit-2023"
+        }
+      ],
+      "memberCount": 3,
+      "members": [
+        "bangdream_001_event_124_story_01",
+        "bangdream_001_event_160_story_01",
+        "bangdream_001_swimsuit-2023"
+      ],
+      "representativeKey": "bangdream_001_event_124_story_01"
+    },
+    {
+      "clusterId": "dedup-0006",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0006/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0006/representative-bangdream_001_event_128_story_01.png",
+          "image_sha256": "a19b39afd97401d6781b33c23e74605ca19efb9dc6c79ddacb86b44a349a565f",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_event_128_story_01"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0006/member-bangdream_001_live_event_128_ssr.png",
+          "image_sha256": "5022193369694db9e016de68af4bc0d8dfbb45023c25f3341f02684c41de19f3",
+          "reason": "duplicate:0.9985173344612122",
+          "resource_key": "bangdream_001_live_event_128_ssr"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_001_event_128_story_01",
+        "bangdream_001_live_event_128_ssr"
+      ],
+      "representativeKey": "bangdream_001_event_128_story_01"
+    },
+    {
+      "clusterId": "dedup-0007",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0007/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0007/representative-bangdream_001_event_216_story_01.png",
+          "image_sha256": "1ff6d6b896114d69ed278c090c559e5202a1dd95e85d865c0c22850d8efacadb",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_event_216_story_01"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0007/member-bangdream_001_school_winter.png",
+          "image_sha256": "a9b43bbb58c047557627d83e7780ddad4809bc1160bc2ac6acff4de648bd4b63",
+          "reason": "duplicate:0.9986549615859985",
+          "resource_key": "bangdream_001_school_winter"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0007/member-bangdream_001_school_winter-2023.png",
+          "image_sha256": "ad2235537fcae0db44d3e9cb1392214d7b8192cd8609a84ff9320eb1241410e5",
+          "reason": "duplicate:0.9963478446006775",
+          "resource_key": "bangdream_001_school_winter-2023"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0007/member-bangdream_001_school_winter_v3.png",
+          "image_sha256": "db509f47b408495db035f3bd4f4201f50ccffee94b851c14e5fe01fb0357f5c8",
+          "reason": "duplicate:0.9986026287078857",
+          "resource_key": "bangdream_001_school_winter_v3"
+        }
+      ],
+      "memberCount": 4,
+      "members": [
+        "bangdream_001_event_216_story_01",
+        "bangdream_001_school_winter",
+        "bangdream_001_school_winter-2023",
+        "bangdream_001_school_winter_v3"
+      ],
+      "representativeKey": "bangdream_001_event_216_story_01"
+    },
+    {
+      "clusterId": "dedup-0008",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0008/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0008/representative-bangdream_001_school_summer.png",
+          "image_sha256": "eb834c24e7b02f849cef47a5d7d4d0d31dbf18020dd1a7f221a9b39625007c02",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_001_school_summer"
+        },
+        {
+          "character": "户山香澄",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0008/member-bangdream_001_school_summer-2023.png",
+          "image_sha256": "f6c637dd9060fea17045944d5a31a196bfede9ae761377aac806d94866bca33b",
+          "reason": "duplicate:0.9968680143356323",
+          "resource_key": "bangdream_001_school_summer-2023"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_001_school_summer",
+        "bangdream_001_school_summer-2023"
+      ],
+      "representativeKey": "bangdream_001_school_summer"
+    },
+    {
+      "clusterId": "dedup-0009",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0009/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0009/representative-bangdream_002_casual_winter.png",
+          "image_sha256": "f3790bc4d024d58f3ae62faf39ccb3787d1db1410e590be8be2326635f82c79a",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_002_casual_winter"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0009/member-bangdream_002_event_102_story_01.png",
+          "image_sha256": "31d6b6816719b0490aa9aa686eaa2492ed6555581a984d709d1f58e6b274ae01",
+          "reason": "duplicate:0.9994553923606873",
+          "resource_key": "bangdream_002_event_102_story_01"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0009/member-bangdream_002_event_99_story_01.png",
+          "image_sha256": "55bd0a1a3d462796eeef754a83ac969bbe2e6160b950957230cc277b0c76300d",
+          "reason": "duplicate:0.9994483590126038",
+          "resource_key": "bangdream_002_event_99_story_01"
+        }
+      ],
+      "memberCount": 3,
+      "members": [
+        "bangdream_002_casual_winter",
+        "bangdream_002_event_102_story_01",
+        "bangdream_002_event_99_story_01"
+      ],
+      "representativeKey": "bangdream_002_casual_winter"
+    },
+    {
+      "clusterId": "dedup-0010",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0010/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0010/representative-bangdream_002_event_140_story_01.png",
+          "image_sha256": "fac70e0c8eda0ecd09c098cb7fb271c6ab35c2bcdd5175b0dd447307a9010445",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_002_event_140_story_01"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0010/member-bangdream_002_event_216_story_01.png",
+          "image_sha256": "0d6ea48bae4dca4bc03d30392215dc47c7b7b72226f6e0031db558285143ed52",
+          "reason": "duplicate:0.9995707869529724",
+          "resource_key": "bangdream_002_event_216_story_01"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0010/member-bangdream_002_event_99_story_02.png",
+          "image_sha256": "7075095bc511a32a657038675336995d89d64a7b57f5e6af0bb101a7f82f10f3",
+          "reason": "duplicate:0.9992502927780151",
+          "resource_key": "bangdream_002_event_99_story_02"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0010/member-bangdream_002_school_winter.png",
+          "image_sha256": "41821df725cafaf62bd19ad9fbbb429ee8227eb50f347c633d90518cb5fdd68c",
+          "reason": "duplicate:0.9997825622558594",
+          "resource_key": "bangdream_002_school_winter"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0010/member-bangdream_002_school_winter-2023.png",
+          "image_sha256": "f115d38b8a20f077872e7ab0d81db69e1f496a922ef2f77956dbc42b055d747f",
+          "reason": "duplicate:0.995128870010376",
+          "resource_key": "bangdream_002_school_winter-2023"
+        }
+      ],
+      "memberCount": 5,
+      "members": [
+        "bangdream_002_event_140_story_01",
+        "bangdream_002_event_216_story_01",
+        "bangdream_002_event_99_story_02",
+        "bangdream_002_school_winter",
+        "bangdream_002_school_winter-2023"
+      ],
+      "representativeKey": "bangdream_002_event_140_story_01"
+    },
+    {
+      "clusterId": "dedup-0011",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0011/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0011/representative-bangdream_002_event_160_story_01.png",
+          "image_sha256": "b66851e1cf8bf8967efbeb3a19a642eb02e82d787b6083e9b1830bb83316422c",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_002_event_160_story_01"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0011/member-bangdream_002_event_50_story_01.png",
+          "image_sha256": "f5a8c46fd706b37c36530d3d8354d8d971ae059ecc38cd5678d0ba664b216fde",
+          "reason": "duplicate:0.9999903440475464",
+          "resource_key": "bangdream_002_event_50_story_01"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0011/member-bangdream_002_swimsuit-2023.png",
+          "image_sha256": "b28e4a30daceb0e53624e64e67d48e8ee4a7d96eac852dd62433279d32f48e7e",
+          "reason": "duplicate:0.9951752424240112",
+          "resource_key": "bangdream_002_swimsuit-2023"
+        }
+      ],
+      "memberCount": 3,
+      "members": [
+        "bangdream_002_event_160_story_01",
+        "bangdream_002_event_50_story_01",
+        "bangdream_002_swimsuit-2023"
+      ],
+      "representativeKey": "bangdream_002_event_160_story_01"
+    },
+    {
+      "clusterId": "dedup-0012",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0012/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0012/representative-bangdream_002_school_summer.png",
+          "image_sha256": "53c18ffa81d2f6b3b0d485478ab4826384cca16307bdb2a44711ccb003a1336c",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_002_school_summer"
+        },
+        {
+          "character": "花园多惠",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0012/member-bangdream_002_school_summer-2023.png",
+          "image_sha256": "1ea1b1ec30804b063d8139f63713091de705a6c5420344ca36fbb736a30e0e30",
+          "reason": "duplicate:0.9960876107215881",
+          "resource_key": "bangdream_002_school_summer-2023"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_002_school_summer",
+        "bangdream_002_school_summer-2023"
+      ],
+      "representativeKey": "bangdream_002_school_summer"
+    },
+    {
+      "clusterId": "dedup-0013",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0013/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0013/representative-bangdream_003_2019_furisode.png",
+          "image_sha256": "d28ac231b6fdb188357bc6c06bd84b8786b02844a7bf514f94972440943e5b66",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_003_2019_furisode"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0013/member-bangdream_003_2024_furisode.png",
+          "image_sha256": "7450c924cdf4aaf6b97e230d5633a954508da80117fe3119c2f5f2c9fef57992",
+          "reason": "duplicate:0.9924783706665039",
+          "resource_key": "bangdream_003_2024_furisode"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_003_2019_furisode",
+        "bangdream_003_2024_furisode"
+      ],
+      "representativeKey": "bangdream_003_2019_furisode"
+    },
+    {
+      "clusterId": "dedup-0014",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0014/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0014/representative-bangdream_003_chapter0_pajamas.png",
+          "image_sha256": "47077e5220a8080a8758f09ee8be8cc8c3d2108d214b194aa0c89547d03b374d",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_003_chapter0_pajamas"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0014/member-bangdream_003_event_233_story_01.png",
+          "image_sha256": "763a4c5dd5f0bf0a3b1d5969590cc038779a26f06b02b27f284f1df0fe459510",
+          "reason": "duplicate:0.994564414024353",
+          "resource_key": "bangdream_003_event_233_story_01"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_003_chapter0_pajamas",
+        "bangdream_003_event_233_story_01"
+      ],
+      "representativeKey": "bangdream_003_chapter0_pajamas"
+    },
+    {
+      "clusterId": "dedup-0015",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0015/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0015/representative-bangdream_003_event_140_story_01.png",
+          "image_sha256": "3baecd6b8ca0ecfa78d63344e1986bf108cad27288f2e3a9cc461ecde5e7374e",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_003_event_140_story_01"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0015/member-bangdream_003_event_216_story_01.png",
+          "image_sha256": "224d7d9c23f7cdfb0842c65a6a7b2ffac49cd56bc6c01ea5d8239d4197add114",
+          "reason": "duplicate:0.9989134073257446",
+          "resource_key": "bangdream_003_event_216_story_01"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0015/member-bangdream_003_school_winter.png",
+          "image_sha256": "9d88f81ca5190e6a0f5f67dc0e2fe54c7345498516c823ba9f8605364d672056",
+          "reason": "duplicate:0.9997422695159912",
+          "resource_key": "bangdream_003_school_winter"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0015/member-bangdream_003_school_winter-2023.png",
+          "image_sha256": "73f517a0db219595d778202a988378c420746227e559e7dda4dc1d95738339cf",
+          "reason": "duplicate:0.992347240447998",
+          "resource_key": "bangdream_003_school_winter-2023"
+        }
+      ],
+      "memberCount": 4,
+      "members": [
+        "bangdream_003_event_140_story_01",
+        "bangdream_003_event_216_story_01",
+        "bangdream_003_school_winter",
+        "bangdream_003_school_winter-2023"
+      ],
+      "representativeKey": "bangdream_003_event_140_story_01"
+    },
+    {
+      "clusterId": "dedup-0016",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0016/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0016/representative-bangdream_003_event_227_story_02.png",
+          "image_sha256": "fa202f509c02398f24cd0a378c9749a0bc7da83671e8c9477f0249ec4433ce82",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_003_event_227_story_02"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0016/member-bangdream_003_live_event_227_ssr.png",
+          "image_sha256": "66471b3cbe1d8c7c5699cf9e06e13f258b35f150a30dec507e4e411f4241dbd6",
+          "reason": "duplicate:0.9996699094772339",
+          "resource_key": "bangdream_003_live_event_227_ssr"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_003_event_227_story_02",
+        "bangdream_003_live_event_227_ssr"
+      ],
+      "representativeKey": "bangdream_003_event_227_story_02"
+    },
+    {
+      "clusterId": "dedup-0017",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0017/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0017/representative-bangdream_003_school_summer.png",
+          "image_sha256": "dc607e993cd17114ff5ba576aac75e81aa5533ab9b361a1e7f9f21613990977b",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_003_school_summer"
+        },
+        {
+          "character": "牛込里美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0017/member-bangdream_003_school_summer-2023.png",
+          "image_sha256": "6aa326b0ae25003d365f378f10bca3b606ac5dade125a9df44f4ff1cfd76f918",
+          "reason": "duplicate:0.9948959350585938",
+          "resource_key": "bangdream_003_school_summer-2023"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_003_school_summer",
+        "bangdream_003_school_summer-2023"
+      ],
+      "representativeKey": "bangdream_003_school_summer"
+    },
+    {
+      "clusterId": "dedup-0018",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0018/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0018/representative-bangdream_004_2019_furisode.png",
+          "image_sha256": "6b640e569d9554f39131b73e5ec64603e65083b5ab61ba0d9853abf408029c0e",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_004_2019_furisode"
+        },
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0018/member-bangdream_004_2025_furisode.png",
+          "image_sha256": "96e78e2aedfbbeedcf913260a569fcf59ecfea44481f48a49213af14be7790f0",
+          "reason": "duplicate:0.993851900100708",
+          "resource_key": "bangdream_004_2025_furisode"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_004_2019_furisode",
+        "bangdream_004_2025_furisode"
+      ],
+      "representativeKey": "bangdream_004_2019_furisode"
+    },
+    {
+      "clusterId": "dedup-0019",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0019/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0019/representative-bangdream_004_chapter0_pajamas.png",
+          "image_sha256": "fd6b39a6432ce00c25fc50d1add7c16fad727996efd0a1eca400b369749b59d5",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_004_chapter0_pajamas"
+        },
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0019/member-bangdream_004_pajamas-2023.png",
+          "image_sha256": "c2d5bc4fa126c0937921ec35e3f7b4ed8cc3a56efa193711bcdbed6733f0effc",
+          "reason": "duplicate:0.9943748712539673",
+          "resource_key": "bangdream_004_pajamas-2023"
+        }
+      ],
+      "memberCount": 2,
+      "members": [
+        "bangdream_004_chapter0_pajamas",
+        "bangdream_004_pajamas-2023"
+      ],
+      "representativeKey": "bangdream_004_chapter0_pajamas"
+    },
+    {
+      "clusterId": "dedup-0020",
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0020/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0020/representative-bangdream_004_event_216_story_01.png",
+          "image_sha256": "82a5b8d86548f7da60544407166446a9c6b27c88d3a7f0e6328bbf66a82a5c59",
+          "reason": "representative:1.0",
+          "resource_key": "bangdream_004_event_216_story_01"
+        },
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0020/member-bangdream_004_school_winter.png",
+          "image_sha256": "ec9857a1a596efc2c9d21fb45a1fc84572ec843872c32a8855cad4516678ce24",
+          "reason": "duplicate:0.9997259378433228",
+          "resource_key": "bangdream_004_school_winter"
+        },
+        {
+          "character": "山吹沙绫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/dedup/dedup-0020/member-bangdream_004_school_winter-2023.png",
+          "image_sha256": "1eb3fade68f1aa1810b1553a9fb2edfa93bb3345f3b0df9c1ccd9246602d410e",
+          "reason": "duplicate:0.992975115776062",
+          "resource_key": "bangdream_004_school_winter-2023"
+        }
+      ],
+      "memberCount": 3,
+      "members": [
+        "bangdream_004_event_216_story_01",
+        "bangdream_004_school_winter",
+        "bangdream_004_school_winter-2023"
+      ],
+      "representativeKey": "bangdream_004_event_216_story_01"
+    }
+  ],
+  "generatedAt": "2026-06-15T11:15:34Z",
+  "pools": {
+    "easter_egg_candidate": {
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_006_event_122_story_01.png",
+          "image_sha256": "89e1e406d18ba7e91bef342fee55987eddcfd9e3203e07ba8bd56b2c344bcba9",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_006_event_122_story_01"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_006_live_event_122_sr.png",
+          "image_sha256": "c02a4d61e3629bc009b09a36ba08fb9ff697ab53e40c694cd47dbdc9db451e72",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_006_live_event_122_sr"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_007_event_122_story_01.png",
+          "image_sha256": "92713db378b9080b1e3999fe2b5e627cbfcf00b68fcb1d6fb35a4bd051193782",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_007_event_122_story_01"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_007_live_event_122_ssr.png",
+          "image_sha256": "e96cc32ab309fabd09a4089d4bc59434e91801f325e6981361242eb13176c497",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_007_live_event_122_ssr"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_008_event_122_story_01.png",
+          "image_sha256": "750e4821fb56d38786ea93cd290bee3dc5955b212898bc0a0a554fa31c9246f6",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_008_event_122_story_01"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_008_live_event_122_r.png",
+          "image_sha256": "26f2fe3c07b5dd932facc11190eab88fea647dc8d0c2e26eb901e15c4e080436",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_008_live_event_122_r"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_008_live_r_2018.png",
+          "image_sha256": "dcf8702701b58e68661a8584dd6baf2bd048484925ea54ef6eb418cc4cc80753",
+          "reason": "hard_easter_tag,underwear",
+          "resource_key": "bangdream_008_live_r_2018"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_009_event_122_story_01.png",
+          "image_sha256": "c5ca0b4fa3a42e9fcd4ea19397a641e01ac8c8da601d853af23eb359247d52db",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_009_event_122_story_01"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_009_live_event_122_sr.png",
+          "image_sha256": "0db7f503e7f6709030d40106d01ed2197b91916504862ef414b80ed3056eb701",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_009_live_event_122_sr"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_010_event_122_story_01.png",
+          "image_sha256": "79f40898cc68658e1a2ade9f5ae8c311f97b4a7813743c644006dd58bb9e92cc",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_010_event_122_story_01"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_010_live_event_122_ssr.png",
+          "image_sha256": "1d016811ab43f9afdbc048f40c66abb2b6b5219986445d8d3937c9b9d2e096ca",
+          "reason": "hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_010_live_event_122_ssr"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_011_event_266_story_01.png",
+          "image_sha256": "1f1ece1feaecf90d8bebb21fbefe8b97eac6cc28e9ffd196c1c7e4a223f9f377",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_011_event_266_story_01"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_011_live_event_20_ssr.png",
+          "image_sha256": "d5150ad71cba18db8836873f9e0a5894eb2654ab916935f8031fef2cec6feda2",
+          "reason": "hard_easter_tag,underwear",
+          "resource_key": "bangdream_011_live_event_20_ssr"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_011_halloween_without_lantern.png",
+          "image_sha256": "5eb64b4104735b8d6930a6b919cad2be88389f985251e71f4ab201cc10c9512e",
+          "reason": "hard_easter_tag,underwear",
+          "resource_key": "bangdream_011_halloween_without_lantern"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_012_live_event_232_r.png",
+          "image_sha256": "b3e45fc1c3b836a8bdb963ba36031e09a6c5f43502216d01fd2c02b69a7e96c4",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_012_live_event_232_r"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_012_swimsuit-2023.png",
+          "image_sha256": "843d6bf4bf2d550a9c9b6b532a42497b123680fd421f5686ed0a2fd34369ff82",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_012_swimsuit-2023"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_013_event_50_story_01.png",
+          "image_sha256": "5ddf32f392b918dc65f23f0b1bd7cf42e3b5bef03f2bf7886afa1034935df139",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_013_event_50_story_01"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_013_live_event_232_ssr.png",
+          "image_sha256": "db37ee83fe56f733af17a6b7cd0a815b1af6f02b5d0c3adf7c7c8fca6342e4a7",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_013_live_event_232_ssr"
+        },
+        {
+          "character": "松原花音",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_014_live_event_198.png",
+          "image_sha256": "936cbad0d9797bc83039c6d355164cb6150d5300ef955b7d4a1ae9bd7d1eafa7",
+          "reason": "hard_easter_tag,underwear",
+          "resource_key": "bangdream_014_live_event_198"
+        },
+        {
+          "character": "松原花音",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_014_swimsuit-2023.png",
+          "image_sha256": "90646d413e425bc7cee7a4cf13261dde61030b2a1e9df635c898c7579d9f2419",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_014_swimsuit-2023"
+        },
+        {
+          "character": "奥泽美咲",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_015_swimsuit-2023.png",
+          "image_sha256": "79160789f7a68f2c2e4c1fb855a31a3d221c61add505e3a5e4b8a58a8b4cb42b",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_015_swimsuit-2023"
+        },
+        {
+          "character": "仓田 真白",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_026_event_194_story_01.png",
+          "image_sha256": "069df12860ebabf6e7145d7af0cef0edd18e565c466c7b73f3e8bf08afeebd90",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_026_event_194_story_01"
+        },
+        {
+          "character": "仓田 真白",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_026_live_event_194_ssr.png",
+          "image_sha256": "903a4a7cedb3c034c6cb1bfa23776f5e435795de71cf33a84cb94f4237cceb2d",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_026_live_event_194_ssr"
+        },
+        {
+          "character": "桐谷 透子",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_027_event_194_story_01.png",
+          "image_sha256": "9880266a80d193801ae2fb32ac4ee9cf24a75c7328169db13f4294aab30e22f0",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_027_event_194_story_01"
+        },
+        {
+          "character": "桐谷 透子",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_027_live_event_194_sr.png",
+          "image_sha256": "ccaf6766cc30facfc4f8f2fd475b8474d9a4feaf9ebdf65a3a9ae35b399cf4d3",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_027_live_event_194_sr"
+        },
+        {
+          "character": "广町 七深",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_028_event_194_story_01.png",
+          "image_sha256": "fac7d683f7c785f25af3d82111fa6e765037daffc975ca1de04e4785748a3bcb",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_028_event_194_story_01"
+        },
+        {
+          "character": "广町 七深",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_028_live_event_194_ssr.png",
+          "image_sha256": "5708e9ba5565b395d1673c5f348ac4aaf1e704fa7a0e9522aecd70b3474a0f36",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_028_live_event_194_ssr"
+        },
+        {
+          "character": "二叶 筑紫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_029_event_194_story_01.png",
+          "image_sha256": "d0755550b12405cf16d98a575f2ed535e7f0a6a351ae8cc754d47beff31be0c4",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_029_event_194_story_01"
+        },
+        {
+          "character": "二叶 筑紫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_029_live_event_194_r.png",
+          "image_sha256": "2ae890768df4ae5c76d916ac9caab494b711a8c74cfbea4e04bd036ae013e61e",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_029_live_event_194_r"
+        },
+        {
+          "character": "二叶 筑紫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_029_swim_swit.png",
+          "image_sha256": "4be74551f394a4254acce1f5aae8502581c5b393f8bbbc898b14c217ee989c6e",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_029_swim_swit"
+        },
+        {
+          "character": "八潮 瑠唯",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_030_event_194_story_01.png",
+          "image_sha256": "b027bda6d73a1628dddf535bf93f87cdf35eda84ed9fc3901e8517cd03ca8b64",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_030_event_194_story_01"
+        },
+        {
+          "character": "八潮 瑠唯",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_030_live_event_194_sr.png",
+          "image_sha256": "29dc896c3957736cb00153d4afcb0d1e44d481ac51cea76483eeaf3339bffd44",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_030_live_event_194_sr"
+        },
+        {
+          "character": "丸山彩",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_016_event_86_story_01.png",
+          "image_sha256": "8ab87f902c2c5fc183d13cd130165163c2c7d2c91a0a56cd14452b85c716030d",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_016_event_86_story_01"
+        },
+        {
+          "character": "丸山彩",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_016_live_event_14_r.png",
+          "image_sha256": "e9a100a48211b31d1f7ccc02ff6ddd73558ec83d28c131ac3488bcfcde47db12",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_016_live_event_14_r"
+        },
+        {
+          "character": "丸山彩",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_016_swim_swit.png",
+          "image_sha256": "eddc99e14a1b7db310ecf4cbd11ca4423a8aebcf8f9b2489ada38c1e92906d4c",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_016_swim_swit"
+        },
+        {
+          "character": "冰川日菜",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_017_event_86_story_01.png",
+          "image_sha256": "9e063de4d808d2db14f032d61b43c8034a43993bcbd0c95c27647f0a6d9a5027",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_017_event_86_story_01"
+        },
+        {
+          "character": "冰川日菜",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_017_live_event_86_sr.png",
+          "image_sha256": "8641f69ddd1fc09f563bc88b021bfda3170242a3a5fd741597ade2294c1655a4",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_017_live_event_86_sr"
+        },
+        {
+          "character": "白鹭千圣",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_018_event_86_story_01.png",
+          "image_sha256": "ea4c9cb7bce2c7d132f06fea024f951d58cf35c81e318d5bd29d58747f1d0ca9",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_018_event_86_story_01"
+        },
+        {
+          "character": "白鹭千圣",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_018_live_event_86_ssr.png",
+          "image_sha256": "d68c780e579561ad8a276634f78c8f689ee7ff4bbc4406dda875e20093568532",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_018_live_event_86_ssr"
+        },
+        {
+          "character": "大和麻弥",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/easter/bangdream_019_event_86_story_01.png",
+          "image_sha256": "a65ef06bb8ecc683fa5842125a414a7b3de3482819e9265e64a205d4d6a7f639",
+          "reason": "bikini,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_019_event_86_story_01"
+        }
+      ],
+      "sampleRows": 40,
+      "totalRows": 126
+    },
+    "exclude": {
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_006_event_101_story_01.png",
+          "image_sha256": "6311b7e19b5624ad0bc5299a96ab31b5b3f6dfeaa90476b5ea013201e2e027c6",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_event_101_story_01"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_006_2024_furisode.png",
+          "image_sha256": "486185e2f9e852def793e849c0d5f175f3488a428fe00ac7f470f7dea005cc8c",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_2024_furisode"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_006_live_event_227_ur.png",
+          "image_sha256": "5561f0e7c67e44ae757a0ff371cc7d567fe8b294877264789dee6a1d4dabf29f",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_live_event_227_ur"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_006_pajamas-2023.png",
+          "image_sha256": "ccce3557571e720355ecc111991cb84433d161c80b4806bfe4e03170de5f77bf",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_pajamas-2023"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_006_school_summer_v3.png",
+          "image_sha256": "e3fc7263dc29bd37fc0ce07cfad765915906bdabbde7b297ef16fb412b7605e0",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_school_summer_v3"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_006_swimsuit-2023.png",
+          "image_sha256": "8752e51b7ed07f05865a1091d05fc4d78083b843d59a5dac0e96d097ee678a55",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_006_swimsuit-2023"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_007_event_65_story_01.png",
+          "image_sha256": "cdebbe3afd2d7f1f31b0a29fc2985d1a484e7a5ef477a5c26e96ff7f0f640977",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_event_65_story_01"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_007_2024_furisode.png",
+          "image_sha256": "2a93ed492f5eeead8d38fa0da7d3a63e54b75c2bccc86f90451e0ec081e12a9d",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_2024_furisode"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_007_live_event_200_ssr.png",
+          "image_sha256": "2f581d4b204d69894ecc0fc68821df2c00e8e47c29feef682efc39151c80ca89",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_007_live_event_200_ssr"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_007_pajamas-2023.png",
+          "image_sha256": "2af8a89cb391d05917944cb30e7b88175d04c5f60992d0177238e10b5524d76d",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_pajamas-2023"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_007_school_summer_v3.png",
+          "image_sha256": "67efc888bfbea39e1532fbbee20feeebcb466eb54993a5909ac403e669ee0792",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_school_summer_v3"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_007_swimsuit-2023.png",
+          "image_sha256": "00a3085189b49b7ab688e4635968821432eb11e711125c59d996036756269432",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_007_swimsuit-2023"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_008_live_event_236_ur.png",
+          "image_sha256": "a6fc6ca79155e24255a2af71a4049a869c4f4a4cada713a63e863fd527f07450",
+          "reason": "cleavage,dedup_member,garter_straps,soft_review_tag",
+          "resource_key": "bangdream_008_live_event_236_ur"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_008_swim_swit.png",
+          "image_sha256": "db9ed6933a34a570cdf4a490de0a63c96536deb67a936d28e73ae7941f6b6826",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_008_swim_swit"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_008_school_summer_v3.png",
+          "image_sha256": "c097f5a2940e33a954768a5e171b467123e0f5574073ecea536debe69e2a90b3",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_school_summer_v3"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_008_swimsuit-2023.png",
+          "image_sha256": "1d40e6b3f769380e9a1c7f398a100fb3dc336a7c668958c1e35631fb7711ca70",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_008_swimsuit-2023"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_009_event_216_story_01.png",
+          "image_sha256": "e9483c0696964440d4dd6dfe74ef841871edf153bad863cc6367b5566465c0e7",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_event_216_story_01"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_009_2025_furisode.png",
+          "image_sha256": "ff2e193ac71f85506b61b2c9431fca3aadf7948899dfdae57573fcd4e794b7d1",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_2025_furisode"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_009_live_event_200_ssr.png",
+          "image_sha256": "8f74129b05984408eaeb730d654a008e900a31261e70494e16e6330495755e5d",
+          "reason": "animal_companion:bird,dedup_member,qualification_review",
+          "resource_key": "bangdream_009_live_event_200_ssr"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_009_school_summer_v3.png",
+          "image_sha256": "d2f8f3ed80651359a3ade101a3ee5e6fabd41b1c0aebe2c9dce93df42384d41e",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_school_summer_v3"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_010_arbeit-2023.png",
+          "image_sha256": "b16849a9f4b64ab2dc4702c2697d1a9853edf5ba74f6ea56c9d9de53dad7b612",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_010_arbeit-2023"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_010_memorial_middle_school.png",
+          "image_sha256": "30770b8c82a7150921d6223dadf6ee57d8bd6a598ac1e7299381c8afc36670c7",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_010_memorial_middle_school"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_010_school_summer_v3.png",
+          "image_sha256": "67dea6d65c99aaf25b84633d3332514a1fbd434c231397aa722d12c85e192674",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_010_school_summer_v3"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_010_swimsuit-2023.png",
+          "image_sha256": "008cb666627edcaa2bf1b26e2a05489b9c04cd050034e9fe5c77218c5c91c1ac",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_010_swimsuit-2023"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_011_event_141_story_01.png",
+          "image_sha256": "fca40ea0f6f146e9ce961f8c705dcb1e9e717e4ac1eb3406f05a3fc201bfd6ee",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_011_event_141_story_01"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_011_2024_furisode.png",
+          "image_sha256": "a30a8427863031ddd80c82fc433f2c854feb56b8fde42e2305e0e5bea2bf92d9",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_011_2024_furisode"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_011_live_event_244_r.png",
+          "image_sha256": "f23fa7fa837edebec2e1aa420f30652e85297e7f0586d25bdfb7696561fbb726",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_011_live_event_244_r"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_011_pajamas-2023.png",
+          "image_sha256": "c0fb09892e538e05360a72e48b72cdb90bcec86e44a55e031483fce1916d8b89",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_011_pajamas-2023"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_011_school_summer-2023.png",
+          "image_sha256": "08e2113eda4f8ce9d6cf43fe52a741a792925fa7c0a2ea9b5a1d8505c0d90291",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_011_school_summer-2023"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_011_swimsuit-2023.png",
+          "image_sha256": "1009dfb4f6391e477e3d6af1f6394936ef95861bfd8fb5d223e269188b6c7d7b",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_011_swimsuit-2023"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_012_event_226_story_01.png",
+          "image_sha256": "d929da7446812cf427f7202fa0b88b740d8bf4deadabbc37412205d9a17292a6",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_012_event_226_story_01"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_012_live_event_179_r.png",
+          "image_sha256": "3cb701103a703fb620fc5f08417661f53464a5a54715ada439c16fbd4ce0ab50",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_012_live_event_179_r"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_012_school_summer_v3.png",
+          "image_sha256": "50de8a2c68a5da76316508756b36bf1b2be6d4977d07c46915051c1139a9e71c",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_012_school_summer_v3"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_013_event_153_story_01.png",
+          "image_sha256": "94a79a0a6bd0adb7cb30658f2a3abe03043e2c8b3d8b34bd5dc2e4b359068c8c",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_013_event_153_story_01"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_013_live_event_244_ur.png",
+          "image_sha256": "9918fc40b8c6fd417de6677c4756ad3dfc9605f069c8079de93e4bdd8661273c",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_013_live_event_244_ur"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_013_pajamas-2023.png",
+          "image_sha256": "27a6161a4bb0fc1e8a6d89ce9bf5ce9034e2270217894b4fc2d7c52ce0cc29d7",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_013_pajamas-2023"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_013_school_summer-2023.png",
+          "image_sha256": "23d5165eb729a76c5bdd0aa30b82d71ab08cc181d71d7128d223e7be5888c2e4",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_013_school_summer-2023"
+        },
+        {
+          "character": "北泽育美",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_013_swimsuit-2023.png",
+          "image_sha256": "6985e34bb3fb49f611c58ca135b89bf0ff62528b9f1fdc84e2952ca48bbb781e",
+          "reason": "bikini,dedup_member,hard_easter_tag,swimsuit",
+          "resource_key": "bangdream_013_swimsuit-2023"
+        },
+        {
+          "character": "松原花音",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_014_live_event_215_ssr.png",
+          "image_sha256": "eeb785c4b2651e48d13025c61ba278c4d18ff455647498eb45b7eb1a1256009d",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_014_live_event_215_ssr"
+        },
+        {
+          "character": "松原花音",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/exclude/bangdream_014_school_winter_v3.png",
+          "image_sha256": "46a37079bf21fff92f374b4f965282ce4db31a07e10151f912af32c94291ac10",
+          "reason": "dedup_member,no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_014_school_winter_v3"
+        }
+      ],
+      "sampleRows": 40,
+      "totalRows": 232
+    },
+    "public_candidate": {
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_birthday_2021.png",
+          "image_sha256": "0a6880dcfbdb100b8ec72c052bb6fc84beb8749853130a932abb05309b34250d",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:bare_shoulders",
+          "resource_key": "bangdream_006_birthday_2021"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_casual.png",
+          "image_sha256": "873e48689bd121f91ced890d1226a69fcdd9952d2b061e8176ee61cd742f37cb",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_casual"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_dream_festival_3_ur.png",
+          "image_sha256": "14e301e4a3305bd7c2e1754e6350b597bdf3276c6d87e718e52f6f0fe216d87b",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_dream_festival_3_ur"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_event_128_story_01.png",
+          "image_sha256": "06654889797c962e2334b27133dfdb30d8b6ca8e674f257e4b6c7fca656bb3cc",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_event_128_story_01"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_2019_furisode.png",
+          "image_sha256": "7642c3212a79930465ffc808c74382b8a36f3e611a61ffc2daf95e1d88464179",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_2019_furisode"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_live_default.png",
+          "image_sha256": "da6283d27f2c821709401760e3748f08eabd171fa2b8b3d6cf10f5b93157f68f",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_live_default"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_live_event_05_ssr.png",
+          "image_sha256": "11645b8e7b30a0452be0ff8123db02f2eb2b2f7e378edbd719bf86ee9bb92da0",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_live_event_05_ssr"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_live_r_2020.png",
+          "image_sha256": "f9a5cbbb5c4e8f5c437046652ee9e3f9822fc0bfae99b7f697dd06d32999d520",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_live_r_2020"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_event_06_story.png",
+          "image_sha256": "843ba0e6bbf6d126936ef2fdeff8ca6dd057d488f16731eed5b218df1054da68",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_event_06_story"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_school_summer.png",
+          "image_sha256": "d3b46525612d6788bf192d8f080a5a4a287d472f24d464cddaede52c74a5fc02",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_school_summer"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_006_special_5th.png",
+          "image_sha256": "fb1e9d9f74af2c72cbe21fc7ac9ad9ee3cec0640a6a999261d07cd0b351cef99",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_006_special_5th"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_casual.png",
+          "image_sha256": "e71b1475bea5f5d321c087127c2a1100ca406d879bc198fc64c196532bef9bc2",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_casual"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_dream_festival_4_ur.png",
+          "image_sha256": "418fa710801055bf7f0474b3391253e8ab0f28ae2e0a32256f766207ca1fd73a",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_007_dream_festival_4_ur"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_event_216_story_01.png",
+          "image_sha256": "00c38e91864edfaab1f435d1d748feca5dae66077964a0900bbcc2f83912c59c",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_event_216_story_01"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_2019_furisode.png",
+          "image_sha256": "c547f74b7fbde74e41d758b03f069826002f85e801384723a20b85ad2ae2efd1",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_2019_furisode"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_live_default.png",
+          "image_sha256": "f7e733334e1e1f703acf66eb7f3cecbc61974e58a9ad4b227aecd617a2bf782c",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_live_default"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_live_event_06_ssr.png",
+          "image_sha256": "51f1a508b4dfd81da1f6bf7e5036ac5e496c4f4bd060a22aa0c1439742f45f41",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_007_live_event_06_ssr"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_live_r_2020.png",
+          "image_sha256": "819262d69c3c670629f71b29117b3c5097066b57ca5be22b33c4283e54705085",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_live_r_2020"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_2nd_general_election_r.png",
+          "image_sha256": "44cfc02b5b728d26b6033318eb71f7d21fac5040d7ec61e24c90d8db8fa26c92",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_2nd_general_election_r"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_school_summer.png",
+          "image_sha256": "381943c61b6507fd99a8856a5268a00ce05ea5183f34a05a38e2bf774372850b",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_school_summer"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_007_special_5th.png",
+          "image_sha256": "ce4a0bf9752524bd7fc9ba2a9664f7bb71a95998cc0be6dac34e77825c582742",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_007_special_5th"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_birthday_2021.png",
+          "image_sha256": "5ebd4152a6544115643dca621a489979a07b16973dd60205fa465715ccc920c4",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_birthday_2021"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_casual.png",
+          "image_sha256": "42f5ce58cdaeb224b22acaa4969faf389a3c554d57ec0da4a9ed3e3b8b89a9ce",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_008_casual"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_dream_festival_3_ur.png",
+          "image_sha256": "f615f082890f6ad3a03d32b058493c051bde573f285030be3b819df58f8787db",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_dream_festival_3_ur"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_event_128_story_01.png",
+          "image_sha256": "1cf23d0d4da6721fa9b8768d2de6eb3f2cadbd14c349706b7f0054f378007115",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_event_128_story_01"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_2019_furisode.png",
+          "image_sha256": "77e3df61fac7ace8e72d6abc3b5f4a01470646cd5f421ada056e5cbae490ce6c",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_2019_furisode"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_live_default.png",
+          "image_sha256": "6effd8e52e11cafd937dc0cc9a32d2a8804f154f2a258dcd0d198854dbcc75f5",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_008_live_default"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_live_event_06_r.png",
+          "image_sha256": "f21e11b76ac00323d6dae4d6a603ce9c41a42ffaf15ce458a8017a2ecef4f7f2",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_008_live_event_06_r"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_live_r_2023.png",
+          "image_sha256": "f36c91fbbaf9af6592828e32d1e6262f62913f19ec1e919c0bc17abfb37ac823",
+          "reason": "no_hard_or_soft_policy_tags,non_decisive:thighhighs",
+          "resource_key": "bangdream_008_live_r_2023"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_event_06_story.png",
+          "image_sha256": "b72dfe9bf6b3981183270235984d65ecad5b873f58d0b94e8ac4662bd9efe10e",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_event_06_story"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_school_summer.png",
+          "image_sha256": "43e442b49b2808d4b103d2f99bfe64de344a7a18d88aa6e68f3e10e86107138d",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_school_summer"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_008_special_5th.png",
+          "image_sha256": "4a3fb1708d89d14a4ebd35daa11dfb2c82e3ce736f9e5b85bd151a563fc95974",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_008_special_5th"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_birthday_2021.png",
+          "image_sha256": "0dc5623a72f16dfebb76702e242b371d6fbaed5dc6dc95eb9fed02ba1a6ac101",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_birthday_2021"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_casual.png",
+          "image_sha256": "73179e9b916bc670d26047bbc290a809d518e498a8d6a09f2ec00048e2dc962f",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_casual"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_dream_festival_2.png",
+          "image_sha256": "a8eae09e8321eeae5f344afc3c6174604fe234fcfbb1019e863ab5af9368875e",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_dream_festival_2"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_event_107_story_01.png",
+          "image_sha256": "dd8ce6f4c2696066dfabc8f4680d51696cfc2d2ca9de60bfaa13a2bea6cc996b",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_event_107_story_01"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_2019_furisode.png",
+          "image_sha256": "fbc5f0668cf96c0bd22f610c50ff69a5af162bef3a38f9ac709041f601dbbb05",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_2019_furisode"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_live_event_06_r.png",
+          "image_sha256": "ba4869039605e74a046e133093adf8f18a6956e954135c9a58d8afa0959fac2f",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_live_event_06_r"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_live_r_2020.png",
+          "image_sha256": "a353200976ad65d59f057477e1d49df5b8ee42bb37b840669cbbfc73f9365f5a",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_live_r_2020"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/public/bangdream_009_2021af.png",
+          "image_sha256": "471bd9bec0c3257c5007edad6e9a00acefa73b795e23af61d34a49e8a8fea2e2",
+          "reason": "no_hard_or_soft_policy_tags",
+          "resource_key": "bangdream_009_2021af"
+        }
+      ],
+      "sampleRows": 40,
+      "totalRows": 2303
+    },
+    "soft_review": {
+      "contactSheet": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/contact-sheet.jpg",
+      "items": [
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_birthday_2022.png",
+          "image_sha256": "8ed0eb0924f6c7445a67e300eafd473f8aab85cb867fc96ee4ec30fa3a8698b0",
+          "reason": "cleavage,garter_straps,soft_review_tag",
+          "resource_key": "bangdream_006_birthday_2022"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_collabo_d_3_ur.png",
+          "image_sha256": "5993f77b0c36284786880cbc26e860be8550566f9e9cab3a00185ec4a5a7f9dd",
+          "reason": "cleavage,soft_review_tag",
+          "resource_key": "bangdream_006_collabo_d_3_ur"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_dream_festival.png",
+          "image_sha256": "aa19aa50405ab5f2135ba29dd9897ccbccdd128bf68ec81fb5d3114bf53b5866",
+          "reason": "midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_006_dream_festival"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_live_event_129_ssr.png",
+          "image_sha256": "0c28b73a51fef471b99e51d58a02a730fd3313749d6b937207c326ca860a7336",
+          "reason": "crop_top,midriff,soft_review_tag",
+          "resource_key": "bangdream_006_live_event_129_ssr"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_live_r_2018.png",
+          "image_sha256": "62abbb82791a3efe940f8fc8c45f50c8502102e7b8c0991785e8444d205269a6",
+          "reason": "cleavage,soft_review_tag",
+          "resource_key": "bangdream_006_live_r_2018"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_live_sr_01.png",
+          "image_sha256": "f6fcf59c24321e1345fa5d4d2fb13906935b4f686ae49b10281f2fe6c1093187",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_006_live_sr_01"
+        },
+        {
+          "character": "美竹兰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_006_2018_dog.png",
+          "image_sha256": "7ce2f7577de3d46dc8e9c138a09e5d360bbc2bc21b65f8ad64d11a6ed1267d2d",
+          "reason": "qualification_review,variant_keyword:dog",
+          "resource_key": "bangdream_006_2018_dog"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_007_birthday_2021.png",
+          "image_sha256": "4ecbcfb1e30487d57502c5373b8421d7f6a78e026575e5c24e9feb096741b652",
+          "reason": "garter_straps,soft_review_tag",
+          "resource_key": "bangdream_007_birthday_2021"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_007_dream_festival_2.png",
+          "image_sha256": "3948baf3b33ef8ce374e4d006d34580695523a76a7c94bf0f1e1d654878004e8",
+          "reason": "crop_top,midriff,soft_review_tag",
+          "resource_key": "bangdream_007_dream_festival_2"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_007_live_event_115_r.png",
+          "image_sha256": "862513f101ce7afef082abcb3ee223ddee9067396d90411ab4262208507f17a5",
+          "reason": "garter_straps,midriff,soft_review_tag",
+          "resource_key": "bangdream_007_live_event_115_r"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_007_live_r_2018.png",
+          "image_sha256": "11b52a9ad1794770c8f2e9f858f011cfeb186b3a0c2c36028f91cf0a075ca18e",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_007_live_r_2018"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_007_live_sr_01.png",
+          "image_sha256": "098d84b68a4a40a8deb05ab26c25ab8232d191334aee9e80fc5baef972842496",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_007_live_sr_01"
+        },
+        {
+          "character": "青叶摩卡",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_007_2018_dog.png",
+          "image_sha256": "589b0753546b70a679915b02e36b7fe62bff6ba5b2bf8ea505b8578807a74daf",
+          "reason": "qualification_review,variant_keyword:dog",
+          "resource_key": "bangdream_007_2018_dog"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_birthday_2022.png",
+          "image_sha256": "4819c954935ca9c18c876714ab1470f507110bb5a6108a27c4689db2f1873794",
+          "reason": "cleavage,soft_review_tag",
+          "resource_key": "bangdream_008_birthday_2022"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_dream_festival.png",
+          "image_sha256": "2f904dc1b911b1ccbaf351cf0fd1d9510b3448b2b28b6536d14435866d399c8a",
+          "reason": "midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_008_dream_festival"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_event_236_story_01.png",
+          "image_sha256": "5b135ce1353be83e011924dfd176fcaf4951fd6e4915e407356f4055323238c3",
+          "reason": "cleavage,garter_straps,soft_review_tag",
+          "resource_key": "bangdream_008_event_236_story_01"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_live_event_100_sr.png",
+          "image_sha256": "48cdab3788c8d1161590fe920fc2a8fafa10b617622930c54701fe7e59e961e6",
+          "reason": "garter_straps,soft_review_tag",
+          "resource_key": "bangdream_008_live_event_100_sr"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_live_r_2019.png",
+          "image_sha256": "6e3b8fb20c815e9af6e8a078d6c4e331c5c464a9260c6639f74c77ee11a19596",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_008_live_r_2019"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_live_sr_01.png",
+          "image_sha256": "7bdfadb3441cf86ca775bede3ea6e412a4179a84ed7e607e7df323ef8140dcbc",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_008_live_sr_01"
+        },
+        {
+          "character": "上原绯玛丽",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_008_2018_dog.png",
+          "image_sha256": "f985803c999fd2514ed3211abb9d9e40f06bacf21d89809dcce209930ddb39a9",
+          "reason": "qualification_review,variant_keyword:dog",
+          "resource_key": "bangdream_008_2018_dog"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_casual-2023.png",
+          "image_sha256": "d06171a2b7edbbf51d4cad2246872e0f87e80220e40af5f3287cfbe984dfecea",
+          "reason": "crop_top,midriff,soft_review_tag",
+          "resource_key": "bangdream_009_casual-2023"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_dream_festival.png",
+          "image_sha256": "877a83c4a4891e8feb1284234fae3f492974983803d76ae170a0faf937b41065",
+          "reason": "midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_009_dream_festival"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_kirameki_festival.png",
+          "image_sha256": "7a05237e78d8800bcd1944df17fb9e4439081ba3e83f7b039f9509627b600ac6",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_009_kirameki_festival"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_live_default.png",
+          "image_sha256": "cb2f1ba4cc9f3104834a3abf5818a7e3193a043d4eb9cdc5eff144f7151c3031",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_009_live_default"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_live_event_115_sr.png",
+          "image_sha256": "d7ab9174cc57f722dbd504f2ef50936eab93452c11393f950ce82d5dac836dcd",
+          "reason": "garter_straps,midriff,soft_review_tag",
+          "resource_key": "bangdream_009_live_event_115_sr"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_live_r_2018.png",
+          "image_sha256": "f9f4226138354fc3aae25fc25f9ac49b16e8a745ef062f170f28104148787599",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_009_live_r_2018"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_live_sr_01.png",
+          "image_sha256": "aaf1fc550b288686b0ef5c54260e9bc9e4860b9142694ade48d7b81f29b31170",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_009_live_sr_01"
+        },
+        {
+          "character": "宇田川巴",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_009_2018_dog.png",
+          "image_sha256": "964e9d54f4044f49b80c3b4f9b6d0de43fb0777135753fa8b28426cc5f9ee827",
+          "reason": "qualification_review,variant_keyword:dog",
+          "resource_key": "bangdream_009_2018_dog"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_010_birthday_2022.png",
+          "image_sha256": "d00dee442624efd3336dcfddc18789e0727e6bb229c413b777541d854d54f658",
+          "reason": "garter_straps,soft_review_tag",
+          "resource_key": "bangdream_010_birthday_2022"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_010_live_event_107_ssr.png",
+          "image_sha256": "13446619309e2f50005a7c2ba74b18a5d947c6087971fad0942781b85089fd85",
+          "reason": "garter_straps,soft_review_tag",
+          "resource_key": "bangdream_010_live_event_107_ssr"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_010_live_r_2019.png",
+          "image_sha256": "d3ac1da60037ca2e7660f99fe93ab736eadf95cdc47b2fe34f43856458ee427b",
+          "reason": "crop_top,midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_010_live_r_2019"
+        },
+        {
+          "character": "羽泽鸫",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_010_2018_dog.png",
+          "image_sha256": "840a91d8be26eec110668421a1214b7ceb421ec4a965a3e2437a78a825f05a03",
+          "reason": "qualification_review,variant_keyword:dog",
+          "resource_key": "bangdream_010_2018_dog"
+        },
+        {
+          "character": "祐天寺 若麦",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_044_event_297_story_01.png",
+          "image_sha256": "21303aa0c6ab68f81821b82d4d569cee030ac82df1810aa88f00dbe8e5d2db5c",
+          "reason": "garter_straps,soft_review_tag",
+          "resource_key": "bangdream_044_event_297_story_01"
+        },
+        {
+          "character": "若叶 睦",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_045_casual-2023.png",
+          "image_sha256": "571129b5e827c15e0fd8e6a3fdfb6c99384f4ec6315e0f9ac8ebd2205dcc9e88",
+          "reason": "cleavage,crop_top,soft_review_tag",
+          "resource_key": "bangdream_045_casual-2023"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_011_dream_festival.png",
+          "image_sha256": "7b34ba753233d4a198b89a1c4bd58936ba17c47ff874ce56ed23592da317c200",
+          "reason": "mask,qualification_review",
+          "resource_key": "bangdream_011_dream_festival"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_011_live_event_110_r.png",
+          "image_sha256": "d49fb0a162d24535327e1e3e7b3b9de465761eb815dbc028679afd8b90b44288",
+          "reason": "midriff,navel,soft_review_tag",
+          "resource_key": "bangdream_011_live_event_110_r"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_011_live_r_2018.png",
+          "image_sha256": "8dd2997a16bf101e489d921ed165a63c426366a689cc9453f19134e0afe446fc",
+          "reason": "cleavage,soft_review_tag",
+          "resource_key": "bangdream_011_live_r_2018"
+        },
+        {
+          "character": "弦卷心",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_011_2018_dog.png",
+          "image_sha256": "6ee331aaf4fe71e29a0b9ce42312271b96c821bf73265968ab9b6ee4967d5865",
+          "reason": "qualification_review,variant_keyword:dog",
+          "resource_key": "bangdream_011_2018_dog"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_012_birthday_2022.png",
+          "image_sha256": "3ee2ee1b675be5b781e9e6595a10ddd546f1e679e2adf84cc93db8124bdae3f8",
+          "reason": "garter_straps,soft_review_tag",
+          "resource_key": "bangdream_012_birthday_2022"
+        },
+        {
+          "character": "濑田薰",
+          "image_path": "src/data/deskpet/bangdream-rendered-resource-audit/samples/soft-review/bangdream_012_dream_festival_3_ur.png",
+          "image_sha256": "d006943a8fcf47f8915b69c2e266bdca49ef5218b72e2d37b2c58d4d691ca557",
+          "reason": "navel,soft_review_tag",
+          "resource_key": "bangdream_012_dream_festival_3_ur"
+        }
+      ],
+      "sampleRows": 40,
+      "totalRows": 647
+    }
+  }
+}

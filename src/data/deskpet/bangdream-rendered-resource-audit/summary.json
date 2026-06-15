@@ -1,0 +1,93 @@
+{
+  "classifiedRows": 3076,
+  "coveredCandidateRows": 3336,
+  "currentPoolRows": 165,
+  "dedupClusterCount": 207,
+  "dedupPairCount": 264,
+  "dedupStatusCounts": {
+    "duplicate": 232,
+    "representative": 207,
+    "unique": 3004
+  },
+  "failedOrPendingReasonCounts": {
+    "build_data_invalid": 27,
+    "conversion_failed": 1,
+    "render_failed": 28
+  },
+  "generatedAt": "2026-06-15T11:15:36Z",
+  "pipelineStatusCounts": {
+    "classified": 3076,
+    "excluded": 232,
+    "out_of_scope": 107,
+    "render_failed": 28
+  },
+  "policyVersion": "rendered-descriptive-v1",
+  "qualificationStatusCounts": {
+    "fail": 28,
+    "pass": 3222,
+    "pending": 107,
+    "review": 86
+  },
+  "recommendedPoolCounts": {
+    "easter_egg_candidate": 126,
+    "exclude": 260,
+    "pending": 107,
+    "public_candidate": 2303,
+    "soft_review": 647
+  },
+  "renderAttemptedRows": 3336,
+  "renderStatusCounts": {
+    "": 107,
+    "build_data_invalid": 27,
+    "conversion_failed": 1,
+    "rendered": 3308
+  },
+  "renderUnattemptedCoveredRows": 0,
+  "reviewStatusCounts": {
+    "not_required": 2689,
+    "pending": 754
+  },
+  "rowCount": 3443,
+  "rowKindCounts": {
+    "covered_candidate": 3171,
+    "current_pool": 165,
+    "union_only": 107
+  },
+  "sampleIndex": {
+    "easter_egg_candidate": {
+      "sampleRows": 40,
+      "totalRows": 126
+    },
+    "exclude": {
+      "sampleRows": 40,
+      "totalRows": 232
+    },
+    "public_candidate": {
+      "sampleRows": 40,
+      "totalRows": 2303
+    },
+    "soft_review": {
+      "sampleRows": 40,
+      "totalRows": 647
+    }
+  },
+  "sourceSnapshot": {
+    "bestdori": "20260615T100811Z",
+    "gist": "4bebb4fa9266af907ad1cbc7af12b3b6132b885d"
+  },
+  "tagger": {
+    "device": "cuda:0",
+    "embedding_rows": 3308,
+    "model_id": "animetimm/convnextv2_huge.dbv4-full",
+    "model_revision": "18177355d1448a69bafb0410a0608e144f714e8b",
+    "scanned_rows": 3308,
+    "selected_tags_sha256": "c08f1359510e09355728d2a61e7a29e38ace8533b0f1018b18da493db723fecd",
+    "status": "completed"
+  },
+  "taggerCompletedRows": 3308,
+  "taggerStatusCounts": {
+    "": 135,
+    "completed": 3308
+  },
+  "unionReferenceRows": 3443
+}

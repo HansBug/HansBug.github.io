@@ -1,0 +1,518 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "csvColumns": [
+    "resource_key",
+    "model_key",
+    "local_code",
+    "upstream_code",
+    "variant",
+    "costume_key",
+    "family",
+    "character_name_zh",
+    "character_name_ja",
+    "character_name_romaji",
+    "band",
+    "row_kind",
+    "is_current_pool",
+    "is_covered_candidate",
+    "is_union_reference",
+    "is_runtime_eligible",
+    "selection_proxy_score",
+    "selection_proxy_bucket",
+    "selection_proxy_reasons",
+    "legacy_content_safety_hint",
+    "bestdori_available_servers",
+    "bestdori_available_server_count",
+    "bestdori_preferred_server",
+    "bestdori_build_data_url",
+    "bestdori_costume_metadata_found",
+    "bestdori_costume_detail_found",
+    "bestdori_costume_id",
+    "bestdori_card_match_method",
+    "bestdori_costume_detail_card_ids",
+    "bestdori_title_matched_card_ids",
+    "bestdori_event_ids",
+    "bestdori_gacha_ids",
+    "pipeline_status",
+    "recommended_pool",
+    "decision_basis",
+    "classification_reason_codes",
+    "rating_used_as_signal_only",
+    "descriptive_tag_basis",
+    "qualification_basis",
+    "visual_review_basis",
+    "review_required",
+    "review_status",
+    "review_reason_codes",
+    "render_status",
+    "render_evidence_ref",
+    "render_image_path",
+    "render_image_sha256",
+    "render_canvas_width",
+    "render_canvas_height",
+    "render_nonblank_ratio",
+    "render_bounds_width",
+    "render_bounds_height",
+    "render_complete_person_decision",
+    "render_attempt_count",
+    "render_error",
+    "tagger_status",
+    "tagger_model_id",
+    "tagger_model_revision",
+    "tagger_top_tags_top30_json",
+    "tagger_policy_tag_scores_json",
+    "direct_rating_predicted_label",
+    "direct_rating_confidence",
+    "direct_rating_margin",
+    "direct_rating_scores_json",
+    "embedding_ref",
+    "embedding_sha256",
+    "expected_character_id",
+    "expected_character_name",
+    "source_model_character_id",
+    "rendered_character_match_status",
+    "character_match_basis",
+    "face_visibility_status",
+    "multi_subject_status",
+    "qualification_status",
+    "qualification_reason_codes",
+    "dedup_status",
+    "dedup_cluster_id",
+    "dedup_representative_key",
+    "dedup_similarity",
+    "dedup_method",
+    "exclude_reason",
+    "evidence_refs"
+  ],
+  "fields": [
+    {
+      "name": "resource_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "model_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "local_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "upstream_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "variant",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "costume_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "family",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "character_name_zh",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "character_name_ja",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "character_name_romaji",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "band",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "row_kind",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "is_current_pool",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "is_covered_candidate",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "is_union_reference",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "is_runtime_eligible",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "selection_proxy_score",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "selection_proxy_bucket",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "selection_proxy_reasons",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "legacy_content_safety_hint",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_available_servers",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_available_server_count",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "bestdori_preferred_server",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_build_data_url",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_costume_metadata_found",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "bestdori_costume_detail_found",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "bestdori_costume_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_card_match_method",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_costume_detail_card_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_title_matched_card_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_event_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_gacha_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "pipeline_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "recommended_pool",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "decision_basis",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "classification_reason_codes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "rating_used_as_signal_only",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "descriptive_tag_basis",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "qualification_basis",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "visual_review_basis",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "review_required",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "review_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "review_reason_codes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_evidence_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_image_path",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_image_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_canvas_width",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_canvas_height",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_nonblank_ratio",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "render_bounds_width",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_bounds_height",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_complete_person_decision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_attempt_count",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_error",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_model_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_model_revision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_top_tags_top30_json",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_policy_tag_scores_json",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "direct_rating_predicted_label",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "direct_rating_confidence",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "direct_rating_margin",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "direct_rating_scores_json",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "embedding_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "embedding_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "expected_character_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "expected_character_name",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "source_model_character_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "rendered_character_match_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "character_match_basis",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "face_visibility_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "multi_subject_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "qualification_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "qualification_reason_codes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "dedup_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "dedup_cluster_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "dedup_representative_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "dedup_similarity",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "dedup_method",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "exclude_reason",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "evidence_refs",
+      "nullable": true,
+      "type": "string"
+    }
+  ],
+  "generatedAt": "2026-06-15T11:15:36Z",
+  "pipelineStatuses": [
+    "classified",
+    "excluded",
+    "pending",
+    "render_failed",
+    "tagger_failed",
+    "out_of_scope"
+  ],
+  "policyVersion": "rendered-descriptive-v1",
+  "primaryKey": "resource_key",
+  "recommendedPools": [
+    "public_candidate",
+    "easter_egg_candidate",
+    "soft_review",
+    "exclude",
+    "pending"
+  ],
+  "title": "BanG Dream rendered resource audit row"
+}

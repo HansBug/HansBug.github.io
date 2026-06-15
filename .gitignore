@@ -5,3 +5,7 @@ coverage
 artifacts
 public/vendor/katex
 .DS_Store
+.cache
+src/data/deskpet/bangdream-rendered-resource-audit/.cache
+src/data/deskpet/bangdream-rendered-resource-audit/rendered
+src/data/deskpet/bangdream-rendered-resource-audit/embeddings.npz
