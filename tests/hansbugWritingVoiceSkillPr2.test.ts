@@ -18,6 +18,18 @@ const pr2ReferenceFiles = [
   "anti-patterns.md",
 ];
 
+const sampleEvidenceGuardTerms: Record<string, string[]> = {
+  // 这些词不是新的样本元数据，而是针对 holdout / negative 样本的人工泄漏守卫词。
+  // 自动标题切分只能拦住完整标题或长片段，拦不住“函数树化”这类核心话题词；
+  // PR-2 阶段先在测试里显式列出，后续如样本调整再同步维护。
+  "cnblogs-14789352": ["近取Key"],
+  "cnblogs-15618673": ["Treevalue", "函数树化"],
+  "cnblogs-16096691": ["搬家通知"],
+  "cnblogs-14873227": ["北航敏捷软工Alpha", "Alpha阶段评分表"],
+  "cnblogs-4523770": ["算法模板", "平衡树", "Treap"],
+  "cnblogs-8439342": ["洛谷", "讲课手稿"],
+};
+
 async function readReference(file: string) {
   return readFile(join(referencesRoot, file), "utf8");
 }
@@ -51,7 +63,13 @@ function getSampleEvidenceTokens(source: {
     ),
   );
 
-  return [source.id, source.cacheKey, title, ...titleFragments].filter(Boolean);
+  return [
+    source.id,
+    source.cacheKey,
+    title,
+    ...titleFragments,
+    ...(sampleEvidenceGuardTerms[source.id] ?? []),
+  ].filter(Boolean);
 }
 
 async function runLint() {
