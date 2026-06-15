@@ -207,6 +207,8 @@ describe("BanG Dream deskpet audit dataset", () => {
       "render-completeness.csv",
       "render-completeness.json",
       "resource-intelligence-summary.json",
+      "rating-examples.md",
+      "rating-examples/index.json",
     ]) {
       expect(fs.existsSync(path.join(auditDir, name)), name).toBe(true);
     }
@@ -315,6 +317,38 @@ describe("BanG Dream deskpet audit dataset", () => {
       expect(refs.length).toBeGreaterThan(0);
       for (const ref of refs) {
         expect(evidenceIds.has(String(ref))).toBe(true);
+      }
+    }
+  });
+
+  it("commits rendered rating examples for manual review", () => {
+    const index = JSON.parse(readAuditFile("rating-examples/index.json"));
+    const expectedCounts = {
+      general: 20,
+      sensitive: 20,
+      questionable: 15,
+      explicit: 0,
+      unknown: 20,
+    };
+
+    expect(index.selectedCounts).toEqual(expectedCounts);
+    expect(index.ratingCounts).toMatchObject({
+      general: 1112,
+      sensitive: 2135,
+      questionable: 15,
+      explicit: 0,
+      unknown: 181,
+    });
+
+    for (const [rating, expectedCount] of Object.entries(expectedCounts)) {
+      const examples = index.examples[rating] ?? [];
+      expect(examples, rating).toHaveLength(expectedCount);
+      for (const example of examples) {
+        expect(example.rating).toBe(rating);
+        expect(example.imageKind).toBe("live2d_render");
+        expect(example.imageSha256).toMatch(/^[0-9a-f]{64}$/);
+        expect(example.completePersonDecision).toMatch(/^(pass|review)$/);
+        expect(fs.existsSync(path.resolve(example.imagePath)), example.imagePath).toBe(true);
       }
     }
   });

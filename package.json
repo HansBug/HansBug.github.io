@@ -15,6 +15,7 @@
     "test:coverage": "vitest run --coverage",
     "build": "npm run sync:katex && astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
     "deskpet:audit": "python3 scripts/build_bangdream_resource_audit.py",
+    "deskpet:audit:examples": "node scripts/export_bangdream_rating_examples.mjs",
     "preview": "astro preview"
   },
   "keywords": [
