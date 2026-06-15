@@ -67,6 +67,7 @@ type DryRunResult = {
     important: number;
     minor: number;
   };
+  parseIssues?: string[];
   notes?: string;
 };
 
@@ -95,6 +96,20 @@ function hasAny(text: string, markers: string[]) {
   return markers.some((marker) => text.includes(marker));
 }
 
+function parseReviewCounts(text: string) {
+  const normalized = text.replace(/[：:]/g, "=");
+  const readLast = (label: "C" | "I" | "M") => {
+    const matches = [...normalized.matchAll(new RegExp(`(?:^|[^A-Za-z])${label}\\s*=\\s*(\\d+)`, "gim"))];
+    if (matches.length === 0) return null;
+    return Number(matches[matches.length - 1][1]);
+  };
+  return {
+    critical: readLast("C"),
+    important: readLast("I"),
+    minor: readLast("M"),
+  };
+}
+
 describe("HansBug writing voice skill PR-5 dry-runs", () => {
   it("keeps AGENTS.md as the CLAUDE.md symlink while adding dry-run guidance", async () => {
     const link = await lstat(agentsPath);
@@ -102,6 +117,21 @@ describe("HansBug writing voice skill PR-5 dry-runs", () => {
     const readme = await read(join(dryRunsRoot, "README.md"));
     for (const marker of ["真实 CLI forward-test", "matrix", "failure-evidence", "C/I/M", "失败样本", "codex exec", "claude -p"]) {
       expect(readme).toContain(marker);
+    }
+  });
+
+  it("keeps the runner from silently normalizing failed CLI output into pass evidence", async () => {
+    const runner = await read(join(skillRoot, "scripts/run_forward_tests.py"));
+    expect(runner).toContain("parse_review_counts");
+    expect(runner).toContain("draft/review/revision 仅从 stdout 标准三段切分");
+    for (const forbidden of [
+      "sanitize_for_mechanical_gate",
+      "normalize_for_check",
+      "ensure_minimal_draft",
+      "空泛套话",
+      "本文解决的是仓库维护文本和脚本失败路径的表达问题",
+    ]) {
+      expect(runner).not.toContain(forbidden);
     }
   });
 
@@ -131,6 +161,7 @@ describe("HansBug writing voice skill PR-5 dry-runs", () => {
       expect(matching[0].exitCode).toBe(0);
       expect(matching[0].review.critical).toBe(0);
       expect(matching[0].review.important).toBe(0);
+      expect(matching[0].parseIssues ?? []).toHaveLength(0);
     }
   });
 
@@ -160,6 +191,13 @@ describe("HansBug writing voice skill PR-5 dry-runs", () => {
       expect(result.usedEntryPoints).toContain("agent-skills/hansbug-writing-voice/SKILL.md");
       expect(result.usedReferences.length).toBeGreaterThan(0);
 
+      const review = await read(join(dir, "review.md"));
+      const parsedReview = parseReviewCounts(review);
+      expect(parsedReview.critical, `${slug} review critical`).toBe(result.review.critical);
+      expect(parsedReview.important, `${slug} review important`).toBe(result.review.important);
+      expect(parsedReview.minor, `${slug} review minor`).toBe(result.review.minor);
+      expect(result.notes ?? "").toContain("不做正文补写、关键词替换或静默修复");
+
       if (result.check.applicable) {
         expect(result.check.exitCode).toBe(0);
         expect(result.check.status).toBe("pass");
@@ -175,8 +213,8 @@ describe("HansBug writing voice skill PR-5 dry-runs", () => {
       for (const file of ["draft.md", "review.md", "revision.md"]) {
         const text = await read(join(dryRunsRoot, slug, file));
         expect(text.trim().length, `${slug}/${file}`).toBeGreaterThan(80);
-        expect(text).not.toContain("TODO");
         if (!slug.startsWith("fact-gap-")) {
+          expect(text).not.toContain("TODO");
           expect(text).not.toContain("待补充");
         }
       }

@@ -1,7 +1,5 @@
-C=0。未发现编造作者真实经历、课程现场、项目现场或第一手态度的问题；也未把旧文样本当成可复制正文使用。
+C=0 / I=0 / M=0
 
-I=0。事实背景均保留：参数、步骤如下、官方文档、功能说明都还在；同时避免继续按说明书腔逐项堆料。
+已按入口读取并使用 `CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md`。当前任务判定为 `rewrite`，按 Skill 渐进读取了对应 references。未访问 `.cache/hansbug-writing-voice/corpus/`，未修改仓库文件，未启动 sub-subagent，未编造作者真实经历。
 
-M 级建议：
-- 可补具体工具名、命令样例、默认值和失败场景。当前输入没有这些事实，所以不能擅自扩写。
-- 如果后续进入正式博客正文，可以再加一小段“适用边界 / 不适用场景”，让工程取舍更完整。
+机械粗筛已用 `/tmp` 临时 Markdown 文件执行 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py`，结果为 `status: pass`，`blockingFindings: []`，`aiClicheHits: []`，匹配样本包含 `cnblogs-8701447` 与 `cnblogs-14711869`。

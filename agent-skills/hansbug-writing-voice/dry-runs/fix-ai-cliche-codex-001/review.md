@@ -1,8 +1,5 @@
-修复稿自审：C=0 / I=0 / M=1
+C=0 / I=0 / M=1
 
-C=0：未编造作者真实经历、项目现场、课程现场、会议经历或第一手态度；已明确 issue #25、主问题、边界、核心判断和总结盖章。机械粗筛 `check_hansbug_voice.py` 结果为 `status=pass, score=100`，且 `blockingFindings=[]`。
+已按要求读取并使用 `CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md`。输入草稿用 `check_hansbug_voice.py` 跑出 `status=fail`，阻断项为 AI 腔泛化、缺核心判断、缺边界。修复稿 dry-run 结果为 `status=pass`、`score=100`、`blockingFindings=[]`。
 
-I=0：没有继续保留“高口癖密度 + 低判断密度”的结构；AI 腔正确废话已删除，判断主线已前置。
-
-M 级建议：
-- 这仍是一段 forward-test 修复稿，不是真实文章成稿。若要发布为博客正文，还需要作者补充真实工具名称、版本、环境、失败案例和实际收益。
+M=1：修复稿仍是压力测试片段，不是真实工具文章；后续若要发布成正式博客，需要作者补充具体工具、真实使用环境和案例材料。

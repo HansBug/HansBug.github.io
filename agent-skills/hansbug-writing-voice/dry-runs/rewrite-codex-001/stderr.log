@@ -8,7 +8,7 @@ approval: never
 sandbox: danger-full-access
 reasoning effort: xhigh
 reasoning summaries: none
-session id: 019ecc33-7bcf-7a41-b0ea-254c64155808
+session id: 019ecc6a-e235-75b3-bd90-b8ef8ad2f47c
 --------
 user
 你正在为 HansBug/HansBug.github.io 仓库执行 PR-5 真实 CLI forward-test。
@@ -18,16 +18,22 @@ user
 2. 再阅读并执行 `agent-skills/hansbug-writing-voice/SKILL.md`，按任务模式渐进读取 references，不要默认全量加载。
 3. 不要启动 sub-subagent，不要修改仓库文件，不要访问 `.cache/hansbug-writing-voice/corpus/`。
 4. 不要编造作者真实经历、课程现场、项目现场、会议经历或第一手态度。缺少事实时必须标记需要作者补充。
-5. 输出必须是中文，并严格使用下面三个 Markdown 标题：
+5. 输出必须是中文，并严格使用下面三个 Markdown 标题，不能少、不能改名、不能把整段输出包进 fenced code block：
 
 ## draft
-（你的构思/正文/改写稿/审阅稿主体）
+（你的构思 / 正文 / 改写稿 / 对候选稿的审阅主体 / 事实缺口处理主体。若任务本身要求审阅候选稿或识别事实缺口，请把对“输入材料”的 C/I/M 判定放在这里，而不是放在最终自审里。）
 
 ## review
-（按 C/I/M 自审；必须写 `C=0` 或列出 C，必须写 `I=0` 或列出 I）
+（这是对你本次 dry-run 输出本身的最终自审，不是对输入候选稿的审阅结论。必须写成 `C=0 / I=0 / M=<数字>` 或列出未修复 C/I；如果发现你自己的输出还有 C/I，先在 revision 中修掉，再让最终自审达到 C=0 / I=0。不能为了通过验收谎写 0。）
 
 ## revision
-（说明你如何根据自审修订，若无需修订也说明原因）
+（说明你如何根据自审修订；如果没有 C/I，说明为什么无需阻断性修订。不得再引入新的正文主体。）
+
+写作类任务额外硬要求：
+- `write` / `rewrite` / `fix-ai-cliche` 的 `## draft` 必须是可以直接喂给 `check_hansbug_voice.py` 的 Markdown 正文片段。
+- 这些正文片段第一行必须写：`<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->`。
+- 这些正文片段必须使用真正的 Markdown 二级标题 `## ...`，至少包含边界 / 坑点类章节和总结类章节。不要用 `【标题】` 冒充二级标题。
+- 不要把 AI 腔反例里的“总体而言 / 值得注意的是 / 可以看出 / 具有重要意义 / 综上所述 / 积极意义 / 参考价值 / 随着技术的发展”等词原样带进修复后的正文。
 
 输出中必须包含 `CLAUDE.md` 和 `agent-skills/hansbug-writing-voice/SKILL.md` 这两个入口路径，方便验收确认入口被使用。
 
@@ -54,41 +60,24 @@ hook: SessionStart Completed
 hook: UserPromptSubmit
 hook: UserPromptSubmit Completed
 codex
-我会先只读取入口文件和 rewrite 模式要求的最小 reference，不碰仓库内容，也不会进入 `.cache/hansbug-writing-voice/corpus/`。随后按要求输出三段验收格式。
+我会先按仓库入口约束读取 `CLAUDE.md` 里文风 Skill 的强入口，再读取 repo-local Skill，并只按 `rewrite` 模式继续取必要 reference。不会改文件，也不会碰 `.cache/hansbug-writing-voice/corpus/`。
 hook: PreToolUse
-hook: PreToolUse
-hook: PreToolUse
-hook: PreToolUse Completed
-hook: PreToolUse Completed
 hook: PreToolUse Completed
 exec
-/bin/bash -lc 'rg -n "HansBug 文风 Skill 强入口|taskType|rewrite|references|check_hansbug_voice" CLAUDE.md agent-skills/hansbug-writing-voice/SKILL.md' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+/bin/bash -lc 'rg -n "HansBug 文风 Skill 强入口|agent-skills/hansbug-writing-voice|check_hansbug_voice|博客写作风格约定" CLAUDE.md' in /home/hansbug/sensetime-projects/hansbug-tech-blog
  succeeded in 0ms:
-agent-skills/hansbug-writing-voice/SKILL.md:8:如果本仓库内的 Skill 不能被自动发现，先手动读取本文件，再按下方任务模式表只读取当前任务需要的 references 参考资料。不要假设 PR-0 阶段已经存在所有未来 reference 参考资料；标注为 `后续 PR 占位` 的路径只是后续 PR 的导航契约，不是 missing-file error，缺失时不要中止任务。
-agent-skills/hansbug-writing-voice/SKILL.md:14:使用本 Skill 时，要在不整篇复制旧文的前提下，让中文技术文章更接近 HansBug 本人已经稳定形成的表达方式、判断结构和论述节奏。仓库根目录的 `CLAUDE.md / AGENTS.md` 负责外层边界、维护纪律和站点级提醒；本 Skill 及其 references 负责 `src/content/blog/` 中文博客正文构思、写作、改写、扩写、审阅和检查的执行细则。
-agent-skills/hansbug-writing-voice/SKILL.md:26:| 模式 | 何时使用 | 读取这些 references / scripts |
-agent-skills/hansbug-writing-voice/SKILL.md:28:| `构思` | 规划新文章，决定角度、读者、结构、边界和核心判断。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/prompt-recipes.md` |
-agent-skills/hansbug-writing-voice/SKILL.md:29:| `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/micro-patterns.md`; `references/prompt-recipes.md` |
-agent-skills/hansbug-writing-voice/SKILL.md:30:| `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/micro-patterns.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
-agent-skills/hansbug-writing-voice/SKILL.md:31:| `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
-agent-skills/hansbug-writing-voice/SKILL.md:32:| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest / 派生特征是否合规。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/derived/voice-features.json`; `scripts/lint_voice_references.py`; `scripts/fetch_voice_corpus.py`; `scripts/extract_voice_features.py`; `references/review-rubric.md`; `scripts/check_hansbug_voice.py` |
-agent-skills/hansbug-writing-voice/SKILL.md:36:1. 先检查仓库根目录的 `CLAUDE.md / AGENTS.md`，确认外层边界、维护纪律和站点级提醒；博客正文写作与审阅的具体执行细则以本 Skill references 为准，措辞差异不等于冲突。
-agent-skills/hansbug-writing-voice/SKILL.md:39:4. 只要涉及旧博客材料、样本、manifest、摘录或抓取产物，必须先读取 `references/corpus-policy.md`。
-agent-skills/hansbug-writing-voice/SKILL.md:40:5. 只加载当前模式需要、且在当前 PR 阶段实际存在的 references；不要为了“更像”而无脑全量加载。
-agent-skills/hansbug-writing-voice/SKILL.md:51:python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
-agent-skills/hansbug-writing-voice/SKILL.md:62:抽取机械特征时，默认只向 stdout 打印 JSON；只有显式 `--write-derived` 才会覆盖 `references/derived/voice-features.json`。如果本地没有 ignored cache，可以加 `--allow-catalog-summary` 生成 smoke 级特征，但正式画像归纳仍应优先使用 `.cache/hansbug-writing-voice/corpus/` 里的正文。
-agent-skills/hansbug-writing-voice/SKILL.md:69:PR-1 的派生特征只做段落长度、句长、标题模式、高频 n-gram、转场词粗统计等机械统计，不等价于文风画像。PR-2 已补充正式画像层，后续写作或审阅时，应把 `references/voice-profile.md`、`references/article-archetypes.md`、`references/micro-patterns.md`、`references/macro-logic.md` 和 `references/anti-patterns.md` 作为主要文风依据，把 `sample-manifest.json` 与 `voice-features.json` 当作样本入口和粗粒度仪表盘。
-agent-skills/hansbug-writing-voice/SKILL.md:71:PR-3 已补齐 `references/review-rubric.md`、`references/prompt-recipes.md` 和 `scripts/check_hansbug_voice.py`。构思、写作、改写、审阅时优先按 `prompt-recipes.md` 固定样本版本、sample ids、最后更新、输出格式和事实缺口；审阅时按 `review-rubric.md` 做 C/I/M 分级，不要用“感觉不像”糊弄过去。机械粗筛命令如下，`score` 只代表粗筛健康度，不是文风相似度；只要存在 C 级 finding 就必须先修。
-agent-skills/hansbug-writing-voice/SKILL.md:74:python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
-agent-skills/hansbug-writing-voice/SKILL.md:77:  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
-agent-skills/hansbug-writing-voice/SKILL.md:84:PR-2 references 的推荐读取顺序：
-agent-skills/hansbug-writing-voice/SKILL.md:92:PR-0 / PR-1 / PR-2 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
-CLAUDE.md:180:### HansBug 文风 Skill 强入口
-CLAUDE.md:182:**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
-CLAUDE.md:184:`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
-CLAUDE.md:186:检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
+178:## 博客写作风格约定
+180:### HansBug 文风 Skill 强入口
+182:**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
+184:`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
+186:检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
 
 hook: PostToolUse
+hook: PostToolUse Completed
+codex
+入口约束已定位：这次属于博客正文改写，要走 `agent-skills/hansbug-writing-voice/SKILL.md`，并且验收关注的不是主观“像不像”，而是按 Skill 的模式和检查流程落地。接下来读取 Skill 主文件，再按 rewrite 模式取最小必要 reference。
+hook: PreToolUse
+hook: PreToolUse Completed
 exec
 /bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/SKILL.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
  succeeded in 0ms:
@@ -185,59 +174,15 @@ voice-profile.md -> article-archetypes.md -> macro-logic.md -> micro-patterns.md
 
 PR-0 / PR-1 / PR-2 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
 
-exec
-/bin/bash -lc "sed -n '/HansBug 文风 Skill 强入口/,+35p' CLAUDE.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
- succeeded in 0ms:
-### HansBug 文风 Skill 强入口
-
-**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
-
-`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
-
-检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
-
-### 基础文风约定
-
-这部分约束的是 `src/content/blog/` 下的 博客正文 写法，而不是首页、导航、按钮或普通页面说明文案。
-
-博客正文默认应保留明确的作者视角与判断，不必压成“完全中性、完全说明书化”的口气。后续新文章，默认应向 HansBug 在旧博客园 `2018` 年及之后文章里已经稳定形成的写法靠拢，重点不是机械复刻个别口头禅，而是延续那种 一看就知道是他本人在写 的行文重心、分析方式和语气张力。
-
-- 参照样本：
-  - 后续判断“像不像 HansBug 的文章”，优先参考这批旧文：
-    - `2018`：`【技巧】Java工程中的Debug信息分级输出接口及部署模式`
-    - `2018`：`【作业】HansBug的前三次OO作业分析与小结`
-    - `2018`：`【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会`
-    - `2020`：`【学习笔记】Latex各平台2020实战攻略`
-    - `2020`：`【开源系列】项目开源实战记录-序`
-    - `2021`：`【助教工作】2021团队项目助教跟班全攻略`
-    - `2021`：`【项目管理】关于Issue/Milestone的使用指导`
-    - `2021`：`沉舟侧畔千帆过，病树前头万木春——对【题士】产品的深度测评与解析`
-    - `2021`：`姗姗来迟的一个总结`
-    - `2022`：`treevalue——Master Nested Data Like Tensor`
-  - 这些文章题材差异很大，但有几条共同的“作者签名”，后续写新文章时应主动保留。
-
-- 总体气质：
-  - 文章要有强烈的“人写的”痕迹：懂技术、做过事情、踩过坑、敢下判断，也愿意把判断背后的理由讲透。
-  - 语气允许带一点松弛、打趣、自嘲、插科打诨，但主体仍然是严肃分析，不是玩梗文，不是段子文。
-  - 文章不能写成冷冰冰的资料搬运，也不能写成只有情绪没有结构的长段吐槽；HansBug 的辨识度恰恰在于技术判断很硬，表达却不板。
-  - 不能写得过于“工整”“洁净”“像被修平了毛边”。原文经常保留轻微的即兴感、现场感、插播感，像是作者正在一边讲、一边想、一边顺手把结论钉进去，而不是把整篇 prose 修成一块过分圆滑的石头。
-  - 对外要坦率，甚至偶尔锋利；但锋利必须建立在事实、经验、推理和案例之上，不能空发脾气。
-  - 风格里应允许保留一定的棱角、辛辣感和黑色幽默感。很多旧文并不是温吞地“提出一点建议”，而是会在关键处用带刺的表达把问题钉住，让读者明确感受到作者对糟糕设计、偷懒方案、虚假勤奋、空洞流程的反感。
-  - 这种锋利感不是粗暴开喷，而是先把问题讲明白，再用一句略带戏谑或毒辣的判断把它钉死。换句话说，刀子必须有刀背，不能只有刀刃。
-
 hook: PostToolUse
-hook: PostToolUse
-hook: PostToolUse Completed
-hook: PostToolUse Completed
 hook: PostToolUse Completed
 codex
-已确认 `CLAUDE.md` 强入口要求：当前是博客正文改写类任务，必须执行 repo-local Skill。按 `rewrite/改写` 模式，我接下来只读该模式列出的五个 references；样本 ID 只用于对照声明，不去读旧文全文或 cache。
+已确认当前模式是 `改写`。我会按模式读取 `corpus-policy.md`、`voice-profile.md`、`micro-patterns.md`、`anti-patterns.md`、`review-rubric.md`；这些都属于 Skill 明确要求的最小集合，不访问本地 corpus cache。
 hook: PreToolUse
 hook: PreToolUse
 hook: PreToolUse
 hook: PreToolUse
 hook: PreToolUse
-hook: PreToolUse Completed
 hook: PreToolUse Completed
 exec
 /bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/corpus-policy.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
@@ -313,6 +258,8 @@ python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agen
 当摘录过长、缺少 `sourceUrl` / `url`、缺少 `purpose` / `useFor`，`excerpts` 数组项不是 JSON object，或文件不是合法 UTF-8 / JSON 时，lint gate 必须非零退出，并给出具体文件路径和字段 / 上限原因。当前长度 gate 按中文字计数；如果短摘录里必须保留英文术语，也要保持同等克制，不要借“英文不计数”塞进大段原文。
 
 hook: PostToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
 exec
 /bin/bash -lc "sed -n '1,320p' agent-skills/hansbug-writing-voice/references/voice-profile.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
  succeeded in 0ms:
@@ -459,8 +406,6 @@ HansBug 风格的结尾通常不是礼貌性回收材料，而是把全文判断
 
 hook: PostToolUse
 hook: PreToolUse Completed
-hook: PreToolUse Completed
-hook: PreToolUse Completed
 exec
 /bin/bash -lc "sed -n '1,320p' agent-skills/hansbug-writing-voice/references/micro-patterns.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
  succeeded in 0ms:
@@ -606,6 +551,7 @@ exec
 不要只在最后加一句漂亮话。没有前文铺垫的盖章句，只是空喊口号。
 
 hook: PostToolUse
+hook: PreToolUse Completed
 exec
 /bin/bash -lc "sed -n '1,320p' agent-skills/hansbug-writing-voice/references/anti-patterns.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
  succeeded in 0ms:
@@ -908,32 +854,143 @@ hook: PostToolUse Completed
 hook: PostToolUse Completed
 hook: PostToolUse Completed
 codex
+我已经读完 rewrite 模式要求的 reference。现在会先生成一个短 Markdown 正文片段，再用临时文件跑 `check_hansbug_voice.py` 做粗筛；临时文件放在 `/tmp`，不改仓库。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py <(printf '%s
+' '<"'!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+
+## 先说结论：参数不是摆设
+
+这个工具的参数不复杂，但也别把它当成“随便填三个值就完事”的小玩具。参数 A 指定输入路径，参数 B 指定输出路径，参数 C 决定是否覆盖已有文件；真正要判断的不是参数表背下来没有，而是这三个开关在你的文件链路里各自承担什么责任。
+
+说白了，A 和 B 管的是数据从哪里来、到哪里去，C 管的是出了冲突时要不要下手改旧结果。前两个参数填错，最多是跑偏；第三个参数乱开，可能就是把已有文件一脚踢进历史垃圾桶。工具能不能提升效率，很多时候就卡在这里：省掉重复劳动可以，省掉风险判断不行。
+
+## 步骤如下：先把链路跑通
+
+步骤如下。先安装依赖，再执行命令，最后查看结果。这个顺序本身没有什么玄学，官方文档也是按类似思路建议用户根据实际需求选择不同参数。
+
+但文档说“按需选择”，不等于把选择权丢给感觉。更稳的做法是先用明确的输入路径和输出路径跑一遍最小样例，确认结果确实落在预期位置；然后再决定参数 C 要不要打开。好吧，这事其实不复杂，复杂的是很多人会在还没确认输出目录的时候先把覆盖开关打开，仿佛文件系统会替自己写检讨。
+
+## 边界与坑点：覆盖不是效率按钮
+
+这里的边界要说清楚：本文只讨论这个工具最基础的参数、执行步骤和功能说明，不展开安装环境差异，也不替官方文档补全所有参数组合。缺少具体工具名、版本号和命令格式时，也不能把某一种写法硬说成唯一方案；这些需要作者补充真实上下文后再定稿。
+
+坑点主要在参数 C。它看起来只是“是否覆盖已有文件”，本质上却是在问：你对旧结果还有没有保留需求。输入路径和输出路径是方向盘，覆盖开关是刹车和油门搅在一起的东西。确认之前别乱踩。
+
+## 总结：效率来自边界清楚
+
+这个功能确实可以减少重复操作，把输入、输出和覆盖策略合在一条命令链路里处理。但它真正有用的前提，是参数边界清楚、执行步骤可复现、结果检查没有被跳过。
+
+归根结底，工具不是替人思考的。参数 A、B、C 给的是控制面板，官方文档给的是选择范围，最后要不要覆盖已有文件，仍然要由使用者把风险想明白。能省事是好事，把判断也一起省掉，那就不是效率，是给未来埋雷。'"') \\
+  --skill-root agent-skills/hansbug-writing-voice \\
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \\
+  --format json \\
+  --pretty" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ exited 1 in 0ms:
+{
+  "aiClicheHits": [],
+  "blockingFindings": [
+    {
+      "code": "draft-not-found",
+      "evidence": "/proc/898564/fd/pipe:[3553445]",
+      "fixHint": "传入正确的 Markdown 路径。",
+      "message": "找不到待检查 Markdown 文件。",
+      "severity": "C"
+    }
+  ],
+  "matchedSamples": [],
+  "missingMacroSections": [],
+  "overusedMicroPatterns": [],
+  "possibleUnsupportedExperienceClaims": [],
+  "score": 82,
+  "scoreMeaning": "rough-gate-only-not-style-similarity",
+  "status": "fail",
+  "warnings": []
+}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+第一次粗筛用 shell process substitution 时，脚本把 `/proc/.../fd` 当成不可用路径处理了，失败点是输入路径形式，不是正文内容。接下来我用 `/tmp` 临时 Markdown 文件重跑，跑完删除，不触碰仓库文件。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'tmpfile=$(mktemp /tmp/hansbug-voice-rewrite.XXXXXX.md)
+trap '"'rm -f \""'$tmpfile"'"' EXIT
+printf '%s
+' '<"'!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+
+## 先说结论：参数不是摆设
+
+这个工具的参数不复杂，但也别把它当成“随便填三个值就完事”的小玩具。参数 A 指定输入路径，参数 B 指定输出路径，参数 C 决定是否覆盖已有文件；真正要判断的不是参数表背下来没有，而是这三个开关在你的文件链路里各自承担什么责任。
+
+说白了，A 和 B 管的是数据从哪里来、到哪里去，C 管的是出了冲突时要不要下手改旧结果。前两个参数填错，最多是跑偏；第三个参数乱开，可能就是把已有文件一脚踢进历史垃圾桶。工具能不能提升效率，很多时候就卡在这里：省掉重复劳动可以，省掉风险判断不行。
+
+## 步骤如下：先把链路跑通
+
+步骤如下。先安装依赖，再执行命令，最后查看结果。这个顺序本身没有什么玄学，官方文档也是按类似思路建议用户根据实际需求选择不同参数。
+
+但文档说“按需选择”，不等于把选择权丢给感觉。更稳的做法是先用明确的输入路径和输出路径跑一遍最小样例，确认结果确实落在预期位置；然后再决定参数 C 要不要打开。好吧，这事其实不复杂，复杂的是很多人会在还没确认输出目录的时候先把覆盖开关打开，仿佛文件系统会替自己写检讨。
+
+## 边界与坑点：覆盖不是效率按钮
+
+这里的边界要说清楚：本文只讨论这个工具最基础的参数、执行步骤和功能说明，不展开安装环境差异，也不替官方文档补全所有参数组合。缺少具体工具名、版本号和命令格式时，也不能把某一种写法硬说成唯一方案；这些需要作者补充真实上下文后再定稿。
+
+坑点主要在参数 C。它看起来只是“是否覆盖已有文件”，本质上却是在问：你对旧结果还有没有保留需求。输入路径和输出路径是方向盘，覆盖开关是刹车和油门搅在一起的东西。确认之前别乱踩。
+
+## 总结：效率来自边界清楚
+
+这个功能确实可以减少重复操作，把输入、输出和覆盖策略合在一条命令链路里处理。但它真正有用的前提，是参数边界清楚、执行步骤可复现、结果检查没有被跳过。
+
+归根结底，工具不是替人思考的。参数 A、B、C 给的是控制面板，官方文档给的是选择范围，最后要不要覆盖已有文件，仍然要由使用者把风险想明白。能省事是好事，把判断也一起省掉，那就不是效率，是给未来埋雷。'"' > \""'$tmpfile"
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py "$tmpfile" '"\\
+  --skill-root agent-skills/hansbug-writing-voice \\
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \\
+  --format json \\
+  --pretty" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+hook: PostToolUse
+ succeeded in 102ms:
+hook: PostToolUse Completed
+codex
 ## draft
+<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
 
-入口已按要求使用：`CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md`。样本对照声明：`cnblogs-8701447`、`cnblogs-14711869` 仅作为本次 forward-test 指定对照，不引用旧文正文，不补作者真实经历。
+## 先说结论：参数不是摆设
 
-先说结论：这个工具真正要交代清楚的，不是“它有若干参数”这种废话，而是它把三个最容易出事的点摆到了明面上。
+这个工具的参数不复杂，但也别把它当成“随便填三个值就完事”的小玩具。参数 A 指定输入路径，参数 B 指定输出路径，参数 C 决定是否覆盖已有文件；真正要判断的不是参数表背下来没有，而是这三个开关在你的文件链路里各自承担什么责任。
 
-参数 A 负责指定输入路径，解决的是“从哪里读”的问题；参数 B 负责指定输出路径，解决的是“写到哪里去”的问题；参数 C 则更直接一点，管的是是否覆盖已有文件。别看这三个名字很朴素，真正跑命令时，最容易把人坑住的往往也就是这三件事：入口错了、出口错了，或者一不留神把已有结果盖掉了。
+说白了，A 和 B 管的是数据从哪里来、到哪里去，C 管的是出了冲突时要不要下手改旧结果。前两个参数填错，最多是跑偏；第三个参数乱开，可能就是把已有文件一脚踢进历史垃圾桶。工具能不能提升效率，很多时候就卡在这里：省掉重复劳动可以，省掉风险判断不行。
 
-步骤如下：先安装依赖，再执行命令，最后查看结果。这个流程本身没有什么神秘感，关键是不要把“能跑起来”误解成“参数已经选对了”。官方文档建议用户根据实际需求选择不同参数，这句话听起来很官方，但落到操作层面，其实就是一句很朴素的提醒：别闭着眼睛复制默认值，尤其别闭着眼睛开覆盖。
+## 步骤如下：先把链路跑通
 
-功能说明可以说得更直白一点：它确实能提升效率，也有一定参考价值；但它的价值不在于替用户做判断，而在于把输入、输出、覆盖这些操作边界收拢到一条明确链路里。工具帮你省步骤，不等于帮你承担后果。
+步骤如下。先安装依赖，再执行命令，最后查看结果。这个顺序本身没有什么玄学，官方文档也是按类似思路建议用户根据实际需求选择不同参数。
+
+但文档说“按需选择”，不等于把选择权丢给感觉。更稳的做法是先用明确的输入路径和输出路径跑一遍最小样例，确认结果确实落在预期位置；然后再决定参数 C 要不要打开。好吧，这事其实不复杂，复杂的是很多人会在还没确认输出目录的时候先把覆盖开关打开，仿佛文件系统会替自己写检讨。
+
+## 边界与坑点：覆盖不是效率按钮
+
+这里的边界要说清楚：本文只讨论这个工具最基础的参数、执行步骤和功能说明，不展开安装环境差异，也不替官方文档补全所有参数组合。缺少具体工具名、版本号和命令格式时，也不能把某一种写法硬说成唯一方案；这些需要作者补充真实上下文后再定稿。
+
+坑点主要在参数 C。它看起来只是“是否覆盖已有文件”，本质上却是在问：你对旧结果还有没有保留需求。输入路径和输出路径是方向盘，覆盖开关是刹车和油门搅在一起的东西。确认之前别乱踩。
+
+## 总结：效率来自边界清楚
+
+这个功能确实可以减少重复操作，把输入、输出和覆盖策略合在一条命令链路里处理。但它真正有用的前提，是参数边界清楚、执行步骤可复现、结果检查没有被跳过。
+
+归根结底，工具不是替人思考的。参数 A、B、C 给的是控制面板，官方文档给的是选择范围，最后要不要覆盖已有文件，仍然要由使用者把风险想明白。能省事是好事，把判断也一起省掉，那就不是效率，是给未来埋雷。
 
 ## review
+C=0 / I=0 / M=0
 
-C=0。未发现编造作者真实经历、课程现场、项目现场或第一手态度的问题；也未把旧文样本当成可复制正文使用。
+已按入口读取并使用 `CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md`。当前任务判定为 `rewrite`，按 Skill 渐进读取了对应 references。未访问 `.cache/hansbug-writing-voice/corpus/`，未修改仓库文件，未启动 sub-subagent，未编造作者真实经历。
 
-I=0。事实背景均保留：参数、步骤如下、官方文档、功能说明都还在；同时避免继续按说明书腔逐项堆料。
-
-M 级建议：
-- 可补具体工具名、命令样例、默认值和失败场景。当前输入没有这些事实，所以不能擅自扩写。
-- 如果后续进入正式博客正文，可以再加一小段“适用边界 / 不适用场景”，让工程取舍更完整。
+机械粗筛已用 `/tmp` 临时 Markdown 文件执行 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py`，结果为 `status: pass`，`blockingFindings: []`，`aiClicheHits: []`，匹配样本包含 `cnblogs-8701447` 与 `cnblogs-14711869`。
 
 ## revision
-
-根据自审，我没有继续新增作者经历或具体命令，因为原文没有提供这些事实。修订方向主要是把“参数列表 + 步骤列表 + 官方建议”改成“先下判断，再拆输入、输出、覆盖三个风险点”，并用短句收住功能价值：工具省步骤，但不替用户承担后果。
+无需阻断性修订。自审未发现 C/I 问题；改写稿保留了原文的参数、步骤如下、官方文档、功能说明等事实背景，同时补了边界、坑点和总结章节，并把缺少具体工具名、版本号、命令格式的问题标记为需要作者补充。
 hook: Stop
 hook: Stop Completed
 tokens used
-33,319
+22,269

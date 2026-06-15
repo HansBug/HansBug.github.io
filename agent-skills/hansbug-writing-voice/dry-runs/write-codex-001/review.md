@@ -1,5 +1,5 @@
-C=0。未发现编造作者真实经历、课程现场、公司事故或第一手态度；已明确使用入口 `CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md`；已写清适用边界：只讨论仓库维护脚本，不讨论线上业务容灾。
+C=0 / I=0 / M=1
 
-I=0。核心判断在前三段出现，边界/坑点与总结章节都已覆盖；样本对照 `cnblogs-8701447`、`cnblogs-14711869` 已声明为写法对照，不作为事实来源。
+已按要求先读取 `CLAUDE.md` 的强入口规则，再读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。本次按 `write` 任务读取了写作模式所需 references，并额外用临时文件运行 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py`；结果为 `status: pass`，`blockingFindings: []`，`score: 100`。未访问 `.cache/hansbug-writing-voice/corpus/`，未修改仓库文件，未启动 sub-subagent。
 
-M=1。因用户要求输出严格使用三个 Markdown 标题，正文内部章节使用了非 Markdown 二级标题样式；如果落入正式文章文件，可改成真正的 `##` 小节标题。
+M=1：如果后续正式发布时想加入更强的第一手现场感，需要作者补充真实仓库维护案例；当前稿件没有编造公司、课程、项目、会议或事故经历，因此不构成 C/I。
