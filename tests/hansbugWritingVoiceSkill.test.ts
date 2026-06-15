@@ -196,4 +196,17 @@ describe("HansBug writing voice skill", () => {
     expect(result.code).toBe(0);
     expect(result.stdout).toContain("OK");
   });
+
+  it("rejects non-UTF-8 reference files with a clear lint error", async () => {
+    const fixture = await makeReferencesFixture();
+    fixtureRoot = fixture.root;
+    await writeFile(join(fixture.references, "bad.md"), Buffer.from([0xff, 0xfe, 0x00]));
+
+    const result = await runLint(fixture.references);
+
+    expect(result.code).not.toBe(0);
+    expect(result.stderr).toContain("bad.md");
+    expect(result.stderr).toContain("invalid UTF-8");
+    expect(result.stderr).not.toContain("Traceback");
+  });
 });

@@ -1,35 +1,35 @@
-# Corpus Policy
+# 旧文语料使用策略
 
-This policy controls how the HansBug writing voice Skill may use old-blog material. It applies before any crawler, manifest, excerpt, style profile, or review rubric uses content from `https://www.cnblogs.com/HansBug/`.
+本策略约束 HansBug 中文博客文风 Skill 如何使用旧博客材料。凡是后续 crawler、manifest、短摘录、文风画像或审稿 rubric 需要使用 `https://www.cnblogs.com/HansBug/` 的内容，都必须先遵守这里的边界。
 
-## Hard Boundaries
+## 硬边界
 
-- Keep full raw article HTML, markdown, text, and crawler outputs only under `.cache/hansbug-writing-voice/corpus/`.
-- Do not commit full old-blog article bodies to this repository.
-- Commit only short excerpts that are necessary for style analysis.
-- A single excerpt must contain no more than `120` Chinese characters.
-- All committed excerpts from the same source article must contain no more than `300` Chinese characters in total.
-- Every committed excerpt must include a source URL field named `sourceUrl` or `url`.
-- Every committed excerpt must include a purpose field named `purpose` or `useFor`.
-- If a source-site rule conflicts with this repository policy, follow the stricter rule.
+- 旧文原始 HTML、Markdown、纯文本和抓取输出，只允许保存在 `.cache/hansbug-writing-voice/corpus/`。
+- 不得把旧博客完整正文提交到本仓库。
+- 只提交服务于文风分析所必需的短摘录。
+- 单条摘录最多 `120` 个中文字。
+- 同一来源文章在仓库内累计摘录最多 `300` 个中文字。
+- 每条已提交摘录必须包含来源字段：`sourceUrl` 或 `url`。
+- 每条已提交摘录必须包含用途字段：`purpose` 或 `useFor`。
+- 如果来源站规则与本仓库策略冲突，按更严格的一方执行。
 
 ## 抓取可行性审计
 
-Before PR-1 adds or refreshes crawler output, record the audit result in the PR description or in a future machine-readable audit file:
+PR-1 或后续 PR 在新增、刷新旧文抓取产物之前，必须把审计结果记录在 PR description，或记录到后续机器可读的审计文件中：
 
-| Field | Required content |
+| 字段 | 必填内容 |
 |---|---|
-| `source` | The exact old-blog source URL or index page being used. |
-| `tosCheck` | ToS / site policy checked, with date and conclusion. |
-| `robotsCheck` | `robots.txt` checked, with date, relevant path rule, and conclusion. |
-| `fetchFeasibility` | Whether automated fetching is allowed, rate-limited, disallowed, or unclear. |
-| `fallbackPlan` | If automated fetching is disallowed or unclear, use manual short excerpts only. |
+| `source` | 使用的旧博客精确来源 URL 或索引页。 |
+| `tosCheck` | ToS / 站点策略检查结果，包含日期和结论。 |
+| `robotsCheck` | `robots.txt` 检查结果，包含日期、相关路径规则和结论。 |
+| `fetchFeasibility` | 自动抓取是允许、需要限速、不允许，还是结论不清。 |
+| `fallbackPlan` | 若自动抓取不允许或结论不清，退回只使用手动短摘录。 |
 
-If ToS, robots, or network behavior is unclear, do not guess. Fall back to 手动摘录: manually quote only the minimum short excerpt needed for a specific style purpose, with `sourceUrl` and `purpose` / `useFor` metadata.
+如果 ToS、robots 或网络行为不清楚，不要猜。退回到手动摘录：只截取完成某个具体文风分析目的所必需的最短片段，并同时写清 `sourceUrl` 和 `purpose` / `useFor`。
 
-## Committed Excerpt Format
+## 已提交摘录格式
 
-Markdown references may use fenced JSON blocks with the `hansbug-voice-excerpt` marker:
+Markdown reference 可以使用带 `hansbug-voice-excerpt` 标记的 fenced JSON block：
 
 ````markdown
 ```json hansbug-voice-excerpt
@@ -41,9 +41,9 @@ Markdown references may use fenced JSON blocks with the `hansbug-voice-excerpt` 
 ```
 ````
 
-JSON manifests may put excerpt objects under an `excerpts` array. The same required fields and length limits apply.
+JSON manifest 可以把摘录对象放在 `excerpts` 数组里。同一套必填字段和长度上限仍然生效。
 
-Use `purpose` / `useFor` values that explain why the excerpt is needed, for example:
+`purpose` / `useFor` 的值要能说明这段摘录为什么需要被提交，例如：
 
 - `macro-logic`
 - `micro-pattern`
@@ -52,12 +52,12 @@ Use `purpose` / `useFor` values that explain why the excerpt is needed, for exam
 - `negative-example`
 - `review-rubric`
 
-## Validation
+## 验证方式
 
-Run this before committing any reference changes:
+提交任何 reference 变更前，先运行：
 
 ```bash
 python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
 ```
 
-The lint gate must fail with a concrete file path and field or limit reason when an excerpt is too long, lacks `sourceUrl` / `url`, or lacks `purpose` / `useFor`.
+当摘录过长、缺少 `sourceUrl` / `url`、缺少 `purpose` / `useFor`，或文件不是合法 UTF-8 / JSON 时，lint gate 必须非零退出，并给出具体文件路径和字段 / 上限原因。

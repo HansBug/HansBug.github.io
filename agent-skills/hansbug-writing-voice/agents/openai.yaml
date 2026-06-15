@@ -1,4 +1,4 @@
 interface:
-  display_name: "HansBug Writing Voice"
-  short_description: "Write in HansBug's blog voice"
-  default_prompt: "Use $hansbug-writing-voice to plan, draft, revise, review, or check a Chinese technical blog post in HansBug's writing voice."
+  display_name: "HansBug 中文博客文风"
+  short_description: "按 HansBug 中文技术博客文风写作"
+  default_prompt: "使用 $hansbug-writing-voice 来构思、写作、改写、审阅或检查一篇 HansBug 风格的中文技术博客。"

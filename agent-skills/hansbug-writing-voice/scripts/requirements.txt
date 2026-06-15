@@ -1,2 +1,2 @@
-# PR-0 uses only the Python standard library.
-# This file is scoped to agent-skills/hansbug-writing-voice/scripts/ and must not add root package dependencies.
+# PR-0 只使用 Python 标准库。
+# 本文件只服务于 agent-skills/hansbug-writing-voice/scripts/，不得把依赖污染到仓库根目录。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lint committed HansBug writing voice reference excerpts."""
+"""检查已提交的 HansBug 中文博客文风 reference 摘录。"""
 
 from __future__ import annotations
 
@@ -50,6 +50,15 @@ def iter_reference_files(root: Path) -> Iterable[Path]:
             yield path
 
 
+def read_utf8_text(file: Path, errors: list[str], location: str = "") -> str | None:
+    try:
+        return file.read_text(encoding="utf-8")
+    except UnicodeDecodeError as exc:
+        suffix = f":{location}" if location else ""
+        errors.append(f"{format_path(file)}{suffix}: 无效 UTF-8（invalid UTF-8）: {exc.reason}")
+        return None
+
+
 def get_excerpt_text(data: dict[str, Any]) -> str:
     text = data.get("text", data.get("excerpt", ""))
     return text if isinstance(text, str) else ""
@@ -57,27 +66,27 @@ def get_excerpt_text(data: dict[str, Any]) -> str:
 
 def validate_excerpt_object(data: Any, file: Path, location: str, errors: list[str]) -> Excerpt | None:
     if not isinstance(data, dict):
-        errors.append(f"{format_path(file)}:{location}: excerpt must be a JSON object")
+        errors.append(f"{format_path(file)}:{location}: 摘录必须是 JSON object")
         return None
 
     text = get_excerpt_text(data)
     if not text:
-        errors.append(f"{format_path(file)}:{location}: missing text/excerpt")
+        errors.append(f"{format_path(file)}:{location}: 缺少 text/excerpt 字段")
         return None
 
     source_url = as_nonempty_string(data.get("sourceUrl")) or as_nonempty_string(data.get("url"))
     if not source_url:
-        errors.append(f"{format_path(file)}:{location}: missing sourceUrl/url")
+        errors.append(f"{format_path(file)}:{location}: 缺少 sourceUrl/url 字段")
 
     purpose = as_nonempty_string(data.get("purpose")) or as_nonempty_string(data.get("useFor"))
     if not purpose:
-        errors.append(f"{format_path(file)}:{location}: missing purpose/useFor")
+        errors.append(f"{format_path(file)}:{location}: 缺少 purpose/useFor 字段")
 
     chinese_chars = count_chinese_chars(text)
     if chinese_chars > MAX_SINGLE_CHINESE_CHARS:
         errors.append(
-            f"{format_path(file)}:{location}: excerpt has {chinese_chars} Chinese chars; "
-            f"limit is {MAX_SINGLE_CHINESE_CHARS}"
+            f"{format_path(file)}:{location}: 摘录包含 {chinese_chars} 个中文字；"
+            f"上限是 {MAX_SINGLE_CHINESE_CHARS}"
         )
 
     if not source_url or not purpose or chinese_chars > MAX_SINGLE_CHINESE_CHARS:
@@ -87,14 +96,17 @@ def validate_excerpt_object(data: Any, file: Path, location: str, errors: list[s
 
 
 def collect_markdown_excerpts(file: Path, errors: list[str]) -> list[Excerpt]:
-    text = file.read_text(encoding="utf-8")
+    text = read_utf8_text(file, errors)
+    if text is None:
+        return []
+
     excerpts: list[Excerpt] = []
     for index, match in enumerate(EXCERPT_FENCE_RE.finditer(text), start=1):
         location = f"fence#{index}"
         try:
             parsed = json.loads(match.group("body"))
         except json.JSONDecodeError as exc:
-            errors.append(f"{format_path(file)}:{location}: invalid JSON: {exc.msg}")
+            errors.append(f"{format_path(file)}:{location}: 无效 JSON: {exc.msg}")
             continue
 
         if isinstance(parsed, list):
@@ -158,10 +170,14 @@ def collect_json_excerpts_from_value(
 
 
 def collect_json_excerpts(file: Path, errors: list[str]) -> list[Excerpt]:
+    text = read_utf8_text(file, errors)
+    if text is None:
+        return []
+
     try:
-        parsed = json.loads(file.read_text(encoding="utf-8"))
+        parsed = json.loads(text)
     except json.JSONDecodeError as exc:
-        errors.append(f"{format_path(file)}: invalid JSON: {exc.msg}")
+        errors.append(f"{format_path(file)}: 无效 JSON: {exc.msg}")
         return []
     return collect_json_excerpts_from_value(parsed, file, "$", errors)
 
@@ -177,17 +193,17 @@ def validate_cumulative_limits(excerpts: list[Excerpt], errors: list[str]) -> No
         if total > MAX_SOURCE_CHINESE_CHARS:
             file_list = ", ".join(sorted({format_path(path) for path in files[source_url]}))
             errors.append(
-                f"{file_list}: sourceUrl {source_url} has {total} Chinese chars across committed excerpts; "
-                f"limit is {MAX_SOURCE_CHINESE_CHARS}"
+                f"{file_list}: sourceUrl {source_url} 在已提交摘录中累计 {total} 个中文字；"
+                f"上限是 {MAX_SOURCE_CHINESE_CHARS}"
             )
 
 
 def lint_references(root: Path) -> list[str]:
     errors: list[str] = []
     if not root.exists():
-        return [f"{format_path(root)}: references path does not exist"]
+        return [f"{format_path(root)}: references 路径不存在"]
     if not root.is_dir():
-        return [f"{format_path(root)}: references path must be a directory"]
+        return [f"{format_path(root)}: references 路径必须是目录"]
 
     excerpts: list[Excerpt] = []
     for file in iter_reference_files(root):
@@ -206,7 +222,7 @@ def parse_args() -> argparse.Namespace:
         "references",
         nargs="?",
         default=str(Path(__file__).resolve().parents[1] / "references"),
-        help="References directory to scan",
+        help="要扫描的 references 目录",
     )
     return parser.parse_args()
 
@@ -219,7 +235,7 @@ def main() -> int:
         for error in errors:
             print(error, file=sys.stderr)
         return 1
-    print(f"OK: linted {root}")
+    print(f"OK: 已检查 {root}")
     return 0
 
 
