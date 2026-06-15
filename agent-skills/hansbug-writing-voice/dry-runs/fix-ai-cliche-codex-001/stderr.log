@@ -1,0 +1,1994 @@
+Reading additional input from stdin...
+OpenAI Codex v0.139.0
+--------
+workdir: /home/hansbug/sensetime-projects/hansbug-tech-blog
+model: gpt-5.5
+provider: pro
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ecc4a-4138-7171-b0ed-55fe24074f99
+--------
+user
+你正在为 HansBug/HansBug.github.io 仓库执行 PR-5 真实 CLI forward-test。
+
+硬性要求：
+1. 先阅读并遵守 `CLAUDE.md` 的 “HansBug 文风 Skill 强入口”。
+2. 再阅读并执行 `agent-skills/hansbug-writing-voice/SKILL.md`，按任务模式渐进读取 references，不要默认全量加载。
+3. 不要启动 sub-subagent，不要修改仓库文件，不要访问 `.cache/hansbug-writing-voice/corpus/`。
+4. 不要编造作者真实经历、课程现场、项目现场、会议经历或第一手态度。缺少事实时必须标记需要作者补充。
+5. 输出必须是中文，并严格使用下面三个 Markdown 标题：
+
+## draft
+（你的构思/正文/改写稿/审阅稿主体）
+
+## review
+（按 C/I/M 自审；必须写 `C=0` 或列出 C，必须写 `I=0` 或列出 I）
+
+## revision
+（说明你如何根据自审修订，若无需修订也说明原因）
+
+输出中必须包含 `CLAUDE.md` 和 `agent-skills/hansbug-writing-voice/SKILL.md` 这两个入口路径，方便验收确认入口被使用。
+
+当前 taskType: `fix-ai-cliche`，cli: `codex`。
+
+# 任务输入：反向压力测试 / 修复 AI 腔
+
+下面这段草稿故意写得很 AI 腔，并且有高口癖密度、低判断密度、无边界的问题。请先判 C/I/M，再给出修复稿。
+
+草稿：
+
+<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+
+## 背景
+
+咳咳，笔者认为这个工具总体而言具有重要意义。好吧，可以看出它能够提升效率。值得注意的是，随着技术的发展，这类工具有积极意义，也有参考价值。
+
+## 方案
+
+用户可以按照步骤操作，首先准备环境，然后执行命令，最后不断优化。咳咳，笔者觉得这件事很好。
+
+## 总结
+
+综上所述，这个工具值得使用。2333。
+
+修复要求：
+
+- 必须明确这是 issue #25 的反向压力测试。
+- 必须指出“高口癖密度 + 低判断密度 / 无边界 / AI 腔正确废话”。
+- 修复稿要补主问题、边界、核心判断和总结盖章。
+
+
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+我会先按你的验收路径读取 `CLAUDE.md` 里的强入口约束，然后再打开 repo-local 的 `agent-skills/hansbug-writing-voice/SKILL.md`，只按 `fix-ai-cliche` 需要的 reference 继续读。不会改文件，也不会进 `.cache/hansbug-writing-voice/corpus/`。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'rg -n "HansBug 文风 Skill 强入口|fix-ai-cliche|任务模式|taskType|references|check_hansbug_voice" CLAUDE.md agent-skills/hansbug-writing-voice/SKILL.md' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+agent-skills/hansbug-writing-voice/SKILL.md:8:如果本仓库内的 Skill 不能被自动发现，先手动读取本文件，再按下方任务模式表只读取当前任务需要的 references 参考资料。不要假设 PR-0 阶段已经存在所有未来 reference 参考资料；标注为 `后续 PR 占位` 的路径只是后续 PR 的导航契约，不是 missing-file error，缺失时不要中止任务。
+agent-skills/hansbug-writing-voice/SKILL.md:14:使用本 Skill 时，要在不整篇复制旧文的前提下，让中文技术文章更接近 HansBug 本人已经稳定形成的表达方式、判断结构和论述节奏。仓库根目录的 `CLAUDE.md / AGENTS.md` 负责外层边界、维护纪律和站点级提醒；本 Skill 及其 references 负责 `src/content/blog/` 中文博客正文构思、写作、改写、扩写、审阅和检查的执行细则。
+agent-skills/hansbug-writing-voice/SKILL.md:24:## 任务模式
+agent-skills/hansbug-writing-voice/SKILL.md:26:| 模式 | 何时使用 | 读取这些 references / scripts |
+agent-skills/hansbug-writing-voice/SKILL.md:28:| `构思` | 规划新文章，决定角度、读者、结构、边界和核心判断。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/prompt-recipes.md` |
+agent-skills/hansbug-writing-voice/SKILL.md:29:| `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/micro-patterns.md`; `references/prompt-recipes.md` |
+agent-skills/hansbug-writing-voice/SKILL.md:30:| `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/micro-patterns.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+agent-skills/hansbug-writing-voice/SKILL.md:31:| `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+agent-skills/hansbug-writing-voice/SKILL.md:32:| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest / 派生特征是否合规。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/derived/voice-features.json`; `scripts/lint_voice_references.py`; `scripts/fetch_voice_corpus.py`; `scripts/extract_voice_features.py`; `references/review-rubric.md`; `scripts/check_hansbug_voice.py` |
+agent-skills/hansbug-writing-voice/SKILL.md:36:1. 先检查仓库根目录的 `CLAUDE.md / AGENTS.md`，确认外层边界、维护纪律和站点级提醒；博客正文写作与审阅的具体执行细则以本 Skill references 为准，措辞差异不等于冲突。
+agent-skills/hansbug-writing-voice/SKILL.md:39:4. 只要涉及旧博客材料、样本、manifest、摘录或抓取产物，必须先读取 `references/corpus-policy.md`。
+agent-skills/hansbug-writing-voice/SKILL.md:40:5. 只加载当前模式需要、且在当前 PR 阶段实际存在的 references；不要为了“更像”而无脑全量加载。
+agent-skills/hansbug-writing-voice/SKILL.md:51:python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
+agent-skills/hansbug-writing-voice/SKILL.md:62:抽取机械特征时，默认只向 stdout 打印 JSON；只有显式 `--write-derived` 才会覆盖 `references/derived/voice-features.json`。如果本地没有 ignored cache，可以加 `--allow-catalog-summary` 生成 smoke 级特征，但正式画像归纳仍应优先使用 `.cache/hansbug-writing-voice/corpus/` 里的正文。
+agent-skills/hansbug-writing-voice/SKILL.md:69:PR-1 的派生特征只做段落长度、句长、标题模式、高频 n-gram、转场词粗统计等机械统计，不等价于文风画像。PR-2 已补充正式画像层，后续写作或审阅时，应把 `references/voice-profile.md`、`references/article-archetypes.md`、`references/micro-patterns.md`、`references/macro-logic.md` 和 `references/anti-patterns.md` 作为主要文风依据，把 `sample-manifest.json` 与 `voice-features.json` 当作样本入口和粗粒度仪表盘。
+agent-skills/hansbug-writing-voice/SKILL.md:71:PR-3 已补齐 `references/review-rubric.md`、`references/prompt-recipes.md` 和 `scripts/check_hansbug_voice.py`。构思、写作、改写、审阅时优先按 `prompt-recipes.md` 固定样本版本、sample ids、最后更新、输出格式和事实缺口；审阅时按 `review-rubric.md` 做 C/I/M 分级，不要用“感觉不像”糊弄过去。机械粗筛命令如下，`score` 只代表粗筛健康度，不是文风相似度；只要存在 C 级 finding 就必须先修。
+agent-skills/hansbug-writing-voice/SKILL.md:74:python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
+agent-skills/hansbug-writing-voice/SKILL.md:77:  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
+agent-skills/hansbug-writing-voice/SKILL.md:84:PR-2 references 的推荐读取顺序：
+agent-skills/hansbug-writing-voice/SKILL.md:92:PR-0 / PR-1 / PR-2 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
+CLAUDE.md:180:### HansBug 文风 Skill 强入口
+CLAUDE.md:182:**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
+CLAUDE.md:184:`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
+CLAUDE.md:186:检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+入口约束已经定位到：`CLAUDE.md` 要求先执行 repo-local 文风 Skill，且涉及“通过文风 gate”的判断不能只靠主观感觉。我接下来读取 Skill 全文和 `fix-ai-cliche` 对应的改写/审阅资料，并用脚本做机械粗筛作为辅助证据。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '170,205p' CLAUDE.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+
+推荐使用稳定、可长期维护的路径，如：
+
+- `src/content/blog/python/treevalue-overview.md`
+- `src/content/blog/engineering/github-actions-notes.md`
+
+不要把路径命名成临时口语化、难以长期维护的 slug。
+
+## 博客写作风格约定
+
+### HansBug 文风 Skill 强入口
+
+**强制规则：只要任务涉及 `src/content/blog/` 下中文博客正文的构思、写作、改写、扩写、风格增强、文风审阅或机械检查，就必须先读取并执行 `agent-skills/hansbug-writing-voice/SKILL.md`。** 如果当前客户端不能自动发现这个 repo-local Skill，也必须手动打开该文件，并按其中任务模式表渐进读取对应 references；未完成该 Skill 要求的审稿 / 检查流程前，不得宣称文章已经 ready、已经像 HansBug，或已经通过文风 gate。
+
+`CLAUDE.md / AGENTS.md` 在这里负责外层边界、维护纪律和站点级提醒；`agent-skills/hansbug-writing-voice/` 及其 references 负责博客正文写作、改写、扩写、审阅和机械检查的具体执行细则。两者出现真实冲突时，博客正文工作以 Skill references 为执行细则，同时不得突破这里写明的外层边界；措辞差异不等于冲突，不要因为同一方向的表述不同就绕开任意一边。
+
+检查模式不能只做主观判断。凡是要宣称“通过文风 gate”或“文风检查完成”，都必须执行或明确引用 `agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py` 的结果，再结合 Skill references 做人工判断。非博客正文任务不默认套用本 Skill；首页、按钮、导航、普通页面文案、README、维护说明、issue/PR 计划文案等仍按各自页面和维护语境处理，不要硬改成博客腔。
+
+### 基础文风约定
+
+这部分约束的是 `src/content/blog/` 下的 博客正文 写法，而不是首页、导航、按钮或普通页面说明文案。
+
+博客正文默认应保留明确的作者视角与判断，不必压成“完全中性、完全说明书化”的口气。后续新文章，默认应向 HansBug 在旧博客园 `2018` 年及之后文章里已经稳定形成的写法靠拢，重点不是机械复刻个别口头禅，而是延续那种 一看就知道是他本人在写 的行文重心、分析方式和语气张力。
+
+- 参照样本：
+  - 后续判断“像不像 HansBug 的文章”，优先参考这批旧文：
+    - `2018`：`【技巧】Java工程中的Debug信息分级输出接口及部署模式`
+    - `2018`：`【作业】HansBug的前三次OO作业分析与小结`
+    - `2018`：`【作业2.0】HansBug的5-7次OO作业分析与小结，以及一些个人体会`
+    - `2020`：`【学习笔记】Latex各平台2020实战攻略`
+    - `2020`：`【开源系列】项目开源实战记录-序`
+    - `2021`：`【助教工作】2021团队项目助教跟班全攻略`
+    - `2021`：`【项目管理】关于Issue/Milestone的使用指导`
+    - `2021`：`沉舟侧畔千帆过，病树前头万木春——对【题士】产品的深度测评与解析`
+    - `2021`：`姗姗来迟的一个总结`
+    - `2022`：`treevalue——Master Nested Data Like Tensor`
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,220p' agent-skills/hansbug-writing-voice/SKILL.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+---
+name: hansbug-writing-voice
+description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、改写、审阅和机械检查博客正文。用于 Codex 或 Claude 需要撰写、改写、审阅、校验 src/content/blog/ 下中文文章，或维护本仓库内 HansBug 文风工作流的场景。
+---
+
+# HansBug 中文博客文风 Skill
+
+如果本仓库内的 Skill 不能被自动发现，先手动读取本文件，再按下方任务模式表只读取当前任务需要的 references 参考资料。不要假设 PR-0 阶段已经存在所有未来 reference 参考资料；标注为 `后续 PR 占位` 的路径只是后续 PR 的导航契约，不是 missing-file error，缺失时不要中止任务。
+
+## 适用边界
+
+这个 Skill 只面向 HansBug 中文技术博客正文写作。它的目标不是泛化到英文写作，也不是把任何页面文案都改成博客腔；后续 agent 在处理 `src/content/blog/` 文章的构思、写作、改写、审阅、检查时，才应优先使用它。
+
+使用本 Skill 时，要在不整篇复制旧文的前提下，让中文技术文章更接近 HansBug 本人已经稳定形成的表达方式、判断结构和论述节奏。仓库根目录的 `CLAUDE.md / AGENTS.md` 负责外层边界、维护纪律和站点级提醒；本 Skill 及其 references 负责 `src/content/blog/` 中文博客正文构思、写作、改写、扩写、审阅和检查的执行细则。
+
+不要用本 Skill 做这些事：
+
+- 抓取或提交旧博客完整正文；
+- 绕过来源站点 ToS、robots 或版权边界；
+- 实现 citation、BibTeX、CSL 或站点渲染功能；
+- 在用户没有给出事实依据时，替作者编造经历、项目现场、课程现场或第一手判断；
+- 把中文文风约束强行套到英文写作任务上。
+
+## 任务模式
+
+| 模式 | 何时使用 | 读取这些 references / scripts |
+|---|---|---|
+| `构思` | 规划新文章，决定角度、读者、结构、边界和核心判断。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/prompt-recipes.md` |
+| `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/micro-patterns.md`; `references/prompt-recipes.md` |
+| `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/micro-patterns.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+| `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest / 派生特征是否合规。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/derived/voice-features.json`; `scripts/lint_voice_references.py`; `scripts/fetch_voice_corpus.py`; `scripts/extract_voice_features.py`; `references/review-rubric.md`; `scripts/check_hansbug_voice.py` |
+
+## 工作流
+
+1. 先检查仓库根目录的 `CLAUDE.md / AGENTS.md`，确认外层边界、维护纪律和站点级提醒；博客正文写作与审阅的具体执行细则以本 Skill references 为准，措辞差异不等于冲突。
+2. 判断当前任务属于上表中的一个或多个模式。
+3. 读取 reference 参考资料之前，先说明你选择了哪些模式、准备读取哪些文件或脚本。
+4. 只要涉及旧博客材料、样本、manifest、摘录或抓取产物，必须先读取 `references/corpus-policy.md`。
+5. 只加载当前模式需要、且在当前 PR 阶段实际存在的 references；不要为了“更像”而无脑全量加载。
+6. 如果某个后续 PR 占位 reference 参考资料还不存在，明确说明当前阶段缺少该 reference，然后用现有规则继续；不要臆造它的内容。
+7. 写作或改写时，保持文章事实、主题和用户意图不乱跑；只在有助于文风贴合的地方调整结构、重心、语气和措辞。
+8. 审阅时，把文风问题落到可执行修改或具体例子上；不要只写“感觉不像”“味道不够”这种空话。
+9. 检查时，先跑确定性脚本，再补人工文风判断。
+
+## PR-0 / PR-1 可用命令
+
+检查已提交 reference 参考资料里的摘录是否满足来源、用途、JSON 结构和长度约束（单条 `120` 个中文字、同一来源累计 `300` 个中文字）：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
+```
+
+PR-0 的 lint gate 只保护摘录元数据和长度上限。PR-1 额外提供样本 manifest、cache-only 正文抓取脚本和机械特征提取脚本；文风 rubric、多轮真实 CLI forward-test 和最终强入口仍属于后续 PR。
+
+查看 PR-1 样本抓取计划，不发请求、不写 cache：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/fetch_voice_corpus.py --dry-run --limit 3
+```
+
+抽取机械特征时，默认只向 stdout 打印 JSON；只有显式 `--write-derived` 才会覆盖 `references/derived/voice-features.json`。如果本地没有 ignored cache，可以加 `--allow-catalog-summary` 生成 smoke 级特征，但正式画像归纳仍应优先使用 `.cache/hansbug-writing-voice/corpus/` 里的正文。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary --write-derived
+```
+
+PR-1 的派生特征只做段落长度、句长、标题模式、高频 n-gram、转场词粗统计等机械统计，不等价于文风画像。PR-2 已补充正式画像层，后续写作或审阅时，应把 `references/voice-profile.md`、`references/article-archetypes.md`、`references/micro-patterns.md`、`references/macro-logic.md` 和 `references/anti-patterns.md` 作为主要文风依据，把 `sample-manifest.json` 与 `voice-features.json` 当作样本入口和粗粒度仪表盘。
+
+PR-3 已补齐 `references/review-rubric.md`、`references/prompt-recipes.md` 和 `scripts/check_hansbug_voice.py`。构思、写作、改写、审阅时优先按 `prompt-recipes.md` 固定样本版本、sample ids、最后更新、输出格式和事实缺口；审阅时按 `review-rubric.md` 做 C/I/M 分级，不要用“感觉不像”糊弄过去。机械粗筛命令如下，`score` 只代表粗筛健康度，不是文风相似度；只要存在 C 级 finding 就必须先修。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
+  src/content/blog/example.md \
+  --skill-root agent-skills/hansbug-writing-voice \
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
+  --format json \
+  --pretty
+```
+
+如果要给人读摘要，可以把 `--format json --pretty` 换成 `--format text`。正式 PR 中仍建议保留 JSON 结果，方便 reviewer 复核 finding code。
+
+PR-2 references 的推荐读取顺序：
+
+```text
+voice-profile.md -> article-archetypes.md -> macro-logic.md -> micro-patterns.md -> anti-patterns.md
+```
+
+不要默认全量加载所有文件。构思新文章时优先读 `article-archetypes.md` 和 `macro-logic.md`；写作或改写时再读 `voice-profile.md` 和 `micro-patterns.md`；审阅时重点读 `voice-profile.md` 与 `anti-patterns.md`。如果任务只是在检查 reference 合规性，仍然先跑 lint / test，不要把文风画像当作机械 gate。
+
+PR-0 / PR-1 / PR-2 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+当前任务我按 `改写 + 审阅 + 检查` 处理：原稿需要先按 C/I/M 判问题，再修复 AI 腔，并用机械脚本做粗筛。按 Skill 的渐进读取规则，我只读这三个模式交集需要的 `corpus-policy`、`voice-profile`、`micro-patterns`、`anti-patterns`、`review-rubric` 和 `check_hansbug_voice.py`。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,240p' agent-skills/hansbug-writing-voice/references/corpus-policy.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# 旧文语料使用策略
+
+本策略约束 HansBug 中文博客文风 Skill 如何使用旧博客材料。凡是后续 crawler、manifest、短摘录、文风画像或审稿 rubric 需要使用 `https://www.cnblogs.com/HansBug/` 的内容，都必须先遵守这里的边界。
+
+## 硬边界
+
+- 旧文原始 HTML、Markdown、纯文本和抓取输出，只允许保存在 `.cache/hansbug-writing-voice/corpus/`。
+- 不得把旧博客完整正文提交到本仓库。
+- 只提交服务于文风分析所必需的短摘录。
+- 单条摘录最多 `120` 个中文字。
+- 同一来源文章在仓库内累计摘录最多 `300` 个中文字。
+- 每条已提交摘录必须包含来源字段：`sourceUrl` 或 `url`。
+- 每条已提交摘录必须包含用途字段：`purpose` 或 `useFor`。
+- 如果来源站规则与本仓库策略冲突，按更严格的一方执行。
+
+## 抓取可行性审计
+
+PR-1 或后续 PR 在新增、刷新旧文抓取产物之前，必须把审计结果记录在 PR description，或记录到后续机器可读的审计文件中：
+
+| 字段 | 必填内容 |
+|---|---|
+| `source` | 使用的旧博客精确来源 URL 或索引页。 |
+| `tosCheck` | ToS / 站点策略检查结果，包含日期和结论。 |
+| `robotsCheck` | `robots.txt` 检查结果，包含日期、相关路径规则和结论。 |
+| `fetchFeasibility` | 自动抓取是允许、需要限速、不允许，还是结论不清。 |
+| `fallbackPlan` | 若自动抓取不允许或结论不清，退回只使用手动短摘录。 |
+
+如果 ToS、robots 或网络行为不清楚，不要猜。退回到手动摘录：只截取完成某个具体文风分析目的所必需的最短片段，并同时写清 `sourceUrl` 和 `purpose` / `useFor`。
+
+## 已提交摘录格式
+
+Markdown reference 可以使用带 `hansbug-voice-excerpt` 标记的 fenced JSON block：
+
+````markdown
+```json hansbug-voice-excerpt
+{
+  "sourceUrl": "https://www.cnblogs.com/HansBug/p/example.html",
+  "purpose": "macro-logic",
+  "text": "这里放不超过一百二十个中文字的必要短摘录。"
+}
+```
+````
+
+JSON manifest 可以把摘录对象放在 `excerpts` 数组里；数组里的每一项都必须是 JSON object。同一套必填字段和长度上限仍然生效。
+
+`purpose` / `useFor` 的值要能说明这段摘录为什么需要被提交，例如：
+
+- `macro-logic`
+- `micro-pattern`
+- `tone`
+- `article-archetype`
+- `negative-example`
+- `review-rubric`
+
+## PR-1 脚本边界
+
+PR-1 的 `fetch_voice_corpus.py` 只负责把 manifest 中的旧博客正文抓到本地 ignored cache，默认目录是 `.cache/hansbug-writing-voice/corpus/`。它必须支持 `--dry-run`、`--limit`、`--delay`、`--timeout`、`--max-retries`、`--user-agent` 等参数，并在状态码异常、正文 selector 未命中、正文过短、manifest 缺字段或网络失败时非零退出。
+
+PR-1 的 `extract_voice_features.py` 只负责从 cache 或显式允许的 catalog 摘要里生成机械统计。它默认只打印 JSON；只有传入 `--write-derived` 时才可以写入 `references/derived/voice-features.json`。这些派生特征不能被描述成“已经理解 HansBug 文风”，只能作为后续画像归纳前的粗统计输入。
+
+## 验证方式
+
+提交任何 reference 变更前，先运行：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
+```
+
+当摘录过长、缺少 `sourceUrl` / `url`、缺少 `purpose` / `useFor`，`excerpts` 数组项不是 JSON object，或文件不是合法 UTF-8 / JSON 时，lint gate 必须非零退出，并给出具体文件路径和字段 / 上限原因。当前长度 gate 按中文字计数；如果短摘录里必须保留英文术语，也要保持同等克制，不要借“英文不计数”塞进大段原文。
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/voice-profile.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 文风画像
+
+本文件描述的是 HansBug 中文技术博客正文的总体文风画像。它不是口癖清单，也不是让 agent 把旧文句子搬过来拼贴的素材库；它要解决的是：写作时到底应该怎样组织判断、怎样拆问题、怎样把个人经验压进技术分析里。
+
+## 核心判断
+
+像 HansBug，首先不是像某几个词，而是像一套判断方式。
+
+一篇合格的 HansBug 风格文章，通常会在前半段就让读者知道作者到底怎么看这件事。后面的结构不是把资料继续往下堆，而是围绕这个判断补场景、补边界、补反例、补取舍。换句话说，文章不是“信息排列”，而是“判断展开”。
+
+因此，文风复刻的优先级应当是：
+
+1. 判断密度高于口癖密度。
+2. 概念拆分高于情绪强度。
+3. 工程取舍高于命令罗列。
+4. 经验来源高于第一人称表演。
+5. 结尾盖章高于礼貌收束。
+
+如果一篇文章满篇都是“笔者”“好吧”“咳咳”“2333”，但没有问题定义、没有判断前置、没有概念拆分、没有工程取舍，那它不是像 HansBug，只是披了一层廉价皮套。这个判断必须写得很硬，否则后续 agent 很容易走偏。
+
+## 作者视角
+
+HansBug 的正文通常带有明确作者视角：作者不是站在远处解释一个对象，而是把自己放进问题现场里，说明为什么碰到这个问题、为什么愿意下这个判断、为什么不接受某种糊弄式方案。
+
+这种作者视角有几个边界：
+
+- 可以写“笔者”的经验，但经验必须服务于判断。
+- 可以写“我”的直接感受，但不要把整篇文章写成情绪流水账。
+- 可以批评设计、流程、方案和现象，但批评必须有事实、推理或案例支撑。
+- 不允许编造作者没有给出的项目现场、课程现场、会议经历、对话细节或第一手态度。
+
+更像的写法，是先交代自己为什么碰上这个问题，再说明这个问题暴露了什么结构性缺陷，最后把经验收束为方法论判断。
+
+不太像的写法，是先堆一段自我介绍、履历或情绪，然后正文和这些经历几乎没有关系。
+
+## 技术判断密度
+
+HansBug 的技术文不是 API 手册，也不是命令速查表。它通常会追问：为什么这样做更合理？为什么另一种做法看起来省事但长期不稳？为什么一个配置能跑不代表设计成立？
+
+写作时需要优先保留这些判断动作：
+
+- 先给整体结论，再拆原因。
+- 先定义评价坐标，再评价方案。
+- 先说明适用边界，再给操作步骤。
+- 先承认某个方案局部可行，再指出长期维护风险。
+- 先把“能跑”与“值得长期维护”拆开。
+
+技术判断的语气可以锋利，但不能省略论证。刀子必须有刀背。
+
+## 概念拆分与对立辨析
+
+HansBug 文风里非常关键的一点，是愿意把看似相近的概念硬拆开讲清楚。很多段落的力量不来自情绪，而来自重新划定坐标系。
+
+常见拆法包括：
+
+- 不是 `A`，而是 `B`。
+- 看起来是 `X`，本质上是 `Y`。
+- 表面问题是 `P`，根因其实是 `Q`。
+- 与其说是 `M`，不如说是 `N`。
+- `能跑` 和 `设计成立` 不是一回事。
+- `标签`、`路线`、`归档`、`搜索` 不是同一层能力。
+
+写作时应主动寻找最容易被读者混在一起的两个概念，然后把它们拆开。拆开之后再继续分析，文章才会有“这个人有自己一套”的感觉。
+
+## 锋利感与黑色幽默
+
+HansBug 的锋利感不是无证据地阴阳怪气，而是在分析已经站稳之后，用一句更短、更硬的话把问题钉住。
+
+可以保留的锋利方向：
+
+- 对自欺欺人的流程做冷处理式评价。
+- 对“看起来很努力，实际全是无效功”的状态提出讥讽。
+- 对表面漂亮但底层站不住的方案明确否定。
+- 对“能跑就行”“以后再说”的短视做工程层面的反驳。
+
+不应保留的方向：
+
+- 人身攻击。
+- 没有事实支撑的阴阳怪气。
+- 只有态度没有分析的情绪宣泄。
+- 为了显得锋利而句句带刺。
+
+一句话：可以毒，但要毒得有理。
+
+## 松弛感与现场感
+
+HansBug 的文章不是过度修平的说明书。正文允许有一点现场感、即兴感和掰扯感：像作者正在把问题摊开，边讲边判断，顺手把偷懒想法拆掉。
+
+可以适量使用：
+
+- “好吧”“咳咳”“容我先”“闲话少叙”。
+- 一两句自嘲或补坑说明。
+- 括号补充和破折号转折。
+- 对读者的直接提醒，例如“请各位自己想想看”。
+
+但这些只能是调味。口语化不能替代结构，松弛感不能替代判断。
+
+## 事实与经历边界
+
+本 Skill 只能复刻表达方式、论证习惯和写作工作流，不能替作者编造事实。
+
+遇到下面情况，必须标记需要作者补充，而不是自动脑补：
+
+- 文章需要第一人称项目经历，但用户没有提供。
+- 文章需要课程现场或助教工作细节，但材料里没有。
+- 文章需要作者对某个人、组织、产品的真实态度，但没有来源。
+- 文章需要具体时间、对话、故障现场或内部决策过程，但没有证据。
+
+正确做法是写出“这里需要作者补一段真实经历 / 真实案例 / 具体环境”，而不是写得好像作者真的经历过。
+
+## 结尾盖章
+
+HansBug 风格的结尾通常不是礼貌性回收材料，而是把全文判断再抬高半层。
+
+结尾应该做到：
+
+- 回到文章最初的问题。
+- 明确作者最终怎么看。
+- 从局部方案上升到工程取舍、方法论、制度问题或长期维护判断。
+- 最后用一句更短、更硬的话收住。
+
+不要只写“感谢阅读”“先写到这里”。那不是盖章，是把文章轻轻放下了；HansBug 的结尾更像把判断钉在墙上。
+
+
+## 样本边界
+
+画像文件只使用 `participatesInProfile: true` 的样本做正向归纳。`holdoutForDryRun: true` 的样本不得进入本文的正向证据链，它们留给后续真实 CLI forward-test；`negative` 样本也不得作为应该模仿的来源，只能用来帮助识别反模式。
+
+## 最低自检
+
+写作或审阅时，至少问这些问题：
+
+- 前三段是否已经说明缘起、主问题和边界？
+- 前半段是否已经亮出核心判断？
+- 是否真的拆开了容易混淆的概念？
+- 每个大节是否都有作者判断，而不是只有资料转述？
+- 锋利感是否建立在事实和推理上？
+- 是否把口癖当成了文风本体？
+- 是否编造了作者没有提供的经历？
+- 结尾是否比前文再高半层？
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/micro-patterns.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 微观模式
+
+本文件记录 HansBug 文风中可以诊断和少量借用的微观模式。它不是口癖 buffet，更不是鼓励“高口癖密度 + 低判断密度”的假模仿。后续 agent 必须先保证判断、结构和事实站住，再考虑这些表达层面的东西。
+
+每个模式都包含三类说明：
+
+- 诊断用途：审稿时用来判断文章是否接近目标风格。
+- 可少量借用：写作时可以有限使用的方式。
+- 禁止机械拼贴：明确不能怎样滥用。
+
+## 判断前置句
+
+### 诊断用途
+
+看文章是否敢在前半段亮出作者判断，而不是把结论拖到最后。
+
+### 可少量借用
+
+可以使用“先说结论”“本文真正要讲的是”“说白了”“归根结底”等转场，把读者从背景拉回判断。
+
+### 禁止机械拼贴
+
+不要每节都用同一个开头句；更不要在没有判断时硬写“先说结论”。没有结论的“先说结论”只是在骗读者。
+
+## 对立拆分句
+
+### 诊断用途
+
+看文章是否会把容易混淆的概念拆开，而不是顺着现成说法滑过去。
+
+### 可少量借用
+
+可使用这些句式：
+
+- 不是 `A`，而是 `B`。
+- 看起来是 `X`，本质上是 `Y`。
+- 表面问题是 `P`，根因其实是 `Q`。
+- 与其说是 `M`，不如说是 `N`。
+
+### 禁止机械拼贴
+
+不要为了显得深刻而把所有句子都写成二分法。拆分必须来自真实问题，不是修辞体操。
+
+## 当面掰扯感
+
+### 诊断用途
+
+看文章是否像作者在和读者面对面把问题掰开，而不是像产品手册在远处播报。
+
+### 可少量借用
+
+可以适度使用“请各位想一想”“那么问题来了”“别的不说”“好吧，这事其实不复杂”等近距离表达。
+
+### 禁止机械拼贴
+
+不要把整篇写成聊天记录。交流感服务于解释，不是为了显得活泼。
+
+## 自称切换
+
+### 诊断用途
+
+看文章是否保留稳定作者视角。
+
+### 可少量借用
+
+默认使用“笔者”。当情绪更强、距离更近、需要更直接承担判断时，可以切到“我”。
+
+### 禁止机械拼贴
+
+不要一段里来回切换“笔者”和“我”。不要为了像旧文而每段都塞“笔者”。
+
+## 松弛插入
+
+### 诊断用途
+
+看文章是否有一点现场感，而不是过度干净的 AI 说明文。
+
+### 可少量借用
+
+可以少量使用括号补充、破折号、轻微自嘲、补坑说明、偶发的“咳咳”“2333”。
+
+### 禁止机械拼贴
+
+不要把“咳咳”“2333”当作风格按钮。口癖密度上去了、判断密度下来了，就是假模仿。
+
+## 短句落锤
+
+### 诊断用途
+
+看段落是否能在末尾用一句更短、更硬的话收住判断。
+
+### 可少量借用
+
+一段可以先用长句交代背景，再用短句落结论。例如把复杂取舍压成一句“能跑不等于设计成立”。
+
+### 禁止机械拼贴
+
+不要每段都硬凹金句。短句落锤必须建立在前文已经铺够逻辑的基础上。
+
+## 锋利评价
+
+### 诊断用途
+
+看批评是否具体、有证据、有推理，而不是只有情绪强度。
+
+### 可少量借用
+
+可以在分析之后加一句带刺的评价，把荒唐之处钉住。
+
+### 禁止机械拼贴
+
+不要人身攻击，不要无事实阴阳怪气，不要用刻薄替代洞察。
+
+## 读者引导
+
+### 诊断用途
+
+看长文是否会主动降低阅读门槛，让读者知道该如何读。
+
+### 可少量借用
+
+可以写“如果只想看结论，可以直接跳到某节”“如果你只关心配置，可以先看这一段”。
+
+### 禁止机械拼贴
+
+不要把读者引导写成花哨目录。引导必须服务于结构，不是为了互动感本身。
+
+## 结尾盖章
+
+### 诊断用途
+
+看文章最后是否把判断收束到更高一层，而不是礼貌下线。
+
+### 可少量借用
+
+可以使用“说到底”“归根结底”“还是那句老话”等收束词，把全文重新压回核心判断。
+
+### 禁止机械拼贴
+
+不要只在最后加一句漂亮话。没有前文铺垫的盖章句，只是空喊口号。
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/anti-patterns.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 文风反模式
+
+本文件列出不应学习的写法。`negative` 样本只允许用于本文件中的反例、禁区和识别信号，不得作为正向模仿来源。
+
+## AI 式正确废话
+
+### 识别信号
+
+- 每句话都正确，但没有作者判断。
+- 喜欢写“值得注意的是”“总体而言”“可以看出”，但看不出作者到底怎么看。
+- 结构像通用说明文，换一个作者名字也成立。
+
+### 危害
+
+它会把 HansBug 文风最关键的判断密度抹平，让文章变成无害、平整、没有棱角的说明材料。
+
+### 修复方向
+
+补核心判断，补概念拆分，补工程取舍。先问“作者到底反对什么、赞成什么、为什么”。
+
+## 高口癖密度 + 低判断密度
+
+### 识别信号
+
+- “笔者”“好吧”“咳咳”“2333”很多。
+- 但段落没有判断，没有边界，没有取舍。
+- 读起来像在给 AI 文本贴旧博客贴纸。
+
+### 危害
+
+这是假模仿的典型形态。它看起来热闹，实际上没有 HansBug 文风的骨架。
+
+### 修复方向
+
+先删口癖，重建判断主线；只有当判断站住后，才允许少量恢复口语化表达。
+
+## 假锋利
+
+### 识别信号
+
+- 语气很冲，但证据很少。
+- 批评对象不具体，问题链路不清楚。
+- 句句带刺，却没有分析。
+
+### 危害
+
+HansBug 的锋利来自分析之后的落锤，不来自情绪强度。假锋利会把文章写成廉价吐槽。
+
+### 修复方向
+
+先补事实、影响、根因、改法。等逻辑站住，再决定是否需要一句带刺的收束。
+
+## 无边界感
+
+### 识别信号
+
+- 不说明适用场景、版本、前置条件。
+- 把一次经验写成普遍真理。
+- 不处理例外和失败方式。
+
+### 危害
+
+技术判断会失真，读者无法知道自己能不能照做。
+
+### 修复方向
+
+补“本文解决什么 / 不解决什么”，补环境、约束、反例和失败边界。
+
+## 编造作者经历
+
+### 识别信号
+
+- 文中出现用户没有提供的项目现场、课程现场、对话细节、会议经历。
+- 用第一人称讲得很像真的，但没有来源。
+- 为了让文章更像，把作者没说过的态度写成确定事实。
+
+### 危害
+
+这是 C 级问题。Skill 只能复刻表达方式，不能替作者制造经历。
+
+### 修复方向
+
+把相关段落改成占位请求：需要作者补充真实经历、真实环境、真实案例或明确态度。没有材料就不要写成第一手事实。
+
+## 旧题解 / 模板腔误用
+
+### 识别信号
+
+- 文章像早期算法模板或题解，主要由代码、题面、步骤组成。
+- 缺少面向长期维护、工程取舍或产品判断的讨论。
+- 把短平快模板写法当成新站核心风格。
+
+### 危害
+
+旧站早期模板文章可以作为历史样本，但不应主导新站的长期写作风格。
+
+### 修复方向
+
+如果是技术实践文，就补场景、边界、取舍和维护判断；如果只是代码模板，就不要强行包装成 HansBug 新站风格长文。
+
+## 资料搬运腔
+
+### 识别信号
+
+- 大量复述官方文档或外部资料。
+- 作者只负责串联，不负责判断。
+- 没有“为什么这个资料对本文问题重要”。
+
+### 危害
+
+文章会变成资料合集，而不是作者的经验压缩。
+
+### 修复方向
+
+删掉和主问题无关的资料；保留能支撑判断的部分，并补作者自己的坐标系。
+
+## 过度工整
+
+### 识别信号
+
+- 所有段落长度接近，语气完全中性。
+- 没有即兴感、现场感、转折和落锤。
+- 读起来像被修平毛边的企业知识库。
+
+### 危害
+
+HansBug 文风的辨识度会被抹掉，只剩正确但无聊的说明。
+
+### 修复方向
+
+允许段落节奏有摆幅：该解释时解释，该落锤时落锤，该吐槽时在事实之后吐槽。
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+#!/usr/bin/env python3
+"""对 HansBug 中文博客文风草稿做确定性粗筛。"""
+
+from __future__ import annotations
+
+import argparse
+import importlib.util
+import json
+import re
+import sys
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any, Iterable
+
+SCORE_MEANING = "rough-gate-only-not-style-similarity"
+DEFAULT_REFERENCES = Path(__file__).resolve().parents[1] / "references"
+DEFAULT_MANIFEST = DEFAULT_REFERENCES / "sample-manifest.json"
+
+CJK_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
+H2_RE = re.compile(r"^##\s+(.+)$", re.MULTILINE)
+SAMPLE_COMMENT_RE = re.compile(r"<!--\s*hansbug-voice-samples\s*:\s*([^\n<>]+?)\s*-->", re.IGNORECASE)
+SAMPLE_INLINE_RE = re.compile(r"(?:样本|sample ids?|参考|对照)[:：]\s*([A-Za-z0-9_,，、\-\s]+)", re.IGNORECASE)
+CNBLOGS_ID_RE = re.compile(r"cnblogs-\d+")
+
+# 这些词表均来自 PR-2 references：anti-patterns.md 的 AI 腔/正确废话/资料搬运腔，
+# micro-patterns.md 的口癖 buffet，macro-logic.md 的边界和结尾要求，
+# voice-profile.md / anti-patterns.md 的事实与经历边界。
+AI_CLICHE_TERMS = [
+    "总体而言",
+    "值得注意的是",
+    "可以看出",
+    "具有重要意义",
+    "综上所述",
+    "积极意义",
+    "参考价值",
+    "不断优化",
+    "随着技术的发展",
+]
+CATCHPHRASE_TERMS = ["笔者", "好吧", "咳咳", "2333", "闲话少叙", "容我先", "说白了"]
+JUDGEMENT_TERMS = [
+    "先说结论",
+    "核心判断",
+    "本质",
+    "根因",
+    "不是",
+    "而是",
+    "取舍",
+    "边界",
+    "能跑不等于",
+    "设计成立",
+    "长期维护",
+    "失败方式",
+    "维护成本",
+]
+BOUNDARY_TERMS = ["不解决", "边界", "适用", "不适用", "前置条件", "失败方式", "版本", "环境"]
+CLOSING_TERMS = ["归根结底", "说到底", "总结", "盖章", "最终判断", "长期", "方法论", "维护", "反思", "展望"]
+CLOSING_HEADING_TERMS = ["总结", "反思", "展望", "方法论", "收束", "结尾", "盖章"]
+EXPERIENCE_TERMS = ["我", "笔者", "我们"]
+UNSUPPORTED_EXPERIENCE_PATTERNS = [
+    r"(?:我|笔者|我们).{0,16}(?:负责|参与|经历|踩过|见过|拍板|上线|复盘)",
+    r"(?:项目|课程|助教|会议|现场|团队|内部|上线).{0,24}(?:我|笔者|我们|当时|曾经)",
+    r"(?:我|笔者|我们).{0,24}(?:会议|现场|课程|项目|团队|内部)",
+]
+EXPERIENCE_SOURCE_MARKERS = ["用户提供", "作者提供", "据材料", "公开链接", "sourceUrl", "来源链接"]
+
+
+@dataclass(frozen=True)
+class Finding:
+    code: str
+    severity: str
+    message: str
+    evidence: str
+    fixHint: str
+
+    def to_json(self) -> dict[str, str]:
+        return asdict(self)
+
+
+def count_cjk(text: str) -> int:
+    return len(CJK_RE.findall(text))
+
+
+def strip_frontmatter(text: str) -> str:
+    if text.startswith("---\n"):
+        end = text.find("\n---\n", 4)
+        if end != -1:
+            return text[end + 5 :]
+    return text
+
+
+def strip_fenced_code(text: str) -> str:
+    return re.sub(r"^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1[ \t]*$", "\n", text, flags=re.MULTILINE)
+
+
+def normalize_draft_body(text: str) -> str:
+    return strip_frontmatter(text).lstrip()
+
+
+def get_intro_window(text: str, max_chars: int = 1200) -> str:
+    body = normalize_draft_body(text)
+    body = strip_fenced_code(body)
+    lines = body.splitlines()
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    # 跳过三段式 quick-start 的开头 blockquote；它是读者引导，不应挤掉正文判断窗口。
+    while lines and (lines[0].lstrip().startswith(">") or not lines[0].strip()):
+        lines.pop(0)
+    return "\n".join(lines)[:max_chars]
+
+
+def split_paragraphs_with_offsets(text: str) -> list[tuple[int, int, str]]:
+    paragraphs: list[tuple[int, int, str]] = []
+    for match in re.finditer(r"\S(?:[\s\S]*?)(?=\n{2,}|\Z)", text):
+        para = match.group(0)
+        paragraphs.append((match.start(), match.end(), para))
+    return paragraphs
+
+
+def local_context(text: str, start: int, end: int, radius: int = 90) -> str:
+    for para_start, para_end, paragraph in split_paragraphs_with_offsets(text):
+        if para_start <= start < para_end:
+            return paragraph
+    return text[max(0, start - radius) : min(len(text), end + radius)]
+
+
+def compact_evidence(text: str, limit: int = 180) -> str:
+    normalized = re.sub(r"\s+", " ", text).strip()
+    if len(normalized) <= limit:
+        return normalized
+    return normalized[: limit - 1] + "…"
+
+
+def make_finding(code: str, severity: str, message: str, evidence: str, fix_hint: str) -> Finding:
+    return Finding(code=code, severity=severity, message=message, evidence=compact_evidence(evidence), fixHint=fix_hint)
+
+
+def load_json(path: Path) -> Any:
+    if not path.is_file():
+        raise OSError("路径不是普通文件")
+    with path.open("r", encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def load_manifest(path: Path) -> tuple[dict[str, Any] | None, list[Finding]]:
+    try:
+        manifest = load_json(path)
+    except FileNotFoundError:
+        return None, [make_finding("manifest-not-found", "C", "找不到样本 manifest。", str(path), "传入正确的 --manifest 路径。")]
+    except OSError as exc:
+        return None, [make_finding("manifest-not-readable", "C", "样本 manifest 无法作为普通文件读取。", f"{path}: {exc}", "传入一个可读的 sample-manifest.json 文件路径，不要传目录。")]
+    except json.JSONDecodeError as exc:
+        return None, [make_finding("manifest-invalid-json", "C", "样本 manifest 不是合法 JSON。", f"{path}: {exc.msg}", "修复 JSON 语法。")]
+
+    findings: list[Finding] = []
+    sources = manifest.get("sources") if isinstance(manifest, dict) else None
+    if not isinstance(sources, list):
+        return None, [make_finding("manifest-missing-sources", "C", "样本 manifest 缺少 sources 数组。", str(path), "使用 PR-1 schemaVersion 2 manifest。")]
+
+    seen: set[str] = set()
+    for source in sources:
+        if not isinstance(source, dict):
+            findings.append(make_finding("manifest-invalid-source", "C", "manifest sources 内存在非 object 条目。", repr(source), "每个 source 必须是 JSON object。"))
+            continue
+        sid = str(source.get("id", ""))
+        if not sid:
+            findings.append(make_finding("manifest-invalid-source", "C", "manifest source 缺少 id。", json.dumps(source, ensure_ascii=False)[:120], "补齐 source.id。"))
+            continue
+        if sid in seen:
+            findings.append(make_finding("manifest-duplicate-sample-id", "C", "manifest source id 重复。", sid, "保持 sample id 唯一。"))
+        seen.add(sid)
+        role = source.get("sampleRole")
+        participates = bool(source.get("participatesInProfile"))
+        holdout = bool(source.get("holdoutForDryRun"))
+        if participates and (role == "negative" or holdout):
+            findings.append(
+                make_finding(
+                    "invalid-positive-sample-role",
+                    "C",
+                    "holdout / negative 样本不能参与正向画像。",
+                    f"{sid}: sampleRole={role}, holdoutForDryRun={holdout}, participatesInProfile={participates}",
+                    "把该样本的 participatesInProfile 改回 false，或修正 sampleRole / holdout 设置。",
+                )
+            )
+    return manifest, findings
+
+
+def get_sources_by_id(manifest: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
+    if not manifest:
+        return {}
+    return {str(item.get("id")): item for item in manifest.get("sources", []) if isinstance(item, dict) and item.get("id")}
+
+
+def extract_declared_sample_ids(text: str) -> list[str]:
+    scan_text = strip_fenced_code(text)
+    ids: list[str] = []
+    for match in SAMPLE_COMMENT_RE.finditer(scan_text):
+        ids.extend(CNBLOGS_ID_RE.findall(match.group(1)))
+    for match in SAMPLE_INLINE_RE.finditer(scan_text):
+        ids.extend(CNBLOGS_ID_RE.findall(match.group(1)))
+    # 去重但保持顺序。
+    result: list[str] = []
+    for sid in ids:
+        if sid not in result:
+            result.append(sid)
+    return result
+
+
+def validate_declared_samples(sample_ids: list[str], sources_by_id: dict[str, dict[str, Any]]) -> tuple[list[dict[str, Any]], list[Finding]]:
+    findings: list[Finding] = []
+    matched: list[dict[str, Any]] = []
+    for sid in sample_ids:
+        source = sources_by_id.get(sid)
+        if source is None:
+            findings.append(
+                make_finding(
+                    "unknown-sample-id",
+                    "C",
+                    "文稿引用了不存在的 sample id。",
+                    sid,
+                    "改成 sample-manifest.json 中存在且 participatesInProfile=true 的样本，或删除这条对照声明。",
+                )
+            )
+            continue
+        role = source.get("sampleRole")
+        holdout = bool(source.get("holdoutForDryRun"))
+        participates = bool(source.get("participatesInProfile"))
+        if role == "negative" or holdout or not participates:
+            findings.append(
+                make_finding(
+                    "invalid-positive-sample-role",
+                    "C",
+                    "文稿把不可作为正向画像的样本用于正向对照。",
+                    f"{sid}: sampleRole={role}, holdoutForDryRun={holdout}, participatesInProfile={participates}",
+                    "只使用 participatesInProfile=true 且非 holdout / negative 的样本做正向对照。",
+                )
+            )
+            continue
+        matched.append(
+            {
+                "id": sid,
+                "title": source.get("title", ""),
+                "sampleRole": role,
+                "articleType": source.get("articleType", ""),
+            }
+        )
+    return matched, findings
+
+
+def count_terms(text: str, terms: Iterable[str]) -> dict[str, int]:
+    return {term: text.count(term) for term in terms if text.count(term) > 0}
+
+
+def has_any(text: str, terms: Iterable[str]) -> bool:
+    return any(term in text for term in terms)
+
+
+def judgement_density(text: str) -> int:
+    return sum(text.count(term) for term in JUDGEMENT_TERMS)
+
+
+
+hook: PostToolUse
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/review-rubric.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 文风审稿 Rubric
+
+本文件给 HansBug 中文博客正文提供可执行的审稿坐标。它不是给 agent 发“像一点”的玄学命令，而是把“哪里必须挡住、哪里必须返工、哪里只是润色”拆成 C/I/M 三档。审稿时可以语气锋利，但结论必须能落到证据、位置和修复动作上。
+
+## 使用边界
+
+- 只审 `src/content/blog/` 下中文博客正文或准备进入正文的草稿。
+- 不审首页、按钮、导航、项目短介绍等页面文案。
+- 不替作者编造经历、项目现场、课程现场、会议对话或第一手态度。
+- 不把本 rubric 当成版权豁免；旧博客样本只允许作为结构、语气和判断方式参考，不允许整段搬运。
+- 机械 gate 只能挡住明显偏离；最终“像不像”仍需要人或 reviewer 结合全文判断。
+
+## 总体评分坐标
+
+审稿时先看骨架，再看皮肤。优先级如下：
+
+1. 核心判断是否靠前、明确、可辩护。
+2. 问题边界是否清楚，读者是否知道本文解决什么、不解决什么。
+3. 概念拆分是否真实存在，而不是顺着常见话术滑过去。
+4. 工程取舍、长期维护和失败方式是否被说明。
+5. 作者经验是否有来源，是否服务于判断。
+6. 松弛、锋利、口癖、黑色幽默是否只是调味，而不是主菜。
+
+一句话：高口癖密度 + 低判断密度是假模仿，不是 HansBug 文风。
+
+## C 级：必须阻断
+
+出现 C 级问题时，不能让文章以“文风已达标”的名义继续过关。PR review 里必须明确列出证据和修复方向。
+
+### 缺少核心判断
+
+识别信号：全文只有“介绍”“总结”“值得注意”，但看不出作者赞成什么、反对什么、为什么这样判断。
+
+修复方向：在前三段补主问题、边界和核心判断；后文围绕判断展开，而不是继续堆资料。
+
+### AI 式正确废话
+
+识别信号：每句话都安全、平整、正确，但换一个作者名字也成立；“总体而言”“可以看出”“具有重要意义”频繁出现，却没有作者现场和工程取舍。
+
+修复方向：删掉空泛总结，补具体问题链路、失败方式、判断坐标和可操作改法。
+
+### 编造作者经历
+
+识别信号：用户没有提供材料，文中却出现“我在某项目里”“我们开会时”“当时课程现场”“我曾经负责”之类第一手叙述。
+
+修复方向：改成“这里需要作者补真实经历 / 真实环境 / 具体案例”，或改写为非第一手、可验证的公开事实。Skill 只能复刻表达方式，不能替作者制造人生。
+
+### 无边界感
+
+识别信号：技术文不说明版本、环境、适用场景、失败条件；把一次经验写成普遍真理。
+
+修复方向：补“本文解决什么 / 不解决什么”、前置条件、失败方式和不适用场景。边界不是免责声明，而是判断的一部分。
+
+### 高口癖密度 + 低判断密度
+
+识别信号：“笔者”“好吧”“咳咳”“2333”很多，但没有问题定义、概念拆分、工程取舍和结尾盖章。
+
+修复方向：先删口癖，重建判断主线。等骨架站住后，再恢复少量松弛表达。
+
+### 使用 holdout / negative 样本做正向证据
+
+识别信号：把 `sampleRole: negative` 或 `holdoutForDryRun: true` 的样本写成“应学习的正向文风来源”。
+
+修复方向：只使用 `participatesInProfile: true` 的样本做正向对照；negative 只能做反例，holdout 留给 forward-test。
+
+## I 级：重要返工
+
+I 级问题不一定单独阻断发布，但如果一篇文章集中出现多个 I，应视为整体未 ready。
+
+### 宏观结构松散
+
+识别信号：有二级标题，但章节只是并列堆料；看不出从现象到本质、从实现到取舍、从经历到方法论的推进。
+
+修复方向：重新安排章节功能，让每一节都服务于核心判断。
+
+### 结尾没有盖章
+
+识别信号：最后只写“感谢阅读”“先写到这里”“以上就是全部内容”。
+
+修复方向：回到开头问题，把判断再抬高半层，用一句更硬的话收住。
+
+### 概念拆分不足
+
+识别信号：文章使用“好用”“稳定”“效率高”之类词，但没有拆开评价标准。
+
+修复方向：补“不是 A，而是 B”“看起来是 X，本质是 Y”这类真实辨析，并说明为什么这个拆分影响结论。
+
+### 资料搬运腔
+
+识别信号：大段复述官方资料，作者只是串联信息。
+
+修复方向：删掉和主问题无关的资料，只保留支撑判断的部分，并补作者自己的坐标系。
+
+## M 级：轻微建议
+
+M 级不阻塞，但能让文章更像本人。
+
+- 个别段落太工整，可以增加一点长短句摆幅。
+- 某个标题只写“背景”“方案”，可以改成带判断的标题。
+- 某处锋利句略软，可以在事实后补一句落锤。
+- 读者引导不足，可以补一句“如果只关心配置，先看这一节”。
+- 个别口癖略多，可以删到只剩必要调味。
+
+## 事实 / 经历来源评分轴
+
+这一轴单独看，因为它是最容易被 AI 写坏、也最不能糊弄的部分。
+
+| 等级 | 判定 | 处理 |
+|---|---|---|
+| C | 编造作者没有提供的第一手项目、课程、会议、对话、内部决策。 | 阻断；改为占位请求或删除。 |
+| I | 经验存在但来源不清，无法判断是作者经历、公开事实还是推测。 | 要求补来源、补上下文或降格为推测。 |
+| M | 来源基本清楚，但和核心判断连接弱。 | 建议压缩经历，补它为什么支撑判断。 |
+| Pass | 经验来源清楚，且能自然导向方法论或工程取舍。 | 保留。 |
+
+审稿时不要被“写得像真的”骗过去。越像第一手现场，越需要来源站得住。
+
+
+## 机械 gate 的已定口径
+
+`check_hansbug_voice.py` 的规则必须和本 rubric 保持同一套口径：
+
+- 合法结尾节名不只允许 `总结`，也允许 `反思`、`展望`、`方法论`、`收束`、`结尾`、`盖章` 等明显承担收束功能的标题；判断重点是最后一节是否回到主问题并抬高到长期维护、工程取舍或方法论。
+- 三段式 quick-start 引用块不占用核心判断检测窗口；机械 gate 应跳过开头 blockquote / fenced code 后再看正文前部是否有判断。否则本站自己的固定开头模板会反过来被误杀。
+- AI 腔检测必须结合篇幅。短文中密集出现“总体而言 / 值得注意的是 / 可以看出”等词是 C 级风险；长文中偶发这些词不应直接阻断，除非密度已经足以把作者判断稀释掉。
+- 第一人称经历的来源豁免必须是局部的：只有同段或邻近上下文明确写出“用户提供 / 作者提供 / 据材料 / 公开链接 / sourceUrl”等来源，才可以放行。`需要作者补充`、`需作者确认` 不是来源，只能说明还不能写成确定经历。
+- `blockingFindings` 是机器消费的阻断总表，必须包含所有 `severity: C` 的 finding；专项数组只是分类视图，可以重复包含同一 finding。
+
+这些口径不是为了让脚本假装能判断完整文风，而是为了避免最硬的 gate 自己先变成糊弄式流程。
+
+## 审稿输出格式
+
+建议每次审稿按下面格式输出：
+
+```text
+身份：<codex reviewer / claude reviewer / deepseek reviewer / 主 session>
+结论：C=<数量> / I=<数量> / M=<数量>
+
+C 级问题：
+- [code] 位置 / 证据：...
+  修复建议：...
+
+I 级问题：
+- [code] 位置 / 证据：...
+  修复建议：...
+
+M 级建议：
+- [code] 位置 / 证据：...
+  修复建议：...
+```
+
+如果没有 C/I，也要明确写“未发现阻塞项”。不要只说“整体不错”，那对后续迭代没有价值。
+
+## 与机械 gate 的关系
+
+`check_hansbug_voice.py` 只做粗筛：AI 腔、口癖堆砌、宏观结构缺口、样本引用边界、无来源经历、reference 摘录合规等。它的 `score` 不是文风相似度，只是粗筛健康度。脚本通过，不代表文章一定像；脚本失败，则必须先处理 C 级 finding。
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+codex
+脚本读取到一半，还需要看完后半部分，特别是它如何判 `ai-cliche`、`catchphrase-without-judgement`、`missing-boundary` 和输出字段。然后我会把用户给的草稿通过临时文件跑一次；临时文件只放在 `/tmp`，不碰仓库。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '261,620p' agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+def detect_ai_cliches(text: str) -> list[Finding]:
+    hits = count_terms(text, AI_CLICHE_TERMS)
+    findings: list[Finding] = []
+    total_hits = sum(hits.values())
+    cjk = max(count_cjk(text), 1)
+    dense_short_text = cjk < 1200 and (len(hits) >= 3 or total_hits >= 4)
+    dense_long_text = cjk >= 1200 and total_hits / cjk >= 0.006
+    if dense_short_text or dense_long_text:
+        findings.append(
+            make_finding(
+                "ai-cliche-generic-summary",
+                "C",
+                "文稿出现 AI 式正确废话和泛泛总结。",
+                "、".join(f"{k}×{v}" for k, v in hits.items()),
+                "删掉空泛总结，补主问题、核心判断、工程取舍和具体失败方式。",
+            )
+        )
+    return findings
+
+
+def detect_core_judgement(text: str) -> list[Finding]:
+    first_part = get_intro_window(text)
+    density = judgement_density(first_part)
+    has_conclusion = any(term in first_part for term in ["先说结论", "核心判断", "本文解决", "本文真正", "归根结底"])
+    if density < 2 and not has_conclusion:
+        return [
+            make_finding(
+                "missing-core-judgement",
+                "C",
+                "前三段附近缺少清楚的核心判断。",
+                first_part,
+                "在开头补主问题、边界和作者判断，不要只介绍本文会讲什么。",
+            )
+        ]
+    return []
+
+
+def detect_catchphrase_stuffing(text: str) -> list[Finding]:
+    hits = count_terms(text, CATCHPHRASE_TERMS)
+    total = sum(hits.values())
+    density = judgement_density(text)
+    cjk = max(count_cjk(text), 1)
+    if total >= 7 and (density < 5 or total / cjk > 0.015):
+        return [
+            make_finding(
+                "catchphrase-without-judgement",
+                "C",
+                "口癖密度过高，但判断密度不足。",
+                "、".join(f"{k}×{v}" for k, v in hits.items()),
+                "先删口癖，重建问题定义、边界、工程取舍和结尾盖章。",
+            )
+        ]
+    return []
+
+
+def detect_macro_structure(text: str) -> list[Finding]:
+    findings: list[Finding] = []
+    headings = list(H2_RE.finditer(text))
+    heading_names = [match.group(1).strip() for match in headings]
+    if len(heading_names) < 2:
+        findings.append(
+            make_finding(
+                "missing-h2-structure",
+                "C",
+                "缺少稳定的二级标题结构。",
+                f"检测到 {len(heading_names)} 个二级标题。",
+                "至少拆出问题定义、方案分析、边界 / 坑点、总结等章节。",
+            )
+        )
+    boundary_headings = [heading for heading in heading_names if any(term in heading for term in ["边界", "反例", "例外", "坑点", "适用"])]
+    has_boundary_statement = "不解决" in text or "不适用" in text or "失败方式" in text
+    if not boundary_headings and not has_boundary_statement:
+        findings.append(
+            make_finding(
+                "missing-boundary-section",
+                "C",
+                "缺少边界、适用场景或失败方式说明。",
+                "未发现边界类二级标题，也未命中“不解决 / 不适用 / 失败方式”等明确边界声明。",
+                "补“本文解决什么 / 不解决什么”、适用环境、失败方式和例外。",
+            )
+        )
+    last_section = text[headings[-1].start() :] if headings else text[-1000:]
+    last_heading = heading_names[-1] if heading_names else ""
+    has_closing_heading = any(term in last_heading for term in CLOSING_HEADING_TERMS)
+    has_closing_terms = has_any(last_section, CLOSING_TERMS)
+    if not (has_closing_heading and has_closing_terms):
+        findings.append(
+            make_finding(
+                "missing-closing-lift",
+                "C",
+                "结尾没有完成总结盖章或视角上升。",
+                last_section,
+                "补一个回到主问题、抬高到方法论或长期维护判断的总结 / 反思 / 展望 / 方法论类收束段。",
+            )
+        )
+    return findings
+
+
+def detect_unsupported_experience(text: str) -> list[Finding]:
+    findings: list[Finding] = []
+    for pattern in UNSUPPORTED_EXPERIENCE_PATTERNS:
+        for match in re.finditer(pattern, text):
+            context = local_context(text, match.start(), match.end())
+            if has_any(context, EXPERIENCE_SOURCE_MARKERS):
+                continue
+            findings.append(
+                make_finding(
+                    "unsupported-first-person-experience",
+                    "C",
+                    "疑似无来源第一人称项目 / 课程 / 会议现场。",
+                    context,
+                    "补作者提供的真实来源，或改成需要作者补充的占位，不要写成确定经历。",
+                )
+            )
+            return findings
+    return findings
+
+
+def detect_missing_sample_comparison(sample_ids: list[str]) -> list[Finding]:
+    if sample_ids:
+        return []
+    return [
+        make_finding(
+            "missing-sample-comparison",
+            "C",
+            "候选稿没有声明任何正向样本对照。",
+            "未找到 hansbug-voice-samples 注释或 sample ids 声明。",
+            "在草稿中用 HTML 注释声明实际对照的正向样本，例如 <!-- hansbug-voice-samples: cnblogs-8701447 -->。",
+        )
+    ]
+
+
+def load_lint_module(skill_root: Path):
+    script = skill_root / "scripts" / "lint_voice_references.py"
+    spec = importlib.util.spec_from_file_location("hansbug_voice_lint", script)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"无法加载 {script}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)  # type: ignore[union-attr]
+    return module
+
+
+def lint_references(skill_root: Path, references_dir: Path) -> list[Finding]:
+    try:
+        module = load_lint_module(skill_root)
+        if not hasattr(module, "lint_references"):
+            raise RuntimeError("lint_voice_references.py 缺少 lint_references(root) 函数")
+        errors = module.lint_references(references_dir)
+    except Exception as exc:  # pragma: no cover - defensive, still returns JSON.
+        return [
+            make_finding(
+                "reference-lint-failed",
+                "C",
+                "reference 摘录扫描执行失败。",
+                str(exc),
+                "先确保 lint_voice_references.py 可运行，再修复 references 目录。",
+            )
+        ]
+    if not errors:
+        return []
+    return [
+        make_finding(
+            "reference-lint-failed",
+            "C",
+            "reference 摘录扫描发现违规内容。",
+            " | ".join(errors),
+            "按 lint_voice_references.py 的错误提示修复 sourceUrl、purpose、UTF-8 或摘录长度。",
+        )
+    ]
+
+
+def bucket_findings(findings: list[Finding]) -> dict[str, list[Finding]]:
+    buckets = {
+        "blockingFindings": [],
+        "warnings": [],
+        "missingMacroSections": [],
+        "overusedMicroPatterns": [],
+        "aiClicheHits": [],
+        "possibleUnsupportedExperienceClaims": [],
+    }
+    for finding in findings:
+        if finding.severity == "C":
+            buckets["blockingFindings"].append(finding)
+        else:
+            buckets["warnings"].append(finding)
+
+        if finding.code.startswith("missing-") and finding.code in {"missing-h2-structure", "missing-boundary-section", "missing-closing-lift"}:
+            buckets["missingMacroSections"].append(finding)
+        elif finding.code == "catchphrase-without-judgement":
+            buckets["overusedMicroPatterns"].append(finding)
+        elif finding.code.startswith("ai-cliche"):
+            buckets["aiClicheHits"].append(finding)
+        elif finding.code == "unsupported-first-person-experience":
+            buckets["possibleUnsupportedExperienceClaims"].append(finding)
+    return buckets
+
+
+def calculate_score(findings: list[Finding]) -> int:
+    score = 100
+    for finding in findings:
+        if finding.severity == "C":
+            score -= 18
+        elif finding.severity == "I":
+            score -= 9
+        else:
+            score -= 3
+    return max(0, min(100, score))
+
+
+def build_report(markdown_path: Path, skill_root: Path, manifest_path: Path, references_dir: Path) -> dict[str, Any]:
+    findings: list[Finding] = []
+    manifest, manifest_findings = load_manifest(manifest_path)
+    findings.extend(manifest_findings)
+    sources_by_id = get_sources_by_id(manifest)
+
+    try:
+        text = markdown_path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        findings.append(make_finding("draft-not-found", "C", "找不到待检查 Markdown 文件。", str(markdown_path), "传入正确的 Markdown 路径。"))
+        text = ""
+    except UnicodeDecodeError as exc:
+        findings.append(make_finding("draft-invalid-utf8", "C", "待检查 Markdown 不是合法 UTF-8。", f"{markdown_path}: {exc.reason}", "用 UTF-8 保存 Markdown 文件。"))
+        text = ""
+
+    body_text = normalize_draft_body(text) if text else ""
+    sample_ids = extract_declared_sample_ids(body_text)
+    matched_samples, sample_findings = validate_declared_samples(sample_ids, sources_by_id)
+    findings.extend(sample_findings)
+    findings.extend(lint_references(skill_root, references_dir))
+
+    if body_text:
+        findings.extend(detect_missing_sample_comparison(sample_ids))
+        findings.extend(detect_ai_cliches(body_text))
+        findings.extend(detect_core_judgement(body_text))
+        findings.extend(detect_catchphrase_stuffing(body_text))
+        findings.extend(detect_macro_structure(body_text))
+        findings.extend(detect_unsupported_experience(body_text))
+
+    buckets = bucket_findings(findings)
+    status = "fail" if any(f.severity == "C" for f in findings) else "pass"
+    report: dict[str, Any] = {
+        "status": status,
+        "score": calculate_score(findings),
+        "scoreMeaning": SCORE_MEANING,
+        "blockingFindings": [f.to_json() for f in buckets["blockingFindings"]],
+        "warnings": [f.to_json() for f in buckets["warnings"]],
+        "matchedSamples": matched_samples,
+        "missingMacroSections": [f.to_json() for f in buckets["missingMacroSections"]],
+        "overusedMicroPatterns": [f.to_json() for f in buckets["overusedMicroPatterns"]],
+        "aiClicheHits": [f.to_json() for f in buckets["aiClicheHits"]],
+        "possibleUnsupportedExperienceClaims": [f.to_json() for f in buckets["possibleUnsupportedExperienceClaims"]],
+    }
+    return report
+
+
+def render_text(report: dict[str, Any]) -> str:
+    title = "检查通过" if report["status"] == "pass" else "检查失败"
+    lines = [f"{title}：status={report['status']}，score={report['score']}（{report['scoreMeaning']}）"]
+    if report["matchedSamples"]:
+        ids = ", ".join(sample["id"] for sample in report["matchedSamples"])
+        lines.append(f"正向样本对照：{ids}")
+    for field in ["blockingFindings", "missingMacroSections", "overusedMicroPatterns", "aiClicheHits", "possibleUnsupportedExperienceClaims", "warnings"]:
+        items = report.get(field, [])
+        if not items:
+            continue
+        lines.append(f"\n{field}:")
+        for item in items:
+            lines.append(f"- [{item['severity']}] {item['code']}：{item['message']}；建议：{item['fixHint']}")
+    return "\n".join(lines) + "\n"
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="对 HansBug 中文博客文风草稿做确定性粗筛；score 不是文风相似度，只是粗筛健康度。"
+    )
+    parser.add_argument("markdown", help="要检查的 Markdown 草稿路径")
+    parser.add_argument("--skill-root", default=str(Path(__file__).resolve().parents[1]), help="hansbug-writing-voice skill 根目录")
+    parser.add_argument("--manifest", default=str(DEFAULT_MANIFEST), help="sample-manifest.json 路径")
+    parser.add_argument("--references-dir", default="", help="要执行摘录 lint 的 references 目录；默认使用 skill-root/references")
+    parser.add_argument("--format", choices=["json", "text"], default="text", help="输出格式：json 供机器消费，text 供人读")
+    parser.add_argument("--pretty", action="store_true", help="JSON 输出使用缩进，便于 PR 审阅")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    skill_root = Path(args.skill_root).resolve()
+    manifest_path = Path(args.manifest).resolve()
+    references_dir = Path(args.references_dir).resolve() if args.references_dir else skill_root / "references"
+    markdown_path = Path(args.markdown).resolve()
+
+    report = build_report(markdown_path, skill_root, manifest_path, references_dir)
+    if args.format == "json":
+        print(json.dumps(report, ensure_ascii=False, indent=2 if args.pretty else None, sort_keys=True))
+    else:
+        print(render_text(report), end="")
+    return 0 if report["status"] == "pass" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+我已经看完脚本逻辑：它会把 AI 腔、核心判断缺失、口癖堆砌、边界缺失和结尾盖章缺失都归到 C 级粗筛项。下面我用进程替代把原稿送进去跑，不在仓库里落文件。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \\
+  <(printf '%s\\n' '<"'!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->'"' '' '## 背景' '' '咳咳，笔者认为这个工具总体而言具有重要意义。好吧，可以看出它能够提升效率。值得注意的是，随着技术的发展，这类工具有积极意义，也有参考价值。' '' '## 方案' '' '用户可以按照步骤操作，首先准备环境，然后执行命令，最后不断优化。咳咳，笔者觉得这件事很好。' '' '## 总结' '' '综上所述，这个工具值得使用。2333。') \\
+  --skill-root agent-skills/hansbug-writing-voice \\
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \\
+  --format json \\
+  --pretty" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+hook: PostToolUse
+ exited 1 in 101ms:
+hook: PostToolUse Completed
+codex
+进程替代不适合这个脚本，因为脚本会把路径 resolve 成不可读的 pipe 名称；我会用 `/tmp` 临时 Markdown 跑完后删除。另按 PR-3 的说明，改写/审阅还要参考 `prompt-recipes.md` 的任务输出约定，我会只读取这个 recipe 文件，不扩展到无关资料。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' agent-skills/hansbug-writing-voice/references/prompt-recipes.md" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+# HansBug 文风 Prompt Recipes
+
+本文件提供给 Codex / Claude 使用 HansBug 中文博客文风 Skill 时的固定任务配方。它的目的不是让每次输出都长一个样，而是让 agent 在构思、写作、改写、审稿和机械检查时，稳定地读取正确材料、暴露事实缺口、避免编造经历，并把输出落到可审阅的结构上。
+
+所有 recipe 默认面向中文写作。代码、路径、JSON key、CLI 参数可以保持英文；人读说明、审稿意见和写作正文默认中文。
+
+## 通用前置动作
+
+每次使用本 Skill，先做这几件事：
+
+1. 说明当前模式：构思、初稿写作、改写、风格增强、风格审稿、反向批评、检查 / CLI gate 中的哪一种。
+2. 按 `SKILL.md` 只读取当前模式需要的 references，不要默认全量加载。
+3. 如果任务涉及旧博客样本、manifest、摘录或抓取，先读 `corpus-policy.md`。
+4. 明确样本版本：当前使用 `sample-manifest.json` 的 `schemaVersion: 2`，正向样本只允许 `participatesInProfile: true`。
+5. 明确 sample ids：输出中列出实际使用的样本 id；没有样本对照时必须承认缺口。
+6. 明确最后更新：在审稿或计划中写出本次使用的日期或 PR 阶段，例如 `最后更新：2026-06-15 / PR-3`。
+7. 盘点事实缺口：把缺少作者真实经历、版本、环境、数据、链接的地方列出来。
+8. 不编造经历：没有来源时，用占位请求或降格表述，不写成作者已经经历过。
+
+## 构思
+
+### 适用场景
+
+用户只给了主题、问题或一组材料，需要先决定文章角度、读者、边界、核心判断和大纲。
+
+### 必须读取
+
+- `references/corpus-policy.md`（若涉及旧博客样本）
+- `references/sample-manifest.json`
+- `references/article-archetypes.md`
+- `references/macro-logic.md`
+- 必要时读取 `references/voice-profile.md`
+
+### 样本版本 / sample ids / 最后更新
+
+输出中必须包含：
+
+```text
+样本版本：sample-manifest schemaVersion 2
+参考 sample ids：cnblogs-8701447, ...
+最后更新：2026-06-15 / PR-3
+```
+
+sample ids 只列实际对照过的正向样本；不要把 holdout 或 negative 写进去。
+
+### 输出格式
+
+```text
+文章类型：技术实践文 / 教程 / 复盘 / 测评 / 课程总结 / 其他
+主问题：...
+不解决：...
+核心判断：...
+读者应该先看：...
+建议结构：
+1. 缘起 / 破题：...
+2. 问题定义 / 边界：...
+3. 核心判断前置：...
+4. 分维度分析：...
+5. 反例 / 坑点：...
+6. 总结盖章：...
+事实缺口：...
+```
+
+### 事实缺口与不编造经历
+
+如果用户没有提供经历，不要写“我曾经在某项目里”。应写“这里需要作者补一个真实项目现场，否则只能写成一般工程经验”。
+
+## 初稿写作
+
+### 适用场景
+
+用户要求直接写一篇新文章，或给了足够事实材料让 agent 输出完整草稿。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/article-archetypes.md`
+- `references/macro-logic.md`
+- `references/micro-patterns.md`
+- 必要时读取 `references/anti-patterns.md`
+
+### 样本版本 / sample ids / 最后更新
+
+在写作前的简短说明中列出样本版本、sample ids 和最后更新；正文里不必硬塞这些元信息，除非文章本身需要说明写作依据。
+
+### 输出格式
+
+先给一段“写作前确认”，再给正文：
+
+```text
+写作前确认：
+- 样本版本：...
+- 参考 sample ids：...
+- 本文解决：...
+- 本文不解决：...
+- 事实缺口：...
+
+--- 正文 ---
+```
+
+正文必须在前三段内进入主问题和核心判断。技术实践文如果适合三段式 quick-start，应按 `CLAUDE.md / AGENTS.md` 的固定模板写。
+
+### 事实缺口与不编造经历
+
+缺少事实时，可以写“【需要作者补充：这里最好放一个真实踩坑经历】”，不能自动补会议、项目、课程现场。
+
+## 改写
+
+### 适用场景
+
+用户已有草稿，希望在不改变事实和含义的前提下更像 HansBug。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/micro-patterns.md`
+- `references/anti-patterns.md`
+- `references/review-rubric.md`
+
+### 样本版本 / sample ids / 最后更新
+
+改写说明中列出参考样本和最后更新；如果没有样本对照，只能做一般中文技术文润色，不能声称已完成 HansBug 文风贴合。
+
+### 输出格式
+
+```text
+改写原则：
+- 保留事实：...
+- 调整结构：...
+- 加强判断：...
+- 不碰内容：...
+
+改写稿：...
+
+改动说明：
+- ...
+```
+
+### 事实缺口与不编造经历
+
+原文没有的经历不要新增。原文含糊的第一人称经历，应标记“需作者确认”，不要越写越真。
+
+## 风格增强
+
+### 适用场景
+
+文章结构基本成立，只需要增加作者判断、段落落锤、概念拆分、读者引导和适度松弛感。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/micro-patterns.md`
+- `references/macro-logic.md`
+
+### 样本版本 / sample ids / 最后更新
+
+列出本次对照的正向样本 id；如果只增强局部段落，也要说明没有做全文审稿。
+
+### 输出格式
+
+```text
+增强目标：判断前置 / 概念拆分 / 工程取舍 / 结尾盖章 / 读者引导
+原段落问题：...
+增强后文本：...
+为什么这样改：...
+```
+
+### 事实缺口与不编造经历
+
+风格增强不能增加事实强度。可以把“可能”写得更清楚，不能把“可能”写成“我亲历”。
+
+## 风格审稿
+
+### 适用场景
+
+用户要求检查文章像不像 HansBug、是否有 AI 腔、是否符合 `CLAUDE.md / AGENTS.md` 和本 Skill。
+
+### 必须读取
+
+- `references/voice-profile.md`
+- `references/anti-patterns.md`
+- `references/review-rubric.md`
+- 必要时读取 `references/macro-logic.md`
+
+### 样本版本 / sample ids / 最后更新
+
+审稿意见开头必须写：
+
+```text
+样本版本：sample-manifest schemaVersion 2
+对照 sample ids：...
+最后更新：2026-06-15 / PR-3
+```
+
+### 输出格式
+
+按 C/I/M 输出：
+
+```text
+结论：C=0 / I=1 / M=2
+C 级问题：...
+I 级问题：...
+M 级建议：...
+建议修改顺序：...
+```
+
+### 事实缺口与不编造经历
+
+把无来源第一人称经历单独列出。审稿时不要因为段落“很有味道”就放过事实风险。
+
+## 反向批评
+
+### 适用场景
+
+需要轻度对抗性 review，专门找假模仿、空泛判断、样本误用、事实编造和机械 gate 漏洞。
+
+### 必须读取
+
+- `references/anti-patterns.md`
+- `references/review-rubric.md`
+- `references/sample-manifest.json`
+- 必要时读取 `references/micro-patterns.md`
+
+### 样本版本 / sample ids / 最后更新
+
+必须写明检查了哪些 sample ids，尤其要确认没有使用 holdout / negative 做正向证据。
+
+### 输出格式
+
+```text
+对抗性结论：...
+最像假模仿的地方：...
+最可能编造事实的地方：...
+最可能误用样本的地方：...
+至少一个可复现反例：...
+C/I/M 列表：...
+```
+
+### 事实缺口与不编造经历
+
+优先攻击“写得像真的但没有来源”的段落。宁可要求作者补证据，也不要为了顺滑放行。
+
+## 检查 / CLI gate
+
+### 适用场景
+
+需要确定性粗筛 Markdown 草稿，或需要在 PR 中证明明显问题会被拦住。
+
+### 必须读取
+
+- `references/corpus-policy.md`
+- `references/sample-manifest.json`
+- `references/review-rubric.md`
+- `scripts/check_hansbug_voice.py`
+- 必要时运行 `scripts/lint_voice_references.py`
+
+### 样本版本 / sample ids / 最后更新
+
+CLI 输出里的 `matchedSamples` 只允许来自 `participatesInProfile: true` 的样本。人工报告中仍需写明本次 manifest 路径和最后更新。
+
+
+hook: PostToolUse
+exec
+/bin/bash -lc 'tmp=$(mktemp /tmp/hansbug-ai-cliche.XXXXXX.md)
+printf '"'%s\\n' '<"'!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->'"' '' '## 背景' '' '咳咳，笔者认为这个工具总体而言具有重要意义。好吧，可以看出它能够提升效率。值得注意的是，随着技术的发展，这类工具有积极意义，也有参考价值。' '' '## 方案' '' '用户可以按照步骤操作，首先准备环境，然后执行命令，最后不断优化。咳咳，笔者觉得这件事很好。' '' '## 总结' '' '综上所述，这个工具值得使用。2333。' > \""'$tmp"
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py '"\\
+  \""'$tmp" '"\\
+  --skill-root agent-skills/hansbug-writing-voice \\
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \\
+  --format json \\
+  --pretty
+status="'$?
+rm -f "$tmp"
+exit $status' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+hook: PostToolUse
+hook: PostToolUse Completed
+ exited 1 in 110ms:
+hook: PostToolUse Completed
+codex
+原稿的 CLI 粗筛已经给出可复核结果：`status=fail`，C 级包括 `ai-cliche-generic-summary`、`missing-core-judgement`、`missing-boundary-section`。我现在把修复稿也做一次同样的临时粗筛，确认它至少不再触发这些硬阻断。
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'tmp=$(mktemp /tmp/hansbug-fixed.XXXXXX.md)
+cat > "$tmp" <<'"'EOF'
+<"'!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+
+## 这不是工具评测，是 issue #25 的反向压力测试
+
+这段文字首先要钉清楚身份：它是 issue #25 的反向压力测试，不是某个具体工具的正式评测。它要测的是一件很具体的事：当草稿故意堆上“咳咳”“笔者”“好吧”“2333”，但完全不交代问题、边界和判断时，文风 gate 能不能把这种假模仿拦下来。
+
+## 先说结论：口癖不是文风骨架
+
+原稿的问题不是“不够像 HansBug”，而是用高口癖密度掩盖了低判断密度。它看起来有作者口吻，实际上没有作者判断；看起来在评价工具，实际上只是在重复“有意义、能提升效率、值得使用”这类 AI 腔正确废话。
+
+说白了，这不是技术文章，只是一张贴了旧博客贴纸的空白表格。
+
+## 边界先钉住：缺事实就别演现场
+
+本文解决的是这段草稿的 AI 腔修复问题，不解决某个真实工具的功能评测，也不判断它在具体项目里的效果。输入里没有工具名称、版本、环境、命令、失败案例和实测结果，所以这里不能写成“我用过”“我们项目里验证过”这类第一手现场。
+
+需要作者补充的事实包括：工具是什么、解决哪条链路、在哪个环境下使用、成功和失败各是什么表现。没有这些材料，任何具体使用评价都只能先停在占位层面。
+
+## 修复方式：先补判断，再谈步骤
+
+真正的修复方式不是再多塞几个“笔者认为”。应该先把主问题写出来：这个工具到底解决的是部署、检索、生成、审阅，还是流程协作？再给评价坐标：效率提升体现在哪，维护成本是否上升，失败时谁来兜底，长期使用会不会把问题藏得更深。
+
+只有这些坐标立住，“值得使用”才可能从口号变成判断。否则所谓方案就只是“准备环境、执行命令、不断优化”的三段式糊弄，读者照着做完也不知道自己到底赢在哪、输在哪。
+
+## 总结：口吻只是表层，取舍才是正文
+
+因此，修复后的核心判断应当是：如果一个工具只能让演示流程更顺，但不能降低真实维护成本，那它最多算顺手，不算可靠；如果它能把重复劳动收束成可检查、可回滚、可复用的链路，那才值得进入长期工作流。
+
+归根结底，issue #25 测的不是某个词能不能出现，而是 agent 会不会把词当成文风本体。口癖可以有，但只能做调味；判断、边界和取舍才是骨架。没有骨架，再像的口吻也只是糊墙纸。
+EOF
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py '"\\
+  \""'$tmp" '"\\
+  --skill-root agent-skills/hansbug-writing-voice \\
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \\
+  --format json \\
+  --pretty
+status="'$?
+rm -f "$tmp"
+exit $status' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+hook: PostToolUse
+ exited 1 in 101ms:
+hook: PostToolUse Completed
+codex
+修复稿第一次粗筛只剩一个 C：脚本把“我用过 / 我们项目里验证过”这类反例文字当成疑似无来源经历，这正是它的保守边界。我要把这句改成不含第一手叙述外形的表达，再跑一遍，避免为了说明边界反而踩中边界。
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "python3 - <<'PY'
+import json
+from pathlib import Path
+p=Path('agent-skills/hansbug-writing-voice/references/sample-manifest.json')
+data=json.loads(p.read_text(encoding='utf-8'))
+print('schemaVersion:', data.get('schemaVersion'))
+for sid in ['cnblogs-8701447','cnblogs-14711869']:
+    for s in data.get('sources', []):
+        if s.get('id') == sid:
+            print(json.dumps({k:s.get(k) for k in ['id','title','sampleRole','participatesInProfile','holdoutForDryRun','articleType']}, ensure_ascii=False))
+PY" in /home/hansbug/sensetime-projects/hansbug-tech-blog
+ succeeded in 0ms:
+schemaVersion: 2
+{"id": "cnblogs-8701447", "title": "【技巧】Java工程中的Debug信息分级输出接口及部署模式", "sampleRole": "core", "participatesInProfile": true, "holdoutForDryRun": false, "articleType": "technical-practice"}
+{"id": "cnblogs-14711869", "title": "【项目管理】关于Issue/Milestone的使用指导", "sampleRole": "core", "participatesInProfile": true, "holdoutForDryRun": false, "articleType": "technical-practice"}
+
+hook: PostToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'tmp=$(mktemp /tmp/hansbug-fixed.XXXXXX.md)
+printf '"'%s\\n' \\
+'<"'!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->'"' \\
+'' \\
+'## 这不是工具评测，是 issue #25 的反向压力测试' \\
+'' \\
+'这段文字首先要钉清楚身份：它是 issue #25 的反向压力测试，不是某个具体工具的正式评测。它要测的是一件很具体的事：当草稿故意堆上“咳咳”“笔者”“好吧”“2333”，但完全不交代问题、边界和判断时，文风 gate 能不能把这种假模仿拦下来。' \\
+'' \\
+'## 先说结论：口癖不是文风骨架' \\
+'' \\
+'原稿的问题不是“不够像 HansBug”，而是用高口癖密度掩盖了低判断密度。它看起来有作者口吻，实际上没有作者判断；看起来在评价工具，实际上只是在重复“有意义、能提升效率、值得使用”这类 AI 腔正确废话。' \\
+'' \\
+'说白了，这不是技术文章，只是一张贴了旧博客贴纸的空白表格。' \\
+'' \\
+'## 边界先钉住：缺事实就别演现场' \\
+'' \\
+'本文解决的是这段草稿的 AI 腔修复问题，不解决某个真实工具的功能评测，也不判断它在具体项目里的效果。输入里没有工具名称、版本、环境、命令、失败案例和实测结果，所以这里不能把它写成已经亲测、已经上线验证、已经形成稳定收益的第一手结论。' \\
+'' \\
+'需要作者补充的事实包括：工具是什么、解决哪条链路、在哪个环境下使用、成功和失败各是什么表现。没有这些材料，任何具体使用评价都只能先停在占位层面。' \\
+'' \\
+'## 修复方式：先补判断，再谈步骤' \\
+'' \\
+'真正的修复方式不是再多塞几个“笔者认为”。应该先把主问题写出来：这个工具到底解决的是部署、检索、生成、审阅，还是流程协作？再给评价坐标：效率提升体现在哪，维护成本是否上升，失败时谁来兜底，长期使用会不会把问题藏得更深。' \\
+'' \\
+'只有这些坐标立住，“值得使用”才可能从口号变成判断。否则所谓方案就只是“准备环境、执行命令、继续改进”的三段式糊弄，读者照着做完也不知道自己到底赢在哪、输在哪。' \\
+'' \\
+'## 总结：口吻只是表层，取舍才是正文' \\
+'' \\
+'因此，修复后的核心判断应当是：如果一个工具只能让演示流程更顺，但不能降低真实维护成本，那它最多算顺手，不算可靠；如果它能把重复劳动收束成可检查、可回滚、可复用的链路，那才值得进入长期工作流。' \\
+'' \\
+'归根结底，issue #25 测的不是某个词能不能出现，而是 agent 会不会把词当成文风本体。口癖可以有，但只能做调味；判断、边界和取舍才是骨架。没有骨架，再像的口吻也只是糊墙纸。' \\
+> \""'$tmp"
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py '"\\
+  \""'$tmp" '"\\
+  --skill-root agent-skills/hansbug-writing-voice \\
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \\
+  --format json \\
+  --pretty
+status="'$?
+rm -f "$tmp"
+exit $status' in /home/hansbug/sensetime-projects/hansbug-tech-blog
+hook: PostToolUse
+hook: PostToolUse Completed
+ succeeded in 109ms:
+hook: PostToolUse Completed
+codex
+## draft
+
+入口确认：已读取并遵守 `CLAUDE.md` 与 `agent-skills/hansbug-writing-voice/SKILL.md`。  
+样本版本：`sample-manifest schemaVersion 2`。对照 sample ids：`cnblogs-8701447`, `cnblogs-14711869`。最后更新：`2026-06-16 / PR-5 CLI forward-test`。
+
+原稿判定：C=3 / I=1 / M=1
+
+C 级问题：
+- `ai-cliche-generic-summary`：存在“总体而言 / 值得注意的是 / 可以看出 / 具有重要意义 / 综上所述 / 积极意义 / 参考价值 / 随着技术的发展”等 AI 腔正确废话。
+- `missing-core-judgement`：没有说明 issue #25 到底在测什么，也没有核心判断。
+- `missing-boundary-section`：没有边界，不说明本文解决什么、不解决什么。
+
+I 级问题：
+- `low-judgement-density`：高口癖密度 + 低判断密度，口吻像在模仿，骨架却没有站起来。
+
+M 级建议：
+- 标题“背景 / 方案 / 总结”过于说明书化，可以改成带判断的标题。
+
+修复稿：
+
+<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-14711869 -->
+
+## 这不是工具评测，是 issue #25 的反向压力测试
+
+这段文字首先要钉清楚身份：它是 issue #25 的反向压力测试，不是某个具体工具的正式评测。它要测的是一件很具体的事：当草稿故意堆上“咳咳”“笔者”“好吧”“2333”，但完全不交代问题、边界和判断时，文风 gate 能不能把这种假模仿拦下来。
+
+## 先说结论：口癖不是文风骨架
+
+原稿的问题不是“不够像 HansBug”，而是用高口癖密度掩盖了低判断密度。它看起来有作者口吻，实际上没有作者判断；看起来在评价工具，实际上只是在重复“有意义、能提升效率、值得使用”这类 AI 腔正确废话。
+
+说白了，这不是技术文章，只是一张贴了旧博客贴纸的空白表格。
+
+## 边界先钉住：缺事实就别演现场
+
+本文解决的是这段草稿的 AI 腔修复问题，不解决某个真实工具的功能评测，也不判断它在具体项目里的效果。输入里没有工具名称、版本、环境、命令、失败案例和实测结果，所以这里不能把它写成已经亲测、已经上线验证、已经形成稳定收益的第一手结论。
+
+需要作者补充的事实包括：工具是什么、解决哪条链路、在哪个环境下使用、成功和失败各是什么表现。没有这些材料，任何具体使用评价都只能先停在占位层面。
+
+## 修复方式：先补判断，再谈步骤
+
+真正的修复方式不是再多塞几个“笔者认为”。应该先把主问题写出来：这个工具到底解决的是部署、检索、生成、审阅，还是流程协作？再给评价坐标：效率提升体现在哪，维护成本是否上升，失败时谁来兜底，长期使用会不会把问题藏得更深。
+
+只有这些坐标立住，“值得使用”才可能从口号变成判断。否则所谓方案就只是“准备环境、执行命令、继续改进”的三段式糊弄，读者照着做完也不知道自己到底赢在哪、输在哪。
+
+## 总结：口吻只是表层，取舍才是正文
+
+因此，修复后的核心判断应当是：如果一个工具只能让演示流程更顺，但不能降低真实维护成本，那它最多算顺手，不算可靠；如果它能把重复劳动收束成可检查、可回滚、可复用的链路，那才值得进入长期工作流。
+
+归根结底，issue #25 测的不是某个词能不能出现，而是 agent 会不会把词当成文风本体。口癖可以有，但只能做调味；判断、边界和取舍才是骨架。没有骨架，再像的口吻也只是糊墙纸。
+
+## review
+
+修复稿自审：C=0 / I=0 / M=1
+
+C=0：未编造作者真实经历、项目现场、课程现场、会议经历或第一手态度；已明确 issue #25、主问题、边界、核心判断和总结盖章。机械粗筛 `check_hansbug_voice.py` 结果为 `status=pass, score=100`，且 `blockingFindings=[]`。
+
+I=0：没有继续保留“高口癖密度 + 低判断密度”的结构；AI 腔正确废话已删除，判断主线已前置。
+
+M 级建议：
+- 这仍是一段 forward-test 修复稿，不是真实文章成稿。若要发布为博客正文，还需要作者补充真实工具名称、版本、环境、失败案例和实际收益。
+
+## revision
+
+根据自审做过一次修订：初版修复稿里用“我用过 / 我们项目里验证过”举反例，触发了脚本的无来源第一手经历 C 级风险；已改成“已经亲测、已经上线验证、已经形成稳定收益的第一手结论”，避免把反例写成疑似作者经历。
+
+最终没有修改仓库文件，没有访问 `.cache/hansbug-writing-voice/corpus/`，也没有启动 sub-subagent。
+hook: Stop
+hook: Stop Completed
+tokens used
+93,878
