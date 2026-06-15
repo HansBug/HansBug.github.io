@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "stage": "pr-3-invalid-positive-role-fixture",
+  "sources": [
+    {
+      "id": "cnblogs-14789352",
+      "title": "holdout 被错误放进正向画像",
+      "url": "https://www.cnblogs.com/HansBug/p/14789352.html",
+      "year": 2021,
+      "articleType": "review-commentary",
+      "sampleRole": "holdout",
+      "useFor": ["macro-logic"],
+      "participatesInProfile": true,
+      "holdoutForDryRun": true,
+      "cacheKey": "cnblogs-14789352",
+      "sourceSelector": "#cnblogs_post_body",
+      "notes": "PR-3 fixture：holdout 不得参与正向画像。"
+    },
+    {
+      "id": "cnblogs-16096691",
+      "title": "negative 被错误放进正向画像",
+      "url": "https://www.cnblogs.com/HansBug/p/16096691.html",
+      "year": 2022,
+      "articleType": "notice",
+      "sampleRole": "negative",
+      "useFor": ["anti-pattern-boundary"],
+      "participatesInProfile": true,
+      "holdoutForDryRun": false,
+      "cacheKey": "cnblogs-16096691",
+      "sourceSelector": "#cnblogs_post_body",
+      "notes": "PR-3 fixture：negative 不得参与正向画像。"
+    }
+  ]
+}

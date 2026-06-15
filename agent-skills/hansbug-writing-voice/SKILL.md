@@ -25,11 +25,11 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 
 | 模式 | 何时使用 | 读取这些 references / scripts |
 |---|---|---|
-| `构思` | 规划新文章，决定角度、读者、结构、边界和核心判断。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/article-archetypes.md`（后续 PR 占位）; `references/macro-logic.md`（后续 PR 占位）; `references/prompt-recipes.md`（后续 PR 占位） |
-| `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`（后续 PR 占位）; `references/article-archetypes.md`（后续 PR 占位）; `references/macro-logic.md`（后续 PR 占位）; `references/micro-patterns.md`（后续 PR 占位）; `references/prompt-recipes.md`（后续 PR 占位） |
-| `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`（后续 PR 占位）; `references/micro-patterns.md`（后续 PR 占位）; `references/anti-patterns.md`（后续 PR 占位）; `references/review-rubric.md`（后续 PR 占位） |
-| `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`（后续 PR 占位）; `references/anti-patterns.md`（后续 PR 占位）; `references/review-rubric.md`（后续 PR 占位） |
-| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest 是否合规。 | `references/corpus-policy.md`; `scripts/lint_voice_references.py`; `references/review-rubric.md`（后续 PR 占位）; `scripts/check_hansbug_voice.py`（后续 PR 占位） |
+| `构思` | 规划新文章，决定角度、读者、结构、边界和核心判断。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/prompt-recipes.md` |
+| `写作` | 写一篇新文章或补一大段新章节。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/article-archetypes.md`; `references/macro-logic.md`; `references/micro-patterns.md`; `references/prompt-recipes.md` |
+| `改写` | 在保持事实和含义稳定的前提下，把已有文本改得更接近 HansBug 文风。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/micro-patterns.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+| `审阅` | 审查草稿或 PR 的文风贴合度、表达清晰度和结构合理性。 | `references/corpus-policy.md`; `references/voice-profile.md`; `references/anti-patterns.md`; `references/review-rubric.md` |
+| `检查` | 运行确定性 gate，或检查 reference / 摘录 / manifest / 派生特征是否合规。 | `references/corpus-policy.md`; `references/sample-manifest.json`; `references/derived/voice-features.json`; `scripts/lint_voice_references.py`; `scripts/fetch_voice_corpus.py`; `scripts/extract_voice_features.py`; `references/review-rubric.md`; `scripts/check_hansbug_voice.py` |
 
 ## 工作流
 
@@ -43,7 +43,7 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 8. 审阅时，把文风问题落到可执行修改或具体例子上；不要只写“感觉不像”“味道不够”这种空话。
 9. 检查时，先跑确定性脚本，再补人工文风判断。
 
-## PR-0 可用命令
+## PR-0 / PR-1 可用命令
 
 检查已提交 reference 参考资料里的摘录是否满足来源、用途、JSON 结构和长度约束（单条 `120` 个中文字、同一来源累计 `300` 个中文字）：
 
@@ -51,6 +51,42 @@ description: 围绕 HansBug 中文技术博客文风，辅助构思、写作、�
 python3 agent-skills/hansbug-writing-voice/scripts/lint_voice_references.py agent-skills/hansbug-writing-voice/references
 ```
 
-PR-0 的 lint gate 只保护摘录元数据和长度上限。旧文全文抓取、特征提取、文风 rubric 和多轮真实 CLI forward-test 都属于后续 PR。
+PR-0 的 lint gate 只保护摘录元数据和长度上限。PR-1 额外提供样本 manifest、cache-only 正文抓取脚本和机械特征提取脚本；文风 rubric、多轮真实 CLI forward-test 和最终强入口仍属于后续 PR。
 
-PR-0 的 references 参考资料默认不包含真实旧文摘录，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
+查看 PR-1 样本抓取计划，不发请求、不写 cache：
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/fetch_voice_corpus.py --dry-run --limit 3
+```
+
+抽取机械特征时，默认只向 stdout 打印 JSON；只有显式 `--write-derived` 才会覆盖 `references/derived/voice-features.json`。如果本地没有 ignored cache，可以加 `--allow-catalog-summary` 生成 smoke 级特征，但正式画像归纳仍应优先使用 `.cache/hansbug-writing-voice/corpus/` 里的正文。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary
+python3 agent-skills/hansbug-writing-voice/scripts/extract_voice_features.py --allow-catalog-summary --write-derived
+```
+
+PR-1 的派生特征只做段落长度、句长、标题模式、高频 n-gram、转场词粗统计等机械统计，不等价于文风画像。PR-2 已补充正式画像层，后续写作或审阅时，应把 `references/voice-profile.md`、`references/article-archetypes.md`、`references/micro-patterns.md`、`references/macro-logic.md` 和 `references/anti-patterns.md` 作为主要文风依据，把 `sample-manifest.json` 与 `voice-features.json` 当作样本入口和粗粒度仪表盘。
+
+PR-3 已补齐 `references/review-rubric.md`、`references/prompt-recipes.md` 和 `scripts/check_hansbug_voice.py`。构思、写作、改写、审阅时优先按 `prompt-recipes.md` 固定样本版本、sample ids、最后更新、输出格式和事实缺口；审阅时按 `review-rubric.md` 做 C/I/M 分级，不要用“感觉不像”糊弄过去。机械粗筛命令如下，`score` 只代表粗筛健康度，不是文风相似度；只要存在 C 级 finding 就必须先修。
+
+```bash
+python3 agent-skills/hansbug-writing-voice/scripts/check_hansbug_voice.py \
+  src/content/blog/example.md \
+  --skill-root agent-skills/hansbug-writing-voice \
+  --manifest agent-skills/hansbug-writing-voice/references/sample-manifest.json \
+  --format json \
+  --pretty
+```
+
+如果要给人读摘要，可以把 `--format json --pretty` 换成 `--format text`。正式 PR 中仍建议保留 JSON 结果，方便 reviewer 复核 finding code。
+
+PR-2 references 的推荐读取顺序：
+
+```text
+voice-profile.md -> article-archetypes.md -> macro-logic.md -> micro-patterns.md -> anti-patterns.md
+```
+
+不要默认全量加载所有文件。构思新文章时优先读 `article-archetypes.md` 和 `macro-logic.md`；写作或改写时再读 `voice-profile.md` 和 `micro-patterns.md`；审阅时重点读 `voice-profile.md` 与 `anti-patterns.md`。如果任务只是在检查 reference 合规性，仍然先跑 lint / test，不要把文风画像当作机械 gate。
+
+PR-0 / PR-1 / PR-2 的 references 参考资料默认不包含真实旧文全文，所以仓库内 references 目录应当默认通过该 lint gate。后续 PR 如果添加样本 manifest 或已提交摘录，仍必须对非空 references 继续运行同一个命令。
