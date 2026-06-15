@@ -293,7 +293,13 @@ def extract_text(html: str, source: SourceItem, min_chars: int) -> str:
 
 def cache_path(cache_dir: Path, source: SourceItem) -> Path:
     validate_cache_key(source.cache_key)
-    return cache_dir / f"{source.cache_key}.txt"
+    base = cache_dir.resolve()
+    candidate = (cache_dir / f"{source.cache_key}.txt").resolve()
+    try:
+        candidate.relative_to(base)
+    except ValueError as exc:
+        raise CorpusError(f"cacheKey 指向 cache 目录之外：{source.cache_key!r}") from exc
+    return candidate
 
 
 def parse_args() -> argparse.Namespace:

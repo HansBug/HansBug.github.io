@@ -1,4 +1,11 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import {
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  symlink,
+  writeFile,
+} from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { createServer } from "node:http";
 import { join } from "node:path";
@@ -260,6 +267,69 @@ describe("HansBug writing voice skill PR-1", () => {
     expect(result.stdout).not.toContain("DRY-RUN");
     expect(result.stderr).toContain("cacheKey 只能包含");
     expect(result.stderr).not.toContain("Traceback");
+  });
+
+  it("keeps fetch cache target paths inside the selected cache directory", async () => {
+    fixtureRoot = await mkdtemp(join(tmpdir(), "hansbug-voice-pr1-"));
+    const htmlPath = join(fixtureRoot, "post.html");
+    await writeFile(
+      htmlPath,
+      `<html><body><article id="cnblogs_post_body"><p>首先，这是一段足够长的 fixture 正文，用来确认 fetch 不会沿着 cache 目录里的符号链接写到目录外面。换句话说，这里验证的是 cache target 的 resolve 防御。</p></article></body></html>`,
+    );
+    const manifest = join(fixtureRoot, "manifest-symlink.json");
+    await writeFile(
+      manifest,
+      JSON.stringify(
+        {
+          sources: [
+            {
+              id: "symlink-target",
+              title: "symlink fixture",
+              url: htmlPath,
+              year: 2026,
+              articleType: "technical-practice",
+              sampleRole: "core",
+              useFor: ["macro-logic"],
+              participatesInProfile: true,
+              holdoutForDryRun: false,
+              cacheKey: "evil",
+              sourceSelector: "#cnblogs_post_body",
+              notes: "用于验证 fetch cache target 不会越界。",
+            },
+          ],
+          excerpts: [],
+        },
+        null,
+        2,
+      ),
+    );
+    const cacheDir = join(fixtureRoot, "cache");
+    await mkdir(cacheDir, { recursive: true });
+    await writeFile(
+      join(fixtureRoot, "outside.txt"),
+      "原内容不应被覆盖。",
+      "utf8",
+    );
+    await symlink(join(fixtureRoot, "outside.txt"), join(cacheDir, "evil.txt"));
+
+    const result = await runPython([
+      fetchScript,
+      "--manifest",
+      manifest,
+      "--cache-dir",
+      cacheDir,
+      "--min-chars",
+      "20",
+      "--delay",
+      "0",
+    ]);
+
+    expect(result.code).not.toBe(0);
+    expect(result.stderr).toContain("cacheKey 指向 cache 目录之外");
+    expect(result.stderr).not.toContain("Traceback");
+    await expect(
+      readFile(join(fixtureRoot, "outside.txt"), "utf8"),
+    ).resolves.toBe("原内容不应被覆盖。");
   });
 
   it("fails fast on abnormal HTTP status without retrying or printing a Python traceback", async () => {
