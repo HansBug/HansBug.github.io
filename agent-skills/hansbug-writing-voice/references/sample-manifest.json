@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "stage": "pr-0-placeholder",
+  "description": "后续 HansBug 中文博客文风样本 manifest 的最小结构占位。PR-1 可以在说明兼容性影响后继续扩展字段。",
+  "sources": [
+    {
+      "id": "cnblogs-hansbug-example",
+      "url": "https://www.cnblogs.com/HansBug/",
+      "status": "placeholder",
+      "purpose": "document-source-shape",
+      "notes": "不要在这里放旧博客完整正文。原始抓取输出只能放到 .cache/hansbug-writing-voice/corpus/。"
+    }
+  ],
+  "excerpts": []
+}
