@@ -76,12 +76,12 @@ describe("HansBug writing voice skill PR-4", () => {
   it("does not copy PR-3 reference-only implementation details into CLAUDE.md", async () => {
     const doc = await readRootDoc();
     for (const internalAnchor of [
-      "ai-cliche-generic-summary",
-      "catchphrase-without-judgement",
-      "unsupported-first-person-experience",
+      "AI 式正确废话",
+      "读起来像在给 AI 文本贴旧博客贴纸",
+      "假锋利会把文章写成廉价吐槽",
+      "用官方文档重新排版冒充实践经验",
       "blockingFindings",
       "possibleUnsupportedExperienceClaims",
-      "overusedMicroPatterns",
     ]) {
       expect(doc).not.toContain(internalAnchor);
     }
