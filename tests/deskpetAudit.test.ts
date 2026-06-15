@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -190,6 +191,14 @@ function countBy(rows: readonly CsvRecord[], column: string) {
   return counts;
 }
 
+function sha256(data: Buffer) {
+  return createHash("sha256").update(data).digest("hex");
+}
+
+function toPosixPath(filePath: string) {
+  return filePath.split(path.sep).join("/");
+}
+
 describe("BanG Dream deskpet audit dataset", () => {
   it("commits the required audit artifacts", () => {
     for (const name of [
@@ -323,6 +332,7 @@ describe("BanG Dream deskpet audit dataset", () => {
 
   it("commits rendered rating examples for manual review", () => {
     const index = JSON.parse(readAuditFile("rating-examples/index.json"));
+    const report = readAuditFile("rating-examples.md");
     const expectedCounts = {
       general: 20,
       sensitive: 20,
@@ -330,6 +340,10 @@ describe("BanG Dream deskpet audit dataset", () => {
       explicit: 0,
       unknown: 20,
     };
+    const markdownImagePaths = new Set(
+      [...report.matchAll(/<img src="(rating-examples\/[^"]+\.png)"/g)].map((match) => match[1]),
+    );
+    const indexedImagePaths = new Set<string>();
 
     expect(index.selectedCounts).toEqual(expectedCounts);
     expect(index.ratingCounts).toMatchObject({
@@ -348,8 +362,19 @@ describe("BanG Dream deskpet audit dataset", () => {
         expect(example.imageKind).toBe("live2d_render");
         expect(example.imageSha256).toMatch(/^[0-9a-f]{64}$/);
         expect(example.completePersonDecision).toMatch(/^(pass|review)$/);
-        expect(fs.existsSync(path.resolve(example.imagePath)), example.imagePath).toBe(true);
+        const imagePath = path.resolve(example.imagePath);
+        const relativeImagePath = toPosixPath(path.relative(auditDir, imagePath));
+        indexedImagePaths.add(relativeImagePath);
+
+        expect(fs.existsSync(imagePath), example.imagePath).toBe(true);
+        const image = fs.readFileSync(imagePath);
+        expect(image.subarray(0, 8)).toEqual(
+          Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]),
+        );
+        expect(sha256(image), example.imagePath).toBe(example.imageSha256);
       }
     }
+
+    expect([...markdownImagePaths].sort()).toEqual([...indexedImagePaths].sort());
   });
 });

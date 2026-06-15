@@ -16,7 +16,7 @@ npm run deskpet:audit:examples -- --force
 默认命令会生成完整审计表，并对 Bestdori `buildData.asset` 中可取得的纹理运行 `animetimm/convnextv2_huge.dbv4-full` direct rating 推理；`--limit` 只控制终端预览行数，不裁剪输出数据。低置信或无法取得视觉证据的行保持 fail-closed，并进入 `llm-review-queue.csv` 或阻塞状态。
 低置信且已经有 tagger 视觉证据的行会进入 `llm-review-queue.csv`；显式传入 `--run-llm-review` 时才调用外部 LLM 复核，结果写入 `llm-review-results.json` 并回填主表。无法取得视觉证据的行不会被 LLM 自动放行。
 `render-completeness.csv` / `render-completeness.json` 由 JS 离线浏览器审计脚本生成，Python 端只负责消费并回填 current_pool 的真实渲染完整性证据。
-`rating-examples.md` / `rating-examples/` 是人工查阅用的抽样渲染材料：按 `final_content_rating` 尽量抽取 20 个典型资源，用 Bestdori `buildData.asset` 临时镜像模型并通过本仓库同一套 Pixi/Live2D runtime 渲染成 PNG。该导出只服务审阅，不改主审计表，也不把资源接入 JS 端运行池。
+`rating-examples.md` / `rating-examples/` 是人工查阅用的抽样渲染材料：按 `final_content_rating` 尽量抽取 20 个典型资源，用 Bestdori `buildData.asset` 临时镜像模型并通过本仓库同一套 Pixi/Live2D runtime 渲染成 PNG。该导出只服务审阅，不改主审计表，也不把资源接入 JS 端运行池；重新导出时本机需要能访问 `bestdori.com`。
 
 ## 关键口径
 

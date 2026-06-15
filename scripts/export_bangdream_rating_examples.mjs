@@ -28,8 +28,6 @@ const CHROME_PATH_CANDIDATES = [
   "/usr/bin/google-chrome-stable",
   "/usr/bin/chromium",
   "/usr/bin/chromium-browser",
-  "/home/ubuntu/.cache/rod/browser/chromium-1321438/chrome",
-  "/home/ubuntu/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome",
 ].filter(Boolean);
 
 function usage() {
@@ -116,6 +114,11 @@ function parseArgs(argv) {
 
 function displayPath(filePath) {
   return path.relative(REPO_ROOT, path.resolve(filePath)).split(path.sep).join("/");
+}
+
+function isPathInside(root, candidate) {
+  const relative = path.relative(path.resolve(root), path.resolve(candidate));
+  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative));
 }
 
 function csvParse(text) {
@@ -702,7 +705,7 @@ async function advance(app, model, frames = 10) {
 </script>`;
 }
 
-async function startServer() {
+async function startServer({ fsRoot }) {
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, "http://127.0.0.1");
     if (url.pathname === "/test.html") {
@@ -712,7 +715,7 @@ async function startServer() {
     }
     if (url.pathname.startsWith("/__repo__/")) {
       const filePath = path.resolve(REPO_ROOT, decodeURI(url.pathname.slice("/__repo__/".length)));
-      if (!filePath.startsWith(REPO_ROOT)) {
+      if (!isPathInside(REPO_ROOT, filePath)) {
         res.writeHead(403);
         res.end("forbidden");
         return;
@@ -732,7 +735,12 @@ async function startServer() {
       res.end("not found");
       return;
     }
-    const filePath = decodeURI(url.pathname.slice("/__fs__".length));
+    const filePath = path.resolve(decodeURI(url.pathname.slice("/__fs__".length)));
+    if (!isPathInside(fsRoot, filePath)) {
+      res.writeHead(403);
+      res.end("forbidden");
+      return;
+    }
     try {
       const data = await fs.readFile(filePath);
       res.writeHead(200, { "content-type": contentType(filePath) });
@@ -778,22 +786,72 @@ function dataUrlToBuffer(value) {
   return Buffer.from(String(value).replace(/^data:image\/png;base64,/, ""), "base64");
 }
 
-async function renderRow({ row, rating, page, baseUrl, outputDir, tempRoot, timeoutMs, force }) {
+async function loadExistingExampleMetadata(outputDir) {
+  try {
+    const index = JSON.parse(await fs.readFile(path.resolve(outputDir, "index.json"), "utf8"));
+    const entries = Object.values(index.examples || {}).flat();
+    return new Map(entries.map((entry) => [entry.resourceKey, entry]));
+  } catch (error) {
+    if (error && error.code === "ENOENT") {
+      return new Map();
+    }
+    throw error;
+  }
+}
+
+function reusableRenderInfo(existingMetadata, imagePath, imageHash) {
+  if (!existingMetadata) {
+    const error = new Error(`Existing image has no metadata in rating-examples/index.json: ${displayPath(imagePath)}`);
+    error.code = "EXISTING_EXAMPLE_METADATA_INVALID";
+    throw error;
+  }
+  if (existingMetadata.imageKind !== "live2d_render") {
+    const error = new Error(`Existing image metadata is not a Live2D render: ${displayPath(imagePath)}`);
+    error.code = "EXISTING_EXAMPLE_METADATA_INVALID";
+    throw error;
+  }
+  if (existingMetadata.imageSha256 !== imageHash) {
+    const error = new Error(`Existing image sha256 differs from rating-examples/index.json: ${displayPath(imagePath)}`);
+    error.code = "EXISTING_EXAMPLE_METADATA_INVALID";
+    throw error;
+  }
+  if (!existingMetadata.completePersonDecision || !existingMetadata.boundsWidth || !existingMetadata.boundsHeight) {
+    const error = new Error(`Existing image metadata is incomplete; rerun with --force: ${displayPath(imagePath)}`);
+    error.code = "EXISTING_EXAMPLE_METADATA_INVALID";
+    throw error;
+  }
+  return {
+    status: "reused",
+    imagePath: displayPath(imagePath),
+    imageSha256: imageHash,
+    imageKind: "live2d_render",
+    resolvedBuildDataUrl: existingMetadata.resolvedBuildDataUrl,
+    textureCount: existingMetadata.textureCount,
+    canvasWidth: existingMetadata.canvasWidth,
+    canvasHeight: existingMetadata.canvasHeight,
+    modelWidth: existingMetadata.modelWidth,
+    modelHeight: existingMetadata.modelHeight,
+    nonblankRatio: existingMetadata.nonblankRatio,
+    boundsWidth: existingMetadata.boundsWidth,
+    boundsHeight: existingMetadata.boundsHeight,
+    completePersonDecision: existingMetadata.completePersonDecision,
+  };
+}
+
+async function renderRow({ row, rating, page, baseUrl, outputDir, tempRoot, timeoutMs, force, existingExamples }) {
   const imagePath = path.resolve(outputDir, rating, `${sanitizeFileName(row.resource_key)}.png`);
   await fs.mkdir(path.dirname(imagePath), { recursive: true });
 
-  try {
-    if (!force) {
+  if (!force) {
+    try {
       const existing = await fs.readFile(imagePath);
-      return {
-        status: "reused",
-        imagePath: displayPath(imagePath),
-        imageSha256: sha256(existing),
-        imageKind: "live2d_render",
-      };
+      return reusableRenderInfo(existingExamples.get(row.resource_key), imagePath, sha256(existing));
+    } catch (error) {
+      if (error && error.code !== "ENOENT") {
+        throw error;
+      }
+      // Render below when the image does not exist.
     }
-  } catch {
-    // Render below when the image does not exist.
   }
 
   const mirrored = await mirrorBestdoriModel(row, tempRoot);
@@ -888,7 +946,7 @@ function markdownForExamples({ payload, reportRelativeDir }) {
   lines.push("");
   lines.push("本报告用于 PR #24 的人工查阅：每个 `final_content_rating` 尽量抽取 20 个典型资源，并把能够成功渲染的 Live2D 模型截图提交到仓库。候选会顺序补位，避免把渲染失败的资源硬塞进样例集。样例选择来自已经生成的 `audit.csv`，不会改变主审计表，也不会接入前端资源池。");
   lines.push("");
-  lines.push("需要注意：`explicit` 当前没有任何行，因此没有可展示样例；`questionable` 全表只有 15 行，因此这里展示全部 15 行。`unknown` 只从有 Bestdori/tagger 视觉证据的 153 行里抽样，另有 28 行因为无法取得视觉证据仍保持 pending。");
+  lines.push("需要注意：`explicit` 当前没有任何行，因此没有可展示样例；`questionable` 全表只有 15 行，因此这里展示全部 15 行。`unknown` 只从有 Bestdori/tagger 视觉证据的 153 行里抽样，另有 28 行因为无法取得视觉证据仍保持 pending。重新导出需要本机可访问 `bestdori.com`。");
   lines.push("");
   lines.push("## 分布摘要");
   lines.push("");
@@ -975,11 +1033,12 @@ async function main() {
 
   const rows = csvParse(await fs.readFile(args.auditCsv, "utf8"));
   const { selected, availableCounts } = selectExamples(rows, args.limitPerRating);
+  const existingExamples = await loadExistingExampleMetadata(args.outputDir);
+  const chromePath = await findChromePath();
   const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "bangdream-rating-examples-"));
-  const server = await startServer();
+  const server = await startServer({ fsRoot: tempRoot });
   const address = server.address();
   const baseUrl = `http://127.0.0.1:${address.port}`;
-  const chromePath = await findChromePath();
   const browser = await puppeteer.launch({
     executablePath: chromePath,
     headless: true,
@@ -1029,8 +1088,12 @@ async function main() {
             tempRoot,
             timeoutMs: args.renderTimeout,
             force: args.force,
+            existingExamples,
           });
         } catch (error) {
+          if (error && error.code === "EXISTING_EXAMPLE_METADATA_INVALID") {
+            throw error;
+          }
           process.stderr.write(`  render failed, skipping: ${String(error && (error.message || error))}\n`);
           continue;
         }
@@ -1060,13 +1123,20 @@ async function main() {
               tempRoot,
               timeoutMs: args.renderTimeout,
               force: args.force,
+              existingExamples,
             });
-            if (renderInfo.status !== "rendered") {
+            if (renderInfo.status === "reused" && !renderInfo.completePersonDecision) {
+              throw new Error(`Reused example is missing render metadata: ${row.resource_key}`);
+            }
+            if (renderInfo.status === "render_failed") {
               failedKeysByRating[rating].add(row.resource_key);
               continue;
             }
             examplesByRating[rating].push(rowToExample(row, rating, renderInfo));
           } catch (error) {
+            if (error && error.code === "EXISTING_EXAMPLE_METADATA_INVALID") {
+              throw error;
+            }
             process.stderr.write(`  render failed, skipping: ${String(error && (error.message || error))}\n`);
             failedKeysByRating[rating].add(row.resource_key);
             continue;
