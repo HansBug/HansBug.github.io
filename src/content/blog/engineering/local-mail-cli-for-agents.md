@@ -2,7 +2,7 @@
 title: "让邮箱回到命令行——给 Codex / Claude 接一套可控的本地邮件工作流"
 description: "本文讨论如何用本地邮件 CLI、索引器和发送器，把读信、检索、摘要、起草和发送拆成一条可审计的链路，让 Codex / Claude 能帮忙处理邮件，但不越过该有的边界。"
 pubDate: 2026-06-10
-updatedDate: 2026-06-10
+updatedDate: 2026-06-16
 tags:
   - 工程效率
   - LLM 应用
@@ -17,12 +17,14 @@ bibliography: ./local-mail-cli-for-agents.bib
 citationStyle: hansbug-numeric-superscript
 ---
 
+<!-- hansbug-voice-samples: cnblogs-8701447, cnblogs-13982882 -->
+
 > 本文大体是在讲怎么用 IMAP / SMTP、系统 keyring、本地 SQLite 索引和一个很薄的 `mail-agent` CLI，把 Codex / Claude 接进一套可控的个人邮件工作流。它解决的是“本机 agent 怎么安全地查邮件、取正文、起草邮件、确认后发出去”的问题，不解决多用户 SaaS、企业级 OAuth 治理、自动群发或完全无人值守代发邮件的问题。
 
 > **如果你只是需要解决“让本机 Codex / Claude 可控地处理邮件”这件事，那你该做的事情不是继续往下慢慢读，而是直接把下面这段无脑复制过去丢给你亲爱的无敌的 Codex / Claude Code：**
 >
 > ```text
-> 请阅读这个页面：{{PAGE_URL}}，按文中的 mail-agent 方案在我的本机配置一套邮件 CLI：用系统 keyring 保存客户端专用密码，只索引邮件头，支持搜索、按 UID 拉正文、起草邮件，并且发送前必须让我确认；不要保存真实密码，不要自动发信，遇到邮箱服务商参数不一致时先问我。
+> 请阅读这个页面：{{PAGE_URL}}，按文中的 mail-agent 方案在我的本机配置一套邮件 CLI：用系统 keyring 保存客户端专用密码，只索引邮件头，支持搜索、按 UID 拉正文、起草邮件，并且发送前必须让我确认；SMTP 发出后要把同一份 RFC822 原文 APPEND 到 Sent Items 并按 Message-ID 回查；不要保存真实密码，不要自动发信，遇到邮箱服务商参数不一致时先问我。
 > ```
 >
 > **让它给你搞定就好，比你自己一边翻全文一边手搓配置高效得多。**
@@ -153,7 +155,9 @@ export MAIL_AGENT_IMAP_HOST="imap.buaa.edu.cn"
 export MAIL_AGENT_IMAP_PORT="993"
 export MAIL_AGENT_SMTP_HOST="smtp.buaa.edu.cn"
 export MAIL_AGENT_SMTP_PORT="465"
+export MAIL_AGENT_SENT_MAILBOX="Sent Items"
 export MAIL_AGENT_DB="$HOME/.local/share/mail-agent/mail.sqlite3"
+export MAIL_AGENT_OUTBOX_DIR="$HOME/.local/share/mail-agent/outbox"
 EOF
 
 chmod 600 ~/.config/mail-agent/env
@@ -231,13 +235,15 @@ chmod 700 ~/bin/mail-agent-pass
 
 ### 5. 写主脚本
 
-下面这个 `mail-agent` 做五件事：
+下面这个 `mail-agent` 做七件事：
 
 - `boxes`：列出邮箱文件夹。
 - `index`：索引邮件头。
 - `search`：在本地 SQLite FTS 里查邮件。
 - `show`：按 `MAILBOX:UID` 从 IMAP 拉正文。
-- `send` / `self-test`：发信和自发自收测试。
+- `send`：发信，并把同一份 RFC822 raw 留痕到发件箱。
+- `append-sent`：SMTP 已成功但发件箱补存失败时，只补存同一份 raw，不重发邮件。
+- `self-test` / `thread-test`：自发自收测试和回复线程测试。
 
 ```bash
 cat > ~/bin/mail-agent <<'PY'
@@ -255,9 +261,10 @@ import subprocess
 import sys
 import time
 from datetime import datetime
+from email import policy
 from email.header import decode_header, make_header
 from email.message import EmailMessage
-from email.utils import parsedate_to_datetime
+from email.utils import formatdate, getaddresses, make_msgid, parsedate_to_datetime
 from pathlib import Path
 
 
@@ -273,7 +280,9 @@ IMAP_HOST = require_env("MAIL_AGENT_IMAP_HOST")
 IMAP_PORT = int(require_env("MAIL_AGENT_IMAP_PORT", "993"))
 SMTP_HOST = require_env("MAIL_AGENT_SMTP_HOST")
 SMTP_PORT = int(require_env("MAIL_AGENT_SMTP_PORT", "465"))
+SENT_MAILBOX = os.environ.get("MAIL_AGENT_SENT_MAILBOX", "Sent Items")
 DB_PATH = Path(os.environ.get("MAIL_AGENT_DB", "~/.local/share/mail-agent/mail.sqlite3")).expanduser()
+OUTBOX_DIR = Path(os.environ.get("MAIL_AGENT_OUTBOX_DIR", "~/.local/share/mail-agent/outbox")).expanduser()
 
 
 def get_password():
@@ -290,6 +299,10 @@ def decode(value):
         return str(make_header(decode_header(value)))
     except Exception:
         return value
+
+
+def quote_mailbox(name):
+    return '"' + name.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
 def connect_imap():
@@ -388,6 +401,180 @@ def parse_headers(raw):
     }
 
 
+def fetch_header_by_uid(imap, uid):
+    status, fetched = imap.uid(
+        "FETCH",
+        uid,
+        "(BODY.PEEK[HEADER.FIELDS (DATE FROM TO SUBJECT MESSAGE-ID IN-REPLY-TO REFERENCES)])",
+    )
+    if status != "OK":
+        return None
+    raw = next((item[1] for item in fetched if isinstance(item, tuple)), b"")
+    if not raw:
+        return None
+    return parse_headers(raw) | {
+        "in_reply_to": email.message_from_bytes(raw).get("In-Reply-To", ""),
+        "references": email.message_from_bytes(raw).get("References", ""),
+    }
+
+
+def find_message_id(mailbox, message_id, timeout=60, recent=80):
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        imap = connect_imap()
+        try:
+            status, _ = imap.select(quote_mailbox(mailbox), readonly=True)
+            if status != "OK":
+                raise RuntimeError(f"select {mailbox} failed: {status}")
+            status, data = imap.uid("SEARCH", None, "ALL")
+            uids = data[0].split()[-recent:] if status == "OK" and data and data[0] else []
+            for uid in reversed(uids):
+                header = fetch_header_by_uid(imap, uid)
+                if header and header.get("message_id", "").strip() == message_id.strip():
+                    return f"{mailbox}:{uid.decode()}", header
+        finally:
+            imap.logout()
+        time.sleep(3)
+    return None, None
+
+
+def message_recipients(msg):
+    headers = []
+    for name in ("To", "Cc", "Bcc"):
+        headers.extend(msg.get_all(name, []))
+    return [addr for _name, addr in getaddresses(headers) if addr]
+
+
+def finalize_outbound_message(msg):
+    if "Date" not in msg:
+        msg["Date"] = formatdate(localtime=True)
+    if "Message-ID" not in msg:
+        domain = ACCOUNT.split("@", 1)[1] if "@" in ACCOUNT else None
+        msg["Message-ID"] = make_msgid(idstring="mail-agent", domain=domain)
+    return msg
+
+
+def safe_message_id_name(message_id):
+    base = (message_id or "message").strip().strip("<>")
+    base = re.sub(r"[^A-Za-z0-9_.@+-]+", "_", base).strip("._")
+    return (base or "message")[:120]
+
+
+def save_outbound_raw(raw, message_id):
+    OUTBOX_DIR.mkdir(parents=True, exist_ok=True, mode=0o700)
+    OUTBOX_DIR.chmod(0o700)
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+    path = OUTBOX_DIR / f"{stamp}-{safe_message_id_name(message_id)}.eml"
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL
+    fd = os.open(path, flags, 0o600)
+    with os.fdopen(fd, "wb") as fp:
+        fp.write(raw)
+    return path
+
+
+def remove_outbound_raw(path):
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        pass
+
+
+class SentCopyVerificationError(RuntimeError):
+    pass
+
+
+def append_to_sent(raw, message_id, timeout=30):
+    imap = connect_imap()
+    try:
+        status, data = imap.append(
+            quote_mailbox(SENT_MAILBOX),
+            "(\\Seen)",
+            imaplib.Time2Internaldate(time.time()),
+            raw,
+        )
+        if status != "OK":
+            raise RuntimeError(f"APPEND {SENT_MAILBOX} failed: {status} {data}")
+    finally:
+        imap.logout()
+
+    ref, _header = find_message_id(SENT_MAILBOX, message_id, timeout=timeout)
+    if not ref:
+        raise SentCopyVerificationError(
+            f"APPEND {SENT_MAILBOX} returned OK, but cannot verify Message-ID: {message_id}; "
+            "check Sent Items manually before appending again"
+        )
+    return ref
+
+
+def send_message_with_sent_copy(msg, append_sent=True):
+    msg = finalize_outbound_message(msg)
+    recipients = message_recipients(msg)
+    if not recipients:
+        raise SystemExit("no recipients")
+    if "Bcc" in msg:
+        del msg["Bcc"]
+    raw = msg.as_bytes(policy=policy.SMTP)
+    raw_path = save_outbound_raw(raw, msg["Message-ID"])
+
+    try:
+        smtp = connect_smtp()
+    except Exception:
+        remove_outbound_raw(raw_path)
+        raise
+    try:
+        try:
+            refused = smtp.sendmail(ACCOUNT, recipients, raw)
+        except Exception as exc:
+            raise RuntimeError(
+                f"SMTP send failed or ended in an ambiguous state: {exc}; "
+                f"raw_saved={raw_path}; do not blindly resend"
+            ) from exc
+    finally:
+        try:
+            smtp.quit()
+        except Exception as exc:
+            print(f"warning: SMTP quit failed: {exc}", file=sys.stderr)
+
+    sent_ref = None
+    append_error = None
+    if append_sent:
+        try:
+            sent_ref = append_to_sent(raw, msg["Message-ID"])
+        except Exception as exc:
+            append_error = exc
+
+    if refused or append_error:
+        problems = []
+        if refused:
+            problems.append(f"SMTP refused recipients: {refused}")
+        if append_error:
+            problems.append(f"sent-copy failed: {append_error}")
+        if sent_ref:
+            problems.append(f"sent_copy={sent_ref}")
+        problems.append(f"raw_saved={raw_path}")
+        if isinstance(append_error, SentCopyVerificationError):
+            problems.append("do not blindly resend; check Sent Items manually before retrying append-sent")
+        elif append_error:
+            problems.append("do not blindly resend; use append-sent for sent-copy recovery")
+        else:
+            problems.append("do not blindly resend; inspect refused recipients before any resend")
+        raise RuntimeError("; ".join(problems))
+
+    remove_outbound_raw(raw_path)
+    return msg["Message-ID"], sent_ref
+
+
+def cmd_append_sent(args):
+    raw_path = Path(args.raw_file).expanduser()
+    raw = raw_path.read_bytes()
+    msg = email.message_from_bytes(raw)
+    message_id = msg.get("Message-ID", "")
+    if not message_id:
+        raise SystemExit(f"{raw_path} has no Message-ID; cannot verify sent copy")
+    ref = append_to_sent(raw, message_id, timeout=args.timeout)
+    print(f"appended message_id={message_id} sent_copy={ref}")
+
+
 def cmd_boxes(_args):
     imap = connect_imap()
     for box in list_boxes(imap):
@@ -402,7 +589,7 @@ def cmd_index(args):
 
     total_new = 0
     for box in boxes:
-        status, _ = imap.select(f'"{box}"', readonly=True)
+        status, _ = imap.select(quote_mailbox(box), readonly=True)
         if status != "OK":
             print(f"skip mailbox {box}: {status}", file=sys.stderr)
             continue
@@ -528,7 +715,7 @@ def cmd_show(args):
         raise SystemExit("ref must be MAILBOX:UID, for example INBOX:12345")
     mailbox, uid = args.ref.split(":", 1)
     imap = connect_imap()
-    status, _ = imap.select(f'"{mailbox}"', readonly=True)
+    status, _ = imap.select(quote_mailbox(mailbox), readonly=True)
     if status != "OK":
         raise RuntimeError(f"select {mailbox} failed: {status}")
 
@@ -557,13 +744,13 @@ def body_from_args(args):
 
 def cmd_send(args):
     body = body_from_args(args)
-    msg = EmailMessage()
+    msg = EmailMessage(policy=policy.SMTP)
     msg["From"] = ACCOUNT
     msg["To"] = args.to
     if args.cc:
         msg["Cc"] = args.cc
     msg["Subject"] = args.subject
-    msg.set_content(body)
+    msg.set_content(body, charset="utf-8")
 
     if not args.yes:
         print("About to send:")
@@ -578,47 +765,71 @@ def cmd_send(args):
             print("cancelled")
             return
 
-    smtp = connect_smtp()
-    smtp.send_message(msg)
-    smtp.quit()
-    print("sent")
+    message_id, sent_ref = send_message_with_sent_copy(msg, append_sent=not args.no_sent_copy)
+    print(f"sent message_id={message_id}")
+    if sent_ref:
+        print(f"sent_copy={sent_ref}")
+
+
+def make_test_message(subject, body):
+    msg = EmailMessage(policy=policy.SMTP)
+    msg["From"] = ACCOUNT
+    msg["To"] = ACCOUNT
+    msg["Subject"] = subject
+    msg.set_content(body, charset="utf-8")
+    return msg
 
 
 def cmd_self_test(_args):
     marker = "mail-agent-test-" + datetime.now().strftime("%Y%m%d-%H%M%S")
-    msg = EmailMessage()
-    msg["From"] = ACCOUNT
-    msg["To"] = ACCOUNT
-    msg["Subject"] = "Mail agent self-test " + marker
-    msg.set_content(f"This is a mail-agent delivery test.\nMarker: {marker}\n")
+    msg = make_test_message(
+        "Mail agent self-test " + marker,
+        f"This is a mail-agent delivery test.\nMarker: {marker}\n",
+    )
+    message_id, sent_ref = send_message_with_sent_copy(msg)
+    print(f"sent {marker} message_id={message_id} sent_copy={sent_ref}")
 
-    smtp = connect_smtp()
-    smtp.send_message(msg)
-    smtp.quit()
-    print(f"sent {marker}")
+    ref, _header = find_message_id("INBOX", message_id, timeout=120)
+    if ref:
+        print(f"received {ref}")
+        return
+    raise SystemExit(f"sent but not confirmed in INBOX: {marker}")
 
-    imap = connect_imap()
-    for attempt in range(1, 25):
-        time.sleep(5)
-        imap.select("INBOX", readonly=True)
-        status, data = imap.uid("SEARCH", None, "ALL")
-        uids = data[0].split()[-50:] if status == "OK" and data and data[0] else []
-        for uid in reversed(uids):
-            status, fetched = imap.uid(
-                "FETCH",
-                uid,
-                "(BODY.PEEK[HEADER.FIELDS (DATE FROM SUBJECT MESSAGE-ID)])",
-            )
-            raw = next((item[1] for item in fetched if isinstance(item, tuple)), b"")
-            subject = decode(email.message_from_bytes(raw).get("Subject"))
-            if marker in subject:
-                print(f"received INBOX:{uid.decode()} attempt={attempt}")
-                imap.logout()
-                return
-        print(f"poll {attempt}: not yet")
 
-    imap.logout()
-    raise SystemExit(f"sent but not confirmed: {marker}")
+def cmd_thread_test(_args):
+    marker = "mail-agent-thread-test-" + datetime.now().strftime("%Y%m%d-%H%M%S")
+    root = make_test_message(
+        "Mail agent thread root " + marker,
+        f"This is the root message for mail-agent threading test.\nMarker: {marker}\n",
+    )
+    root_mid, root_sent = send_message_with_sent_copy(root)
+    root_inbox, root_header = find_message_id("INBOX", root_mid, timeout=120)
+    if not root_inbox:
+        raise SystemExit(f"root sent but not confirmed in INBOX: {root_mid}")
+
+    reply = make_test_message(
+        "Re: Mail agent thread root " + marker,
+        f"This is the reply message for mail-agent threading test.\nMarker: {marker}\n",
+    )
+    reply["In-Reply-To"] = root_mid
+    reply["References"] = root_mid
+    reply_mid, reply_sent = send_message_with_sent_copy(reply)
+    reply_inbox, reply_header = find_message_id("INBOX", reply_mid, timeout=120)
+    if not reply_inbox:
+        raise SystemExit(f"reply sent but not confirmed in INBOX: {reply_mid}")
+
+    checks = {
+        "root_inbox": root_inbox,
+        "root_sent": root_sent,
+        "reply_inbox": reply_inbox,
+        "reply_sent": reply_sent,
+        "in_reply_to_ok": reply_header.get("in_reply_to", "").strip() == root_mid,
+        "references_ok": root_mid in reply_header.get("references", ""),
+    }
+    for key, value in checks.items():
+        print(f"{key}={value}")
+    if not all(checks.values()):
+        raise SystemExit("thread test failed")
 
 
 def main():
@@ -653,10 +864,19 @@ def main():
     p.add_argument("--body")
     p.add_argument("--body-file")
     p.add_argument("-y", "--yes", action="store_true")
+    p.add_argument("--no-sent-copy", action="store_true", help="skip IMAP APPEND to sent mailbox")
     p.set_defaults(func=cmd_send)
+
+    p = sub.add_parser("append-sent")
+    p.add_argument("--raw-file", required=True, help="RFC822 .eml file saved by a failed send")
+    p.add_argument("--timeout", type=int, default=60)
+    p.set_defaults(func=cmd_append_sent)
 
     p = sub.add_parser("self-test")
     p.set_defaults(func=cmd_self_test)
+
+    p = sub.add_parser("thread-test")
+    p.set_defaults(func=cmd_thread_test)
 
     args = parser.parse_args()
     args.func(args)
@@ -664,6 +884,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 PY
 
 chmod 700 ~/bin/mail-agent
@@ -714,7 +935,52 @@ mail-agent show INBOX:12345 --max-chars 4000
 mail-agent self-test
 ```
 
+如果你还关心“回复能不能和发件箱里的原始邮件串成同一个线程”，再跑一次线程测试：
+
+```bash
+mail-agent thread-test
+```
+
 确认这一步能收到，再考虑给别人发信。不要反过来。否则你根本不知道自己是在调邮件链路，还是在往外面发一堆带着测试痕迹的尴尬邮件。
+
+## 别漏了发件箱：SMTP 发出不等于 Sent Items 有记录
+
+这里单独补一节，是因为这个坑非常容易在“脚本能发出去”的兴奋里被忽略掉。
+
+SMTP 只负责把邮件投递出去。它不保证网页邮箱的发件箱里会自动出现一份记录。你在网页版里点发送时，网页邮箱通常会自己把邮件保存到已发送；但你用 `smtplib.SMTP_SSL` 直接发信时，服务端是否顺手保存一份，完全取决于提供商实现和配置。很多时候，它就是不会保存。
+
+这事看起来只是体验问题，实际上是审计问题。对 agent 来说，“邮件已经发出，但网页发件箱里没有记录”非常要命：后面别人回复你时，线程里看不到自己当时到底发了什么；你自己复盘时也只能翻脚本日志；更糟糕的是，如果日志没有保留同一份 RFC822 原文，那这封邮件就变成了一个尴尬的幽灵。发出去了，但证据链没跟上。
+
+所以正确做法不是祈祷 SMTP 替你保存，而是自己把这件事做完：
+
+1. 先构造一次 `EmailMessage`，显式写入 `Date` 和 `Message-ID`。
+2. 用 `msg.as_bytes(policy=policy.SMTP)` 生成同一份 RFC822 raw。
+3. 发送前先把这份 raw 写到本机 `outbox` 暂存文件，文件权限只给自己读写。
+4. 用 SMTP 把这份 raw 发出去。
+5. SMTP 成功后，用 IMAP `APPEND` 把同一份 raw 写入 `Sent Items`。
+6. 最后按 `Message-ID` 到 `Sent Items` 回查，确认发件箱确实能找到它。
+7. 发件箱回查成功后删掉暂存 raw；如果失败，就把 `raw_saved=...` 打出来，留给后续单独补存。
+
+这里的关键词是“同一份 raw”。不要 SMTP 发一份、IMAP 再临时拼一份。两份邮件只要 `Message-ID`、`Date`、MIME 边界或正文编码有一点点不一致，后面排查线程问题时就会变成自找麻烦。能省这点事，但省完之后你会在更糟糕的地方还债。
+
+我本机用北航邮箱做过一次只发给自己的 root / reply 测试：root 邮件和回复邮件都用 SMTP 发出，同时都把同一份 raw APPEND 到 `Sent Items`；随后分别在 `INBOX` 和 `Sent Items` 按 `Message-ID` 回查；回复邮件再检查 `In-Reply-To` 和 `References` 是否指向 root 邮件。最终四个位置都能找到，线程头字段也能对上。这个测试不需要对外发信，但能把“投递、发件箱留痕、回复线程关联”三件事一次性压实。
+
+有几个小坑值得直接写死在脚本里：
+
+- `Sent Items` 这种 mailbox 名带空格，IMAP `select` / `append` 时要 quote；上面脚本里的 `quote_mailbox()` 就是干这个的。
+- `APPEND` 的 flags 要传 `"(\Seen)"` 这种形式，不要传裸的 `\Seen`。
+- `SEARCH HEADER Message-ID ...` 在不同服务器上并不总是稳定；保守做法是拉最近若干封 header，自己解析 `Message-ID` 匹配。
+- 如果 SMTP 已经成功、但 IMAP `APPEND` 失败，不要傻乎乎重发邮件。上面脚本会报错并打印 `raw_saved=...`，正确动作是用 `mail-agent append-sent --raw-file ...` 单独补存发件箱。重发只会制造第二封真的邮件。
+
+这就是为什么上面的 `send_message_with_sent_copy()` 没有直接调用 `smtp.send_message(msg)` 了事，而是先生成 raw，再 `sendmail()`，再 `append_to_sent()`，最后 `find_message_id()` 回查。它麻烦一点，但链路闭合。邮件这种东西，链路闭合比代码漂亮更重要。
+
+如果你真的撞到 `raw_saved=...`，补救动作大概长这样：
+
+```bash
+mail-agent append-sent --raw-file ~/.local/share/mail-agent/outbox/20260616-123456-xxx.eml
+```
+
+注意，这条命令只做 IMAP `APPEND` 和 `Message-ID` 回查，不会再走 SMTP。换句话说，它是在补证据链，不是在补发邮件。这两个动作必须分清楚，否则自动化工具就会从“帮你干活”变成“帮你制造重复事故”。
 
 ## 给 Codex / Claude 的使用约定
 
@@ -738,6 +1004,7 @@ mail-agent index --mailbox INBOX --limit 500
 mail-agent search "query" --limit 20
 mail-agent show MAILBOX:UID --max-chars 8000
 mail-agent send --to someone@example.com --subject "..." --body-file /tmp/draft.txt
+mail-agent append-sent --raw-file ~/.local/share/mail-agent/outbox/xxx.eml
 ```
 
 Rules:
@@ -748,6 +1015,7 @@ Rules:
 - Draft outbound mail first and show it to the user.
 - Do not send mail unless the user explicitly confirms. Prefer the default interactive confirmation.
 - Do not use `mail-agent send -y` unless the user has explicitly authorized that exact message.
+- If `send` reports `raw_saved=...`, do not resend. Use `append-sent --raw-file ...` only to repair the sent-copy record.
 - Do not bulk-send mail.
 ````
 
@@ -832,7 +1100,7 @@ mail-agent boxes
 
 一句话：**个人工作流要收边界，产品系统要上治理。** 这两件事不要互相冒充。
 
-## 收尾：让 AI 管邮件，重点不是 AI
+## 总结：让 AI 管邮件，重点不是 AI
 
 这次折腾下来，笔者最大的感受反而和模型没多大关系。
 
@@ -852,6 +1120,6 @@ mail-agent boxes
 
 归根结底，好的邮件 agent 不应该像一个偷偷摸摸的替身，而应该像一个站在旁边的秘书：能查、能写、能提醒，但最后按下发送键之前，得让真正负责的人看一眼。
 
-## 参考资料
+### 参考文献
 
 [^ref]
