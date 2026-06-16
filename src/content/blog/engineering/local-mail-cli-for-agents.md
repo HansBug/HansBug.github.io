@@ -157,6 +157,7 @@ export MAIL_AGENT_SMTP_HOST="smtp.buaa.edu.cn"
 export MAIL_AGENT_SMTP_PORT="465"
 export MAIL_AGENT_SENT_MAILBOX="Sent Items"
 export MAIL_AGENT_DB="$HOME/.local/share/mail-agent/mail.sqlite3"
+export MAIL_AGENT_OUTBOX_DIR="$HOME/.local/share/mail-agent/outbox"
 EOF
 
 chmod 600 ~/.config/mail-agent/env
@@ -234,13 +235,15 @@ chmod 700 ~/bin/mail-agent-pass
 
 ### 5. 写主脚本
 
-下面这个 `mail-agent` 做五件事：
+下面这个 `mail-agent` 做七件事：
 
 - `boxes`：列出邮箱文件夹。
 - `index`：索引邮件头。
 - `search`：在本地 SQLite FTS 里查邮件。
 - `show`：按 `MAILBOX:UID` 从 IMAP 拉正文。
-- `send` / `self-test`：发信和自发自收测试。
+- `send`：发信，并把同一份 RFC822 raw 留痕到发件箱。
+- `append-sent`：SMTP 已成功但发件箱补存失败时，只补存同一份 raw，不重发邮件。
+- `self-test` / `thread-test`：自发自收测试和回复线程测试。
 
 ```bash
 cat > ~/bin/mail-agent <<'PY'
@@ -279,6 +282,7 @@ SMTP_HOST = require_env("MAIL_AGENT_SMTP_HOST")
 SMTP_PORT = int(require_env("MAIL_AGENT_SMTP_PORT", "465"))
 SENT_MAILBOX = os.environ.get("MAIL_AGENT_SENT_MAILBOX", "Sent Items")
 DB_PATH = Path(os.environ.get("MAIL_AGENT_DB", "~/.local/share/mail-agent/mail.sqlite3")).expanduser()
+OUTBOX_DIR = Path(os.environ.get("MAIL_AGENT_OUTBOX_DIR", "~/.local/share/mail-agent/outbox")).expanduser()
 
 
 def get_password():
@@ -450,6 +454,35 @@ def finalize_outbound_message(msg):
     return msg
 
 
+def safe_message_id_name(message_id):
+    base = (message_id or "message").strip().strip("<>")
+    base = re.sub(r"[^A-Za-z0-9_.@+-]+", "_", base).strip("._")
+    return (base or "message")[:120]
+
+
+def save_outbound_raw(raw, message_id):
+    OUTBOX_DIR.mkdir(parents=True, exist_ok=True, mode=0o700)
+    OUTBOX_DIR.chmod(0o700)
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+    path = OUTBOX_DIR / f"{stamp}-{safe_message_id_name(message_id)}.eml"
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL
+    fd = os.open(path, flags, 0o600)
+    with os.fdopen(fd, "wb") as fp:
+        fp.write(raw)
+    return path
+
+
+def remove_outbound_raw(path):
+    try:
+        path.unlink()
+    except FileNotFoundError:
+        pass
+
+
+class SentCopyVerificationError(RuntimeError):
+    pass
+
+
 def append_to_sent(raw, message_id, timeout=30):
     imap = connect_imap()
     try:
@@ -466,27 +499,80 @@ def append_to_sent(raw, message_id, timeout=30):
 
     ref, _header = find_message_id(SENT_MAILBOX, message_id, timeout=timeout)
     if not ref:
-        raise RuntimeError(f"sent but cannot verify Message-ID in {SENT_MAILBOX}: {message_id}")
+        raise SentCopyVerificationError(
+            f"APPEND {SENT_MAILBOX} returned OK, but cannot verify Message-ID: {message_id}; "
+            "check Sent Items manually before appending again"
+        )
     return ref
 
 
 def send_message_with_sent_copy(msg, append_sent=True):
     msg = finalize_outbound_message(msg)
-    raw = msg.as_bytes(policy=policy.SMTP)
     recipients = message_recipients(msg)
     if not recipients:
         raise SystemExit("no recipients")
+    if "Bcc" in msg:
+        del msg["Bcc"]
+    raw = msg.as_bytes(policy=policy.SMTP)
+    raw_path = save_outbound_raw(raw, msg["Message-ID"])
 
-    smtp = connect_smtp()
     try:
-        smtp.sendmail(ACCOUNT, recipients, raw)
+        smtp = connect_smtp()
+    except Exception:
+        remove_outbound_raw(raw_path)
+        raise
+    try:
+        try:
+            refused = smtp.sendmail(ACCOUNT, recipients, raw)
+        except Exception as exc:
+            raise RuntimeError(
+                f"SMTP send failed or ended in an ambiguous state: {exc}; "
+                f"raw_saved={raw_path}; do not blindly resend"
+            ) from exc
     finally:
-        smtp.quit()
+        try:
+            smtp.quit()
+        except Exception as exc:
+            print(f"warning: SMTP quit failed: {exc}", file=sys.stderr)
 
     sent_ref = None
+    append_error = None
     if append_sent:
-        sent_ref = append_to_sent(raw, msg["Message-ID"])
+        try:
+            sent_ref = append_to_sent(raw, msg["Message-ID"])
+        except Exception as exc:
+            append_error = exc
+
+    if refused or append_error:
+        problems = []
+        if refused:
+            problems.append(f"SMTP refused recipients: {refused}")
+        if append_error:
+            problems.append(f"sent-copy failed: {append_error}")
+        if sent_ref:
+            problems.append(f"sent_copy={sent_ref}")
+        problems.append(f"raw_saved={raw_path}")
+        if isinstance(append_error, SentCopyVerificationError):
+            problems.append("do not blindly resend; check Sent Items manually before retrying append-sent")
+        elif append_error:
+            problems.append("do not blindly resend; use append-sent for sent-copy recovery")
+        else:
+            problems.append("do not blindly resend; inspect refused recipients before any resend")
+        raise RuntimeError("; ".join(problems))
+
+    remove_outbound_raw(raw_path)
     return msg["Message-ID"], sent_ref
+
+
+def cmd_append_sent(args):
+    raw_path = Path(args.raw_file).expanduser()
+    raw = raw_path.read_bytes()
+    msg = email.message_from_bytes(raw)
+    message_id = msg.get("Message-ID", "")
+    if not message_id:
+        raise SystemExit(f"{raw_path} has no Message-ID; cannot verify sent copy")
+    ref = append_to_sent(raw, message_id, timeout=args.timeout)
+    print(f"appended message_id={message_id} sent_copy={ref}")
 
 
 def cmd_boxes(_args):
@@ -781,6 +867,11 @@ def main():
     p.add_argument("--no-sent-copy", action="store_true", help="skip IMAP APPEND to sent mailbox")
     p.set_defaults(func=cmd_send)
 
+    p = sub.add_parser("append-sent")
+    p.add_argument("--raw-file", required=True, help="RFC822 .eml file saved by a failed send")
+    p.add_argument("--timeout", type=int, default=60)
+    p.set_defaults(func=cmd_append_sent)
+
     p = sub.add_parser("self-test")
     p.set_defaults(func=cmd_self_test)
 
@@ -864,9 +955,11 @@ SMTP 只负责把邮件投递出去。它不保证网页邮箱的发件箱里会
 
 1. 先构造一次 `EmailMessage`，显式写入 `Date` 和 `Message-ID`。
 2. 用 `msg.as_bytes(policy=policy.SMTP)` 生成同一份 RFC822 raw。
-3. 用 SMTP 把这份 raw 发出去。
-4. SMTP 成功后，用 IMAP `APPEND` 把同一份 raw 写入 `Sent Items`。
-5. 最后按 `Message-ID` 到 `Sent Items` 回查，确认发件箱确实能找到它。
+3. 发送前先把这份 raw 写到本机 `outbox` 暂存文件，文件权限只给自己读写。
+4. 用 SMTP 把这份 raw 发出去。
+5. SMTP 成功后，用 IMAP `APPEND` 把同一份 raw 写入 `Sent Items`。
+6. 最后按 `Message-ID` 到 `Sent Items` 回查，确认发件箱确实能找到它。
+7. 发件箱回查成功后删掉暂存 raw；如果失败，就把 `raw_saved=...` 打出来，留给后续单独补存。
 
 这里的关键词是“同一份 raw”。不要 SMTP 发一份、IMAP 再临时拼一份。两份邮件只要 `Message-ID`、`Date`、MIME 边界或正文编码有一点点不一致，后面排查线程问题时就会变成自找麻烦。能省这点事，但省完之后你会在更糟糕的地方还债。
 
@@ -877,9 +970,17 @@ SMTP 只负责把邮件投递出去。它不保证网页邮箱的发件箱里会
 - `Sent Items` 这种 mailbox 名带空格，IMAP `select` / `append` 时要 quote；上面脚本里的 `quote_mailbox()` 就是干这个的。
 - `APPEND` 的 flags 要传 `"(\Seen)"` 这种形式，不要传裸的 `\Seen`。
 - `SEARCH HEADER Message-ID ...` 在不同服务器上并不总是稳定；保守做法是拉最近若干封 header，自己解析 `Message-ID` 匹配。
-- 如果 SMTP 已经成功、但 IMAP `APPEND` 失败，不要傻乎乎重发邮件。正确动作是报错，保留 raw，然后单独补存发件箱。重发只会制造第二封真的邮件。
+- 如果 SMTP 已经成功、但 IMAP `APPEND` 失败，不要傻乎乎重发邮件。上面脚本会报错并打印 `raw_saved=...`，正确动作是用 `mail-agent append-sent --raw-file ...` 单独补存发件箱。重发只会制造第二封真的邮件。
 
 这就是为什么上面的 `send_message_with_sent_copy()` 没有直接调用 `smtp.send_message(msg)` 了事，而是先生成 raw，再 `sendmail()`，再 `append_to_sent()`，最后 `find_message_id()` 回查。它麻烦一点，但链路闭合。邮件这种东西，链路闭合比代码漂亮更重要。
+
+如果你真的撞到 `raw_saved=...`，补救动作大概长这样：
+
+```bash
+mail-agent append-sent --raw-file ~/.local/share/mail-agent/outbox/20260616-123456-xxx.eml
+```
+
+注意，这条命令只做 IMAP `APPEND` 和 `Message-ID` 回查，不会再走 SMTP。换句话说，它是在补证据链，不是在补发邮件。这两个动作必须分清楚，否则自动化工具就会从“帮你干活”变成“帮你制造重复事故”。
 
 ## 给 Codex / Claude 的使用约定
 
@@ -903,6 +1004,7 @@ mail-agent index --mailbox INBOX --limit 500
 mail-agent search "query" --limit 20
 mail-agent show MAILBOX:UID --max-chars 8000
 mail-agent send --to someone@example.com --subject "..." --body-file /tmp/draft.txt
+mail-agent append-sent --raw-file ~/.local/share/mail-agent/outbox/xxx.eml
 ```
 
 Rules:
@@ -913,6 +1015,7 @@ Rules:
 - Draft outbound mail first and show it to the user.
 - Do not send mail unless the user explicitly confirms. Prefer the default interactive confirmation.
 - Do not use `mail-agent send -y` unless the user has explicitly authorized that exact message.
+- If `send` reports `raw_saved=...`, do not resend. Use `append-sent --raw-file ...` only to repair the sent-copy record.
 - Do not bulk-send mail.
 ````
 
@@ -1017,6 +1120,6 @@ mail-agent boxes
 
 归根结底，好的邮件 agent 不应该像一个偷偷摸摸的替身，而应该像一个站在旁边的秘书：能查、能写、能提醒，但最后按下发送键之前，得让真正负责的人看一眼。
 
-### 参考资料
+### 参考文献
 
 [^ref]
