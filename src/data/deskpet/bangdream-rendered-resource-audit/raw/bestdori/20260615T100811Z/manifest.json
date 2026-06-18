@@ -1,0 +1,123 @@
+{
+  "fetched_at": "2026-06-15T10:08:11Z",
+  "resources": [
+    {
+      "api_url": "https://bestdori.com/api/explorer/jp/assets/_info.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "explorer_assets_jp",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_jp.json.gz",
+      "raw_payload_sha256": "ba5aba045cf449fc1a6c83f6d87ac64e477846f9cba1b0c782d64374ff270dc3",
+      "row_count": 210,
+      "server": "jp"
+    },
+    {
+      "api_url": "https://bestdori.com/api/explorer/cn/assets/_info.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "explorer_assets_cn",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_cn.json.gz",
+      "raw_payload_sha256": "fe92af0c842925746a8dc10fcfdeb478a0d495a22153e43406749d54317ca9d7",
+      "row_count": 233,
+      "server": "cn"
+    },
+    {
+      "api_url": "https://bestdori.com/api/explorer/en/assets/_info.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "explorer_assets_en",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_en.json.gz",
+      "raw_payload_sha256": "0aeabea054c35fcae8b231654e8998d4b4253418879dc3deee7108d59b9d265d",
+      "row_count": 128,
+      "server": "en"
+    },
+    {
+      "api_url": "https://bestdori.com/api/explorer/kr/assets/_info.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "explorer_assets_kr",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_kr.json.gz",
+      "raw_payload_sha256": "765c8840cb37080b9342049f6930e98e29673d73ececbacb6a20bbcf8e4abc8c",
+      "row_count": 87,
+      "server": "kr"
+    },
+    {
+      "api_url": "https://bestdori.com/api/explorer/tw/assets/_info.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "explorer_assets_tw",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_tw.json.gz",
+      "raw_payload_sha256": "00e84ba942c92c9cc4a67fbf1824c984266e183e794784f28240b94140dcb5a2",
+      "row_count": 174,
+      "server": "tw"
+    },
+    {
+      "api_url": "https://bestdori.com/api/costumes/all.5.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "costumes_all_5",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/costumes_all_5.json.gz",
+      "raw_payload_sha256": "2270bd7eed8e179d3fb5b0f077a392be8816a4b9e9c61a8cdd3df5ff109ff5c3",
+      "row_count": 2364,
+      "server": ""
+    },
+    {
+      "api_url": "https://bestdori.com/api/cards/all.5.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "cards_all_5",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/cards_all_5.json.gz",
+      "raw_payload_sha256": "7cd8591d5b473b4eacb6ef8e07030171710a5dabd7c9b86cec6a053760479ce5",
+      "row_count": 2410,
+      "server": ""
+    },
+    {
+      "api_url": "https://bestdori.com/api/events/all.5.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "events_all_5",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/events_all_5.json.gz",
+      "raw_payload_sha256": "b3765794fb40cfc42dda87c6cc027bddf698ec3a84f9f5e994d268ed1cc270b1",
+      "row_count": 334,
+      "server": ""
+    },
+    {
+      "api_url": "https://bestdori.com/api/gacha/all.5.json",
+      "api_version": "all.5/current",
+      "content_type": "application/json",
+      "error": "",
+      "fetched_at": "2026-06-15T10:08:11Z",
+      "http_status": 200,
+      "key": "gacha_all_5",
+      "raw_payload_path": "raw/bestdori/20260615T100811Z/gacha_all_5.json.gz",
+      "raw_payload_sha256": "c3160f416927f8abee56682a3b8ed752583e47e43313f330b9de25c5ab259813",
+      "row_count": 2031,
+      "server": ""
+    }
+  ],
+  "snapshot_id": "20260615T100811Z"
+}

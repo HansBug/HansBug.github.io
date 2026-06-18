@@ -1,0 +1,70 @@
+{
+  "animalCompanionReviewTags": [
+    "animal",
+    "bird",
+    "dog",
+    "penguin"
+  ],
+  "dedup": {
+    "algorithm": "threshold_based_union_find_within_expected_character",
+    "crossCharacterBehavior": "report_only_not_auto_merge",
+    "distanceMetric": "cosine_similarity",
+    "embeddingModel": "animetimm/convnextv2_huge.dbv4-full",
+    "embeddingModelRevision": "18177355d1448a69bafb0410a0608e144f714e8b",
+    "pairEvidence": "dedup-pairs.csv/parquet",
+    "threshold": 0.992
+  },
+  "directRatingUse": "weak_signal_only",
+  "generatedAt": "2026-06-15T11:15:36Z",
+  "hardEasterTags": [
+    "bath_towel",
+    "bikini",
+    "lingerie",
+    "onsen",
+    "panties",
+    "school_swimsuit",
+    "swimsuit",
+    "underwear"
+  ],
+  "mascotVariantKeywords": [
+    "animal",
+    "dog",
+    "mascot",
+    "penguin"
+  ],
+  "nonDecisiveSensitiveTags": [
+    "bare_shoulders",
+    "corset",
+    "thighhighs"
+  ],
+  "policyVersion": "rendered-descriptive-v1",
+  "qualificationFailTags": [
+    "animal_focus",
+    "food_focus",
+    "no_humans"
+  ],
+  "qualificationReviewTags": [
+    "2girls",
+    "faceless",
+    "helmet",
+    "mask",
+    "multiple_girls"
+  ],
+  "softReviewTags": [
+    "cleavage",
+    "crop_top",
+    "garter_straps",
+    "midriff",
+    "navel"
+  ],
+  "tagThreshold": 0.5,
+  "tagger": {
+    "device": "cuda:0",
+    "embedding_rows": 3308,
+    "model_id": "animetimm/convnextv2_huge.dbv4-full",
+    "model_revision": "18177355d1448a69bafb0410a0608e144f714e8b",
+    "scanned_rows": 3308,
+    "selected_tags_sha256": "c08f1359510e09355728d2a61e7a29e38ace8533b0f1018b18da493db723fecd",
+    "status": "completed"
+  }
+}

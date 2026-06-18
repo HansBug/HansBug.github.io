@@ -6,3 +6,7 @@ artifacts
 public/vendor/katex
 .cache/hansbug-writing-voice/
 .DS_Store
+.cache
+src/data/deskpet/bangdream-rendered-resource-audit/.cache
+src/data/deskpet/bangdream-rendered-resource-audit/rendered
+src/data/deskpet/bangdream-rendered-resource-audit/embeddings.npz

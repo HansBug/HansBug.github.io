@@ -1,0 +1,243 @@
+{
+  "bestdori": {
+    "fetched_at": "2026-06-15T10:08:11Z",
+    "resources": [
+      {
+        "api_url": "https://bestdori.com/api/explorer/jp/assets/_info.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "explorer_assets_jp",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_jp.json.gz",
+        "raw_payload_sha256": "ba5aba045cf449fc1a6c83f6d87ac64e477846f9cba1b0c782d64374ff270dc3",
+        "row_count": 210,
+        "server": "jp"
+      },
+      {
+        "api_url": "https://bestdori.com/api/explorer/cn/assets/_info.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "explorer_assets_cn",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_cn.json.gz",
+        "raw_payload_sha256": "fe92af0c842925746a8dc10fcfdeb478a0d495a22153e43406749d54317ca9d7",
+        "row_count": 233,
+        "server": "cn"
+      },
+      {
+        "api_url": "https://bestdori.com/api/explorer/en/assets/_info.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "explorer_assets_en",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_en.json.gz",
+        "raw_payload_sha256": "0aeabea054c35fcae8b231654e8998d4b4253418879dc3deee7108d59b9d265d",
+        "row_count": 128,
+        "server": "en"
+      },
+      {
+        "api_url": "https://bestdori.com/api/explorer/kr/assets/_info.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "explorer_assets_kr",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_kr.json.gz",
+        "raw_payload_sha256": "765c8840cb37080b9342049f6930e98e29673d73ececbacb6a20bbcf8e4abc8c",
+        "row_count": 87,
+        "server": "kr"
+      },
+      {
+        "api_url": "https://bestdori.com/api/explorer/tw/assets/_info.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "explorer_assets_tw",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/explorer_assets_tw.json.gz",
+        "raw_payload_sha256": "00e84ba942c92c9cc4a67fbf1824c984266e183e794784f28240b94140dcb5a2",
+        "row_count": 174,
+        "server": "tw"
+      },
+      {
+        "api_url": "https://bestdori.com/api/costumes/all.5.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "costumes_all_5",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/costumes_all_5.json.gz",
+        "raw_payload_sha256": "2270bd7eed8e179d3fb5b0f077a392be8816a4b9e9c61a8cdd3df5ff109ff5c3",
+        "row_count": 2364,
+        "server": ""
+      },
+      {
+        "api_url": "https://bestdori.com/api/cards/all.5.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "cards_all_5",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/cards_all_5.json.gz",
+        "raw_payload_sha256": "7cd8591d5b473b4eacb6ef8e07030171710a5dabd7c9b86cec6a053760479ce5",
+        "row_count": 2410,
+        "server": ""
+      },
+      {
+        "api_url": "https://bestdori.com/api/events/all.5.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "events_all_5",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/events_all_5.json.gz",
+        "raw_payload_sha256": "b3765794fb40cfc42dda87c6cc027bddf698ec3a84f9f5e994d268ed1cc270b1",
+        "row_count": 334,
+        "server": ""
+      },
+      {
+        "api_url": "https://bestdori.com/api/gacha/all.5.json",
+        "api_version": "all.5/current",
+        "content_type": "application/json",
+        "error": "",
+        "fetched_at": "2026-06-15T10:08:11Z",
+        "http_status": 200,
+        "key": "gacha_all_5",
+        "raw_payload_path": "raw/bestdori/20260615T100811Z/gacha_all_5.json.gz",
+        "raw_payload_sha256": "c3160f416927f8abee56682a3b8ed752583e47e43313f330b9de25c5ab259813",
+        "row_count": 2031,
+        "server": ""
+      }
+    ],
+    "snapshot_id": "20260615T100811Z"
+  },
+  "current_pool": {
+    "ave_mujica_local_to_upstream_map": {
+      "041": "341",
+      "042": "337",
+      "043": "338",
+      "044": "340",
+      "045": "339"
+    },
+    "models_dir": "src/vendor/deskpet/bangdream-models",
+    "pool_path": "src/data/bangdreamDeskPetPool.json",
+    "qualified_character_count": 45,
+    "qualified_variant_count": 165
+  },
+  "environment": {
+    "pandas": "2.3.3",
+    "platform": "Linux-6.17.0-1008-gcp-x86_64-with-glibc2.39",
+    "python": "3.10.19"
+  },
+  "generated_at": "2026-06-15T11:15:36Z",
+  "gist": {
+    "fetched_at": "2026-06-15T10:08:11Z",
+    "files": {
+      "README.md": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/README.md.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/f1ec4a170a1c76e295c01517c94ab0f40fbe09de/README.md",
+        "sha256": "9b6fe0c54ebcf2b0f43ceb2f8a17738d7d0b5720a35cfaeb0961ac6850105412",
+        "size": 9887
+      },
+      "bestdori-live2d-chara-union.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/bestdori-live2d-chara-union.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/e0e1744c7177761265d785b66fd95c054c7e8811/bestdori-live2d-chara-union.csv",
+        "sha256": "fefd62e70301c00fe3f16a531c43bc4ce4ccd6fa3754f00b53e4bc0eea4da30c",
+        "size": 545948
+      },
+      "candidate-intelligence-by-family.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/candidate-intelligence-by-family.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/eee73b9c771d07c581e6b4b13275414f02712b3f/candidate-intelligence-by-family.csv",
+        "sha256": "e2b36c39eaf12113b303d6f685f89f11b6c5a75d85e7a69f518c4e9e51419331",
+        "size": 1948
+      },
+      "candidate-resource-intelligence.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/candidate-resource-intelligence.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/4e40a4dcd64c1f5751588cdd2382db4bf3619199/candidate-resource-intelligence.csv",
+        "sha256": "44aad07310aae462153d0e56aa4ef61010204c64a95857ad587919db46649f1b",
+        "size": 3046929
+      },
+      "candidate-selection-shortlist.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/candidate-selection-shortlist.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/acedecfb2a99802b72a95d942c2e8caee0b29481/candidate-selection-shortlist.csv",
+        "sha256": "b7d4899311786d1541fb2b12d287277924b4b5652bd79ac229788137eb98ebfa",
+        "size": 169654
+      },
+      "character-candidate-summary.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/character-candidate-summary.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/c59f99d7e1291136e3e83b48bc3f0bda162de615/character-candidate-summary.csv",
+        "sha256": "944985fcb5d5f878e87a2866e4ca5275efab038af5c84ff6bc5ca36223544264",
+        "size": 2623
+      },
+      "compatible-candidates-covered-characters.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/compatible-candidates-covered-characters.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/04924113a666a39d46bd74533949d6243376dd57/compatible-candidates-covered-characters.csv",
+        "sha256": "5820127c5a806a25717662619e4e407fc3734724aa2c1f8b7c99b62c01bb662d",
+        "size": 671133
+      },
+      "current-pool-coverage.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/current-pool-coverage.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/00a8f009d008bc695f0bb7bb41938333e19cf1f3/current-pool-coverage.csv",
+        "sha256": "76e0e4ead5d99a99b3f3da19adb30377b5f5a455d6ef56a2c456fafe350ea8f5",
+        "size": 9667
+      },
+      "dataset-summary.json": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/dataset-summary.json.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/d1cbaffb2ba8bfb9a7e3ae814e1823a43da9bd04/dataset-summary.json",
+        "sha256": "ad1d55f15bb05f6cd3f43ffa4777c6a1a817b17b44b43d95266c91b51ffd2e87",
+        "size": 682
+      },
+      "missing-our-notes-characters.csv": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/missing-our-notes-characters.csv.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/eadee1ad0dda762adeacdbb357341add7c6fd754/missing-our-notes-characters.csv",
+        "sha256": "939623ac1d2c20681534cc1c99f72fbb58779ad7a357ac433ca1a214faa8dcd4",
+        "size": 3392
+      },
+      "resource-intelligence-summary.json": {
+        "content_type": "text/plain; charset=utf-8",
+        "http_status": 200,
+        "raw_payload_path": "raw/gist/4bebb4fa9266af907ad1cbc7af12b3b6132b885d/resource-intelligence-summary.json.gz",
+        "raw_url": "https://gist.githubusercontent.com/HansBug/0badd50993b2958b635889d6eaa0b34c/raw/f19837954a862b6da8b34fac60800f494b79e311/resource-intelligence-summary.json",
+        "sha256": "342984dc9c7a443651aa41bf5d486b2fa42196b5a0faddd50230f5da6dd351e3",
+        "size": 2671
+      }
+    },
+    "gist_api_url": "https://api.github.com/gists/0badd50993b2958b635889d6eaa0b34c",
+    "gist_id": "0badd50993b2958b635889d6eaa0b34c",
+    "gist_revision_sha": "4bebb4fa9266af907ad1cbc7af12b3b6132b885d",
+    "http_status": 200,
+    "status": "fetched"
+  },
+  "script": "scripts/build_bangdream_rendered_resource_audit.py"
+}
