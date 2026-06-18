@@ -1,0 +1,1116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "contentPolicyDecisions": [
+    "allow_default",
+    "allow_sensitive_easter_egg",
+    "quarantine",
+    "reject",
+    "pending"
+  ],
+  "contentRatings": [
+    "general",
+    "sensitive",
+    "questionable",
+    "explicit",
+    "unknown"
+  ],
+  "csvColumns": [
+    "resource_key",
+    "resource_key_strategy",
+    "model_key",
+    "local_code",
+    "upstream_code",
+    "variant",
+    "costume_key",
+    "family",
+    "character_name_zh",
+    "character_name_ja",
+    "band",
+    "row_kind",
+    "is_current_pool",
+    "is_covered_candidate",
+    "is_union_reference",
+    "gist_selection_proxy_bucket",
+    "gist_selection_proxy_score",
+    "gist_content_safety_hint",
+    "bestdori_available_servers",
+    "bestdori_preferred_server",
+    "tagger_visual_evidence_status",
+    "tagger_visual_evidence_count",
+    "tagger_visual_evidence_primary_url",
+    "tagger_visual_evidence_primary_sha256",
+    "download_status",
+    "conversion_status",
+    "validate_status",
+    "render_status",
+    "render_complete_person_decision",
+    "render_complete_person_reason",
+    "render_nonblank_ratio",
+    "render_bounds_width",
+    "render_bounds_height",
+    "render_bounds_inside_ratio",
+    "render_image_sha256_primary",
+    "render_image_sha256_desktop",
+    "render_image_sha256_mobile",
+    "tagger_model_id",
+    "tagger_model_revision",
+    "rating_signal_source",
+    "rating_score_general",
+    "rating_score_sensitive",
+    "rating_score_questionable",
+    "rating_score_explicit",
+    "rating_predicted_label",
+    "rating_confidence",
+    "rating_margin",
+    "llm_review_status",
+    "llm_review_reason",
+    "needs_llm_review",
+    "llm_review_label",
+    "needs_human_review",
+    "human_review_label",
+    "final_content_rating",
+    "content_policy_decision",
+    "eligible_for_default_pool",
+    "eligible_for_sensitive_easter_egg_pool",
+    "exclusion_reason",
+    "evidence_refs"
+  ],
+  "familySummaryColumns": [
+    "family",
+    "row_count",
+    "current_pool_count",
+    "covered_candidate_count",
+    "union_reference_count",
+    "general_count",
+    "sensitive_count",
+    "questionable_count",
+    "explicit_count",
+    "unknown_count",
+    "allow_default_count",
+    "allow_sensitive_easter_egg_count",
+    "quarantine_count",
+    "policy_reject_count",
+    "pending_count",
+    "render_success_rate",
+    "validate_success_rate",
+    "tagger_scanned_count",
+    "llm_review_queue_count",
+    "needs_llm_review_count",
+    "needs_human_review_count"
+  ],
+  "fields": [
+    {
+      "name": "resource_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "resource_key_strategy",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "model_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "local_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "upstream_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "variant",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "costume_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "family",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "character_name_zh",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "character_name_ja",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "band",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "row_kind",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "is_current_pool",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "is_covered_candidate",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "is_union_reference",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "gist_source_file",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_row_number",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "source_snapshot_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_available_servers",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_available_server_count",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "bestdori_preferred_server",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_build_data_url",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_build_data_content_type",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_build_data_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_visual_evidence_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_visual_evidence_count",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "tagger_visual_evidence_primary_url",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_visual_evidence_primary_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_costume_metadata_found",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "bestdori_costume_detail_found",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "bestdori_costume_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_costume_raw_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_costume_detail_raw_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_card_raw_refs",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_event_raw_refs",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_gacha_raw_refs",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_card_match_method",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "bestdori_mapping_notes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "download_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloaded_at",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "download_tool",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "download_tool_version",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "download_source_url",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "download_output_path",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "download_error",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "conversion_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "conversion_tool",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "conversion_tool_version",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "converted_model_path",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "converted_manifest_path",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "conversion_error",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "manifest_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "moc_structure",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "validate_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "validate_log_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloader_invocation_mode",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloader_command",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloader_args_json",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloader_stdout_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloader_stderr_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "downloader_exit_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_complete_person_decision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_complete_person_reason",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_nonblank_ratio",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "render_bounds_width",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_bounds_height",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_bounds_inside_ratio",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rendered_at",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_mode",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_url",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_url_param",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_manifest_path",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_viewport_width",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_viewport_height",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_device_scale_factor",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "render_browser",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_browser_version",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_os",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_seed",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_frame_index",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_settle_ms",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_motion_group",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_expression",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_pose_policy",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_image_path",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_image_sha256_primary",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_image_sha256_desktop",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_image_sha256_mobile",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_canvas_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_log_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "render_error",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_model_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_model_revision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_model_license",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_model_artifact_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_selected_tags_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_categories_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_thresholds_sha256",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_runtime",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_inference_device",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_inference_batch_size",
+      "nullable": true,
+      "type": "integer"
+    },
+    {
+      "name": "tagger_top_tags_top30_json",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_policy_tag_probs_json",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_full_probs_ref",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "tagger_inference_error",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "rating_signal_source",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "rating_label_mapping_version",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "rating_score_general",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rating_score_sensitive",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rating_score_questionable",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rating_score_explicit",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rating_predicted_label",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "rating_confidence",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rating_margin",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "rating_entropy",
+      "nullable": true,
+      "type": "number"
+    },
+    {
+      "name": "needs_llm_review",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "llm_review_reason",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "llm_review_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "llm_review_model",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "llm_review_label",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "llm_review_confidence",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "llm_review_notes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "needs_human_review",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "human_review_status",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "human_review_label",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "human_review_notes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "final_content_rating",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "final_rating_source",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "content_policy_decision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "eligible_for_default_pool",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "eligible_for_sensitive_easter_egg_pool",
+      "nullable": true,
+      "type": "boolean"
+    },
+    {
+      "name": "exclusion_reason",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "evidence_refs",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_local_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_upstream_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_name_zh",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_name_ja",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_band",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_variant",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_family",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_currently_in_pool",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_available_servers",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_available_server_count",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_bestdori_buildData_url_example",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_recommended_priority",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_bestdori_costume_metadata_found",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_bestdori_costume_detail_found",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_bestdori_costume_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_character_id",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_description_ja",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_description_en",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_description_zh_cn",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_published_server_count",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_first_published_at_ms",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_first_published_at_date",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_latest_published_at_ms",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_latest_published_at_date",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_costume_detail_card_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_title_matched_card_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_match_method",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_match_count",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_character_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_rarities",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_types",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_resource_set_names",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_titles_en",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_first_released_at_ms",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_card_first_released_at_date",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_ids_from_key",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_ids_from_reward_card",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_asset_bundle_names",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_types",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_names_en",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_first_start_at_ms",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_event_first_start_at_date",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_gacha_ids",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_gacha_types",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_gacha_names_en",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_gacha_first_published_at_ms",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_gacha_first_published_at_date",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_real_heat_source",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_real_heat_value",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_real_heat_notes",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_selection_proxy_score",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_selection_proxy_bucket",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_selection_proxy_reasons",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_content_rating_scheme",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_source_content_rating_raw",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_source_content_rating",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_final_content_rating",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_content_rating_confidence",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_needs_manual_content_review",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_content_safety_hint",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_content_policy_decision",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_rating_scope",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "name": "gist_rating_notes",
+      "nullable": true,
+      "type": "string"
+    }
+  ],
+  "generatedAt": "2026-06-14T21:20:48Z",
+  "notes": [
+    "gist_* columns preserve candidate-resource-intelligence.csv source names with the gist_ prefix.",
+    "is_union_reference means the costume key appears in the five-server Bestdori live2d.chara union and may overlap current_pool/covered_candidate.",
+    "render_image_sha256_primary is the first successful desktop screenshot in render time order."
+  ],
+  "primaryKey": "resource_key",
+  "rowKind": [
+    "current_pool",
+    "covered_candidate",
+    "union_only"
+  ],
+  "title": "BanG Dream deskpet resource audit row"
+}

@@ -618,6 +618,41 @@ npm run build
 - 旧站筛选器已迁到 Vue；当前不需要引入更重的前端框架
 - `siteUrl`、仓库地址、导航等关键信息集中在 `src/config/site.ts`
 
+## BanG Dream 桌宠资源审计数据集
+
+PR #24 引入的是审计数据集和 Python 生成链路，不是运行时资源扩充 PR。后续维护时要把“数据审计”和“桌宠池接入”分开处理：本 PR 只负责生成可复核数据表，是否把某个资源接入 `HomeDeskPet` 或公共随机池，应由后续 PR 单独做。
+
+关键目录：
+
+- `src/data/deskpet/bangdream-resource-audit/`
+- `scripts/build_bangdream_resource_audit.py`
+
+常用命令：
+
+```bash
+npm run deskpet:audit -- --limit 20
+npm run deskpet:audit -- --verify
+```
+
+生成器是 Python 端链路，依赖 `pandas` 和 `pyarrow` 生成 `audit.parquet`、`audit.csv`、`source-snapshot.json`、`evidence-index.*`、`family-summary.csv` 等文件。JS / Astro 端当前不消费这些数据，也不要为了这个 PR 提前做前端接入。
+
+审计数据必须保持 fail-closed：
+
+- `final_content_rating` 只能是 `general | sensitive | questionable | explicit | unknown`
+- 工程拒绝写入 `content_policy_decision=reject`，不要把 `reject` 塞进内容分级
+- 未渲染、未推理、未复核的资源默认 `unknown + pending`
+- `is_union_reference` 表示资源存在于 Bestdori 五服 `live2d.chara` union，可以和 `is_current_pool` / `is_covered_candidate` 同时为 true
+- `tag-rating-mapping-v1.json` 是 tag 到 rating 以及低置信阈值的唯一事实源
+
+禁止提交：
+
+- Hugging Face 模型权重和 cache
+- 全量渲染截图原图
+- 下载 / 转换中间目录
+- 浏览器 profile、`.cache/`、`tmp/` 或 `/tmp` 输出
+
+如果后续真正做全量渲染、animetimm 推理或人工复核，必须把证据 hash、外部 artifact 位置和复核结论写回审计表 / evidence index，而不是只写 PR 说明。
+
 ## 如果未来要改域名或仓库名
 
 至少同步检查：

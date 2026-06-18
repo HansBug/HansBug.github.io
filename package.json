@@ -9,9 +9,13 @@
     "prestart": "npm run sync:katex",
     "start": "astro dev",
     "check": "astro check",
-    "test": "vitest run",
+    "setup:python-data": "python3 -c \"import pandas, pyarrow\" || python3 -m pip install --user --disable-pip-version-check \"pandas>=2.2,<3\" \"pyarrow>=15,<25\"",
+    "pretest": "npm run setup:python-data",
+    "test": "npm run deskpet:audit -- --verify && vitest run",
     "test:coverage": "vitest run --coverage",
     "build": "npm run sync:katex && astro check && astro build && node scripts/copy_bangdream_model_assets.mjs",
+    "deskpet:audit": "python3 scripts/build_bangdream_resource_audit.py",
+    "deskpet:audit:examples": "node scripts/export_bangdream_rating_examples.mjs",
     "preview": "astro preview"
   },
   "keywords": [
