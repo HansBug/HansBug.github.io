@@ -75,6 +75,11 @@ export const tagMeta: Record<string, TagMeta> = {
     description: "从实验原型到可交付能力之间的收敛和取舍。",
     accent: "orange",
   },
+  "社会观察": {
+    group: "社会评论",
+    description: "对社会现象、公共事件与群体行为的观察、分析与寓言化记录。",
+    accent: "slate",
+  },
 };
 
 export function fallbackTagMeta(tag: string): TagMeta {
