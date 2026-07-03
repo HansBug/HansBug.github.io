@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" role="img" aria-labelledby="title desc">
   <title id="title">Diátaxis compass: four documentation modes</title>
   <desc id="desc">A local schematic adapted from the Diátaxis compass, mapping Action versus Cognition and Acquisition versus Application to Tutorials, How-to guides, Reference, and Explanation.</desc>
+  <metadata>
+    Local schematic for HansBug technical blog. Adapted from the Diátaxis documentation compass by Daniele Procida (https://diataxis.fr/compass/), accessed 2026-07-03. The source concept is credited in the article caption; keep attribution when reusing this SVG.
+  </metadata>
   <defs>
     <style>
       .bg { fill: #f8fafc; }
