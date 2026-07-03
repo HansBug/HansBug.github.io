@@ -4,4 +4,5 @@ Project: https://diataxis.fr/ / https://github.com/evildmp/diataxis-documentatio
 Author: Daniele Procida
 License: CC BY-SA 4.0, per upstream repository metadata and LICENSE.rst
 Fetched: 2026-07-03
+SHA-256: 70ad729ae307abb3bcb266e63c2449efd1f3950587a27ccc47ef812bf28cc832
 Local use: unchanged local copy for the HansBug technical blog article "Tutorial 不是 Reference：技术文档四象限与教程工程验收".
