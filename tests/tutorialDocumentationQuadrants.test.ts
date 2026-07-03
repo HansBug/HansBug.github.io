@@ -11,7 +11,12 @@ const bibliographyPath = join(
   repoRoot,
   "src/content/blog/engineering/tutorial-documentation-quadrants.bib",
 );
-const diagramPath = join(repoRoot, "public/images/blog/engineering/diataxis-compass.svg");
+const diagramPath = join(repoRoot, "public/images/blog/engineering/diataxis.png");
+const rejectedSelfDrawnDiagramPath = join(
+  repoRoot,
+  "public/images/blog/engineering/diataxis-compass.svg",
+);
+const attributionPath = join(repoRoot, "public/images/blog/engineering/diataxis.attribution.txt");
 
 function read(path: string) {
   return readFileSync(path, "utf8");
@@ -37,8 +42,13 @@ function stripBracketCitations(markdown: string) {
 
 function extractMarkdownCitationKeys(markdown: string) {
   const withoutFences = stripFencedCode(markdown);
-  return [...withoutFences.matchAll(/\[@([A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*)/g)].map(
-    (match) => match[1],
+  const citationGroups = [
+    ...withoutFences.matchAll(/\[((?:[^\[\]]|\[[^\]]*\])*@(?:[^\[\]]|\[[^\]]*\])*)\]/g),
+  ];
+  return citationGroups.flatMap((group) =>
+    [...group[1].matchAll(/@([A-Za-z0-9_][A-Za-z0-9_:.#$%&+?<>~/-]*)/g)].map(
+      (match) => match[1],
+    ),
   );
 }
 
@@ -59,24 +69,29 @@ describe("tutorial documentation quadrants article", () => {
     expect(frontmatter).toContain("开源维护");
   });
 
-  it("uses a local Diátaxis compass diagram instead of hotlinking the upstream image", () => {
+  it("uses the upstream Diátaxis PNG as a localized asset instead of a self-drawn diagram or hotlink", () => {
     expect(existsSync(diagramPath)).toBe(true);
-    const article = read(articlePath);
-    const diagram = read(diagramPath);
+    expect(existsSync(rejectedSelfDrawnDiagramPath)).toBe(false);
+    expect(existsSync(attributionPath)).toBe(true);
 
-    expect(article).toContain("/images/blog/engineering/diataxis-compass.svg");
+    const article = read(articlePath);
+    const diagram = readFileSync(diagramPath);
+    const attribution = read(attributionPath);
+
+    expect(article).toContain("/images/blog/engineering/diataxis.png");
+    expect(article).not.toContain("diataxis-compass.svg");
     expect(article).not.toContain("https://diataxis.fr/_images/diataxis.png");
-    expect(diagram).toContain("Tutorials");
-    expect(diagram).toContain("How-to guides");
-    expect(diagram).toContain("Reference");
-    expect(diagram).toContain("Explanation");
-    expect(diagram).toContain("Action");
-    expect(diagram).toContain("Cognition");
-    expect(diagram).toContain("Acquisition");
-    expect(diagram).toContain("Application");
+    expect(article).not.toContain("本站自绘");
+    expect(article).not.toContain("based on the Diátaxis compass");
+    expect([...diagram.subarray(0, 8)]).toEqual([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+    expect(diagram.length).toBeGreaterThan(50_000);
+    expect(attribution).toContain("https://diataxis.fr/_images/diataxis.png");
+    expect(attribution).toContain("Daniele Procida");
+    expect(attribution).toContain("CC BY-SA 4.0");
+    expect(attribution).toContain("unchanged local copy");
   });
 
-  it("keeps the issue #40 conceptual anchors in the article body", () => {
+  it("keeps the issue #40 conceptual anchors and expanded archaeology in the article body", () => {
     const article = read(articlePath);
     const requiredAnchors = [
       "Action",
@@ -87,6 +102,11 @@ describe("tutorial documentation quadrants article", () => {
       "how-to",
       "reference",
       "explanation",
+      "Manual / man page",
+      "HOWTO",
+      "literate programming",
+      "notebook",
+      "docs-as-code",
       "局部混合可以接受，主承诺混乱不可以",
       "minimal tutorial",
       "learning-oriented tutorial",
@@ -94,14 +114,19 @@ describe("tutorial documentation quadrants article", () => {
       "阶段自检",
       "机器验收",
       "真人任务测试",
+      "CI 证明材料没坏，真人任务测试证明路径没断",
+      "阻断级 checklist",
       "treevalue",
       "Issue / Milestone",
-      "阻断级 checklist",
+      "README 不是垃圾场，README 是交通枢纽",
+      "不是所有模板都叫 tutorial",
     ];
 
     for (const anchor of requiredAnchors) {
       expect(article, `missing anchor: ${anchor}`).toContain(anchor);
     }
+
+    expect(Buffer.byteLength(article, "utf8")).toBeGreaterThan(60_000);
   });
 
   it("keeps citations consistent and avoids obvious placeholder / hotlink failures", () => {
@@ -111,12 +136,16 @@ describe("tutorial documentation quadrants article", () => {
     const uniqueBibKeys = new Set(bibKeys.map((key) => key.toLowerCase()));
     const citationKeys = extractMarkdownCitationKeys(article);
 
-    expect(bibKeys.length).toBeGreaterThanOrEqual(12);
+    expect(bibKeys.length).toBeGreaterThanOrEqual(25);
     expect(uniqueBibKeys.size).toBe(bibKeys.length);
-    expect(citationKeys.length).toBeGreaterThanOrEqual(10);
+    expect(citationKeys.length).toBeGreaterThanOrEqual(20);
 
     for (const key of citationKeys) {
       expect(uniqueBibKeys.has(key.toLowerCase()), `missing bib entry for ${key}`).toBe(true);
+    }
+
+    for (const key of bibKeys) {
+      expect(citationKeys.map((citationKey) => citationKey.toLowerCase())).toContain(key.toLowerCase());
     }
 
     expect(article).not.toContain("TODO");

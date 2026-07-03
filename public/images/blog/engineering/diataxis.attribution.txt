@@ -1,0 +1,7 @@
+Diátaxis four-quadrant diagram
+Source: https://diataxis.fr/_images/diataxis.png
+Project: https://diataxis.fr/ / https://github.com/evildmp/diataxis-documentation-framework
+Author: Daniele Procida
+License: CC BY-SA 4.0, per upstream repository metadata and LICENSE.rst
+Fetched: 2026-07-03
+Local use: unchanged local copy for the HansBug technical blog article "Tutorial 不是 Reference：技术文档四象限与教程工程验收".
