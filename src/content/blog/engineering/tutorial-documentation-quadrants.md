@@ -18,7 +18,7 @@ citationStyle: hansbug-numeric-superscript
 
 最近这段时间，笔者又被一个老问题反复追着打：为什么很多技术教程看起来很努力，命令、参数、背景、链接、截图一个不缺，读者照着走却还是一脸懵？
 
-这事最烦人的地方在于，它通常不是“作者不认真”。恰恰相反，很多坏教程坏在作者太认真：怕读者不知道背景，于是先讲架构；怕读者以后查不到参数，于是把 reference 摊开；怕读者遇到真实任务，于是顺手塞几个 how-to 分支；怕文章不够有深度，于是又补一段设计哲学。最后整篇文档像一锅加了太多料的汤，闻起来很热闹，入口只剩混乱。
+这事最烦人的地方在于，它通常不是“作者不认真”。恰恰相反，很多坏教程坏在作者太认真：怕读者不知道背景，于是先讲架构；怕读者以后查不到参数，于是把 reference 摊开；怕读者遇到真实任务，于是顺手塞几个 how-to 分支；怕文章不够有深度，于是又补一段设计哲学。最后就变成那个经典的“面多加水，水多加面”：背景多了补步骤，步骤多了补解释，解释多了补索引，索引一多又觉得缺少引导。作者越补越勤快，文档越补越臃肿，入口只剩一团发胀的面糊。
 
 所以本文真正要讲的不是“技术文档怎样写得体面”，而是一个更硬的问题：**当我们说一篇 tutorial 是合格的，它到底应该满足什么结构、边界和验收条件？**
 
@@ -34,9 +34,15 @@ citationStyle: hansbug-numeric-superscript
 
 这一节不是要写一部技术文档史。笔者没有这个野心，也没必要在一篇教程写作文章里把历史长河捞个底朝天。这里做的只是小规模技术考古：沿着 manual / HOWTO / literate programming / notebook / docs-as-code 这几条线，看清楚今天的混乱到底是怎么来的。
 
+为了避免“技术考古”变成空话，下面每条传统都放一个很小的真实切片。这里优先用摘录而不是截图，一是避免远程图片热链和版权麻烦，二是让读者直接看到那类文档的语言骨架：它当年到底在承诺什么，又为什么容易被我们误搬进 tutorial。
+
 ### Manual / man page：查准事实的强传统
 
 最早必须提的是 manual / man page 这一类 reference 传统。1971 年第一版 Unix Programmer's Manual 已经把用户命令、系统调用、子程序、特殊文件、文件格式、维护命令等内容分门别类组织起来[@unix_programmers_manual_1971]。这个传统的核心承诺非常清楚：当用户要查一个命令、接口、文件格式或者系统边界时，文档必须准确、完整、可扫描、可查证。
+
+> 考古切片：1971 年 Unix Programmer's Manual 的下载目录按 “Commands, part 1”“System calls, part 1”“Library routines”“File formats” 这类对象组织内容[@unix_programmers_manual_1971]。
+
+这个切片很有味道。它不是按“新手第一小时应该怎样进入 Unix”来排，而是按系统对象和事实类别来排：命令归命令，系统调用归系统调用，库例程归库例程，文件格式归文件格式。换句话说，它的第一秩序不是学习路径，而是事实索引。读者已经知道自己要找哪一类东西时，这种组织方式非常强；读者还不知道自己该先摸哪一块时，它就会显得冷。
 
 这类文档的价值不需要辩护。没有 reference，技术系统就像没有地图的城市。你当然可以凭记忆在熟悉街区里转悠，但只要进入陌生区域，缺少稳定事实索引就会很痛苦。
 
@@ -50,6 +56,10 @@ Reference 的完整性是优点，tutorial 的完整性经常是陷阱。Referen
 
 另一条很强的传统是 HOWTO。Linux Documentation Project 保留下来的入口，以及单独的 Guides 列表，能清楚看到这类文档在开源世界里的位置[@linux_documentation_project; @linux_documentation_project_guides]。HOWTO 的气质非常实用：读者现在有一个具体问题，需要把某件事配置出来、跑起来、修好、迁走或者接上。
 
+> 考古切片：LDP 页面导航里 HOWTOs、Guides、FAQs、man pages 并排出现；其中 Advanced Bash-Scripting Guide 又自称 “both a tutorial and a reference”[@linux_documentation_project_guides]。
+
+这个切片比单纯说“HOWTO 很实用”更能说明问题：早期开源文档本来就经常把教程、指南、FAQ、手册、参考资料放在同一个公共入口里。Advanced Bash-Scripting Guide 这种自我描述也很诚实——它确实想同时做教材、手册、自学材料和 reference。对一本书来说，这未必是罪；但对一篇 tutorial 来说，这种承诺如果不拆开，读者路径就很容易被压扁。
+
 这类文档救过很多人的命。凌晨两点网络坏了，服务起不来，内核模块加载失败，双系统引导炸了，你当然不想先读一篇“操作系统哲学导论”。你想要的是：告诉我当前条件、步骤、验证方式和常见错误，先把事情做成。
 
 HOWTO 的危险也在这里：它太实用了，以至于作者很容易把“任务完成”误认为“学习成立”。一个 HOWTO 可以把读者带到某个任务的终点，但这不等于读者获得了稳定心智模型。读者可能照着做完了，却不知道刚才哪个步骤解决了哪个问题；下一次环境稍微变一变，他就又回到原点。
@@ -62,6 +72,10 @@ HOWTO 的危险也在这里：它太实用了，以至于作者很容易把“�
 
 再往另一边看，还有 literate programming 和 notebook 这条叙事传统。Knuth 谈 literate programming 时，强调的不是把代码变成文学装饰，而是让程序按人的理解顺序呈现，让解释和实现形成一套可读结构[@knuth_literate_programming]。Jupyter 这类 computational notebook 则把叙事、代码和输出放在同一个计算叙事容器里，Project Jupyter 对这一点也有过系统说明[@jupyter_computational_narratives]。
 
+> 考古切片：Knuth 页面把 literate programming 描述为把程序当作 “a piece of literature”，而且是 “addressed to human beings”[@knuth_literate_programming]；Project Jupyter 则描述了能组合 “live code, equations, narrative text” 的 notebook[@jupyter_computational_narratives]。
+
+这两个切片合在一起看，风格就很清楚：代码不再只是机器吃掉的指令，而是可以被人阅读、被人复现、被人沿着思路走下去的叙事材料。它们给 tutorial 的启发非常大，因为教程也需要“按人的理解顺序”组织动作和解释。可问题也藏在这里：叙事一旦太有魅力，作者就会忍不住把每个旁支都写得像主线。
+
 这条线对技术写作的启发很大。代码不是只能作为“复制进去执行”的材料，它也可以承担解释功能：为什么先定义这个变量，为什么这个输出说明模型已经连上，为什么这一步之后可以进入下一层抽象。对于数据科学、机器学习、数值计算这类领域，notebook 式叙事甚至直接改变了很多人写教程、写实验记录、写技术报告的方式。
 
 但是，叙事能力强不等于 tutorial 可以无限解释。恰恰相反，解释越强，越容易抢走学习路径。作者一旦沉迷“这里其实还可以展开讲讲”，读者就会在还没看到第一个可观测反馈之前，被背景、历史、哲学、设计权衡和作者灵感小作文轮流轰炸。
@@ -73,6 +87,10 @@ Tutorial 当然需要解释。问题不是要不要解释，而是解释什么�
 ### Docs-as-code：文档进入工程链路
 
 最后是 docs-as-code 和可验证文档传统。Write the Docs 对 docs-as-code 的介绍，核心是把文档像代码一样纳入版本控制、评审、自动化和协作流程[@write_the_docs_docs_as_code]。Sphinx 提供 doctest 扩展，可以对文档中的交互式示例进行测试[@sphinx_doctest]；Rustdoc documentation tests 可以让文档示例进入测试语境[@rustdoc_documentation_tests]；GitLab 文档则把链接、lint、Vale、图片路径等检查纳入文档测试链路[@gitlab_documentation_testing]。
+
+> 考古切片：Write the Docs 对 docs-as-code 的工具枚举很直白：Issue Trackers、Version Control、Code Reviews、Automated Tests[@write_the_docs_docs_as_code]。
+
+这个切片说明 docs-as-code 的气质不是“把文档写得更漂亮”，而是把文档拉进工程流水线。文档不再是发布后某个人顺手补的附件，而是可以走 issue、走 git、走 review、走自动化检查的工程对象。这对 tutorial 很关键，因为教程里的命令、输出、链接、图片和版本都会坏；但它也会制造另一个误会：流程越完整，作者越容易以为学习路径也被证明了。
 
 这条线非常重要，因为它把“文档会坏”这件事从道德问题变成工程问题。以前文档坏了，常见说法是作者不够认真；进入 docs-as-code 之后，至少有一部分坏法可以被自动拦住：示例编译不过、链接失效、格式破坏、图片路径错、术语不一致、交叉引用断掉。这些都不应该靠读者替我们踩雷。
 
