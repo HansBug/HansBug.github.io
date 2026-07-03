@@ -56,7 +56,7 @@ Reference 的完整性是优点，tutorial 的完整性经常是陷阱。Referen
 
 另一条很强的传统是 HOWTO。Linux Documentation Project 保留下来的入口，以及单独的 Guides 列表，能清楚看到这类文档在开源世界里的位置[@linux_documentation_project; @linux_documentation_project_guides]。HOWTO 的气质非常实用：读者现在有一个具体问题，需要把某件事配置出来、跑起来、修好、迁走或者接上。
 
-> 考古切片：LDP 页面导航里 HOWTOs、Guides、FAQs、man pages 并排出现[@linux_documentation_project; @linux_documentation_project_guides]；Advanced Bash-Scripting Guide 又自称 “both a tutorial and a reference”[@linux_documentation_project_guides; @advanced_bash_scripting_guide]。
+> 考古切片：LDP 页面导航里 HOWTOs、Guides、FAQs、man pages 并排出现[@linux_documentation_project; @linux_documentation_project_guides]；Guides 索引对 Advanced Bash-Scripting Guide 的介绍直接称其 “both a tutorial and a reference”[@linux_documentation_project_guides]，而该书首页也把自己放在入门教程、自学手册和参考资料之间[@advanced_bash_scripting_guide]。
 
 这句话很诚实，也很危险。早期开源文档本来就经常把教程、指南、FAQ、手册、参考资料放在同一个公共入口里；Advanced Bash-Scripting Guide 则更进一步，明说自己同时承担 tutorial 和 reference。对一本书来说，这未必是罪；但对一篇 tutorial 来说，这种承诺如果不拆开，读者路径就很容易被压扁。一个页面想当四种文档，最后往往四种都没当稳。
 
