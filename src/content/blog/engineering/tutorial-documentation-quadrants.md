@@ -18,7 +18,7 @@ citationStyle: hansbug-numeric-superscript
 
 最近这段时间，笔者又被一个老问题反复追着打：为什么很多技术教程看起来很努力，命令、参数、背景、链接、截图一个不缺，读者照着走却还是一脸懵？
 
-这事最烦人的地方在于，它通常不是“作者不认真”。恰恰相反，很多坏教程坏在作者太认真：怕读者不知道背景，于是先讲架构；怕读者以后查不到参数，于是把 reference 摊开；怕读者遇到真实任务，于是顺手塞几个 how-to 分支；怕文章不够有深度，于是又补一段设计哲学。最后就变成那个经典的“面多加水，水多加面”：背景多了补步骤，步骤多了补解释，解释多了补索引，索引一多又觉得缺少引导。作者越补越勤快，文档越补越臃肿，入口只剩一团发胀的面糊。
+这事最烦人的地方在于，它通常不是“作者不认真”。恰恰相反，很多坏教程坏在作者太认真：怕读者不知道背景，于是先讲架构；怕读者以后查不到参数，于是把 reference 摊开；怕读者遇到真实任务，于是顺手塞几个 how-to 分支；怕文章不够有深度，于是又补一段设计哲学。最后就变成那个经典的“面多加水，水多加面”：背景多了补步骤，步骤多了补解释，解释多了补索引，索引一多又觉得缺少引导。作者越补越勤快，文档越补越臃肿，留给读者的入口只剩一团发胀的面糊。
 
 所以本文真正要讲的不是“技术文档怎样写得体面”，而是一个更硬的问题：**当我们说一篇 tutorial 是合格的，它到底应该满足什么结构、边界和验收条件？**
 
@@ -56,9 +56,9 @@ Reference 的完整性是优点，tutorial 的完整性经常是陷阱。Referen
 
 另一条很强的传统是 HOWTO。Linux Documentation Project 保留下来的入口，以及单独的 Guides 列表，能清楚看到这类文档在开源世界里的位置[@linux_documentation_project; @linux_documentation_project_guides]。HOWTO 的气质非常实用：读者现在有一个具体问题，需要把某件事配置出来、跑起来、修好、迁走或者接上。
 
-> 考古切片：LDP 页面导航里 HOWTOs、Guides、FAQs、man pages 并排出现；其中 Advanced Bash-Scripting Guide 又自称 “both a tutorial and a reference”[@linux_documentation_project_guides]。
+> 考古切片：LDP 页面导航里 HOWTOs、Guides、FAQs、man pages 并排出现[@linux_documentation_project; @linux_documentation_project_guides]；Advanced Bash-Scripting Guide 又自称 “both a tutorial and a reference”[@linux_documentation_project_guides; @advanced_bash_scripting_guide]。
 
-这个切片比单纯说“HOWTO 很实用”更能说明问题：早期开源文档本来就经常把教程、指南、FAQ、手册、参考资料放在同一个公共入口里。Advanced Bash-Scripting Guide 这种自我描述也很诚实——它确实想同时做教材、手册、自学材料和 reference。对一本书来说，这未必是罪；但对一篇 tutorial 来说，这种承诺如果不拆开，读者路径就很容易被压扁。
+这句话很诚实，也很危险。早期开源文档本来就经常把教程、指南、FAQ、手册、参考资料放在同一个公共入口里；Advanced Bash-Scripting Guide 则更进一步，明说自己同时承担 tutorial 和 reference。对一本书来说，这未必是罪；但对一篇 tutorial 来说，这种承诺如果不拆开，读者路径就很容易被压扁。一个页面想当四种文档，最后往往四种都没当稳。
 
 这类文档救过很多人的命。凌晨两点网络坏了，服务起不来，内核模块加载失败，双系统引导炸了，你当然不想先读一篇“操作系统哲学导论”。你想要的是：告诉我当前条件、步骤、验证方式和常见错误，先把事情做成。
 
@@ -88,9 +88,9 @@ Tutorial 当然需要解释。问题不是要不要解释，而是解释什么�
 
 最后是 docs-as-code 和可验证文档传统。Write the Docs 对 docs-as-code 的介绍，核心是把文档像代码一样纳入版本控制、评审、自动化和协作流程[@write_the_docs_docs_as_code]。Sphinx 提供 doctest 扩展，可以对文档中的交互式示例进行测试[@sphinx_doctest]；Rustdoc documentation tests 可以让文档示例进入测试语境[@rustdoc_documentation_tests]；GitLab 文档则把链接、lint、Vale、图片路径等检查纳入文档测试链路[@gitlab_documentation_testing]。
 
-> 考古切片：Write the Docs 对 docs-as-code 的工具枚举很直白：Issue Trackers、Version Control、Code Reviews、Automated Tests[@write_the_docs_docs_as_code]。
+> 考古切片：Write the Docs 对 docs-as-code 的工具枚举很直白：Issue Trackers、Version Control、Plain Text Markup、Code Reviews、Automated Tests[@write_the_docs_docs_as_code]。
 
-这个切片说明 docs-as-code 的气质不是“把文档写得更漂亮”，而是把文档拉进工程流水线。文档不再是发布后某个人顺手补的附件，而是可以走 issue、走 git、走 review、走自动化检查的工程对象。这对 tutorial 很关键，因为教程里的命令、输出、链接、图片和版本都会坏；但它也会制造另一个误会：流程越完整，作者越容易以为学习路径也被证明了。
+这张清单的锋芒在于，它讨论的不是“文档写得漂不漂亮”，而是文档能不能进入工程流水线。文档不再是发布后某个人顺手补的附件，而是可以走 issue、走 git、走 review、走自动化检查的工程对象。这对 tutorial 很关键，因为教程里的命令、输出、链接、图片和版本都会坏；但它也会制造另一个误会：流程越完整，作者越容易以为学习路径也被证明了。流程能证明材料被管起来了，不能替读者把路走通。
 
 这条线非常重要，因为它把“文档会坏”这件事从道德问题变成工程问题。以前文档坏了，常见说法是作者不够认真；进入 docs-as-code 之后，至少有一部分坏法可以被自动拦住：示例编译不过、链接失效、格式破坏、图片路径错、术语不一致、交叉引用断掉。这些都不应该靠读者替我们踩雷。
 

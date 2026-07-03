@@ -47,6 +47,14 @@ function stripBracketCitations(markdown: string) {
   return markdown.replace(/\[((?:[^\[\]]|\[[^\]]*\])*@(?:[^\[\]]|\[[^\]]*\])*)\]/g, "");
 }
 
+
+function extractSection(markdown: string, heading: string) {
+  const start = markdown.indexOf(heading);
+  expect(start, `missing section heading: ${heading}`).toBeGreaterThanOrEqual(0);
+  const next = markdown.indexOf("\n## ", start + heading.length);
+  return next === -1 ? markdown.slice(start) : markdown.slice(start, next);
+}
+
 function extractMarkdownCitationKeys(markdown: string) {
   const withoutFences = stripFencedCode(markdown);
   const citationGroups = [
@@ -123,6 +131,7 @@ describe("tutorial documentation quadrants article", () => {
       "piece of literature",
       "live code, equations, narrative text",
       "Issue Trackers",
+      "Plain Text Markup",
       "局部混合可以接受，主承诺混乱不可以",
       "minimal tutorial",
       "learning-oriented tutorial",
@@ -140,6 +149,21 @@ describe("tutorial documentation quadrants article", () => {
 
     for (const anchor of requiredAnchors) {
       expect(article, `missing anchor: ${anchor}`).toContain(anchor);
+    }
+
+    const archaeologySection = extractSection(article, "## 一点技术考古：为什么我们总把 tutorial 写成 reference");
+    const archaeologyAnchors = [
+      "考古切片",
+      "Commands, part 1",
+      "both a tutorial and a reference",
+      "piece of literature",
+      "live code, equations, narrative text",
+      "Issue Trackers",
+      "Plain Text Markup",
+    ];
+
+    for (const anchor of archaeologyAnchors) {
+      expect(archaeologySection, `archaeology anchor drifted outside section: ${anchor}`).toContain(anchor);
     }
 
     expect(Buffer.byteLength(article, "utf8")).toBeGreaterThan(60_000);
