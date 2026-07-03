@@ -48,7 +48,7 @@ class CorpusError(RuntimeError):
 
 
 class NonRetryableCorpusError(CorpusError):
-    """不应进入重试循环的抓取错误，例如 HTTP 4xx/5xx 状态码。"""
+    """不应进入重试循环的抓取错误，例如 HTTP 4xx/5xx 状态码或确定性正文解析失败。"""
 
 
 @dataclass(frozen=True)
@@ -310,11 +310,11 @@ def extract_text(html: str, source: SourceItem, min_chars: int) -> str:
     parser.feed(html)
     parser.close()
     if not parser.matched:
-        raise CorpusError(f"selector 未命中：{source.id} sourceSelector={source.source_selector!r}")
+        raise NonRetryableCorpusError(f"selector 未命中：{source.id} sourceSelector={source.source_selector!r}")
     text = parser.text()
     visible_chars = len(re.sub(r"\s+", "", text))
     if visible_chars < min_chars:
-        raise CorpusError(f"正文过短：{source.id} 仅 {visible_chars} 个非空白字符，低于 --min-chars={min_chars}")
+        raise NonRetryableCorpusError(f"正文过短：{source.id} 仅 {visible_chars} 个非空白字符，低于 --min-chars={min_chars}")
     return text
 
 
