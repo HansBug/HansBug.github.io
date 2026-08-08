@@ -34,7 +34,7 @@
     "chart.js": "^4.5.1",
     "devalue": "^5.8.1",
     "katex": "^0.16.47",
-    "mermaid": "^11.15.0",
+    "mermaid": "^11.16.1",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js-legacy": "^6.5.10",
     "rehype-citation": "^2.3.2",
